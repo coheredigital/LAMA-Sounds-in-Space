@@ -3,11 +3,14 @@ extends WorldEnvironment
 
 const SKY_SIZE = 64.0
 
-@export var sky_color := Color.DARK_BLUE : set = set_sky_color
+@export var sky_color := Color.DARK_BLUE :
+	set(value):
+		sky_color = value
+		set_sky_color(value)
 @export var ground_color := Color.DARK_SLATE_GRAY : set = set_ground_color
 @export var fog_color := Color.CADET_BLUE : set = set_fog_color
 @export var horizon_color := Color.DARK_SALMON : set = set_horizon_color
-@export var horizon_height := 0.0 setget set_horizon_height # (float, -64.0, 0.0)
+@export_range(-64.0, 0.0) var horizon_height := 0.0 : set = set_horizon_height
 
 @onready var ground = $Ground
 @onready var ground_material : ShaderMaterial  = ground.get_active_material(0)

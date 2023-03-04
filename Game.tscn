@@ -66,7 +66,6 @@ parameters/playback = SubResource("3877")
 root_node = NodePath("../..")
 reset_on_save = false
 libraries = {
-"": ExtResource("3_hf3jg"),
 "character": ExtResource("10_1vlm6"),
 "player": ExtResource("4_5jcpw"),
 "spaceship": ExtResource("5_dcktr")
@@ -75,7 +74,6 @@ libraries = {
 [node name="PlayerStateTree" type="AnimationTree" parent="SubViewportContainer/SubViewport"]
 tree_root = ExtResource("10_cyoaw")
 anim_player = NodePath("PlayerAnimation")
-active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_sq7i4")
 
 [node name="PlayerAnimation" type="AnimationPlayer" parent="SubViewportContainer/SubViewport/PlayerStateTree"]
@@ -88,7 +86,6 @@ libraries = {
 [node name="CharacterStateTree" type="AnimationTree" parent="SubViewportContainer/SubViewport"]
 tree_root = ExtResource("17")
 anim_player = NodePath("CharacterAnimation")
-active = true
 parameters/playback = SubResource("3871")
 
 [node name="CharacterAnimation" type="AnimationPlayer" parent="SubViewportContainer/SubViewport/CharacterStateTree"]
@@ -102,7 +99,7 @@ libraries = {
 environment = ExtResource("7")
 script = ExtResource("2")
 sky_color = Color(0.113725, 0.113725, 0.266667, 1)
-ground_color = Color(0.4, 0.733333, 0.521569, 1)
+ground_color = Color(0.439216, 0.823529, 0.454902, 1)
 fog_color = Color(0.466667, 0.584314, 0.796078, 1)
 horizon_color = Color(1, 0.627451, 0.403922, 1)
 horizon_height = 0.038
@@ -124,7 +121,7 @@ surface_material_override/0 = ExtResource("15_3ufj4")
 
 [node name="WorldLight" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/Environment"]
 transform = Transform3D(0.93358, -0.260828, 0.245757, 0, 0.685768, 0.727821, -0.358368, -0.679479, 0.640219, 0, 9.46133, 0)
-light_energy = 0.15
+light_energy = 0.05
 shadow_bias = 0.007
 directional_shadow_max_distance = 25.0
 
@@ -132,6 +129,7 @@ directional_shadow_max_distance = 25.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0162, 0)
 
 [node name="AnimationStateTree" parent="SubViewportContainer/SubViewport/Spaceship/spaceship/cockpit/monitor/Screen" index="0"]
+active = false
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_ikf4l")
 
 [node name="seatbelt_indicator" parent="SubViewportContainer/SubViewport/Spaceship/spaceship/cockpit/monitor/seatbelt_indicator_right" index="0"]
@@ -147,14 +145,13 @@ surface_material_override/0 = ExtResource("17_lt72f")
 surface_material_override/0 = ExtResource("17_lt72f")
 
 [node name="Primary" parent="SubViewportContainer/SubViewport/Spaceship" index="1"]
-light_energy = 0.021
+light_energy = 0.069
 
 [node name="Accent" parent="SubViewportContainer/SubViewport/Spaceship" index="2"]
 light_color = Color(0.713726, 0.831373, 0.894118, 1)
-light_energy = 0.25
+light_energy = 0.098
 
 [node name="Character" parent="SubViewportContainer/SubViewport" instance=ExtResource("9")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="character" parent="SubViewportContainer/SubViewport/Character" index="0"]
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999998, 0, 0, 0)
@@ -178,7 +175,7 @@ transform = Transform3D(0.999999, 0, 0, 0, 0.999998, 0, 0, 0, 0.999999, 0, -0.28
 distance_buffer = 1.4762
 
 [node name="Camera3D" parent="SubViewportContainer/SubViewport/Player" index="0"]
-transform = Transform3D(0.805126, 0.0753688, -0.588296, 1.19209e-07, 0.991893, 0.127075, 0.593104, -0.102312, 0.798599, -10.8537, 2.5, 7.2842)
+transform = Transform3D(0.805126, 0.0753689, -0.588296, -7.45058e-09, 0.991893, 0.127075, 0.593104, -0.102312, 0.798599, -10.8537, 2.5, 7.2842)
 
 [node name="PositionTarget" parent="SubViewportContainer/SubViewport/Player" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8537, 2.5, 7.2842)
