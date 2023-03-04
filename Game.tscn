@@ -1,9 +1,8 @@
-[gd_scene load_steps=27 format=3 uid="uid://b6vspvj5duwhd"]
+[gd_scene load_steps=26 format=3 uid="uid://b6vspvj5duwhd"]
 
 [ext_resource type="PackedScene" uid="uid://nxsh65jl2xhr" path="res://scenes/Spaceship.tscn" id="1"]
 [ext_resource type="Script" path="res://environments/Skybox.gd" id="2"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://c4k44s0dh3440" path="res://animations/spaceship_state_tree.tres" id="2_f6ot1"]
-[ext_resource type="AnimationLibrary" uid="uid://ool8hnh3n8nh" path="res://animations/libraries/global.res" id="3_hf3jg"]
 [ext_resource type="PackedScene" uid="uid://dny2niko855ch" path="res://entities/FollowCamera.tscn" id="4"]
 [ext_resource type="AnimationLibrary" uid="uid://dip5qx70rf0l0" path="res://animations/libraries/player.tres" id="4_5jcpw"]
 [ext_resource type="AnimationLibrary" uid="uid://cadi70pdgm61" path="res://animations/libraries/spaceship.tres" id="5_dcktr"]
@@ -66,8 +65,6 @@ parameters/playback = SubResource("3877")
 root_node = NodePath("../..")
 reset_on_save = false
 libraries = {
-"character": ExtResource("10_1vlm6"),
-"player": ExtResource("4_5jcpw"),
 "spaceship": ExtResource("5_dcktr")
 }
 
@@ -80,7 +77,7 @@ parameters/playback = SubResource("AnimationNodeStateMachinePlayback_sq7i4")
 root_node = NodePath("../..")
 reset_on_save = false
 libraries = {
-"": ExtResource("3_hf3jg")
+"player": ExtResource("4_5jcpw")
 }
 
 [node name="CharacterStateTree" type="AnimationTree" parent="SubViewportContainer/SubViewport"]
@@ -92,7 +89,7 @@ parameters/playback = SubResource("3871")
 root_node = NodePath("../..")
 autoplay = "character_idle"
 libraries = {
-"character_animation_library": ExtResource("10_1vlm6")
+"character": ExtResource("10_1vlm6")
 }
 
 [node name="Environment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport"]
@@ -145,7 +142,7 @@ surface_material_override/0 = ExtResource("17_lt72f")
 surface_material_override/0 = ExtResource("17_lt72f")
 
 [node name="Primary" parent="SubViewportContainer/SubViewport/Spaceship" index="1"]
-light_energy = 0.069
+light_energy = 0.021
 
 [node name="Accent" parent="SubViewportContainer/SubViewport/Spaceship" index="2"]
 light_color = Color(0.713726, 0.831373, 0.894118, 1)
@@ -175,7 +172,7 @@ transform = Transform3D(0.999999, 0, 0, 0, 0.999998, 0, 0, 0, 0.999999, 0, -0.28
 distance_buffer = 1.4762
 
 [node name="Camera3D" parent="SubViewportContainer/SubViewport/Player" index="0"]
-transform = Transform3D(0.805126, 0.0753689, -0.588296, -7.45058e-09, 0.991893, 0.127075, 0.593104, -0.102312, 0.798599, -10.8537, 2.5, 7.2842)
+transform = Transform3D(0.805126, 0.0753689, -0.588296, 5.58794e-08, 0.991893, 0.127075, 0.593104, -0.102312, 0.798599, -10.8537, 2.5, 7.2842)
 
 [node name="PositionTarget" parent="SubViewportContainer/SubViewport/Player" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8537, 2.5, 7.2842)
