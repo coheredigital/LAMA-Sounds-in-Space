@@ -1,0 +1,12 @@
+[gd_scene format=2]
+
+[node name="FlashLight" type="SpotLight3D"]
+transform = Transform3D( 1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0 )
+light_color = Color( 0.607843, 0.607843, 0.607843, 1 )
+light_bake_mode = 0
+shadow_enabled = true
+shadow_bias = 1.451
+spot_range = 40.0
+spot_attenuation = 2.2974
+spot_angle = 40.0
+spot_angle_attenuation = 4.0

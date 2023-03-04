@@ -1,0 +1,134 @@
+[gd_resource type="AnimationNodeStateMachine" load_steps=30 format=2]
+
+[sub_resource type="AnimationNodeAnimation" id=3882]
+animation = "RESET"
+
+[sub_resource type="AnimationNodeAnimation" id=3858]
+animation = "player_approach_spaceship"
+
+[sub_resource type="AnimationNodeAnimation" id=3862]
+animation = "spaceship_blast_off"
+
+[sub_resource type="AnimationNodeAnimation" id=3918]
+animation = "character_enter_spaceship"
+
+[sub_resource type="AnimationNodeAnimation" id=3912]
+animation = "character_sitdown"
+
+[sub_resource type="AnimationNodeAnimation" id=3913]
+animation = "character_stand"
+
+[sub_resource type="AnimationNodeAnimation" id=3871]
+animation = "door_close"
+
+[sub_resource type="AnimationNodeAnimation" id=3872]
+animation = "door_open"
+
+[sub_resource type="AnimationNodeAnimation" id=3859]
+animation = "player_enter_spaceship"
+
+[sub_resource type="AnimationNodeAnimation" id=3863]
+animation = "player_landing"
+
+[sub_resource type="AnimationNodeAnimation" id=3910]
+animation = "player_sit"
+
+[sub_resource type="AnimationNodeAnimation" id=3887]
+animation = "player_stars_light_up"
+
+[sub_resource type="AnimationNodeAnimation" id=3889]
+animation = "spaceship_warp"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=3873]
+switch_mode = 2
+xfade_time = 1.23
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=3874]
+switch_mode = 2
+xfade_time = 3.8
+priority = 3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=3875]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=3876]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=3883]
+switch_mode = 2
+xfade_time = 2.23
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=3884]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=3885]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=3888]
+switch_mode = 2
+xfade_time = 2.29
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=3890]
+switch_mode = 2
+xfade_time = 3.19
+priority = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=3909]
+switch_mode = 2
+xfade_time = 3.43
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=3911]
+switch_mode = 2
+auto_advance = true
+xfade_time = 1.03
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=3915]
+switch_mode = 2
+xfade_time = 0.69
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=3916]
+switch_mode = 2
+xfade_time = 2.41
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=3917]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=3919]
+switch_mode = 2
+xfade_time = 1.67
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=3920]
+switch_mode = 2
+auto_advance = true
+xfade_time = 3.02
+
+[resource]
+states/RESET/node = SubResource( 3882 )
+states/RESET/position = Vector2( -316, 155 )
+states/approach_spaceship/node = SubResource( 3858 )
+states/approach_spaceship/position = Vector2( -98, 155 )
+states/blast_off/node = SubResource( 3862 )
+states/blast_off/position = Vector2( 694, 155 )
+states/character_enter_spaceship/node = SubResource( 3918 )
+states/character_enter_spaceship/position = Vector2( 461, 57 )
+states/character_sitdown/node = SubResource( 3912 )
+states/character_sitdown/position = Vector2( 694, -39 )
+states/character_stand/node = SubResource( 3913 )
+states/character_stand/position = Vector2( 461, -39 )
+states/door_close/node = SubResource( 3871 )
+states/door_close/position = Vector2( 85, 262 )
+states/door_open/node = SubResource( 3872 )
+states/door_open/position = Vector2( 85, 46 )
+states/enter_spaceship/node = SubResource( 3859 )
+states/enter_spaceship/position = Vector2( 256, 155 )
+states/landing/node = SubResource( 3863 )
+states/landing/position = Vector2( 1274, 155 )
+states/player_sit/node = SubResource( 3910 )
+states/player_sit/position = Vector2( 461, 155 )
+states/stars_light_up/node = SubResource( 3887 )
+states/stars_light_up/position = Vector2( 910, 155 )
+states/warp/node = SubResource( 3889 )
+states/warp/position = Vector2( 1109, 155 )
+transitions = [ "approach_spaceship", "door_open", SubResource( 3873 ), "door_open", "enter_spaceship", SubResource( 3874 ), "enter_spaceship", "door_close", SubResource( 3875 ), "door_close", "approach_spaceship", SubResource( 3876 ), "RESET", "approach_spaceship", SubResource( 3883 ), "door_open", "door_close", SubResource( 3884 ), "door_close", "door_open", SubResource( 3885 ), "blast_off", "stars_light_up", SubResource( 3888 ), "stars_light_up", "warp", SubResource( 3890 ), "warp", "landing", SubResource( 3909 ), "enter_spaceship", "player_sit", SubResource( 3911 ), "character_stand", "character_sitdown", SubResource( 3915 ), "character_sitdown", "blast_off", SubResource( 3916 ), "character_sitdown", "character_stand", SubResource( 3917 ), "player_sit", "character_enter_spaceship", SubResource( 3919 ), "character_enter_spaceship", "character_stand", SubResource( 3920 ) ]
+start_node = "RESET"
+graph_offset = Vector2( -179, -118 )

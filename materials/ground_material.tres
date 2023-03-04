@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=2]
+
+[ext_resource path="res://materials/shaders/toon.gdshader" type="Shader" id=1]
+[ext_resource path="res://materials/textures/diffuse_curve.png" type="Texture2D" id=2]
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/albedo = Color( 0.4, 0.733333, 0.521569, 1 )
+shader_param/specular = 0.5
+shader_param/specular_amount = 0.5
+shader_param/specular_smoothness = 0.05
+shader_param/rim = 0.0
+shader_param/rim_color = Color( 1, 1, 1, 1 )
+shader_param/rim_amount = 0.2
+shader_param/rim_smoothness = 0.05
+shader_param/metallic = 0.0
+shader_param/roughness = 1.0
+shader_param/emission = Color( 0.4, 0.733333, 0.521569, 1 )
+shader_param/emission_energy = 0.527
+shader_param/ao_light_affect = 0.0
+shader_param/diffuse_curve = ExtResource( 2 )

@@ -1,0 +1,60 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://environments/Skybox.gd" type="Script" id=1]
+[ext_resource path="res://environments/default_environment.tres" type="Environment" id=2]
+[ext_resource path="res://materials/shaders/sky.gdshader" type="Shader" id=3]
+[ext_resource path="res://materials/planet_material.tres" type="Material" id=4]
+[ext_resource path="res://materials/ground_material.tres" type="Material" id=5]
+[ext_resource path="res://materials/textures/stars_albedo.png" type="Texture2D" id=6]
+
+[sub_resource type="SphereMesh" id=3821]
+radius = 64.0
+height = 128.0
+
+[sub_resource type="ShaderMaterial" id=17]
+resource_local_to_scene = true
+shader = ExtResource( 3 )
+shader_param/ground_color = Color( 0.215686, 0.580392, 0.431373, 1 )
+shader_param/horizon_color = Color( 0.87451, 0.443137, 0.14902, 1 )
+shader_param/fog_color = Color( 0.607843, 0.678431, 0.717647, 1 )
+shader_param/fog_strength = 0.365
+shader_param/sky_color = Color( 0.388235, 0.607843, 1, 1 )
+shader_param/stars_scale = 2.803
+shader_param/stars_brightness = 0.0
+shader_param/horizon_height = 0.038
+shader_param/stars_texture = ExtResource( 6 )
+
+[sub_resource type="SphereMesh" id=3833]
+radius = 4.0
+height = 8.0
+
+[sub_resource type="PlaneMesh" id=3832]
+material = ExtResource( 5 )
+size = Vector2( 128, 128 )
+
+[node name="Skybox" type="WorldEnvironment"]
+environment = ExtResource( 2 )
+script = ExtResource( 1 )
+sky_color = Color( 0.388235, 0.607843, 1, 1 )
+ground_color = Color( 0.372549, 0.619608, 0.627451, 1 )
+
+[node name="Sky" type="MeshInstance3D" parent="."]
+transform = Transform3D( 0.999992, 0, 0, 0, 0.999992, 0, 0, 0, 1, 0, 0, 0 )
+cast_shadow = 0
+mesh = SubResource( 3821 )
+skeleton = NodePath("")
+material/0 = SubResource( 17 )
+__meta__ = {
+"apply_volumetrics": false
+}
+
+[node name="Planet" type="MeshInstance3D" parent="."]
+transform = Transform3D( -0.5, 0, -7.93201e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.525313, 8.947, 12, -31.997 )
+mesh = SubResource( 3833 )
+skeleton = NodePath("")
+material/0 = ExtResource( 4 )
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.484, 0 )
+mesh = SubResource( 3832 )
+skeleton = NodePath("")

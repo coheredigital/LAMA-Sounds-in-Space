@@ -1,0 +1,53 @@
+[gd_resource type="AnimationNodeStateMachine" load_steps=13 format=2]
+
+[sub_resource type="AnimationNodeAnimation" id=3922]
+animation = "character_idle"
+
+[sub_resource type="AnimationNodeAnimation" id=3925]
+animation = "character_intro_position"
+
+[sub_resource type="AnimationNodeAnimation" id=3914]
+animation = "character_sitdown"
+
+[sub_resource type="AnimationNodeAnimation" id=3915]
+animation = "character_stand"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=3920]
+switch_mode = 2
+xfade_time = 0.44
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=3921]
+switch_mode = 2
+xfade_time = 0.42
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=3923]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=3924]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=3926]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=3927]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=3928]
+xfade_time = 0.76
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=3929]
+switch_mode = 2
+auto_advance = true
+xfade_time = 1.11
+
+[resource]
+states/character_idle/node = SubResource( 3922 )
+states/character_idle/position = Vector2( -384, -132 )
+states/character_intro_position/node = SubResource( 3925 )
+states/character_intro_position/position = Vector2( -577, -255 )
+states/character_sitdown/node = SubResource( 3914 )
+states/character_sitdown/position = Vector2( -36, -208 )
+states/character_stand/node = SubResource( 3915 )
+states/character_stand/position = Vector2( -36, -82 )
+transitions = [ "character_sitdown", "character_stand", SubResource( 3920 ), "character_stand", "character_sitdown", SubResource( 3921 ), "character_sitdown", "character_idle", SubResource( 3923 ), "character_stand", "character_idle", SubResource( 3924 ), "character_idle", "character_sitdown", SubResource( 3926 ), "character_idle", "character_stand", SubResource( 3927 ), "character_idle", "character_intro_position", SubResource( 3928 ), "character_intro_position", "character_idle", SubResource( 3929 ) ]
+graph_offset = Vector2( -888, -317 )

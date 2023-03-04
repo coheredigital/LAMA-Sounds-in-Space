@@ -1,0 +1,38 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=2]
+
+[ext_resource path="res://materials/shaders/toon.gdshader" type="Shader" id=1]
+[ext_resource path="res://materials/textures/diffuse_curve.png" type="Texture2D" id=2]
+
+[sub_resource type="Gradient" id=18]
+interpolation_mode = 1
+offsets = PackedFloat32Array( 0.169916, 0.54717, 0.716981, 0.986072 )
+colors = PackedColorArray( 0.397039, 0.190276, 0.476563, 1, 0.325323, 0.31885, 0.546981, 1, 0.293041, 0.376725, 0.578678, 1, 0.241887, 0.468435, 0.628906, 1 )
+
+[sub_resource type="GradientTexture2D" id=19]
+resource_local_to_scene = true
+flags = 0
+gradient = SubResource( 18 )
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2( 0.533333, 0.4125 )
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource( 1 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/specular = 0.5
+shader_param/specular_amount = 0.5
+shader_param/specular_smoothness = 0.05
+shader_param/rim = 0.5
+shader_param/rim_color = Color( 1, 1, 1, 1 )
+shader_param/rim_amount = 0.2
+shader_param/rim_smoothness = 0.05
+shader_param/metallic = 0.0
+shader_param/roughness = 1.0
+shader_param/emission = Color( 0, 0, 0, 1 )
+shader_param/emission_energy = 1.0
+shader_param/ao_light_affect = 0.0
+shader_param/albedo_texture = SubResource( 19 )
+shader_param/diffuse_curve = ExtResource( 2 )
+shader_param/emission_texture = SubResource( 19 )

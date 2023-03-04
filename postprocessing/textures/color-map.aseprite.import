@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite.importer.plugin"
+type="ImageTexture"
+path="res://.import/color-map.aseprite-78917700d2c4022bad25ae93a5b965d5.res"
+
+[deps]
+
+source_file="res://postprocessing/textures/color-map.aseprite"
+dest_files=[ "res://.import/color-map.aseprite-78917700d2c4022bad25ae93a5b965d5.res" ]
+
+[params]
+
+filename_pattern="{basename}_{layer}.{extension}"

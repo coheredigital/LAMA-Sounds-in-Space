@@ -1,0 +1,242 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://addons/dialogue_manager/views/settings_dialog.gd" type="Script" id=1]
+
+[node name="SettingsDialog" type="Window"]
+anchor_right = 0.5
+anchor_bottom = 0.5
+custom_minimum_size = Vector2( 600, 500 )
+window_title = "Dialogue Editor Settings"
+resizable = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Margin" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/offset_right = 10
+custom_constants/offset_top = 10
+custom_constants/offset_left = 10
+custom_constants/offset_bottom = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBox" type="VBoxContainer" parent="Margin"]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 950.0
+offset_bottom = 530.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TabBar" type="TabContainer" parent="Margin/VBox"]
+offset_right = 940.0
+offset_bottom = 490.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+tab_alignment = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Editor" type="MarginContainer" parent="Margin/VBox/TabBar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 32.0
+offset_right = -4.0
+offset_bottom = -4.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/offset_right = 4
+custom_constants/offset_top = 4
+custom_constants/offset_left = 4
+custom_constants/offset_bottom = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBox" type="VBoxContainer" parent="Margin/VBox/TabBar/Editor"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 928.0
+offset_bottom = 450.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CompilerTitle" type="Label" parent="Margin/VBox/TabBar/Editor/VBox"]
+offset_right = 924.0
+offset_bottom = 14.0
+text = "Compiler"
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CheckForErrorsButton" type="CheckButton" parent="Margin/VBox/TabBar/Editor/VBox"]
+offset_top = 18.0
+offset_right = 924.0
+offset_bottom = 58.0
+text = "Check for errors while you type"
+
+[node name="StoreCompileResultsButton" type="CheckButton" parent="Margin/VBox/TabBar/Editor/VBox"]
+offset_top = 62.0
+offset_right = 924.0
+offset_bottom = 102.0
+tooltip_text = "Enabling this will pre-bake your dialogue, saving precious cycles when running your game."
+text = "Store compile results in resource"
+
+[node name="MissingTranslationsButton" type="CheckButton" parent="Margin/VBox/TabBar/Editor/VBox"]
+offset_top = 106.0
+offset_right = 924.0
+offset_bottom = 146.0
+text = "Treat missing static position keys as errors"
+
+[node name="Margin" type="MarginContainer" parent="Margin/VBox/TabBar/Editor/VBox"]
+modulate = Color( 1, 1, 1, 0.470588 )
+offset_top = 150.0
+offset_right = 924.0
+offset_bottom = 184.0
+custom_constants/offset_right = 80
+custom_constants/offset_left = 20
+custom_constants/offset_bottom = 20
+
+[node name="TranslationHelp" type="Label" parent="Margin/VBox/TabBar/Editor/VBox/Margin"]
+offset_left = 20.0
+offset_right = 844.0
+offset_bottom = 14.0
+text = "If you are using static position keys then having this enabled will help you find any lines that you haven't added a key to yet."
+autowrap = true
+
+[node name="ContinueThroughTitlesButton" type="CheckButton" parent="Margin/VBox/TabBar/Editor/VBox"]
+offset_top = 188.0
+offset_right = 924.0
+offset_bottom = 228.0
+text = "Continue through title after block"
+
+[node name="EditorTitle" type="Label" parent="Margin/VBox/TabBar/Editor/VBox"]
+offset_top = 232.0
+offset_right = 924.0
+offset_bottom = 246.0
+text = "Editor"
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WrapButton" type="CheckButton" parent="Margin/VBox/TabBar/Editor/VBox"]
+offset_top = 250.0
+offset_right = 924.0
+offset_bottom = 290.0
+text = "Wrap long lines"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spacer" type="Control" parent="Margin/VBox/TabBar/Editor/VBox"]
+offset_top = 294.0
+offset_right = 924.0
+offset_bottom = 446.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Runtime" type="MarginContainer" parent="Margin/VBox/TabBar"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 32.0
+offset_right = -4.0
+offset_bottom = -4.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/offset_right = 4
+custom_constants/offset_top = 4
+custom_constants/offset_left = 4
+custom_constants/offset_bottom = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBox" type="VBoxContainer" parent="Margin/VBox/TabBar/Runtime"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 928.0
+offset_bottom = 450.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 10
+
+[node name="ResponsesTitle" type="Label" parent="Margin/VBox/TabBar/Runtime/VBox"]
+offset_right = 924.0
+offset_bottom = 14.0
+text = "Responses"
+autowrap = true
+uppercase = true
+
+[node name="IncludeAllResponsesButton" type="CheckButton" parent="Margin/VBox/TabBar/Runtime/VBox"]
+offset_top = 24.0
+offset_right = 924.0
+offset_bottom = 64.0
+text = "Include responses with failed conditions"
+
+[node name="StatesTitle" type="Label" parent="Margin/VBox/TabBar/Runtime/VBox"]
+offset_top = 74.0
+offset_right = 924.0
+offset_bottom = 88.0
+text = "Game State"
+autowrap = true
+uppercase = true
+
+[node name="Message" type="Label" parent="Margin/VBox/TabBar/Runtime/VBox"]
+offset_top = 98.0
+offset_right = 924.0
+offset_bottom = 112.0
+text = "Choose which globals contain game state or methods that your dialogue needs."
+autowrap = true
+
+[node name="GlobalsList" type="Tree" parent="Margin/VBox/TabBar/Runtime/VBox"]
+offset_top = 122.0
+offset_right = 924.0
+offset_bottom = 446.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 3
+allow_reselect = true
+hide_folding = true
+hide_root = true
+select_mode = 1
+
+[node name="Actions" type="CenterContainer" parent="Margin/VBox"]
+offset_top = 500.0
+offset_right = 940.0
+offset_bottom = 520.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DoneButton" type="Button" parent="Margin/VBox/Actions"]
+offset_left = 447.0
+offset_right = 493.0
+offset_bottom = 20.0
+text = "Done"
+
+[connection signal="about_to_popup" from="." to="." method="_on_SettingsDialog_about_to_show"]
+[connection signal="toggled" from="Margin/VBox/TabBar/Editor/VBox/CheckForErrorsButton" to="." method="_on_CheckForErrorsButton_toggled"]
+[connection signal="toggled" from="Margin/VBox/TabBar/Editor/VBox/StoreCompileResultsButton" to="." method="_on_StoreCompileResultsButton_toggled"]
+[connection signal="toggled" from="Margin/VBox/TabBar/Editor/VBox/MissingTranslationsButton" to="." method="_on_MissingTranslationsButton_toggled"]
+[connection signal="toggled" from="Margin/VBox/TabBar/Editor/VBox/ContinueThroughTitlesButton" to="." method="_on_ContinueThroughTitlesButton_toggled"]
+[connection signal="toggled" from="Margin/VBox/TabBar/Editor/VBox/WrapButton" to="." method="_on_WrapButton_toggled"]
+[connection signal="toggled" from="Margin/VBox/TabBar/Runtime/VBox/IncludeAllResponsesButton" to="." method="_on_IncludeAllResponsesButton_toggled"]
+[connection signal="button_pressed" from="Margin/VBox/TabBar/Runtime/VBox/GlobalsList" to="." method="_on_GlobalsList_button_pressed"]
+[connection signal="item_selected" from="Margin/VBox/TabBar/Runtime/VBox/GlobalsList" to="." method="_on_GlobalsList_item_selected"]
+[connection signal="pressed" from="Margin/VBox/Actions/DoneButton" to="." method="_on_DoneButton_pressed"]

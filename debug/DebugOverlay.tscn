@@ -1,0 +1,80 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://debug/scripts/monitor_overlay.gd" type="Script" id=1]
+[ext_resource path="res://debug/ProfilerOverlay.gd" type="Script" id=2]
+[ext_resource path="res://debug/DebugOverlay.gd" type="Script" id=3]
+[ext_resource path="res://audio/visualizer/visualizer_debug.gdshader" type="Shader" id=4]
+[ext_resource path="res://audio/visualizer/visualizer_gradient.tres" type="Gradient" id=5]
+
+[sub_resource type="Gradient" id=3842]
+offsets = PackedFloat32Array( 0, 0.638821, 1 )
+colors = PackedColorArray( 0.247059, 0.247059, 0.454902, 1, 0.67451, 0.196078, 0.196078, 1, 0.984314, 0.94902, 0.211765, 1 )
+
+[sub_resource type="GradientTexture2D" id=3841]
+gradient = SubResource( 3842 )
+
+[sub_resource type="GradientTexture2D" id=3839]
+gradient = ExtResource( 5 )
+
+[sub_resource type="ShaderMaterial" id=3843]
+shader = ExtResource( 4 )
+shader_param/background_opacity = 0.29
+shader_param/waveform = SubResource( 3839 )
+shader_param/gradient = SubResource( 3841 )
+
+[sub_resource type="GradientTexture2D" id=3844]
+gradient = ExtResource( 5 )
+
+[node name="DebugOverlay" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = -12.0
+offset_bottom = -12.0
+mouse_filter = 2
+script = ExtResource( 3 )
+
+[node name="AudioWaveform" type="TextureRect" parent="."]
+material = SubResource( 3843 )
+anchor_top = 0.519
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = SubResource( 3844 )
+expand = true
+
+[node name="ProfilerOverlay" type="Control" parent="." groups=["debug"]]
+anchor_left = 0.8
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Container" type="HBoxContainer" parent="ProfilerOverlay"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -42.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+mouse_filter = 2
+alignment = 2
+
+[node name="MonitorOverlay" type="VBoxContainer" parent="ProfilerOverlay/Container"]
+offset_left = 283.0
+offset_right = 283.0
+offset_bottom = 756.0
+mouse_filter = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+graph_color = Color( 0.101961, 1, 0, 1 )
+nodes = true
+vertices_drawn = true
+draw_calls_3d = true
+texture_memory = true

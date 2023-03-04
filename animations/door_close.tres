@@ -1,0 +1,29 @@
+[gd_resource type="Animation" format=2]
+
+[resource]
+resource_name = "door_close"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Spaceship/spaceship/door:translation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PackedFloat32Array( 0, 0.6, 1.6, 2.9, 4 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -0.00170398, 0.0493729, 0.623801 ), Vector3( -0.00170398, 0.0493729, 0.456921 ), Vector3( 0.175377, 0.0413296, 0.094659 ), Vector3( 0.175377, 0.0413296, 0 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Spaceship/spaceship/door:rotation_degrees")
+tracks/1/interp = 2
+tracks/1/loop_wrap = false
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PackedFloat32Array( 0, 2.9, 4 ),
+"transitions": PackedFloat32Array( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 14.0639, 0 ), Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ) ]
+}
