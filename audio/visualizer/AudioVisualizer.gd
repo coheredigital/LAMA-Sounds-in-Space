@@ -3,21 +3,28 @@ extends Node
 
 @export var waveform : Curve
 @export var gradient : Gradient
-@export_range (4, 32) var definition := 16: # (int, 4, 32)
-	set(value):
-		set_definition(value)
+@export_range (4, 32) var definition := 16: set = set_definition
+
 @export_range(20.0, 22000.0, 10.0) var min_frequency := 20.0:
 	set(value):
+		min_frequency = value
 		set_min_frequency(value) 
 @export_range(20.0, 22000.0, 10.0) var max_frequency := 20000.0:
 	set(value):
+		max_frequency = value
 		set_max_frequency(value)
-@export_range(-40.0, 40.0, 0.1) var max_db = 0.0:
+@export_range(-40.0, 40.0, 0.1) var max_db := 0.0:
 	set(value):
-		set_max_db(value) 
-@export_range(-80.0, 0.0, 0.1) var min_db = -40.0:
+		if value >= min_db:
+			max_db = value
+		
+
+@export_range(-80.0, 0.0, 0.1) var min_db := -40.0:
 	set(value):
-		set_min_db(value)
+		if value <= max_db:
+			min_db = value
+		
+
 @export var response_curve : Curve
 @export var x_curve : Curve
 @export var y_curve : Curve
@@ -28,13 +35,13 @@ extends Node
 var idx = AudioServer.get_bus_index("Analyze")
 var spectrum : AudioEffectSpectrumAnalyzerInstance = AudioServer.get_bus_effect_instance(idx, 0)
 
-var histogram = []
-var x_histogram = []
-var y_histogram = []
-var z_histogram = []
-var a_histogram = []
+var histogram := []
+var x_histogram := []
+var y_histogram := []
+var z_histogram := []
+var a_histogram := []
 
-var interval = 0.0
+var interval := 0.0
 
 
 func set_min_frequency(value):
@@ -55,11 +62,6 @@ func set_max_frequency(value):
 			response_curve.set_point_value(1,value)
 			response_curve.bake()
 			
-			
-func set_min_db(value):
-#	prevents min being set larger than max
-	if value < max_db:
-		min_db = value
 
 
 func set_max_db(value):
@@ -75,11 +77,11 @@ func set_definition(value):
 #		response_curve.bake()
 	
 	for i in range(definition):
-		histogram.append(0)
-		x_histogram.append(0)
-		y_histogram.append(0)
-		z_histogram.append(0)
-		a_histogram.append(0)
+		histogram.append(0.0)
+		x_histogram.append(0.0)
+		y_histogram.append(0.0)
+		z_histogram.append(0.0)
+		a_histogram.append(0.0)
 	
 	var gradient_offsets = []
 
@@ -90,12 +92,11 @@ func set_definition(value):
 		gradient.offsets = gradient_offsets
 
 func _ready():
+	%AudioStreamRecord.playing = true
 	set_definition(definition)
 
 func _enter_tree():
 	set_definition(definition)
-
-	
 	
 func _process(delta):
 
@@ -111,26 +112,27 @@ func _process(delta):
 	for i in range(definition):
 		
 		var offset := i / float(definition)
-		var freq_low = response_curve.interpolate_baked(offset - (segment * 0.25))
-		var freq_high = response_curve.interpolate_baked(offset + (segment * 0.25))
+		var freq_low = response_curve.sample_baked(offset - (segment * 0.25))
+		var freq_high = response_curve.sample_baked(offset + (segment * 0.25))
 		
-		var mag = spectrum.get_magnitude_for_frequency_range(freq_low, freq_high)
-		mag = linear_to_db(mag.length())
-		mag = (mag - min_db) / (max_db - min_db)
-		mag += 0.3 * (freq - min_frequency) / (max_frequency - min_frequency)
-		mag = clamp(mag, 0.0, 1.0)
+		var magnitude := spectrum.get_magnitude_for_frequency_range(freq_low, freq_high)
+		var decibels := 0.0
+		decibels = linear_to_db(magnitude.length())
+		decibels = remap(decibels, min_db, max_db, 0.0, 1.0)
+		decibels += 0.3 * (freq - min_frequency) / (max_frequency - min_frequency)
+		decibels = clamp(decibels, 0.0, 1.0)
 
-		var x_acceleration = x_curve.interpolate_baked(mag)
-		var y_acceleration = y_curve.interpolate_baked(mag)
-		var z_acceleration = z_curve.interpolate_baked(mag)
-		var a_acceleration = a_curve.interpolate_baked(mag)
+		var x_acceleration = x_curve.sample_baked(decibels)
+		var y_acceleration = y_curve.sample_baked(decibels)
+		var z_acceleration = z_curve.sample_baked(decibels)
+		var a_acceleration = a_curve.sample_baked(decibels)
 		
-		var level_x = lerp(x_histogram[i], mag, x_acceleration * delta)
-		var level_y = lerp(y_histogram[i], mag, y_acceleration * delta)
-		var level_z = lerp(z_histogram[i], mag, z_acceleration * delta)
-		var level_a = lerp(a_histogram[i], mag, a_acceleration * delta)
+		var level_x = lerp(float(x_histogram[i]), decibels, x_acceleration * delta)
+		var level_y = lerp(float(y_histogram[i]), decibels, y_acceleration * delta)
+		var level_z = lerp(float(z_histogram[i]), decibels, z_acceleration * delta)
+		var level_a = lerp(float(a_histogram[i]), decibels, a_acceleration * delta)
 		
-		histogram[i] = mag
+		histogram[i] = decibels
 		x_histogram[i] = level_x
 		y_histogram[i] = level_y
 		z_histogram[i] = level_z

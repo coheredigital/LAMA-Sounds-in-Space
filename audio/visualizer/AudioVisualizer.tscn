@@ -1,8 +1,46 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=12 format=3 uid="uid://duf16wnc1pvjm"]
 
-[ext_resource path="res://audio/visualizer/visualizer_gradient.tres" type="Gradient" id=1]
-[ext_resource path="res://audio/visualizer/AudioVisualizer.gd" type="Script" id=2]
+[ext_resource type="Gradient" uid="uid://b71jutk4qdqv3" path="res://audio/visualizer/visualizer_gradient.tres" id="1"]
+[ext_resource type="Script" path="res://audio/visualizer/AudioVisualizer.gd" id="2"]
+[ext_resource type="Curve" uid="uid://dymfoswhbthj1" path="res://audio/visualizer/curves/waveform_curve.tres" id="2_bx51b"]
+[ext_resource type="Curve" uid="uid://djq65vh7dm2ol" path="res://audio/visualizer/curves/response_curve.tres" id="3_syknx"]
+[ext_resource type="Curve" uid="uid://vnofp0kutp4i" path="res://audio/visualizer/curves/x_acceleration_curve.tres" id="4_mgpj0"]
+[ext_resource type="Curve" uid="uid://t7kqhabg0q1l" path="res://audio/visualizer/curves/y_acceleration_curve.tres" id="5_k8vkg"]
+[ext_resource type="Curve" uid="uid://dxn1rtet5pm80" path="res://audio/visualizer/curves/z_acceleration_curve.tres" id="6_i86oe"]
+[ext_resource type="Curve" uid="uid://d1nfw1ns152lp" path="res://audio/visualizer/curves/a_acceleration_curve.tres" id="7_1a83d"]
+[ext_resource type="Material" uid="uid://d1txi86rfk50c" path="res://audio/visualizer/visualizer_debug_material.tres" id="8_40boi"]
+
+[sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_2n73o"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m2f1b"]
+gradient = ExtResource("1")
 
 [node name="AudioVisualizer" type="Node"]
-script = ExtResource( 2 )
-gradient = ExtResource( 1 )
+script = ExtResource("2")
+waveform = ExtResource("2_bx51b")
+gradient = ExtResource("1")
+max_frequency = 660.0
+response_curve = ExtResource("3_syknx")
+x_curve = ExtResource("4_mgpj0")
+y_curve = ExtResource("5_k8vkg")
+z_curve = ExtResource("6_i86oe")
+a_curve = ExtResource("7_1a83d")
+
+[node name="AudioStreamRecord" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamMicrophone_2n73o")
+volume_db = 24.0
+autoplay = true
+bus = &"Record"
+
+[node name="AudioWaveform" type="TextureRect" parent="."]
+material = ExtResource("8_40boi")
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -383.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = SubResource("GradientTexture2D_m2f1b")
+expand_mode = 1

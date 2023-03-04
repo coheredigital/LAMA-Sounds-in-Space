@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddbud7dok4cao"
-path.s3tc="res://.godot/imported/visualizer_screen_mask.png-390791175d68959eaa46315a7dcff7ba.s3tc.ctex"
+uid="uid://efw8q5fwtw3s"
+path="res://.godot/imported/visualizer_gradient.png-b6e8c077415fd7ffd6c3c02d94c55454.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://materials/textures/visualizer_screen_mask.png"
-dest_files=["res://.godot/imported/visualizer_screen_mask.png-390791175d68959eaa46315a7dcff7ba.s3tc.ctex"]
+source_file="res://materials/textures/visualizer_gradient.png"
+dest_files=["res://.godot/imported/visualizer_gradient.png-b6e8c077415fd7ffd6c3c02d94c55454.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
@@ -24,7 +23,7 @@ compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=0
+roughness/mode=1
 roughness/src_normal=""
 process/fix_alpha_border=false
 process/premult_alpha=false

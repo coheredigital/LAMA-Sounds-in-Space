@@ -3,5 +3,5 @@ extends Node3D
 @export var door_open = false : set = set_door_open
 
 
-func set_door_open(value: boolean):
+func set_door_open(value: bool):
 	door_open = value

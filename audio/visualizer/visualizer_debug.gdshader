@@ -2,9 +2,6 @@ shader_type canvas_item;
 
 
 uniform sampler2D waveform : hint_default_black;
-
-
-uniform float background_opacity : hint_range(0.0, 1.0, 0.01) = 0.1;
 uniform vec4 background_color : source_color = vec4(0.0,0.0,0.0,0.5);
 
 
@@ -34,16 +31,15 @@ void fragment() {
 		
 	vec4 output_color;
 	output_color = background_color;
-	output_color.rgb *= background_opacity;
 	output_color.rgb = mix(output_color.rgb,vec3(1.0), line_raw_mask);
 	
-	vec4 line_color;
+	vec4 line_color = vec4(0.0);
 	line_color = mix(line_color,line_color + vec4(1.0,0.0,0.0, 1.0), x_line_mask);
 	line_color = mix(line_color,line_color + vec4(0.0,1.0,0.0,1.0), y_line_mask);
 	line_color = mix(line_color,line_color + vec4(0.0,0.0,1.0,1.0), z_line_mask);
 
-	COLOR = output_color + line_color;
-
+	COLOR = mix(output_color, line_color, line_color.a);
+//	COLOR = vec4(vec3(height_mask),1.0);
 
 
 }
