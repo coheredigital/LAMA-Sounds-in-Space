@@ -8,3 +8,4 @@ res://animations/game_state_tree.tres
 res://scenes/Spaceship.tscn
 res://scenes/SpaceshipOld.tscn
 res://scenes/SpaceshipControls.tscn
+res://scenes/Character.tscn

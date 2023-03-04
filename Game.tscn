@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" path="res://entities/FollowCamera.tscn" id="4"]
 [ext_resource type="Material" uid="uid://d1txi86rfk50c" path="res://audio/visualizer/visualizer_debug_material.tres" id="6"]
 [ext_resource type="Environment" uid="uid://n48hdvn72r0x" path="res://environments/default_environment.tres" id="7"]
-[ext_resource type="PackedScene" uid="uid://d0ivaiijkmpo1" path="res://models/visualizer_screen.gltf" id="8"]
 [ext_resource type="PackedScene" path="res://scenes/Character.tscn" id="9"]
 [ext_resource type="Animation" path="res://animations/door_open.tres" id="11"]
 [ext_resource type="Script" path="res://Game.gd" id="12"]
@@ -19,6 +18,7 @@
 [ext_resource type="Animation" path="res://animations/player_enter_spaceship.tres" id="22"]
 [ext_resource type="Animation" path="res://animations/character_idle.tres" id="23"]
 [ext_resource type="Animation" path="res://animations/player_approach_spaceship.tres" id="24"]
+[ext_resource type="PackedScene" uid="uid://dt1vpkmuodkmu" path="res://models/space_station.gltf" id="24_jjdm8"]
 [ext_resource type="Animation" path="res://animations/screen_buckle_warning.tres" id="25"]
 [ext_resource type="Animation" path="res://animations/screen_failure.tres" id="26"]
 [ext_resource type="Animation" path="res://animations/screen_success.tres" id="27"]
@@ -1024,8 +1024,7 @@ fog_color = Color(0.466667, 0.584314, 0.796078, 1)
 horizon_color = Color(1, 0.627451, 0.403922, 1)
 horizon_height = 0.038
 
-[node name="space_station" parent="SubViewportContainer/SubViewport/Environment" instance=ExtResource("8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0162, 0)
+[node name="space_station" parent="SubViewportContainer/SubViewport/Environment" instance=ExtResource("24_jjdm8")]
 
 [node name="Sky" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Environment"]
 transform = Transform3D(-4.3711e-08, 0, 1, 0, 0.999992, 0, -0.999992, 0, -4.37114e-08, 0, 0, 0)
@@ -1048,7 +1047,32 @@ directional_shadow_max_distance = 25.0
 [node name="Spaceship" parent="SubViewportContainer/SubViewport" instance=ExtResource("1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0162, 0)
 
+[node name="Primary" parent="SubViewportContainer/SubViewport/Spaceship" index="1"]
+light_energy = 0.021
+
+[node name="Accent" parent="SubViewportContainer/SubViewport/Spaceship" index="2"]
+light_color = Color(0.713726, 0.831373, 0.894118, 1)
+light_energy = 0.25
+
 [node name="Character" parent="SubViewportContainer/SubViewport" instance=ExtResource("9")]
+
+[node name="character" parent="SubViewportContainer/SubViewport/Character" index="0"]
+transform = Transform3D(0.996757, 0, 0.0804597, 0, 1, 0, -0.0804598, 0, 0.996756, 0, 0, 0)
+
+[node name="helmet" parent="SubViewportContainer/SubViewport/Character/character" index="0"]
+transform = Transform3D(0.993505, -0.0920662, -0.0668483, 0.0956236, 0.994051, 0.0521189, 0.0616523, -0.0581727, 0.9964, 0, 0.359375, 0)
+
+[node name="face" parent="SubViewportContainer/SubViewport/Character/character/helmet" index="3"]
+transform = Transform3D(1, 9.31322e-10, 7.45058e-09, -9.31322e-10, 1, -7.45058e-09, -7.45058e-09, 7.45058e-09, 1, 0.00768932, 0.217194, 0.0399466)
+
+[node name="arm_right" parent="SubViewportContainer/SubViewport/Character/character" index="1"]
+transform = Transform3D(0.910434, 0.400251, -0.104441, -0.412166, 0.899161, -0.147065, 0.0350463, 0.176939, 0.983598, -0.203125, 0.296875, -2.32831e-10)
+
+[node name="arm_left" parent="SubViewportContainer/SubViewport/Character/character" index="2"]
+transform = Transform3D(0.91051, -0.413487, -0.00133677, 0.412812, 0.909199, -0.0542723, 0.0236563, 0.0488636, 0.998526, 0.25, 0.296875, 3.72529e-09)
+
+[node name="forarm_left" parent="SubViewportContainer/SubViewport/Character/character/arm_left" index="0"]
+transform = Transform3D(0.999999, 1.4668e-08, 4.95794e-09, -1.54832e-08, 0.947344, 0.320213, -6.21725e-15, -0.320213, 0.947345, 0, -0.28125, -3.72529e-09)
 
 [node name="Player" parent="SubViewportContainer/SubViewport" instance=ExtResource("4")]
 distance_buffer = 1.4762
@@ -1087,5 +1111,10 @@ offset_bottom = 0.0
 [node name="MonitorOverlay" parent="DebugOverlay/ProfilerOverlay/Container" index="0"]
 layout_mode = 2
 
-[editable path="SubViewportContainer/SubViewport/Environment/space_station"]
+[editable path="SubViewportContainer/SubViewport/Spaceship"]
+[editable path="SubViewportContainer/SubViewport/Spaceship/spaceship/cockpit/monitor/seatbelt_indicator_right"]
+[editable path="SubViewportContainer/SubViewport/Spaceship/spaceship/cockpit/monitor/seatbelt_indicator_left"]
+[editable path="SubViewportContainer/SubViewport/Spaceship/spaceship/cockpit/monitor/fuel_gauge_right"]
+[editable path="SubViewportContainer/SubViewport/Spaceship/spaceship/cockpit/monitor/fuel_gauge_left"]
+[editable path="SubViewportContainer/SubViewport/Character"]
 [editable path="DebugOverlay"]

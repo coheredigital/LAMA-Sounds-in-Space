@@ -45,6 +45,24 @@ transform = Transform3D(1, 0, 0, 0, 0.999349, 0.0360664, 0, -0.0360664, 0.999349
 [node name="fuel_gauge_left" parent="spaceship/cockpit/monitor" index="4" instance=ExtResource("6")]
 transform = Transform3D(1, 0, 0, 0, 0.999349, 0.0360664, 0, -0.0360664, 0.999349, -0.539221, 0.0613374, 0.0210102)
 
+[node name="landing_gear_front_left" parent="spaceship" index="1"]
+surface_material_override/0 = ExtResource("2_w5ycv")
+
+[node name="landing_gear_front_right" parent="spaceship" index="2"]
+surface_material_override/0 = ExtResource("2_w5ycv")
+
+[node name="landing_gear_rear_right" parent="spaceship" index="3"]
+surface_material_override/0 = ExtResource("2_w5ycv")
+
+[node name="landing_gear_rear_left" parent="spaceship" index="4"]
+surface_material_override/0 = ExtResource("2_w5ycv")
+
+[node name="flame" parent="spaceship" index="5"]
+surface_material_override/0 = ExtResource("2_w5ycv")
+
+[node name="door" parent="spaceship" index="6"]
+surface_material_override/0 = ExtResource("2_w5ycv")
+
 [node name="Primary" type="SpotLight3D" parent="." index="1"]
 transform = Transform3D(0.834702, -0.122661, 0.536868, -0.168434, 0.871298, 0.460945, -0.524311, -0.475178, 0.706614, 1.31934, 2.94953, 1.07993)
 light_energy = 0.192
