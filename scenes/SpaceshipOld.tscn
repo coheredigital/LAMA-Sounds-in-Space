@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://dnpcbhqyx1p5h"]
+
+[ext_resource type="PackedScene" uid="uid://dycuy65u4jvdb" path="res://models/fuel_gauge.gltf" id="1_j57kq"]
+[ext_resource type="Script" path="res://scenes/Spaceship.gd" id="2_3pa7s"]
+[ext_resource type="PackedScene" path="res://scenes/Screen.tscn" id="3_ij1ca"]
+[ext_resource type="PackedScene" uid="uid://b4v1gc27survw" path="res://models/seatbelt_indicator.gltf" id="5_1lu8p"]
+[ext_resource type="PackedScene" path="res://scenes/SpaceshipControls.tscn" id="6_1wx4t"]
+
+[node name="Spaceship" instance=ExtResource("1_j57kq")]
+script = ExtResource("2_3pa7s")
+
+[node name="Screen" parent="." index="0" instance=ExtResource("3_ij1ca")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.026207, -0.0273583)
+
+[node name="Primary" type="SpotLight3D" parent="." index="1"]
+transform = Transform3D(0.834702, -0.122661, 0.536868, -0.168434, 0.871298, 0.460945, -0.524311, -0.475178, 0.706614, 1.31934, 2.94953, 1.07993)
+light_energy = 0.192
+shadow_enabled = true
+shadow_bias = 0.026
+spot_range = 4.79525
+spot_attenuation = 0.353553
+spot_angle = 21.1163
+spot_angle_attenuation = 0.277393
+
+[node name="Accent" type="OmniLight3D" parent="." index="2"]
+transform = Transform3D(0.999718, 0.0139388, -0.0192017, -0.0132201, 0.999225, 0.0370623, 0.0197034, -0.036798, 0.999128, 0.42955, 1.75121, 0.0486488)
+light_color = Color(0.36167, 0.42354, 0.866865, 1)
+light_energy = 0.0
+light_indirect_energy = 0.0
+omni_range = 6.0
+omni_attenuation = 0.203064
+
+[node name="seatbelt_indicator_right" parent="." index="3" instance=ExtResource("5_1lu8p")]
+transform = Transform3D(1, 0, 0, 0, 0.99954, 0.0303379, 0, -0.0303379, 0.99954, 0.759238, 0.031198, 0.00542212)
+
+[node name="seatbelt_indicator_left" parent="." index="4" instance=ExtResource("5_1lu8p")]
+transform = Transform3D(1, 0, 0, 0, 0.99954, 0.0303379, 0, -0.0303379, 0.99954, -0.807327, 0.031198, 0.00542212)
+
+[node name="fuel_gauge_right" parent="." index="5" instance=ExtResource("1_j57kq")]
+transform = Transform3D(1, 0, 0, 0, 0.999349, 0.0360664, 0, -0.0360664, 0.999349, 0.510031, 0.0613374, 0.0210102)
+
+[node name="fuel_gauge_left" parent="." index="6" instance=ExtResource("1_j57kq")]
+transform = Transform3D(1, 0, 0, 0, 0.999349, 0.0360664, 0, -0.0360664, 0.999349, -0.539221, 0.0613374, 0.0210102)
+
+[node name="SpaceshipControls" parent="." index="7" instance=ExtResource("6_1wx4t")]
+transform = Transform3D(1, -5.58794e-09, 7.45058e-09, 0, 1, 0, 7.45058e-09, 7.45058e-09, 1, 0.638572, 0.641412, -1.82653)

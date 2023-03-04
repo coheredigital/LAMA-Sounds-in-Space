@@ -1,13 +1,6 @@
-[gd_resource type="ShaderMaterial" load_steps=4 format=2]
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://d1txi86rfk50c"]
 
-[ext_resource path="res://audio/visualizer/visualizer_gradient.tres" type="Gradient" id=1]
-[ext_resource path="res://audio/visualizer/visualizer_debug.gdshader" type="Shader" id=2]
-
-[sub_resource type="GradientTexture2D" id=3839]
-gradient = ExtResource( 1 )
+[ext_resource type="Shader" path="res://audio/visualizer/visualizer_debug.gdshader" id="2"]
 
 [resource]
-shader = ExtResource( 2 )
-shader_param/background_opacity = 0.29
-shader_param/background_color = Color( 0.498039, 0.498039, 0.498039, 0.6 )
-shader_param/waveform = SubResource( 3839 )
+shader = ExtResource("2")

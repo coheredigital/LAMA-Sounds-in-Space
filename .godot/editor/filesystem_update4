@@ -1,0 +1,10 @@
+res://default_bus_layout.tres
+res://environments/default_environment.tres
+res://Game.tscn
+res://animations/screen_state_tree.tres
+res://materials/dashboard_material.tres
+res://animations/character_state_tree.tres
+res://animations/game_state_tree.tres
+res://scenes/Spaceship.tscn
+res://scenes/SpaceshipOld.tscn
+res://scenes/SpaceshipControls.tscn

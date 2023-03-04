@@ -1,90 +1,35 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=6 format=3 uid="uid://nxsh65jl2xhr"]
 
-[ext_resource path="res://scenes/SpaceshipControls.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/Screen.tscn" type="PackedScene" id=3]
-[ext_resource path="res://models/seatbelt_indicator.gltf" type="PackedScene" id=4]
-[ext_resource path="res://tools/FreeLookCamera.gd" type="Script" id=5]
-[ext_resource path="res://models/fuel_gauge.gltf" type="PackedScene" id=6]
-[ext_resource path="res://models/spaceship.gltf" type="PackedScene" id=7]
-[ext_resource path="res://materials/cockpit_material.tres" type="Material" id=8]
-[ext_resource path="res://materials/spaceship_material.tres" type="Material" id=9]
-[ext_resource path="res://materials/seatbelt_indicator_left_material.tres" type="Material" id=10]
-[ext_resource path="res://materials/spaceship_alpha_material.tres" type="Material" id=11]
-[ext_resource path="res://materials/fuel_gauge_material.tres" type="Material" id=12]
-[ext_resource path="res://scenes/Spaceship.gd" type="Script" id=13]
+[ext_resource type="PackedScene" uid="uid://ctjlmbopaw2sa" path="res://models/spaceship.gltf" id="1_m17hk"]
+[ext_resource type="PackedScene" uid="uid://dqsidw6vc75j6" path="res://scenes/SpaceshipControls.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://scenes/Screen.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://b4v1gc27survw" path="res://models/seatbelt_indicator.gltf" id="4"]
+[ext_resource type="PackedScene" uid="uid://dycuy65u4jvdb" path="res://models/fuel_gauge.gltf" id="6"]
 
-[node name="Spaceship" instance=ExtResource( 7 )]
-script = ExtResource( 13 )
+[node name="spaceship" instance=ExtResource("1_m17hk")]
 
-[node name="spaceship" parent="." index="0"]
-material/0 = ExtResource( 9 )
-material/1 = ExtResource( 11 )
+[node name="SpaceshipControls" parent="spaceship/cockpit" index="0" instance=ExtResource("2")]
+transform = Transform3D(1, -5.58794e-09, 7.45058e-09, 0, 1, 0, 7.45058e-09, 7.45058e-09, 1, 0.638572, 0.641412, -1.82653)
 
-[node name="cockpit" parent="spaceship" index="0"]
-material/0 = ExtResource( 8 )
+[node name="Screen" parent="spaceship/cockpit/monitor" index="0" instance=ExtResource("3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.026207, -0.0273583)
 
-[node name="SpaceshipControls" parent="spaceship/cockpit" index="0" instance=ExtResource( 2 )]
-transform = Transform3D( 1, -5.58794e-09, 7.45058e-09, 0, 1, 0, 7.45058e-09, 7.45058e-09, 1, 0.638572, 0.641412, -1.82653 )
+[node name="seatbelt_indicator_right" parent="spaceship/cockpit/monitor" index="1" instance=ExtResource("4")]
+transform = Transform3D(1, 0, 0, 0, 0.99954, 0.0303379, 0, -0.0303379, 0.99954, 0.759238, 0.031198, 0.00542212)
 
-[node name="seat_left" parent="spaceship/cockpit" index="1"]
-material/0 = ExtResource( 8 )
+[node name="seatbelt_indicator_left" parent="spaceship/cockpit/monitor" index="2" instance=ExtResource("4")]
+transform = Transform3D(1, 0, 0, 0, 0.99954, 0.0303379, 0, -0.0303379, 0.99954, -0.807327, 0.031198, 0.00542212)
 
-[node name="seat_right" parent="spaceship/cockpit" index="2"]
-material/0 = ExtResource( 8 )
+[node name="fuel_gauge_right" parent="spaceship/cockpit/monitor" index="3" instance=ExtResource("6")]
+transform = Transform3D(1, 0, 0, 0, 0.999349, 0.0360664, 0, -0.0360664, 0.999349, 0.510031, 0.0613374, 0.0210102)
 
-[node name="monitor" parent="spaceship/cockpit" index="3"]
-material/0 = ExtResource( 8 )
-
-[node name="Screen" parent="spaceship/cockpit/monitor" index="0" instance=ExtResource( 3 )]
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.026207, -0.0273583 )
-
-[node name="seatbelt_indicator_right" parent="spaceship/cockpit/monitor" index="1" instance=ExtResource( 4 )]
-transform = Transform3D( 1, 0, 0, 0, 0.99954, 0.0303379, 0, -0.0303379, 0.99954, 0.759238, 0.031198, 0.00542212 )
-
-[node name="seatbelt_indicator" parent="spaceship/cockpit/monitor/seatbelt_indicator_right" index="0"]
-material/0 = ExtResource( 10 )
-
-[node name="seatbelt_indicator_left" parent="spaceship/cockpit/monitor" index="2" instance=ExtResource( 4 )]
-transform = Transform3D( 1, 0, 0, 0, 0.99954, 0.0303379, 0, -0.0303379, 0.99954, -0.807327, 0.031198, 0.00542212 )
-
-[node name="seatbelt_indicator" parent="spaceship/cockpit/monitor/seatbelt_indicator_left" index="0"]
-material/0 = ExtResource( 10 )
-
-[node name="fuel_gauge_right" parent="spaceship/cockpit/monitor" index="3" instance=ExtResource( 6 )]
-transform = Transform3D( 1, 0, 0, 0, 0.999349, 0.0360664, 0, -0.0360664, 0.999349, 0.510031, 0.0613374, 0.0210102 )
-
-[node name="fuel_gauge" parent="spaceship/cockpit/monitor/fuel_gauge_right" index="0"]
-material/0 = ExtResource( 12 )
-
-[node name="fuel_gauge_left" parent="spaceship/cockpit/monitor" index="4" instance=ExtResource( 6 )]
-transform = Transform3D( 1, 0, 0, 0, 0.999349, 0.0360664, 0, -0.0360664, 0.999349, -0.539221, 0.0613374, 0.0210102 )
-
-[node name="fuel_gauge" parent="spaceship/cockpit/monitor/fuel_gauge_left" index="0"]
-material/0 = ExtResource( 12 )
-
-[node name="landing_gear_front_left" parent="spaceship" index="1"]
-material/0 = ExtResource( 9 )
-
-[node name="landing_gear_front_right" parent="spaceship" index="2"]
-material/0 = ExtResource( 9 )
-
-[node name="landing_gear_rear_right" parent="spaceship" index="3"]
-material/0 = ExtResource( 9 )
-
-[node name="landing_gear_rear_left" parent="spaceship" index="4"]
-material/0 = ExtResource( 9 )
-
-[node name="flame" parent="spaceship" index="5"]
-material/0 = ExtResource( 9 )
-
-[node name="door" parent="spaceship" index="6"]
-material/0 = ExtResource( 9 )
+[node name="fuel_gauge_left" parent="spaceship/cockpit/monitor" index="4" instance=ExtResource("6")]
+transform = Transform3D(1, 0, 0, 0, 0.999349, 0.0360664, 0, -0.0360664, 0.999349, -0.539221, 0.0613374, 0.0210102)
 
 [node name="Primary" type="SpotLight3D" parent="." index="1"]
-transform = Transform3D( 0.834702, -0.122661, 0.536868, -0.168434, 0.871298, 0.460945, -0.524311, -0.475178, 0.706614, 1.31934, 2.94953, 1.07993 )
+transform = Transform3D(0.834702, -0.122661, 0.536868, -0.168434, 0.871298, 0.460945, -0.524311, -0.475178, 0.706614, 1.31934, 2.94953, 1.07993)
 light_energy = 0.192
 shadow_enabled = true
-shadow_color = Color( 0.247059, 0.247059, 0.454902, 1 )
 shadow_bias = 0.026
 spot_range = 4.79525
 spot_attenuation = 0.353553
@@ -92,18 +37,12 @@ spot_angle = 21.1163
 spot_angle_attenuation = 0.277393
 
 [node name="Accent" type="OmniLight3D" parent="." index="2"]
-transform = Transform3D( 0.999718, 0.0139388, -0.0192017, -0.0132201, 0.999225, 0.0370623, 0.0197034, -0.036798, 0.999128, 0.42955, 1.75121, 0.0486488 )
-light_color = Color( 0.36167, 0.42354, 0.866865, 1 )
+transform = Transform3D(0.999718, 0.0139388, -0.0192017, -0.0132201, 0.999225, 0.0370623, 0.0197034, -0.036798, 0.999128, 0.42955, 1.75121, 0.0486488)
+light_color = Color(0.36167, 0.42354, 0.866865, 1)
 light_energy = 0.0
 light_indirect_energy = 0.0
-shadow_color = Color( 0.00784314, 0.0196078, 0.419608, 1 )
 omni_range = 6.0
 omni_attenuation = 0.203064
-
-[node name="Camera3D" type="Camera3D" parent="." index="3"]
-transform = Transform3D( 0.819969, 0.0139389, -0.572239, 0.00963858, 0.999225, 0.0381508, 0.572327, -0.0367981, 0.819199, -11.5657, 2.59229, 7.62276 )
-fov = 50.0
-script = ExtResource( 5 )
 
 [editable path="spaceship/cockpit/monitor/seatbelt_indicator_right"]
 [editable path="spaceship/cockpit/monitor/seatbelt_indicator_left"]

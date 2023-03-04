@@ -1,25 +1,26 @@
-[gd_resource type="ShaderMaterial" load_steps=5 format=2]
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://f5pa0k1ded3i"]
 
-[ext_resource path="res://materials/shaders/toon.gdshader" type="Shader" id=1]
-[ext_resource path="res://materials/textures/diffuse_curve.png" type="Texture2D" id=2]
-[ext_resource path="res://materials/textures/spaceship_albedo.png" type="Texture2D" id=3]
-[ext_resource path="res://materials/textures/spaceship_emission.png" type="Texture2D" id=4]
+[ext_resource type="Shader" path="res://materials/shaders/toon.gdshader" id="1"]
+[ext_resource type="Texture2D" uid="uid://cwoinpuvn65ta" path="res://materials/textures/diffuse_curve.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://clje4m1r61g2p" path="res://materials/textures/spaceship_albedo.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://dlds511n0al4j" path="res://materials/textures/spaceship_emission.png" id="4"]
 
 [resource]
-shader = ExtResource( 1 )
-shader_param/albedo = Color( 1, 1, 1, 1 )
-shader_param/specular = 0.5
-shader_param/specular_amount = 0.5
-shader_param/specular_smoothness = 0.05
-shader_param/rim = 0.22
-shader_param/rim_color = Color( 0.623529, 0.513726, 1, 1 )
-shader_param/rim_amount = 0.616
-shader_param/rim_smoothness = 1.0
-shader_param/metallic = 0.0
-shader_param/roughness = 1.0
-shader_param/emission = Color( 0, 0, 0, 1 )
-shader_param/emission_energy = 2.0
-shader_param/ao_light_affect = 0.0
-shader_param/albedo_texture = ExtResource( 3 )
-shader_param/diffuse_curve = ExtResource( 2 )
-shader_param/emission_texture = ExtResource( 4 )
+render_priority = 0
+shader = ExtResource("1")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/specular = 0.5
+shader_parameter/specular_amount = 0.5
+shader_parameter/specular_smoothness = 0.05
+shader_parameter/rim = 0.22
+shader_parameter/rim_color = Color(0.623529, 0.513726, 1, 1)
+shader_parameter/rim_amount = 0.616
+shader_parameter/rim_smoothness = 1.0
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 1.0
+shader_parameter/emission = Color(0, 0, 0, 1)
+shader_parameter/emission_energy = 1.431
+shader_parameter/ao_light_affect = 0.0
+shader_parameter/albedo_texture = ExtResource("3")
+shader_parameter/diffuse_curve = ExtResource("2")
+shader_parameter/emission_texture = ExtResource("4")

@@ -1,50 +1,7 @@
-[gd_resource type="ShaderMaterial" load_steps=13 format=2]
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bmbvqwm8rojy2"]
 
-[ext_resource path="res://audio/visualizer/visualizer_gradient.tres" type="Gradient" id=1]
-[ext_resource path="res://audio/visualizer/visualizer.gdshader" type="Shader" id=2]
-[ext_resource path="res://materials/textures/visualizer_screen_mask.png" type="Texture2D" id=3]
-
-[sub_resource type="Gradient" id=15]
-interpolation_mode = 2
-offsets = PackedFloat32Array( 0, 0.130872, 0.674497, 0.838926 )
-colors = PackedColorArray( 0, 0, 0, 1, 0.157227, 0.157227, 0.157227, 1, 0.344953, 0.344953, 0.344953, 1, 1, 1, 1, 1 )
-
-[sub_resource type="GradientTexture2D" id=14]
-gradient = SubResource( 15 )
-
-[sub_resource type="Curve" id=11]
-_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.0311526, 0.902273 ), 0.0, 0.0, 0, 0, Vector2( 0.919003, 0.911364 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.159588, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=12]
-curve = SubResource( 11 )
-
-[sub_resource type="Gradient" id=4]
-interpolation_mode = 1
-offsets = PackedFloat32Array( 0, 0.127517, 0.271812, 0.42953, 0.587248, 0.758389, 0.895973 )
-colors = PackedColorArray( 0.239216, 0.27451, 0.521569, 1, 0.52549, 0.12549, 0.541176, 1, 0.333333, 0.701961, 0.905882, 1, 0.529412, 1, 0.533333, 1, 1, 0.941176, 0.494118, 1, 1, 0.627451, 0.403922, 1, 0.956863, 0.34902, 0.470588, 1 )
-
-[sub_resource type="GradientTexture2D" id=8]
-resource_local_to_scene = true
-gradient = SubResource( 4 )
-width = 128
-
-[sub_resource type="Curve" id=9]
-_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.147826, 0.763636 ), 0.0, 0.0, 0, 0, Vector2( 0.773913, 0.872727 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=10]
-curve = SubResource( 9 )
-
-[sub_resource type="GradientTexture2D" id=2]
-gradient = ExtResource( 1 )
-width = 128
+[ext_resource type="Shader" path="res://audio/visualizer/visualizer.gdshader" id="2"]
 
 [resource]
 render_priority = 6
-shader = ExtResource( 2 )
-shader_param/emission_boost = 4.476
-shader_param/waveform = SubResource( 2 )
-shader_param/gradient = SubResource( 8 )
-shader_param/mask = ExtResource( 3 )
-shader_param/emission_curve = SubResource( 14 )
-shader_param/equalizer_curve = SubResource( 12 )
-shader_param/opacity_curve = SubResource( 10 )
+shader = ExtResource("2")

@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/bassline.wav-4327a6101c48b4aee950ed2eae37c921.sample"
+type="AudioStreamWAV"
+uid="uid://sgah13qs85wp"
+path="res://.godot/imported/bassline.wav-4327a6101c48b4aee950ed2eae37c921.sample"
 
 [deps]
 
 source_file="res://audio/music/bassline.wav"
-dest_files=[ "res://.import/bassline.wav-4327a6101c48b4aee950ed2eae37c921.sample" ]
+dest_files=["res://.godot/imported/bassline.wav-4327a6101c48b4aee950ed2eae37c921.sample"]
 
 [params]
 

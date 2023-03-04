@@ -2,10 +2,8 @@ shader_type spatial;
 render_mode depth_draw_opaque, cull_disabled;
 
 
-const float PI = 3.14159265358979323846;
-
 uniform vec4 albedo : source_color = vec4(1.0);
-uniform sampler2D albedo_texture : source_color;
+uniform sampler2D albedo_texture : source_color, filter_nearest;
 uniform sampler2D diffuse_curve : hint_default_white;
 uniform float specular : hint_range(0,1) = 0.5;
 uniform float specular_amount : hint_range(0,1) = 0.5;
@@ -22,7 +20,7 @@ uniform float roughness : hint_range(0,1) = 1.0;
 // Emission from base code.
 uniform vec4 emission : source_color = vec4(0.0, 0.0, 0.0, 1.0);
 uniform float emission_energy : hint_range(0.0, 2.0) = 1.0;
-uniform sampler2D emission_texture : hint_default_black;
+uniform sampler2D emission_texture : hint_default_black, filter_nearest;
 
 // Ambient occlusion from base code.
 uniform float ao_light_affect: hint_range(0,1) = 0.0;
@@ -37,6 +35,7 @@ void fragment() {
 	EMISSION = (emission.rgb + texture(emission_texture, UV).rgb) * emission_energy * COLOR.rgb;
 	ALBEDO = albedo.rgb * COLOR.rgb * texture(albedo_texture, UV).rgb;
 	ALPHA = texture(albedo_texture, UV).a;
+	ALPHA_SCISSOR_THRESHOLD = 0.9;
 }
 
 
