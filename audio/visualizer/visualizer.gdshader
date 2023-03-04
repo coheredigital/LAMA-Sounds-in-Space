@@ -6,7 +6,7 @@ const vec2 resolution = vec2(16.0,32.0);
 uniform float emission_boost : hint_range(1.0,8.0) = 1.0;
 
 uniform sampler2D waveform : hint_default_black;
-uniform sampler2D gradient : source_color;
+uniform sampler2D gradient : source_color, filter_nearest;
 uniform sampler2D mask : hint_default_white, filter_nearest;
 
 // lighting
