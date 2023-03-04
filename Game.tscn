@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://b6vspvj5duwhd"]
+[gd_scene load_steps=40 format=3 uid="uid://b6vspvj5duwhd"]
 
 [ext_resource type="PackedScene" uid="uid://nxsh65jl2xhr" path="res://scenes/Spaceship.tscn" id="1"]
 [ext_resource type="Script" path="res://environments/Skybox.gd" id="2"]
@@ -6,9 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://dny2niko855ch" path="res://entities/FollowCamera.tscn" id="4"]
 [ext_resource type="Environment" uid="uid://n48hdvn72r0x" path="res://environments/default_environment.tres" id="7"]
 [ext_resource type="PackedScene" uid="uid://d0xxc1roxyljw" path="res://scenes/Character.tscn" id="9"]
-[ext_resource type="AnimationLibrary" uid="uid://d2f01mgprslsv" path="res://animations/libraries/character.tres" id="10_1vlm6"]
+[ext_resource type="AnimationLibrary" uid="uid://breuvgc01nhtv" path="res://animations/libraries/character.res" id="9_64bjh"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://dc7tyssjir7o5" path="res://animations/player_state_tree.tres" id="10_cyoaw"]
+[ext_resource type="AnimationLibrary" uid="uid://x42ybr34m31y" path="res://animations/libraries/player.res" id="10_p4521"]
 [ext_resource type="Animation" uid="uid://bm7a1rt28cj83" path="res://animations/door_open.tres" id="11"]
+[ext_resource type="AnimationLibrary" uid="uid://yeai8r0lqd4q" path="res://animations/libraries/spaceship.res" id="11_lyojo"]
 [ext_resource type="Script" path="res://Game.gd" id="12"]
 [ext_resource type="PackedScene" uid="uid://duf16wnc1pvjm" path="res://audio/visualizer/AudioVisualizer.tscn" id="14"]
 [ext_resource type="Material" uid="uid://dn1nckx2il1rl" path="res://materials/planet_material.tres" id="15_3ufj4"]
@@ -23,7 +25,6 @@
 [ext_resource type="Animation" uid="uid://coglgp5b7vyud" path="res://animations/player_approach_spaceship.tres" id="24"]
 [ext_resource type="PackedScene" uid="uid://dt1vpkmuodkmu" path="res://models/space_station.gltf" id="24_jjdm8"]
 [ext_resource type="Script" path="res://debug/DebugOverlay.gd" id="28_vrg37"]
-[ext_resource type="Animation" path="res://animations/character_talk.tres" id="34"]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="3877"]
 
@@ -376,117 +377,6 @@ tracks/28/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="3881"]
-resource_name = "character_enter_spaceship"
-length = 2.0
-step = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Character:rotation_degrees")
-tracks/0/interp = 2
-tracks/0/loop_wrap = false
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(3.10613, 153.113, -3.45269), Vector3(3.10613, 50.9068, -3.45269)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Character:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = false
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-1.26852, 1.9061, 2.45102), Vector3(-1.26852, 1.9061, -0.802084)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Character:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="3868"]
-resource_name = "character_sitdown"
-length = 2.0
-step = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Character:rotation_degrees")
-tracks/0/interp = 2
-tracks/0/loop_wrap = false
-tracks/0/keys = {
-"times": PackedFloat32Array(2),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(3.10613, 156.29, -3.45269)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Character:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = false
-tracks/1/keys = {
-"times": PackedFloat32Array(2),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.613001, 1.63601, -1.72642)]
-}
-
-[sub_resource type="Animation" id="3869"]
-resource_name = "character_stand"
-length = 2.0
-step = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Character:rotation_degrees")
-tracks/0/interp = 2
-tracks/0/loop_wrap = false
-tracks/0/keys = {
-"times": PackedFloat32Array(2),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(3.10613, 50.0592, -3.45269)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Character:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = false
-tracks/1/keys = {
-"times": PackedFloat32Array(2),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.478049, 1.9061, -1.93671)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Character:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
 [sub_resource type="Animation" id="3872"]
 resource_name = "player_sit"
 length = 2.0
@@ -721,6 +611,7 @@ tracks/7/keys = {
 }
 
 [sub_resource type="Animation" id="3880"]
+resource_name = "spaceship_warp"
 length = 8.0
 step = 1.0
 tracks/0/type = "bezier"
@@ -817,13 +708,359 @@ tracks/7/keys = {
 "values": [Color(0.113725, 0.113725, 0.266667, 1), Color(0.239216, 0.27451, 0.521569, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_kdspe"]
+resource_name = "RESET"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Environment/Planet:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(14.698, 12.7034, -54.117)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Environment:ground_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.4, 0.733333, 0.521569, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Environment:horizon_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.627451, 0.403922, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Environment:sky_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.113725, 0.113725, 0.266667, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Environment/WorldLight:shadow_bias")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.007]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Spaceship/Accent:light_energy")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.25]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Environment/WorldLight:light_energy")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.15]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Environment:fog_color")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.466667, 0.584314, 0.796078, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Environment/Planet:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Environment/Sky:material/0:shader_param/stars_brightness")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Environment/Sky:material/0:shader_param/stars_scale")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.803]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Environment:horizon_height")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.038]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Spaceship/Accent:light_color")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.713726, 0.831373, 0.894118, 1)]
+}
+tracks/13/type = "bezier"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Environment/Planet:scale:z")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+tracks/14/type = "bezier"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Environment/Planet:scale:y")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+tracks/15/type = "bezier"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Environment/Planet:scale:x")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Player/PositionTarget:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-10.8537, 2.5, 7.2842)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Player/LookTarget:position")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-6.07119, 1.46695, 0.792042)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Environment/WorldLight:shadow_color")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.615686, 0.588235, 0.713726, 1)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Environment/Planet:scale")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.5, 0.5, 0.5)]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Environment/WorldLight:light_color")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Spaceship/spaceship/door:rotation_degrees")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Spaceship/spaceship/door:position")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Spaceship/spaceship/cockpit/monitor/Screen/screen:material/0:shader_param/alpha")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("Spaceship/Primary:light_energy")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.021]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("Character:position")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-10.6656, 2.10132, 5.55682)]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("Character:rotation_degrees")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("Spaceship/spaceship/cockpit/monitor/fuel_gauge_left/fuel_gauge:material/0:shader_param/frame_number")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [8.0]
+}
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("Character:visible")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fx0od"]
 _data = {
 "RESET": SubResource("3817"),
-"character_enter_spaceship": SubResource("3881"),
-"character_sitdown": SubResource("3868"),
-"character_stand": SubResource("3869"),
-"character_talk": ExtResource("34"),
+"RESET (2)": SubResource("Animation_kdspe"),
 "door_close": ExtResource("21"),
 "door_open": ExtResource("11"),
 "player_approach_spaceship": ExtResource("24"),
@@ -882,7 +1119,9 @@ root_node = NodePath("../..")
 reset_on_save = false
 libraries = {
 "": SubResource("AnimationLibrary_fx0od"),
-"character": ExtResource("10_1vlm6")
+"character": ExtResource("9_64bjh"),
+"player": ExtResource("10_p4521"),
+"spaceship": ExtResource("11_lyojo")
 }
 
 [node name="PlayerStateTree" type="AnimationTree" parent="SubViewportContainer/SubViewport"]
@@ -908,7 +1147,7 @@ parameters/playback = SubResource("3871")
 root_node = NodePath("../..")
 autoplay = "character_idle"
 libraries = {
-"character_animation_library": ExtResource("10_1vlm6")
+"character_animation_library": ExtResource("9_64bjh")
 }
 
 [node name="Environment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport"]
@@ -991,7 +1230,7 @@ transform = Transform3D(0.999999, 0, 0, 0, 0.999998, 0, 0, 0, 0.999999, 0, -0.28
 distance_buffer = 1.4762
 
 [node name="Camera3D" parent="SubViewportContainer/SubViewport/Player" index="0"]
-transform = Transform3D(0.805126, 0.0753688, -0.588296, 1.19209e-07, 0.991893, 0.127075, 0.593104, -0.102312, 0.798599, -10.8537, 2.5, 7.2842)
+transform = Transform3D(0.805126, 0.0753688, -0.588296, 1.04308e-07, 0.991893, 0.127075, 0.593104, -0.102312, 0.798599, -10.8537, 2.5, 7.2842)
 
 [node name="PositionTarget" parent="SubViewportContainer/SubViewport/Player" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8537, 2.5, 7.2842)
