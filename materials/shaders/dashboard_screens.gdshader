@@ -65,6 +65,8 @@ void fragment() {
 	}
 	
 //	steppify offsets to prevent misaligned frames
+	offset.x = steppify(offset.x,int(screen_count));
+
 	offset.y = steppify(offset.y,int(frame_count));
 	vec2 uv = UV + offset;
 	

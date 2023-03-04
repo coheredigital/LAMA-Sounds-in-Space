@@ -1,19 +1,16 @@
-[gd_resource type="AnimationNodeStateMachine" load_steps=24 format=3 uid="uid://bgas77vb0vl6b"]
-
-[sub_resource type="AnimationNodeAnimation" id="3919"]
-animation = &"screen_buckle_warning"
+[gd_resource type="AnimationNodeStateMachine" load_steps=25 format=3 uid="uid://bgas77vb0vl6b"]
 
 [sub_resource type="AnimationNodeAnimation" id="3910"]
 animation = &"screen/screen_failure"
 
-[sub_resource type="AnimationNodeAnimation" id="3891"]
-animation = &"screen/idle"
-
-[sub_resource type="AnimationNodeAnimation" id="3892"]
-animation = &"screen/screen_rainbow_wipe"
-
 [sub_resource type="AnimationNodeAnimation" id="3900"]
 animation = &"screen/screen_restart"
+
+[sub_resource type="AnimationNodeAnimation" id="3919"]
+animation = &"screen_buckle_warning"
+
+[sub_resource type="AnimationNodeAnimation" id="3891"]
+animation = &"screen/idle"
 
 [sub_resource type="AnimationNodeAnimation" id="3901"]
 animation = &"screen/screen_start"
@@ -22,10 +19,13 @@ animation = &"screen/screen_start"
 animation = &"screen/screen_success"
 
 [sub_resource type="AnimationNodeAnimation" id="3893"]
-animation = &"screen/screen_talk_visualizer"
+animation = &"screen/talking_head"
 
 [sub_resource type="AnimationNodeAnimation" id="3914"]
 animation = &"screen/screen_visualizer"
+
+[sub_resource type="AnimationNodeAnimation" id="3892"]
+animation = &"screen/wipe"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="3896"]
 switch_mode = 2
@@ -63,26 +63,30 @@ switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="3918"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_i0aqs"]
+switch_mode = 2
+advance_mode = 2
+
 [resource]
-states/End/position = Vector2(305, 7)
-states/Start/position = Vector2(305, -76)
+states/End/position = Vector2(305, 5)
+states/Start/position = Vector2(305, -128)
+states/failure/node = SubResource("3910")
+states/failure/position = Vector2(727, 20)
+states/restart_button/node = SubResource("3900")
+states/restart_button/position = Vector2(1002, -76)
 states/screen_buckle_warning/node = SubResource("3919")
 states/screen_buckle_warning/position = Vector2(905, -299)
-states/screen_failure/node = SubResource("3910")
-states/screen_failure/position = Vector2(727, 20)
 states/screen_idle/node = SubResource("3891")
 states/screen_idle/position = Vector2(457, -76)
-states/screen_reset/node = SubResource("3892")
-states/screen_reset/position = Vector2(727, -76)
-states/screen_restart/node = SubResource("3900")
-states/screen_restart/position = Vector2(1002, -76)
-states/screen_start/node = SubResource("3901")
-states/screen_start/position = Vector2(1002, -175)
-states/screen_success/node = SubResource("3902")
-states/screen_success/position = Vector2(1002, 20)
-states/screen_talk_visualizer/node = SubResource("3893")
-states/screen_talk_visualizer/position = Vector2(727, -175)
-states/screen_visualizer/node = SubResource("3914")
-states/screen_visualizer/position = Vector2(475, -175)
-transitions = ["screen_reset", "screen_talk_visualizer", SubResource("3896"), "screen_talk_visualizer", "screen_reset", SubResource("3897"), "screen_reset", "screen_success", SubResource("3903"), "screen_success", "screen_reset", SubResource("3904"), "screen_reset", "screen_restart", SubResource("3905"), "screen_restart", "screen_reset", SubResource("3906"), "screen_reset", "screen_start", SubResource("3907"), "screen_start", "screen_reset", SubResource("3908"), "screen_reset", "screen_failure", SubResource("3911"), "screen_failure", "screen_reset", SubResource("3912"), "screen_reset", "screen_visualizer", SubResource("3915"), "screen_visualizer", "screen_reset", SubResource("3916"), "screen_reset", "screen_idle", SubResource("3917"), "screen_idle", "screen_reset", SubResource("3918")]
+states/start_button/node = SubResource("3901")
+states/start_button/position = Vector2(1002, -175)
+states/success/node = SubResource("3902")
+states/success/position = Vector2(1002, 20)
+states/talking_head/node = SubResource("3893")
+states/talking_head/position = Vector2(727, -175)
+states/visualizer/node = SubResource("3914")
+states/visualizer/position = Vector2(475, -175)
+states/wipe/node = SubResource("3892")
+states/wipe/position = Vector2(727, -76)
+transitions = ["wipe", "talking_head", SubResource("3896"), "talking_head", "wipe", SubResource("3897"), "wipe", "success", SubResource("3903"), "success", "wipe", SubResource("3904"), "wipe", "restart_button", SubResource("3905"), "restart_button", "wipe", SubResource("3906"), "wipe", "start_button", SubResource("3907"), "start_button", "wipe", SubResource("3908"), "wipe", "failure", SubResource("3911"), "failure", "wipe", SubResource("3912"), "wipe", "visualizer", SubResource("3915"), "visualizer", "wipe", SubResource("3916"), "wipe", "screen_idle", SubResource("3917"), "screen_idle", "wipe", SubResource("3918"), "Start", "screen_idle", SubResource("AnimationNodeStateMachineTransition_i0aqs")]
 graph_offset = Vector2(114, -285)

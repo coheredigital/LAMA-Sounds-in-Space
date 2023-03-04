@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://b6vspvj5duwhd"]
+[gd_scene load_steps=38 format=3 uid="uid://b6vspvj5duwhd"]
 
 [ext_resource type="PackedScene" uid="uid://nxsh65jl2xhr" path="res://scenes/Spaceship.tscn" id="1"]
 [ext_resource type="Script" path="res://environments/Skybox.gd" id="2"]
@@ -14,7 +14,6 @@
 [ext_resource type="Shader" path="res://materials/shaders/sky.gdshader" id="12_fvfhi"]
 [ext_resource type="PackedScene" uid="uid://duf16wnc1pvjm" path="res://audio/visualizer/AudioVisualizer.tscn" id="14"]
 [ext_resource type="Material" uid="uid://dn1nckx2il1rl" path="res://materials/planet_material.tres" id="15_3ufj4"]
-[ext_resource type="AnimationNodeStateMachine" uid="uid://bjdv2y3snckmn" path="res://animations/character_state_tree.tres" id="17"]
 [ext_resource type="Material" uid="uid://dyhrhmtylajgc" path="res://materials/seatbelt_indicator_right_material.tres" id="17_0qw4c"]
 [ext_resource type="Material" uid="uid://dq31s8oqcc7ap" path="res://materials/dashboard_material.tres" id="17_lt72f"]
 [ext_resource type="Material" uid="uid://bargno24tmn30" path="res://materials/seatbelt_indicator_left_material.tres" id="18_mtows"]
@@ -24,6 +23,52 @@
 [sub_resource type="AnimationNodeStateMachinePlayback" id="3877"]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_sq7i4"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jg206"]
+animation = &"character/RESET"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mbly4"]
+animation = &"character/enter_spaceship"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6afib"]
+animation = &"character/sitdown"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_y8uwh"]
+animation = &"character/stand"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ynn6t"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_40llh"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_krcfp"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_14g7q"]
+xfade_time = 0.85
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7mpov"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_u4rs4"]
+xfade_time = 0.8
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_frjha"]
+states/End/position = Vector2(1187, 100)
+states/Start/position = Vector2(193, 100)
+states/characterRESET/node = SubResource("AnimationNodeAnimation_jg206")
+states/characterRESET/position = Vector2(340, 100)
+states/characterenter_spaceship/node = SubResource("AnimationNodeAnimation_mbly4")
+states/characterenter_spaceship/position = Vector2(547, 100)
+states/charactersitdown/node = SubResource("AnimationNodeAnimation_6afib")
+states/charactersitdown/position = Vector2(1024, 102)
+states/characterstand/node = SubResource("AnimationNodeAnimation_y8uwh")
+states/characterstand/position = Vector2(802, 100)
+transitions = ["Start", "characterRESET", SubResource("AnimationNodeStateMachineTransition_ynn6t"), "characterRESET", "characterenter_spaceship", SubResource("AnimationNodeStateMachineTransition_40llh"), "characterenter_spaceship", "characterstand", SubResource("AnimationNodeStateMachineTransition_krcfp"), "characterstand", "charactersitdown", SubResource("AnimationNodeStateMachineTransition_14g7q"), "charactersitdown", "End", SubResource("AnimationNodeStateMachineTransition_7mpov"), "charactersitdown", "characterstand", SubResource("AnimationNodeStateMachineTransition_u4rs4")]
+graph_offset = Vector2(-62, -196)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="3871"]
 
@@ -95,7 +140,7 @@ libraries = {
 }
 
 [node name="CharacterAnimationTree" type="AnimationTree" parent="SubViewportContainer/SubViewport"]
-tree_root = ExtResource("17")
+tree_root = SubResource("AnimationNodeStateMachine_frjha")
 anim_player = NodePath("CharacterAnimation")
 active = true
 parameters/playback = SubResource("3871")
@@ -144,6 +189,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0162, 0)
 [node name="AnimationStateTree" parent="SubViewportContainer/SubViewport/Spaceship/spaceship/cockpit/monitor/Screen" index="0"]
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_ikf4l")
 
+[node name="visualizer_screen" parent="SubViewportContainer/SubViewport/Spaceship/spaceship/cockpit/monitor/Screen" index="2"]
+visible = false
+
 [node name="seatbelt_indicator" parent="SubViewportContainer/SubViewport/Spaceship/spaceship/cockpit/monitor/seatbelt_indicator_right" index="0"]
 surface_material_override/0 = ExtResource("17_0qw4c")
 
@@ -163,7 +211,7 @@ light_energy = 0.021
 light_color = Color(0, 0, 0, 1)
 
 [node name="Character" parent="SubViewportContainer/SubViewport" instance=ExtResource("9")]
-transform = Transform3D(-0.915242, -0.033392, 0.401517, -0.0601359, 0.996718, -0.0541856, -0.39839, -0.0737386, -0.914247, -0.613001, 1.63601, -1.72642)
+transform = Transform3D(-0.915242, -0.033392, 0.401517, -0.0601358, 0.996718, -0.0541856, -0.39839, -0.0737386, -0.914247, -0.613001, 1.63601, -1.72642)
 
 [node name="character" parent="SubViewportContainer/SubViewport/Character" index="0"]
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999998, 0, 0, 0)
@@ -187,7 +235,7 @@ transform = Transform3D(0.999999, 0, 0, 0, 0.999998, 0, 0, 0, 0.999999, 0, -0.28
 distance_buffer = 1.4762
 
 [node name="Camera3D" parent="SubViewportContainer/SubViewport/Player" index="0"]
-transform = Transform3D(0.805126, 0.0753689, -0.588296, 9.68575e-08, 0.991893, 0.127075, 0.593104, -0.102312, 0.798599, -10.8537, 2.5, 7.2842)
+transform = Transform3D(0.805126, 0.0753689, -0.588296, 2.23517e-08, 0.991893, 0.127075, 0.593104, -0.102312, 0.798599, -10.8537, 2.5, 7.2842)
 
 [node name="PositionTarget" parent="SubViewportContainer/SubViewport/Player" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8537, 2.5, 7.2842)
