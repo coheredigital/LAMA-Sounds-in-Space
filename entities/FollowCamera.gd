@@ -11,7 +11,7 @@ extends Node
 @onready var camera := $Camera3D
 
 
-func _physics_process(delta):
+func _process(delta):
 
 	if not target or not look_target:
 		return

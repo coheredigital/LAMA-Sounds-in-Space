@@ -1,6 +1,5 @@
 shader_type canvas_item;
 
-const float PI = 3.14159265358979323846;
 
 uniform sampler2D waveform : hint_default_black;
 
@@ -42,8 +41,6 @@ void fragment() {
 	line_color = mix(line_color,line_color + vec4(1.0,0.0,0.0, 1.0), x_line_mask);
 	line_color = mix(line_color,line_color + vec4(0.0,1.0,0.0,1.0), y_line_mask);
 	line_color = mix(line_color,line_color + vec4(0.0,0.0,1.0,1.0), z_line_mask);
-//	line_color += mix(line_color,z_color, z_line_mask);
-	
 
 	COLOR = output_color + line_color;
 

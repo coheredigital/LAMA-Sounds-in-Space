@@ -1,162 +1,114 @@
-[gd_resource type="Animation" format=2]
+[gd_resource type="Animation" format=3 uid="uid://dttqdceakkahm"]
 
 [resource]
 resource_name = "player_landing"
 length = 10.0
 step = 1.0
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Environment/Planet:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 5, 8, 10 ),
-"transitions": PackedFloat32Array( 1, 1, 1, 1 ),
+"times": PackedFloat32Array(0, 5, 8, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [ Vector3( 5.75, 5.75, 5.75 ), Vector3( 4, 4, 4 ), Vector3( 9.33333, 3.26667, 9.33333 ), Vector3( 15, 1, 15 ) ]
+"values": [Vector3(5.75, 5.75, 5.75), Vector3(4, 4, 4), Vector3(9.33333, 3.26667, 9.33333), Vector3(15, 1, 15)]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Environment:environment:fog_depth_end")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
+tracks/1/path = NodePath("Environment:sky_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array( 0, 2, 8, 10 ),
-"transitions": PackedFloat32Array( 1, 1, 1, 1 ),
+"times": PackedFloat32Array(0, 4, 7, 8, 10),
+"transitions": PackedFloat32Array(1.07177, 1.07177, 1, 1, 1),
 "update": 0,
-"values": [ 16.0, 16.0, 120.0, 256.0 ]
+"values": [Color(0.113725, 0.113725, 0.266667, 1), Color(0.247059, 0.247059, 0.454902, 1), Color(0.462745, 0.258824, 0.541176, 1), Color(0.215686, 0.580392, 0.431373, 1), Color(0.247059, 0.247059, 0.454902, 1)]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Environment:environment:fog_depth_begin")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
+tracks/2/path = NodePath("Environment/Planet:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array( 0, 10 ),
-"transitions": PackedFloat32Array( 1, 1 ),
+"times": PackedFloat32Array(0, 5, 8, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [ 8.0, 32.0 ]
+"values": [Vector3(0, 2.5, -32), Vector3(0, -20, -20.48), Vector3(0, -15.7392, -16.3676), Vector3(0, -15.7392, -16.3676)]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Environment:sky_color")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
+tracks/3/path = NodePath("Environment:horizon_height")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array( 0, 4, 7, 8, 10 ),
-"transitions": PackedFloat32Array( 1.07177, 1.07177, 1, 1, 1 ),
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Color( 0.113725, 0.113725, 0.266667, 1 ), Color( 0.247059, 0.247059, 0.454902, 1 ), Color( 0.462745, 0.258824, 0.541176, 1 ), Color( 0.215686, 0.580392, 0.431373, 1 ), Color( 0.247059, 0.247059, 0.454902, 1 ) ]
+"values": [-64.0, 0.16]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Environment/Planet:translation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
+tracks/4/path = NodePath("Environment:ground_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array( 0, 5, 8, 10 ),
-"transitions": PackedFloat32Array( 1, 1, 1, 1 ),
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Vector3( 0, 2.5, -32 ), Vector3( 0, -20, -20.48 ), Vector3( 0, -15.7392, -16.3676 ), Vector3( 0, -15.7392, -16.3676 ) ]
+"values": [Color(0.411273, 0.211052, 0.488281, 1), Color(0.701961, 0.419608, 0.376471, 1)]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Environment:horizon_height")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
+tracks/5/path = NodePath("Environment/Planet:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array( 0, 10 ),
-"transitions": PackedFloat32Array( 1, 1 ),
-"update": 0,
-"values": [ -64.0, 0.16 ]
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("Environment:ground_color")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
+tracks/6/path = NodePath("Environment:fog_color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array( 0, 10 ),
-"transitions": PackedFloat32Array( 1, 1 ),
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Color( 0.411273, 0.211052, 0.488281, 1 ), Color( 0.701961, 0.419608, 0.376471, 1 ) ]
+"values": [Color(0.239216, 0.27451, 0.521569, 1), Color(0.333333, 0.701961, 0.905882, 1)]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("Environment/Planet:visible")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
+tracks/7/path = NodePath("Environment:horizon_color")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array( 0, 5 ),
-"transitions": PackedFloat32Array( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.215686, 0.580392, 0.431373, 1)]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("Environment:fog_color")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
+tracks/8/path = NodePath("Spaceship/Accent:light_color")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array( 0, 10 ),
-"transitions": PackedFloat32Array( 1, 1 ),
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Color( 0.239216, 0.27451, 0.521569, 1 ), Color( 0.333333, 0.701961, 0.905882, 1 ) ]
-}
-tracks/9/type = "value"
-tracks/9/path = NodePath("Environment:environment:fog_height_min")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
-"times": PackedFloat32Array( 0, 4 ),
-"transitions": PackedFloat32Array( 1, 1 ),
-"update": 0,
-"values": [ 16.0, 32.0 ]
-}
-tracks/10/type = "value"
-tracks/10/path = NodePath("Environment:environment:fog_height_max")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/keys = {
-"times": PackedFloat32Array( 0, 4 ),
-"transitions": PackedFloat32Array( 1, 1 ),
-"update": 0,
-"values": [ 64.0, 128.0 ]
-}
-tracks/11/type = "value"
-tracks/11/path = NodePath("Environment:horizon_color")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
-"update": 0,
-"values": [ Color( 0.215686, 0.580392, 0.431373, 1 ) ]
-}
-tracks/12/type = "value"
-tracks/12/path = NodePath("Spaceship/Accent:light_color")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/keys = {
-"times": PackedFloat32Array( 0, 10 ),
-"transitions": PackedFloat32Array( 1, 1 ),
-"update": 0,
-"values": [ Color( 0.239216, 0.27451, 0.521569, 1 ), Color( 0.333333, 0.701961, 0.905882, 1 ) ]
+"values": [Color(0.239216, 0.27451, 0.521569, 1), Color(0.333333, 0.701961, 0.905882, 1)]
 }

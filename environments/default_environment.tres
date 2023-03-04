@@ -10,7 +10,7 @@ gradient = SubResource("25")
 [sub_resource type="Sky" id="22"]
 
 [resource]
-background_mode = 3
+background_mode = 1
 background_color = Color(0.113725, 0.113725, 0.266667, 1)
 sky = SubResource("22")
 ambient_light_color = Color(0.113725, 0.113725, 0.266667, 1)

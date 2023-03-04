@@ -4,3 +4,5 @@
 
 [resource]
 shader = ExtResource("2")
+shader_parameter/background_opacity = 0.1
+shader_parameter/background_color = Color(0, 0, 0, 0.5)

@@ -3,11 +3,21 @@ extends Node
 
 @export var waveform : Curve
 @export var gradient : Gradient
-@export var definition := 16 setget set_definition # (int, 4, 32)
-@export var min_frequency := 20.0 setget set_min_frequency # (float, 20.0, 22000.0, 10.0)
-@export var max_frequency := 20000.0 setget set_max_frequency # (float, 20.0, 22000.0, 10.0)
-@export var max_db = 0.0 setget set_max_db # (float, -40.0, 40.0, 0.1)
-@export var min_db = -40.0 setget set_min_db # (float, -80.0, 0.0, 0.1)
+@export_range (4, 32) var definition := 16: # (int, 4, 32)
+	set(value):
+		set_definition(value)
+@export_range(20.0, 22000.0, 10.0) var min_frequency := 20.0:
+	set(value):
+		set_min_frequency(value) 
+@export_range(20.0, 22000.0, 10.0) var max_frequency := 20000.0:
+	set(value):
+		set_max_frequency(value)
+@export_range(-40.0, 40.0, 0.1) var max_db = 0.0:
+	set(value):
+		set_max_db(value) 
+@export_range(-80.0, 0.0, 0.1) var min_db = -40.0:
+	set(value):
+		set_min_db(value)
 @export var response_curve : Curve
 @export var x_curve : Curve
 @export var y_curve : Curve

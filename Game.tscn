@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://drmyw44yqosp5"]
+[gd_scene load_steps=45 format=3 uid="uid://drmyw44yqosp5"]
 
 [ext_resource type="PackedScene" uid="uid://nxsh65jl2xhr" path="res://scenes/Spaceship.tscn" id="1"]
 [ext_resource type="Script" path="res://environments/Skybox.gd" id="2"]
@@ -6,27 +6,20 @@
 [ext_resource type="Material" uid="uid://d1txi86rfk50c" path="res://audio/visualizer/visualizer_debug_material.tres" id="6"]
 [ext_resource type="Environment" uid="uid://n48hdvn72r0x" path="res://environments/default_environment.tres" id="7"]
 [ext_resource type="PackedScene" uid="uid://d0xxc1roxyljw" path="res://scenes/Character.tscn" id="9"]
-[ext_resource type="Animation" path="res://animations/door_open.tres" id="11"]
+[ext_resource type="Animation" uid="uid://bm7a1rt28cj83" path="res://animations/door_open.tres" id="11"]
 [ext_resource type="Script" path="res://Game.gd" id="12"]
 [ext_resource type="Curve" path="res://audio/visualizer/response_curve.tres" id="13"]
 [ext_resource type="PackedScene" path="res://audio/visualizer/AudioVisualizer.tscn" id="14"]
-[ext_resource type="PackedScene" path="res://debug/DebugOverlay.tscn" id="15"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://bjdv2y3snckmn" path="res://animations/character_state_tree.tres" id="17"]
-[ext_resource type="Animation" path="res://animations/player_landing.tres" id="19"]
-[ext_resource type="Animation" path="res://animations/player_blast_off.tres" id="20"]
-[ext_resource type="Animation" path="res://animations/door_close.tres" id="21"]
-[ext_resource type="Animation" path="res://animations/player_enter_spaceship.tres" id="22"]
+[ext_resource type="Animation" uid="uid://dttqdceakkahm" path="res://animations/player_landing.tres" id="19"]
+[ext_resource type="Animation" uid="uid://bml0t36wqp101" path="res://animations/player_blast_off.tres" id="20"]
+[ext_resource type="Animation" uid="uid://grv0nxwf0k58" path="res://animations/door_close.tres" id="21"]
+[ext_resource type="Animation" uid="uid://gpkkbohlfd4e" path="res://animations/player_enter_spaceship.tres" id="22"]
 [ext_resource type="Animation" path="res://animations/character_idle.tres" id="23"]
-[ext_resource type="Animation" path="res://animations/player_approach_spaceship.tres" id="24"]
+[ext_resource type="Animation" uid="uid://coglgp5b7vyud" path="res://animations/player_approach_spaceship.tres" id="24"]
 [ext_resource type="PackedScene" uid="uid://dt1vpkmuodkmu" path="res://models/space_station.gltf" id="24_jjdm8"]
-[ext_resource type="Animation" path="res://animations/screen_buckle_warning.tres" id="25"]
-[ext_resource type="Animation" path="res://animations/screen_failure.tres" id="26"]
-[ext_resource type="Animation" path="res://animations/screen_success.tres" id="27"]
-[ext_resource type="Animation" path="res://animations/screen_talk_visualizer.tres" id="28"]
-[ext_resource type="Animation" path="res://animations/screen_rainbow_wipe.tres" id="29"]
-[ext_resource type="Animation" path="res://animations/screen_start.tres" id="30"]
-[ext_resource type="Animation" path="res://animations/screen_restart.tres" id="31"]
-[ext_resource type="Animation" path="res://animations/screen_idle.tres" id="32"]
+[ext_resource type="Script" path="res://debug/DebugOverlay.gd" id="28_vrg37"]
+[ext_resource type="Gradient" uid="uid://b71jutk4qdqv3" path="res://audio/visualizer/visualizer_gradient.tres" id="30_isxu8"]
 [ext_resource type="Animation" path="res://animations/character_talk.tres" id="34"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://d2cke0en16826" path="res://animations/game_state_tree.tres" id="35"]
 
@@ -867,14 +860,6 @@ _data = {
 "player_stand": SubResource("3873"),
 "player_stars_light_up": SubResource("3862"),
 "player_warp": SubResource("3864"),
-"screen_buckle_warning": ExtResource("25"),
-"screen_failure": ExtResource("26"),
-"screen_idle": ExtResource("32"),
-"screen_rainbow_wipe": ExtResource("29"),
-"screen_restart": ExtResource("31"),
-"screen_start": ExtResource("30"),
-"screen_success": ExtResource("27"),
-"screen_talk_visualizer": ExtResource("28"),
 "spaceship_blast_off": ExtResource("20"),
 "spaceship_warp": SubResource("3880")
 }
@@ -894,15 +879,14 @@ height = 64.0
 radius = 4.0
 height = 8.0
 
+[sub_resource type="GradientTexture2D" id="3844"]
+gradient = ExtResource("30_isxu8")
+
 [node name="Game" type="Node"]
 script = ExtResource("12")
 
 [node name="AudioVisualizer" parent="." instance=ExtResource("14")]
 waveform = SubResource("3836")
-min_frequency = 100.0
-max_frequency = 660.0
-max_db = -18.0
-min_db = -67.7
 response_curve = ExtResource("13")
 x_curve = SubResource("3835")
 y_curve = SubResource("3839")
@@ -911,7 +895,6 @@ a_curve = SubResource("3847")
 
 [node name="AudioStreamRecord" type="AudioStreamPlayer" parent="."]
 stream = SubResource("1")
-volume_db = 10.4654
 autoplay = true
 bus = &"Record"
 
@@ -934,11 +917,12 @@ render_target_update_mode = 4
 [node name="SpaceshipStateTree" type="AnimationTree" parent="SubViewportContainer/SubViewport"]
 tree_root = ExtResource("35")
 anim_player = NodePath("SpaceshipAnimation")
+active = true
 parameters/playback = SubResource("3877")
 
 [node name="SpaceshipAnimation" type="AnimationPlayer" parent="SubViewportContainer/SubViewport/SpaceshipStateTree"]
 root_node = NodePath("../..")
-playback_default_blend_time = 1.0
+reset_on_save = false
 libraries = {
 "": SubResource("AnimationLibrary_fx0od")
 }
@@ -946,6 +930,7 @@ libraries = {
 [node name="CharacterStateTree" type="AnimationTree" parent="SubViewportContainer/SubViewport"]
 tree_root = ExtResource("17")
 anim_player = NodePath("CharacterAnimation")
+active = true
 parameters/playback = SubResource("3871")
 
 [node name="CharacterAnimation" type="AnimationPlayer" parent="SubViewportContainer/SubViewport/CharacterStateTree"]
@@ -988,7 +973,7 @@ directional_shadow_max_distance = 25.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0162, 0)
 
 [node name="door" parent="SubViewportContainer/SubViewport/Spaceship/spaceship" index="6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(0.970025, 0, 0.243004, 0, 1, 0, -0.243004, 0, 0.970025, -0.00170398, 0.0493729, 0.623801)
 
 [node name="Primary" parent="SubViewportContainer/SubViewport/Spaceship" index="1"]
 light_energy = 0.021
@@ -998,30 +983,32 @@ light_color = Color(0.713726, 0.831373, 0.894118, 1)
 light_energy = 0.25
 
 [node name="Character" parent="SubViewportContainer/SubViewport" instance=ExtResource("9")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.6656, 2.10132, 5.55682)
+visible = false
 
 [node name="character" parent="SubViewportContainer/SubViewport/Character" index="0"]
-transform = Transform3D(0.996757, 0, 0.0804597, 0, 1, 0, -0.0804598, 0, 0.996756, 0, 0, 0)
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999998, 0, 0, 0)
 
 [node name="helmet" parent="SubViewportContainer/SubViewport/Character/character" index="0"]
-transform = Transform3D(0.993505, -0.0920662, -0.0668483, 0.0956236, 0.994051, 0.0521189, 0.0616522, -0.0581727, 0.9964, 0, 0.359375, 0)
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 0.359375, 0)
 
 [node name="face" parent="SubViewportContainer/SubViewport/Character/character/helmet" index="3"]
-transform = Transform3D(1, 9.31322e-10, 7.45058e-09, -9.31322e-10, 1, -7.45058e-09, -7.45058e-09, 7.45058e-09, 1, 0.00768932, 0.217194, 0.0399466)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00768932, 0.217194, 0.0399466)
 
 [node name="arm_right" parent="SubViewportContainer/SubViewport/Character/character" index="1"]
-transform = Transform3D(0.910434, 0.400251, -0.104441, -0.412166, 0.899161, -0.147065, 0.0350463, 0.176939, 0.983598, -0.203125, 0.296875, -2.32831e-10)
+transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 1, -0.203125, 0.296875, -2.32831e-10)
 
 [node name="arm_left" parent="SubViewportContainer/SubViewport/Character/character" index="2"]
-transform = Transform3D(0.91051, -0.413487, -0.00133677, 0.412812, 0.909199, -0.0542723, 0.0236563, 0.0488636, 0.998526, 0.25, 0.296875, 3.72529e-09)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0.296875, 3.72529e-09)
 
 [node name="forarm_left" parent="SubViewportContainer/SubViewport/Character/character/arm_left" index="0"]
-transform = Transform3D(0.999999, 1.4668e-08, 4.95794e-09, -1.54832e-08, 0.947344, 0.320213, -6.21724e-15, -0.320212, 0.947345, 0, -0.28125, -3.72529e-09)
+transform = Transform3D(0.999999, 0, 0, 0, 0.999998, 0, 0, 0, 0.999999, 0, -0.28125, -3.72529e-09)
 
 [node name="Player" parent="SubViewportContainer/SubViewport" instance=ExtResource("4")]
 distance_buffer = 1.4762
 
 [node name="Camera3D" parent="SubViewportContainer/SubViewport/Player" index="0"]
-transform = Transform3D(0.805126, 0.0753687, -0.588295, 4.09782e-08, 0.991893, 0.127075, 0.593104, -0.102312, 0.798599, -10.8537, 2.5, 7.2842)
+transform = Transform3D(0.805125, 0.0753689, -0.588296, 0, 0.991893, 0.127075, 0.593105, -0.102312, 0.798598, -10.8537, 2.5, 7.2842)
 
 [node name="PositionTarget" parent="SubViewportContainer/SubViewport/Player" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8537, 2.5, 7.2842)
@@ -1029,39 +1016,28 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8537, 2.5, 7.2842)
 [node name="LookTarget" parent="SubViewportContainer/SubViewport/Player" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.07119, 1.46695, 0.792042)
 
-[node name="DebugOverlay" parent="." instance=ExtResource("15")]
-visible = false
+[node name="DebugOverlay" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 0.0
-offset_bottom = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("28_vrg37")
 
-[node name="AudioWaveform" parent="DebugOverlay" index="0"]
+[node name="AudioWaveform" type="TextureRect" parent="DebugOverlay"]
 material = ExtResource("6")
-layout_mode = 0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -383.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = SubResource("3844")
 expand_mode = 1
-
-[node name="ProfilerOverlay" parent="DebugOverlay" index="1"]
-anchors_preset = 0
-
-[node name="Container" parent="DebugOverlay/ProfilerOverlay" index="0"]
-layout_mode = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 32.0
-offset_bottom = 0.0
-
-[node name="MonitorOverlay" parent="DebugOverlay/ProfilerOverlay/Container" index="0"]
-layout_mode = 2
 
 [editable path="SubViewportContainer/SubViewport/Spaceship"]
 [editable path="SubViewportContainer/SubViewport/Spaceship/spaceship/cockpit/monitor/seatbelt_indicator_right"]
@@ -1070,4 +1046,3 @@ layout_mode = 2
 [editable path="SubViewportContainer/SubViewport/Spaceship/spaceship/cockpit/monitor/fuel_gauge_left"]
 [editable path="SubViewportContainer/SubViewport/Character"]
 [editable path="SubViewportContainer/SubViewport/Player"]
-[editable path="DebugOverlay"]
