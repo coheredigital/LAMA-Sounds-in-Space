@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://b6vspvj5duwhd"]
+[gd_scene load_steps=41 format=3 uid="uid://b6vspvj5duwhd"]
 
 [ext_resource type="PackedScene" uid="uid://nxsh65jl2xhr" path="res://scenes/Spaceship.tscn" id="1"]
 [ext_resource type="Script" path="res://environments/Skybox.gd" id="2"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dny2niko855ch" path="res://entities/FollowCamera.tscn" id="4"]
 [ext_resource type="Environment" uid="uid://n48hdvn72r0x" path="res://environments/default_environment.tres" id="7"]
 [ext_resource type="PackedScene" uid="uid://d0xxc1roxyljw" path="res://scenes/Character.tscn" id="9"]
+[ext_resource type="AnimationLibrary" uid="uid://d2f01mgprslsv" path="res://animations/libraries/character.tres" id="10_1vlm6"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://dc7tyssjir7o5" path="res://animations/player_state_tree.tres" id="10_cyoaw"]
 [ext_resource type="Animation" uid="uid://bm7a1rt28cj83" path="res://animations/door_open.tres" id="11"]
 [ext_resource type="Script" path="res://Game.gd" id="12"]
@@ -19,7 +20,6 @@
 [ext_resource type="Animation" uid="uid://bml0t36wqp101" path="res://animations/player_blast_off.tres" id="20"]
 [ext_resource type="Animation" uid="uid://grv0nxwf0k58" path="res://animations/door_close.tres" id="21"]
 [ext_resource type="Animation" uid="uid://gpkkbohlfd4e" path="res://animations/player_enter_spaceship.tres" id="22"]
-[ext_resource type="Animation" path="res://animations/character_idle.tres" id="23"]
 [ext_resource type="Animation" uid="uid://coglgp5b7vyud" path="res://animations/player_approach_spaceship.tres" id="24"]
 [ext_resource type="PackedScene" uid="uid://dt1vpkmuodkmu" path="res://models/space_station.gltf" id="24_jjdm8"]
 [ext_resource type="Script" path="res://debug/DebugOverlay.gd" id="28_vrg37"]
@@ -28,6 +28,7 @@
 [sub_resource type="AnimationNodeStateMachinePlayback" id="3877"]
 
 [sub_resource type="Animation" id="3817"]
+resource_name = "RESET"
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -841,11 +842,6 @@ _data = {
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="3871"]
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ftlau"]
-_data = {
-"character_idle": ExtResource("23")
-}
-
 [sub_resource type="SphereMesh" id="3821"]
 radius = 64.0
 height = 64.0
@@ -885,7 +881,8 @@ parameters/playback = SubResource("3877")
 root_node = NodePath("../..")
 reset_on_save = false
 libraries = {
-"": SubResource("AnimationLibrary_fx0od")
+"": SubResource("AnimationLibrary_fx0od"),
+"character": ExtResource("10_1vlm6")
 }
 
 [node name="PlayerStateTree" type="AnimationTree" parent="SubViewportContainer/SubViewport"]
@@ -911,7 +908,7 @@ parameters/playback = SubResource("3871")
 root_node = NodePath("../..")
 autoplay = "character_idle"
 libraries = {
-"": SubResource("AnimationLibrary_ftlau")
+"character_animation_library": ExtResource("10_1vlm6")
 }
 
 [node name="Environment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport"]
@@ -970,6 +967,7 @@ light_color = Color(0.713726, 0.831373, 0.894118, 1)
 light_energy = 0.25
 
 [node name="Character" parent="SubViewportContainer/SubViewport" instance=ExtResource("9")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="character" parent="SubViewportContainer/SubViewport/Character" index="0"]
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999998, 0, 0, 0)
@@ -993,7 +991,7 @@ transform = Transform3D(0.999999, 0, 0, 0, 0.999998, 0, 0, 0, 0.999999, 0, -0.28
 distance_buffer = 1.4762
 
 [node name="Camera3D" parent="SubViewportContainer/SubViewport/Player" index="0"]
-transform = Transform3D(0.805127, 0.0753686, -0.588295, -2.23517e-08, 0.991893, 0.127075, 0.593103, -0.102311, 0.7986, -10.8537, 2.5, 7.2842)
+transform = Transform3D(0.805126, 0.0753688, -0.588296, 1.19209e-07, 0.991893, 0.127075, 0.593104, -0.102312, 0.798599, -10.8537, 2.5, 7.2842)
 
 [node name="PositionTarget" parent="SubViewportContainer/SubViewport/Player" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8537, 2.5, 7.2842)

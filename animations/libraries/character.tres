@@ -1,0 +1,314 @@
+[gd_resource type="AnimationLibrary" load_steps=7 format=3 uid="uid://d2f01mgprslsv"]
+
+[sub_resource type="Animation" id="Animation_8x5ke"]
+resource_name = "character_enter_spaceship"
+length = 2.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Character:rotation_degrees")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(3.10613, 153.113, -3.45269), Vector3(3.10613, 50.9068, -3.45269)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Character:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.26852, 1.9061, 2.45102), Vector3(-1.26852, 1.9061, -0.802084)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Character:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_337ay"]
+resource_name = "character_sitdown"
+length = 2.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Character:rotation_degrees")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(3.10613, 156.29, -3.45269)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Character:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.613001, 1.63601, -1.72642)]
+}
+
+[sub_resource type="Animation" id="Animation_o2ocl"]
+resource_name = "character_stand"
+length = 2.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Character:rotation_degrees")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(3.10613, 50.0592, -3.45269)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Character:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.478049, 1.9061, -1.93671)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Character:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_k7arm"]
+resource_name = "character_talk"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Character/character/helmet:rotation_degrees")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 1.05, 1.84, 2.04831, 2.32, 2.57, 2.81, 3.1, 3.58378, 4.24),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-2.98755, -3.83821, 5.49471), Vector3(-3.38524, 4.29151, -1.49945), Vector3(2.6828, 2.5232, -0.2232), Vector3(-3.38524, 4.29151, -1.49945), Vector3(-6.46243, 5.11161, -2.03858), Vector3(6.20206, 5.77078, -2.9698), Vector3(-6.46243, 5.11161, -2.03858), Vector3(-3.38524, 4.29151, -1.49945), Vector3(6.27315, 7.29077, -3.84376), Vector3(-3.38524, 4.29151, -1.49945)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Character/character/helmet/face:rotation_degrees")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.29, 2.28, 2.56, 3.52, 4.42),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(4.26887e-07, 4.26887e-07, -5.33608e-08), Vector3(1.0958, -5.873, 0), Vector3(4.26887e-07, 4.26887e-07, -5.33608e-08), Vector3(9.1647, 0, 0), Vector3(4.26887e-07, 4.26887e-07, -5.33608e-08), Vector3(-3.868, 4.39514e-07, -1.87189e-07)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Character/character:rotation_degrees")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.93, 3.12),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 4.615, 0), Vector3(0, -6.2692, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Character/character/arm_left:rotation_degrees")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.39, 1.14),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(3.1111, -0.0767045, 24.4199), Vector3(14.4125, 5.20044, 25.2282), Vector3(14.4125, 5.20044, 25.2282)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Character/character/arm_right:rotation_degrees")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.14),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(8.45685, -6.06109, -24.6262)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Character/character/arm_left/forarm_left:rotation_degrees")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1.98, 3.28),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-18.6758, 2.99858e-07, -9.36432e-07), Vector3(-75.3451, -180, 180)]
+}
+
+[sub_resource type="Animation" id="Animation_gqqnu"]
+resource_name = "RESET"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Character:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-10.6656, 2.10132, 5.55682)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Character:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Character:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_syqud"]
+resource_name = "idle"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Character/character/helmet:rotation_degrees")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 1.05, 1.84, 2.04831, 2.32, 2.57, 2.81, 3.1, 3.58378, 4.24),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-2.98755, -3.83821, 5.49471), Vector3(-3.38524, 4.29151, -1.49945), Vector3(2.6828, 2.5232, -0.2232), Vector3(-3.38524, 4.29151, -1.49945), Vector3(-6.46243, 5.11161, -2.03858), Vector3(6.20206, 5.77078, -2.9698), Vector3(-6.46243, 5.11161, -2.03858), Vector3(-3.38524, 4.29151, -1.49945), Vector3(6.27315, 7.29077, -3.84376), Vector3(-3.38524, 4.29151, -1.49945)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Character/character/helmet/face:rotation_degrees")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.29, 2.28, 2.56, 3.52, 4.42),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(4.26887e-07, 4.26887e-07, -5.33608e-08), Vector3(1.0958, -5.873, 0), Vector3(4.26887e-07, 4.26887e-07, -5.33608e-08), Vector3(9.1647, 0, 0), Vector3(4.26887e-07, 4.26887e-07, -5.33608e-08), Vector3(-3.868, 4.39514e-07, -1.87189e-07)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Character/character:rotation_degrees")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.93, 3.12),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 4.615, 0), Vector3(0, -6.2692, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Character/character/arm_left:rotation_degrees")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.39, 1.14),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(3.1111, -0.0767045, 24.4199), Vector3(14.4125, 5.20044, 25.2282), Vector3(14.4125, 5.20044, 25.2282)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Character/character/arm_right:rotation_degrees")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.14),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(8.45685, -6.06109, -24.6262)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Character/character/arm_left/forarm_left:rotation_degrees")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1.98, 3.28),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-18.6758, 2.99858e-07, -9.36432e-07), Vector3(-75.3451, -180, 180)]
+}
+
+[resource]
+_data = {
+"RESET": SubResource("Animation_gqqnu"),
+"character_enter_spaceship": SubResource("Animation_8x5ke"),
+"character_sitdown": SubResource("Animation_337ay"),
+"character_stand": SubResource("Animation_o2ocl"),
+"character_talk": SubResource("Animation_k7arm"),
+"idle": SubResource("Animation_syqud")
+}
