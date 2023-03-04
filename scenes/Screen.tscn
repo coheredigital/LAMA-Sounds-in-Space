@@ -1,28 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://dh8quj5s64lwf"]
+[gd_scene load_steps=11 format=3 uid="uid://dh8quj5s64lwf"]
 
 [ext_resource type="AnimationNodeStateMachine" uid="uid://bgas77vb0vl6b" path="res://animations/screen_state_tree.tres" id="1"]
+[ext_resource type="Material" uid="uid://dq31s8oqcc7ap" path="res://materials/dashboard_material.tres" id="2"]
 [ext_resource type="PackedScene" uid="uid://d0dbntvucna2x" path="res://models/screen.gltf" id="3"]
-[ext_resource type="Texture2D" uid="uid://bnfo0b752cn10" path="res://materials/textures/dashboard_emission.png" id="5_2oce5"]
 [ext_resource type="AnimationLibrary" uid="uid://dywe6iokyofm1" path="res://animations/libraries/screen.tres" id="5_iprh1"]
 [ext_resource type="Material" uid="uid://bmbvqwm8rojy2" path="res://audio/visualizer/visualizer_screen_material.tres" id="5_yex72"]
-[ext_resource type="Gradient" uid="uid://b71jutk4qdqv3" path="res://audio/visualizer/visualizer_gradient.tres" id="6_fy1cl"]
-[ext_resource type="Shader" path="res://materials/shaders/dashboard_screens.gdshader" id="11"]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="1"]
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_y0k56"]
-gradient = ExtResource("6_fy1cl")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7omks"]
-render_priority = 0
-shader = ExtResource("11")
-shader_parameter/emission_energy = 1.0
-shader_parameter/alpha = 1.0
-shader_parameter/waveform_controlled = false
-shader_parameter/screen_number = 1.0
-shader_parameter/frame_number = 1.0
-shader_parameter/emission_texture = ExtResource("5_2oce5")
-shader_parameter/waveform = SubResource("GradientTexture1D_y0k56")
 
 [sub_resource type="Image" id="Image_dwvyi"]
 data = {
@@ -76,7 +60,7 @@ libraries = {
 }
 
 [node name="screen" parent="." index="1"]
-surface_material_override/0 = SubResource("ShaderMaterial_7omks")
+surface_material_override/0 = ExtResource("2")
 
 [node name="visualizer_screen" type="MeshInstance3D" parent="." index="2"]
 transform = Transform3D(1, 0, 0, 0, 0.99583, -0.0912235, 0, 0.0912235, 0.99583, 0, 0.134981, 0.131099)

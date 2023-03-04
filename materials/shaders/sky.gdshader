@@ -1,8 +1,6 @@
 shader_type spatial;
 render_mode cull_front, shadows_disabled, diffuse_lambert_wrap, depth_draw_always;
 
-
-const float PI = 3.14159265359;
 const float STEPS_FACTOR = 8.0;
 const float HORIZON_OFFSET = 0.05;
 const vec2 NOISE_Z_OFFSET = vec2(0.317, 0.123);

@@ -64,6 +64,8 @@ switch_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="3918"]
 
 [resource]
+states/End/position = Vector2(305, 7)
+states/Start/position = Vector2(305, -76)
 states/screen_buckle_warning/node = SubResource("3919")
 states/screen_buckle_warning/position = Vector2(905, -299)
 states/screen_failure/node = SubResource("3910")
