@@ -3,12 +3,6 @@ extends Node
 @onready var viewport := get_node('/root')
 
 
-
-func _ready():
-	var dialogue_resource = preload("res://dialogue/test_dialogue.tres")
-	DialogueManager.show_example_dialogue_balloon("this_is_a_node_title", dialogue_resource)
-	get_window().set_current_screen(1)
-
 func _unhandled_input(event):
 	if event.is_action_pressed("screenshot"):
 		var time = Time.get_datetime_dict_from_system()

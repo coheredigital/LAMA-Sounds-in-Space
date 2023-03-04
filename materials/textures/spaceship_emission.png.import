@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dlds511n0al4j"
-path.s3tc="res://.godot/imported/spaceship_emission.png-fe8d9b4823a9c254ca442dc0f2637fcc.s3tc.ctex"
+path="res://.godot/imported/spaceship_emission.png-fe8d9b4823a9c254ca442dc0f2637fcc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://materials/textures/spaceship_emission.png"
-dest_files=["res://.godot/imported/spaceship_emission.png-fe8d9b4823a9c254ca442dc0f2637fcc.s3tc.ctex"]
+dest_files=["res://.godot/imported/spaceship_emission.png-fe8d9b4823a9c254ca442dc0f2637fcc.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
@@ -24,7 +23,7 @@ compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=0
+roughness/mode=1
 roughness/src_normal=""
 process/fix_alpha_border=false
 process/premult_alpha=false

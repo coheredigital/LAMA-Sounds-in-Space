@@ -1,8 +1,8 @@
 [gd_resource type="Environment" load_steps=4 format=3 uid="uid://n48hdvn72r0x"]
 
 [sub_resource type="Gradient" id="25"]
-offsets = PackedFloat32Array(0.00653595, 0.473856, 0.748366, 0.888889, 1)
-colors = PackedColorArray(0.0167847, 0, 0.214844, 1, 0.556512, 0.463816, 0.579012, 1, 0.816962, 0.766876, 0.779789, 1, 0.919178, 0.904319, 0.897062, 1, 1, 1, 1, 1)
+offsets = PackedFloat32Array(0.00653595, 0.351852, 0.696296, 0.888889, 1)
+colors = PackedColorArray(0.081175, 0.0731, 0.17, 1, 0.381126, 0.389304, 0.5679, 1, 0.82, 0.779, 0.78925, 1, 0.92, 0.92, 0.92, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="24"]
 gradient = SubResource("25")
@@ -25,7 +25,7 @@ glow_levels/5 = 0.0
 glow_intensity = 0.2
 glow_bloom = 0.5
 glow_blend_mode = 1
-fog_enabled = true
+volumetric_fog_density = 0.0774
 adjustment_enabled = true
-adjustment_contrast = 1.06
+adjustment_saturation = 1.02
 adjustment_color_correction = SubResource("24")

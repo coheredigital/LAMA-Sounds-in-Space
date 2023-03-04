@@ -3,11 +3,11 @@ render_mode depth_draw_opaque, diffuse_toon, cull_disabled;
 
 uniform float emission_energy : hint_range(0.0, 2.0, 0.1) = 1.0;
 uniform float alpha : hint_range(0.0, 1.0) = 1.0;
-uniform sampler2D emission_texture : hint_default_black;
+uniform sampler2D emission_texture : hint_default_black, filter_nearest;
 const vec2 resolution = vec2(16.0,32.0);
 const int pixel_size = 1;
-uniform sampler2D waveform : hint_default_black;
-uniform sampler2D waveform_amp_curve : hint_default_white;
+uniform sampler2D waveform : hint_default_black, filter_nearest;
+uniform sampler2D waveform_amp_curve : hint_default_white, filter_nearest;
 uniform bool waveform_controlled = false;
 
 const float screen_count = 16.0;

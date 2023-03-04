@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://xhklnrh5d05r"
-path.s3tc="res://.godot/imported/space_station_albedo.png-7365dbdb029f3734904d32ed0e14f1d2.s3tc.ctex"
+path="res://.godot/imported/space_station_albedo.png-7365dbdb029f3734904d32ed0e14f1d2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://materials/textures/space_station_albedo.png"
-dest_files=["res://.godot/imported/space_station_albedo.png-7365dbdb029f3734904d32ed0e14f1d2.s3tc.ctex"]
+dest_files=["res://.godot/imported/space_station_albedo.png-7365dbdb029f3734904d32ed0e14f1d2.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
@@ -24,7 +23,7 @@ compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=0
+roughness/mode=1
 roughness/src_normal=""
 process/fix_alpha_border=false
 process/premult_alpha=false
