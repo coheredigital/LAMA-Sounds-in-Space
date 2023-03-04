@@ -1,10 +1,12 @@
-[gd_scene load_steps=41 format=3 uid="uid://b6vspvj5duwhd"]
+[gd_scene load_steps=42 format=3 uid="uid://b6vspvj5duwhd"]
 
 [ext_resource type="PackedScene" uid="uid://nxsh65jl2xhr" path="res://scenes/Spaceship.tscn" id="1"]
 [ext_resource type="Script" path="res://environments/Skybox.gd" id="2"]
+[ext_resource type="AnimationNodeStateMachine" uid="uid://c4k44s0dh3440" path="res://animations/spaceship_state_tree.tres" id="2_f6ot1"]
 [ext_resource type="PackedScene" uid="uid://dny2niko855ch" path="res://entities/FollowCamera.tscn" id="4"]
 [ext_resource type="Environment" uid="uid://n48hdvn72r0x" path="res://environments/default_environment.tres" id="7"]
 [ext_resource type="PackedScene" uid="uid://d0xxc1roxyljw" path="res://scenes/Character.tscn" id="9"]
+[ext_resource type="AnimationNodeStateMachine" uid="uid://dc7tyssjir7o5" path="res://animations/player_state_tree.tres" id="10_cyoaw"]
 [ext_resource type="Animation" uid="uid://bm7a1rt28cj83" path="res://animations/door_open.tres" id="11"]
 [ext_resource type="Script" path="res://Game.gd" id="12"]
 [ext_resource type="PackedScene" uid="uid://duf16wnc1pvjm" path="res://audio/visualizer/AudioVisualizer.tscn" id="14"]
@@ -22,7 +24,6 @@
 [ext_resource type="PackedScene" uid="uid://dt1vpkmuodkmu" path="res://models/space_station.gltf" id="24_jjdm8"]
 [ext_resource type="Script" path="res://debug/DebugOverlay.gd" id="28_vrg37"]
 [ext_resource type="Animation" path="res://animations/character_talk.tres" id="34"]
-[ext_resource type="AnimationNodeStateMachine" uid="uid://d2cke0en16826" path="res://animations/game_state_tree.tres" id="35"]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="3877"]
 
@@ -875,7 +876,7 @@ size = Vector2i(1280, 800)
 render_target_update_mode = 4
 
 [node name="SpaceshipStateTree" type="AnimationTree" parent="SubViewportContainer/SubViewport"]
-tree_root = ExtResource("35")
+tree_root = ExtResource("2_f6ot1")
 anim_player = NodePath("SpaceshipAnimation")
 active = true
 parameters/playback = SubResource("3877")
@@ -888,8 +889,9 @@ libraries = {
 }
 
 [node name="PlayerStateTree" type="AnimationTree" parent="SubViewportContainer/SubViewport"]
-tree_root = ExtResource("35")
+tree_root = ExtResource("10_cyoaw")
 anim_player = NodePath("PlayerAnimation")
+active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_sq7i4")
 
 [node name="PlayerAnimation" type="AnimationPlayer" parent="SubViewportContainer/SubViewport/PlayerStateTree"]
@@ -938,7 +940,7 @@ surface_material_override/0 = ExtResource("15_3ufj4")
 
 [node name="WorldLight" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/Environment"]
 transform = Transform3D(0.93358, -0.260828, 0.245757, 0, 0.685768, 0.727821, -0.358368, -0.679479, 0.640219, 0, 9.46133, 0)
-light_energy = 0.05
+light_energy = 0.15
 shadow_bias = 0.007
 directional_shadow_max_distance = 25.0
 
@@ -991,13 +993,13 @@ transform = Transform3D(0.999999, 0, 0, 0, 0.999998, 0, 0, 0, 0.999999, 0, -0.28
 distance_buffer = 1.4762
 
 [node name="Camera3D" parent="SubViewportContainer/SubViewport/Player" index="0"]
-transform = Transform3D(0.999986, -0.000733177, -0.00514876, -8.73115e-11, 0.990013, -0.140977, 0.0052007, 0.140975, 0.99, -0.0837803, 2.21405, -0.52231)
+transform = Transform3D(0.805127, 0.0753686, -0.588295, -2.23517e-08, 0.991893, 0.127075, 0.593103, -0.102311, 0.7986, -10.8537, 2.5, 7.2842)
 
 [node name="PositionTarget" parent="SubViewportContainer/SubViewport/Player" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0837803, 2.21405, -0.52231)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8537, 2.5, 7.2842)
 
 [node name="LookTarget" parent="SubViewportContainer/SubViewport/Player" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0715632, 2.54856, -2.87139)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.07119, 1.46695, 0.792042)
 
 [node name="DebugOverlay" type="Control" parent="."]
 layout_mode = 3

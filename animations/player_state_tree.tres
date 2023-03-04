@@ -1,0 +1,48 @@
+[gd_resource type="AnimationNodeStateMachine" load_steps=11 format=3 uid="uid://dc7tyssjir7o5"]
+
+[sub_resource type="AnimationNodeAnimation" id="3858"]
+animation = &"player_approach_spaceship"
+
+[sub_resource type="AnimationNodeAnimation" id="3859"]
+animation = &"player_enter_spaceship"
+
+[sub_resource type="AnimationNodeAnimation" id="3863"]
+animation = &"player_landing"
+
+[sub_resource type="AnimationNodeAnimation" id="3910"]
+animation = &"player_sit"
+
+[sub_resource type="AnimationNodeAnimation" id="3889"]
+animation = &"spaceship_warp"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="3911"]
+xfade_time = 1.03
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_k2pm5"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ybi8p"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5ws5a"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="3909"]
+xfade_time = 3.43
+switch_mode = 2
+
+[resource]
+states/End/position = Vector2(1431, 155)
+states/Start/position = Vector2(-441, 155)
+states/approach_spaceship/node = SubResource("3858")
+states/approach_spaceship/position = Vector2(-210, 155)
+states/enter_spaceship/node = SubResource("3859")
+states/enter_spaceship/position = Vector2(31, 155)
+states/landing/node = SubResource("3863")
+states/landing/position = Vector2(1274, 155)
+states/player_sit/node = SubResource("3910")
+states/player_sit/position = Vector2(267, 155)
+states/warp/node = SubResource("3889")
+states/warp/position = Vector2(1109, 155)
+transitions = ["enter_spaceship", "player_sit", SubResource("3911"), "Start", "approach_spaceship", SubResource("AnimationNodeStateMachineTransition_k2pm5"), "approach_spaceship", "enter_spaceship", SubResource("AnimationNodeStateMachineTransition_ybi8p"), "landing", "End", SubResource("AnimationNodeStateMachineTransition_5ws5a"), "warp", "landing", SubResource("3909")]
+graph_offset = Vector2(-742, -100)
