@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dqsidw6vc75j6"]
+[gd_scene load_steps=9 format=3 uid="uid://dqsidw6vc75j6"]
 
 [ext_resource type="PackedScene" uid="uid://7korg2mlql37" path="res://models/controls.gltf" id="1"]
+[ext_resource type="Material" uid="uid://ckygswr2hy4" path="res://materials/cockpit_material.tres" id="2"]
 
 [sub_resource type="Animation" id="1"]
 length = 0.001
@@ -19,6 +20,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="2"]
 resource_name = "shake"
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -44,7 +46,7 @@ animation = &"shake"
 [sub_resource type="AnimationNodeTimeScale" id="4"]
 
 [sub_resource type="AnimationNodeBlendTree" id="5"]
-graph_offset = Vector2(0, -68)
+graph_offset = Vector2(-186.792, -123.942)
 nodes/Animation/node = SubResource("3")
 nodes/Animation/position = Vector2(60, 140)
 nodes/TimeScale/node = SubResource("4")
@@ -56,6 +58,7 @@ node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Animation"]
 
 [node name="controls" parent="." index="0"]
 transform = Transform3D(0.990622, -0.136627, 0, 0.136306, 0.988296, 0.0684924, -0.00935789, -0.0678501, 0.997652, 0, 0, 0)
+surface_material_override/0 = ExtResource("2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
 autoplay = "shake"

@@ -1,15 +1,34 @@
-[gd_scene load_steps=6 format=3 uid="uid://nxsh65jl2xhr"]
+[gd_scene load_steps=9 format=3 uid="uid://nxsh65jl2xhr"]
 
 [ext_resource type="PackedScene" uid="uid://ctjlmbopaw2sa" path="res://models/spaceship.gltf" id="1_m17hk"]
 [ext_resource type="PackedScene" uid="uid://dqsidw6vc75j6" path="res://scenes/SpaceshipControls.tscn" id="2"]
+[ext_resource type="Material" uid="uid://f5pa0k1ded3i" path="res://materials/spaceship_material.tres" id="2_w5ycv"]
 [ext_resource type="PackedScene" path="res://scenes/Screen.tscn" id="3"]
+[ext_resource type="Material" path="res://materials/spaceship_alpha_material.tres" id="3_ngcse"]
 [ext_resource type="PackedScene" uid="uid://b4v1gc27survw" path="res://models/seatbelt_indicator.gltf" id="4"]
+[ext_resource type="Material" uid="uid://ckygswr2hy4" path="res://materials/cockpit_material.tres" id="4_iw4ep"]
 [ext_resource type="PackedScene" uid="uid://dycuy65u4jvdb" path="res://models/fuel_gauge.gltf" id="6"]
 
 [node name="spaceship" instance=ExtResource("1_m17hk")]
 
+[node name="spaceship" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_w5ycv")
+surface_material_override/1 = ExtResource("3_ngcse")
+
+[node name="cockpit" parent="spaceship" index="0"]
+surface_material_override/0 = ExtResource("4_iw4ep")
+
 [node name="SpaceshipControls" parent="spaceship/cockpit" index="0" instance=ExtResource("2")]
 transform = Transform3D(1, -5.58794e-09, 7.45058e-09, 0, 1, 0, 7.45058e-09, 7.45058e-09, 1, 0.638572, 0.641412, -1.82653)
+
+[node name="seat_left" parent="spaceship/cockpit" index="1"]
+surface_material_override/0 = ExtResource("4_iw4ep")
+
+[node name="seat_right" parent="spaceship/cockpit" index="2"]
+surface_material_override/0 = ExtResource("4_iw4ep")
+
+[node name="monitor" parent="spaceship/cockpit" index="3"]
+surface_material_override/0 = ExtResource("4_iw4ep")
 
 [node name="Screen" parent="spaceship/cockpit/monitor" index="0" instance=ExtResource("3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.026207, -0.0273583)
