@@ -1,4 +1,4 @@
-[gd_resource type="AnimationLibrary" load_steps=5 format=3 uid="uid://dip5qx70rf0l0"]
+[gd_resource type="AnimationLibrary" load_steps=7 format=3 uid="uid://dip5qx70rf0l0"]
 
 [sub_resource type="Animation" id="Animation_ej8lj"]
 resource_name = "RESET"
@@ -676,10 +676,82 @@ tracks/2/keys = {
 "values": [0.15, 0.05]
 }
 
+[sub_resource type="Animation" id="Animation_u1waw"]
+resource_name = "player_sit"
+length = 2.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player/LookTarget:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.224004, 2.43433, -2.87139)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player/PositionTarget:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.294017, 2.22313, -0.854775)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Character:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_y3auc"]
+resource_name = "player_stand"
+length = 2.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player/LookTarget:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.0715632, 2.54856, -2.87139)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player/PositionTarget:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.0837799, 2.21405, -0.52231)]
+}
+
 [resource]
 _data = {
 "RESET": SubResource("Animation_ej8lj"),
 "player_approach_spaceship": SubResource("Animation_ch716"),
 "player_enter_spaceship": SubResource("Animation_2aauk"),
+"player_sit": SubResource("Animation_u1waw"),
+"player_stand": SubResource("Animation_y3auc"),
 "spaceship_blast_off": SubResource("Animation_hqq03")
 }

@@ -4,28 +4,28 @@
 animation = &"screen_buckle_warning"
 
 [sub_resource type="AnimationNodeAnimation" id="3910"]
-animation = &"screen_failure"
+animation = &"screen/screen_failure"
 
 [sub_resource type="AnimationNodeAnimation" id="3891"]
-animation = &"screen_idle"
+animation = &"screen/idle"
 
 [sub_resource type="AnimationNodeAnimation" id="3892"]
-animation = &"screen_rainbow_wipe"
+animation = &"screen/screen_rainbow_wipe"
 
 [sub_resource type="AnimationNodeAnimation" id="3900"]
-animation = &"screen_restart"
+animation = &"screen/screen_restart"
 
 [sub_resource type="AnimationNodeAnimation" id="3901"]
-animation = &"screen_start"
+animation = &"screen/screen_start"
 
 [sub_resource type="AnimationNodeAnimation" id="3902"]
-animation = &"screen_success"
+animation = &"screen/screen_success"
 
 [sub_resource type="AnimationNodeAnimation" id="3893"]
-animation = &"screen_talk_visualizer"
+animation = &"screen/screen_talk_visualizer"
 
 [sub_resource type="AnimationNodeAnimation" id="3914"]
-animation = &"screen_visualizer"
+animation = &"screen/screen_visualizer"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="3896"]
 switch_mode = 2
@@ -81,6 +81,6 @@ states/screen_success/position = Vector2(1002, 20)
 states/screen_talk_visualizer/node = SubResource("3893")
 states/screen_talk_visualizer/position = Vector2(727, -175)
 states/screen_visualizer/node = SubResource("3914")
-states/screen_visualizer/position = Vector2(476, -175)
+states/screen_visualizer/position = Vector2(475, -175)
 transitions = ["screen_reset", "screen_talk_visualizer", SubResource("3896"), "screen_talk_visualizer", "screen_reset", SubResource("3897"), "screen_reset", "screen_success", SubResource("3903"), "screen_success", "screen_reset", SubResource("3904"), "screen_reset", "screen_restart", SubResource("3905"), "screen_restart", "screen_reset", SubResource("3906"), "screen_reset", "screen_start", SubResource("3907"), "screen_start", "screen_reset", SubResource("3908"), "screen_reset", "screen_failure", SubResource("3911"), "screen_failure", "screen_reset", SubResource("3912"), "screen_reset", "screen_visualizer", SubResource("3915"), "screen_visualizer", "screen_reset", SubResource("3916"), "screen_reset", "screen_idle", SubResource("3917"), "screen_idle", "screen_reset", SubResource("3918")]
 graph_offset = Vector2(114, -285)

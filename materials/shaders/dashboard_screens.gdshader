@@ -6,8 +6,7 @@ uniform float alpha : hint_range(0.0, 1.0) = 1.0;
 uniform sampler2D emission_texture : hint_default_black, filter_nearest;
 const vec2 resolution = vec2(16.0,32.0);
 const int pixel_size = 1;
-uniform sampler2D waveform : hint_default_black, filter_nearest;
-uniform sampler2D waveform_amp_curve : hint_default_white, filter_nearest;
+uniform sampler2D waveform : hint_default_black;
 uniform bool waveform_controlled = false;
 
 const float screen_count = 16.0;
@@ -48,9 +47,8 @@ void fragment() {
 			float waveform_top;
 			waveform_top = max(waveform_left, waveform_top);
 			waveform_top = max(waveform_right, waveform_top);
-			waveform_top = texture(waveform_amp_curve, vec2(waveform_top)).x; 
 			
-			float waveform_bottom = texture(waveform_amp_curve, vec2(waveform_y)).x; 
+			float waveform_bottom = waveform_y; 
 			float mouth_mask = step(frame_size.y * 0.57, UV.y);
 			offset.y = mix(
 				frame_size.y * round(mix(0.0,3.0,waveform_bottom)),
