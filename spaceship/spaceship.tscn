@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3]
+[gd_scene load_steps=14 format=3 uid="uid://v0b6hpr1fqrh"]
 
 [ext_resource type="PackedScene" uid="uid://ctjlmbopaw2sa" path="res://spaceship/spaceship.gltf" id="1_m17hk"]
 [ext_resource type="PackedScene" path="res://spaceship/dashboard/controls.tscn" id="2"]
@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://blh6lqd5lgsgr" path="res://spaceship/dashboard/screen.tscn" id="3"]
 [ext_resource type="Material" path="res://spaceship/spaceship_alpha_material.tres" id="3_ngcse"]
 [ext_resource type="PackedScene" uid="uid://b4v1gc27survw" path="res://spaceship/dashboard/seatbelt_indicator.gltf" id="4"]
-[ext_resource type="Material" uid="uid://ckygswr2hy4" path="res://materials/cockpit_material.tres" id="4_iw4ep"]
+[ext_resource type="Material" path="res://materials/cockpit_material.tres" id="4_iw4ep"]
 [ext_resource type="PackedScene" uid="uid://dycuy65u4jvdb" path="res://spaceship/dashboard/fuel_gauge.gltf" id="6"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://cm4elcyqbcvrn" path="res://animations/door_state_machine.tres" id="10_csjlb"]
 
@@ -48,7 +48,6 @@ _data = {
 
 [node name="spaceship" instance=ExtResource("1_m17hk")]
 script = ExtResource("2_mfp30")
-door_open = true
 
 [node name="spaceship" parent="." index="0"]
 surface_material_override/0 = ExtResource("2_w5ycv")
@@ -100,6 +99,7 @@ surface_material_override/0 = ExtResource("2_w5ycv")
 surface_material_override/0 = ExtResource("2_w5ycv")
 
 [node name="door" parent="spaceship" index="6"]
+transform = Transform3D(0.970025, 0, 0.243004, 0, 1, 0, -0.243004, 0, 0.970025, -0.00170398, 0.0493729, 0.623801)
 surface_material_override/0 = ExtResource("2_w5ycv")
 
 [node name="Primary" type="SpotLight3D" parent="." index="1"]
