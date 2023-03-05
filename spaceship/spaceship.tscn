@@ -128,7 +128,7 @@ unique_name_in_owner = true
 transform = Transform3D(1, -5.58794e-09, 7.45058e-09, 0, 1, 0, 7.45058e-09, 7.45058e-09, 1, 0.638572, 0.641412, -1.82653)
 
 [node name="controls" type="MeshInstance3D" parent="spaceship/cockpit/SpaceshipControls" index="0"]
-transform = Transform3D(0.997615, 0.020161, -0.0659976, -0.013461, 0.994852, 0.100432, 0.0676826, -0.0993042, 0.992753, 0, 0, 0)
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_tvpo8")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("4_iw4ep")
@@ -173,7 +173,7 @@ surface_material_override/0 = ExtResource("2_w5ycv")
 surface_material_override/0 = ExtResource("2_w5ycv")
 
 [node name="door" parent="spaceship" index="6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(0.999964, 0, -0.00853466, 0, 1, 0, 0.00853466, 0, 0.999964, 0.160476, 0.0378181, -0.0255883)
 surface_material_override/0 = ExtResource("2_w5ycv")
 
 [node name="Primary" type="SpotLight3D" parent="." index="1"]
@@ -212,6 +212,7 @@ parameters/TimeScale/scale = 0.11
 unique_name_in_owner = true
 tree_root = ExtResource("10_csjlb")
 anim_player = NodePath("../AnimationPlayer")
+active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_682o1")
 
 [editable path="spaceship/cockpit/monitor/seatbelt_indicator_right"]
