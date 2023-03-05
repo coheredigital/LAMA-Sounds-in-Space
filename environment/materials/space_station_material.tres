@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=5 format=3]
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://m6eohmc4l2ko"]
 
 [ext_resource type="Texture2D" uid="uid://xhklnrh5d05r" path="res://environment/materials/space_station_albedo.png" id="1"]
 [ext_resource type="Texture2D" uid="uid://cwoinpuvn65ta" path="res://shaders/textures/diffuse_curve.png" id="2"]

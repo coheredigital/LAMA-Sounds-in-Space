@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3]
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cxxgwjiqio47k"]
 
 [ext_resource type="Shader" path="res://shaders/sky.gdshader" id="1_u5r7i"]
 [ext_resource type="Texture2D" uid="uid://chi543cmhk70i" path="res://environment/textures/stars_albedo.png" id="2_mbfif"]

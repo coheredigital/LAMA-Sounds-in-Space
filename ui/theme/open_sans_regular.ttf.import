@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://ws28qj31t3sr"
-path="res://.godot/imported/OpenSans-Regular.ttf-a367bd5550f12b3701ac05d7584df40a.fontdata"
+path="res://.godot/imported/open_sans_regular.ttf-353771d0a34f0b99413b27da903e2987.fontdata"
 
 [deps]
 
-source_file="res://ui/theme/OpenSans-Regular.ttf"
-dest_files=["res://.godot/imported/OpenSans-Regular.ttf-a367bd5550f12b3701ac05d7584df40a.fontdata"]
+source_file="res://ui/theme/open_sans_regular.ttf"
+dest_files=["res://.godot/imported/open_sans_regular.ttf-353771d0a34f0b99413b27da903e2987.fontdata"]
 
 [params]
 

@@ -1,0 +1,146 @@
+[gd_scene load_steps=13 format=3 uid="uid://cx0n5ib6nedas"]
+
+[ext_resource type="Theme" uid="uid://c0qwn552iqqur" path="res://ui/theme/simple_ui_theme.tres" id="1_qr60o"]
+[ext_resource type="Material" uid="uid://d1txi86rfk50c" path="res://audio/visualizer/visualizer_debug_material.tres" id="1_qt0ac"]
+[ext_resource type="Gradient" uid="uid://b71jutk4qdqv3" path="res://audio/visualizer/visualizer_gradient.tres" id="2_tpioj"]
+[ext_resource type="Script" path="res://audio/visualizer/AudioVisualizer.gd" id="3_rpigu"]
+[ext_resource type="Curve" uid="uid://dymfoswhbthj1" path="res://audio/visualizer/curves/waveform_curve.tres" id="4_voy5i"]
+[ext_resource type="Curve" uid="uid://djq65vh7dm2ol" path="res://audio/visualizer/curves/response_curve.tres" id="5_6eppw"]
+[ext_resource type="Curve" uid="uid://vnofp0kutp4i" path="res://audio/visualizer/curves/x_acceleration_curve.tres" id="6_gxqit"]
+[ext_resource type="Curve" uid="uid://t7kqhabg0q1l" path="res://audio/visualizer/curves/y_acceleration_curve.tres" id="7_jq3rm"]
+[ext_resource type="Curve" uid="uid://dxn1rtet5pm80" path="res://audio/visualizer/curves/z_acceleration_curve.tres" id="8_frsn1"]
+[ext_resource type="Curve" uid="uid://d1nfw1ns152lp" path="res://audio/visualizer/curves/a_acceleration_curve.tres" id="9_c2uuc"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m2f1b"]
+gradient = ExtResource("2_tpioj")
+
+[sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_2n73o"]
+
+[node name="ControlPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_qr60o")
+
+[node name="Panel" type="Panel" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AudioWaveform" type="TextureRect" parent="Panel"]
+material = ExtResource("1_qt0ac")
+layout_mode = 2
+offset_left = -76.0
+offset_top = 571.0
+offset_right = 1280.0
+offset_bottom = 800.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("GradientTexture2D_m2f1b")
+expand_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 33.0
+offset_top = 27.0
+offset_right = -33.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Mission Control" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Mission Control
+"
+
+[node name="HSeparator3" type="HSeparator" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Panel/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Mission ID
+"
+
+[node name="TextEdit" type="TextEdit" parent="Panel/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HSeparator2" type="HSeparator" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Audio Controls
+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="start_recording" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(120, 31)
+layout_mode = 2
+text = "Record
+"
+
+[node name="HSeparator" type="HSeparator" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="Screen" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Screen Controls
+"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="set_screen_success" type="Button" parent="Panel/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(120, 31)
+layout_mode = 2
+text = "Success
+"
+
+[node name="set_screen_failure" type="Button" parent="Panel/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(120, 31)
+layout_mode = 2
+text = "Failure
+"
+
+[node name="AudioVisualizer" type="Node" parent="."]
+script = ExtResource("3_rpigu")
+waveform = ExtResource("4_voy5i")
+gradient = ExtResource("2_tpioj")
+max_frequency = 660.0
+max_db = -1.6
+min_db = -64.9
+response_curve = ExtResource("5_6eppw")
+x_curve = ExtResource("6_gxqit")
+y_curve = ExtResource("7_jq3rm")
+z_curve = ExtResource("8_frsn1")
+a_curve = ExtResource("9_c2uuc")
+
+[node name="AudioStreamRecord" type="AudioStreamPlayer" parent="AudioVisualizer"]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamMicrophone_2n73o")
+volume_db = 14.216
+autoplay = true
+bus = &"Record"

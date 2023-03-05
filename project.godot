@@ -43,7 +43,7 @@ enabled=PackedStringArray()
 
 [gui]
 
-theme/custom="res://ui/theme/MinimalUI.tres"
+theme/custom="res://ui/theme/simple_ui_theme.tres"
 common/drop_mouse_on_gui_input_disabled=true
 
 [importer_defaults]

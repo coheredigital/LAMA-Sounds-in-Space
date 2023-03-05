@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3]
+[gd_scene load_steps=27 format=3 uid="uid://bc2anm0871dvm"]
 
 [ext_resource type="PackedScene" uid="uid://ctjlmbopaw2sa" path="res://spaceship/models/spaceship.gltf" id="1_m17hk"]
 [ext_resource type="Script" path="res://spaceship/spaceship.gd" id="2_mfp30"]
@@ -9,10 +9,10 @@
 [ext_resource type="Material" path="res://spaceship/materials/cockpit_material.tres" id="5_c2p6g"]
 [ext_resource type="PackedScene" uid="uid://dycuy65u4jvdb" path="res://spaceship/models/fuel_gauge.gltf" id="6"]
 [ext_resource type="AnimationLibrary" uid="uid://cadi70pdgm61" path="res://spaceship/animation/spaceship_animations.tres" id="6_wul7m"]
-[ext_resource type="Material" path="res://spaceship/cockpit/seatbelt_indicator_right_material.tres" id="8_1k280"]
-[ext_resource type="Material" path="res://spaceship/cockpit/seatbelt_indicator_left_material.tres" id="9_5ebng"]
+[ext_resource type="Material" uid="uid://83cb42q0nsoh" path="res://spaceship/materials/seatbelt_indicator_right_material.tres" id="8_x3eqn"]
+[ext_resource type="Material" uid="uid://ded17tii7cvrq" path="res://spaceship/materials/seatbelt_indicator_left_material.tres" id="9_rj2bf"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://cm4elcyqbcvrn" path="res://spaceship/animation/spaceship_door_state_tree.tres" id="10_csjlb"]
-[ext_resource type="Material" path="res://spaceship/materials/dashboard_material.tres" id="11_w6vvr"]
+[ext_resource type="Material" uid="uid://bt6fmav3f06wx" path="res://spaceship/materials/dashboard_material.tres" id="11_w6vvr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bmsk6"]
 resource_name = "material_0"
@@ -119,12 +119,12 @@ _data = {
 }
 
 [sub_resource type="AnimationNodeAnimation" id="3"]
-animation = &"spaceship/steering_motion"
+animation = &"cockpit/steering_motion"
 
 [sub_resource type="AnimationNodeTimeScale" id="4"]
 
 [sub_resource type="AnimationNodeBlendTree" id="5"]
-graph_offset = Vector2(-59.792, 15.058)
+graph_offset = Vector2(-315, 36)
 nodes/Animation/node = SubResource("3")
 nodes/Animation/position = Vector2(-20, 140)
 nodes/TimeScale/node = SubResource("4")
@@ -132,13 +132,12 @@ nodes/TimeScale/position = Vector2(440, 140)
 nodes/output/position = Vector2(920, 180)
 node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Animation"]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_682o1"]
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_hlqnd"]
 
 [node name="spaceship" instance=ExtResource("1_m17hk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.23018, -0.0012815, -0.275368)
 script = ExtResource("2_mfp30")
-door_open = true
-steering_motion = 0.11
+steering_motion = 0.278
 
 [node name="spaceship" parent="." index="0"]
 surface_material_override/0 = ExtResource("2_w5ycv")
@@ -161,13 +160,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.026207, -0.0273583)
 transform = Transform3D(1, 0, 0, 0, 0.99954, 0.0303379, 0, -0.0303379, 0.99954, 0.759238, 0.031198, 0.00542212)
 
 [node name="seatbelt_indicator" parent="spaceship/cockpit/monitor/seatbelt_indicator_right" index="0"]
-surface_material_override/0 = ExtResource("8_1k280")
+surface_material_override/0 = ExtResource("8_x3eqn")
 
 [node name="seatbelt_indicator_left" parent="spaceship/cockpit/monitor" index="2" instance=ExtResource("4")]
 transform = Transform3D(1, 0, 0, 0, 0.99954, 0.0303379, 0, -0.0303379, 0.99954, -0.807327, 0.031198, 0.00542212)
 
 [node name="seatbelt_indicator" parent="spaceship/cockpit/monitor/seatbelt_indicator_left" index="0"]
-surface_material_override/0 = ExtResource("9_5ebng")
+surface_material_override/0 = ExtResource("9_rj2bf")
 
 [node name="fuel_gauge_right" parent="spaceship/cockpit/monitor" index="3" instance=ExtResource("6")]
 transform = Transform3D(1, 0, 0, 0, 0.999349, 0.0360664, 0, -0.0360664, 0.999349, 0.510031, 0.0613374, 0.0210102)
@@ -197,7 +196,7 @@ surface_material_override/0 = ExtResource("2_w5ycv")
 surface_material_override/0 = ExtResource("2_w5ycv")
 
 [node name="door" parent="spaceship" index="6"]
-transform = Transform3D(1, 0, -0.000155895, 0, 1, 0, 0.000155895, 0, 1, 0.00101561, 0.000239341, -0.000488531)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 surface_material_override/0 = ExtResource("2_w5ycv")
 
 [node name="Primary" type="SpotLight3D" parent="." index="1"]
@@ -231,14 +230,14 @@ unique_name_in_owner = true
 tree_root = SubResource("5")
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/TimeScale/scale = 0.11
+parameters/TimeScale/scale = 0.278
 
 [node name="DoorState" type="AnimationTree" parent="." index="5"]
 unique_name_in_owner = true
 tree_root = ExtResource("10_csjlb")
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_682o1")
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_hlqnd")
 
 [editable path="spaceship/cockpit/monitor/seatbelt_indicator_right"]
 [editable path="spaceship/cockpit/monitor/seatbelt_indicator_left"]

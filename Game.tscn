@@ -1,20 +1,19 @@
-[gd_scene load_steps=16 format=3]
+[gd_scene load_steps=15 format=3 uid="uid://cg47ho2lja2j0"]
 
-[ext_resource type="PackedScene" path="res://spaceship/spaceship.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://bc2anm0871dvm" path="res://spaceship/spaceship.tscn" id="1"]
 [ext_resource type="PackedScene" path="res://game_state_manager.tscn" id="2_d2e5h"]
 [ext_resource type="PackedScene" uid="uid://cbmdn35p2dbvg" path="res://player/player_camera.tscn" id="4"]
 [ext_resource type="PackedScene" uid="uid://4m1cicd5c2ia" path="res://environment/environment.tscn" id="7_uaa0q"]
-[ext_resource type="PackedScene" path="res://character/character.tscn" id="9"]
+[ext_resource type="PackedScene" uid="uid://c4qhhxc2uj1e8" path="res://character/character.tscn" id="9"]
 [ext_resource type="Shader" path="res://shaders/toon.gdshader" id="10_ch3sr"]
 [ext_resource type="Texture2D" uid="uid://cwoinpuvn65ta" path="res://shaders/textures/diffuse_curve.png" id="11_tvqks"]
 [ext_resource type="Script" path="res://game.gd" id="12"]
-[ext_resource type="PackedScene" uid="uid://b6e1o0lioi7qw" path="res://debug/debug_overlay.tscn" id="18_dcbhx"]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_1qpys"]
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_sgfbi"]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_n3jrv"]
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_2ejl3"]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_7h7aa"]
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_6g5xq"]
 
 [sub_resource type="Gradient" id="18"]
 interpolation_mode = 1
@@ -70,9 +69,9 @@ size = Vector2i(1280, 800)
 render_target_update_mode = 4
 
 [node name="GameStateManager" parent="SubViewportContainer/SubViewport" instance=ExtResource("2_d2e5h")]
-parameters/character_state/playback = SubResource("AnimationNodeStateMachinePlayback_1qpys")
-parameters/player_state/playback = SubResource("AnimationNodeStateMachinePlayback_n3jrv")
-parameters/spaceship_state/playback = SubResource("AnimationNodeStateMachinePlayback_7h7aa")
+parameters/character_state/playback = SubResource("AnimationNodeStateMachinePlayback_sgfbi")
+parameters/player_state/playback = SubResource("AnimationNodeStateMachinePlayback_2ejl3")
+parameters/spaceship_state/playback = SubResource("AnimationNodeStateMachinePlayback_6g5xq")
 
 [node name="Environment" parent="SubViewportContainer/SubViewport" instance=ExtResource("7_uaa0q")]
 sky_color = Color(0.113725, 0.113725, 0.266667, 1)
@@ -94,7 +93,6 @@ light_energy = 0.15
 
 [node name="Spaceship" parent="SubViewportContainer/SubViewport" instance=ExtResource("1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0162, 0)
-door_open = false
 steering_motion = 0.188
 
 [node name="Character" parent="SubViewportContainer/SubViewport" instance=ExtResource("9")]
@@ -125,7 +123,7 @@ distance_buffer = 3.438
 distance_boost = 2.904
 
 [node name="Camera3D" parent="SubViewportContainer/SubViewport/Player" index="0"]
-transform = Transform3D(0.805126, 0.0753688, -0.588296, 1.00583e-07, 0.991893, 0.127075, 0.593104, -0.102312, 0.798599, -10.8537, 2.5, 7.2842)
+transform = Transform3D(0.805125, 0.0753689, -0.588296, 2.23517e-08, 0.991893, 0.127075, 0.593105, -0.102312, 0.798598, -10.8537, 2.5, 7.2842)
 
 [node name="PositionTarget" parent="SubViewportContainer/SubViewport/Player" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8537, 2.5, 7.2842)
@@ -133,18 +131,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8537, 2.5, 7.2842)
 [node name="LookTarget" parent="SubViewportContainer/SubViewport/Player" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.07119, 1.46695, 0.792042)
 
-[node name="DebugOverlay" parent="." instance=ExtResource("18_dcbhx")]
-offset_left = 484.374
-offset_top = 286.587
-offset_right = 484.374
-offset_bottom = 286.587
-
-[node name="AudioStreamRecord" parent="DebugOverlay/AudioVisualizer" index="0"]
-volume_db = 14.216
-
 [editable path="SubViewportContainer/SubViewport/Environment"]
 [editable path="SubViewportContainer/SubViewport/Environment/space_station"]
 [editable path="SubViewportContainer/SubViewport/Character"]
 [editable path="SubViewportContainer/SubViewport/Player"]
-[editable path="DebugOverlay"]
-[editable path="DebugOverlay/AudioVisualizer"]

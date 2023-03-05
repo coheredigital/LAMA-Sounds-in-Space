@@ -32,15 +32,15 @@ _subresources={
 "materials": {
 "material_0": {
 "use_external/enabled": true,
-"use_external/path": "res://spaceship/spaceship_material.tres"
+"use_external/path": "res://spaceship/materials/spaceship_material.tres"
 },
 "material_1": {
 "use_external/enabled": true,
-"use_external/path": "res://spaceship/spaceship_alpha_material.tres"
+"use_external/path": "res://spaceship/materials/spaceship_alpha_material.tres"
 },
 "material_2": {
 "use_external/enabled": true,
-"use_external/path": "res://spaceship/cockpit/cockpit_material.tres"
+"use_external/path": "res://spaceship/materials/cockpit_material.tres"
 }
 }
 }

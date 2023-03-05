@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://game_state_manager.gd" id="2_85ose"]
 [ext_resource type="AnimationLibrary" uid="uid://d2f01mgprslsv" path="res://character/materials/character_animations.tres" id="2_j8v3y"]
 [ext_resource type="AnimationLibrary" uid="uid://dip5qx70rf0l0" path="res://player/player_animations.tres" id="3_v6h8r"]
-[ext_resource type="AnimationLibrary" uid="uid://dywe6iokyofm1" path="res://spaceship/cockpit/screen_animations.tres" id="4_8507q"]
+[ext_resource type="AnimationLibrary" uid="uid://dywe6iokyofm1" path="res://spaceship/animation/screen_animations.tres" id="4_8507q"]
 [ext_resource type="AnimationLibrary" uid="uid://cadi70pdgm61" path="res://spaceship/animation/spaceship_animations.tres" id="5_l1vj7"]
 
 [sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_2ryh4"]
