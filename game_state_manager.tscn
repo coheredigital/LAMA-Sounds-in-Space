@@ -1,0 +1,190 @@
+[gd_scene load_steps=34 format=3 uid="uid://bxv7yjtg1wggx"]
+
+[ext_resource type="AnimationNodeStateMachine" uid="uid://c4k44s0dh3440" path="res://spaceship/spaceship_state_tree.tres" id="1_sq8v7"]
+[ext_resource type="Script" path="res://game_state_manager.gd" id="2_85ose"]
+[ext_resource type="AnimationLibrary" uid="uid://d2f01mgprslsv" path="res://character/character_animations.tres" id="2_j8v3y"]
+[ext_resource type="AnimationLibrary" uid="uid://dip5qx70rf0l0" path="res://player/player_animations.tres" id="3_v6h8r"]
+[ext_resource type="AnimationLibrary" uid="uid://dywe6iokyofm1" path="res://spaceship/cockpit/screen_animations.tres" id="4_8507q"]
+[ext_resource type="AnimationLibrary" uid="uid://cadi70pdgm61" path="res://spaceship/spaceship_animations.tres" id="5_l1vj7"]
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_2ryh4"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_n8vnm"]
+animation = &"character/enter_spaceship"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7dydj"]
+animation = &"character/position_intro"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nlg6h"]
+animation = &"character/sitdown"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nj1j8"]
+animation = &"character/stand"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_liyru"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dvuph"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wbefn"]
+xfade_time = 1.01
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_o4u3v"]
+xfade_time = 0.56
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nj2vu"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qsd53"]
+xfade_time = 0.86
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_iigkv"]
+states/End/position = Vector2(1097, 127)
+states/Start/position = Vector2(195, 127)
+states/enter_spaceship/node = SubResource("AnimationNodeAnimation_n8vnm")
+states/enter_spaceship/position = Vector2(554, 127)
+states/intro/node = SubResource("AnimationNodeAnimation_7dydj")
+states/intro/position = Vector2(311, 127)
+states/sit_down/node = SubResource("AnimationNodeAnimation_nlg6h")
+states/sit_down/position = Vector2(937, 127)
+states/standing/node = SubResource("AnimationNodeAnimation_nj1j8")
+states/standing/position = Vector2(776, 127)
+transitions = ["Start", "intro", SubResource("AnimationNodeStateMachineTransition_liyru"), "intro", "enter_spaceship", SubResource("AnimationNodeStateMachineTransition_dvuph"), "enter_spaceship", "standing", SubResource("AnimationNodeStateMachineTransition_wbefn"), "standing", "sit_down", SubResource("AnimationNodeStateMachineTransition_o4u3v"), "sit_down", "End", SubResource("AnimationNodeStateMachineTransition_nj2vu"), "sit_down", "standing", SubResource("AnimationNodeStateMachineTransition_qsd53")]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1pwjv"]
+animation = &"player/approach_spaceship"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6hphg"]
+animation = &"player/enter_spaceship"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5srsk"]
+animation = &"player/position_intro"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vn8x6"]
+animation = &"player/position_sitting"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ani8t"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d4sf0"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bt00y"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_sxofd"]
+states/End/position = Vector2(1044, 100)
+states/approach_spaceship/node = SubResource("AnimationNodeAnimation_1pwjv")
+states/approach_spaceship/position = Vector2(519, 100)
+states/enter_spaceship/node = SubResource("AnimationNodeAnimation_6hphg")
+states/enter_spaceship/position = Vector2(754, 100)
+states/intro/node = SubResource("AnimationNodeAnimation_5srsk")
+states/intro/position = Vector2(328, 100)
+states/playerposition_sitting/node = SubResource("AnimationNodeAnimation_vn8x6")
+states/playerposition_sitting/position = Vector2(905, -5)
+transitions = ["Start", "intro", SubResource("AnimationNodeStateMachineTransition_ani8t"), "intro", "approach_spaceship", SubResource("AnimationNodeStateMachineTransition_d4sf0"), "approach_spaceship", "enter_spaceship", SubResource("AnimationNodeStateMachineTransition_bt00y")]
+graph_offset = Vector2(-158, -84)
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_uvlwq"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_m6b61"]
+nodes/Add2/node = SubResource("AnimationNodeAdd2_2ryh4")
+nodes/Add2/position = Vector2(860, 240)
+nodes/character_state/node = SubResource("AnimationNodeStateMachine_iigkv")
+nodes/character_state/position = Vector2(300, 340)
+nodes/output/position = Vector2(1240, 240)
+nodes/player_state/node = SubResource("AnimationNodeStateMachine_sxofd")
+nodes/player_state/position = Vector2(300, 480)
+nodes/spaceship_state/node = ExtResource("1_sq8v7")
+nodes/spaceship_state/position = Vector2(300, 180)
+nodes/team/node = SubResource("AnimationNodeAdd2_uvlwq")
+nodes/team/position = Vector2(580, 360)
+node_connections = [&"output", 0, &"Add2", &"Add2", 0, &"spaceship_state", &"Add2", 1, &"team", &"team", 0, &"character_state", &"team", 1, &"player_state"]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_as4el"]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_g4i4a"]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_nbxpa"]
+
+[sub_resource type="Animation" id="Animation_p0umf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/Spaceship:door_open")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SubViewportContainer/SubViewport/Character:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-10.6656, 2.10132, 5.55682)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SubViewportContainer/SubViewport/Character:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SubViewportContainer/SubViewport/Character:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_68h00"]
+_data = {
+"RESET": SubResource("Animation_p0umf")
+}
+
+[node name="GameStateManager" type="AnimationTree"]
+tree_root = SubResource("AnimationNodeBlendTree_m6b61")
+anim_player = NodePath("AnimationPlayer")
+active = true
+parameters/Add2/add_amount = 1.0
+parameters/character_state/playback = SubResource("AnimationNodeStateMachinePlayback_as4el")
+parameters/player_state/playback = SubResource("AnimationNodeStateMachinePlayback_g4i4a")
+parameters/spaceship_state/playback = SubResource("AnimationNodeStateMachinePlayback_nbxpa")
+parameters/team/add_amount = 1.0
+script = ExtResource("2_85ose")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../../../..")
+reset_on_save = false
+libraries = {
+"": SubResource("AnimationLibrary_68h00"),
+"character": ExtResource("2_j8v3y"),
+"player": ExtResource("3_v6h8r"),
+"screen": ExtResource("4_8507q"),
+"spaceship": ExtResource("5_l1vj7")
+}

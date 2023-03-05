@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dycuy65u4jvdb"
-path="res://.godot/imported/fuel_gauge.gltf-2bf0ef2e80b429f548e78c5eab46f281.scn"
+path="res://.godot/imported/fuel_gauge.gltf-e5320c7a44f951ac09cdd646d57dec63.scn"
 
 [deps]
 
-source_file="res://spaceship/dashboard/fuel_gauge.gltf"
-dest_files=["res://.godot/imported/fuel_gauge.gltf-2bf0ef2e80b429f548e78c5eab46f281.scn"]
+source_file="res://spaceship/cockpit/fuel_gauge.gltf"
+dest_files=["res://.godot/imported/fuel_gauge.gltf-e5320c7a44f951ac09cdd646d57dec63.scn"]
 
 [params]
 

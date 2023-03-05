@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://7korg2mlql37"
-path="res://.godot/imported/controls.gltf-6b5b798dba7b5eb3484f1c046d7fd0b3.scn"
+uid="uid://b4v1gc27survw"
+path="res://.godot/imported/seatbelt_indicator.gltf-4fc8997073b8959449d76768f8f1d020.scn"
 
 [deps]
 
-source_file="res://spaceship/dashboard/controls.gltf"
-dest_files=["res://.godot/imported/controls.gltf-6b5b798dba7b5eb3484f1c046d7fd0b3.scn"]
+source_file="res://spaceship/cockpit/seatbelt_indicator.gltf"
+dest_files=["res://.godot/imported/seatbelt_indicator.gltf-4fc8997073b8959449d76768f8f1d020.scn"]
 
 [params]
 

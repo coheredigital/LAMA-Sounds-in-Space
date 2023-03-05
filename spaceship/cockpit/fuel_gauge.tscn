@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3]
 
-[ext_resource type="PackedScene" uid="uid://dycuy65u4jvdb" path="res://spaceship/dashboard/fuel_gauge.gltf" id="1"]
+[ext_resource type="PackedScene" uid="uid://dycuy65u4jvdb" path="res://spaceship/cockpit/fuel_gauge.gltf" id="1"]
 [ext_resource type="Material" path="res://materials/fuel_gauge_material.tres" id="2"]
 
 [sub_resource type="Animation" id=2]

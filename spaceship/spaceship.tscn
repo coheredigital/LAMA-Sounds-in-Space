@@ -1,13 +1,13 @@
-[gd_scene load_steps=22 format=3]
+[gd_scene load_steps=24 format=3 uid="uid://dbsjeyy4shmxm"]
 
 [ext_resource type="PackedScene" uid="uid://ctjlmbopaw2sa" path="res://spaceship/spaceship.gltf" id="1_m17hk"]
 [ext_resource type="Script" path="res://spaceship/spaceship.gd" id="2_mfp30"]
 [ext_resource type="Material" path="res://spaceship/spaceship_material.tres" id="2_w5ycv"]
-[ext_resource type="PackedScene" uid="uid://blh6lqd5lgsgr" path="res://spaceship/dashboard/screen.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://spaceship/cockpit/screen.tscn" id="3"]
 [ext_resource type="Material" path="res://spaceship/spaceship_alpha_material.tres" id="3_ngcse"]
-[ext_resource type="PackedScene" uid="uid://b4v1gc27survw" path="res://spaceship/dashboard/seatbelt_indicator.gltf" id="4"]
+[ext_resource type="PackedScene" uid="uid://b4v1gc27survw" path="res://spaceship/cockpit/seatbelt_indicator.gltf" id="4"]
 [ext_resource type="Material" path="res://materials/cockpit_material.tres" id="4_iw4ep"]
-[ext_resource type="PackedScene" uid="uid://dycuy65u4jvdb" path="res://spaceship/dashboard/fuel_gauge.gltf" id="6"]
+[ext_resource type="PackedScene" uid="uid://dycuy65u4jvdb" path="res://spaceship/cockpit/fuel_gauge.gltf" id="6"]
 [ext_resource type="AnimationLibrary" uid="uid://cadi70pdgm61" path="res://spaceship/spaceship_animations.tres" id="6_wul7m"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://cm4elcyqbcvrn" path="res://spaceship/spaceship_door_state_tree.tres" id="10_csjlb"]
 
@@ -59,6 +59,27 @@ length = 0.001
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j4fw2"]
 _data = {
 "RESET": SubResource("Animation_pckes")
+}
+
+[sub_resource type="Animation" id="Animation_85mrf"]
+resource_name = "shake"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("spaceship/cockpit/SpaceshipControls/controls:rotation_degrees")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0153, 0.0163819, 0.2, 0.3, 0.4, 0.5, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-3.9274, 0, 7.8527), Vector3(-3.9274, 0, 7.8527), Vector3(-3.82193, -5.57427, -5.47588), Vector3(-3.9274, 0, 7.8527), Vector3(-3.82193, -5.57427, -5.47588), Vector3(-3.9274, 0, 7.8527), Vector3(-8.3684, 0.73837, 10.6999), Vector3(-3.82193, -5.57427, -5.47588)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0fx6q"]
+_data = {
+"steering_motion": SubResource("Animation_85mrf")
 }
 
 [sub_resource type="Animation" id="Animation_dxke3"]
@@ -173,7 +194,6 @@ surface_material_override/0 = ExtResource("2_w5ycv")
 surface_material_override/0 = ExtResource("2_w5ycv")
 
 [node name="door" parent="spaceship" index="6"]
-transform = Transform3D(0.999964, 0, -0.00853466, 0, 1, 0, 0.00853466, 0, 0.999964, 0.160476, 0.0378181, -0.0255883)
 surface_material_override/0 = ExtResource("2_w5ycv")
 
 [node name="Primary" type="SpotLight3D" parent="." index="1"]
@@ -197,6 +217,7 @@ omni_attenuation = 0.203064
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
 libraries = {
 "": SubResource("AnimationLibrary_j4fw2"),
+"cockpit": SubResource("AnimationLibrary_0fx6q"),
 "door": SubResource("AnimationLibrary_xd8vc"),
 "spaceship": ExtResource("6_wul7m")
 }
