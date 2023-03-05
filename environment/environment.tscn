@@ -1,11 +1,260 @@
-[gd_scene load_steps=9 format=3 uid="uid://4m1cicd5c2ia"]
+[gd_scene load_steps=24 format=3 uid="uid://dfj8aj155rnl4"]
 
 [ext_resource type="Environment" uid="uid://n48hdvn72r0x" path="res://environment/environment.tres" id="1_arsm2"]
 [ext_resource type="Script" path="res://environment/environment.gd" id="2_bvl62"]
+[ext_resource type="AnimationLibrary" uid="uid://cjkhuv5cn32yu" path="res://environment/environment_animations.tres" id="3_g3cb1"]
 [ext_resource type="PackedScene" uid="uid://dt1vpkmuodkmu" path="res://environment/models/space_station.gltf" id="3_mao0r"]
+[ext_resource type="AnimationLibrary" uid="uid://yeai8r0lqd4q" path="res://animations/libraries/spaceship.res" id="4_80740"]
 [ext_resource type="Material" uid="uid://cxxgwjiqio47k" path="res://environment/materials/sky_material.tres" id="4_i8nts"]
 [ext_resource type="Material" uid="uid://m6eohmc4l2ko" path="res://environment/materials/space_station_material.tres" id="4_nxdcm"]
+[ext_resource type="AnimationLibrary" uid="uid://cadi70pdgm61" path="res://animations/libraries/spaceship.tres" id="5_2u7hh"]
 [ext_resource type="Material" uid="uid://coiklw8nbk48n" path="res://environment/materials/planet_material.tres" id="5_g8wpa"]
+[ext_resource type="PackedScene" uid="uid://bc2anm0871dvm" path="res://spaceship/spaceship.tscn" id="8_1i38n"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_p8jd8"]
+animation = &"environment/home"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bgwra"]
+animation = &"environment/launch"
+play_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2a4g6"]
+animation = &"environment/launch"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cbve1"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_b5kmv"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mt0um"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kaylr"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_xndii"]
+states/home/node = SubResource("AnimationNodeAnimation_p8jd8")
+states/home/position = Vector2(324, 100)
+states/land/node = SubResource("AnimationNodeAnimation_bgwra")
+states/land/position = Vector2(419, 187)
+states/launch/node = SubResource("AnimationNodeAnimation_2a4g6")
+states/launch/position = Vector2(470, 100)
+transitions = ["Start", "home", SubResource("AnimationNodeStateMachineTransition_cbve1"), "home", "launch", SubResource("AnimationNodeStateMachineTransition_b5kmv"), "launch", "land", SubResource("AnimationNodeStateMachineTransition_mt0um"), "land", "home", SubResource("AnimationNodeStateMachineTransition_kaylr")]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_4dohv"]
+
+[sub_resource type="Animation" id="Animation_dm6ap"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:sky_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.113725, 0.113725, 0.266667, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Spaceship/Accent:light_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.713726, 0.831373, 0.894118, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:horizon_height")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.038]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:ground_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.439216, 0.823529, 0.454902, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:fog_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.466667, 0.584314, 0.796078, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:horizon_color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.627451, 0.403922, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:light_energy")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.05]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Spaceship/Accent:light_energy")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.098]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath(".:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.5, 0.5, 0.5)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Planet:scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.5, 0.5, 0.5)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Planet:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Planet:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(14.698, 12.7034, -54.117)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath(".:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(14.698, 12.7034, -54.117)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath(".:shadow_bias")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.007]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("./Spaceship/spaceship/cockpit/monitor/fuel_gauge_left/fuel_gauge:material/0:shader_param/frame_number")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [8.0]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("./WorldLight:shadow_bias")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.007]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("./Planet:scale")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.5, 0.5, 0.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n418v"]
+_data = {
+"RESET": SubResource("Animation_dm6ap")
+}
 
 [sub_resource type="SphereMesh" id="3821"]
 radius = 64.0
@@ -18,16 +267,38 @@ height = 8.0
 [node name="Environment" type="WorldEnvironment"]
 environment = ExtResource("1_arsm2")
 script = ExtResource("2_bvl62")
-sky_color = Color(0.439216, 0.207843, 0.301961, 1)
-ground_color = Color(0.686275, 0.337255, 0.443137, 1)
-fog_color = Color(0.290196, 0.168627, 0.403922, 1)
-horizon_color = Color(0.556863, 0.370588, 0.335294, 1)
+state = "home"
+sky_color = Color(0.113725, 0.113725, 0.266667, 1)
+ground_color = Color(0.439216, 0.823529, 0.454902, 1)
+fog_color = Color(0.466667, 0.584314, 0.796078, 1)
+horizon_color = Color(1, 0.627451, 0.403922, 1)
+horizon_height = 0.038
 
-[node name="space_station" parent="." instance=ExtResource("3_mao0r")]
+[node name="StateTree" type="AnimationTree" parent="."]
 unique_name_in_owner = true
+tree_root = SubResource("AnimationNodeStateMachine_xndii")
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_4dohv")
 
-[node name="space_station" parent="space_station" index="0"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_n418v"),
+"environment": ExtResource("3_g3cb1"),
+"spaceship": ExtResource("4_80740"),
+"spaceship 2": ExtResource("5_2u7hh")
+}
+
+[node name="SpaceStation" parent="." instance=ExtResource("3_mao0r")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.038, 0)
+
+[node name="space_station" parent="SpaceStation" index="0"]
 surface_material_override/0 = ExtResource("4_nxdcm")
+
+[node name="Spaceship" parent="." instance=ExtResource("8_1i38n")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0924615, 0)
 
 [node name="Sky" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true
@@ -36,19 +307,24 @@ cast_shadow = 0
 mesh = SubResource("3821")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("4_i8nts")
+metadata/_edit_lock_ = true
 
 [node name="Planet" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.625, 0, 0, 0, 0.625, 0, 0, 0, 0.625, 12.2483, 11.0862, -50.4309)
+unique_name_in_owner = true
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 14.698, 12.7034, -54.117)
 cast_shadow = 0
 mesh = SubResource("3833")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("5_g8wpa")
+metadata/_edit_lock_ = true
 
 [node name="WorldLight" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.93358, -0.260828, 0.245757, 0, 0.685768, 0.727821, -0.358368, -0.679479, 0.640219, 0, 9.46133, 0)
+unique_name_in_owner = true
+transform = Transform3D(0.93358, -0.260828, 0.245757, 0, 0.685768, 0.72782, -0.358368, -0.679479, 0.640219, 0, 128, 0)
 light_color = Color(0, 0, 0, 1)
 light_energy = 0.0
 shadow_bias = 0.007
 directional_shadow_max_distance = 25.0
+metadata/_edit_lock_ = true
 
-[editable path="space_station"]
+[editable path="SpaceStation"]
