@@ -559,7 +559,7 @@ active = true
 parameters/playback = SubResource("3877")
 
 [node name="SpaceshipAnimation" type="AnimationPlayer" parent="SubViewportContainer/SubViewport/SpaceshipStateTree"]
-root_node = NodePath("../..")
+root_node = NodePath("../../../..")
 reset_on_save = false
 libraries = {
 "": SubResource("AnimationLibrary_cn047"),
@@ -572,7 +572,7 @@ anim_player = NodePath("PlayerAnimation")
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_sq7i4")
 
 [node name="PlayerAnimation" type="AnimationPlayer" parent="SubViewportContainer/SubViewport/PlayerStateTree"]
-root_node = NodePath("../..")
+root_node = NodePath("../../../..")
 autoplay = "spaceship/parked"
 reset_on_save = false
 libraries = {
@@ -585,7 +585,7 @@ anim_player = NodePath("CharacterAnimation")
 parameters/playback = SubResource("3871")
 
 [node name="CharacterAnimation" type="AnimationPlayer" parent="SubViewportContainer/SubViewport/CharacterStateTree"]
-root_node = NodePath("../..")
+root_node = NodePath("../../../..")
 autoplay = "character/idle"
 reset_on_save = false
 libraries = {
@@ -607,19 +607,21 @@ libraries = {
 
 [node name="Environment" parent="SubViewportContainer/SubViewport" instance=ExtResource("7_uaa0q")]
 sky_color = Color(0.113725, 0.113725, 0.266667, 1)
-ground_color = Color(0.113725, 0.113725, 0.266667, 1)
-horizon_color = Color(0.113725, 0.113725, 0.266667, 1)
-horizon_height = -64.0
+ground_color = Color(0.4, 0.733333, 0.521569, 1)
+fog_color = Color(0.466667, 0.584314, 0.796078, 1)
+horizon_color = Color(1, 0.627451, 0.403922, 1)
+horizon_height = 0.038
 
 [node name="space_station" parent="SubViewportContainer/SubViewport/Environment" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -64, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.038, 0)
 
 [node name="Planet" parent="SubViewportContainer/SubViewport/Environment" index="2"]
-transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 9.79867, 9.46893, -46.7447)
+transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 14.698, 12.7034, -54.117)
 surface_material_override/0 = SubResource("ShaderMaterial_k5s51")
 
 [node name="WorldLight" parent="SubViewportContainer/SubViewport/Environment" index="3"]
 light_color = Color(1, 1, 1, 1)
+light_energy = 0.15
 
 [node name="Spaceship" parent="SubViewportContainer/SubViewport" instance=ExtResource("1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0162, 0)
@@ -652,7 +654,7 @@ distance_buffer = 3.438
 distance_boost = 2.904
 
 [node name="Camera3D" parent="SubViewportContainer/SubViewport/Player" index="0"]
-transform = Transform3D(0.999986, -0.000733156, -0.00514862, 1.74623e-10, 0.990013, -0.140977, 0.00520055, 0.140975, 0.99, -0.0837799, 2.21405, -0.52231)
+transform = Transform3D(0.999986, -0.000733156, -0.00514862, 8.73115e-11, 0.990013, -0.140977, 0.00520055, 0.140975, 0.99, -0.0837799, 2.21405, -0.52231)
 
 [node name="PositionTarget" parent="SubViewportContainer/SubViewport/Player" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0837799, 2.21405, -0.52231)
