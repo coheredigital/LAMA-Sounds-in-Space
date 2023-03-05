@@ -1,6 +1,6 @@
-[gd_scene load_steps=41 format=3]
+[gd_scene load_steps=42 format=3 uid="uid://ch4ebo4oour3e"]
 
-[ext_resource type="PackedScene" path="res://spaceship/spaceship.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://v0b6hpr1fqrh" path="res://spaceship/spaceship.tscn" id="1"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://c4k44s0dh3440" path="res://animations/spaceship_state_tree.tres" id="2_f6ot1"]
 [ext_resource type="PackedScene" uid="uid://cbmdn35p2dbvg" path="res://player/player_camera.tscn" id="4"]
 [ext_resource type="AnimationLibrary" uid="uid://dip5qx70rf0l0" path="res://animations/libraries/player.tres" id="4_5jcpw"]
@@ -14,10 +14,10 @@
 [ext_resource type="Texture2D" uid="uid://cwoinpuvn65ta" path="res://postprocessing/textures/diffuse_curve.png" id="11_tvqks"]
 [ext_resource type="Script" path="res://game.gd" id="12"]
 [ext_resource type="AnimationLibrary" uid="uid://dywe6iokyofm1" path="res://animations/libraries/screen.tres" id="16_kalt1"]
-[ext_resource type="Material" path="res://materials/seatbelt_indicator_right_material.tres" id="17_0qw4c"]
-[ext_resource type="Material" path="res://materials/dashboard_material.tres" id="17_lt72f"]
+[ext_resource type="Material" uid="uid://v8x1csehp4vh" path="res://materials/seatbelt_indicator_right_material.tres" id="17_0qw4c"]
+[ext_resource type="Material" uid="uid://bjv4lnjeimjwv" path="res://materials/dashboard_material.tres" id="17_lt72f"]
 [ext_resource type="PackedScene" uid="uid://b6e1o0lioi7qw" path="res://debug/debug_overlay.tscn" id="18_dcbhx"]
-[ext_resource type="Material" path="res://materials/seatbelt_indicator_left_material.tres" id="18_mtows"]
+[ext_resource type="Material" uid="uid://c0iutdewox7ud" path="res://materials/seatbelt_indicator_left_material.tres" id="18_mtows"]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="3877"]
 
@@ -411,6 +411,8 @@ shader_parameter/albedo_texture = SubResource("GradientTexture2D_4aqhb")
 shader_parameter/diffuse_curve = ExtResource("11_tvqks")
 shader_parameter/emission_texture = SubResource("GradientTexture2D_4aqhb")
 
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_atmks"]
+
 [node name="Game" type="Node"]
 script = ExtResource("12")
 
@@ -517,15 +519,15 @@ surface_material_override/0 = ExtResource("17_lt72f")
 [node name="fuel_gauge" parent="SubViewportContainer/SubViewport/Spaceship/spaceship/cockpit/monitor/fuel_gauge_left" index="0"]
 surface_material_override/0 = ExtResource("17_lt72f")
 
-[node name="door" parent="SubViewportContainer/SubViewport/Spaceship/spaceship" index="6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-
 [node name="Primary" parent="SubViewportContainer/SubViewport/Spaceship" index="1"]
 light_energy = 0.021
 
 [node name="Accent" parent="SubViewportContainer/SubViewport/Spaceship" index="2"]
 light_color = Color(0.713726, 0.831373, 0.894118, 1)
 light_energy = 0.25
+
+[node name="DoorState" parent="SubViewportContainer/SubViewport/Spaceship" index="4"]
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_atmks")
 
 [node name="Character" parent="SubViewportContainer/SubViewport" instance=ExtResource("9")]
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 1, -10.6656, 2.10132, 5.55682)
@@ -555,7 +557,7 @@ distance_buffer = 3.438
 distance_boost = 2.904
 
 [node name="Camera3D" parent="SubViewportContainer/SubViewport/Player" index="0"]
-transform = Transform3D(0.805126, 0.0753688, -0.588296, 1.08033e-07, 0.991893, 0.127075, 0.593104, -0.102312, 0.798599, -10.8537, 2.5, 7.2842)
+transform = Transform3D(0.805126, 0.0753688, -0.588296, 1.15484e-07, 0.991893, 0.127075, 0.593104, -0.102312, 0.798599, -10.8537, 2.5, 7.2842)
 
 [node name="PositionTarget" parent="SubViewportContainer/SubViewport/Player" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8537, 2.5, 7.2842)

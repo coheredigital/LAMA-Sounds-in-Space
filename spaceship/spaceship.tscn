@@ -99,7 +99,6 @@ surface_material_override/0 = ExtResource("2_w5ycv")
 surface_material_override/0 = ExtResource("2_w5ycv")
 
 [node name="door" parent="spaceship" index="6"]
-transform = Transform3D(0.970025, 0, 0.243004, 0, 1, 0, -0.243004, 0, 0.970025, -0.00170398, 0.0493729, 0.623801)
 surface_material_override/0 = ExtResource("2_w5ycv")
 
 [node name="Primary" type="SpotLight3D" parent="." index="1"]

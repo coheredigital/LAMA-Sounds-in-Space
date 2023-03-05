@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=5 format=3]
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://c0iutdewox7ud"]
 
 [ext_resource type="Texture2D" uid="uid://bnfo0b752cn10" path="res://postprocessing/textures/dashboard_emission.png" id="1"]
 [ext_resource type="Gradient" uid="uid://b71jutk4qdqv3" path="res://audio/visualizer/visualizer_gradient.tres" id="2"]

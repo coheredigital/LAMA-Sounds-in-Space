@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=5 format=3]
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://dsordefu8vlw1"]
 
 [ext_resource type="Shader" path="res://materials/shaders/toon.gdshader" id="1"]
 [ext_resource type="Texture2D" uid="uid://cwoinpuvn65ta" path="res://postprocessing/textures/diffuse_curve.png" id="2"]

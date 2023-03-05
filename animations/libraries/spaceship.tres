@@ -1,4 +1,4 @@
-[gd_resource type="AnimationLibrary" load_steps=7 format=3 uid="uid://cadi70pdgm61"]
+[gd_resource type="AnimationLibrary" load_steps=5 format=3 uid="uid://cadi70pdgm61"]
 
 [sub_resource type="Animation" id="Animation_a5ge3"]
 resource_name = "spaceship_blast_off"
@@ -159,62 +159,6 @@ tracks/12/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0.5, 0.5, 0.5), Vector3(0.75, 0.75, 0.75)]
-}
-
-[sub_resource type="Animation" id="Animation_ydspe"]
-resource_name = "door_close"
-length = 4.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Spaceship/spaceship/door:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = false
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6, 1.6, 2.9, 4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(-0.00170398, 0.0493729, 0.623801), Vector3(-0.00170398, 0.0493729, 0.456921), Vector3(0.175377, 0.0413296, 0.094659), Vector3(0.175377, 0.0413296, 0), Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Spaceship/spaceship/door:rotation_degrees")
-tracks/1/interp = 2
-tracks/1/loop_wrap = false
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 2.9, 4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 14.0639, 0), Vector3(0, 0, 0), Vector3(0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_a3w4b"]
-resource_name = "door_open"
-length = 4.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Spaceship/spaceship/door:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = false
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.68533, 2.2, 3, 4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0.175377, 0.0413296, 0), Vector3(0.175377, 0.0413296, 0.094659), Vector3(-0.00170398, 0.0493729, 0.456921), Vector3(-0.00170398, 0.0493729, 0.623801)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Spaceship/spaceship/door:rotation_degrees")
-tracks/1/interp = 2
-tracks/1/loop_wrap = false
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.69887, 4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 14.0639, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_scgrp"]
@@ -708,8 +652,6 @@ tracks/7/keys = {
 [resource]
 _data = {
 "blast_off": SubResource("Animation_a5ge3"),
-"door_close": SubResource("Animation_ydspe"),
-"door_open": SubResource("Animation_a3w4b"),
 "parked": SubResource("Animation_scgrp"),
 "stars_light_up": SubResource("Animation_bd1uy"),
 "warp": SubResource("Animation_mo8mt")
