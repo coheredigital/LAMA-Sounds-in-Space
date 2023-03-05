@@ -1,15 +1,17 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://b3lc1cld20o6q"]
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://b3lc1cld20o6q"]
 
 [ext_resource type="Shader" path="res://materials/shaders/sky.gdshader" id="1_u5r7i"]
+[ext_resource type="Texture2D" uid="uid://chi543cmhk70i" path="res://environment/textures/stars_albedo.png" id="2_mbfif"]
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_u5r7i")
 shader_parameter/ground_color = Color(0.427451, 0.611765, 0.376471, 1)
-shader_parameter/horizon_color = Color(1, 0.627451, 0.403922, 1)
+shader_parameter/horizon_color = Color(0.113725, 0.113725, 0.266667, 1)
 shader_parameter/fog_color = Color(0.466667, 0.584314, 0.796078, 1)
 shader_parameter/fog_strength = 1.0
-shader_parameter/sky_color = Color(0.466667, 0.584314, 0.796078, 1)
+shader_parameter/sky_color = Color(0.113725, 0.113725, 0.266667, 1)
 shader_parameter/stars_scale = 2.0
-shader_parameter/stars_brightness = 2.0
-shader_parameter/horizon_height = 0.0
+shader_parameter/stars_brightness = 0.0
+shader_parameter/horizon_height = -1.0
+shader_parameter/stars_texture = ExtResource("2_mbfif")

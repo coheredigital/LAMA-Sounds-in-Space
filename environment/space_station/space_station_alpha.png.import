@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpwxbis74fm20"
-path="res://.godot/imported/spaceship_alpha.png-3f86865566cd811e2077d22478969bc4.ctex"
+uid="uid://2gjsjhaaxs8q"
+path="res://.godot/imported/space_station_alpha.png-09abd580370b6b0b4fd96526b9715bd2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://materials/textures/spaceship_alpha.png"
-dest_files=["res://.godot/imported/spaceship_alpha.png-3f86865566cd811e2077d22478969bc4.ctex"]
+source_file="res://environment/space_station/space_station_alpha.png"
+dest_files=["res://.godot/imported/space_station_alpha.png-09abd580370b6b0b4fd96526b9715bd2.ctex"]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=1
 roughness/src_normal=""

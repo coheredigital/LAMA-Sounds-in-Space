@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3]
 
 [ext_resource type="PackedScene" uid="uid://whalw4rdvy64" path="res://character/character.gltf" id="1"]
-[ext_resource type="Material" uid="uid://cstrmk4iknpy2" path="res://materials/character_material.tres" id="2"]
+[ext_resource type="Material" path="res://character/character_material.tres" id="2"]
 
 [node name="Character" instance=ExtResource("1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.6656, 2.10132, 5.55682)

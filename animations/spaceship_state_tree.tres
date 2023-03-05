@@ -17,7 +17,7 @@ animation = &"player_landing"
 animation = &"spaceship/RESET"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0iq3c"]
-animation = &"player_stars_light_up"
+animation = &"spaceship/stars_light_up"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lo8up"]
 animation = &"spaceship_warp"
@@ -57,7 +57,7 @@ switch_mode = 2
 states/End/position = Vector2(343, 155)
 states/Start/position = Vector2(-703, 155)
 states/blast_off/node = SubResource("AnimationNodeAnimation_b3b36")
-states/blast_off/position = Vector2(-297, 155)
+states/blast_off/position = Vector2(-365, 155)
 states/door_close/node = SubResource("AnimationNodeAnimation_4p22n")
 states/door_close/position = Vector2(-382, 65)
 states/door_open/node = SubResource("AnimationNodeAnimation_58mat")
@@ -71,4 +71,4 @@ states/stars_light_up/position = Vector2(-118, 155)
 states/warp/node = SubResource("AnimationNodeAnimation_lo8up")
 states/warp/position = Vector2(47, 155)
 transitions = ["blast_off", "stars_light_up", SubResource("3888"), "stars_light_up", "warp", SubResource("3890"), "warp", "landing", SubResource("3909"), "landing", "End", SubResource("AnimationNodeStateMachineTransition_5ws5a"), "reset", "blast_off", SubResource("AnimationNodeStateMachineTransition_u6v37"), "Start", "reset", SubResource("AnimationNodeStateMachineTransition_h2x0u"), "door_open", "door_close", SubResource("AnimationNodeStateMachineTransition_lpynv"), "door_close", "door_open", SubResource("AnimationNodeStateMachineTransition_kde5u")]
-graph_offset = Vector2(-925, -106)
+graph_offset = Vector2(-978, -6)

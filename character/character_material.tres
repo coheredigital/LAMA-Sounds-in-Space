@@ -1,7 +1,7 @@
-[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://cstrmk4iknpy2"]
+[gd_resource type="ShaderMaterial" load_steps=5 format=3]
 
-[ext_resource type="Texture2D" uid="uid://b35bx011uc6ff" path="res://materials/textures/character_albedo.png" id="1"]
-[ext_resource type="Texture2D" uid="uid://bi5t50634dth1" path="res://materials/textures/character_emission.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://b35bx011uc6ff" path="res://character/character_albedo.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://bi5t50634dth1" path="res://character/character_emission.png" id="2"]
 [ext_resource type="Shader" path="res://materials/shaders/toon.gdshader" id="3"]
 [ext_resource type="Texture2D" uid="uid://cwoinpuvn65ta" path="res://materials/textures/diffuse_curve.png" id="4"]
 
