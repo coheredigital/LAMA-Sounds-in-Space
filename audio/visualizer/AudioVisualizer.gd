@@ -4,7 +4,6 @@ extends Node
 @export var waveform : Curve
 @export var gradient : Gradient
 @export_range (4, 32) var definition := 16: set = set_definition
-
 @export_range(20.0, 22000.0, 10.0) var min_frequency := 20.0:
 	set(value):
 		min_frequency = value
@@ -17,14 +16,10 @@ extends Node
 	set(value):
 		if value >= min_db:
 			max_db = value
-		
-
 @export_range(-80.0, 0.0, 0.1) var min_db := -40.0:
 	set(value):
 		if value <= max_db:
 			min_db = value
-		
-
 @export var response_curve : Curve
 @export var x_curve : Curve
 @export var y_curve : Curve
@@ -47,7 +42,6 @@ var interval := 0.0
 func set_min_frequency(value):
 #	prevents min being set larger than max
 	if value < max_frequency:
-		min_frequency = value
 		if response_curve:
 			response_curve.min_value = value
 			response_curve.set_point_value(0,value)
@@ -56,18 +50,10 @@ func set_min_frequency(value):
 func set_max_frequency(value):
 #	prevents max being set smaller than min
 	if value > min_frequency:
-		max_frequency= value
 		if response_curve:
 			response_curve.max_value = value
 			response_curve.set_point_value(1,value)
 			response_curve.bake()
-			
-
-
-func set_max_db(value):
-#	prevents max being set smaller than min
-	if value > min_db:
-		max_db = value
 
 
 func set_definition(value):

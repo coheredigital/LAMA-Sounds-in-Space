@@ -71,15 +71,32 @@ text = "Mission Control
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="Panel/VBoxContainer"]
+[node name="ParticipantForm" type="VBoxContainer" parent="Panel/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="Panel/VBoxContainer/HBoxContainer3"]
+[node name="MissionIDField" type="HBoxContainer" parent="Panel/VBoxContainer/ParticipantForm"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/ParticipantForm/MissionIDField"]
+custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 text = "Mission ID
 "
 
-[node name="TextEdit" type="TextEdit" parent="Panel/VBoxContainer/HBoxContainer3"]
+[node name="TextEdit" type="TextEdit" parent="Panel/VBoxContainer/ParticipantForm/MissionIDField"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NameField" type="HBoxContainer" parent="Panel/VBoxContainer/ParticipantForm"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/ParticipantForm/NameField"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+text = "Participant Name
+"
+
+[node name="TextEdit" type="TextEdit" parent="Panel/VBoxContainer/ParticipantForm/NameField"]
 layout_mode = 2
 size_flags_horizontal = 3
 

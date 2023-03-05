@@ -1,19 +1,20 @@
-[gd_scene load_steps=15 format=3 uid="uid://cg47ho2lja2j0"]
+[gd_scene load_steps=16 format=3 uid="uid://cg47ho2lja2j0"]
 
 [ext_resource type="PackedScene" uid="uid://bc2anm0871dvm" path="res://spaceship/spaceship.tscn" id="1"]
 [ext_resource type="PackedScene" path="res://game_state_manager.tscn" id="2_d2e5h"]
 [ext_resource type="PackedScene" uid="uid://cbmdn35p2dbvg" path="res://player/player_camera.tscn" id="4"]
 [ext_resource type="PackedScene" uid="uid://4m1cicd5c2ia" path="res://environment/environment.tscn" id="7_uaa0q"]
 [ext_resource type="PackedScene" uid="uid://c4qhhxc2uj1e8" path="res://character/character.tscn" id="9"]
+[ext_resource type="PackedScene" uid="uid://cx0n5ib6nedas" path="res://ui/control_panel.tscn" id="9_r71k3"]
 [ext_resource type="Shader" path="res://shaders/toon.gdshader" id="10_ch3sr"]
 [ext_resource type="Texture2D" uid="uid://cwoinpuvn65ta" path="res://shaders/textures/diffuse_curve.png" id="11_tvqks"]
 [ext_resource type="Script" path="res://game.gd" id="12"]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_sgfbi"]
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_fcswa"]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_2ejl3"]
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_a65t5"]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_6g5xq"]
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_3sx6n"]
 
 [sub_resource type="Gradient" id="18"]
 interpolation_mode = 1
@@ -52,86 +53,100 @@ shader_parameter/emission_texture = SubResource("GradientTexture2D_4aqhb")
 [node name="Game" type="Node"]
 script = ExtResource("12")
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+[node name="ControlPanelWindow" type="Window" parent="."]
+initial_position = 1
+title = "Mission Control"
+size = Vector2i(1280, 800)
+mode = 2
+
+[node name="ControlPanel" parent="ControlPanelWindow" instance=ExtResource("9_r71k3")]
+
+[node name="GameWindow" type="Window" parent="."]
+title = "Space Adventure"
+size = Vector2i(1280, 800)
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="GameWindow"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 stretch = true
 
-[node name="ScreenButton" type="Button" parent="SubViewportContainer"]
+[node name="ScreenButton" type="Button" parent="GameWindow/SubViewportContainer"]
 visible = false
 layout_mode = 2
 text = "Screen Button"
 
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+[node name="SubViewport" type="SubViewport" parent="GameWindow/SubViewportContainer"]
 handle_input_locally = false
 size = Vector2i(1280, 800)
 render_target_update_mode = 4
 
-[node name="GameStateManager" parent="SubViewportContainer/SubViewport" instance=ExtResource("2_d2e5h")]
-parameters/character_state/playback = SubResource("AnimationNodeStateMachinePlayback_sgfbi")
-parameters/player_state/playback = SubResource("AnimationNodeStateMachinePlayback_2ejl3")
-parameters/spaceship_state/playback = SubResource("AnimationNodeStateMachinePlayback_6g5xq")
+[node name="GameStateManager" parent="GameWindow/SubViewportContainer/SubViewport" instance=ExtResource("2_d2e5h")]
+parameters/character_state/playback = SubResource("AnimationNodeStateMachinePlayback_fcswa")
+parameters/player_state/playback = SubResource("AnimationNodeStateMachinePlayback_a65t5")
+parameters/spaceship_state/playback = SubResource("AnimationNodeStateMachinePlayback_3sx6n")
 
-[node name="Environment" parent="SubViewportContainer/SubViewport" instance=ExtResource("7_uaa0q")]
+[node name="Environment" parent="GameWindow/SubViewportContainer/SubViewport" instance=ExtResource("7_uaa0q")]
 sky_color = Color(0.113725, 0.113725, 0.266667, 1)
 ground_color = Color(0.4, 0.733333, 0.521569, 1)
 fog_color = Color(0.466667, 0.584314, 0.796078, 1)
 horizon_color = Color(1, 0.627451, 0.403922, 1)
 horizon_height = 0.038
 
-[node name="space_station" parent="SubViewportContainer/SubViewport/Environment" index="0"]
+[node name="space_station" parent="GameWindow/SubViewportContainer/SubViewport/Environment" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.038, 0)
 
-[node name="Planet" parent="SubViewportContainer/SubViewport/Environment" index="2"]
+[node name="Planet" parent="GameWindow/SubViewportContainer/SubViewport/Environment" index="2"]
 transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 14.698, 12.7034, -54.117)
 surface_material_override/0 = SubResource("ShaderMaterial_k5s51")
 
-[node name="WorldLight" parent="SubViewportContainer/SubViewport/Environment" index="3"]
+[node name="WorldLight" parent="GameWindow/SubViewportContainer/SubViewport/Environment" index="3"]
 light_color = Color(1, 1, 1, 1)
 light_energy = 0.15
 
-[node name="Spaceship" parent="SubViewportContainer/SubViewport" instance=ExtResource("1")]
+[node name="Spaceship" parent="GameWindow/SubViewportContainer/SubViewport" instance=ExtResource("1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0162, 0)
 steering_motion = 0.188
 
-[node name="Character" parent="SubViewportContainer/SubViewport" instance=ExtResource("9")]
+[node name="Character" parent="GameWindow/SubViewportContainer/SubViewport" instance=ExtResource("9")]
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 1, -10.6656, 2.10132, 5.55682)
 
-[node name="character" parent="SubViewportContainer/SubViewport/Character" index="0"]
+[node name="character" parent="GameWindow/SubViewportContainer/SubViewport/Character" index="0"]
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999998, 0, 0, 0)
 
-[node name="helmet" parent="SubViewportContainer/SubViewport/Character/character" index="0"]
+[node name="helmet" parent="GameWindow/SubViewportContainer/SubViewport/Character/character" index="0"]
 transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 0.359375, 0)
 
-[node name="face" parent="SubViewportContainer/SubViewport/Character/character/helmet" index="3"]
+[node name="face" parent="GameWindow/SubViewportContainer/SubViewport/Character/character/helmet" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00768932, 0.217194, 0.0399466)
 
-[node name="arm_right" parent="SubViewportContainer/SubViewport/Character/character" index="1"]
+[node name="arm_right" parent="GameWindow/SubViewportContainer/SubViewport/Character/character" index="1"]
 transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 1, -0.203125, 0.296875, -2.32831e-10)
 
-[node name="arm_left" parent="SubViewportContainer/SubViewport/Character/character" index="2"]
+[node name="arm_left" parent="GameWindow/SubViewportContainer/SubViewport/Character/character" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0.296875, 3.72529e-09)
 
-[node name="forarm_left" parent="SubViewportContainer/SubViewport/Character/character/arm_left" index="0"]
+[node name="forarm_left" parent="GameWindow/SubViewportContainer/SubViewport/Character/character/arm_left" index="0"]
 transform = Transform3D(0.999999, 0, 0, 0, 0.999998, 0, 0, 0, 0.999999, 0, -0.28125, -3.72529e-09)
 
-[node name="Player" parent="SubViewportContainer/SubViewport" instance=ExtResource("4")]
+[node name="Player" parent="GameWindow/SubViewportContainer/SubViewport" instance=ExtResource("4")]
 follow_speed = 1.96
 turn_speed = 4.469
 distance_buffer = 3.438
 distance_boost = 2.904
 
-[node name="Camera3D" parent="SubViewportContainer/SubViewport/Player" index="0"]
-transform = Transform3D(0.805125, 0.0753689, -0.588296, 2.23517e-08, 0.991893, 0.127075, 0.593105, -0.102312, 0.798598, -10.8537, 2.5, 7.2842)
+[node name="Camera3D" parent="GameWindow/SubViewportContainer/SubViewport/Player" index="0"]
+transform = Transform3D(0.805126, 0.0753688, -0.588296, 1.15484e-07, 0.991893, 0.127075, 0.593104, -0.102312, 0.798599, -10.8537, 2.5, 7.2842)
 
-[node name="PositionTarget" parent="SubViewportContainer/SubViewport/Player" index="1"]
+[node name="PositionTarget" parent="GameWindow/SubViewportContainer/SubViewport/Player" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8537, 2.5, 7.2842)
 
-[node name="LookTarget" parent="SubViewportContainer/SubViewport/Player" index="2"]
+[node name="LookTarget" parent="GameWindow/SubViewportContainer/SubViewport/Player" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.07119, 1.46695, 0.792042)
 
-[editable path="SubViewportContainer/SubViewport/Environment"]
-[editable path="SubViewportContainer/SubViewport/Environment/space_station"]
-[editable path="SubViewportContainer/SubViewport/Character"]
-[editable path="SubViewportContainer/SubViewport/Player"]
+[editable path="GameWindow/SubViewportContainer/SubViewport/Environment"]
+[editable path="GameWindow/SubViewportContainer/SubViewport/Environment/space_station"]
+[editable path="GameWindow/SubViewportContainer/SubViewport/Character"]
+[editable path="GameWindow/SubViewportContainer/SubViewport/Player"]
