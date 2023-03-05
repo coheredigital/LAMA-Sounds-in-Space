@@ -1,0 +1,43 @@
+[gd_resource type="AnimationNodeStateMachine" load_steps=10 format=3 uid="uid://dc7tyssjir7o5"]
+
+[sub_resource type="AnimationNodeAnimation" id="3858"]
+animation = &"player/approach_spaceship"
+
+[sub_resource type="AnimationNodeAnimation" id="3859"]
+animation = &"player/enter_spaceship"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0nqj6"]
+animation = &"player/RESET"
+
+[sub_resource type="AnimationNodeAnimation" id="3910"]
+animation = &"player/position_sitting"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ybi8p"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lukpd"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bo1s8"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_g2vfj"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_63klr"]
+switch_mode = 2
+
+[resource]
+states/End/position = Vector2(341, 161)
+states/Start/position = Vector2(-571, 161)
+states/approach_spaceship/node = SubResource("3858")
+states/approach_spaceship/position = Vector2(-227, 161)
+states/enter_spaceship/node = SubResource("3859")
+states/enter_spaceship/position = Vector2(-1, 161)
+states/intro/node = SubResource("AnimationNodeAnimation_0nqj6")
+states/intro/position = Vector2(-434, 161)
+states/player_sit/node = SubResource("3910")
+states/player_sit/position = Vector2(200, 161)
+transitions = ["approach_spaceship", "enter_spaceship", SubResource("AnimationNodeStateMachineTransition_ybi8p"), "Start", "intro", SubResource("AnimationNodeStateMachineTransition_lukpd"), "intro", "approach_spaceship", SubResource("AnimationNodeStateMachineTransition_bo1s8"), "enter_spaceship", "player_sit", SubResource("AnimationNodeStateMachineTransition_g2vfj"), "player_sit", "End", SubResource("AnimationNodeStateMachineTransition_63klr")]
+graph_offset = Vector2(-672, -27)

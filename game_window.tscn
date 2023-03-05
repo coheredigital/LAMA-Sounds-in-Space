@@ -1,16 +1,16 @@
 [gd_scene load_steps=31 format=3 uid="uid://cw4f5hy7rklua"]
 
-[ext_resource type="AnimationNodeStateMachine" uid="uid://c4k44s0dh3440" path="res://spaceship/animation/spaceship_state_tree.tres" id="1_f4e3r"]
-[ext_resource type="AnimationNodeStateMachine" uid="uid://bgas77vb0vl6b" path="res://spaceship/animation/screen_state_tree.tres" id="2_33acu"]
+[ext_resource type="AnimationNodeStateMachine" uid="uid://c4k44s0dh3440" path="res://animations/spaceship_state_tree.tres" id="1_f4e3r"]
+[ext_resource type="AnimationNodeStateMachine" uid="uid://bgas77vb0vl6b" path="res://animations/screen_state_tree.tres" id="2_33acu"]
 [ext_resource type="Shader" path="res://shaders/toon.gdshader" id="3_dfqq4"]
 [ext_resource type="Script" path="res://game_state_manager.gd" id="3_g5xn2"]
-[ext_resource type="AnimationLibrary" uid="uid://d2f01mgprslsv" path="res://character/materials/character_animations.tres" id="4_53u65"]
+[ext_resource type="AnimationLibrary" uid="uid://d2f01mgprslsv" path="res://animations/libraries/character.tres" id="4_53u65"]
 [ext_resource type="Texture2D" uid="uid://cwoinpuvn65ta" path="res://shaders/textures/diffuse_curve.png" id="4_wio8q"]
-[ext_resource type="AnimationLibrary" uid="uid://cadi70pdgm61" path="res://spaceship/animation/spaceship_animations.tres" id="5_262jn"]
+[ext_resource type="AnimationLibrary" uid="uid://cadi70pdgm61" path="res://animations/libraries/spaceship.tres" id="5_262jn"]
 [ext_resource type="PackedScene" uid="uid://c4qhhxc2uj1e8" path="res://character/character.tscn" id="6_8i88j"]
-[ext_resource type="AnimationLibrary" uid="uid://dip5qx70rf0l0" path="res://player/player_animations.tres" id="6_sgiiy"]
+[ext_resource type="AnimationLibrary" uid="uid://dip5qx70rf0l0" path="res://animations/libraries/player.tres" id="6_sgiiy"]
 [ext_resource type="PackedScene" uid="uid://cbmdn35p2dbvg" path="res://player/player_camera.tscn" id="7_mwy2h"]
-[ext_resource type="AnimationLibrary" uid="uid://dywe6iokyofm1" path="res://spaceship/animation/screen_animations.tres" id="7_ojali"]
+[ext_resource type="AnimationLibrary" uid="uid://dywe6iokyofm1" path="res://animations/libraries/screen.tres" id="7_ojali"]
 [ext_resource type="PackedScene" uid="uid://dfj8aj155rnl4" path="res://environment/stage.tscn" id="8_ympfv"]
 
 [sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_q6l4g"]
@@ -171,7 +171,7 @@ _data = {
 animation = &"mission/approach_spaceship"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jyrxd"]
-animation = &"mission/intro"
+animation = &"mission/RESET"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_678tg"]
 switch_mode = 2
@@ -183,7 +183,7 @@ switch_mode = 2
 states/approach_spaceship/node = SubResource("AnimationNodeAnimation_d0ais")
 states/approach_spaceship/position = Vector2(513, 100)
 states/intro/node = SubResource("AnimationNodeAnimation_jyrxd")
-states/intro/position = Vector2(318, 100)
+states/intro/position = Vector2(319, 100)
 transitions = ["Start", "intro", SubResource("AnimationNodeStateMachineTransition_678tg"), "intro", "approach_spaceship", SubResource("AnimationNodeStateMachineTransition_4u2k8")]
 graph_offset = Vector2(-113, -96)
 
@@ -303,7 +303,7 @@ horizon_color = Color(1, 0.627451, 0.403922, 1)
 horizon_height = 0.038
 
 [node name="Spaceship" parent="SubViewportContainer/SubViewport/Environment" index="1"]
-door_open = true
+steering_motion = 0.216
 
 [node name="Planet" parent="SubViewportContainer/SubViewport/Environment" index="3"]
 surface_material_override/0 = SubResource("ShaderMaterial_qumg5")
@@ -340,7 +340,7 @@ distance_buffer = 3.438
 distance_boost = 2.904
 
 [node name="Camera3D" parent="SubViewportContainer/SubViewport/Player" index="0"]
-transform = Transform3D(-0.0457579, 0.116522, -0.992133, -7.45058e-09, 0.993174, 0.116644, 0.998953, 0.0053374, -0.0454456, -4.0814, 2.5, 0.6895)
+transform = Transform3D(-0.0457579, 0.116522, -0.992133, -3.72529e-09, 0.993174, 0.116644, 0.998953, 0.0053374, -0.0454456, -4.0814, 2.5, 0.6895)
 
 [node name="PositionTarget" parent="SubViewportContainer/SubViewport/Player" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0814, 2.5, 0.6895)
