@@ -1,7 +1,7 @@
 extends Node3D
 
-@export var door_open = false : set = set_door_open
+@export var door_open := false : 
+	set(value):
+		print('open')
+		door_open = value
 
-
-func set_door_open(value: bool):
-	door_open = value

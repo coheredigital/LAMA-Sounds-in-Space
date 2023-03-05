@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://xhklnrh5d05r"
-path="res://.godot/imported/space_station_albedo.png-e696a21d73e3ad79c4f8f20487b2ebe5.ctex"
+path="res://.godot/imported/space_station_albedo.png-383cf14c720ca44a813b27be6037a3bb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://environment/space_station/space_station_albedo.png"
-dest_files=["res://.godot/imported/space_station_albedo.png-e696a21d73e3ad79c4f8f20487b2ebe5.ctex"]
+source_file="res://environment/materials/space_station_albedo.png"
+dest_files=["res://.godot/imported/space_station_albedo.png-383cf14c720ca44a813b27be6037a3bb.ctex"]
 
 [params]
 

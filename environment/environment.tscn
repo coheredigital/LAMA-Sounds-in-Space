@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://4xktwkgq6yqv"]
+[gd_scene load_steps=9 format=3 uid="uid://4m1cicd5c2ia"]
 
 [ext_resource type="Environment" uid="uid://n48hdvn72r0x" path="res://environment/environment.tres" id="1_arsm2"]
 [ext_resource type="Script" path="res://environment/environment.gd" id="2_bvl62"]
-[ext_resource type="PackedScene" uid="uid://dt1vpkmuodkmu" path="res://environment/space_station/space_station.gltf" id="3_mao0r"]
+[ext_resource type="PackedScene" uid="uid://dt1vpkmuodkmu" path="res://environment/models/space_station.gltf" id="3_mao0r"]
 [ext_resource type="Material" uid="uid://b3lc1cld20o6q" path="res://environment/materials/sky_material.tres" id="4_i8nts"]
+[ext_resource type="Material" uid="uid://boquq5sy5ywdb" path="res://environment/materials/space_station_material.tres" id="4_nxdcm"]
 [ext_resource type="Material" uid="uid://dn1nckx2il1rl" path="res://environment/materials/planet_material.tres" id="5_g8wpa"]
 
 [sub_resource type="SphereMesh" id="3821"]
@@ -21,9 +22,12 @@ sky_color = Color(0.439216, 0.207843, 0.301961, 1)
 ground_color = Color(0.686275, 0.337255, 0.443137, 1)
 fog_color = Color(0.290196, 0.168627, 0.403922, 1)
 horizon_color = Color(0.556863, 0.370588, 0.335294, 1)
-horizon_height = -47.9905
 
 [node name="space_station" parent="." instance=ExtResource("3_mao0r")]
+unique_name_in_owner = true
+
+[node name="space_station" parent="space_station" index="0"]
+surface_material_override/0 = ExtResource("4_nxdcm")
 
 [node name="Sky" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true
@@ -46,3 +50,5 @@ light_color = Color(0, 0, 0, 1)
 light_energy = 0.0
 shadow_bias = 0.007
 directional_shadow_max_distance = 25.0
+
+[editable path="space_station"]

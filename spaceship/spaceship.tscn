@@ -1,15 +1,54 @@
-[gd_scene load_steps=9 format=3]
+[gd_scene load_steps=14 format=3 uid="uid://c661gp7jlfffq"]
 
 [ext_resource type="PackedScene" uid="uid://ctjlmbopaw2sa" path="res://spaceship/spaceship.gltf" id="1_m17hk"]
 [ext_resource type="PackedScene" path="res://spaceship/dashboard/controls.tscn" id="2"]
-[ext_resource type="Material" uid="uid://f5pa0k1ded3i" path="res://materials/spaceship_material.tres" id="2_w5ycv"]
-[ext_resource type="PackedScene" path="res://spaceship/dashboard/screen.tscn" id="3"]
+[ext_resource type="Script" path="res://spaceship/spaceship.gd" id="2_mfp30"]
+[ext_resource type="Material" path="res://materials/spaceship_material.tres" id="2_w5ycv"]
+[ext_resource type="PackedScene" uid="uid://blh6lqd5lgsgr" path="res://spaceship/dashboard/screen.tscn" id="3"]
 [ext_resource type="Material" path="res://materials/spaceship_alpha_material.tres" id="3_ngcse"]
 [ext_resource type="PackedScene" uid="uid://b4v1gc27survw" path="res://spaceship/dashboard/seatbelt_indicator.gltf" id="4"]
 [ext_resource type="Material" uid="uid://ckygswr2hy4" path="res://materials/cockpit_material.tres" id="4_iw4ep"]
 [ext_resource type="PackedScene" uid="uid://dycuy65u4jvdb" path="res://spaceship/dashboard/fuel_gauge.gltf" id="6"]
+[ext_resource type="AnimationNodeStateMachine" uid="uid://cm4elcyqbcvrn" path="res://animations/door_state_machine.tres" id="10_csjlb"]
+
+[sub_resource type="Animation" id="Animation_dxke3"]
+resource_name = "door_open"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("spaceship/door:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.68533, 2.2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.175377, 0.0413296, 0), Vector3(0.175377, 0.0413296, 0.094659), Vector3(-0.00170398, 0.0493729, 0.456921), Vector3(-0.00170398, 0.0493729, 0.623801)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("spaceship/door:rotation_degrees")
+tracks/1/interp = 2
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.69887, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 14.0639, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xd8vc"]
+_data = {
+"open": SubResource("Animation_dxke3")
+}
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_682o1"]
 
 [node name="spaceship" instance=ExtResource("1_m17hk")]
+script = ExtResource("2_mfp30")
+door_open = true
 
 [node name="spaceship" parent="." index="0"]
 surface_material_override/0 = ExtResource("2_w5ycv")
@@ -80,6 +119,18 @@ light_energy = 0.0
 light_indirect_energy = 0.0
 omni_range = 6.0
 omni_attenuation = 0.203064
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+libraries = {
+"door": SubResource("AnimationLibrary_xd8vc")
+}
+
+[node name="DoorState" type="AnimationTree" parent="." index="4"]
+unique_name_in_owner = true
+tree_root = ExtResource("10_csjlb")
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_682o1")
 
 [editable path="spaceship/cockpit/monitor/seatbelt_indicator_right"]
 [editable path="spaceship/cockpit/monitor/seatbelt_indicator_left"]
