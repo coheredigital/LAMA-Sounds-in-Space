@@ -134,7 +134,7 @@ node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Animation"]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_hlqnd"]
 
-[node name="spaceship" instance=ExtResource("1_m17hk")]
+[node name="Spaceship" instance=ExtResource("1_m17hk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.23018, -0.0012815, -0.275368)
 script = ExtResource("2_mfp30")
 steering_motion = 0.278

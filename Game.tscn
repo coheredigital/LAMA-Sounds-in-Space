@@ -165,7 +165,6 @@ unique_name_in_owner = true
 stream = SubResource("AudioStreamMicrophone_2n73o")
 volume_db = 14.216
 autoplay = true
-stream_paused = true
 bus = &"Record"
 
 [node name="GameWindow" parent="." instance=ExtResource("3_ljibd")]

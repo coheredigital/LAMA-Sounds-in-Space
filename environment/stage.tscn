@@ -1,0 +1,57 @@
+[gd_scene load_steps=10 format=3 uid="uid://dfj8aj155rnl4"]
+
+[ext_resource type="Script" path="res://environment/environment.gd" id="1_radmq"]
+[ext_resource type="PackedScene" uid="uid://dt1vpkmuodkmu" path="res://environment/models/space_station.gltf" id="2_72b17"]
+[ext_resource type="Material" uid="uid://m6eohmc4l2ko" path="res://environment/materials/space_station_material.tres" id="3_b5j3k"]
+[ext_resource type="Material" uid="uid://cxxgwjiqio47k" path="res://environment/materials/sky_material.tres" id="4_np7b6"]
+[ext_resource type="PackedScene" uid="uid://bc2anm0871dvm" path="res://spaceship/spaceship.tscn" id="4_uavcu"]
+[ext_resource type="Material" uid="uid://coiklw8nbk48n" path="res://environment/materials/planet_material.tres" id="5_ua5mg"]
+[ext_resource type="Environment" uid="uid://n48hdvn72r0x" path="res://environment/environment.tres" id="6_xa70u"]
+
+[sub_resource type="SphereMesh" id="3821"]
+radius = 64.0
+height = 128.0
+
+[sub_resource type="SphereMesh" id="3833"]
+radius = 4.0
+height = 8.0
+
+[node name="Environment" type="WorldEnvironment"]
+environment = ExtResource("6_xa70u")
+script = ExtResource("1_radmq")
+
+[node name="SpaceStation" parent="." instance=ExtResource("2_72b17")]
+unique_name_in_owner = true
+
+[node name="space_station" parent="SpaceStation" index="0"]
+surface_material_override/0 = ExtResource("3_b5j3k")
+
+[node name="Spaceship" parent="." instance=ExtResource("4_uavcu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Sky" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(-4.3711e-08, 0, 1, 0, 0.999992, 0, -0.999992, 0, -4.37114e-08, 0, 0, 0)
+cast_shadow = 0
+mesh = SubResource("3821")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("4_np7b6")
+metadata/_edit_lock_ = true
+
+[node name="Planet" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.625, 0, 0, 0, 0.625, 0, 0, 0, 0.625, 12.2483, 11.0862, -50.4309)
+cast_shadow = 0
+mesh = SubResource("3833")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("5_ua5mg")
+metadata/_edit_lock_ = true
+
+[node name="WorldLight" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.93358, -0.260828, 0.245757, 0, 0.685768, 0.72782, -0.358368, -0.679479, 0.640219, 0, 128, 0)
+light_color = Color(0, 0, 0, 1)
+light_energy = 0.0
+shadow_bias = 0.007
+directional_shadow_max_distance = 25.0
+metadata/_edit_lock_ = true
+
+[editable path="SpaceStation"]
