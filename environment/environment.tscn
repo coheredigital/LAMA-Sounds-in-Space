@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3]
+[gd_scene load_steps=8 format=3 uid="uid://bpys85twpe825"]
 
 [ext_resource type="Environment" uid="uid://n48hdvn72r0x" path="res://environment/environment.tres" id="1_arsm2"]
 [ext_resource type="Script" path="res://environment/environment.gd" id="2_bvl62"]
@@ -17,8 +17,8 @@ height = 8.0
 [node name="Environment" type="WorldEnvironment"]
 environment = ExtResource("1_arsm2")
 script = ExtResource("2_bvl62")
-sky_color = Color(0.343137, 0.215686, 0.517647, 1)
-ground_color = Color(0.439216, 0.823529, 0.454902, 1)
+sky_color = Color(0.439216, 0.207843, 0.301961, 1)
+ground_color = Color(0.686275, 0.337255, 0.443137, 1)
 fog_color = Color(0.290196, 0.168627, 0.403922, 1)
 horizon_color = Color(0.556863, 0.370588, 0.335294, 1)
 horizon_height = -47.9905
@@ -26,6 +26,7 @@ horizon_height = -47.9905
 [node name="space_station" parent="." instance=ExtResource("3_mao0r")]
 
 [node name="Sky" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(-4.3711e-08, 0, 1, 0, 0.999992, 0, -0.999992, 0, -4.37114e-08, 0, 0, 0)
 cast_shadow = 0
 mesh = SubResource("3821")

@@ -6,7 +6,7 @@
 [ext_resource type="AnimationLibrary" uid="uid://dip5qx70rf0l0" path="res://animations/libraries/player.tres" id="4_5jcpw"]
 [ext_resource type="AnimationLibrary" uid="uid://cadi70pdgm61" path="res://animations/libraries/spaceship.tres" id="5_dcktr"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://bgas77vb0vl6b" path="res://animations/screen_state_tree.tres" id="7_3opg8"]
-[ext_resource type="PackedScene" path="res://environment/environment.tscn" id="7_uaa0q"]
+[ext_resource type="PackedScene" uid="uid://bpys85twpe825" path="res://environment/environment.tscn" id="7_uaa0q"]
 [ext_resource type="PackedScene" path="res://character/character.tscn" id="9"]
 [ext_resource type="AnimationLibrary" uid="uid://d2f01mgprslsv" path="res://animations/libraries/character.tres" id="10_1vlm6"]
 [ext_resource type="Shader" path="res://materials/shaders/toon.gdshader" id="10_ch3sr"]
@@ -210,7 +210,6 @@ libraries = {
 [node name="PlayerStateTree" type="AnimationTree" parent="SubViewportContainer/SubViewport"]
 tree_root = ExtResource("10_cyoaw")
 anim_player = NodePath("PlayerAnimation")
-active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_sq7i4")
 
 [node name="PlayerAnimation" type="AnimationPlayer" parent="SubViewportContainer/SubViewport/PlayerStateTree"]
@@ -223,7 +222,6 @@ libraries = {
 [node name="CharacterStateTree" type="AnimationTree" parent="SubViewportContainer/SubViewport"]
 tree_root = SubResource("AnimationNodeStateMachine_frjha")
 anim_player = NodePath("CharacterAnimation")
-active = true
 parameters/playback = SubResource("3871")
 
 [node name="CharacterAnimation" type="AnimationPlayer" parent="SubViewportContainer/SubViewport/CharacterStateTree"]
@@ -237,7 +235,6 @@ libraries = {
 [node name="ScreenStateTree" type="AnimationTree" parent="SubViewportContainer/SubViewport"]
 tree_root = ExtResource("7_3opg8")
 anim_player = NodePath("AnimationPlayer")
-active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_8t4lb")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SubViewportContainer/SubViewport/ScreenStateTree"]
@@ -310,7 +307,7 @@ transform = Transform3D(0.999999, 0, 0, 0, 0.999998, 0, 0, 0, 0.999999, 0, -0.28
 distance_buffer = 1.4762
 
 [node name="Camera3D" parent="SubViewportContainer/SubViewport/Player" index="0"]
-transform = Transform3D(0.805126, 0.0753688, -0.588296, 1.19209e-07, 0.991893, 0.127075, 0.593104, -0.102312, 0.798599, -10.8537, 2.5, 7.2842)
+transform = Transform3D(0.805126, 0.0753688, -0.588296, 7.45058e-08, 0.991893, 0.127075, 0.593104, -0.102312, 0.798599, -10.8537, 2.5, 7.2842)
 
 [node name="PositionTarget" parent="SubViewportContainer/SubViewport/Player" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8537, 2.5, 7.2842)
