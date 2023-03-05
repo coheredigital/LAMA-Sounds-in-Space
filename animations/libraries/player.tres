@@ -86,35 +86,6 @@ tracks/1/keys = {
 "values": [Vector3(-4.0814, 2.5, 0.6895), Vector3(-0.332051, 2.07097, 0.83749), Vector3(-0.0837799, 2.21405, -0.52231)]
 }
 
-[sub_resource type="Animation" id="Animation_u1waw"]
-resource_name = "player_sit"
-length = 2.0
-step = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Player/LookTarget:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.224004, 2.43433, -2.87139)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Player/PositionTarget:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.294017, 2.22313, -0.854775)]
-}
-
 [sub_resource type="Animation" id="Animation_y3auc"]
 resource_name = "player_stand"
 length = 2.0
@@ -142,6 +113,35 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(-0.0837799, 2.21405, -0.52231)]
+}
+
+[sub_resource type="Animation" id="Animation_u1waw"]
+resource_name = "player_sit"
+length = 2.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player/LookTarget:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.224004, 2.43433, -2.87139)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player/PositionTarget:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.294017, 2.22313, -0.854775)]
 }
 
 [resource]

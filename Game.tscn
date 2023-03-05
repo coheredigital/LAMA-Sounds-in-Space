@@ -310,7 +310,7 @@ transform = Transform3D(0.999999, 0, 0, 0, 0.999998, 0, 0, 0, 0.999999, 0, -0.28
 distance_buffer = 1.4762
 
 [node name="Camera3D" parent="SubViewportContainer/SubViewport/Player" index="0"]
-transform = Transform3D(0.809248, 0.0743112, -0.582749, -0.000757128, 0.992098, 0.125459, 0.587467, -0.101087, 0.80291, -10.8798, 2.50601, 7.30172)
+transform = Transform3D(0.805126, 0.0753688, -0.588296, 1.19209e-07, 0.991893, 0.127075, 0.593104, -0.102312, 0.798599, -10.8537, 2.5, 7.2842)
 
 [node name="PositionTarget" parent="SubViewportContainer/SubViewport/Player" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8537, 2.5, 7.2842)
