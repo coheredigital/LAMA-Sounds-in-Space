@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dycuy65u4jvdb"
-path="res://.godot/imported/fuel_gauge.gltf-fccfd927665f9a1584a62bbbf6ce7da8.scn"
+uid="uid://ctjlmbopaw2sa"
+path="res://.godot/imported/spaceship.gltf-b37c16ea21df2fde6fa0fda696998e39.scn"
 
 [deps]
 
-source_file="res://models/fuel_gauge.gltf"
-dest_files=["res://.godot/imported/fuel_gauge.gltf-fccfd927665f9a1584a62bbbf6ce7da8.scn"]
+source_file="res://spaceship/spaceship.gltf"
+dest_files=["res://.godot/imported/spaceship.gltf-b37c16ea21df2fde6fa0fda696998e39.scn"]
 
 [params]
 

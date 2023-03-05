@@ -1,13 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://nxsh65jl2xhr"]
+[gd_scene load_steps=9 format=3]
 
-[ext_resource type="PackedScene" uid="uid://ctjlmbopaw2sa" path="res://models/spaceship.gltf" id="1_m17hk"]
-[ext_resource type="PackedScene" uid="uid://dqsidw6vc75j6" path="res://scenes/SpaceshipControls.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://ctjlmbopaw2sa" path="res://spaceship/spaceship.gltf" id="1_m17hk"]
+[ext_resource type="PackedScene" path="res://spaceship/dashboard/controls.tscn" id="2"]
 [ext_resource type="Material" uid="uid://f5pa0k1ded3i" path="res://materials/spaceship_material.tres" id="2_w5ycv"]
-[ext_resource type="PackedScene" uid="uid://dh8quj5s64lwf" path="res://scenes/Screen.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://spaceship/dashboard/screen.tscn" id="3"]
 [ext_resource type="Material" path="res://materials/spaceship_alpha_material.tres" id="3_ngcse"]
-[ext_resource type="PackedScene" uid="uid://b4v1gc27survw" path="res://models/seatbelt_indicator.gltf" id="4"]
+[ext_resource type="PackedScene" uid="uid://b4v1gc27survw" path="res://spaceship/dashboard/seatbelt_indicator.gltf" id="4"]
 [ext_resource type="Material" uid="uid://ckygswr2hy4" path="res://materials/cockpit_material.tres" id="4_iw4ep"]
-[ext_resource type="PackedScene" uid="uid://dycuy65u4jvdb" path="res://models/fuel_gauge.gltf" id="6"]
+[ext_resource type="PackedScene" uid="uid://dycuy65u4jvdb" path="res://spaceship/dashboard/fuel_gauge.gltf" id="6"]
 
 [node name="spaceship" instance=ExtResource("1_m17hk")]
 

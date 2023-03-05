@@ -22,6 +22,7 @@ advance_mode = 2
 switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_g2vfj"]
+xfade_time = 1.28
 switch_mode = 2
 advance_mode = 2
 
@@ -40,4 +41,4 @@ states/intro/position = Vector2(-434, 161)
 states/player_sit/node = SubResource("3910")
 states/player_sit/position = Vector2(200, 161)
 transitions = ["approach_spaceship", "enter_spaceship", SubResource("AnimationNodeStateMachineTransition_ybi8p"), "Start", "intro", SubResource("AnimationNodeStateMachineTransition_lukpd"), "intro", "approach_spaceship", SubResource("AnimationNodeStateMachineTransition_bo1s8"), "enter_spaceship", "player_sit", SubResource("AnimationNodeStateMachineTransition_g2vfj"), "player_sit", "End", SubResource("AnimationNodeStateMachineTransition_63klr")]
-graph_offset = Vector2(-672, -27)
+graph_offset = Vector2(-817, -2)

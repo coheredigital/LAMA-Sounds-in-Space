@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0xxc1roxyljw"]
+[gd_scene load_steps=3 format=3]
 
-[ext_resource type="PackedScene" uid="uid://whalw4rdvy64" path="res://models/character.gltf" id="1"]
+[ext_resource type="PackedScene" uid="uid://whalw4rdvy64" path="res://character/character.gltf" id="1"]
 [ext_resource type="Material" uid="uid://cstrmk4iknpy2" path="res://materials/character_material.tres" id="2"]
 
 [node name="Character" instance=ExtResource("1")]

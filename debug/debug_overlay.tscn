@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6e1o0lioi7qw"]
+
+[ext_resource type="Script" path="res://debug/DebugOverlay.gd" id="1_5cotd"]
+[ext_resource type="PackedScene" uid="uid://duf16wnc1pvjm" path="res://audio/visualizer/AudioVisualizer.tscn" id="2_ttc5m"]
+
+[node name="DebugOverlay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_5cotd")
+
+[node name="AudioVisualizer" parent="." instance=ExtResource("2_ttc5m")]
+max_db = -1.6
+min_db = -64.9
+
+[node name="AudioStreamRecord" parent="AudioVisualizer" index="0"]
+volume_db = 20.583
+
+[node name="AudioWaveform" parent="AudioVisualizer" index="1"]
+visible = false
+
+[editable path="AudioVisualizer"]
