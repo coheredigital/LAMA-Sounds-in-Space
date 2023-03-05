@@ -1,8 +1,8 @@
-[gd_resource type="ShaderMaterial" load_steps=12 format=3 uid="uid://bmbvqwm8rojy2"]
+[gd_resource type="ShaderMaterial" load_steps=12 format=3]
 
 [ext_resource type="Shader" path="res://audio/visualizer/visualizer.gdshader" id="2"]
-[ext_resource type="Texture2D" uid="uid://efw8q5fwtw3s" path="res://materials/textures/visualizer_gradient.png" id="2_oiavi"]
-[ext_resource type="Texture2D" uid="uid://ddbud7dok4cao" path="res://materials/textures/visualizer_screen_mask.png" id="3_uu0vn"]
+[ext_resource type="Texture2D" uid="uid://efw8q5fwtw3s" path="res://audio/visualizer/textures/visualizer_gradient.png" id="2_oiavi"]
+[ext_resource type="Texture2D" uid="uid://ddbud7dok4cao" path="res://audio/visualizer/textures/visualizer_screen_mask.png" id="3_uu0vn"]
 [ext_resource type="Gradient" uid="uid://b71jutk4qdqv3" path="res://audio/visualizer/visualizer_gradient.tres" id="4_nf4b3"]
 
 [sub_resource type="Curve" id="Curve_inbm1"]

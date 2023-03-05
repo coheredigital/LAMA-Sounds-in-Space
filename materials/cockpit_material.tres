@@ -1,7 +1,7 @@
-[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://ckygswr2hy4"]
+[gd_resource type="ShaderMaterial" load_steps=4 format=3]
 
 [ext_resource type="Shader" path="res://materials/shaders/toon.gdshader" id="1"]
-[ext_resource type="Texture2D" uid="uid://cwoinpuvn65ta" path="res://materials/textures/diffuse_curve.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://cwoinpuvn65ta" path="res://postprocessing/textures/diffuse_curve.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://bita4ddif52yt" path="res://materials/textures/cockpit_albedo.png" id="4"]
 
 [resource]

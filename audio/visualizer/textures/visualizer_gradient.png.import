@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnfo0b752cn10"
-path="res://.godot/imported/dashboard_emission.png-cc703830dd46c22d04b7106d8c909889.ctex"
+uid="uid://efw8q5fwtw3s"
+path="res://.godot/imported/visualizer_gradient.png-f4164b3c3da7474e06bc5c6b257f9f09.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://materials/textures/dashboard_emission.png"
-dest_files=["res://.godot/imported/dashboard_emission.png-cc703830dd46c22d04b7106d8c909889.ctex"]
+source_file="res://audio/visualizer/textures/visualizer_gradient.png"
+dest_files=["res://.godot/imported/visualizer_gradient.png-f4164b3c3da7474e06bc5c6b257f9f09.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ddbud7dok4cao"
-path.s3tc="res://.godot/imported/visualizer_screen_mask.png-390791175d68959eaa46315a7dcff7ba.s3tc.ctex"
+path.s3tc="res://.godot/imported/visualizer_screen_mask.png-efddc6eaa1c7d843dcdc3b47920849f1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://materials/textures/visualizer_screen_mask.png"
-dest_files=["res://.godot/imported/visualizer_screen_mask.png-390791175d68959eaa46315a7dcff7ba.s3tc.ctex"]
+source_file="res://audio/visualizer/textures/visualizer_screen_mask.png"
+dest_files=["res://.godot/imported/visualizer_screen_mask.png-efddc6eaa1c7d843dcdc3b47920849f1.s3tc.ctex"]
 
 [params]
 

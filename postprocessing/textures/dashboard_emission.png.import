@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwoinpuvn65ta"
-path="res://.godot/imported/diffuse_curve.png-7cd9047435ac760d9d07259222973df9.ctex"
+uid="uid://bnfo0b752cn10"
+path="res://.godot/imported/dashboard_emission.png-a8783816876c15247febfe4a8e516ad5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://materials/textures/diffuse_curve.png"
-dest_files=["res://.godot/imported/diffuse_curve.png-7cd9047435ac760d9d07259222973df9.ctex"]
+source_file="res://postprocessing/textures/dashboard_emission.png"
+dest_files=["res://.godot/imported/dashboard_emission.png-a8783816876c15247febfe4a8e516ad5.ctex"]
 
 [params]
 

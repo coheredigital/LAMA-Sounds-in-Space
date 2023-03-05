@@ -1,6 +1,0 @@
-[gd_scene format=2]
-
-[node name="EditorLight" type="DirectionalLight3D"]
-transform = Transform3D( 1, 0, 0, 0, -0.334192, 0.942505, 0, -0.942505, -0.334192, 0, 0, 0 )
-light_energy = 0.22
-editor_only = true

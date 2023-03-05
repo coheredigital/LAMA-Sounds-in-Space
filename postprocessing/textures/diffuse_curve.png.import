@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://efw8q5fwtw3s"
-path="res://.godot/imported/visualizer_gradient.png-b6e8c077415fd7ffd6c3c02d94c55454.ctex"
+uid="uid://cwoinpuvn65ta"
+path="res://.godot/imported/diffuse_curve.png-27b666df8e1f81eb17b4cec73e471087.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://materials/textures/visualizer_gradient.png"
-dest_files=["res://.godot/imported/visualizer_gradient.png-b6e8c077415fd7ffd6c3c02d94c55454.ctex"]
+source_file="res://postprocessing/textures/diffuse_curve.png"
+dest_files=["res://.godot/imported/diffuse_curve.png-27b666df8e1f81eb17b4cec73e471087.ctex"]
 
 [params]
 

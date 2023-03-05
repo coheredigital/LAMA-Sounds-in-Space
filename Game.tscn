@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://3k17m3gvugh5"]
+[gd_scene load_steps=41 format=3]
 
 [ext_resource type="PackedScene" path="res://spaceship/spaceship.tscn" id="1"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://c4k44s0dh3440" path="res://animations/spaceship_state_tree.tres" id="2_f6ot1"]
@@ -11,13 +11,13 @@
 [ext_resource type="AnimationLibrary" uid="uid://d2f01mgprslsv" path="res://animations/libraries/character.tres" id="10_1vlm6"]
 [ext_resource type="Shader" path="res://materials/shaders/toon.gdshader" id="10_ch3sr"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://dc7tyssjir7o5" path="res://animations/player_state_tree.tres" id="10_cyoaw"]
-[ext_resource type="Texture2D" uid="uid://cwoinpuvn65ta" path="res://materials/textures/diffuse_curve.png" id="11_tvqks"]
+[ext_resource type="Texture2D" uid="uid://cwoinpuvn65ta" path="res://postprocessing/textures/diffuse_curve.png" id="11_tvqks"]
 [ext_resource type="Script" path="res://game.gd" id="12"]
 [ext_resource type="AnimationLibrary" uid="uid://dywe6iokyofm1" path="res://animations/libraries/screen.tres" id="16_kalt1"]
-[ext_resource type="Material" uid="uid://dyhrhmtylajgc" path="res://materials/seatbelt_indicator_right_material.tres" id="17_0qw4c"]
-[ext_resource type="Material" uid="uid://dq31s8oqcc7ap" path="res://materials/dashboard_material.tres" id="17_lt72f"]
+[ext_resource type="Material" path="res://materials/seatbelt_indicator_right_material.tres" id="17_0qw4c"]
+[ext_resource type="Material" path="res://materials/dashboard_material.tres" id="17_lt72f"]
 [ext_resource type="PackedScene" uid="uid://b6e1o0lioi7qw" path="res://debug/debug_overlay.tscn" id="18_dcbhx"]
-[ext_resource type="Material" uid="uid://bargno24tmn30" path="res://materials/seatbelt_indicator_left_material.tres" id="18_mtows"]
+[ext_resource type="Material" path="res://materials/seatbelt_indicator_left_material.tres" id="18_mtows"]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="3877"]
 
