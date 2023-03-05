@@ -1,13 +1,12 @@
-[gd_scene load_steps=34 format=3]
+[gd_scene load_steps=38 format=3 uid="uid://dg2n68q4urjxm"]
 
 [ext_resource type="AnimationNodeStateMachine" uid="uid://c4k44s0dh3440" path="res://spaceship/animation/spaceship_state_tree.tres" id="1_sq8v7"]
+[ext_resource type="AnimationNodeStateMachine" uid="uid://bgas77vb0vl6b" path="res://spaceship/animation/screen_state_tree.tres" id="2_1jkfn"]
 [ext_resource type="Script" path="res://game_state_manager.gd" id="2_85ose"]
 [ext_resource type="AnimationLibrary" uid="uid://d2f01mgprslsv" path="res://character/materials/character_animations.tres" id="2_j8v3y"]
 [ext_resource type="AnimationLibrary" uid="uid://dip5qx70rf0l0" path="res://player/player_animations.tres" id="3_v6h8r"]
 [ext_resource type="AnimationLibrary" uid="uid://dywe6iokyofm1" path="res://spaceship/animation/screen_animations.tres" id="4_8507q"]
 [ext_resource type="AnimationLibrary" uid="uid://cadi70pdgm61" path="res://spaceship/animation/spaceship_animations.tres" id="5_l1vj7"]
-
-[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_2ryh4"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_n8vnm"]
 animation = &"character/enter_spaceship"
@@ -50,11 +49,11 @@ states/enter_spaceship/node = SubResource("AnimationNodeAnimation_n8vnm")
 states/enter_spaceship/position = Vector2(554, 127)
 states/intro/node = SubResource("AnimationNodeAnimation_7dydj")
 states/intro/position = Vector2(311, 127)
-states/sit_down/node = SubResource("AnimationNodeAnimation_nlg6h")
-states/sit_down/position = Vector2(937, 127)
+states/sitting/node = SubResource("AnimationNodeAnimation_nlg6h")
+states/sitting/position = Vector2(937, 127)
 states/standing/node = SubResource("AnimationNodeAnimation_nj1j8")
 states/standing/position = Vector2(776, 127)
-transitions = ["Start", "intro", SubResource("AnimationNodeStateMachineTransition_liyru"), "intro", "enter_spaceship", SubResource("AnimationNodeStateMachineTransition_dvuph"), "enter_spaceship", "standing", SubResource("AnimationNodeStateMachineTransition_wbefn"), "standing", "sit_down", SubResource("AnimationNodeStateMachineTransition_o4u3v"), "sit_down", "End", SubResource("AnimationNodeStateMachineTransition_nj2vu"), "sit_down", "standing", SubResource("AnimationNodeStateMachineTransition_qsd53")]
+transitions = ["Start", "intro", SubResource("AnimationNodeStateMachineTransition_liyru"), "intro", "enter_spaceship", SubResource("AnimationNodeStateMachineTransition_dvuph"), "enter_spaceship", "standing", SubResource("AnimationNodeStateMachineTransition_wbefn"), "standing", "sitting", SubResource("AnimationNodeStateMachineTransition_o4u3v"), "sitting", "End", SubResource("AnimationNodeStateMachineTransition_nj2vu"), "sitting", "standing", SubResource("AnimationNodeStateMachineTransition_qsd53")]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1pwjv"]
 animation = &"player/approach_spaceship"
@@ -76,40 +75,54 @@ advance_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bt00y"]
 switch_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0rd4f"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sy3f6"]
+switch_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_sxofd"]
-states/End/position = Vector2(1044, 100)
+states/End/position = Vector2(1116, 100)
 states/approach_spaceship/node = SubResource("AnimationNodeAnimation_1pwjv")
 states/approach_spaceship/position = Vector2(519, 100)
 states/enter_spaceship/node = SubResource("AnimationNodeAnimation_6hphg")
 states/enter_spaceship/position = Vector2(754, 100)
 states/intro/node = SubResource("AnimationNodeAnimation_5srsk")
 states/intro/position = Vector2(328, 100)
-states/playerposition_sitting/node = SubResource("AnimationNodeAnimation_vn8x6")
-states/playerposition_sitting/position = Vector2(905, -5)
-transitions = ["Start", "intro", SubResource("AnimationNodeStateMachineTransition_ani8t"), "intro", "approach_spaceship", SubResource("AnimationNodeStateMachineTransition_d4sf0"), "approach_spaceship", "enter_spaceship", SubResource("AnimationNodeStateMachineTransition_bt00y")]
+states/position_sitting/node = SubResource("AnimationNodeAnimation_vn8x6")
+states/position_sitting/position = Vector2(960, 100)
+transitions = ["Start", "intro", SubResource("AnimationNodeStateMachineTransition_ani8t"), "intro", "approach_spaceship", SubResource("AnimationNodeStateMachineTransition_d4sf0"), "approach_spaceship", "enter_spaceship", SubResource("AnimationNodeStateMachineTransition_bt00y"), "enter_spaceship", "position_sitting", SubResource("AnimationNodeStateMachineTransition_0rd4f"), "position_sitting", "End", SubResource("AnimationNodeStateMachineTransition_sy3f6")]
 graph_offset = Vector2(-158, -84)
 
-[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_uvlwq"]
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_h01gi"]
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_a2wdf"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_m6b61"]
-nodes/Add2/node = SubResource("AnimationNodeAdd2_2ryh4")
-nodes/Add2/position = Vector2(860, 240)
+graph_offset = Vector2(83, 109)
 nodes/character_state/node = SubResource("AnimationNodeStateMachine_iigkv")
-nodes/character_state/position = Vector2(300, 340)
-nodes/output/position = Vector2(1240, 240)
+nodes/character_state/position = Vector2(300, 320)
+nodes/mission_state/node = ExtResource("1_sq8v7")
+nodes/mission_state/position = Vector2(300, 180)
+nodes/output/position = Vector2(1140, 240)
 nodes/player_state/node = SubResource("AnimationNodeStateMachine_sxofd")
-nodes/player_state/position = Vector2(300, 480)
-nodes/spaceship_state/node = ExtResource("1_sq8v7")
-nodes/spaceship_state/position = Vector2(300, 180)
-nodes/team/node = SubResource("AnimationNodeAdd2_uvlwq")
-nodes/team/position = Vector2(580, 360)
-node_connections = [&"output", 0, &"Add2", &"Add2", 0, &"spaceship_state", &"Add2", 1, &"team", &"team", 0, &"character_state", &"team", 1, &"player_state"]
+nodes/player_state/position = Vector2(300, 460)
+nodes/screen_state/node = ExtResource("2_1jkfn")
+nodes/screen_state/position = Vector2(740, 400)
+nodes/screen_view/node = SubResource("AnimationNodeAdd2_h01gi")
+nodes/screen_view/position = Vector2(960, 240)
+nodes/team_mission/node = SubResource("AnimationNodeAdd2_a2wdf")
+nodes/team_mission/position = Vector2(740, 200)
+node_connections = [&"output", 0, &"screen_view", &"screen_view", 0, &"team_mission", &"screen_view", 1, &"screen_state", &"team_mission", 0, &"mission_state"]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_as4el"]
 
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_nbxpa"]
+
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_g4i4a"]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_nbxpa"]
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_3lihe"]
 
 [sub_resource type="Animation" id="Animation_p0umf"]
 length = 0.001
@@ -161,6 +174,30 @@ tracks/3/keys = {
 "update": 0,
 "values": [true]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SubViewportContainer/SubViewport/Player/PositionTarget:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-10.8537, 2.5, 7.2842)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SubViewportContainer/SubViewport/Player/LookTarget:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-6.07119, 1.46695, 0.792042)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_68h00"]
 _data = {
@@ -171,11 +208,12 @@ _data = {
 tree_root = SubResource("AnimationNodeBlendTree_m6b61")
 anim_player = NodePath("AnimationPlayer")
 active = true
-parameters/Add2/add_amount = 1.0
 parameters/character_state/playback = SubResource("AnimationNodeStateMachinePlayback_as4el")
+parameters/mission_state/playback = SubResource("AnimationNodeStateMachinePlayback_nbxpa")
 parameters/player_state/playback = SubResource("AnimationNodeStateMachinePlayback_g4i4a")
-parameters/spaceship_state/playback = SubResource("AnimationNodeStateMachinePlayback_nbxpa")
-parameters/team/add_amount = 1.0
+parameters/screen_state/playback = SubResource("AnimationNodeStateMachinePlayback_3lihe")
+parameters/screen_view/add_amount = 1.0
+parameters/team_mission/add_amount = 0
 script = ExtResource("2_85ose")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

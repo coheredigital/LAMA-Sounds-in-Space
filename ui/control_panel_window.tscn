@@ -1,25 +1,27 @@
-[gd_scene load_steps=15 format=3 uid="uid://ddk451unfromj"]
+[gd_scene load_steps=13 format=3 uid="uid://dgyo62gl5af5b"]
 
-[ext_resource type="Theme" uid="uid://c0qwn552iqqur" path="res://ui/theme/simple_ui_theme.tres" id="2_xe58p"]
-[ext_resource type="PackedScene" uid="uid://cw4f5hy7rklua" path="res://game_window.tscn" id="3_ljibd"]
-[ext_resource type="Material" uid="uid://d1txi86rfk50c" path="res://audio/visualizer/visualizer_debug_material.tres" id="3_qq7yv"]
-[ext_resource type="Gradient" uid="uid://b71jutk4qdqv3" path="res://audio/visualizer/visualizer_gradient.tres" id="4_bkdmv"]
-[ext_resource type="Script" path="res://audio/visualizer/AudioVisualizer.gd" id="5_cnmhu"]
-[ext_resource type="Curve" uid="uid://dymfoswhbthj1" path="res://audio/visualizer/curves/waveform_curve.tres" id="6_6kuuw"]
-[ext_resource type="Curve" uid="uid://djq65vh7dm2ol" path="res://audio/visualizer/curves/response_curve.tres" id="7_0nslx"]
-[ext_resource type="Curve" uid="uid://vnofp0kutp4i" path="res://audio/visualizer/curves/x_acceleration_curve.tres" id="8_ry1wg"]
-[ext_resource type="Curve" uid="uid://t7kqhabg0q1l" path="res://audio/visualizer/curves/y_acceleration_curve.tres" id="9_vncay"]
-[ext_resource type="Curve" uid="uid://dxn1rtet5pm80" path="res://audio/visualizer/curves/z_acceleration_curve.tres" id="10_dsba6"]
-[ext_resource type="Curve" uid="uid://d1nfw1ns152lp" path="res://audio/visualizer/curves/a_acceleration_curve.tres" id="11_l1cg1"]
-[ext_resource type="Script" path="res://game.gd" id="12"]
+[ext_resource type="Theme" uid="uid://c0qwn552iqqur" path="res://ui/theme/simple_ui_theme.tres" id="1_fnfjj"]
+[ext_resource type="Material" uid="uid://d1txi86rfk50c" path="res://audio/visualizer/visualizer_debug_material.tres" id="2_3ogtm"]
+[ext_resource type="Gradient" uid="uid://b71jutk4qdqv3" path="res://audio/visualizer/visualizer_gradient.tres" id="3_faeyl"]
+[ext_resource type="Script" path="res://audio/visualizer/AudioVisualizer.gd" id="4_165jf"]
+[ext_resource type="Curve" uid="uid://dymfoswhbthj1" path="res://audio/visualizer/curves/waveform_curve.tres" id="5_bgtyi"]
+[ext_resource type="Curve" uid="uid://djq65vh7dm2ol" path="res://audio/visualizer/curves/response_curve.tres" id="6_8kcv2"]
+[ext_resource type="Curve" uid="uid://vnofp0kutp4i" path="res://audio/visualizer/curves/x_acceleration_curve.tres" id="7_fm3qs"]
+[ext_resource type="Curve" uid="uid://t7kqhabg0q1l" path="res://audio/visualizer/curves/y_acceleration_curve.tres" id="8_ey6wt"]
+[ext_resource type="Curve" uid="uid://dxn1rtet5pm80" path="res://audio/visualizer/curves/z_acceleration_curve.tres" id="9_mcxf5"]
+[ext_resource type="Curve" uid="uid://d1nfw1ns152lp" path="res://audio/visualizer/curves/a_acceleration_curve.tres" id="10_j76bv"]
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_m2f1b"]
-gradient = ExtResource("4_bkdmv")
+gradient = ExtResource("3_faeyl")
 
 [sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_2n73o"]
 
-[node name="Game" type="Node"]
-script = ExtResource("12")
+[node name="ControlPanelWindow" type="Window"]
+audio_listener_enable_2d = true
+audio_listener_enable_3d = true
+initial_position = 1
+title = "Mission Control"
+size = Vector2i(1280, 800)
 
 [node name="ControlPanel" type="Control" parent="."]
 layout_mode = 3
@@ -28,7 +30,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("2_xe58p")
+theme = ExtResource("1_fnfjj")
 
 [node name="Panel" type="Panel" parent="ControlPanel"]
 clip_contents = true
@@ -40,7 +42,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="AudioWaveform" type="TextureRect" parent="ControlPanel/Panel"]
-material = ExtResource("3_qq7yv")
+material = ExtResource("2_3ogtm")
 layout_mode = 2
 offset_left = -76.0
 offset_top = 571.0
@@ -148,24 +150,21 @@ text = "Failure
 "
 
 [node name="AudioVisualizer" type="Node" parent="ControlPanel"]
-script = ExtResource("5_cnmhu")
-waveform = ExtResource("6_6kuuw")
-gradient = ExtResource("4_bkdmv")
+script = ExtResource("4_165jf")
+waveform = ExtResource("5_bgtyi")
+gradient = ExtResource("3_faeyl")
 max_frequency = 660.0
 max_db = -1.6
 min_db = -64.9
-response_curve = ExtResource("7_0nslx")
-x_curve = ExtResource("8_ry1wg")
-y_curve = ExtResource("9_vncay")
-z_curve = ExtResource("10_dsba6")
-a_curve = ExtResource("11_l1cg1")
+response_curve = ExtResource("6_8kcv2")
+x_curve = ExtResource("7_fm3qs")
+y_curve = ExtResource("8_ey6wt")
+z_curve = ExtResource("9_mcxf5")
+a_curve = ExtResource("10_j76bv")
 
 [node name="AudioStreamRecord" type="AudioStreamPlayer" parent="ControlPanel/AudioVisualizer"]
 unique_name_in_owner = true
 stream = SubResource("AudioStreamMicrophone_2n73o")
 volume_db = 14.216
 autoplay = true
-stream_paused = true
 bus = &"Record"
-
-[node name="GameWindow" parent="." instance=ExtResource("3_ljibd")]

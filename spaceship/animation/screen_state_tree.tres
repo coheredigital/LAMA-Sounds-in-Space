@@ -1,4 +1,4 @@
-[gd_resource type="AnimationNodeStateMachine" load_steps=25 format=3 uid="uid://bgas77vb0vl6b"]
+[gd_resource type="AnimationNodeStateMachine" load_steps=27 format=3 uid="uid://bgas77vb0vl6b"]
 
 [sub_resource type="AnimationNodeAnimation" id="3919"]
 animation = &"screen_buckle_warning"
@@ -67,11 +67,16 @@ switch_mode = 2
 switch_mode = 2
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_giys6"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bkdda"]
+
 [resource]
 states/End/position = Vector2(305, 5)
-states/Start/position = Vector2(305, -128)
+states/Start/position = Vector2(305, -76)
 states/buckle_warning/node = SubResource("3919")
-states/buckle_warning/position = Vector2(475, 20)
+states/buckle_warning/position = Vector2(496, 20)
 states/failure/node = SubResource("3910")
 states/failure/position = Vector2(727, 20)
 states/idle/node = SubResource("3891")
@@ -88,5 +93,5 @@ states/visualizer/node = SubResource("3914")
 states/visualizer/position = Vector2(475, -175)
 states/wipe/node = SubResource("3892")
 states/wipe/position = Vector2(727, -76)
-transitions = ["wipe", "talking_head", SubResource("3896"), "talking_head", "wipe", SubResource("3897"), "wipe", "success", SubResource("3903"), "success", "wipe", SubResource("3904"), "wipe", "restart_button", SubResource("3905"), "restart_button", "wipe", SubResource("3906"), "wipe", "start_button", SubResource("3907"), "start_button", "wipe", SubResource("3908"), "wipe", "failure", SubResource("3911"), "failure", "wipe", SubResource("3912"), "wipe", "visualizer", SubResource("3915"), "visualizer", "wipe", SubResource("3916"), "wipe", "idle", SubResource("3917"), "idle", "wipe", SubResource("3918"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_i0aqs")]
+transitions = ["wipe", "talking_head", SubResource("3896"), "talking_head", "wipe", SubResource("3897"), "wipe", "success", SubResource("3903"), "success", "wipe", SubResource("3904"), "wipe", "restart_button", SubResource("3905"), "restart_button", "wipe", SubResource("3906"), "wipe", "start_button", SubResource("3907"), "start_button", "wipe", SubResource("3908"), "wipe", "failure", SubResource("3911"), "failure", "wipe", SubResource("3912"), "wipe", "visualizer", SubResource("3915"), "visualizer", "wipe", SubResource("3916"), "wipe", "idle", SubResource("3917"), "idle", "wipe", SubResource("3918"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_i0aqs"), "wipe", "buckle_warning", SubResource("AnimationNodeStateMachineTransition_giys6"), "buckle_warning", "wipe", SubResource("AnimationNodeStateMachineTransition_bkdda")]
 graph_offset = Vector2(19, -286)

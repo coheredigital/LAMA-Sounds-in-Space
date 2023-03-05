@@ -3,13 +3,13 @@
 [ext_resource type="Environment" uid="uid://n48hdvn72r0x" path="res://environment/environment.tres" id="1_arsm2"]
 [ext_resource type="Script" path="res://environment/environment.gd" id="2_bvl62"]
 [ext_resource type="PackedScene" uid="uid://dt1vpkmuodkmu" path="res://environment/models/space_station.gltf" id="3_mao0r"]
-[ext_resource type="Material" uid="uid://b3lc1cld20o6q" path="res://environment/materials/sky_material.tres" id="4_i8nts"]
-[ext_resource type="Material" uid="uid://dqbtaf2t0ptnw" path="res://environment/materials/space_station_material.tres" id="4_nxdcm"]
-[ext_resource type="Material" uid="uid://dsordefu8vlw1" path="res://environment/materials/planet_material.tres" id="5_g8wpa"]
+[ext_resource type="Material" uid="uid://cxxgwjiqio47k" path="res://environment/materials/sky_material.tres" id="4_i8nts"]
+[ext_resource type="Material" uid="uid://m6eohmc4l2ko" path="res://environment/materials/space_station_material.tres" id="4_nxdcm"]
+[ext_resource type="Material" uid="uid://coiklw8nbk48n" path="res://environment/materials/planet_material.tres" id="5_g8wpa"]
 
 [sub_resource type="SphereMesh" id="3821"]
 radius = 64.0
-height = 64.0
+height = 128.0
 
 [sub_resource type="SphereMesh" id="3833"]
 radius = 4.0
