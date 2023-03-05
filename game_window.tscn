@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cw4f5hy7rklua"]
+[gd_scene load_steps=31 format=3 uid="uid://cw4f5hy7rklua"]
 
 [ext_resource type="AnimationNodeStateMachine" uid="uid://c4k44s0dh3440" path="res://spaceship/animation/spaceship_state_tree.tres" id="1_f4e3r"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://bgas77vb0vl6b" path="res://spaceship/animation/screen_state_tree.tres" id="2_33acu"]
@@ -16,7 +16,7 @@
 [sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_q6l4g"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_m6b61"]
-graph_offset = Vector2(39.4604, 125.282)
+graph_offset = Vector2(507.339, 179.09)
 nodes/mission_state/node = ExtResource("1_f4e3r")
 nodes/mission_state/position = Vector2(720, 240)
 nodes/output/position = Vector2(1120, 280)
@@ -167,6 +167,30 @@ _data = {
 "door_open": SubResource("Animation_8tppg")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_d0ais"]
+animation = &"mission/approach_spaceship"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jyrxd"]
+animation = &"mission/intro"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_678tg"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4u2k8"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_mepx2"]
+states/approach_spaceship/node = SubResource("AnimationNodeAnimation_d0ais")
+states/approach_spaceship/position = Vector2(513, 100)
+states/intro/node = SubResource("AnimationNodeAnimation_jyrxd")
+states/intro/position = Vector2(318, 100)
+transitions = ["Start", "intro", SubResource("AnimationNodeStateMachineTransition_678tg"), "intro", "approach_spaceship", SubResource("AnimationNodeStateMachineTransition_4u2k8")]
+graph_offset = Vector2(-113, -96)
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_vs8d4"]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_blc8j"]
+
 [sub_resource type="Gradient" id="18"]
 interpolation_mode = 1
 offsets = PackedFloat32Array(0.0777027, 0.169916, 0.226351, 0.307432, 0.39527, 0.459459, 0.503378, 0.567568, 0.716981, 0.797297, 0.912162, 0.986072)
@@ -208,7 +232,6 @@ size = Vector2i(1280, 800)
 [node name="GameStateManager" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeBlendTree_m6b61")
 anim_player = NodePath("AnimationPlayer")
-active = true
 parameters/mission_state/playback = SubResource("AnimationNodeStateMachinePlayback_4rehu")
 parameters/screen_state/playback = SubResource("AnimationNodeStateMachinePlayback_2owtn")
 parameters/screen_view/add_amount = 1.0
@@ -227,6 +250,36 @@ libraries = {
 "player": ExtResource("6_sgiiy"),
 "screen": ExtResource("7_ojali"),
 "spaceship": SubResource("AnimationLibrary_i4gxv")
+}
+
+[node name="MissionStateTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_mepx2")
+anim_player = NodePath("MissionAnimationPlayer")
+active = true
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_vs8d4")
+
+[node name="MissionAnimationPlayer" type="AnimationPlayer" parent="MissionStateTree"]
+root_node = NodePath("../..")
+reset_on_save = false
+libraries = {
+"": SubResource("AnimationLibrary_68h00"),
+"character": ExtResource("4_53u65"),
+"mission": ExtResource("5_262jn"),
+"player": ExtResource("6_sgiiy"),
+"screen": ExtResource("7_ojali"),
+"spaceship": SubResource("AnimationLibrary_i4gxv")
+}
+
+[node name="ScreenStateTree" type="AnimationTree" parent="."]
+tree_root = ExtResource("2_33acu")
+anim_player = NodePath("ScreenAnimationPlayer")
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_blc8j")
+
+[node name="ScreenAnimationPlayer" type="AnimationPlayer" parent="ScreenStateTree"]
+root_node = NodePath("../..")
+reset_on_save = false
+libraries = {
+"screen": ExtResource("7_ojali")
 }
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
@@ -248,6 +301,9 @@ ground_color = Color(0.4, 0.733333, 0.521569, 1)
 fog_color = Color(0.466667, 0.584314, 0.796078, 1)
 horizon_color = Color(1, 0.627451, 0.403922, 1)
 horizon_height = 0.038
+
+[node name="Spaceship" parent="SubViewportContainer/SubViewport/Environment" index="1"]
+door_open = true
 
 [node name="Planet" parent="SubViewportContainer/SubViewport/Environment" index="3"]
 surface_material_override/0 = SubResource("ShaderMaterial_qumg5")
@@ -284,13 +340,13 @@ distance_buffer = 3.438
 distance_boost = 2.904
 
 [node name="Camera3D" parent="SubViewportContainer/SubViewport/Player" index="0"]
-transform = Transform3D(0.805126, 0.0753688, -0.588296, 1.2666e-07, 0.991893, 0.127075, 0.593104, -0.102312, 0.798599, -10.8537, 2.5, 7.2842)
+transform = Transform3D(-0.0457579, 0.116522, -0.992133, -7.45058e-09, 0.993174, 0.116644, 0.998953, 0.0053374, -0.0454456, -4.0814, 2.5, 0.6895)
 
 [node name="PositionTarget" parent="SubViewportContainer/SubViewport/Player" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8537, 2.5, 7.2842)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0814, 2.5, 0.6895)
 
 [node name="LookTarget" parent="SubViewportContainer/SubViewport/Player" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.07119, 1.46695, 0.792042)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.103051, 2.03227, 0.871729)
 
 [editable path="SubViewportContainer/SubViewport/Environment"]
 [editable path="SubViewportContainer/SubViewport/Environment/SpaceStation"]
