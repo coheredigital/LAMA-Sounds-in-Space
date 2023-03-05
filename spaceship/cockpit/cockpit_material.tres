@@ -1,8 +1,8 @@
 [gd_resource type="ShaderMaterial" load_steps=4 format=3]
 
-[ext_resource type="Shader" path="res://materials/shaders/toon.gdshader" id="1"]
+[ext_resource type="Shader" path="res://shaders/toon.gdshader" id="1"]
 [ext_resource type="Texture2D" uid="uid://cwoinpuvn65ta" path="res://postprocessing/textures/diffuse_curve.png" id="2"]
-[ext_resource type="Texture2D" uid="uid://bita4ddif52yt" path="res://materials/textures/cockpit_albedo.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://c8hu4x1mk70pm" path="res://spaceship/cockpit/cockpit_albedo.png" id="4"]
 
 [resource]
 render_priority = 0
@@ -19,6 +19,6 @@ shader_parameter/metallic = 0.0
 shader_parameter/roughness = 1.0
 shader_parameter/emission = Color(0, 0, 0, 1)
 shader_parameter/emission_energy = 1.0
-shader_parameter/ao_light_affect = 0.0
+shader_parameter/use_alpha = false
 shader_parameter/albedo_texture = ExtResource("4")
 shader_parameter/diffuse_curve = ExtResource("2")

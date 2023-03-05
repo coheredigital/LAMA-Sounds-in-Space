@@ -1,8 +1,8 @@
-[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://bjv4lnjeimjwv"]
+[gd_resource type="ShaderMaterial" load_steps=5 format=3]
 
 [ext_resource type="Texture2D" uid="uid://bnfo0b752cn10" path="res://postprocessing/textures/dashboard_emission.png" id="1"]
 [ext_resource type="Gradient" uid="uid://b71jutk4qdqv3" path="res://audio/visualizer/visualizer_gradient.tres" id="2"]
-[ext_resource type="Shader" path="res://materials/shaders/dashboard_screens.gdshader" id="3"]
+[ext_resource type="Shader" path="res://shaders/dashboard_screens.gdshader" id="3"]
 
 [sub_resource type="GradientTexture2D" id="3858"]
 gradient = ExtResource("2")
@@ -10,10 +10,10 @@ gradient = ExtResource("2")
 [resource]
 render_priority = 1
 shader = ExtResource("3")
-shader_parameter/emission_energy = 0.5
+shader_parameter/emission_energy = 1.0
 shader_parameter/alpha = 1.0
 shader_parameter/waveform_controlled = false
-shader_parameter/screen_number = 10.0
-shader_parameter/frame_number = 4.53497
+shader_parameter/screen_number = 1.0
+shader_parameter/frame_number = 1.0
 shader_parameter/emission_texture = ExtResource("1")
 shader_parameter/waveform = SubResource("3858")
