@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://c3g3mi35r0urh"]
+
+[ext_resource type="Environment" uid="uid://n48hdvn72r0x" path="res://environments/environment.tres" id="1_arsm2"]
+[ext_resource type="Script" path="res://environments/environment.gd" id="2_bvl62"]
+[ext_resource type="PackedScene" uid="uid://dt1vpkmuodkmu" path="res://models/space_station.gltf" id="3_mao0r"]
+[ext_resource type="Shader" path="res://materials/shaders/sky.gdshader" id="4_12m4p"]
+[ext_resource type="Material" uid="uid://dn1nckx2il1rl" path="res://materials/planet_material.tres" id="5_2uo8a"]
+
+[sub_resource type="SphereMesh" id="3821"]
+radius = 64.0
+height = 64.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hrap8"]
+render_priority = 0
+shader = ExtResource("4_12m4p")
+shader_parameter/ground_color = Color(1, 0.7, 0.55, 1)
+shader_parameter/horizon_color = Color(1, 0.7, 0.55, 1)
+shader_parameter/fog_color = Color(0.3, 0, 0.3, 1)
+shader_parameter/fog_strength = 1.0
+shader_parameter/sky_color = Color(1, 0.7, 0.55, 1)
+shader_parameter/stars_scale = 2.0
+shader_parameter/stars_brightness = 2.0
+shader_parameter/horizon_height = 0.0
+
+[sub_resource type="SphereMesh" id="3833"]
+radius = 4.0
+height = 8.0
+
+[node name="Environment" type="WorldEnvironment"]
+environment = ExtResource("1_arsm2")
+script = ExtResource("2_bvl62")
+sky_color = Color(0.343137, 0.215686, 0.517647, 1)
+ground_color = Color(0.439216, 0.823529, 0.454902, 1)
+fog_color = Color(0.290196, 0.168627, 0.403922, 1)
+horizon_color = Color(0.556863, 0.370588, 0.335294, 1)
+horizon_height = -47.9905
+
+[node name="space_station" parent="." instance=ExtResource("3_mao0r")]
+
+[node name="Sky" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.3711e-08, 0, 1, 0, 0.999992, 0, -0.999992, 0, -4.37114e-08, 0, 0, 0)
+visible = false
+cast_shadow = 0
+mesh = SubResource("3821")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_hrap8")
+
+[node name="Planet" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.625, 0, 0, 0, 0.625, 0, 0, 0, 0.625, 12.2483, 11.0862, -50.4309)
+visible = false
+cast_shadow = 0
+mesh = SubResource("3833")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("5_2uo8a")
+
+[node name="WorldLight" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.93358, -0.260828, 0.245757, 0, 0.685768, 0.727821, -0.358368, -0.679479, 0.640219, 0, 9.46133, 0)
+light_color = Color(0, 0, 0, 1)
+light_energy = 0.0
+shadow_bias = 0.007
+directional_shadow_max_distance = 25.0

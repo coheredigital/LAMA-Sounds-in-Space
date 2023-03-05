@@ -1,12 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://dh8quj5s64lwf"]
+[gd_scene load_steps=8 format=3 uid="uid://dh8quj5s64lwf"]
 
-[ext_resource type="AnimationNodeStateMachine" uid="uid://bgas77vb0vl6b" path="res://animations/screen_state_tree.tres" id="1"]
-[ext_resource type="Material" uid="uid://dq31s8oqcc7ap" path="res://materials/dashboard_material.tres" id="2"]
+[ext_resource type="Material" uid="uid://chk77njy6p8jp" path="res://materials/screen_material.tres" id="2_qh7pa"]
 [ext_resource type="PackedScene" uid="uid://d0dbntvucna2x" path="res://models/screen.gltf" id="3"]
-[ext_resource type="AnimationLibrary" uid="uid://dywe6iokyofm1" path="res://animations/libraries/screen.tres" id="5_iprh1"]
 [ext_resource type="Material" uid="uid://bmbvqwm8rojy2" path="res://audio/visualizer/visualizer_screen_material.tres" id="5_yex72"]
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id="1"]
 
 [sub_resource type="Image" id="Image_dwvyi"]
 data = {
@@ -46,23 +42,11 @@ _surfaces = [{
 
 [node name="Screen" instance=ExtResource("3")]
 
-[node name="AnimationStateTree" type="AnimationTree" parent="." index="0"]
-tree_root = ExtResource("1")
-anim_player = NodePath("AnimationPlayer")
-parameters/playback = SubResource("1")
+[node name="screen" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_qh7pa")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimationStateTree" index="0"]
-root_node = NodePath("../..")
-reset_on_save = false
-playback_default_blend_time = 1.0
-libraries = {
-"screen": ExtResource("5_iprh1")
-}
-
-[node name="screen" parent="." index="1"]
-surface_material_override/0 = ExtResource("2")
-
-[node name="visualizer_screen" type="MeshInstance3D" parent="." index="2"]
+[node name="visualizer_screen" type="MeshInstance3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 0.99583, -0.0912235, 0, 0.0912235, 0.99583, 0, 0.134981, 0.131099)
+visible = false
 mesh = SubResource("15")
 surface_material_override/0 = ExtResource("5_yex72")
