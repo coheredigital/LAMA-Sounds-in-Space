@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://v0b6hpr1fqrh"]
+[gd_scene load_steps=22 format=3]
 
 [ext_resource type="PackedScene" uid="uid://ctjlmbopaw2sa" path="res://spaceship/spaceship.gltf" id="1_m17hk"]
 [ext_resource type="Script" path="res://spaceship/spaceship.gd" id="2_mfp30"]
@@ -8,8 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://b4v1gc27survw" path="res://spaceship/dashboard/seatbelt_indicator.gltf" id="4"]
 [ext_resource type="Material" path="res://materials/cockpit_material.tres" id="4_iw4ep"]
 [ext_resource type="PackedScene" uid="uid://dycuy65u4jvdb" path="res://spaceship/dashboard/fuel_gauge.gltf" id="6"]
-[ext_resource type="AnimationLibrary" uid="uid://cadi70pdgm61" path="res://animations/libraries/spaceship.tres" id="6_wul7m"]
-[ext_resource type="AnimationNodeStateMachine" uid="uid://cm4elcyqbcvrn" path="res://animations/door_state_machine.tres" id="10_csjlb"]
+[ext_resource type="AnimationLibrary" uid="uid://cadi70pdgm61" path="res://spaceship/spaceship_animations.tres" id="6_wul7m"]
+[ext_resource type="AnimationNodeStateMachine" uid="uid://cm4elcyqbcvrn" path="res://spaceship/spaceship_door_state_tree.tres" id="10_csjlb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bmsk6"]
 resource_name = "material_0"

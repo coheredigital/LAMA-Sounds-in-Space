@@ -1,20 +1,20 @@
-[gd_scene load_steps=61 format=3 uid="uid://ch4ebo4oour3e"]
+[gd_scene load_steps=44 format=3]
 
-[ext_resource type="PackedScene" uid="uid://v0b6hpr1fqrh" path="res://spaceship/spaceship.tscn" id="1"]
-[ext_resource type="AnimationNodeStateMachine" uid="uid://c4k44s0dh3440" path="res://animations/spaceship_state_tree.tres" id="2_f6ot1"]
+[ext_resource type="PackedScene" path="res://spaceship/spaceship.tscn" id="1"]
+[ext_resource type="AnimationNodeStateMachine" uid="uid://c4k44s0dh3440" path="res://spaceship/spaceship_state_tree.tres" id="2_f6ot1"]
 [ext_resource type="PackedScene" uid="uid://cbmdn35p2dbvg" path="res://player/player_camera.tscn" id="4"]
-[ext_resource type="AnimationLibrary" uid="uid://dip5qx70rf0l0" path="res://animations/libraries/player.tres" id="4_5jcpw"]
-[ext_resource type="AnimationLibrary" uid="uid://cadi70pdgm61" path="res://animations/libraries/spaceship.tres" id="5_dcktr"]
-[ext_resource type="AnimationNodeStateMachine" uid="uid://bgas77vb0vl6b" path="res://animations/screen_state_tree.tres" id="7_3opg8"]
+[ext_resource type="AnimationLibrary" uid="uid://dip5qx70rf0l0" path="res://player/player_animations.tres" id="4_5jcpw"]
+[ext_resource type="AnimationLibrary" uid="uid://cadi70pdgm61" path="res://spaceship/spaceship_animations.tres" id="5_dcktr"]
 [ext_resource type="PackedScene" uid="uid://4m1cicd5c2ia" path="res://environment/environment.tscn" id="7_uaa0q"]
 [ext_resource type="PackedScene" path="res://character/character.tscn" id="9"]
-[ext_resource type="AnimationLibrary" uid="uid://d2f01mgprslsv" path="res://animations/libraries/character.tres" id="10_1vlm6"]
+[ext_resource type="AnimationLibrary" uid="uid://d2f01mgprslsv" path="res://character/character_animations.tres" id="10_1vlm6"]
 [ext_resource type="Shader" path="res://materials/shaders/toon.gdshader" id="10_ch3sr"]
-[ext_resource type="AnimationNodeStateMachine" uid="uid://dc7tyssjir7o5" path="res://animations/player_state_tree.tres" id="10_cyoaw"]
 [ext_resource type="Texture2D" uid="uid://cwoinpuvn65ta" path="res://postprocessing/textures/diffuse_curve.png" id="11_tvqks"]
 [ext_resource type="Script" path="res://game.gd" id="12"]
-[ext_resource type="AnimationLibrary" uid="uid://dywe6iokyofm1" path="res://animations/libraries/screen.tres" id="16_kalt1"]
+[ext_resource type="AnimationLibrary" uid="uid://dywe6iokyofm1" path="res://spaceship/dashboard/screen_animations.tres" id="16_kalt1"]
 [ext_resource type="PackedScene" uid="uid://b6e1o0lioi7qw" path="res://debug/debug_overlay.tscn" id="18_dcbhx"]
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_2ryh4"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_n8vnm"]
 animation = &"character/enter_spaceship"
@@ -40,9 +40,14 @@ switch_mode = 2
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_o4u3v"]
+xfade_time = 0.56
 switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nj2vu"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qsd53"]
+xfade_time = 0.86
 switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_iigkv"]
@@ -56,7 +61,7 @@ states/sit_down/node = SubResource("AnimationNodeAnimation_nlg6h")
 states/sit_down/position = Vector2(937, 127)
 states/standing/node = SubResource("AnimationNodeAnimation_nj1j8")
 states/standing/position = Vector2(776, 127)
-transitions = ["Start", "intro", SubResource("AnimationNodeStateMachineTransition_liyru"), "intro", "enter_spaceship", SubResource("AnimationNodeStateMachineTransition_dvuph"), "enter_spaceship", "standing", SubResource("AnimationNodeStateMachineTransition_wbefn"), "standing", "sit_down", SubResource("AnimationNodeStateMachineTransition_o4u3v"), "sit_down", "End", SubResource("AnimationNodeStateMachineTransition_nj2vu")]
+transitions = ["Start", "intro", SubResource("AnimationNodeStateMachineTransition_liyru"), "intro", "enter_spaceship", SubResource("AnimationNodeStateMachineTransition_dvuph"), "enter_spaceship", "standing", SubResource("AnimationNodeStateMachineTransition_wbefn"), "standing", "sit_down", SubResource("AnimationNodeStateMachineTransition_o4u3v"), "sit_down", "End", SubResource("AnimationNodeStateMachineTransition_nj2vu"), "sit_down", "standing", SubResource("AnimationNodeStateMachineTransition_qsd53")]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1pwjv"]
 animation = &"player/approach_spaceship"
@@ -66,6 +71,9 @@ animation = &"player/enter_spaceship"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5srsk"]
 animation = &"player/position_intro"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vn8x6"]
+animation = &"player/position_sitting"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ani8t"]
 advance_mode = 2
@@ -83,24 +91,33 @@ states/enter_spaceship/node = SubResource("AnimationNodeAnimation_6hphg")
 states/enter_spaceship/position = Vector2(754, 100)
 states/intro/node = SubResource("AnimationNodeAnimation_5srsk")
 states/intro/position = Vector2(328, 100)
+states/playerposition_sitting/node = SubResource("AnimationNodeAnimation_vn8x6")
+states/playerposition_sitting/position = Vector2(905, -5)
 transitions = ["Start", "intro", SubResource("AnimationNodeStateMachineTransition_ani8t"), "intro", "approach_spaceship", SubResource("AnimationNodeStateMachineTransition_d4sf0"), "approach_spaceship", "enter_spaceship", SubResource("AnimationNodeStateMachineTransition_bt00y")]
+graph_offset = Vector2(-158, -84)
 
 [sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_uvlwq"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_m6b61"]
-graph_offset = Vector2(0, -57)
+graph_offset = Vector2(44.3448, 35.7163)
+nodes/Add2/node = SubResource("AnimationNodeAdd2_2ryh4")
+nodes/Add2/position = Vector2(860, 240)
 nodes/character_state/node = SubResource("AnimationNodeStateMachine_iigkv")
-nodes/character_state/position = Vector2(260, 100)
-nodes/output/position = Vector2(880, 200)
+nodes/character_state/position = Vector2(300, 340)
+nodes/output/position = Vector2(1240, 240)
 nodes/player_state/node = SubResource("AnimationNodeStateMachine_sxofd")
-nodes/player_state/position = Vector2(260, 240)
+nodes/player_state/position = Vector2(300, 480)
+nodes/spaceship_state/node = ExtResource("2_f6ot1")
+nodes/spaceship_state/position = Vector2(300, 180)
 nodes/team/node = SubResource("AnimationNodeAdd2_uvlwq")
-nodes/team/position = Vector2(540, 140)
-node_connections = [&"output", 0, &"team", &"team", 0, &"character_state", &"team", 1, &"player_state"]
+nodes/team/position = Vector2(580, 360)
+node_connections = [&"output", 0, &"Add2", &"team", 0, &"character_state", &"team", 1, &"player_state", &"Add2", 0, &"spaceship_state", &"Add2", 1, &"team"]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_hkexe"]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_3715r"]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_wuj7e"]
 
 [sub_resource type="Animation" id="Animation_p0umf"]
 length = 0.001
@@ -116,368 +133,46 @@ tracks/0/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SubViewportContainer/SubViewport/Character:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-10.6656, 2.10132, 5.55682)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SubViewportContainer/SubViewport/Character:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SubViewportContainer/SubViewport/Character:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_68h00"]
 _data = {
 "RESET": SubResource("Animation_p0umf")
-}
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id="3877"]
-
-[sub_resource type="Animation" id="Animation_64el7"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Environment:horizon_height")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.038]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Environment:horizon_color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 0.627451, 0.403922, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Environment:fog_color")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.466667, 0.584314, 0.796078, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Environment:ground_color")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.4, 0.733333, 0.521569, 1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Environment:sky_color")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.113725, 0.113725, 0.266667, 1)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Environment/Planet:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(14.698, 12.7034, -54.117)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Environment/WorldLight:shadow_bias")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.007]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Spaceship/Accent:light_energy")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.25]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Environment/WorldLight:light_energy")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.15]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Environment/Planet:visible")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [true]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("Environment/Sky:material/0:shader_param/stars_brightness")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("Environment/Sky:material/0:shader_param/stars_scale")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [2.803]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("Spaceship/Accent:light_color")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.713726, 0.831373, 0.894118, 1)]
-}
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("Environment/WorldLight:shadow_color")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.615686, 0.588235, 0.713726, 1)]
-}
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("Environment/Planet:scale")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.5, 0.5, 0.5)]
-}
-tracks/15/type = "value"
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/path = NodePath("Environment/WorldLight:light_color")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/16/type = "value"
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/path = NodePath("Spaceship/spaceship/door:rotation_degrees")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/17/type = "value"
-tracks/17/imported = false
-tracks/17/enabled = true
-tracks/17/path = NodePath("Spaceship/spaceship/door:position")
-tracks/17/interp = 1
-tracks/17/loop_wrap = true
-tracks/17/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/18/type = "value"
-tracks/18/imported = false
-tracks/18/enabled = true
-tracks/18/path = NodePath("Spaceship/Primary:light_energy")
-tracks/18/interp = 1
-tracks/18/loop_wrap = true
-tracks/18/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.021]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_cn047"]
-_data = {
-"RESET": SubResource("Animation_64el7")
-}
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_sq7i4"]
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mbly4"]
-animation = &"character/enter_spaceship"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_p102r"]
-animation = &"character/RESET"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6afib"]
-animation = &"character/sitdown"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_y8uwh"]
-animation = &"character/stand"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_krcfp"]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_14g7q"]
-xfade_time = 0.85
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7mpov"]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_u4rs4"]
-xfade_time = 0.8
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ebmfa"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4vuef"]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_frjha"]
-states/End/position = Vector2(1187, 100)
-states/Start/position = Vector2(25, 100)
-states/enter_spaceship/node = SubResource("AnimationNodeAnimation_mbly4")
-states/enter_spaceship/position = Vector2(580, 100)
-states/reset/node = SubResource("AnimationNodeAnimation_p102r")
-states/reset/position = Vector2(309, 100)
-states/sitdown/node = SubResource("AnimationNodeAnimation_6afib")
-states/sitdown/position = Vector2(1020, 100)
-states/stand/node = SubResource("AnimationNodeAnimation_y8uwh")
-states/stand/position = Vector2(810, 100)
-transitions = ["enter_spaceship", "stand", SubResource("AnimationNodeStateMachineTransition_krcfp"), "stand", "sitdown", SubResource("AnimationNodeStateMachineTransition_14g7q"), "sitdown", "End", SubResource("AnimationNodeStateMachineTransition_7mpov"), "sitdown", "stand", SubResource("AnimationNodeStateMachineTransition_u4rs4"), "Start", "reset", SubResource("AnimationNodeStateMachineTransition_ebmfa"), "reset", "enter_spaceship", SubResource("AnimationNodeStateMachineTransition_4vuef")]
-graph_offset = Vector2(-216, -140)
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id="3871"]
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_8t4lb"]
-
-[sub_resource type="Animation" id="Animation_8ab1b"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("screen:surface_material_override/0:shader_parameter/frame_number")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("screen:surface_material_override/0:shader_parameter/screen_number")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [10.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("screen:surface_material_override/0:shader_parameter/waveform_controlled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("screen:surface_material_override/0:shader_parameter/alpha")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("screen:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [true]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_62ha4"]
-_data = {
-"RESET": SubResource("Animation_8ab1b")
 }
 
 [sub_resource type="Gradient" id="18"]
@@ -537,8 +232,10 @@ render_target_update_mode = 4
 tree_root = SubResource("AnimationNodeBlendTree_m6b61")
 anim_player = NodePath("AnimationPlayer")
 active = true
+parameters/Add2/add_amount = 1.0
 parameters/character_state/playback = SubResource("AnimationNodeStateMachinePlayback_hkexe")
 parameters/player_state/playback = SubResource("AnimationNodeStateMachinePlayback_3715r")
+parameters/spaceship_state/playback = SubResource("AnimationNodeStateMachinePlayback_wuj7e")
 parameters/team/add_amount = 1.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SubViewportContainer/SubViewport/GameStateManager"]
@@ -552,82 +249,29 @@ libraries = {
 "spaceship": ExtResource("5_dcktr")
 }
 
-[node name="SpaceshipStateTree" type="AnimationTree" parent="SubViewportContainer/SubViewport"]
-tree_root = ExtResource("2_f6ot1")
-anim_player = NodePath("SpaceshipAnimation")
-active = true
-parameters/playback = SubResource("3877")
-
-[node name="SpaceshipAnimation" type="AnimationPlayer" parent="SubViewportContainer/SubViewport/SpaceshipStateTree"]
-root_node = NodePath("../../../..")
-reset_on_save = false
-libraries = {
-"": SubResource("AnimationLibrary_cn047"),
-"spaceship": ExtResource("5_dcktr")
-}
-
-[node name="PlayerStateTree" type="AnimationTree" parent="SubViewportContainer/SubViewport"]
-tree_root = ExtResource("10_cyoaw")
-anim_player = NodePath("PlayerAnimation")
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_sq7i4")
-
-[node name="PlayerAnimation" type="AnimationPlayer" parent="SubViewportContainer/SubViewport/PlayerStateTree"]
-root_node = NodePath("../../../..")
-autoplay = "spaceship/parked"
-reset_on_save = false
-libraries = {
-"player": ExtResource("4_5jcpw")
-}
-
-[node name="CharacterStateTree" type="AnimationTree" parent="SubViewportContainer/SubViewport"]
-tree_root = SubResource("AnimationNodeStateMachine_frjha")
-anim_player = NodePath("CharacterAnimation")
-parameters/playback = SubResource("3871")
-
-[node name="CharacterAnimation" type="AnimationPlayer" parent="SubViewportContainer/SubViewport/CharacterStateTree"]
-root_node = NodePath("../../../..")
-autoplay = "character/idle"
-reset_on_save = false
-libraries = {
-"character": ExtResource("10_1vlm6")
-}
-
-[node name="ScreenStateTree" type="AnimationTree" parent="SubViewportContainer/SubViewport"]
-tree_root = ExtResource("7_3opg8")
-anim_player = NodePath("AnimationPlayer")
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_8t4lb")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="SubViewportContainer/SubViewport/ScreenStateTree"]
-root_node = NodePath("../../Spaceship/spaceship/cockpit/monitor/Screen")
-reset_on_save = false
-libraries = {
-"": SubResource("AnimationLibrary_62ha4"),
-"screen": ExtResource("16_kalt1")
-}
-
 [node name="Environment" parent="SubViewportContainer/SubViewport" instance=ExtResource("7_uaa0q")]
 sky_color = Color(0.113725, 0.113725, 0.266667, 1)
-ground_color = Color(0.4, 0.733333, 0.521569, 1)
-fog_color = Color(0.466667, 0.584314, 0.796078, 1)
-horizon_color = Color(1, 0.627451, 0.403922, 1)
-horizon_height = 0.038
+ground_color = Color(0.113725, 0.113725, 0.266667, 1)
+horizon_color = Color(0.113725, 0.113725, 0.266667, 1)
+horizon_height = -64.0
 
 [node name="space_station" parent="SubViewportContainer/SubViewport/Environment" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.038, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -64, 0)
 
 [node name="Planet" parent="SubViewportContainer/SubViewport/Environment" index="2"]
-transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 14.698, 12.7034, -54.117)
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 9.79867, 9.46893, -46.7447)
 surface_material_override/0 = SubResource("ShaderMaterial_k5s51")
 
 [node name="WorldLight" parent="SubViewportContainer/SubViewport/Environment" index="3"]
 light_color = Color(1, 1, 1, 1)
-light_energy = 0.15
+shadow_bias = 0.014
 
 [node name="Spaceship" parent="SubViewportContainer/SubViewport" instance=ExtResource("1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0162, 0)
+door_open = false
 
 [node name="Character" parent="SubViewportContainer/SubViewport" instance=ExtResource("9")]
-transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 1, -10.6656, 2.10132, 5.55682)
+transform = Transform3D(0.638328, 0.0801329, 0.765582, -0.0601358, 0.996718, -0.0541856, -0.767411, -0.0114507, 0.641053, -0.478049, 1.9061, -1.93671)
 
 [node name="character" parent="SubViewportContainer/SubViewport/Character" index="0"]
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999998, 0, 0, 0)
@@ -654,13 +298,13 @@ distance_buffer = 3.438
 distance_boost = 2.904
 
 [node name="Camera3D" parent="SubViewportContainer/SubViewport/Player" index="0"]
-transform = Transform3D(0.999986, -0.000733156, -0.00514862, 8.73115e-11, 0.990013, -0.140977, 0.00520055, 0.140975, 0.99, -0.0837799, 2.21405, -0.52231)
+transform = Transform3D(0.999398, 0.00361192, 0.0345087, -1.97906e-09, 0.994567, -0.104098, -0.0346972, 0.104036, 0.993968, 0.294017, 2.22313, -0.854775)
 
 [node name="PositionTarget" parent="SubViewportContainer/SubViewport/Player" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0837799, 2.21405, -0.52231)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.294017, 2.22313, -0.854775)
 
 [node name="LookTarget" parent="SubViewportContainer/SubViewport/Player" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0715632, 2.54856, -2.87139)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.224004, 2.43433, -2.87139)
 
 [node name="DebugOverlay" parent="." instance=ExtResource("18_dcbhx")]
 offset_left = 484.374
