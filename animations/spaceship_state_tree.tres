@@ -1,4 +1,4 @@
-[gd_resource type="AnimationNodeStateMachine" load_steps=11 format=3 uid="uid://c4k44s0dh3440"]
+[gd_resource type="AnimationNodeStateMachine" load_steps=12 format=3 uid="uid://c4k44s0dh3440"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_b3b36"]
 animation = &"spaceship/blast_off"
@@ -35,6 +35,9 @@ advance_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_u6v37"]
 switch_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bnk6w"]
+advance_mode = 2
+
 [resource]
 states/End/position = Vector2(343, 155)
 states/Start/position = Vector2(-703, 155)
@@ -48,5 +51,5 @@ states/stars_light_up/node = SubResource("AnimationNodeAnimation_0iq3c")
 states/stars_light_up/position = Vector2(-118, 155)
 states/warp/node = SubResource("AnimationNodeAnimation_lo8up")
 states/warp/position = Vector2(47, 155)
-transitions = ["blast_off", "stars_light_up", SubResource("3888"), "stars_light_up", "warp", SubResource("3890"), "warp", "landing", SubResource("3909"), "landing", "End", SubResource("AnimationNodeStateMachineTransition_5ws5a"), "parked", "blast_off", SubResource("AnimationNodeStateMachineTransition_u6v37")]
+transitions = ["blast_off", "stars_light_up", SubResource("3888"), "stars_light_up", "warp", SubResource("3890"), "warp", "landing", SubResource("3909"), "landing", "End", SubResource("AnimationNodeStateMachineTransition_5ws5a"), "parked", "blast_off", SubResource("AnimationNodeStateMachineTransition_u6v37"), "Start", "parked", SubResource("AnimationNodeStateMachineTransition_bnk6w")]
 graph_offset = Vector2(-978, -6)

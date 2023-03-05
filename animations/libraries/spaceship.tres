@@ -1,4 +1,4 @@
-[gd_resource type="AnimationLibrary" load_steps=5 format=3 uid="uid://cadi70pdgm61"]
+[gd_resource type="AnimationLibrary" load_steps=6 format=3 uid="uid://cadi70pdgm61"]
 
 [sub_resource type="Animation" id="Animation_a5ge3"]
 resource_name = "spaceship_blast_off"
@@ -649,10 +649,27 @@ tracks/7/keys = {
 "values": [Color(0.113725, 0.113725, 0.266667, 1), Color(0.239216, 0.27451, 0.521569, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_d7say"]
+resource_name = "shake"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("spaceship/cockpit/SpaceshipControls/controls:rotation_degrees")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0153, 0.0163819, 0.2, 0.3, 0.4, 0.5, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-3.9274, 0, 7.8527), Vector3(-3.9274, 0, 7.8527), Vector3(-3.82193, -5.57427, -5.47588), Vector3(-3.9274, 0, 7.8527), Vector3(-3.82193, -5.57427, -5.47588), Vector3(-3.9274, 0, 7.8527), Vector3(-8.3684, 0.73837, 10.6999), Vector3(-3.82193, -5.57427, -5.47588)]
+}
+
 [resource]
 _data = {
 "blast_off": SubResource("Animation_a5ge3"),
 "parked": SubResource("Animation_scgrp"),
 "stars_light_up": SubResource("Animation_bd1uy"),
+"steering_motion": SubResource("Animation_d7say"),
 "warp": SubResource("Animation_mo8mt")
 }
