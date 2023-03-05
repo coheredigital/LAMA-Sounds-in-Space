@@ -3,6 +3,12 @@ extends WorldEnvironment
 
 const SKY_SIZE = 64.0
 
+@export_enum("home","launch") var state: String = "intro":
+	set(value):
+		state = value
+		var state_machine : AnimationNodeStateMachinePlayback = %StateTree.get("parameters/playback")
+		state_machine.travel(state)
+
 @export var sky_color := Color.DARK_BLUE :
 	set(value):
 		sky_color = value
@@ -15,7 +21,11 @@ const SKY_SIZE = 64.0
 @export var fog_color := Color.CADET_BLUE : set = set_fog_color
 @export var horizon_color := Color.DARK_SALMON : set = set_horizon_color
 @export_range(-64.0, 0.0) var horizon_height := 0.0 : set = set_horizon_height
-
+@export_range(0.0, 1.0) var stars_brightness := 0.0: 
+	set(value):
+		stars_brightness = value
+		if sky_material:
+			sky_material.set_shader_parameter("stars_brightness", value)
 @onready var sky_material : ShaderMaterial  = %Sky.get_active_material(0)
 
 	
@@ -23,22 +33,20 @@ const SKY_SIZE = 64.0
 func set_ground_color(value):
 	ground_color = value
 	if sky_material:
-		sky_material.set_shader_parameter("ground_color", value)
+		sky_material.set_shader_parameter("ground_color", lerp(ground_color, sky_color, abs(horizon_height) / SKY_SIZE))
 #
 func set_fog_color(value):
 	fog_color = value
 	if sky_material:
-		sky_material.set_shader_parameter("fog_color", value)
-#	if environment:
-#		environment.fog_color = value
+		sky_material.set_shader_parameter("fog_color", lerp(fog_color, sky_color, abs(horizon_height) / SKY_SIZE))
 #
 func set_horizon_color(value):
 	horizon_color = value
 	if sky_material:
-		sky_material.set_shader_parameter("horizon_color", value)
+		sky_material.set_shader_parameter("horizon_color", lerp(horizon_color, sky_color, abs(horizon_height) / SKY_SIZE))
 
 func set_horizon_height(value):
 	horizon_height = value
-	%space_station.position.y = value
+	%SpaceStation.position.y = value
 	if sky_material:
 		sky_material.set_shader_parameter("horizon_height", value / SKY_SIZE)
