@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3]
 
-[ext_resource type="Material" uid="uid://bko6e1ko8logu" path="res://spaceship/cockpit/screen_material.tres" id="2_qh7pa"]
-[ext_resource type="PackedScene" uid="uid://d0dbntvucna2x" path="res://spaceship/cockpit/screen.gltf" id="3"]
+[ext_resource type="Material" path="res://spaceship/cockpit/screen_material.tres" id="2_qh7pa"]
+[ext_resource type="PackedScene" uid="uid://d0dbntvucna2x" path="res://spaceship/models/screen.gltf" id="3"]
 [ext_resource type="Material" uid="uid://q6um5lgw4f4k" path="res://audio/visualizer/visualizer_screen_material.tres" id="5_yex72"]
 
 [sub_resource type="Image" id="Image_kha1k"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b35bx011uc6ff"
-path="res://.godot/imported/character_albedo.png-1e873e97fee259d58c33bc7d2847cb89.ctex"
+uid="uid://cwoinpuvn65ta"
+path="res://.godot/imported/diffuse_curve.png-d29df0a91a849f03a708ee85053a195c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://character/character_albedo.png"
-dest_files=["res://.godot/imported/character_albedo.png-1e873e97fee259d58c33bc7d2847cb89.ctex"]
+source_file="res://shaders/textures/diffuse_curve.png"
+dest_files=["res://.godot/imported/diffuse_curve.png-d29df0a91a849f03a708ee85053a195c.ctex"]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=1
 roughness/src_normal=""

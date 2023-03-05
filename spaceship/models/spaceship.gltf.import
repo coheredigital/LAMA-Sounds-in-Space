@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dycuy65u4jvdb"
-path="res://.godot/imported/fuel_gauge.gltf-e5320c7a44f951ac09cdd646d57dec63.scn"
+uid="uid://ctjlmbopaw2sa"
+path="res://.godot/imported/spaceship.gltf-ac5d631c8c689935679bc42ff0c6562c.scn"
 
 [deps]
 
-source_file="res://spaceship/cockpit/fuel_gauge.gltf"
-dest_files=["res://.godot/imported/fuel_gauge.gltf-e5320c7a44f951ac09cdd646d57dec63.scn"]
+source_file="res://spaceship/models/spaceship.gltf"
+dest_files=["res://.godot/imported/spaceship.gltf-ac5d631c8c689935679bc42ff0c6562c.scn"]
 
 [params]
 
@@ -32,7 +32,15 @@ _subresources={
 "materials": {
 "material_0": {
 "use_external/enabled": true,
-"use_external/path": "res://spaceship/cockpit/fuel_gauge_material.tres"
+"use_external/path": "res://spaceship/spaceship_material.tres"
+},
+"material_1": {
+"use_external/enabled": true,
+"use_external/path": "res://spaceship/spaceship_alpha_material.tres"
+},
+"material_2": {
+"use_external/enabled": true,
+"use_external/path": "res://spaceship/cockpit/cockpit_material.tres"
 }
 }
 }

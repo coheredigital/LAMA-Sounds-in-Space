@@ -2,28 +2,28 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ugnutccrndgj"
-path="res://.godot/imported/character_alpha.png-b35b52f8db4d55d1c7e0b85ab9ae8be7.ctex"
+uid="uid://ctti55hi0lq10"
+path="res://.godot/imported/lightramp_02.png-8b750bcb99f11de519b2098f8e789655.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://character/character_alpha.png"
-dest_files=["res://.godot/imported/character_alpha.png-b35b52f8db4d55d1c7e0b85ab9ae8be7.ctex"]
+source_file="res://shaders/textures/lightramp_02.png"
+dest_files=["res://.godot/imported/lightramp_02.png-8b750bcb99f11de519b2098f8e789655.ctex"]
 
 [params]
 
 compress/mode=0
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=1.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
-roughness/mode=1
+roughness/mode=0
 roughness/src_normal=""
 process/fix_alpha_border=false
 process/premult_alpha=false
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

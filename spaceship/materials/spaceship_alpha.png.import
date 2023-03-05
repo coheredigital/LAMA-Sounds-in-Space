@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwoinpuvn65ta"
-path="res://.godot/imported/diffuse_curve.png-27b666df8e1f81eb17b4cec73e471087.ctex"
+uid="uid://dpwxbis74fm20"
+path="res://.godot/imported/spaceship_alpha.png-1e46b13adac6e4afc749a2ba97734a44.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://postprocessing/textures/diffuse_curve.png"
-dest_files=["res://.godot/imported/diffuse_curve.png-27b666df8e1f81eb17b4cec73e471087.ctex"]
+source_file="res://spaceship/materials/spaceship_alpha.png"
+dest_files=["res://.godot/imported/spaceship_alpha.png-1e46b13adac6e4afc749a2ba97734a44.ctex"]
 
 [params]
 

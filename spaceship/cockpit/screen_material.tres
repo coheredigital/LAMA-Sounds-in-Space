@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=5 format=3]
 
 [ext_resource type="Shader" path="res://shaders/dashboard_screens.gdshader" id="1_44bae"]
-[ext_resource type="Texture2D" uid="uid://bnfo0b752cn10" path="res://postprocessing/textures/dashboard_emission.png" id="2_6cjfe"]
+[ext_resource type="Texture2D" uid="uid://bnfo0b752cn10" path="res://shaders/textures/dashboard_emission.png" id="2_6cjfe"]
 [ext_resource type="Gradient" uid="uid://b71jutk4qdqv3" path="res://audio/visualizer/visualizer_gradient.tres" id="3_bowlj"]
 
 [sub_resource type="GradientTexture2D" id="3858"]

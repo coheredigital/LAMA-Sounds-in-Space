@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://d0dbntvucna2x"
-path="res://.godot/imported/screen.gltf-7c638ad365678f60c85801e1d91efa59.scn"
+path="res://.godot/imported/screen.gltf-bc27f7efc45dbc1b25a70903901be621.scn"
 
 [deps]
 
-source_file="res://spaceship/cockpit/screen.gltf"
-dest_files=["res://.godot/imported/screen.gltf-7c638ad365678f60c85801e1d91efa59.scn"]
+source_file="res://spaceship/models/screen.gltf"
+dest_files=["res://.godot/imported/screen.gltf-bc27f7efc45dbc1b25a70903901be621.scn"]
 
 [params]
 

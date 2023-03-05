@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ctjlmbopaw2sa"
-path="res://.godot/imported/spaceship.gltf-b37c16ea21df2fde6fa0fda696998e39.scn"
+uid="uid://7korg2mlql37"
+path="res://.godot/imported/controls.gltf-3b4097243384a917d57d5d92ce09e67b.scn"
 
 [deps]
 
-source_file="res://spaceship/spaceship.gltf"
-dest_files=["res://.godot/imported/spaceship.gltf-b37c16ea21df2fde6fa0fda696998e39.scn"]
+source_file="res://spaceship/models/controls.gltf"
+dest_files=["res://.godot/imported/controls.gltf-3b4097243384a917d57d5d92ce09e67b.scn"]
 
 [params]
 
@@ -31,14 +31,6 @@ import_script/path=""
 _subresources={
 "materials": {
 "material_0": {
-"use_external/enabled": true,
-"use_external/path": "res://spaceship/spaceship_material.tres"
-},
-"material_1": {
-"use_external/enabled": true,
-"use_external/path": "res://spaceship/spaceship_alpha_material.tres"
-},
-"material_2": {
 "use_external/enabled": true,
 "use_external/path": "res://spaceship/cockpit/cockpit_material.tres"
 }

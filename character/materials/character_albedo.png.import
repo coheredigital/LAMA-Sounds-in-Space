@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8hu4x1mk70pm"
-path="res://.godot/imported/cockpit_albedo.png-3db9f0bf7b64ab0dcef3ceae82b994dc.ctex"
+uid="uid://b35bx011uc6ff"
+path="res://.godot/imported/character_albedo.png-51be7aa14ddfc0d1417f0bf51014e73e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://spaceship/cockpit/cockpit_albedo.png"
-dest_files=["res://.godot/imported/cockpit_albedo.png-3db9f0bf7b64ab0dcef3ceae82b994dc.ctex"]
+source_file="res://character/materials/character_albedo.png"
+dest_files=["res://.godot/imported/character_albedo.png-51be7aa14ddfc0d1417f0bf51014e73e.ctex"]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=1
 roughness/src_normal=""

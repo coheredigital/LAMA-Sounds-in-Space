@@ -1,9 +1,9 @@
 [gd_resource type="ShaderMaterial" load_steps=5 format=3]
 
 [ext_resource type="Shader" path="res://shaders/toon.gdshader" id="1"]
-[ext_resource type="Texture2D" uid="uid://cwoinpuvn65ta" path="res://postprocessing/textures/diffuse_curve.png" id="2"]
-[ext_resource type="Texture2D" uid="uid://clje4m1r61g2p" path="res://spaceship/spaceship_albedo.png" id="3"]
-[ext_resource type="Texture2D" uid="uid://dlds511n0al4j" path="res://spaceship/spaceship_emission.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://cwoinpuvn65ta" path="res://shaders/textures/diffuse_curve.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://clje4m1r61g2p" path="res://spaceship/materials/spaceship_albedo.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://dlds511n0al4j" path="res://spaceship/materials/spaceship_emission.png" id="4"]
 
 [resource]
 render_priority = 0
