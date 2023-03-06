@@ -20,7 +20,6 @@ gradient = ExtResource("4_bkdmv")
 
 [node name="Game" type="Node"]
 script = ExtResource("12")
-game_scene = ExtResource("3_ljibd")
 
 [node name="AudioVisualizer" type="Node" parent="."]
 script = ExtResource("5_cnmhu")
@@ -80,139 +79,216 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TabBar" type="TabBar" parent="ControlPanel/Panel"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="ListContainer" type="VBoxContainer" parent="ControlPanel/Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
 offset_left = 33.0
-offset_top = 27.0
+offset_top = 37.0
 offset_right = -33.0
-offset_bottom = -27.0
+offset_bottom = -37.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TitleContainer" type="VBoxContainer" parent="ControlPanel/Panel/ListContainer"]
+[node name="Controls" type="VBoxContainer" parent="ControlPanel/Panel/MarginContainer"]
 layout_mode = 2
 
-[node name="Mission Control" type="Label" parent="ControlPanel/Panel/ListContainer/TitleContainer"]
+[node name="TitleContainer" type="VBoxContainer" parent="ControlPanel/Panel/MarginContainer/Controls"]
+layout_mode = 2
+
+[node name="Mission Control" type="Label" parent="ControlPanel/Panel/MarginContainer/Controls/TitleContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "Mission Control
 "
 
-[node name="HSeparator3" type="HSeparator" parent="ControlPanel/Panel/ListContainer/TitleContainer"]
+[node name="HSeparator3" type="HSeparator" parent="ControlPanel/Panel/MarginContainer/Controls/TitleContainer"]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 
-[node name="ParticipantForm" type="VBoxContainer" parent="ControlPanel/Panel/ListContainer"]
+[node name="ParticipantForm" type="VBoxContainer" parent="ControlPanel/Panel/MarginContainer/Controls"]
 layout_mode = 2
 
-[node name="MissionIDField" type="HBoxContainer" parent="ControlPanel/Panel/ListContainer/ParticipantForm"]
+[node name="MissionIDField" type="HBoxContainer" parent="ControlPanel/Panel/MarginContainer/Controls/ParticipantForm"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ControlPanel/Panel/ListContainer/ParticipantForm/MissionIDField"]
+[node name="Label" type="Label" parent="ControlPanel/Panel/MarginContainer/Controls/ParticipantForm/MissionIDField"]
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 text = "Mission ID
 "
 
-[node name="TextEdit" type="TextEdit" parent="ControlPanel/Panel/ListContainer/ParticipantForm/MissionIDField"]
+[node name="TextEdit" type="TextEdit" parent="ControlPanel/Panel/MarginContainer/Controls/ParticipantForm/MissionIDField"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="NameField" type="HBoxContainer" parent="ControlPanel/Panel/ListContainer/ParticipantForm"]
+[node name="NameField" type="HBoxContainer" parent="ControlPanel/Panel/MarginContainer/Controls/ParticipantForm"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ControlPanel/Panel/ListContainer/ParticipantForm/NameField"]
+[node name="Label" type="Label" parent="ControlPanel/Panel/MarginContainer/Controls/ParticipantForm/NameField"]
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 text = "Participant Name
 "
 
-[node name="TextEdit" type="TextEdit" parent="ControlPanel/Panel/ListContainer/ParticipantForm/NameField"]
+[node name="TextEdit" type="TextEdit" parent="ControlPanel/Panel/MarginContainer/Controls/ParticipantForm/NameField"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Separator" type="HSeparator" parent="ControlPanel/Panel/ListContainer/ParticipantForm"]
+[node name="Separator" type="HSeparator" parent="ControlPanel/Panel/MarginContainer/Controls/ParticipantForm"]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 
-[node name="AudioControls" type="VBoxContainer" parent="ControlPanel/Panel/ListContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ControlPanel/Panel/MarginContainer/Controls"]
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ControlPanel/Panel/ListContainer/AudioControls"]
+[node name="AudioControls" type="VBoxContainer" parent="ControlPanel/Panel/MarginContainer/Controls/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="ControlPanel/Panel/MarginContainer/Controls/HBoxContainer/AudioControls"]
 layout_mode = 2
 text = "Audio Controls
 "
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ControlPanel/Panel/ListContainer/AudioControls"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ControlPanel/Panel/MarginContainer/Controls/HBoxContainer/AudioControls"]
 layout_mode = 2
 
-[node name="start_recording" type="Button" parent="ControlPanel/Panel/ListContainer/AudioControls/HBoxContainer"]
+[node name="start_recording" type="Button" parent="ControlPanel/Panel/MarginContainer/Controls/HBoxContainer/AudioControls/HBoxContainer"]
 custom_minimum_size = Vector2(120, 31)
 layout_mode = 2
 text = "Record
 "
 
-[node name="Separator" type="HSeparator" parent="ControlPanel/Panel/ListContainer/AudioControls"]
-custom_minimum_size = Vector2(0, 32)
+[node name="AudioControls2" type="VBoxContainer" parent="ControlPanel/Panel/MarginContainer/Controls/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="ControlPanel/Panel/MarginContainer/Controls/HBoxContainer/AudioControls2"]
+layout_mode = 2
+text = "Audio Controls
+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ControlPanel/Panel/MarginContainer/Controls/HBoxContainer/AudioControls2"]
 layout_mode = 2
 
-[node name="ScreenControls" type="VBoxContainer" parent="ControlPanel/Panel/ListContainer"]
+[node name="start_recording" type="Button" parent="ControlPanel/Panel/MarginContainer/Controls/HBoxContainer/AudioControls2/HBoxContainer"]
+custom_minimum_size = Vector2(120, 31)
 layout_mode = 2
+text = "Record
+"
 
-[node name="Label" type="Label" parent="ControlPanel/Panel/ListContainer/ScreenControls"]
+[node name="ScreenControls" type="VBoxContainer" parent="ControlPanel/Panel/MarginContainer/Controls/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="ControlPanel/Panel/MarginContainer/Controls/HBoxContainer/ScreenControls"]
 layout_mode = 2
 text = "Screen Controls
 "
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ControlPanel/Panel/ListContainer/ScreenControls"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ControlPanel/Panel/MarginContainer/Controls/HBoxContainer/ScreenControls"]
 layout_mode = 2
 
-[node name="set_screen_success" type="Button" parent="ControlPanel/Panel/ListContainer/ScreenControls/HBoxContainer"]
+[node name="set_screen_success" type="Button" parent="ControlPanel/Panel/MarginContainer/Controls/HBoxContainer/ScreenControls/HBoxContainer"]
 custom_minimum_size = Vector2(120, 31)
 layout_mode = 2
 text = "Success
 "
 
-[node name="set_screen_failure" type="Button" parent="ControlPanel/Panel/ListContainer/ScreenControls/HBoxContainer"]
+[node name="set_screen_failure" type="Button" parent="ControlPanel/Panel/MarginContainer/Controls/HBoxContainer/ScreenControls/HBoxContainer"]
 custom_minimum_size = Vector2(120, 31)
 layout_mode = 2
 text = "Failure
 "
 
-[node name="Separator" type="HSeparator" parent="ControlPanel/Panel/ListContainer/ScreenControls"]
-custom_minimum_size = Vector2(0, 32)
+[node name="GameControls" type="VBoxContainer" parent="ControlPanel/Panel/MarginContainer/Controls/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
 
-[node name="GameControls" type="VBoxContainer" parent="ControlPanel/Panel/ListContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="ControlPanel/Panel/ListContainer/GameControls"]
+[node name="Label" type="Label" parent="ControlPanel/Panel/MarginContainer/Controls/HBoxContainer/GameControls"]
 layout_mode = 2
 text = "Game Controls
 "
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ControlPanel/Panel/ListContainer/GameControls"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ControlPanel/Panel/MarginContainer/Controls/HBoxContainer/GameControls"]
 layout_mode = 2
 
-[node name="start_game" type="Button" parent="ControlPanel/Panel/ListContainer/GameControls/HBoxContainer"]
+[node name="start_game" type="Button" parent="ControlPanel/Panel/MarginContainer/Controls/HBoxContainer/GameControls/HBoxContainer"]
 custom_minimum_size = Vector2(200, 31)
 layout_mode = 2
 text = "Start / Restart Game
 "
 
-[node name="Separator" type="HSeparator" parent="ControlPanel/Panel/ListContainer/GameControls"]
-custom_minimum_size = Vector2(0, 32)
+[node name="HBoxContainer2" type="HBoxContainer" parent="ControlPanel/Panel/MarginContainer/Controls"]
 layout_mode = 2
 
-[connection signal="pressed" from="ControlPanel/Panel/ListContainer/GameControls/HBoxContainer/start_game" to="." method="_on_start_game_pressed"]
+[node name="AudioControls" type="VBoxContainer" parent="ControlPanel/Panel/MarginContainer/Controls/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="ControlPanel/Panel/MarginContainer/Controls/HBoxContainer2/AudioControls"]
+layout_mode = 2
+text = "Mission State
+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ControlPanel/Panel/MarginContainer/Controls/HBoxContainer2/AudioControls"]
+layout_mode = 2
+
+[node name="mission_intro" type="Button" parent="ControlPanel/Panel/MarginContainer/Controls/HBoxContainer2/AudioControls/HBoxContainer"]
+custom_minimum_size = Vector2(120, 31)
+layout_mode = 2
+text = "Intro
+"
+
+[node name="mission_approach" type="Button" parent="ControlPanel/Panel/MarginContainer/Controls/HBoxContainer2/AudioControls/HBoxContainer"]
+custom_minimum_size = Vector2(120, 31)
+layout_mode = 2
+text = "Approach
+"
+
+[node name="mission_board" type="Button" parent="ControlPanel/Panel/MarginContainer/Controls/HBoxContainer2/AudioControls/HBoxContainer"]
+custom_minimum_size = Vector2(120, 31)
+layout_mode = 2
+text = "Boarding
+"
+
+[node name="mission_unlock" type="Button" parent="ControlPanel/Panel/MarginContainer/Controls/HBoxContainer2/AudioControls/HBoxContainer"]
+custom_minimum_size = Vector2(120, 31)
+layout_mode = 2
+text = "Unlock
+"
+
+[node name="mission_enter" type="Button" parent="ControlPanel/Panel/MarginContainer/Controls/HBoxContainer2/AudioControls/HBoxContainer"]
+custom_minimum_size = Vector2(120, 31)
+layout_mode = 2
+text = "Enter Ship"
+
+[node name="mission_launch" type="Button" parent="ControlPanel/Panel/MarginContainer/Controls/HBoxContainer2/AudioControls/HBoxContainer"]
+custom_minimum_size = Vector2(120, 31)
+layout_mode = 2
+text = "Launch"
+
+[node name="mission_stars" type="Button" parent="ControlPanel/Panel/MarginContainer/Controls/HBoxContainer2/AudioControls/HBoxContainer"]
+custom_minimum_size = Vector2(120, 31)
+layout_mode = 2
+text = "Stars"
+
+[node name="mission_warp" type="Button" parent="ControlPanel/Panel/MarginContainer/Controls/HBoxContainer2/AudioControls/HBoxContainer"]
+custom_minimum_size = Vector2(120, 31)
+layout_mode = 2
+text = "Warp"
+
+[node name="GameWindow" parent="." instance=ExtResource("3_ljibd")]
+unique_name_in_owner = true
+visible = false
+
+[connection signal="pressed" from="ControlPanel/Panel/MarginContainer/Controls/HBoxContainer/GameControls/HBoxContainer/start_game" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="ControlPanel/Panel/MarginContainer/Controls/HBoxContainer2/AudioControls/HBoxContainer/mission_intro" to="." method="_on_mission_intro_pressed"]
+[connection signal="pressed" from="ControlPanel/Panel/MarginContainer/Controls/HBoxContainer2/AudioControls/HBoxContainer/mission_approach" to="." method="_on_mission_approach_pressed"]
+[connection signal="pressed" from="ControlPanel/Panel/MarginContainer/Controls/HBoxContainer2/AudioControls/HBoxContainer/mission_unlock" to="." method="_on_mission_unlock_pressed"]
+[connection signal="pressed" from="ControlPanel/Panel/MarginContainer/Controls/HBoxContainer2/AudioControls/HBoxContainer/mission_enter" to="." method="_on_mission_enter_pressed"]
+[connection signal="pressed" from="ControlPanel/Panel/MarginContainer/Controls/HBoxContainer2/AudioControls/HBoxContainer/mission_launch" to="." method="_on_mission_launch_pressed"]
+[connection signal="pressed" from="ControlPanel/Panel/MarginContainer/Controls/HBoxContainer2/AudioControls/HBoxContainer/mission_stars" to="." method="_on_mission_stars_pressed"]

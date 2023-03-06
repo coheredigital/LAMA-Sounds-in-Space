@@ -7,7 +7,7 @@ step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("screen:surface_material_override/0:shader_parameter/frame_number")
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/Environment/Spaceship/spaceship/cockpit/monitor/screen:surface_material_override/0:shader_parameter/frame_number")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
@@ -19,13 +19,13 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("screen:surface_material_override/0:shader_parameter/screen_number")
-tracks/1/interp = 1
+tracks/1/path = NodePath("SubViewportContainer/SubViewport/Environment/Spaceship/spaceship/cockpit/monitor/screen:surface_material_override/0:shader_parameter/screen_number")
+tracks/1/interp = 0
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [1.0]
 }
 
@@ -37,7 +37,7 @@ step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("screen:surface_material_override/0:shader_parameter/frame_number")
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/Environment/Spaceship/spaceship/cockpit/monitor/screen:surface_material_override/0:shader_parameter/frame_number")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -49,7 +49,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("screen:surface_material_override/0:shader_parameter/screen_number")
+tracks/1/path = NodePath("SubViewportContainer/SubViewport/Environment/Spaceship/spaceship/cockpit/monitor/screen:surface_material_override/0:shader_parameter/screen_number")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -65,7 +65,7 @@ loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("screen:surface_material_override/0:shader_parameter/frame_number")
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/Environment/Spaceship/spaceship/cockpit/monitor/screen:surface_material_override/0:shader_parameter/frame_number")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -77,19 +77,19 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("screen:surface_material_override/0:shader_parameter/screen_number")
+tracks/1/path = NodePath("SubViewportContainer/SubViewport/Environment/Spaceship/spaceship/cockpit/monitor/screen:surface_material_override/0:shader_parameter/screen_number")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0.5),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [12.0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("screen:surface_material_override/0:shader_parameter/alpha")
+tracks/2/path = NodePath("SubViewportContainer/SubViewport/Environment/Spaceship/spaceship/cockpit/monitor/screen:surface_material_override/0:shader_parameter/alpha")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -106,7 +106,7 @@ step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("screen:surface_material_override/0:shader_parameter/frame_number")
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/Environment/Spaceship/spaceship/cockpit/monitor/screen:surface_material_override/0:shader_parameter/frame_number")
 tracks/0/interp = 2
 tracks/0/loop_wrap = false
 tracks/0/keys = {
@@ -118,7 +118,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("screen:surface_material_override/0:shader_parameter/screen_number")
+tracks/1/path = NodePath("SubViewportContainer/SubViewport/Environment/Spaceship/spaceship/cockpit/monitor/screen:surface_material_override/0:shader_parameter/screen_number")
 tracks/1/interp = 0
 tracks/1/loop_wrap = false
 tracks/1/keys = {
@@ -135,7 +135,7 @@ step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("screen:surface_material_override/0:shader_parameter/frame_number")
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/Environment/Spaceship/spaceship/cockpit/monitor/screen:surface_material_override/0:shader_parameter/frame_number")
 tracks/0/interp = 0
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -147,7 +147,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("screen:surface_material_override/0:shader_parameter/screen_number")
+tracks/1/path = NodePath("SubViewportContainer/SubViewport/Environment/Spaceship/spaceship/cockpit/monitor/screen:surface_material_override/0:shader_parameter/screen_number")
 tracks/1/interp = 0
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -164,7 +164,7 @@ step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("screen:surface_material_override/0:shader_parameter/frame_number")
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/Environment/Spaceship/spaceship/cockpit/monitor/screen:surface_material_override/0:shader_parameter/frame_number")
 tracks/0/interp = 0
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -176,7 +176,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("screen:surface_material_override/0:shader_parameter/screen_number")
+tracks/1/path = NodePath("SubViewportContainer/SubViewport/Environment/Spaceship/spaceship/cockpit/monitor/screen:surface_material_override/0:shader_parameter/screen_number")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -192,7 +192,7 @@ step = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("screen:surface_material_override/0:shader_parameter/frame_number")
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/Environment/Spaceship/spaceship/cockpit/monitor/screen:surface_material_override/0:shader_parameter/frame_number")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -204,7 +204,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("screen:surface_material_override/0:shader_parameter/screen_number")
+tracks/1/path = NodePath("SubViewportContainer/SubViewport/Environment/Spaceship/spaceship/cockpit/monitor/screen:surface_material_override/0:shader_parameter/screen_number")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -216,7 +216,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("screen:surface_material_override/0:shader_parameter/waveform_controlled")
+tracks/2/path = NodePath("SubViewportContainer/SubViewport/Environment/Spaceship/spaceship/cockpit/monitor/screen:surface_material_override/0:shader_parameter/waveform_controlled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -232,7 +232,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("visualizer_screen:visible")
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/Environment/Spaceship/spaceship/cockpit/monitor/visualizer_screen:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -244,7 +244,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("screen:visible")
+tracks/1/path = NodePath("SubViewportContainer/SubViewport/Environment/Spaceship/spaceship/cockpit/monitor/screen:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -260,7 +260,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("screen:surface_material_override/0:shader_parameter/frame_number")
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/Environment/Spaceship/spaceship/cockpit/monitor/Screen/screen:surface_material_override/0:shader_parameter/frame_number")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
@@ -272,8 +272,8 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("screen:surface_material_override/0:shader_parameter/screen_number")
-tracks/1/interp = 1
+tracks/1/path = NodePath("SubViewportContainer/SubViewport/Environment/Spaceship/spaceship/cockpit/monitor/Screen/screen:surface_material_override/0:shader_parameter/screen_number")
+tracks/1/interp = 0
 tracks/1/loop_wrap = false
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
@@ -284,8 +284,8 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("screen:surface_material_override/0:shader_parameter/waveform_controlled")
-tracks/2/interp = 1
+tracks/2/path = NodePath("SubViewportContainer/SubViewport/Environment/Spaceship/spaceship/cockpit/monitor/Screen/screen:surface_material_override/0:shader_parameter/waveform_controlled")
+tracks/2/interp = 0
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
@@ -296,26 +296,38 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("screen:surface_material_override/0:shader_parameter/alpha")
-tracks/3/interp = 1
+tracks/3/path = NodePath("SubViewportContainer/SubViewport/Environment/Spaceship/spaceship/cockpit/monitor/Screen/screen:surface_material_override/0:shader_parameter/alpha")
+tracks/3/interp = 0
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [1.0]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("screen:visible")
-tracks/4/interp = 1
+tracks/4/path = NodePath("SubViewportContainer/SubViewport/Environment/Spaceship/spaceship/cockpit/monitor/Screen/screen:visible")
+tracks/4/interp = 0
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SubViewportContainer/SubViewport/Environment/Spaceship/spaceship/cockpit/monitor/Screen/visualizer_screen:visible")
+tracks/5/interp = 0
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [resource]

@@ -2,10 +2,9 @@ extends Node
 
 @onready var viewport := get_node('/root')
 
-@export var game_scene : PackedScene
 
-func _ready():
-	
+#func _ready():
+#	%GameWindow.visible = true
 
 
 func _unhandled_input(event):
@@ -20,5 +19,34 @@ func _unhandled_input(event):
 
 
 func _on_start_game_pressed():
-	var game := game_scene.instantiate()
-	self.add_child(game)
+	%GameWindow.visible = !%GameWindow.visible
+
+
+func _on_mission_intro_pressed():
+	var state_machine = %GameWindow/MissionStateTree.get("parameters/playback")
+	state_machine.travel('intro')
+	
+	
+func _on_mission_unlock_pressed():
+	var state_machine = %GameWindow/MissionStateTree.get("parameters/playback")
+	state_machine.travel('unlock_spaceship')
+
+
+func _on_mission_approach_pressed():
+	var state_machine = %GameWindow/MissionStateTree.get("parameters/playback")
+	state_machine.travel('approach_spaceship')
+
+
+func _on_mission_enter_pressed():
+	var state_machine = %GameWindow/MissionStateTree.get("parameters/playback")
+	state_machine.travel('enter_spaceship')
+
+
+func _on_mission_launch_pressed():
+	var state_machine = %GameWindow/MissionStateTree.get("parameters/playback")
+	state_machine.travel('launch')
+
+
+func _on_mission_stars_pressed():
+	var state_machine = %GameWindow/MissionStateTree.get("parameters/playback")
+	state_machine.travel('stars_light_up')

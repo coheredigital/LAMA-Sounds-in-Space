@@ -22,7 +22,7 @@ animation = &"screen/screen_success"
 animation = &"screen/talking_head"
 
 [sub_resource type="AnimationNodeAnimation" id="3914"]
-animation = &"screen/screen_visualizer"
+animation = &"screen/visualizer"
 
 [sub_resource type="AnimationNodeAnimation" id="3892"]
 animation = &"screen/wipe"
