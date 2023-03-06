@@ -13,14 +13,34 @@
 [ext_resource type="Curve" uid="uid://d1nfw1ns152lp" path="res://audio/visualizer/curves/a_acceleration_curve.tres" id="11_l1cg1"]
 [ext_resource type="Script" path="res://game.gd" id="12"]
 
+[sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_2n73o"]
+
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_m2f1b"]
 gradient = ExtResource("4_bkdmv")
-
-[sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_2n73o"]
 
 [node name="Game" type="Node"]
 script = ExtResource("12")
 game_scene = ExtResource("3_ljibd")
+
+[node name="AudioVisualizer" type="Node" parent="."]
+script = ExtResource("5_cnmhu")
+waveform = ExtResource("6_6kuuw")
+gradient = ExtResource("4_bkdmv")
+max_frequency = 660.0
+max_db = -1.6
+min_db = -64.9
+response_curve = ExtResource("7_0nslx")
+x_curve = ExtResource("8_ry1wg")
+y_curve = ExtResource("9_vncay")
+z_curve = ExtResource("10_dsba6")
+a_curve = ExtResource("11_l1cg1")
+
+[node name="AudioStreamRecord" type="AudioStreamPlayer" parent="AudioVisualizer"]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamMicrophone_2n73o")
+volume_db = 14.216
+autoplay = true
+bus = &"Record"
 
 [node name="ControlPanel" type="Control" parent="."]
 layout_mode = 3
@@ -54,6 +74,19 @@ size_flags_vertical = 3
 texture = SubResource("GradientTexture2D_m2f1b")
 expand_mode = 2
 metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="ControlPanel/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabBar" type="TabBar" parent="ControlPanel/Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="ListContainer" type="VBoxContainer" parent="ControlPanel/Panel"]
 layout_mode = 1
@@ -181,25 +214,5 @@ text = "Start / Restart Game
 [node name="Separator" type="HSeparator" parent="ControlPanel/Panel/ListContainer/GameControls"]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
-
-[node name="AudioVisualizer" type="Node" parent="ControlPanel"]
-script = ExtResource("5_cnmhu")
-waveform = ExtResource("6_6kuuw")
-gradient = ExtResource("4_bkdmv")
-max_frequency = 660.0
-max_db = -1.6
-min_db = -64.9
-response_curve = ExtResource("7_0nslx")
-x_curve = ExtResource("8_ry1wg")
-y_curve = ExtResource("9_vncay")
-z_curve = ExtResource("10_dsba6")
-a_curve = ExtResource("11_l1cg1")
-
-[node name="AudioStreamRecord" type="AudioStreamPlayer" parent="ControlPanel/AudioVisualizer"]
-unique_name_in_owner = true
-stream = SubResource("AudioStreamMicrophone_2n73o")
-volume_db = 14.216
-autoplay = true
-bus = &"Record"
 
 [connection signal="pressed" from="ControlPanel/Panel/ListContainer/GameControls/HBoxContainer/start_game" to="." method="_on_start_game_pressed"]

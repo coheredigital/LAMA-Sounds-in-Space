@@ -4,6 +4,10 @@ extends Node
 
 @export var game_scene : PackedScene
 
+func _ready():
+	
+
+
 func _unhandled_input(event):
 	if event.is_action_pressed("screenshot"):
 		var time = Time.get_datetime_dict_from_system()
@@ -16,4 +20,5 @@ func _unhandled_input(event):
 
 
 func _on_start_game_pressed():
-	game_scene.instantiate()
+	var game := game_scene.instantiate()
+	self.add_child(game)

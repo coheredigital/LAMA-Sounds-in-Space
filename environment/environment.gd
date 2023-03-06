@@ -42,6 +42,7 @@ func set_horizon_color(value):
 
 func set_horizon_height(value):
 	horizon_height = value
-	%SpaceStation.position.y = value
+	if %SpaceStation:
+		%SpaceStation.position.y = value
 	if sky_material:
 		sky_material.set_shader_parameter("horizon_height", value / SKY_SIZE)
