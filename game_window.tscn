@@ -1,145 +1,13 @@
-[gd_scene load_steps=36 format=3 uid="uid://cw4f5hy7rklua"]
+[gd_scene load_steps=32 format=3 uid="uid://c8dpkgyu3sg28"]
 
-[ext_resource type="AnimationNodeStateMachine" uid="uid://c4k44s0dh3440" path="res://spaceship/animation/spaceship_state_tree.tres" id="1_f4e3r"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://bgas77vb0vl6b" path="res://spaceship/animation/screen_state_tree.tres" id="2_33acu"]
-[ext_resource type="Script" path="res://game_state_manager.gd" id="3_g5xn2"]
-[ext_resource type="AnimationLibrary" uid="uid://d2f01mgprslsv" path="res://character/materials/character_animations.tres" id="4_53u65"]
 [ext_resource type="AnimationLibrary" uid="uid://cadi70pdgm61" path="res://spaceship/animation/spaceship_animations.tres" id="5_262jn"]
+[ext_resource type="Shader" path="res://shaders/toon.gdshader" id="5_mtwpw"]
+[ext_resource type="Texture2D" uid="uid://cwoinpuvn65ta" path="res://shaders/textures/diffuse_curve.png" id="6_6awdm"]
 [ext_resource type="PackedScene" uid="uid://c4qhhxc2uj1e8" path="res://character/character.tscn" id="6_8i88j"]
-[ext_resource type="AnimationLibrary" uid="uid://dip5qx70rf0l0" path="res://player/player_animations.tres" id="6_sgiiy"]
-[ext_resource type="PackedScene" uid="uid://cbmdn35p2dbvg" path="res://player/player_camera.tscn" id="7_mwy2h"]
+[ext_resource type="PackedScene" path="res://player/player.tscn" id="7_mwy2h"]
 [ext_resource type="AnimationLibrary" uid="uid://dywe6iokyofm1" path="res://spaceship/animation/screen_animations.tres" id="7_ojali"]
 [ext_resource type="PackedScene" uid="uid://dfj8aj155rnl4" path="res://environment/environment.tscn" id="8_ympfv"]
-
-[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_q6l4g"]
-
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_m6b61"]
-graph_offset = Vector2(507.339, 179.09)
-nodes/mission_state/node = ExtResource("1_f4e3r")
-nodes/mission_state/position = Vector2(720, 240)
-nodes/output/position = Vector2(1120, 280)
-nodes/screen_state/node = ExtResource("2_33acu")
-nodes/screen_state/position = Vector2(720, 400)
-nodes/screen_view/node = SubResource("AnimationNodeAdd2_q6l4g")
-nodes/screen_view/position = Vector2(940, 280)
-node_connections = [&"output", 0, &"screen_view", &"screen_view", 0, &"mission_state", &"screen_view", 1, &"screen_state"]
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_4rehu"]
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_2owtn"]
-
-[sub_resource type="Animation" id="Animation_p0umf"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SubViewportContainer/SubViewport/Character:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-10.6656, 2.10132, 5.55682)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SubViewportContainer/SubViewport/Character:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("SubViewportContainer/SubViewport/Character:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("SubViewportContainer/SubViewport/Character:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("SubViewportContainer/SubViewport/Environment/Spaceship:door_open")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("SubViewportContainer/SubViewport/Environment:state")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["home"]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("SubViewportContainer/SubViewport/Player:state")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["intro"]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_68h00"]
-_data = {
-"RESET": SubResource("Animation_p0umf")
-}
-
-[sub_resource type="Animation" id="Animation_8tppg"]
-resource_name = "door_open"
-step = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SubViewportContainer/SubViewport/Environment/Spaceship:door_open")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_i4gxv"]
-_data = {
-"door_open": SubResource("Animation_8tppg")
-}
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_d0ais"]
 animation = &"mission/approach_spaceship"
@@ -156,8 +24,8 @@ animation = &"mission/launch"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_aq024"]
 animation = &"mission/pre_launch"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ph756"]
-animation = &"mission/player_sit"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pv5ga"]
+animation = &"mission/stars_light_up"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_iib6b"]
 animation = &"mission/unlock_spaceship"
@@ -174,17 +42,17 @@ switch_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_b8x0b"]
 switch_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_80ttj"]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_w1ay3"]
-switch_mode = 2
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6pyh8"]
 switch_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1gmfb"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_k0oyt"]
+switch_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_mepx2"]
-states/End/position = Vector2(1611, 100)
+states/End/position = Vector2(1916, 100)
 states/approach_spaceship/node = SubResource("AnimationNodeAnimation_d0ais")
 states/approach_spaceship/position = Vector2(513, 100)
 states/enter_spaceship/node = SubResource("AnimationNodeAnimation_qjrqc")
@@ -192,46 +60,115 @@ states/enter_spaceship/position = Vector2(977, 100)
 states/intro/node = SubResource("AnimationNodeAnimation_jyrxd")
 states/intro/position = Vector2(319, 100)
 states/launch/node = SubResource("AnimationNodeAnimation_xfitn")
-states/launch/position = Vector2(1485, 100)
+states/launch/position = Vector2(1375, 100)
 states/pre_launch/node = SubResource("AnimationNodeAnimation_aq024")
-states/pre_launch/position = Vector2(1322, 100)
-states/sit_down/node = SubResource("AnimationNodeAnimation_ph756")
-states/sit_down/position = Vector2(1169, 100)
+states/pre_launch/position = Vector2(1201, 100)
+states/stars_light_up/node = SubResource("AnimationNodeAnimation_pv5ga")
+states/stars_light_up/position = Vector2(1541, 100)
 states/unlock_spaceship/node = SubResource("AnimationNodeAnimation_iib6b")
 states/unlock_spaceship/position = Vector2(754, 100)
-transitions = ["Start", "intro", SubResource("AnimationNodeStateMachineTransition_678tg"), "intro", "approach_spaceship", SubResource("AnimationNodeStateMachineTransition_4u2k8"), "approach_spaceship", "unlock_spaceship", SubResource("AnimationNodeStateMachineTransition_1l0u3"), "unlock_spaceship", "enter_spaceship", SubResource("AnimationNodeStateMachineTransition_b8x0b"), "enter_spaceship", "sit_down", SubResource("AnimationNodeStateMachineTransition_80ttj"), "sit_down", "pre_launch", SubResource("AnimationNodeStateMachineTransition_w1ay3"), "pre_launch", "launch", SubResource("AnimationNodeStateMachineTransition_6pyh8")]
-graph_offset = Vector2(58, -168)
+transitions = ["Start", "intro", SubResource("AnimationNodeStateMachineTransition_678tg"), "intro", "approach_spaceship", SubResource("AnimationNodeStateMachineTransition_4u2k8"), "approach_spaceship", "unlock_spaceship", SubResource("AnimationNodeStateMachineTransition_1l0u3"), "unlock_spaceship", "enter_spaceship", SubResource("AnimationNodeStateMachineTransition_b8x0b"), "pre_launch", "launch", SubResource("AnimationNodeStateMachineTransition_6pyh8"), "enter_spaceship", "pre_launch", SubResource("AnimationNodeStateMachineTransition_1gmfb"), "launch", "stars_light_up", SubResource("AnimationNodeStateMachineTransition_k0oyt")]
+graph_offset = Vector2(646, -252)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_vs8d4"]
 
+[sub_resource type="Animation" id="Animation_p0umf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/Player:state")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["intro"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SubViewportContainer/SubViewport/Character:state")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["intro"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SubViewportContainer/SubViewport/Environment:state")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["home"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SubViewportContainer/SubViewport/Environment/Spaceship:door_open")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_68h00"]
+_data = {
+"RESET": SubResource("Animation_p0umf")
+}
+
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_blc8j"]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_vompp"]
+
+[sub_resource type="Gradient" id="18"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.0777027, 0.169916, 0.226351, 0.307432, 0.39527, 0.459459, 0.503378, 0.567568, 0.716981, 0.797297, 0.912162, 0.986072)
+colors = PackedColorArray(0.397039, 0.190276, 0.476563, 1, 0.397039, 0.190276, 0.476563, 1, 0.385435, 0.21108, 0.487957, 1, 0.368764, 0.240969, 0.504327, 1, 0.349939, 0.274717, 0.52281, 1, 0.325323, 0.31885, 0.546981, 1, 0.34087, 0.290977, 0.531715, 1, 0.296851, 0.369894, 0.574937, 1, 0.293041, 0.376725, 0.578678, 1, 0.314778, 0.337755, 0.557335, 1, 0.26814, 0.421369, 0.603129, 1, 0.241887, 0.468435, 0.628906, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uiocd"]
+resource_local_to_scene = true
+gradient = SubResource("18")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.653846, 0.397436)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hdkyq"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("5_mtwpw")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/specular = 0.5
+shader_parameter/specular_amount = 0.5
+shader_parameter/specular_smoothness = 0.05
+shader_parameter/rim = 0.5
+shader_parameter/rim_color = Color(1, 1, 1, 1)
+shader_parameter/rim_amount = 0.2
+shader_parameter/rim_smoothness = 0.05
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 1.0
+shader_parameter/emission = Color(0, 0, 0, 1)
+shader_parameter/emission_energy = 0.193
+shader_parameter/use_alpha = false
+shader_parameter/albedo_texture = SubResource("GradientTexture2D_uiocd")
+shader_parameter/diffuse_curve = ExtResource("6_6awdm")
+shader_parameter/emission_texture = SubResource("GradientTexture2D_uiocd")
 
 [node name="GameWindow" type="Window"]
 initial_position = 1
 size = Vector2i(1280, 800)
-
-[node name="GameStateManager" type="AnimationTree" parent="."]
-tree_root = SubResource("AnimationNodeBlendTree_m6b61")
-anim_player = NodePath("AnimationPlayer")
-parameters/mission_state/playback = SubResource("AnimationNodeStateMachinePlayback_4rehu")
-parameters/screen_state/playback = SubResource("AnimationNodeStateMachinePlayback_2owtn")
-parameters/screen_view/add_amount = 1.0
-script = ExtResource("3_g5xn2")
-player_state = "approach_spaceship"
-character_state = "enter_spaceship"
-screen_state = "idle"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="GameStateManager"]
-root_node = NodePath("../..")
-reset_on_save = false
-libraries = {
-"": SubResource("AnimationLibrary_68h00"),
-"character": ExtResource("4_53u65"),
-"mission": ExtResource("5_262jn"),
-"player": ExtResource("6_sgiiy"),
-"screen": ExtResource("7_ojali"),
-"spaceship": SubResource("AnimationLibrary_i4gxv")
-}
 
 [node name="MissionStateTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_mepx2")
@@ -244,16 +181,13 @@ root_node = NodePath("../..")
 reset_on_save = false
 libraries = {
 "": SubResource("AnimationLibrary_68h00"),
-"character": ExtResource("4_53u65"),
-"mission": ExtResource("5_262jn"),
-"player": ExtResource("6_sgiiy"),
-"screen": ExtResource("7_ojali"),
-"spaceship": SubResource("AnimationLibrary_i4gxv")
+"mission": ExtResource("5_262jn")
 }
 
 [node name="ScreenStateTree" type="AnimationTree" parent="."]
 tree_root = ExtResource("2_33acu")
 anim_player = NodePath("ScreenAnimationPlayer")
+active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_blc8j")
 
 [node name="ScreenAnimationPlayer" type="AnimationPlayer" parent="ScreenStateTree"]
@@ -273,17 +207,27 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 handle_input_locally = false
+use_occlusion_culling = true
 size = Vector2i(1280, 800)
 render_target_update_mode = 4
 
 [node name="Environment" parent="SubViewportContainer/SubViewport" instance=ExtResource("8_ympfv")]
-state = "home"
+
+[node name="StateTree" parent="SubViewportContainer/SubViewport/Environment" index="0"]
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_vompp")
+
+[node name="Planet" parent="SubViewportContainer/SubViewport/Environment" index="5"]
+surface_material_override/0 = SubResource("ShaderMaterial_hdkyq")
 
 [node name="Character" parent="SubViewportContainer/SubViewport" instance=ExtResource("6_8i88j")]
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 1, -10.6656, 2.10132, 5.55682)
+state = "intro"
 
 [node name="Player" parent="SubViewportContainer/SubViewport" instance=ExtResource("7_mwy2h")]
 follow_speed = 1.96
 turn_speed = 4.469
 distance_buffer = 3.438
 distance_boost = 2.904
+
+[editable path="SubViewportContainer/SubViewport/Environment"]
+[editable path="SubViewportContainer/SubViewport/Environment/SpaceStation"]

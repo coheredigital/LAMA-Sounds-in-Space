@@ -1,81 +1,4 @@
-[gd_resource type="AnimationLibrary" load_steps=9 format=3 uid="uid://cadi70pdgm61"]
-
-[sub_resource type="Animation" id="Animation_scgrp"]
-resource_name = "parked"
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SubViewportContainer/SubViewport/Character:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-10.6656, 2.10132, 5.55682)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SubViewportContainer/SubViewport/Character:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("SubViewportContainer/SubViewport/Player/PositionTarget:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-10.8537, 2.5, 7.2842)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("SubViewportContainer/SubViewport/Player/LookTarget:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-6.07119, 1.46695, 0.792042)]
-}
-
-[sub_resource type="Animation" id="Animation_bd1uy"]
-resource_name = "player_stars_light_up"
-length = 5.0
-step = 1.0
-
-[sub_resource type="Animation" id="Animation_mo8mt"]
-resource_name = "spaceship_warp"
-length = 8.0
-step = 1.0
-
-[sub_resource type="Animation" id="Animation_wmmeq"]
-resource_name = "pre_launch"
-length = 6.0
-step = 1.0
-
-[sub_resource type="Animation" id="Animation_a5ge3"]
-resource_name = "launch"
-length = 6.0
-step = 1.0
-
-[sub_resource type="Animation" id="Animation_47d11"]
-resource_name = "countdown"
-length = 6.0
-step = 1.0
+[gd_resource type="AnimationLibrary" load_steps=10 format=3 uid="uid://cadi70pdgm61"]
 
 [sub_resource type="Animation" id="Animation_apv81"]
 resource_name = "approach_spaceship"
@@ -84,30 +7,167 @@ step = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SubViewportContainer/SubViewport/Player/PositionTarget:position")
-tracks/0/interp = 2
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/Player:state")
+tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-10.8537, 2.5, 7.2842), Vector3(-4.0814, 2.5, 0.6895)]
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["approach_spaceship"]
+}
+
+[sub_resource type="Animation" id="Animation_47d11"]
+resource_name = "countdown"
+length = 6.0
+step = 1.0
+
+[sub_resource type="Animation" id="Animation_scgrp"]
+resource_name = "parked"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/Player:state")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["intro"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SubViewportContainer/SubViewport/Player/LookTarget:position")
-tracks/1/interp = 2
+tracks/1/path = NodePath("SubViewportContainer/SubViewport/Character:state")
+tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-6.07119, 1.46695, 0.792042), Vector3(-0.103051, 2.03227, 0.871729)]
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["intro"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SubViewportContainer/SubViewport/Environment:state")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["home"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SubViewportContainer/SubViewport/Environment/Spaceship:door_open")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_a5ge3"]
+resource_name = "launch"
+length = 6.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/Player:state")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["sitting"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SubViewportContainer/SubViewport/Character:state")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["sitting"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SubViewportContainer/SubViewport/Environment:state")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["launch"]
+}
+
+[sub_resource type="Animation" id="Animation_wmmeq"]
+resource_name = "pre_launch"
+length = 3.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/Player:state")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["sitting"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SubViewportContainer/SubViewport/Character:state")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["sitting"]
+}
+
+[sub_resource type="Animation" id="Animation_bd1uy"]
+resource_name = "player_stars_light_up"
+length = 5.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/Environment:state")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["stars_light"]
+}
+
+[sub_resource type="Animation" id="Animation_mo8mt"]
+resource_name = "spaceship_warp"
+length = 8.0
+step = 1.0
+
 [sub_resource type="Animation" id="Animation_0shj2"]
-resource_name = "door_open"
+resource_name = "unlock_spaceship"
 step = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -121,15 +181,69 @@ tracks/0/keys = {
 "update": 1,
 "values": [false, true]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SubViewportContainer/SubViewport/Player:state")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["boarding"]
+}
+
+[sub_resource type="Animation" id="Animation_2hkov"]
+resource_name = "enter_spaceship"
+length = 5.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/Environment/Spaceship:door_open")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SubViewportContainer/SubViewport/Player:state")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["boarding", "enter_spaceship"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SubViewportContainer/SubViewport/Character:state")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["intro", "enter_spaceship"]
+}
 
 [resource]
 _data = {
 "approach_spaceship": SubResource("Animation_apv81"),
 "countdown": SubResource("Animation_47d11"),
+"enter_spaceship": SubResource("Animation_2hkov"),
 "intro": SubResource("Animation_scgrp"),
 "launch": SubResource("Animation_a5ge3"),
 "pre_launch": SubResource("Animation_wmmeq"),
-"spaceship_door_open": SubResource("Animation_0shj2"),
 "stars_light_up": SubResource("Animation_bd1uy"),
+"unlock_spaceship": SubResource("Animation_0shj2"),
 "warp": SubResource("Animation_mo8mt")
 }

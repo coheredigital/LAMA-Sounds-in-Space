@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://ddk451unfromj"]
 
 [ext_resource type="Theme" uid="uid://c0qwn552iqqur" path="res://ui/theme/simple_ui_theme.tres" id="2_xe58p"]
-[ext_resource type="PackedScene" uid="uid://cw4f5hy7rklua" path="res://game_window.tscn" id="3_ljibd"]
+[ext_resource type="PackedScene" uid="uid://c8dpkgyu3sg28" path="res://game_window.tscn" id="3_ljibd"]
 [ext_resource type="Material" uid="uid://d1txi86rfk50c" path="res://audio/visualizer/visualizer_debug_material.tres" id="3_qq7yv"]
 [ext_resource type="Gradient" uid="uid://b71jutk4qdqv3" path="res://audio/visualizer/visualizer_gradient.tres" id="4_bkdmv"]
 [ext_resource type="Script" path="res://audio/visualizer/AudioVisualizer.gd" id="5_cnmhu"]
@@ -20,6 +20,7 @@ gradient = ExtResource("4_bkdmv")
 
 [node name="Game" type="Node"]
 script = ExtResource("12")
+game_scene = ExtResource("3_ljibd")
 
 [node name="ControlPanel" type="Control" parent="."]
 layout_mode = 3
@@ -54,7 +55,7 @@ texture = SubResource("GradientTexture2D_m2f1b")
 expand_mode = 2
 metadata/_edit_lock_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ControlPanel/Panel"]
+[node name="ListContainer" type="VBoxContainer" parent="ControlPanel/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -66,86 +67,120 @@ offset_bottom = -27.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Mission Control" type="Label" parent="ControlPanel/Panel/VBoxContainer"]
+[node name="TitleContainer" type="VBoxContainer" parent="ControlPanel/Panel/ListContainer"]
+layout_mode = 2
+
+[node name="Mission Control" type="Label" parent="ControlPanel/Panel/ListContainer/TitleContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "Mission Control
 "
 
-[node name="HSeparator3" type="HSeparator" parent="ControlPanel/Panel/VBoxContainer"]
+[node name="HSeparator3" type="HSeparator" parent="ControlPanel/Panel/ListContainer/TitleContainer"]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 
-[node name="ParticipantForm" type="VBoxContainer" parent="ControlPanel/Panel/VBoxContainer"]
+[node name="ParticipantForm" type="VBoxContainer" parent="ControlPanel/Panel/ListContainer"]
 layout_mode = 2
 
-[node name="MissionIDField" type="HBoxContainer" parent="ControlPanel/Panel/VBoxContainer/ParticipantForm"]
+[node name="MissionIDField" type="HBoxContainer" parent="ControlPanel/Panel/ListContainer/ParticipantForm"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ControlPanel/Panel/VBoxContainer/ParticipantForm/MissionIDField"]
+[node name="Label" type="Label" parent="ControlPanel/Panel/ListContainer/ParticipantForm/MissionIDField"]
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 text = "Mission ID
 "
 
-[node name="TextEdit" type="TextEdit" parent="ControlPanel/Panel/VBoxContainer/ParticipantForm/MissionIDField"]
+[node name="TextEdit" type="TextEdit" parent="ControlPanel/Panel/ListContainer/ParticipantForm/MissionIDField"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="NameField" type="HBoxContainer" parent="ControlPanel/Panel/VBoxContainer/ParticipantForm"]
+[node name="NameField" type="HBoxContainer" parent="ControlPanel/Panel/ListContainer/ParticipantForm"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ControlPanel/Panel/VBoxContainer/ParticipantForm/NameField"]
+[node name="Label" type="Label" parent="ControlPanel/Panel/ListContainer/ParticipantForm/NameField"]
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 text = "Participant Name
 "
 
-[node name="TextEdit" type="TextEdit" parent="ControlPanel/Panel/VBoxContainer/ParticipantForm/NameField"]
+[node name="TextEdit" type="TextEdit" parent="ControlPanel/Panel/ListContainer/ParticipantForm/NameField"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HSeparator2" type="HSeparator" parent="ControlPanel/Panel/VBoxContainer"]
+[node name="Separator" type="HSeparator" parent="ControlPanel/Panel/ListContainer/ParticipantForm"]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ControlPanel/Panel/VBoxContainer"]
+[node name="AudioControls" type="VBoxContainer" parent="ControlPanel/Panel/ListContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ControlPanel/Panel/ListContainer/AudioControls"]
 layout_mode = 2
 text = "Audio Controls
 "
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ControlPanel/Panel/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ControlPanel/Panel/ListContainer/AudioControls"]
 layout_mode = 2
 
-[node name="start_recording" type="Button" parent="ControlPanel/Panel/VBoxContainer/HBoxContainer"]
+[node name="start_recording" type="Button" parent="ControlPanel/Panel/ListContainer/AudioControls/HBoxContainer"]
 custom_minimum_size = Vector2(120, 31)
 layout_mode = 2
 text = "Record
 "
 
-[node name="HSeparator" type="HSeparator" parent="ControlPanel/Panel/VBoxContainer"]
+[node name="Separator" type="HSeparator" parent="ControlPanel/Panel/ListContainer/AudioControls"]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 
-[node name="Screen" type="Label" parent="ControlPanel/Panel/VBoxContainer"]
+[node name="ScreenControls" type="VBoxContainer" parent="ControlPanel/Panel/ListContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ControlPanel/Panel/ListContainer/ScreenControls"]
 layout_mode = 2
 text = "Screen Controls
 "
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="ControlPanel/Panel/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ControlPanel/Panel/ListContainer/ScreenControls"]
 layout_mode = 2
 
-[node name="set_screen_success" type="Button" parent="ControlPanel/Panel/VBoxContainer/HBoxContainer2"]
+[node name="set_screen_success" type="Button" parent="ControlPanel/Panel/ListContainer/ScreenControls/HBoxContainer"]
 custom_minimum_size = Vector2(120, 31)
 layout_mode = 2
 text = "Success
 "
 
-[node name="set_screen_failure" type="Button" parent="ControlPanel/Panel/VBoxContainer/HBoxContainer2"]
+[node name="set_screen_failure" type="Button" parent="ControlPanel/Panel/ListContainer/ScreenControls/HBoxContainer"]
 custom_minimum_size = Vector2(120, 31)
 layout_mode = 2
 text = "Failure
 "
+
+[node name="Separator" type="HSeparator" parent="ControlPanel/Panel/ListContainer/ScreenControls"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="GameControls" type="VBoxContainer" parent="ControlPanel/Panel/ListContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ControlPanel/Panel/ListContainer/GameControls"]
+layout_mode = 2
+text = "Game Controls
+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ControlPanel/Panel/ListContainer/GameControls"]
+layout_mode = 2
+
+[node name="start_game" type="Button" parent="ControlPanel/Panel/ListContainer/GameControls/HBoxContainer"]
+custom_minimum_size = Vector2(200, 31)
+layout_mode = 2
+text = "Start / Restart Game
+"
+
+[node name="Separator" type="HSeparator" parent="ControlPanel/Panel/ListContainer/GameControls"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
 
 [node name="AudioVisualizer" type="Node" parent="ControlPanel"]
 script = ExtResource("5_cnmhu")
@@ -167,4 +202,4 @@ volume_db = 14.216
 autoplay = true
 bus = &"Record"
 
-[node name="GameWindow" parent="." instance=ExtResource("3_ljibd")]
+[connection signal="pressed" from="ControlPanel/Panel/ListContainer/GameControls/HBoxContainer/start_game" to="." method="_on_start_game_pressed"]
