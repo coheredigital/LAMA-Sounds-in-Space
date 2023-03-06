@@ -140,7 +140,7 @@ tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.098]
+"values": [0.2]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -250,6 +250,30 @@ tracks/16/keys = {
 "update": 0,
 "values": [Vector3(0.5, 0.5, 0.5)]
 }
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("WorldLight:light_energy")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.2]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("WorldLight:light_color")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n418v"]
 _data = {
@@ -267,7 +291,7 @@ height = 8.0
 [node name="Environment" type="WorldEnvironment"]
 environment = ExtResource("1_arsm2")
 script = ExtResource("2_bvl62")
-state = "home"
+state = "launch"
 sky_color = Color(0.113725, 0.113725, 0.266667, 1)
 ground_color = Color(0.439216, 0.823529, 0.454902, 1)
 fog_color = Color(0.466667, 0.584314, 0.796078, 1)
@@ -321,8 +345,7 @@ metadata/_edit_lock_ = true
 [node name="WorldLight" type="DirectionalLight3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(0.93358, -0.260828, 0.245757, 0, 0.685768, 0.72782, -0.358368, -0.679479, 0.640219, 0, 128, 0)
-light_color = Color(0, 0, 0, 1)
-light_energy = 0.0
+light_energy = 0.2
 shadow_bias = 0.007
 directional_shadow_max_distance = 25.0
 metadata/_edit_lock_ = true

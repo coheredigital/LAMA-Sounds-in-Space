@@ -36,7 +36,6 @@ glow_intensity = 0.19
 glow_strength = 0.2
 glow_bloom = 0.33
 glow_blend_mode = 1
-volumetric_fog_enabled = true
 adjustment_enabled = true
 adjustment_brightness = 0.99
 adjustment_contrast = 1.01

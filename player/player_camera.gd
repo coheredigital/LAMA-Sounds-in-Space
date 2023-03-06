@@ -2,6 +2,12 @@
 class_name FollowCamera
 extends Node
 
+
+@export_enum("intro","approach_spaceship","boarding","enter_spaceship","sitting") var state: String = "intro":
+	set(value):
+		state = value
+		var state_machine = %PositionStateTree.get("parameters/playback")
+		state_machine.travel(state)
 @export_range (1.0, 8.0) var follow_speed = 3.0
 @export_range (1.0, 8.0) var turn_speed = 4.0
 @export_range (0.0, 10.0) var distance_buffer = 1.0
