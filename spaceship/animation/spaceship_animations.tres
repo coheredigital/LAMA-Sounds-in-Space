@@ -22,6 +22,47 @@ resource_name = "countdown"
 length = 6.0
 step = 1.0
 
+[sub_resource type="Animation" id="Animation_2hkov"]
+resource_name = "enter_spaceship"
+length = 5.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/Environment/Spaceship:door_open")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SubViewportContainer/SubViewport/Player:state")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["boarding", "enter_spaceship"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SubViewportContainer/SubViewport/Character:state")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["intro", "enter_spaceship"]
+}
+
 [sub_resource type="Animation" id="Animation_scgrp"]
 resource_name = "parked"
 length = 0.001
@@ -161,11 +202,6 @@ tracks/0/keys = {
 "values": ["stars_light"]
 }
 
-[sub_resource type="Animation" id="Animation_mo8mt"]
-resource_name = "spaceship_warp"
-length = 8.0
-step = 1.0
-
 [sub_resource type="Animation" id="Animation_0shj2"]
 resource_name = "unlock_spaceship"
 step = 0.5
@@ -194,46 +230,10 @@ tracks/1/keys = {
 "values": ["boarding"]
 }
 
-[sub_resource type="Animation" id="Animation_2hkov"]
-resource_name = "enter_spaceship"
-length = 5.0
-step = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SubViewportContainer/SubViewport/Environment/Spaceship:door_open")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SubViewportContainer/SubViewport/Player:state")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": ["boarding", "enter_spaceship"]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("SubViewportContainer/SubViewport/Character:state")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 4.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": ["intro", "enter_spaceship"]
-}
+[sub_resource type="Animation" id="Animation_mo8mt"]
+resource_name = "spaceship_warp"
+length = 8.0
+step = 1.0
 
 [resource]
 _data = {

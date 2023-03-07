@@ -4,13 +4,18 @@ extends Node3D
 @export var door_open := false : 
 	set(value):
 		door_open = value
-		if %DoorState:
-			var state_machine : AnimationNodeStateMachinePlayback = %DoorState.get("parameters/playback")
+		if %AnimationTree:
+			var state_machine : AnimationNodeStateMachinePlayback = %AnimationTree.get("parameters/door_state/playback")
 			state_machine.travel( 'open' if door_open else 'close' ) 
 
 
 @export_range(0.0,1.0) var steering_motion := 0.0 : 
 	set(value):
 		steering_motion = value
-		if %SteeringMotion:
-			%SteeringMotion.set("parameters/TimeScale/scale", steering_motion)
+		if %AnimationTree:
+			%AnimationTree.set("parameters/steering_speed/scale", steering_motion)
+
+@export_range(0.0,1.0) var fuel_level := 0.0 : 
+	set(value):
+		fuel_level = value
+		
