@@ -1,16 +1,18 @@
 [gd_resource type="Environment" load_steps=3 format=3 uid="uid://n48hdvn72r0x"]
 
 [sub_resource type="Gradient" id="25"]
-offsets = PackedFloat32Array(0.00653595, 0.351852, 0.696296, 0.888889, 1)
-colors = PackedColorArray(0.081175, 0.0731, 0.17, 1, 0.381126, 0.389304, 0.5679, 1, 0.82, 0.779, 0.78925, 1, 0.92, 0.92, 0.92, 1, 1, 1, 1, 1)
+offsets = PackedFloat32Array(0.00653595, 0.351852, 0.676923, 0.876923, 1)
+colors = PackedColorArray(0.0775372, 0.0713243, 0.18007, 1, 0.426199, 0.384494, 0.504122, 1, 0.82, 0.779, 0.78925, 1, 0.92, 0.92, 0.92, 1, 0.999999, 0.975371, 0.825915, 1)
 
 [sub_resource type="GradientTexture2D" id="24"]
 gradient = SubResource("25")
 
 [resource]
 background_mode = 1
-background_color = Color(0.113725, 0.113725, 0.266667, 1)
-ambient_light_color = Color(0.113725, 0.113725, 0.266667, 1)
+background_color = Color(0.164706, 0.172549, 0.301961, 1)
+background_energy_multiplier = 0.4
+ambient_light_energy = 0.0
+tonemap_mode = 3
 tonemap_white = 16.0
 ssao_enabled = true
 ssao_radius = 0.2
@@ -20,13 +22,11 @@ ssao_detail = 3.36
 ssao_horizon = 0.16
 ssao_sharpness = 1.0
 ssil_enabled = true
-ssil_radius = 0.6
-ssil_intensity = 1.31
-ssil_sharpness = 0.69
-ssil_normal_rejection = 0.68
+ssil_radius = 3.98
+ssil_intensity = 1.2
+ssil_sharpness = 1.0
 sdfgi_enabled = true
-sdfgi_use_occlusion = true
-sdfgi_bounce_feedback = 0.0
+sdfgi_bounce_feedback = 0.19
 sdfgi_cascades = 2
 sdfgi_min_cell_size = 0.16875
 glow_enabled = true
@@ -37,13 +37,15 @@ glow_intensity = 0.19
 glow_strength = 0.2
 glow_bloom = 0.33
 glow_blend_mode = 1
-fog_enabled = true
-fog_density = 0.0
+fog_light_color = Color(0.113725, 0.113725, 0.266667, 1)
+fog_density = 0.0274
+fog_sky_affect = 0.525
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.0146
+volumetric_fog_density = 0.0084
+volumetric_fog_albedo = Color(0.466667, 0.584314, 0.796078, 1)
 volumetric_fog_gi_inject = 6.14
+volumetric_fog_detail_spread = 2.21914
 adjustment_enabled = true
-adjustment_brightness = 0.99
-adjustment_contrast = 1.01
-adjustment_saturation = 1.47
+adjustment_contrast = 1.17
+adjustment_saturation = 1.27
 adjustment_color_correction = SubResource("24")

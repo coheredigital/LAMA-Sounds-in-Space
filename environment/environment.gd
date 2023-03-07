@@ -20,7 +20,14 @@ const SKY_SIZE = 64.0
 @export var ground_color := Color.DARK_SLATE_GRAY : set = set_ground_color
 @export var fog_color := Color.CADET_BLUE : set = set_fog_color
 @export var horizon_color := Color.DARK_SALMON : set = set_horizon_color
-@export_range(-64.0, 0.0) var horizon_height := 0.0 : set = set_horizon_height
+@export_range(-64.0, 0.0) var horizon_height := 0.0 : 
+	set(value):
+		horizon_height = value
+		if %SpaceStation:
+			%SpaceStation.position.y = value
+		if sky_material:
+			sky_material.set_shader_parameter("horizon_height", value / SKY_SIZE)
+			
 @onready var sky_material : ShaderMaterial  = %Sky.get_active_material(0)
 
 	
@@ -40,9 +47,3 @@ func set_horizon_color(value):
 	if sky_material:
 		sky_material.set_shader_parameter("horizon_color", lerp(horizon_color, sky_color, abs(horizon_height) / SKY_SIZE))
 
-func set_horizon_height(value):
-	horizon_height = value
-	if %SpaceStation:
-		%SpaceStation.position.y = value
-	if sky_material:
-		sky_material.set_shader_parameter("horizon_height", value / SKY_SIZE)
