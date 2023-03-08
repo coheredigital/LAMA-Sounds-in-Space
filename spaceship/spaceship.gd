@@ -1,6 +1,14 @@
 @tool
 extends Node3D
 
+
+@export_enum("idle","wipe","talking_head","start_button","restart_button","success", "failure", "buckle_warning") var screen_state: String = "intro":
+	set(value):
+		screen_state = value
+		if %AnimationTree:
+			var state_machine : AnimationNodeStateMachinePlayback = %AnimationTree.get("parameters/screen_state/playback")
+			state_machine.travel(screen_state)
+
 @export var door_open := false : 
 	set(value):
 		door_open = value

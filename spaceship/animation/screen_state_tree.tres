@@ -1,10 +1,10 @@
 [gd_resource type="AnimationNodeStateMachine" load_steps=27 format=3 uid="uid://bgas77vb0vl6b"]
 
 [sub_resource type="AnimationNodeAnimation" id="3919"]
-animation = &"screen_buckle_warning"
+animation = &"screen/buckle_warning"
 
 [sub_resource type="AnimationNodeAnimation" id="3910"]
-animation = &"screen/screen_failure"
+animation = &"screen/failure"
 
 [sub_resource type="AnimationNodeAnimation" id="3891"]
 animation = &"screen/idle"
@@ -16,7 +16,7 @@ animation = &"screen/restart"
 animation = &"screen/start_button"
 
 [sub_resource type="AnimationNodeAnimation" id="3902"]
-animation = &"screen/screen_success"
+animation = &"screen/success"
 
 [sub_resource type="AnimationNodeAnimation" id="3893"]
 animation = &"screen/talking_head"
@@ -51,7 +51,6 @@ switch_mode = 2
 switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="3912"]
-switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="3915"]
 switch_mode = 2

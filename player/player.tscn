@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3]
+[gd_scene load_steps=23 format=3 uid="uid://cpwq3fcduvvt1"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1"]
 
@@ -267,11 +267,13 @@ _data = {
 script = ExtResource("1")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.805126, 0.0753688, -0.588296, 1.19209e-07, 0.991893, 0.127075, 0.593104, -0.102312, 0.798599, -10.8537, 2.5, 7.2842)
+transform = Transform3D(0.805126, 0.0753688, -0.588296, 1.11759e-07, 0.991893, 0.127075, 0.593104, -0.102312, 0.798599, -10.8537, 2.5, 7.2842)
 current = true
+fov = 65.0
 far = 800.0
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Camera3D"]
+visible = false
 light_energy = 0.1
 
 [node name="PositionTarget" type="Marker3D" parent="."]
