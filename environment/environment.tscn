@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dfj8aj155rnl4"]
+[gd_scene load_steps=26 format=3 uid="uid://dfj8aj155rnl4"]
 
 [ext_resource type="Environment" uid="uid://n48hdvn72r0x" path="res://environment/environment.tres" id="1_arsm2"]
 [ext_resource type="Script" path="res://environment/environment.gd" id="2_bvl62"]
@@ -311,10 +311,17 @@ rings = 16
 density = 0.0533
 albedo = Color(0.503735, 0.618236, 0.707804, 1)
 
+[sub_resource type="BoxMesh" id="BoxMesh_cqeuo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_keuhq"]
+emission_enabled = true
+emission = Color(1, 0.627451, 0.403922, 1)
+emission_energy_multiplier = 7.89
+
 [node name="Environment" type="WorldEnvironment"]
 environment = ExtResource("1_arsm2")
 script = ExtResource("2_bvl62")
-state = "stars_light"
+state = "launch"
 sky_color = Color(0.164706, 0.172549, 0.301961, 1)
 ground_color = Color(0.623529, 0.721569, 0.596078, 1)
 fog_color = Color(0.258824, 0.329412, 0.556863, 1)
@@ -376,5 +383,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.8623, -15.7909)
 size = Vector3(64, 8, 64)
 shape = 0
 material = SubResource("FogMaterial_2rfwg")
+
+[node name="Stars" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.91088)
+
+[node name="Star" type="MeshInstance3D" parent="Stars"]
+transform = Transform3D(0.353553, -0.353553, 0, 0.25, 0.25, -0.353553, 0.25, 0.25, 0.353553, 0, 0, 0)
+mesh = SubResource("BoxMesh_cqeuo")
+surface_material_override/0 = SubResource("StandardMaterial3D_keuhq")
+
+[node name="StarLight" type="OmniLight3D" parent="Stars/Star"]
 
 [editable path="SpaceStation"]

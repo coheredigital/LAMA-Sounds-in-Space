@@ -64,9 +64,9 @@ states/enter_spaceship/position = Vector2(977, 100)
 states/intro/node = SubResource("AnimationNodeAnimation_jyrxd")
 states/intro/position = Vector2(319, 100)
 states/launch/node = SubResource("AnimationNodeAnimation_xfitn")
-states/launch/position = Vector2(1375, 100)
+states/launch/position = Vector2(1187, 100)
 states/pre_launchbegin/node = SubResource("AnimationNodeAnimation_w15m7")
-states/pre_launchbegin/position = Vector2(977, 1)
+states/pre_launchbegin/position = Vector2(977, 7)
 states/pre_launchbuckle_up/node = SubResource("AnimationNodeAnimation_b65s8")
 states/pre_launchbuckle_up/position = Vector2(977, -83)
 states/stars_light_up/node = SubResource("AnimationNodeAnimation_pv5ga")
@@ -326,13 +326,12 @@ size = Vector2i(1280, 720)
 render_target_update_mode = 4
 
 [node name="Environment" parent="SubViewportContainer/SubViewport" instance=ExtResource("8_ympfv")]
+state = "home"
 
 [node name="StateTree" parent="SubViewportContainer/SubViewport/Environment" index="0"]
-active = false
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_vompp")
 
 [node name="Spaceship" parent="SubViewportContainer/SubViewport/Environment" index="2"]
-screen_state = "talking_head"
 door_open = false
 
 [node name="AnimationTree" parent="SubViewportContainer/SubViewport/Environment/Spaceship" index="0"]
@@ -355,19 +354,21 @@ surface_material_override/0 = SubResource("ShaderMaterial_hdkyq")
 [node name="WorldLight" parent="SubViewportContainer/SubViewport/Environment" index="5"]
 shadow_bias = 0.0
 
+[node name="Stars" parent="SubViewportContainer/SubViewport/Environment" index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.89134, -45.8598)
+
 [node name="Character" parent="SubViewportContainer/SubViewport" instance=ExtResource("6_8i88j")]
-transform = Transform3D(-0.915241, -0.033392, 0.401517, -0.0601358, 0.996718, -0.0541856, -0.39839, -0.0737386, -0.914247, -0.613001, 1.63601, -1.72642)
-state = "sitting"
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 1, -10.6656, 2.10132, 5.55682)
+state = "intro"
 
 [node name="Player" parent="SubViewportContainer/SubViewport" instance=ExtResource("7_mwy2h")]
-state = "sitting"
 follow_speed = 1.96
 turn_speed = 4.469
 distance_buffer = 3.438
 distance_boost = 2.904
 
 [node name="Camera3D" parent="SubViewportContainer/SubViewport/Player" index="0"]
-transform = Transform3D(0.999398, 0.00361193, 0.0345088, 2.32831e-10, 0.994567, -0.104098, -0.0346973, 0.104036, 0.993968, 0.294017, 2.22313, -0.854775)
+transform = Transform3D(0.805126, 0.0753689, -0.588296, 2.98023e-08, 0.991893, 0.127075, 0.593104, -0.102312, 0.798599, -10.8537, 2.5, 7.2842)
 fov = 68.5
 
 [node name="PositionStateTree" parent="SubViewportContainer/SubViewport/Player" index="3"]
