@@ -74,7 +74,7 @@ states/stars_light_up/position = Vector2(1541, 100)
 states/unlock_spaceship/node = SubResource("AnimationNodeAnimation_iib6b")
 states/unlock_spaceship/position = Vector2(754, 100)
 transitions = ["Start", "intro", SubResource("AnimationNodeStateMachineTransition_678tg"), "intro", "approach_spaceship", SubResource("AnimationNodeStateMachineTransition_4u2k8"), "approach_spaceship", "unlock_spaceship", SubResource("AnimationNodeStateMachineTransition_1l0u3"), "unlock_spaceship", "enter_spaceship", SubResource("AnimationNodeStateMachineTransition_b8x0b"), "launch", "stars_light_up", SubResource("AnimationNodeStateMachineTransition_k0oyt"), "enter_spaceship", "pre_launchbegin", SubResource("AnimationNodeStateMachineTransition_yoplw"), "pre_launchbegin", "pre_launchbuckle_up", SubResource("AnimationNodeStateMachineTransition_j1ayj"), "pre_launchbuckle_up", "launch", SubResource("AnimationNodeStateMachineTransition_kdwip")]
-graph_offset = Vector2(-157, 9)
+graph_offset = Vector2(174, -210)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_vs8d4"]
 
@@ -325,11 +325,10 @@ size = Vector2i(1280, 720)
 render_target_update_mode = 4
 
 [node name="Character" parent="SubViewportContainer/SubViewport" instance=ExtResource("6_8i88j")]
-transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 1, -10.6656, 2.10132, 5.55682)
-state = "intro"
+transform = Transform3D(-0.91524, -0.033392, 0.401517, -0.0601357, 0.996718, -0.0541856, -0.398389, -0.0737386, -0.914247, -0.613001, 1.63601, -1.72642)
+state = "sitting"
 
 [node name="Environment" parent="SubViewportContainer/SubViewport/Character" instance=ExtResource("8_ympfv")]
-state = "home"
 
 [node name="StateTree" parent="SubViewportContainer/SubViewport/Character/Environment" index="0"]
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_vompp")
@@ -360,17 +359,17 @@ surface_material_override/0 = SubResource("ShaderMaterial_hdkyq")
 shadow_bias = 0.0
 
 [node name="Stars" parent="SubViewportContainer/SubViewport/Character/Environment" index="7"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.89134, -45.8598)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.89134, -20.5565)
 
 [node name="Player" parent="SubViewportContainer/SubViewport" instance=ExtResource("7_mwy2h")]
+state = "sitting"
 follow_speed = 1.96
 turn_speed = 4.469
 distance_buffer = 3.438
 distance_boost = 2.904
 
 [node name="Camera3D" parent="SubViewportContainer/SubViewport/Player" index="0"]
-transform = Transform3D(0.805126, 0.0753688, -0.588296, 1.08033e-07, 0.991893, 0.127075, 0.593104, -0.102312, 0.798599, -10.8537, 2.5, 7.2842)
+transform = Transform3D(0.999398, 0.00361192, 0.0345087, -4.65661e-10, 0.994567, -0.104098, -0.0346972, 0.104036, 0.993968, 0.294017, 2.22313, -0.854775)
 fov = 68.5
 
 [node name="OmniLight3D" parent="SubViewportContainer/SubViewport/Player/Camera3D" index="0"]

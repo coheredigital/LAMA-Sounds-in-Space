@@ -1,13 +1,13 @@
-[gd_scene load_steps=26 format=3 uid="uid://dfj8aj155rnl4"]
+[gd_scene load_steps=24 format=3 uid="uid://dfj8aj155rnl4"]
 
 [ext_resource type="Environment" uid="uid://n48hdvn72r0x" path="res://environment/environment.tres" id="1_arsm2"]
 [ext_resource type="Script" path="res://environment/environment.gd" id="2_bvl62"]
 [ext_resource type="AnimationLibrary" uid="uid://cjkhuv5cn32yu" path="res://environment/environment_animations.tres" id="3_g3cb1"]
 [ext_resource type="PackedScene" uid="uid://dt1vpkmuodkmu" path="res://environment/models/space_station.gltf" id="3_mao0r"]
 [ext_resource type="Material" uid="uid://cxxgwjiqio47k" path="res://environment/materials/sky_material.tres" id="4_i8nts"]
-[ext_resource type="Material" uid="uid://m6eohmc4l2ko" path="res://environment/materials/space_station_material.tres" id="4_nxdcm"]
 [ext_resource type="Material" uid="uid://coiklw8nbk48n" path="res://environment/materials/planet_material.tres" id="5_g8wpa"]
 [ext_resource type="PackedScene" uid="uid://bc2anm0871dvm" path="res://spaceship/spaceship.tscn" id="8_1i38n"]
+[ext_resource type="PackedScene" uid="uid://dl067fsgcynat" path="res://environment/models/star.tscn" id="8_ehh4k"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8dnu5"]
 animation = &"environment_animations/home"
@@ -311,13 +311,6 @@ rings = 16
 density = 0.0533
 albedo = Color(0.503735, 0.618236, 0.707804, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_cqeuo"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_keuhq"]
-emission_enabled = true
-emission = Color(1, 0.627451, 0.403922, 1)
-emission_energy_multiplier = 7.89
-
 [node name="Environment" type="WorldEnvironment"]
 environment = ExtResource("1_arsm2")
 script = ExtResource("2_bvl62")
@@ -345,9 +338,6 @@ libraries = {
 [node name="SpaceStation" parent="." instance=ExtResource("3_mao0r")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.038, 0)
-
-[node name="space_station" parent="SpaceStation" index="0"]
-surface_material_override/0 = ExtResource("4_nxdcm")
 
 [node name="Spaceship" parent="." instance=ExtResource("8_1i38n")]
 unique_name_in_owner = true
@@ -385,13 +375,23 @@ shape = 0
 material = SubResource("FogMaterial_2rfwg")
 
 [node name="Stars" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.91088)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.89134, -21.2881)
 
-[node name="Star" type="MeshInstance3D" parent="Stars"]
-transform = Transform3D(0.353553, -0.353553, 0, 0.25, 0.25, -0.353553, 0.25, 0.25, 0.353553, 0, 0, 0)
-mesh = SubResource("BoxMesh_cqeuo")
-surface_material_override/0 = SubResource("StandardMaterial3D_keuhq")
+[node name="Star1" parent="Stars" instance=ExtResource("8_ehh4k")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.499999, 3.78674, 2.01915, 0)
+color = Color(0.780392, 0.454902, 0, 1)
 
-[node name="StarLight" type="OmniLight3D" parent="Stars/Star"]
+[node name="Star2" parent="Stars" instance=ExtResource("8_ehh4k")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.499999, 3.90552, 0, -3.66007)
 
-[editable path="SpaceStation"]
+[node name="Star3" parent="Stars" instance=ExtResource("8_ehh4k")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.499999, -3.53098, -0.173947, 3.15937)
+color = Color(1, 0.278431, 0.403922, 1)
+
+[node name="Star4" parent="Stars" instance=ExtResource("8_ehh4k")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.499999, 0, 3.99381, 0)
+color = Color(0.145098, 0.698039, 0.792157, 1)
+
+[node name="Star5" parent="Stars" instance=ExtResource("8_ehh4k")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.499999, 0, -3.77784, -6.72511)
+color = Color(0, 0.670588, 0.278431, 1)

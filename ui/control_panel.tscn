@@ -1,0 +1,248 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqmb5lg7lcwhf"]
+
+[ext_resource type="Theme" uid="uid://c0qwn552iqqur" path="res://ui/theme/simple_ui_theme.tres" id="1_2fppp"]
+[ext_resource type="Material" uid="uid://d1txi86rfk50c" path="res://audio/visualizer/visualizer_debug_material.tres" id="2_gxrj7"]
+[ext_resource type="Gradient" uid="uid://b71jutk4qdqv3" path="res://audio/visualizer/visualizer_gradient.tres" id="3_q6r2g"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m2f1b"]
+gradient = ExtResource("3_q6r2g")
+
+[node name="ControlPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_2fppp")
+
+[node name="Panel" type="Panel" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AudioWaveform" type="TextureRect" parent="Panel"]
+material = ExtResource("2_gxrj7")
+layout_mode = 2
+offset_left = -76.0
+offset_top = 571.0
+offset_right = 1280.0
+offset_bottom = 800.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("GradientTexture2D_m2f1b")
+expand_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 33.0
+offset_top = 37.0
+offset_right = -33.0
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Controls" type="VBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="TitleContainer" type="VBoxContainer" parent="Panel/MarginContainer/Controls"]
+layout_mode = 2
+
+[node name="Mission Control" type="Label" parent="Panel/MarginContainer/Controls/TitleContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Mission Control
+"
+
+[node name="HSeparator3" type="HSeparator" parent="Panel/MarginContainer/Controls/TitleContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="ParticipantForm" type="VBoxContainer" parent="Panel/MarginContainer/Controls"]
+layout_mode = 2
+
+[node name="MissionIDField" type="HBoxContainer" parent="Panel/MarginContainer/Controls/ParticipantForm"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/ParticipantForm/MissionIDField"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+text = "Mission ID
+"
+
+[node name="TextEdit" type="TextEdit" parent="Panel/MarginContainer/Controls/ParticipantForm/MissionIDField"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NameField" type="HBoxContainer" parent="Panel/MarginContainer/Controls/ParticipantForm"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/ParticipantForm/NameField"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+text = "Participant Name
+"
+
+[node name="TextEdit" type="TextEdit" parent="Panel/MarginContainer/Controls/ParticipantForm/NameField"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Separator" type="HSeparator" parent="Panel/MarginContainer/Controls/ParticipantForm"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/Controls"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="AudioControls" type="VBoxContainer" parent="Panel/MarginContainer/Controls/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/HBoxContainer/AudioControls"]
+layout_mode = 2
+text = "Audio Controls
+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/Controls/HBoxContainer/AudioControls"]
+layout_mode = 2
+
+[node name="start_recording" type="Button" parent="Panel/MarginContainer/Controls/HBoxContainer/AudioControls/HBoxContainer"]
+custom_minimum_size = Vector2(120, 31)
+layout_mode = 2
+text = "Record
+"
+
+[node name="AudioControls2" type="VBoxContainer" parent="Panel/MarginContainer/Controls/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/HBoxContainer/AudioControls2"]
+layout_mode = 2
+text = "Audio Controls
+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/Controls/HBoxContainer/AudioControls2"]
+layout_mode = 2
+
+[node name="start_recording" type="Button" parent="Panel/MarginContainer/Controls/HBoxContainer/AudioControls2/HBoxContainer"]
+custom_minimum_size = Vector2(120, 31)
+layout_mode = 2
+text = "Record
+"
+
+[node name="ScreenControls" type="VBoxContainer" parent="Panel/MarginContainer/Controls/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/HBoxContainer/ScreenControls"]
+layout_mode = 2
+text = "Screen Controls
+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/Controls/HBoxContainer/ScreenControls"]
+layout_mode = 2
+
+[node name="set_screen_success" type="Button" parent="Panel/MarginContainer/Controls/HBoxContainer/ScreenControls/HBoxContainer"]
+custom_minimum_size = Vector2(120, 31)
+layout_mode = 2
+text = "Success
+"
+
+[node name="set_screen_failure" type="Button" parent="Panel/MarginContainer/Controls/HBoxContainer/ScreenControls/HBoxContainer"]
+custom_minimum_size = Vector2(120, 31)
+layout_mode = 2
+text = "Failure
+"
+
+[node name="GameControls" type="VBoxContainer" parent="Panel/MarginContainer/Controls/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/HBoxContainer/GameControls"]
+layout_mode = 2
+text = "Game Controls
+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/Controls/HBoxContainer/GameControls"]
+layout_mode = 2
+
+[node name="start_game" type="Button" parent="Panel/MarginContainer/Controls/HBoxContainer/GameControls/HBoxContainer"]
+custom_minimum_size = Vector2(200, 31)
+layout_mode = 2
+text = "Start / Restart Game
+"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/MarginContainer/Controls"]
+layout_mode = 2
+
+[node name="AudioControls" type="VBoxContainer" parent="Panel/MarginContainer/Controls/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/HBoxContainer2/AudioControls"]
+layout_mode = 2
+text = "Mission State
+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/Controls/HBoxContainer2/AudioControls"]
+layout_mode = 2
+
+[node name="mission_intro" type="Button" parent="Panel/MarginContainer/Controls/HBoxContainer2/AudioControls/HBoxContainer"]
+custom_minimum_size = Vector2(120, 31)
+layout_mode = 2
+text = "Intro
+"
+
+[node name="mission_approach" type="Button" parent="Panel/MarginContainer/Controls/HBoxContainer2/AudioControls/HBoxContainer"]
+custom_minimum_size = Vector2(120, 31)
+layout_mode = 2
+text = "Approach
+"
+
+[node name="mission_board" type="Button" parent="Panel/MarginContainer/Controls/HBoxContainer2/AudioControls/HBoxContainer"]
+custom_minimum_size = Vector2(120, 31)
+layout_mode = 2
+text = "Boarding
+"
+
+[node name="mission_unlock" type="Button" parent="Panel/MarginContainer/Controls/HBoxContainer2/AudioControls/HBoxContainer"]
+custom_minimum_size = Vector2(120, 31)
+layout_mode = 2
+text = "Unlock
+"
+
+[node name="mission_enter" type="Button" parent="Panel/MarginContainer/Controls/HBoxContainer2/AudioControls/HBoxContainer"]
+custom_minimum_size = Vector2(120, 31)
+layout_mode = 2
+text = "Enter Ship"
+
+[node name="mission_launch" type="Button" parent="Panel/MarginContainer/Controls/HBoxContainer2/AudioControls/HBoxContainer"]
+custom_minimum_size = Vector2(120, 31)
+layout_mode = 2
+text = "Launch"
+
+[node name="mission_stars" type="Button" parent="Panel/MarginContainer/Controls/HBoxContainer2/AudioControls/HBoxContainer"]
+custom_minimum_size = Vector2(120, 31)
+layout_mode = 2
+text = "Stars"
+
+[node name="mission_warp" type="Button" parent="Panel/MarginContainer/Controls/HBoxContainer2/AudioControls/HBoxContainer"]
+custom_minimum_size = Vector2(120, 31)
+layout_mode = 2
+text = "Warp"

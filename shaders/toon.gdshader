@@ -1,5 +1,5 @@
 shader_type spatial;
-render_mode  cull_disabled, specular_disabled;
+render_mode  cull_disabled, specular_disabled, ambient_light_disabled;
 
 
 uniform vec4 albedo : source_color = vec4(1.0);
@@ -19,7 +19,7 @@ uniform float roughness : hint_range(0,1) = 1.0;
 
 // Emission from base code.
 uniform vec4 emission : source_color = vec4(0.0, 0.0, 0.0, 1.0);
-uniform float emission_energy : hint_range(0.0, 2.0) = 1.0;
+uniform float emission_energy : hint_range(0.0, 8.0) = 1.0;
 uniform sampler2D emission_texture : hint_default_black, filter_nearest;
 uniform bool use_alpha = false;
 
