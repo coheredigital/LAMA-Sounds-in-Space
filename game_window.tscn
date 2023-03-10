@@ -321,7 +321,6 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 handle_input_locally = false
-use_occlusion_culling = true
 size = Vector2i(1280, 720)
 render_target_update_mode = 4
 
@@ -368,7 +367,7 @@ distance_buffer = 3.438
 distance_boost = 2.904
 
 [node name="Camera3D" parent="SubViewportContainer/SubViewport/Player" index="0"]
-transform = Transform3D(0.805126, 0.0753689, -0.588296, 2.98023e-08, 0.991893, 0.127075, 0.593104, -0.102312, 0.798599, -10.8537, 2.5, 7.2842)
+transform = Transform3D(0.805126, 0.0753688, -0.588296, 1.2666e-07, 0.991893, 0.127075, 0.593104, -0.102312, 0.798599, -10.8537, 2.5, 7.2842)
 fov = 68.5
 
 [node name="PositionStateTree" parent="SubViewportContainer/SubViewport/Player" index="3"]

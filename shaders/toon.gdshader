@@ -1,5 +1,5 @@
 shader_type spatial;
-render_mode  cull_disabled, diffuse_toon, specular_toon;
+render_mode  cull_disabled, ambient_light_disabled;
 
 
 uniform vec4 albedo : source_color = vec4(1.0);
@@ -67,10 +67,10 @@ void light() {
 	// Rim part. We use the view and normal vectors only to find out if we're looking
 	// at a pixel from the edge of the object or not. We add the final value to specular
 	// light values so that Godot treats it as specular.
-//	float rim_dot = 1.0 - dot(NORMAL, VIEW);
-//	float rim_threshold = pow((1.0 - rim_width), dot(LIGHT, NORMAL));
-//	float rim_intensity = smoothstep(rim_threshold - rim_smooth/2.0, rim_threshold + rim_smooth/2.0, rim_dot);
-//	SPECULAR_LIGHT += LIGHT_COLOR * rim_color.rgb * rim_value * rim_intensity * litness;
+	float rim_dot = 1.0 - dot(NORMAL, VIEW);
+	float rim_threshold = pow((1.0 - rim_width), dot(LIGHT, NORMAL));
+	float rim_intensity = smoothstep(rim_threshold - rim_smooth/2.0, rim_threshold + rim_smooth/2.0, rim_dot);
+	SPECULAR_LIGHT += LIGHT_COLOR * rim_color.rgb * rim_value * rim_intensity * litness;
 }
 
 
