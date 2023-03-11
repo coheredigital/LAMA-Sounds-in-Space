@@ -1,0 +1,73 @@
+[gd_scene load_steps=3 format=3 uid="uid://byq6xdxpjscwp"]
+
+[ext_resource type="Script" path="res://environment/stars.gd" id="1_3xcsl"]
+[ext_resource type="PackedScene" uid="uid://dl067fsgcynat" path="res://environment/models/star.tscn" id="1_nweus"]
+
+[node name="Stars" type="Node3D"]
+script = ExtResource("1_3xcsl")
+depth = 2.841
+width = 3.944
+height = 4.54
+
+[node name="Positions" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(-3.944, 6.85521e-07, -2.48368e-07, 5.95527e-07, 4.54, 0, 3.44795e-07, -5.99301e-14, -2.841, 0, 0, 0)
+
+[node name="StarTransform1" type="RemoteTransform3D" parent="Positions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -2)
+remote_path = NodePath("../../Star1")
+update_rotation = false
+update_scale = false
+
+[node name="StarTransform2" type="RemoteTransform3D" parent="Positions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.714, 0.761, -1)
+remote_path = NodePath("../../Star2")
+update_rotation = false
+update_scale = false
+
+[node name="StarTransform3" type="RemoteTransform3D" parent="Positions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01338, 0)
+remote_path = NodePath("../../Star3")
+update_rotation = false
+update_scale = false
+
+[node name="StarTransform4" type="RemoteTransform3D" parent="Positions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.844, 0.691, 1)
+remote_path = NodePath("../../Star4")
+update_rotation = false
+update_scale = false
+
+[node name="StarTransform5" type="RemoteTransform3D" parent="Positions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+remote_path = NodePath("../../Star5")
+update_rotation = false
+update_scale = false
+
+[node name="Star1" parent="." instance=ExtResource("1_nweus")]
+transform = Transform3D(1.909, 0, 0, 0, 1.909, 0, 0, 0, 1.909, 3.944, -5.95527e-07, 5.682)
+color = Color(0.780392, 0.454902, 0, 1)
+size = 1.909
+rotation_speed = 0.285
+
+[node name="Star2" parent="." instance=ExtResource("1_nweus")]
+transform = Transform3D(1.909, 0, 0, 0, 1.909, 0, 0, 0, 1.909, 2.81602, 3.45494, 2.841)
+size = 1.909
+rotation_speed = 0.37
+
+[node name="Star3" parent="." instance=ExtResource("1_nweus")]
+transform = Transform3D(1.909, 0, 0, 0, 1.909, 0, 0, 0, 1.909, 6.94694e-07, 4.60075, -6.07321e-14)
+color = Color(1, 0.278431, 0.403922, 1)
+size = 1.909
+rotation_speed = 0.366
+
+[node name="Star4" parent="." instance=ExtResource("1_nweus")]
+transform = Transform3D(1.909, 0, 0, 0, 1.909, 0, 0, 0, 1.909, -3.32874, 3.13714, -2.841)
+color = Color(0.145098, 0.698039, 0.792157, 1)
+size = 1.909
+rotation_speed = 0.341
+
+[node name="Star5" parent="." instance=ExtResource("1_nweus")]
+transform = Transform3D(1.909, 0, 0, 0, 1.909, 0, 0, 0, 1.909, -3.944, 5.95527e-07, -5.682)
+color = Color(0, 0.670588, 0.278431, 1)
+size = 1.909
+rotation_speed = 0.239

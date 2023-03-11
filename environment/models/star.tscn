@@ -1,101 +1,135 @@
-[gd_scene load_steps=11 format=3 uid="uid://dl067fsgcynat"]
+[gd_scene load_steps=12 format=3 uid="uid://dl067fsgcynat"]
 
 [ext_resource type="Script" path="res://environment/models/star.gd" id="1_a8fv1"]
-[ext_resource type="Shader" path="res://shaders/toon.gdshader" id="2_5t0vv"]
-[ext_resource type="Texture2D" uid="uid://xg7ytofgjhdw" path="res://environment/textures/star_albedo.png" id="3_ml14f"]
+[ext_resource type="Material" uid="uid://bnwhmv08hfaik" path="res://environment/materials/star_particle_material.tres" id="2_simuf"]
+[ext_resource type="Material" uid="uid://cctoswrf3v8f2" path="res://environment/materials/star_material.tres" id="4_owk2l"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g0ies"]
-emission_enabled = true
-emission = Color(1, 0.627451, 0.403922, 1)
-emission_energy_multiplier = 16.0
+[sub_resource type="Animation" id="Animation_e1013"]
+resource_name = "idle"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshGroup:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-6.28319, 6.28319, -4.71239)]
+}
+
+[sub_resource type="Animation" id="Animation_1fx4o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshGroup:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yj4cd"]
+_data = {
+"RESET": SubResource("Animation_1fx4o"),
+"idle": SubResource("Animation_e1013")
+}
+
+[sub_resource type="Curve" id="Curve_evd5n"]
+_data = [Vector2(0.207885, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.136364), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_a6oxb"]
+curve = SubResource("Curve_evd5n")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2g27c"]
+lifetime_randomness = 0.55
+particle_flag_rotate_y = true
+direction = Vector3(0.881, 0.262, -0.317)
+spread = 18.15
+flatness = 0.09
 gravity = Vector3(0, 0, 0)
+initial_velocity_min = 0.07
+initial_velocity_max = 0.56
+angular_velocity_min = -15.39
+angular_velocity_max = 1.65
+tangential_accel_min = 0.33
+tangential_accel_max = 0.69
+angle_min = -257.5
+angle_max = 228.9
+scale_min = 0.0
+scale_max = 0.55
+scale_curve = SubResource("CurveTexture_a6oxb")
+color = Color(1, 0.627451, 0.403922, 1)
+hue_variation_min = -0.02
+hue_variation_max = 0.54
+turbulence_enabled = true
+turbulence_noise_strength = 0.12
+turbulence_noise_scale = 0.46
+turbulence_noise_speed = Vector3(0.259, 0.06, 0.112)
+turbulence_noise_speed_random = 0.18
+turbulence_influence_min = 0.19
+turbulence_influence_max = 0.19
 
-[sub_resource type="SphereMesh" id="SphereMesh_mi4km"]
-radius = 0.1
-height = 0.2
-radial_segments = 4
-rings = 1
-
-[sub_resource type="SphereMesh" id="SphereMesh_r1wm3"]
-radial_segments = 8
-rings = 4
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3x1mq"]
-render_priority = 0
-shader = ExtResource("2_5t0vv")
-shader_parameter/albedo = Color(0.325441, 0.325441, 0.325441, 1)
-shader_parameter/specular = 0.5
-shader_parameter/specular_amount = 0.5
-shader_parameter/specular_smoothness = 0.05
-shader_parameter/rim = 0.5
-shader_parameter/rim_color = Color(1, 1, 1, 1)
-shader_parameter/rim_amount = 0.2
-shader_parameter/rim_smoothness = 0.05
-shader_parameter/metallic = 0.0
-shader_parameter/roughness = 1.0
-shader_parameter/emission = Color(0, 0, 0, 1)
-shader_parameter/emission_energy = 0.0
-shader_parameter/use_alpha = false
+[sub_resource type="QuadMesh" id="QuadMesh_yrp7d"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_piiaj"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_hvobh"]
-render_priority = 0
-shader = ExtResource("2_5t0vv")
-shader_parameter/albedo = Color(1, 1, 1, 0)
-shader_parameter/specular = 0.5
-shader_parameter/specular_amount = 0.5
-shader_parameter/specular_smoothness = 0.05
-shader_parameter/rim = 0.5
-shader_parameter/rim_color = Color(1, 1, 1, 1)
-shader_parameter/rim_amount = 0.2
-shader_parameter/rim_smoothness = 0.05
-shader_parameter/metallic = 0.0
-shader_parameter/roughness = 1.0
-shader_parameter/emission = Color(0, 0, 0, 1)
-shader_parameter/emission_energy = 1.0
-shader_parameter/use_alpha = false
-shader_parameter/albedo_texture = ExtResource("3_ml14f")
-
 [node name="Star" type="Node3D"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.499999, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.41449, 0, -0.684793)
 script = ExtResource("1_a8fv1")
 color = Color(0.552941, 0.262745, 0.301961, 1)
+size = 1.0
 brightness = 1.583
+rotation_speed = 0.527
 
-[node name="Particles" type="GPUParticles3D" parent="."]
+[node name="IdleAnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
-visible = false
-material_override = SubResource("StandardMaterial3D_g0ies")
-process_material = SubResource("ParticleProcessMaterial_2g27c")
-draw_pass_1 = SubResource("SphereMesh_mi4km")
+autoplay = "idle"
+reset_on_save = false
+speed_scale = 0.527
+libraries = {
+"": SubResource("AnimationLibrary_yj4cd")
+}
 
 [node name="StarLight" type="OmniLight3D" parent="."]
 unique_name_in_owner = true
 light_color = Color(0.552941, 0.262745, 0.301961, 1)
 light_energy = 1.583
+omni_attenuation = 2.07053
 
-[node name="StarMesh" type="MeshInstance3D" parent="."]
+[node name="MeshGroup" type="Node3D" parent="."]
+transform = Transform3D(0.927554, -0.370056, 0.0519862, -0.0472796, 0.0217842, 0.998644, -0.370686, -0.928754, 0.00270991, 0, 0, 0)
+
+[node name="Particles" type="GPUParticles3D" parent="MeshGroup"]
 unique_name_in_owner = true
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.499999, 0, 0, 0)
-visible = false
-mesh = SubResource("SphereMesh_r1wm3")
-surface_material_override/0 = SubResource("ShaderMaterial_3x1mq")
+transform = Transform3D(-0.397348, 0.173011, 0.249363, -0.0930041, 0.321634, -0.371351, -0.288903, -0.341495, -0.22342, 0, 0, 0)
+material_override = ExtResource("2_simuf")
+amount = 100
+lifetime = 0.43
+preprocess = 0.84
+speed_scale = 1.2
+randomness = 0.07
+process_material = SubResource("ParticleProcessMaterial_2g27c")
+draw_pass_1 = SubResource("QuadMesh_yrp7d")
 
-[node name="Node3D" type="Node3D" parent="."]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshGroup"]
 mesh = SubResource("QuadMesh_piiaj")
-surface_material_override/0 = SubResource("ShaderMaterial_hvobh")
+surface_material_override/0 = ExtResource("4_owk2l")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D"]
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="MeshGroup"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 mesh = SubResource("QuadMesh_piiaj")
-surface_material_override/0 = SubResource("ShaderMaterial_hvobh")
+surface_material_override/0 = ExtResource("4_owk2l")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshGroup"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 mesh = SubResource("QuadMesh_piiaj")
-surface_material_override/0 = SubResource("ShaderMaterial_hvobh")
+surface_material_override/0 = ExtResource("4_owk2l")

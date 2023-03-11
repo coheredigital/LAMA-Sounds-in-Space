@@ -7,7 +7,7 @@
 [ext_resource type="Material" uid="uid://cxxgwjiqio47k" path="res://environment/materials/sky_material.tres" id="4_i8nts"]
 [ext_resource type="Material" uid="uid://coiklw8nbk48n" path="res://environment/materials/planet_material.tres" id="5_g8wpa"]
 [ext_resource type="PackedScene" uid="uid://bc2anm0871dvm" path="res://spaceship/spaceship.tscn" id="8_1i38n"]
-[ext_resource type="PackedScene" uid="uid://dl067fsgcynat" path="res://environment/models/star.tscn" id="8_ehh4k"]
+[ext_resource type="PackedScene" uid="uid://byq6xdxpjscwp" path="res://environment/stars.tscn" id="8_cybil"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8dnu5"]
 animation = &"environment_animations/home"
@@ -374,24 +374,4 @@ size = Vector3(64, 8, 64)
 shape = 0
 material = SubResource("FogMaterial_2rfwg")
 
-[node name="Stars" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.89134, -21.2881)
-
-[node name="Star1" parent="Stars" instance=ExtResource("8_ehh4k")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.499999, 3.78674, 2.01915, 0)
-color = Color(0.780392, 0.454902, 0, 1)
-
-[node name="Star2" parent="Stars" instance=ExtResource("8_ehh4k")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.499999, 3.90552, 0, -3.66007)
-
-[node name="Star3" parent="Stars" instance=ExtResource("8_ehh4k")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.499999, -3.53098, -0.173947, 3.15937)
-color = Color(1, 0.278431, 0.403922, 1)
-
-[node name="Star4" parent="Stars" instance=ExtResource("8_ehh4k")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.499999, 0, 3.99381, 0)
-color = Color(0.145098, 0.698039, 0.792157, 1)
-
-[node name="Star5" parent="Stars" instance=ExtResource("8_ehh4k")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.499999, 0, -3.77784, -6.72511)
-color = Color(0, 0.670588, 0.278431, 1)
+[node name="Stars" parent="." instance=ExtResource("8_cybil")]

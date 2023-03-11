@@ -54,10 +54,10 @@ void light() {
 	vec3 litness = texture(diffuse_curve, vec2(dot(LIGHT, NORMAL), 0.0)).rgb * ATTENUATION;
 	DIFFUSE_LIGHT += LIGHT_COLOR  * litness;
 
-	float rim_dot = 1.0 - dot(NORMAL, VIEW);
-	float rim_threshold = pow((1.0 - rim_width), dot(LIGHT, NORMAL));
-	float rim_intensity = smoothstep(rim_threshold - rim_smooth/2.0, rim_threshold + rim_smooth/2.0, rim_dot);
-	SPECULAR_LIGHT += LIGHT_COLOR * rim_color.rgb * rim_value * rim_intensity * litness;
+//	float rim_dot = 1.0 - dot(NORMAL, VIEW);
+//	float rim_threshold = pow((1.0 - rim_width), dot(LIGHT, NORMAL));
+//	float rim_intensity = smoothstep(rim_threshold - rim_smooth/2.0, rim_threshold + rim_smooth/2.0, rim_dot);
+//	SPECULAR_LIGHT += LIGHT_COLOR * rim_color.rgb * rim_value * rim_intensity * litness;
 }
 
 
