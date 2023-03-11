@@ -1,0 +1,73 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="PackedScene" uid="uid://7korg2mlql37" path="res://level/spaceship/models/controls.gltf" id="1"]
+[ext_resource type="Material" path="res://level/spaceship/materials/cockpit_material.tres" id="2"]
+
+[sub_resource type="Animation" id="1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("controls:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-3.9274, 0, 7.8527)]
+}
+
+[sub_resource type="Animation" id="2"]
+resource_name = "shake"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("controls:rotation_degrees")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0153, 0.0163819, 0.2, 0.3, 0.4, 0.5, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-3.9274, 0, 7.8527), Vector3(-3.9274, 0, 7.8527), Vector3(-3.82193, -5.57427, -5.47588), Vector3(-3.9274, 0, 7.8527), Vector3(-3.82193, -5.57427, -5.47588), Vector3(-3.9274, 0, 7.8527), Vector3(-8.3684, 0.73837, 10.6999), Vector3(-3.82193, -5.57427, -5.47588)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7w7c4"]
+_data = {
+"RESET": SubResource("1"),
+"shake": SubResource("2")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="3"]
+animation = &"shake"
+
+[sub_resource type="AnimationNodeTimeScale" id="4"]
+
+[sub_resource type="AnimationNodeBlendTree" id="5"]
+graph_offset = Vector2(-186.792, -123.942)
+nodes/Animation/node = SubResource("3")
+nodes/Animation/position = Vector2(60, 140)
+nodes/TimeScale/node = SubResource("4")
+nodes/TimeScale/position = Vector2(460, 140)
+nodes/output/position = Vector2(920, 180)
+node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Animation"]
+
+[node name="SpaceshipControls" instance=ExtResource("1")]
+
+[node name="controls" parent="." index="0"]
+transform = Transform3D(0.990622, -0.136627, 0, 0.136306, 0.988296, 0.0684924, -0.00935789, -0.0678501, 0.997652, 0, 0, 0)
+surface_material_override/0 = ExtResource("2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+autoplay = "shake"
+libraries = {
+"": SubResource("AnimationLibrary_7w7c4")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+tree_root = SubResource("5")
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/TimeScale/scale = 0.1
