@@ -3,7 +3,7 @@ extends Node3D
 
 const LIGHT_RANGE := 0.0
 
-@onready var material : ShaderMaterial = %StarMesh.get_active_material(0)
+#@onready var material : ShaderMaterial = %StarMesh.get_active_material(0)
 
 @export var color := Color.KHAKI :
 	set(value):
@@ -15,7 +15,6 @@ const LIGHT_RANGE := 0.0
 	set(value):
 		size = value
 		self.scale = Vector3(size,size,size)
-		
 
 @export_range(0.0, 8.0) var brightness := 0.0 : 
 	set(value):
