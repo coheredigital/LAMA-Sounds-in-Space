@@ -3,12 +3,6 @@ extends WorldEnvironment
 
 const SKY_SIZE = 64.0
 
-@export_enum("home","launch","stars_light","warp") var state: String = "intro":
-	set(value):
-		state = value
-		if %StateTree:
-			var state_machine : AnimationNodeStateMachinePlayback = %StateTree.get("parameters/playback")
-			state_machine.travel(state)
 
 @export var sky_color := Color.DARK_BLUE :
 	set(value):
@@ -16,7 +10,6 @@ const SKY_SIZE = 64.0
 		environment.background_color = value
 		if sky_material:
 			sky_material.set_shader_parameter("sky_color", value)
-
 @export var ground_color := Color.DARK_SLATE_GRAY : set = set_ground_color
 @export var fog_color := Color.CADET_BLUE : set = set_fog_color
 @export var horizon_color := Color.DARK_SALMON : set = set_horizon_color
@@ -28,9 +21,9 @@ const SKY_SIZE = 64.0
 		if sky_material:
 			sky_material.set_shader_parameter("horizon_height", value / SKY_SIZE)
 			
+			
 @onready var sky_material : ShaderMaterial  = %Sky.get_active_material(0)
 
-	
 
 func set_ground_color(value):
 	ground_color = value

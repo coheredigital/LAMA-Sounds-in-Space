@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=5 format=3]
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://bx7exngufqj3u"]
 
 [ext_resource type="Texture2D" uid="uid://b35bx011uc6ff" path="res://characters/character/materials/character_albedo.png" id="1"]
 [ext_resource type="Texture2D" uid="uid://bi5t50634dth1" path="res://characters/character/materials/character_emission.png" id="2"]

@@ -1,9 +1,9 @@
 [gd_resource type="ShaderMaterial" load_steps=5 format=3]
 
-[ext_resource type="Texture2D" uid="uid://xhklnrh5d05r" path="res://level/environment/materials/space_station_albedo.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://xhklnrh5d05r" path="res://level/space_station/materials/space_station_albedo.png" id="1"]
 [ext_resource type="Texture2D" uid="uid://cwoinpuvn65ta" path="res://shaders/textures/diffuse_curve_01.png" id="2"]
 [ext_resource type="Shader" path="res://shaders/toon.gdshader" id="3"]
-[ext_resource type="Texture2D" uid="uid://5j4g0qej3wd2" path="res://level/environment/materials/space_station_emission.png" id="4_yw8vj"]
+[ext_resource type="Texture2D" uid="uid://5j4g0qej3wd2" path="res://level/space_station/materials/space_station_emission.png" id="4_yw8vj"]
 
 [resource]
 render_priority = 0

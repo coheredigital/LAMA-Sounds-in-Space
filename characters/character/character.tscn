@@ -1,7 +1,7 @@
-[gd_scene load_steps=24 format=3]
+[gd_scene load_steps=24 format=3 uid="uid://cq3x5n33r2d8c"]
 
 [ext_resource type="PackedScene" uid="uid://whalw4rdvy64" path="res://characters/character/character.gltf" id="1"]
-[ext_resource type="Material" path="res://characters/character/materials/character_material.tres" id="2"]
+[ext_resource type="Material" uid="uid://bx7exngufqj3u" path="res://characters/character/materials/character_material.tres" id="2"]
 [ext_resource type="AnimationLibrary" uid="uid://d2f01mgprslsv" path="res://characters/character/materials/character_animations.tres" id="2_4y41b"]
 [ext_resource type="Script" path="res://characters/character/character.gd" id="2_bwdwg"]
 
@@ -53,7 +53,7 @@ states/standing/node = SubResource("AnimationNodeAnimation_qeutw")
 states/standing/position = Vector2(693, 93)
 transitions = ["Start", "intro", SubResource("AnimationNodeStateMachineTransition_cdeol"), "intro", "enter_spaceship", SubResource("AnimationNodeStateMachineTransition_jvddq"), "enter_spaceship", "standing", SubResource("AnimationNodeStateMachineTransition_al8lj"), "standing", "sitting", SubResource("AnimationNodeStateMachineTransition_w2pdv"), "sitting", "standing", SubResource("AnimationNodeStateMachineTransition_5f8b1"), "standing", "enter_spaceship", SubResource("AnimationNodeStateMachineTransition_mpnd6")]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_wteid"]
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_kj0so"]
 
 [sub_resource type="Animation" id="Animation_oa1q3"]
 length = 0.001
@@ -166,7 +166,7 @@ states/idle/node = SubResource("AnimationNodeAnimation_x20my")
 states/idle/position = Vector2(347, 93)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_tisce")]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_lp1cp"]
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_ps5x4"]
 
 [node name="Character" instance=ExtResource("1")]
 transform = Transform3D(0.626906, 0.0799548, 0.774981, -0.0601358, 0.996718, -0.0541856, -0.77677, -0.0126348, 0.629657, -1.26852, 2.0014, -0.802084)
@@ -178,7 +178,7 @@ unique_name_in_owner = true
 tree_root = SubResource("AnimationNodeStateMachine_h65gc")
 anim_player = NodePath("AnimationPlayer")
 active = true
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_wteid")
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_kj0so")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="StateTree" index="0"]
 root_node = NodePath("../..")
@@ -193,7 +193,7 @@ unique_name_in_owner = true
 tree_root = SubResource("AnimationNodeStateMachine_kkj1q")
 anim_player = NodePath("ActionPlayer")
 active = true
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_lp1cp")
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_ps5x4")
 
 [node name="ActionPlayer" type="AnimationPlayer" parent="ActionTree" index="0"]
 root_node = NodePath("../..")
@@ -203,11 +203,11 @@ libraries = {
 }
 
 [node name="character" parent="." index="2"]
-transform = Transform3D(0.994657, 0, 0.103218, 0, 1, 0, -0.103219, 0, 0.994656, 0, 0, 0)
+transform = Transform3D(0.992184, 0, -0.124774, 0, 1, 0, 0.124774, 0, 0.992182, 0, 0, 0)
 surface_material_override/0 = ExtResource("2")
 
 [node name="helmet" parent="character" index="0"]
-transform = Transform3D(0.999007, 0.00791366, 0.0438138, -0.00478916, 0.997466, -0.0709643, -0.0442644, 0.0706841, 0.996515, 0, 0.359375, 0)
+transform = Transform3D(0.993287, 0.0511972, 0.103719, -0.0491163, 0.998538, -0.0225204, -0.104721, 0.0172749, 0.99435, 0, 0.359375, 0)
 
 [node name="FaceLight" type="SpotLight3D" parent="character/helmet" index="0"]
 transform = Transform3D(1, -5.72763e-08, 4.84288e-08, 2.51457e-08, 0.999521, 0.0309398, -4.47035e-08, -0.0309398, 0.999522, 1.86265e-09, 0.266703, 0.337111)
@@ -226,7 +226,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.72529e-09, 0.203125, 0.062
 cast_shadow = 0
 
 [node name="face" parent="character/helmet" index="3"]
-transform = Transform3D(0.997194, 0.00132396, -0.0748549, -4.34774e-10, 0.999843, 0.0176843, 0.0748666, -0.0176347, 0.997038, 0.00768932, 0.217194, 0.0399466)
+transform = Transform3D(1, 2.06592e-09, 7.99843e-09, -2.48166e-09, 0.998629, 0.0523319, -7.87935e-09, -0.0523318, 0.99863, 0.00768932, 0.217194, 0.0399466)
 
 [node name="glasses" parent="character/helmet/face" index="1"]
 material_overlay = ExtResource("2")
@@ -241,10 +241,10 @@ transform = Transform3D(0.962225, -0.261495, 0.0757897, 0.179371, 0.818303, 0.54
 transform = Transform3D(1, -4.47035e-08, 3.72529e-08, 2.98023e-08, 0.997372, 0.0724441, 2.23517e-08, -0.0724442, 0.997372, 0, -0.234375, -7.45058e-09)
 
 [node name="arm_left" parent="character" index="2"]
-transform = Transform3D(0.909957, -0.408248, 0.0729003, 0.41404, 0.884386, -0.215489, 0.023501, 0.226269, 0.973782, 0.25, 0.296875, 3.72529e-09)
+transform = Transform3D(0.91874, -0.381496, -0.101884, 0.393747, 0.904533, 0.163665, 0.0297203, -0.190482, 0.981241, 0.25, 0.296875, 3.72529e-09)
 
 [node name="forarm_left" parent="character/arm_left" index="0"]
-transform = Transform3D(0.918767, 0.238142, 0.314888, -0.314888, 0.923129, 0.220629, -0.238142, -0.301861, 0.923129, 0, -0.28125, -3.72529e-09)
+transform = Transform3D(0.998998, -0.00374743, 0.0445831, -0.0445831, -0.166848, 0.984974, 0.00374743, -0.985975, -0.166848, 0, -0.28125, -3.72529e-09)
 
 [node name="backpack" parent="character" index="5"]
 transform = Transform3D(1, 0, -7.45058e-09, 0, 1, 0, 7.45058e-09, 0, 1, 0, 0.0625, 0)

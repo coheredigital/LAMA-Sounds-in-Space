@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2gjsjhaaxs8q"
-path="res://.godot/imported/space_station_alpha.png-e6010bd596c7320e19844cbf3e40e3d5.ctex"
+uid="uid://xhklnrh5d05r"
+path="res://.godot/imported/space_station_albedo.png-65d027ef821a839432cfa2c12bcdda8e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level/environment/materials/space_station_alpha.png"
-dest_files=["res://.godot/imported/space_station_alpha.png-e6010bd596c7320e19844cbf3e40e3d5.ctex"]
+source_file="res://level/space_station/materials/space_station_albedo.png"
+dest_files=["res://.godot/imported/space_station_albedo.png-65d027ef821a839432cfa2c12bcdda8e.ctex"]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=1
 roughness/src_normal=""
