@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3]
+[gd_scene load_steps=12 format=3 uid="uid://cpyfijnifmpjh"]
 
 [ext_resource type="Script" path="res://level/environment/models/star.gd" id="1_a8fv1"]
 [ext_resource type="Material" path="res://level/environment/materials/star_particle_material.tres" id="2_simuf"]
@@ -131,10 +131,10 @@ turbulence_influence_max = 0.19
 [sub_resource type="QuadMesh" id="QuadMesh_piiaj"]
 
 [node name="Star" type="Node3D"]
-transform = Transform3D(1.781, 0, 0, 0, 1.781, 0, 0, 0, 1.781, 7.41449, 0, -0.684793)
+transform = Transform3D(2.1528, 0, 0, 0, 2.1528, 0, 0, 0, 2.1528, 7.41449, 0, -0.684793)
 script = ExtResource("1_a8fv1")
 color = Color(0.552941, 0.262745, 0.301961, 1)
-size = 1.781
+size = 2.1528
 brightness = 1.583
 rotation_speed = 0.263
 
@@ -150,10 +150,12 @@ libraries = {
 [node name="StarLight" type="OmniLight3D" parent="."]
 unique_name_in_owner = true
 light_color = Color(0.552941, 0.262745, 0.301961, 1)
+light_energy = 2.33102
+omni_range = 6.768
 omni_attenuation = 2.07053
 
 [node name="MeshGroup" type="Node3D" parent="."]
-transform = Transform3D(0.862546, -0.408993, 0.29789, 0.493105, 0.811431, -0.313729, -0.113404, 0.417497, 0.901574, 0, 0, 0)
+transform = Transform3D(-0.816319, -0.289416, -0.499861, 0.577506, -0.393312, -0.715397, 0.0104462, -0.872665, 0.488208, 0, 0, 0)
 
 [node name="Particles" type="GPUParticles3D" parent="MeshGroup"]
 unique_name_in_owner = true

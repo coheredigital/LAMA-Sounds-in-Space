@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" path="res://level/level.gd" id="1_58g46"]
 [ext_resource type="AnimationLibrary" uid="uid://cjkhuv5cn32yu" path="res://level/environment/environment_animations.tres" id="2_3s2c1"]
-[ext_resource type="PackedScene" path="res://level/spaceship/spaceship.tscn" id="2_ovpdl"]
+[ext_resource type="PackedScene" uid="uid://d3uuvkbkntdu4" path="res://level/spaceship/spaceship.tscn" id="2_ovpdl"]
 [ext_resource type="PackedScene" uid="uid://dt1vpkmuodkmu" path="res://level/space_station/space_station.gltf" id="3_xx3aw"]
 [ext_resource type="Material" uid="uid://b2vt57g8dosf0" path="res://level/environment/materials/sky_material.tres" id="4_fearw"]
 [ext_resource type="Material" uid="uid://bjft6os8hrr36" path="res://level/environment/materials/planet_material.tres" id="5_nosaa"]
 [ext_resource type="Environment" uid="uid://n48hdvn72r0x" path="res://level/environment/environment.tres" id="6_4f2h8"]
 [ext_resource type="Script" path="res://level/environment/environment.gd" id="6_waian"]
-[ext_resource type="PackedScene" path="res://level/environment/stars.tscn" id="9_s3nx5"]
+[ext_resource type="PackedScene" uid="uid://c5yey57xayegg" path="res://level/environment/stars.tscn" id="9_s3nx5"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8dnu5"]
 animation = &"environment_animations/home"
@@ -372,13 +372,12 @@ height = 128.0
 
 [node name="Level" type="Node"]
 script = ExtResource("1_58g46")
-state = "stars_light"
+state = "launch"
 
 [node name="StateTree" type="AnimationTree" parent="."]
 unique_name_in_owner = true
 tree_root = SubResource("AnimationNodeStateMachine_xndii")
 anim_player = NodePath("AnimationPlayer")
-active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_4dohv")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="StateTree"]
@@ -395,7 +394,6 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.038, 0)
 
 [node name="Planet" type="MeshInstance3D" parent="."]
-unique_name_in_owner = true
 transform = Transform3D(-0.25, 0, 6.33795e-07, 0, 0.25, 0, -6.33795e-07, 0, -0.25, 3.72275, 28.7924, -54.9282)
 cast_shadow = 0
 mesh = SubResource("3833")

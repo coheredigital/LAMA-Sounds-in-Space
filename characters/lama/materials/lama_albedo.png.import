@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5fqhkhyw0h5y"
-path="res://.godot/imported/lama_albedo.png-422ac8065a60f41e825f0e8586bfcee9.ctex"
+uid="uid://gy5706lvshug"
+path="res://.godot/imported/lama_albedo.png-aeb8d52a4a09c823349ebfaa9696b23f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/lama/lama_albedo.png"
-dest_files=["res://.godot/imported/lama_albedo.png-422ac8065a60f41e825f0e8586bfcee9.ctex"]
+source_file="res://characters/lama/materials/lama_albedo.png"
+dest_files=["res://.godot/imported/lama_albedo.png-aeb8d52a4a09c823349ebfaa9696b23f.ctex"]
 
 [params]
 

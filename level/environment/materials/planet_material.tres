@@ -11,8 +11,8 @@ colors = PackedColorArray(0.397039, 0.190276, 0.476563, 1, 0.397039, 0.190276, 0
 [sub_resource type="GradientTexture2D" id="19"]
 resource_local_to_scene = true
 gradient = SubResource("18")
-width = 128
-height = 128
+width = 512
+height = 512
 fill = 1
 fill_from = Vector2(0.653846, 0.397436)
 

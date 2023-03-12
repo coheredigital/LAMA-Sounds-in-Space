@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://322sh12iustv"]
+
+[ext_resource type="PackedScene" uid="uid://cs03x3lgn8m6a" path="res://characters/lama/lama.gltf" id="1_jjqdh"]
+[ext_resource type="Material" path="res://characters/lama/materials/lama_material.tres" id="2_1i2gr"]
+
+[node name="Lama" instance=ExtResource("1_jjqdh")]
+
+[node name="lama" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_1i2gr")

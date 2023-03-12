@@ -1,4 +1,4 @@
-[gd_resource type="AnimationLibrary" load_steps=5 format=3 uid="uid://cjkhuv5cn32yu"]
+[gd_resource type="AnimationLibrary" load_steps=6 format=3 uid="uid://cjkhuv5cn32yu"]
 
 [sub_resource type="Animation" id="Animation_10ume"]
 resource_name = "RESET"
@@ -383,19 +383,19 @@ tracks/14/keys = {
 
 [sub_resource type="Animation" id="Animation_1pnna"]
 resource_name = "spaceship_warp"
-length = 8.0
+length = 12.0
 step = 1.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("Planet:position")
-tracks/0/interp = 1
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 8),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 6, 12),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(3.72275, 12.4627, -60.6043), Vector3(0, 2.5, -32)]
+"values": [Vector3(3.72275, 12.4627, -60.6043), Vector3(3.19093, 11.0395, -56.518), Vector3(0, 2.5, -32)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -404,7 +404,7 @@ tracks/1/path = NodePath("Spaceship/Accent:light_color")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 8),
+"times": PackedFloat32Array(7, 12),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0.113725, 0.113725, 0.266667, 1), Color(0.239216, 0.27451, 0.521569, 1)]
@@ -440,10 +440,70 @@ tracks/4/path = NodePath("Planet:scale")
 tracks/4/interp = 2
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 8),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 6, 12),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0.75, 0.75, 0.75), Vector3(5, 5, 5)]
+"values": [Vector3(0.75, 0.75, 0.75), Vector3(1.35714, 1.35714, 1.35714), Vector3(5, 5, 5)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Stars:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Stars:depth")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 5, 9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.217, 7.443, 0.657]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Stars:width")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 5, 7.71122),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [6.067, 5.737, 7.604]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Stars:height")
+tracks/8/interp = 2
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 6, 7.71122),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [6.719, 5.293, 6.487]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Stars:position")
+tracks/9/interp = 2
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 5, 6, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 5.258, -19.133), Vector3(-0.376, 1.398, -14.233), Vector3(-0.387953, 0.101589, -0.835999), Vector3(-0.375521, 0.266819, 19.2373)]
 }
 
 [sub_resource type="Animation" id="Animation_p14sd"]
@@ -749,9 +809,87 @@ tracks/24/keys = {
 "values": [Vector3(5.11041, -6.55651e-07, 2), Vector3(1, 0, 2), Vector3(1, 0, 2)]
 }
 
+[sub_resource type="Animation" id="Animation_167a7"]
+resource_name = "landing"
+length = 12.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Planet:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 2.5, -32)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Spaceship/Accent:light_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.239216, 0.27451, 0.521569, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Environment:horizon_height")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-64.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Environment/Sky:surface_material_override/0:shader_parameter/stars_brightness")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Planet:scale")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(5, 5, 5)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Stars:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [resource]
 _data = {
 "home": SubResource("Animation_10ume"),
+"landing": SubResource("Animation_167a7"),
 "launch": SubResource("Animation_eh3qq"),
 "spaceship_warp": SubResource("Animation_1pnna"),
 "stars_light": SubResource("Animation_p14sd")
