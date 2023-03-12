@@ -1,9 +1,7 @@
 @tool
-extends WorldEnvironment
+extends Node
 
-const SKY_SIZE = 64.0
-
-@export_enum("home","launch","stars_light","warp") var state: String = "intro":
+@export_enum("home","launch","stars_light","warp") var state: String = "home":
 	set(value):
 		state = value
 		if %StateTree:
