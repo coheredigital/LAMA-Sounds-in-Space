@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpnswbx07glq0"
-path="res://.godot/imported/alien_emission.png-6f2baae0a5ccf95a363193b737619087.ctex"
+uid="uid://cnudn8n7gnyh1"
+path="res://.godot/imported/alien_albedo.png-b657a9512d1395a6d5395a581a16ef3e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/alien/alien_emission.png"
-dest_files=["res://.godot/imported/alien_emission.png-6f2baae0a5ccf95a363193b737619087.ctex"]
+source_file="res://characters/alien/materials/alien_albedo.png"
+dest_files=["res://.godot/imported/alien_albedo.png-b657a9512d1395a6d5395a581a16ef3e.ctex"]
 
 [params]
 

@@ -1,5 +1,5 @@
 shader_type spatial;
-render_mode  cull_disabled, specular_disabled, ambient_light_disabled;
+render_mode  cull_disabled, specular_disabled;
 
 
 uniform vec4 albedo : source_color = vec4(1.0);
@@ -25,8 +25,8 @@ uniform bool use_alpha = false;
 
 
 void fragment() {
-//	ROUGHNESS = roughness;
-//	METALLIC = metallic;
+	ROUGHNESS = roughness;
+	METALLIC = metallic;
 	EMISSION = (emission.rgb + texture(emission_texture, UV).rgb) * emission_energy * COLOR.rgb;
 	ALBEDO = albedo.rgb * COLOR.rgb * texture(albedo_texture, UV).rgb;
 	float alpha = texture(albedo_texture, UV).a;

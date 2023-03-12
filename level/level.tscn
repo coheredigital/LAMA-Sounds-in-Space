@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://d1vswr8s4m5gh"]
+[gd_scene load_steps=25 format=3 uid="uid://d1vswr8s4m5gh"]
 
 [ext_resource type="Script" path="res://level/level.gd" id="1_58g46"]
 [ext_resource type="AnimationLibrary" uid="uid://cjkhuv5cn32yu" path="res://level/environment/environment_animations.tres" id="2_3s2c1"]
@@ -8,6 +8,7 @@
 [ext_resource type="Material" uid="uid://bjft6os8hrr36" path="res://level/environment/materials/planet_material.tres" id="5_nosaa"]
 [ext_resource type="Environment" uid="uid://n48hdvn72r0x" path="res://level/environment/environment.tres" id="6_4f2h8"]
 [ext_resource type="Script" path="res://level/environment/environment.gd" id="6_waian"]
+[ext_resource type="PackedScene" path="res://level/environment/stars.tscn" id="9_s3nx5"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8dnu5"]
 animation = &"environment_animations/home"
@@ -371,11 +372,13 @@ height = 128.0
 
 [node name="Level" type="Node"]
 script = ExtResource("1_58g46")
+state = "stars_light"
 
 [node name="StateTree" type="AnimationTree" parent="."]
 unique_name_in_owner = true
 tree_root = SubResource("AnimationNodeStateMachine_xndii")
 anim_player = NodePath("AnimationPlayer")
+active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_4dohv")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="StateTree"]
@@ -389,6 +392,7 @@ libraries = {
 
 [node name="SpaceStation" parent="." instance=ExtResource("3_xx3aw")]
 unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.038, 0)
 
 [node name="Planet" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true
@@ -416,8 +420,11 @@ material = SubResource("FogMaterial_2rfwg")
 unique_name_in_owner = true
 environment = ExtResource("6_4f2h8")
 script = ExtResource("6_waian")
-sky_color = Color(0.396078, 0.172549, 0, 1)
-ground_color = Color(0.498039, 0.117647, 0.286275, 1)
+sky_color = Color(0.164706, 0.172549, 0.301961, 1)
+ground_color = Color(0.623529, 0.721569, 0.596078, 1)
+fog_color = Color(0.258824, 0.329412, 0.556863, 1)
+horizon_color = Color(0.894118, 0.654902, 0.741176, 1)
+horizon_height = 0.038
 
 [node name="Sky" type="MeshInstance3D" parent="Environment"]
 unique_name_in_owner = true
@@ -427,3 +434,10 @@ mesh = SubResource("3821")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("4_fearw")
 metadata/_edit_lock_ = true
+
+[node name="Stars" parent="." instance=ExtResource("9_s3nx5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.258, -19.133)
+visible = false
+depth = 1.217
+width = 6.067
+height = 6.719

@@ -1,6 +1,6 @@
-[gd_scene load_steps=23 format=3]
+[gd_scene load_steps=13 format=3 uid="uid://dqdal17eldmvk"]
 
-[ext_resource type="PackedScene" path="res://ui/game_window.tscn" id="3_ljibd"]
+[ext_resource type="PackedScene" uid="uid://bw70w15xhifwc" path="res://ui/game_window.tscn" id="3_ljibd"]
 [ext_resource type="Gradient" uid="uid://b71jutk4qdqv3" path="res://audio/visualizer/visualizer_gradient.tres" id="4_bkdmv"]
 [ext_resource type="Script" path="res://audio/visualizer/AudioVisualizer.gd" id="5_cnmhu"]
 [ext_resource type="Curve" uid="uid://dymfoswhbthj1" path="res://audio/visualizer/curves/waveform_curve.tres" id="6_6kuuw"]
@@ -11,54 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://dqmb5lg7lcwhf" path="res://ui/control_panel.tscn" id="10_ep7ri"]
 [ext_resource type="Curve" uid="uid://d1nfw1ns152lp" path="res://audio/visualizer/curves/a_acceleration_curve.tres" id="11_l1cg1"]
 [ext_resource type="Script" path="res://game.gd" id="12"]
-[ext_resource type="Shader" path="res://shaders/toon.gdshader" id="12_r5e4y"]
-[ext_resource type="Texture2D" uid="uid://cwoinpuvn65ta" path="res://shaders/textures/diffuse_curve_01.png" id="13_4cb6e"]
 
 [sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_2n73o"]
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_aoa2q"]
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_fw64l"]
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_youp8"]
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_bem1o"]
-
-[sub_resource type="Gradient" id="18"]
-interpolation_mode = 1
-offsets = PackedFloat32Array(0.0777027, 0.169916, 0.226351, 0.307432, 0.39527, 0.459459, 0.503378, 0.567568, 0.716981, 0.797297, 0.912162, 0.986072)
-colors = PackedColorArray(0.397039, 0.190276, 0.476563, 1, 0.397039, 0.190276, 0.476563, 1, 0.385435, 0.21108, 0.487957, 1, 0.368764, 0.240969, 0.504327, 1, 0.349939, 0.274717, 0.52281, 1, 0.325323, 0.31885, 0.546981, 1, 0.34087, 0.290977, 0.531715, 1, 0.296851, 0.369894, 0.574937, 1, 0.293041, 0.376725, 0.578678, 1, 0.314778, 0.337755, 0.557335, 1, 0.26814, 0.421369, 0.603129, 1, 0.241887, 0.468435, 0.628906, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_3jtw7"]
-resource_local_to_scene = true
-gradient = SubResource("18")
-width = 128
-height = 128
-fill = 1
-fill_from = Vector2(0.653846, 0.397436)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2eq1q"]
-resource_local_to_scene = true
-render_priority = 0
-shader = ExtResource("12_r5e4y")
-shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/specular = 0.5
-shader_parameter/specular_amount = 0.5
-shader_parameter/specular_smoothness = 0.05
-shader_parameter/rim = 0.5
-shader_parameter/rim_color = Color(1, 1, 1, 1)
-shader_parameter/rim_amount = 0.2
-shader_parameter/rim_smoothness = 0.05
-shader_parameter/metallic = 0.0
-shader_parameter/roughness = 1.0
-shader_parameter/emission = Color(0, 0, 0, 1)
-shader_parameter/emission_energy = 0.193
-shader_parameter/use_alpha = false
-shader_parameter/albedo_texture = SubResource("GradientTexture2D_3jtw7")
-shader_parameter/diffuse_curve = ExtResource("13_4cb6e")
-shader_parameter/emission_texture = SubResource("GradientTexture2D_3jtw7")
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_o678i"]
 
 [node name="Game" type="Node"]
 script = ExtResource("12")
@@ -87,89 +41,3 @@ bus = &"Record"
 
 [node name="GameWindow" parent="." instance=ExtResource("3_ljibd")]
 unique_name_in_owner = true
-
-[node name="MissionStateTree" parent="GameWindow" index="0"]
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_aoa2q")
-
-[node name="Character" parent="GameWindow/SubViewportContainer/SubViewport" index="0"]
-transform = Transform3D(0.999995, 0, 0, 0, 1, 0, 0, 0, 0.999999, -10.6656, 2.10132, 5.55682)
-state = "intro"
-
-[node name="Environment" parent="GameWindow/SubViewportContainer/SubViewport/Character" index="3"]
-state = "home"
-
-[node name="StateTree" parent="GameWindow/SubViewportContainer/SubViewport/Character/Environment" index="0"]
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_fw64l")
-
-[node name="Spaceship" parent="GameWindow/SubViewportContainer/SubViewport/Character/Environment" index="2"]
-screen_state = "idle"
-
-[node name="AnimationTree" parent="GameWindow/SubViewportContainer/SubViewport/Character/Environment/Spaceship" index="0"]
-parameters/door_state/playback = SubResource("AnimationNodeStateMachinePlayback_youp8")
-parameters/screen_state/playback = SubResource("AnimationNodeStateMachinePlayback_bem1o")
-
-[node name="controls" parent="GameWindow/SubViewportContainer/SubViewport/Character/Environment/Spaceship/spaceship/cockpit/SpaceshipControls" index="0"]
-transform = Transform3D(0.98602, -0.166183, 0.0121321, 0.16498, 0.983899, 0.0687219, -0.0233572, -0.0657596, 0.997562, 0, 0, 0)
-
-[node name="visualizer_screen" parent="GameWindow/SubViewportContainer/SubViewport/Character/Environment/Spaceship/spaceship/cockpit/monitor" index="1"]
-visible = true
-
-[node name="door" parent="GameWindow/SubViewportContainer/SubViewport/Character/Environment/Spaceship/spaceship" index="6"]
-transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0)
-
-[node name="Planet" parent="GameWindow/SubViewportContainer/SubViewport/Character/Environment" index="4"]
-transform = Transform3D(-0.25, 0, 6.33795e-07, 0, 0.25, 0, -6.33795e-07, 0, -0.25, 3.72275, 28.7924, -54.9282)
-surface_material_override/0 = SubResource("ShaderMaterial_2eq1q")
-
-[node name="Positions" parent="GameWindow/SubViewportContainer/SubViewport/Character/Environment/Stars" index="0"]
-transform = Transform3D(6.067, -1.01454e-06, 0, 9.16091e-07, 6.719, 0, 0, 0, 1.217, 0, 0, 0)
-
-[node name="StarTransform1" parent="GameWindow/SubViewportContainer/SubViewport/Character/Environment/Stars/Positions" index="0"]
-transform = Transform3D(1, -1.42109e-14, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-
-[node name="StarTransform2" parent="GameWindow/SubViewportContainer/SubViewport/Character/Environment/Stars/Positions" index="1"]
-transform = Transform3D(1, -1.13687e-13, 0, 0, 0.999999, 0, 0, 0, 1, 0, 0, 0)
-
-[node name="StarTransform3" parent="GameWindow/SubViewportContainer/SubViewport/Character/Environment/Stars/Positions" index="2"]
-transform = Transform3D(1, -5.68434e-14, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-
-[node name="StarTransform4" parent="GameWindow/SubViewportContainer/SubViewport/Character/Environment/Stars/Positions" index="3"]
-transform = Transform3D(1, -1.27898e-13, 0, 0, 0.999999, 0, 0, 0, 1, 0, 0, 0)
-
-[node name="StarTransform5" parent="GameWindow/SubViewportContainer/SubViewport/Character/Environment/Stars/Positions" index="4"]
-transform = Transform3D(1, -2.84217e-14, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-
-[node name="Star1" parent="GameWindow/SubViewportContainer/SubViewport/Character/Environment/Stars" index="1"]
-transform = Transform3D(1.781, 0, 0, 0, 1.781, 0, 0, 0, 1.781, 0, 0, 0)
-
-[node name="Star2" parent="GameWindow/SubViewportContainer/SubViewport/Character/Environment/Stars" index="2"]
-transform = Transform3D(1.781, 0, 0, 0, 1.781, 0, 0, 0, 1.781, 0, 0, 0)
-
-[node name="Star3" parent="GameWindow/SubViewportContainer/SubViewport/Character/Environment/Stars" index="3"]
-transform = Transform3D(1.781, 0, 0, 0, 1.781, 0, 0, 0, 1.781, 0, 0, 0)
-
-[node name="Star4" parent="GameWindow/SubViewportContainer/SubViewport/Character/Environment/Stars" index="4"]
-transform = Transform3D(1.781, 0, 0, 0, 1.781, 0, 0, 0, 1.781, 0, 0, 0)
-size = 1.781
-
-[node name="Star5" parent="GameWindow/SubViewportContainer/SubViewport/Character/Environment/Stars" index="5"]
-transform = Transform3D(1.781, 0, 0, 0, 1.781, 0, 0, 0, 1.781, 0, 0, 0)
-
-[node name="Player" parent="GameWindow/SubViewportContainer/SubViewport" index="1"]
-state = "intro"
-
-[node name="Camera3D" parent="GameWindow/SubViewportContainer/SubViewport/Player" index="0"]
-transform = Transform3D(0.805126, 0.0753688, -0.588296, 7.07805e-08, 0.991893, 0.127075, 0.593104, -0.102312, 0.798599, -10.8537, 2.5, 7.2842)
-
-[node name="PositionStateTree" parent="GameWindow/SubViewportContainer/SubViewport/Player" index="3"]
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_o678i")
-
-[editable path="GameWindow"]
-[editable path="GameWindow/SubViewportContainer/SubViewport/Character/Environment"]
-[editable path="GameWindow/SubViewportContainer/SubViewport/Character/Environment/Spaceship"]
-[editable path="GameWindow/SubViewportContainer/SubViewport/Character/Environment/Spaceship/spaceship/cockpit/monitor/seatbelt_indicator_right"]
-[editable path="GameWindow/SubViewportContainer/SubViewport/Character/Environment/Spaceship/spaceship/cockpit/monitor/seatbelt_indicator_left"]
-[editable path="GameWindow/SubViewportContainer/SubViewport/Character/Environment/Spaceship/spaceship/cockpit/monitor/fuel_gauge_right"]
-[editable path="GameWindow/SubViewportContainer/SubViewport/Character/Environment/Spaceship/spaceship/cockpit/monitor/fuel_gauge_left"]
-[editable path="GameWindow/SubViewportContainer/SubViewport/Character/Environment/Stars"]
-[editable path="GameWindow/SubViewportContainer/SubViewport/Player"]
