@@ -20,7 +20,7 @@ animation = &"environment_animations/launch"
 animation = &"environment_animations/stars_light"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_w0kem"]
-animation = &"environment_animations/spaceship_warp"
+animation = &"environment_animations/warp"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7tb2q"]
 switch_mode = 2
@@ -372,7 +372,7 @@ height = 128.0
 
 [node name="Level" type="Node"]
 script = ExtResource("1_58g46")
-state = "launch"
+state = "stars_light"
 
 [node name="StateTree" type="AnimationTree" parent="."]
 unique_name_in_owner = true

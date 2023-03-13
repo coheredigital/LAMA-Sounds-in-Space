@@ -42,6 +42,7 @@ resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("12_5csi5")
 shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/diffuse_color = Color(0.5, 0.5, 0.5, 0.5)
 shader_parameter/specular = 0.5
 shader_parameter/specular_amount = 0.5
 shader_parameter/specular_smoothness = 0.05
@@ -93,6 +94,7 @@ unique_name_in_owner = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_3g6nu")
 
 [node name="StateTree" parent="GameWindow/SubViewportContainer/SubViewport/Level" index="0"]
+active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_igqrk")
 
 [node name="AnimationTree" parent="GameWindow/SubViewportContainer/SubViewport/Level/Spaceship" index="0"]
@@ -113,14 +115,24 @@ shadow_normal_bias = 3.845
 shadow_opacity = 0.28
 shadow_blur = 1.505
 
+[node name="FogVolume" parent="GameWindow/SubViewportContainer/SubViewport/Level" index="5"]
+visible = false
+
+[node name="Stars" parent="GameWindow/SubViewportContainer/SubViewport/Level" index="7"]
+width = 0.0
+height = 0.0
+
+[node name="Character" parent="GameWindow/SubViewportContainer/SubViewport" index="1"]
+transform = Transform3D(0.999995, 0, 0, 0, 1, 0, 0, 0, 0.999998, -10.6656, 2.10132, 5.55682)
+
 [node name="Alien" parent="GameWindow/SubViewportContainer/SubViewport" index="2"]
 transform = Transform3D(-0.0191451, 0, -0.999817, 0, 1, 0, 0.999817, 0, -0.0191451, -7.80826, 1.01353, 6.17074)
 
 [node name="Lama" parent="GameWindow/SubViewportContainer/SubViewport" index="3"]
-transform = Transform3D(-0.0923359, 0, 0.995728, 0, 1, 0, -0.995728, 0, -0.0923359, -9.63367, 0.927226, 5.58406)
+transform = Transform3D(-0.979691, 0, 0.200514, 0, 1, 0, -0.200514, 0, -0.979691, -9.63367, 1.03565, 6.25391)
 
 [node name="Camera3D" parent="GameWindow/SubViewportContainer/SubViewport/Player" index="0"]
-transform = Transform3D(0.805126, 0.0753688, -0.588296, 9.68575e-08, 0.991893, 0.127075, 0.593104, -0.102312, 0.798599, -10.8537, 2.5, 7.2842)
+transform = Transform3D(0.805126, 0.0753688, -0.588296, 1.00583e-07, 0.991893, 0.127075, 0.593104, -0.102312, 0.798599, -10.8537, 2.5, 7.2842)
 
 [node name="PositionStateTree" parent="GameWindow/SubViewportContainer/SubViewport/Player" index="3"]
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_dvf1w")

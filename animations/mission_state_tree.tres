@@ -1,4 +1,4 @@
-[gd_resource type="AnimationNodeStateMachine" load_steps=17 format=3 uid="uid://c23xty37kg5n2"]
+[gd_resource type="AnimationNodeStateMachine" load_steps=19 format=3 uid="uid://c23xty37kg5n2"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_d0ais"]
 animation = &"mission/approach_spaceship"
@@ -24,6 +24,9 @@ animation = &"mission/stars_light_up"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_iib6b"]
 animation = &"mission/unlock_spaceship"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_v3f2i"]
+animation = &"mission/warp"
+
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_678tg"]
 advance_mode = 2
 
@@ -48,8 +51,11 @@ switch_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kdwip"]
 switch_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lxeue"]
+switch_mode = 2
+
 [resource]
-states/End/position = Vector2(1669, 100)
+states/End/position = Vector2(1882, 105)
 states/approach_spaceship/node = SubResource("AnimationNodeAnimation_d0ais")
 states/approach_spaceship/position = Vector2(513, 100)
 states/enter_spaceship/node = SubResource("AnimationNodeAnimation_qjrqc")
@@ -66,5 +72,7 @@ states/stars_light_up/node = SubResource("AnimationNodeAnimation_pv5ga")
 states/stars_light_up/position = Vector2(1424, 100)
 states/unlock_spaceship/node = SubResource("AnimationNodeAnimation_iib6b")
 states/unlock_spaceship/position = Vector2(754, 100)
-transitions = ["Start", "intro", SubResource("AnimationNodeStateMachineTransition_678tg"), "intro", "approach_spaceship", SubResource("AnimationNodeStateMachineTransition_4u2k8"), "approach_spaceship", "unlock_spaceship", SubResource("AnimationNodeStateMachineTransition_1l0u3"), "unlock_spaceship", "enter_spaceship", SubResource("AnimationNodeStateMachineTransition_b8x0b"), "launch", "stars_light_up", SubResource("AnimationNodeStateMachineTransition_k0oyt"), "enter_spaceship", "pre_launchbegin", SubResource("AnimationNodeStateMachineTransition_yoplw"), "pre_launchbegin", "pre_launchbuckle_up", SubResource("AnimationNodeStateMachineTransition_j1ayj"), "pre_launchbuckle_up", "launch", SubResource("AnimationNodeStateMachineTransition_kdwip")]
-graph_offset = Vector2(174, -210)
+states/warp/node = SubResource("AnimationNodeAnimation_v3f2i")
+states/warp/position = Vector2(1626.6, 100)
+transitions = ["Start", "intro", SubResource("AnimationNodeStateMachineTransition_678tg"), "intro", "approach_spaceship", SubResource("AnimationNodeStateMachineTransition_4u2k8"), "approach_spaceship", "unlock_spaceship", SubResource("AnimationNodeStateMachineTransition_1l0u3"), "unlock_spaceship", "enter_spaceship", SubResource("AnimationNodeStateMachineTransition_b8x0b"), "launch", "stars_light_up", SubResource("AnimationNodeStateMachineTransition_k0oyt"), "enter_spaceship", "pre_launchbegin", SubResource("AnimationNodeStateMachineTransition_yoplw"), "pre_launchbegin", "pre_launchbuckle_up", SubResource("AnimationNodeStateMachineTransition_j1ayj"), "pre_launchbuckle_up", "launch", SubResource("AnimationNodeStateMachineTransition_kdwip"), "stars_light_up", "warp", SubResource("AnimationNodeStateMachineTransition_lxeue")]
+graph_offset = Vector2(550.603, -143)
