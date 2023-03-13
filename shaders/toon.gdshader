@@ -9,6 +9,8 @@ uniform float specular : hint_range(0,1) = 0.5;
 uniform float specular_amount : hint_range(0,1) = 0.5;
 uniform float specular_smoothness : hint_range(0,1) = 0.05;
 
+uniform float wrap : hint_range(-2.0, 2.0) = 0.25;
+
 uniform float rim : hint_range(0,1) = 0.5;
 uniform vec4 rim_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
 uniform float rim_amount : hint_range(0,1) = 0.2;
@@ -50,14 +52,16 @@ void light() {
 	float rim_width = rim_amount;
 	float rim_smooth = rim_smoothness;
 
+	// Diffuse lighting.
+	float diffuse_amount = dot(NORMAL, LIGHT) + wrap;
 
-	vec3 litness = texture(diffuse_curve, vec2(dot(LIGHT, NORMAL), 0.0)).rgb * ATTENUATION;
+	vec3 litness = texture(diffuse_curve, vec2(diffuse_amount) ).rgb * ATTENUATION;
 	DIFFUSE_LIGHT += LIGHT_COLOR  * litness;
 
-//	float rim_dot = 1.0 - dot(NORMAL, VIEW);
-//	float rim_threshold = pow((1.0 - rim_width), dot(LIGHT, NORMAL));
-//	float rim_intensity = smoothstep(rim_threshold - rim_smooth/2.0, rim_threshold + rim_smooth/2.0, rim_dot);
-//	SPECULAR_LIGHT += LIGHT_COLOR * rim_color.rgb * rim_value * rim_intensity * litness;
+	float rim_dot = 1.0 - dot(NORMAL, VIEW);
+	float rim_threshold = pow((1.0 - rim_width), dot(LIGHT, NORMAL));
+	float rim_intensity = smoothstep(rim_threshold - rim_smooth/2.0, rim_threshold + rim_smooth/2.0, rim_dot);
+	SPECULAR_LIGHT += LIGHT_COLOR * rim_color.rgb * rim_value * rim_intensity * litness;
 }
 
 

@@ -33,6 +33,10 @@ _subresources={
 "material_0": {
 "use_external/enabled": true,
 "use_external/path": "res://characters/lama/materials/lama_material.tres"
+},
+"material_1": {
+"use_external/enabled": true,
+"use_external/path": "res://characters/lama/materials/lama_alpha_material.tres"
 }
 }
 }
