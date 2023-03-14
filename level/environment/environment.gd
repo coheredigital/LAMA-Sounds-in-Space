@@ -32,6 +32,8 @@ func set_ground_color(value):
 #
 func set_fog_color(value):
 	fog_color = value
+	environment.volumetric_fog_albedo = value
+	environment.volumetric_fog_emission = value
 	if sky_material:
 		sky_material.set_shader_parameter("fog_color", lerp(fog_color, sky_color, abs(horizon_height) / SKY_SIZE))
 #

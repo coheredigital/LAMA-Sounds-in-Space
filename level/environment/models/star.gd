@@ -11,17 +11,6 @@ const LIGHT_RANGE := 0.0
 		if %StarLight:
 			%StarLight.light_color = color
 
-@export_range(0.0, 8.0) var size := 0.0 : 
-	set(value):
-		size = value
-		self.scale = Vector3(size,size,size)
-
-@export_range(0.0, 8.0) var brightness := 0.0 : 
-	set(value):
-		brightness = value
-		if %StarLight:
-			%StarLight.light_energy = brightness
-
 @export_range(0.0, 1.0) var rotation_speed := 0.0 : 
 	set(value):
 		rotation_speed = value

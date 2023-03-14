@@ -1,11 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://bw70w15xhifwc"]
+[gd_scene load_steps=12 format=3 uid="uid://bw70w15xhifwc"]
 
 [ext_resource type="AnimationNodeStateMachine" uid="uid://c23xty37kg5n2" path="res://animations/mission_state_tree.tres" id="1_0f2d7"]
 [ext_resource type="PackedScene" uid="uid://d1vswr8s4m5gh" path="res://level/level.tscn" id="2_2c52u"]
 [ext_resource type="AnimationLibrary" uid="uid://bc4hsf1v4gx2q" path="res://animations/libraries/mission.tres" id="2_wiigf"]
 [ext_resource type="AnimationLibrary" uid="uid://d4hu2xr0cuoh8" path="res://animations/libraries/pre_launch.tres" id="3_xc1kt"]
-[ext_resource type="Shader" path="res://shaders/toon.gdshader" id="5_mtwpw"]
-[ext_resource type="Texture2D" uid="uid://cwoinpuvn65ta" path="res://shaders/textures/diffuse_curve_01.png" id="6_6awdm"]
 [ext_resource type="PackedScene" uid="uid://cq3x5n33r2d8c" path="res://characters/character/character.tscn" id="6_8i88j"]
 [ext_resource type="PackedScene" path="res://characters/player/player.tscn" id="7_mwy2h"]
 [ext_resource type="PackedScene" uid="uid://bq23ckwovuhf4" path="res://characters/alien/alien.tscn" id="8_q0ypx"]
@@ -105,46 +103,6 @@ _data = {
 "RESET": SubResource("Animation_p0umf")
 }
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_k5gsc"]
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_rvhww"]
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_vmbyl"]
-
-[sub_resource type="Gradient" id="18"]
-interpolation_mode = 1
-offsets = PackedFloat32Array(0.0777027, 0.169916, 0.226351, 0.307432, 0.39527, 0.459459, 0.503378, 0.567568, 0.716981, 0.797297, 0.912162, 0.986072)
-colors = PackedColorArray(0.397039, 0.190276, 0.476563, 1, 0.397039, 0.190276, 0.476563, 1, 0.385435, 0.21108, 0.487957, 1, 0.368764, 0.240969, 0.504327, 1, 0.349939, 0.274717, 0.52281, 1, 0.325323, 0.31885, 0.546981, 1, 0.34087, 0.290977, 0.531715, 1, 0.296851, 0.369894, 0.574937, 1, 0.293041, 0.376725, 0.578678, 1, 0.314778, 0.337755, 0.557335, 1, 0.26814, 0.421369, 0.603129, 1, 0.241887, 0.468435, 0.628906, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_vf3tw"]
-resource_local_to_scene = true
-gradient = SubResource("18")
-width = 128
-height = 128
-fill = 1
-fill_from = Vector2(0.653846, 0.397436)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rfadt"]
-resource_local_to_scene = true
-render_priority = 0
-shader = ExtResource("5_mtwpw")
-shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/specular = 0.5
-shader_parameter/specular_amount = 0.5
-shader_parameter/specular_smoothness = 0.05
-shader_parameter/rim = 0.5
-shader_parameter/rim_color = Color(1, 1, 1, 1)
-shader_parameter/rim_amount = 0.2
-shader_parameter/rim_smoothness = 0.05
-shader_parameter/metallic = 0.0
-shader_parameter/roughness = 1.0
-shader_parameter/emission = Color(0, 0, 0, 1)
-shader_parameter/emission_energy = 0.193
-shader_parameter/use_alpha = false
-shader_parameter/albedo_texture = SubResource("GradientTexture2D_vf3tw")
-shader_parameter/diffuse_curve = ExtResource("6_6awdm")
-shader_parameter/emission_texture = SubResource("GradientTexture2D_vf3tw")
-
 [node name="GameWindow" type="Window"]
 initial_position = 1
 size = Vector2i(1280, 720)
@@ -179,31 +137,6 @@ size = Vector2i(1280, 720)
 render_target_update_mode = 4
 
 [node name="Level" parent="SubViewportContainer/SubViewport" instance=ExtResource("2_2c52u")]
-state = "home"
-
-[node name="StateTree" parent="SubViewportContainer/SubViewport/Level" index="0"]
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_k5gsc")
-
-[node name="Spaceship" parent="SubViewportContainer/SubViewport/Level" index="1"]
-door_open = false
-
-[node name="AnimationTree" parent="SubViewportContainer/SubViewport/Level/Spaceship" index="0"]
-parameters/door_state/playback = SubResource("AnimationNodeStateMachinePlayback_rvhww")
-parameters/screen_state/playback = SubResource("AnimationNodeStateMachinePlayback_vmbyl")
-
-[node name="controls" parent="SubViewportContainer/SubViewport/Level/Spaceship/spaceship/cockpit/SpaceshipControls" index="0"]
-transform = Transform3D(0.986019, -0.166182, 0.0121321, 0.16498, 0.983898, 0.0687219, -0.0233572, -0.0657595, 0.997561, 0, 0, 0)
-
-[node name="door" parent="SubViewportContainer/SubViewport/Level/Spaceship/spaceship" index="6"]
-transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0)
-
-[node name="Accent" parent="SubViewportContainer/SubViewport/Level/Spaceship" index="3"]
-light_color = Color(0.713726, 0.831373, 0.894118, 1)
-light_energy = 0.098
-
-[node name="Planet" parent="SubViewportContainer/SubViewport/Level" index="3"]
-transform = Transform3D(-0.25, 0, 6.33795e-07, 0, 0.25, 0, -6.33795e-07, 0, -0.25, 3.72275, 28.7924, -54.9282)
-surface_material_override/0 = SubResource("ShaderMaterial_rfadt")
 
 [node name="Character" parent="SubViewportContainer/SubViewport" instance=ExtResource("6_8i88j")]
 transform = Transform3D(0.999995, 0, 0, 0, 1, 0, 0, 0, 0.999998, -10.6656, 2.10132, 5.55682)
@@ -220,10 +153,3 @@ follow_speed = 1.96
 turn_speed = 4.469
 distance_buffer = 3.438
 distance_boost = 2.904
-
-[editable path="SubViewportContainer/SubViewport/Level"]
-[editable path="SubViewportContainer/SubViewport/Level/Spaceship"]
-[editable path="SubViewportContainer/SubViewport/Level/Spaceship/spaceship/cockpit/monitor/seatbelt_indicator_right"]
-[editable path="SubViewportContainer/SubViewport/Level/Spaceship/spaceship/cockpit/monitor/seatbelt_indicator_left"]
-[editable path="SubViewportContainer/SubViewport/Level/Spaceship/spaceship/cockpit/monitor/fuel_gauge_right"]
-[editable path="SubViewportContainer/SubViewport/Level/Spaceship/spaceship/cockpit/monitor/fuel_gauge_left"]

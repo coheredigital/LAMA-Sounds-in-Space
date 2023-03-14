@@ -1,7 +1,6 @@
-[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://bjft6os8hrr36"]
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://bjft6os8hrr36"]
 
 [ext_resource type="Shader" path="res://shaders/toon.gdshader" id="1"]
-[ext_resource type="Texture2D" uid="uid://cwoinpuvn65ta" path="res://shaders/textures/diffuse_curve_01.png" id="2"]
 
 [sub_resource type="Gradient" id="18"]
 interpolation_mode = 1
@@ -24,8 +23,8 @@ shader_parameter/albedo = Color(1, 1, 1, 1)
 shader_parameter/specular = 0.5
 shader_parameter/specular_amount = 0.5
 shader_parameter/specular_smoothness = 0.05
+shader_parameter/wrap = 0.25
 shader_parameter/rim = 0.5
-shader_parameter/rim_color = Color(1, 1, 1, 1)
 shader_parameter/rim_amount = 0.2
 shader_parameter/rim_smoothness = 0.05
 shader_parameter/metallic = 0.0
@@ -34,5 +33,4 @@ shader_parameter/emission = Color(0, 0, 0, 1)
 shader_parameter/emission_energy = 0.193
 shader_parameter/use_alpha = false
 shader_parameter/albedo_texture = SubResource("19")
-shader_parameter/diffuse_curve = ExtResource("2")
 shader_parameter/emission_texture = SubResource("19")

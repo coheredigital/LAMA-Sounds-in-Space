@@ -47,9 +47,9 @@ size = 1.781
 rotation_speed = 0.285
 
 [node name="Star2" parent="." instance=ExtResource("1_nweus")]
-transform = Transform3D(1.781, 0, 0, 0, 1.781, 0, 0, 0, 1.781, 1.428, 1.522, -2.15622e-07)
+transform = Transform3D(2.17478, 0, 0, 0, 2.17478, 0, 0, 0, 2.17478, 1.428, 1.522, -2.15622e-07)
 color = Color(0.996078, 0.133333, 0, 1)
-size = 1.781
+size = 2.17478
 rotation_speed = 0.37
 
 [node name="Star3" parent="." instance=ExtResource("1_nweus")]
@@ -70,16 +70,3 @@ color = Color(0, 0.560784, 0.992157, 1)
 size = 1.781
 brightness = 2.075
 rotation_speed = 0.239
-
-[node name="IdleAnimationPlayer" parent="Star5" index="0"]
-speed_scale = 0.239
-
-[node name="StarLight" parent="Star5" index="1"]
-light_color = Color(0, 0.560784, 0.992157, 1)
-light_energy = 1.0
-omni_range = 7.149
-
-[node name="MeshGroup" parent="Star5" index="2"]
-transform = Transform3D(0.928392, -0.363788, 0.0757909, -0.0684515, 0.0330458, 0.997107, -0.36524, -0.930895, 0.00577765, 0, 0, 0)
-
-[editable path="Star5"]

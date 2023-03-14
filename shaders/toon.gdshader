@@ -4,22 +4,22 @@ render_mode  cull_disabled, specular_disabled, ambient_light_disabled;
 
 uniform vec4 albedo : source_color = vec4(1.0);
 uniform sampler2D albedo_texture : source_color, filter_nearest;
-uniform sampler2D diffuse_curve : hint_default_white, filter_nearest, repeat_disable;
-uniform vec4 diffuse_color : source_color = vec4(0.5);
-uniform float specular : hint_range(0,1) = 0.5;
-uniform float specular_amount : hint_range(0,1) = 0.5;
-uniform float specular_smoothness : hint_range(0,1) = 0.05;
+global uniform sampler2D diffuse_curve : hint_default_white, filter_nearest, repeat_disable;
+global uniform vec4 diffuse_color : source_color = vec4(0.5);
+uniform float specular : hint_range(0.0,1.0) = 0.5;
+uniform float specular_amount : hint_range(0.0,1.0) = 0.5;
+uniform float specular_smoothness : hint_range(0.0,1.0) = 0.05;
 
 uniform float wrap : hint_range(-2.0, 2.0) = 0.25;
 
-uniform float rim : hint_range(0,1) = 0.5;
-uniform sampler2D rim_curve : hint_default_black, filter_nearest, repeat_disable;
-uniform vec4 rim_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform float rim : hint_range(0.0,1.0) = 0.5;
+global uniform sampler2D rim_curve : hint_default_black, filter_nearest, repeat_disable;
+global uniform vec4 rim_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
 uniform float rim_amount : hint_range(0,1) = 0.2;
 uniform float rim_smoothness : hint_range(0.001,1.0) = 0.05;
 
-uniform float metallic : hint_range(0,1) = 0.0;
-uniform float roughness : hint_range(0,1) = 1.0;
+uniform float metallic : hint_range(0.0,1.0) = 0.0;
+uniform float roughness : hint_range(0.0,1.0) = 1.0;
 
 // Emission from base code.
 uniform vec4 emission : source_color = vec4(0.0, 0.0, 0.0, 1.0);
@@ -61,7 +61,7 @@ void light() {
 
 	float rim_dot = 1.0 - dot(NORMAL, VIEW);
 	float rim_threshold = pow((1.0 - rim_width), dot(LIGHT, NORMAL));
-	float rim_intensity =   texture(rim_curve, vec2( smoothstep(rim_threshold - rim_smooth/2.0, rim_threshold + rim_smooth/2.0, rim_dot)) ).r   ;
+	float rim_intensity = texture(rim_curve, vec2( smoothstep(rim_threshold - rim_smooth/2.0, rim_threshold + rim_smooth/2.0, rim_dot)) ).r   ;
 	SPECULAR_LIGHT += LIGHT_COLOR * rim_color.rgb * rim_value * rim_intensity * litness;
 }
 

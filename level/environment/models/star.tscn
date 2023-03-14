@@ -32,14 +32,14 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath(".:size")
+tracks/2/path = NodePath(".:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [1.781]
+"values": [Vector3(1.781, 1.781, 1.781)]
 }
 
 [sub_resource type="Animation" id="Animation_ltucu"]
@@ -74,14 +74,14 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath(".:size")
+tracks/2/path = NodePath(".:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.475, 0.5, 0.6, 1.9, 1.925, 2.025, 2.5, 2.525, 2.575, 2.625, 2.725, 3),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [1.781, 1.781, 2.2, 1.781, 1.781, 2.2, 1.781, 1.781, 2.2, 1.781, 2.2, 1.781, 1.781]
+"values": [Vector3(1.781, 1.781, 1.781), Vector3(1.781, 1.781, 1.781), Vector3(2.2, 2.2, 2.2), Vector3(1.781, 1.781, 1.781), Vector3(1.781, 1.781, 1.781), Vector3(2.2, 2.2, 2.2), Vector3(1.781, 1.781, 1.781), Vector3(1.781, 1.781, 1.781), Vector3(2.2, 2.2, 2.2), Vector3(1.781, 1.781, 1.781), Vector3(2.2, 2.2, 2.2), Vector3(1.781, 1.781, 1.781), Vector3(1.781, 1.781, 1.781)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yj4cd"]
@@ -131,11 +131,9 @@ turbulence_influence_max = 0.19
 [sub_resource type="QuadMesh" id="QuadMesh_piiaj"]
 
 [node name="Star" type="Node3D"]
-transform = Transform3D(2.1528, 0, 0, 0, 2.1528, 0, 0, 0, 2.1528, 7.41449, 0, -0.684793)
+transform = Transform3D(1.781, 0, 0, 0, 1.781, 0, 0, 0, 1.781, 0, 0, 0)
 script = ExtResource("1_a8fv1")
 color = Color(0.552941, 0.262745, 0.301961, 1)
-size = 2.1528
-brightness = 1.583
 rotation_speed = 0.263
 
 [node name="IdleAnimationPlayer" type="AnimationPlayer" parent="."]
@@ -150,12 +148,12 @@ libraries = {
 [node name="StarLight" type="OmniLight3D" parent="."]
 unique_name_in_owner = true
 light_color = Color(0.552941, 0.262745, 0.301961, 1)
-light_energy = 2.33102
+light_energy = 2.5
 omni_range = 6.768
 omni_attenuation = 2.07053
 
 [node name="MeshGroup" type="Node3D" parent="."]
-transform = Transform3D(-0.816319, -0.289416, -0.499861, 0.577506, -0.393312, -0.715397, 0.0104462, -0.872665, 0.488208, 0, 0, 0)
+transform = Transform3D(-0.808579, -0.310158, -0.5, 0.58794, -0.392848, -0.707104, 0.0228895, -0.86572, 0.500004, 0, 0, 0)
 
 [node name="Particles" type="GPUParticles3D" parent="MeshGroup"]
 unique_name_in_owner = true
@@ -169,16 +167,16 @@ randomness = 0.07
 process_material = SubResource("ParticleProcessMaterial_2g27c")
 draw_pass_1 = SubResource("QuadMesh_yrp7d")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshGroup"]
+[node name="MeshX" type="MeshInstance3D" parent="MeshGroup"]
 mesh = SubResource("QuadMesh_piiaj")
 surface_material_override/0 = ExtResource("4_owk2l")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="MeshGroup"]
+[node name="MeshY" type="MeshInstance3D" parent="MeshGroup"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 mesh = SubResource("QuadMesh_piiaj")
 surface_material_override/0 = ExtResource("4_owk2l")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshGroup"]
+[node name="MeshZ" type="MeshInstance3D" parent="MeshGroup"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 mesh = SubResource("QuadMesh_piiaj")
 surface_material_override/0 = ExtResource("4_owk2l")

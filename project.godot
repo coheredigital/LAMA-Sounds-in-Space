@@ -121,3 +121,22 @@ quality/directional_shadow/size=2048
 quality/filters/anisotropic_filter_level=8
 quality/filters/use_nearest_mipmap_filter=true
 quality/filters/msaa=1
+
+[shader_globals]
+
+diffuse_curve={
+"type": "sampler2D",
+"value": "res://shaders/textures/diffuse_curve_01.png"
+}
+rim_curve={
+"type": "sampler2D",
+"value": "res://shaders/textures/rim_curve_01.png"
+}
+diffuse_color={
+"type": "color",
+"value": Color(0.156863, 0.12549, 1, 0.4)
+}
+rim_color={
+"type": "color",
+"value": Color(1, 0.607843, 0.74902, 1)
+}
