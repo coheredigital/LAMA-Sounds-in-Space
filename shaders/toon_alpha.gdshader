@@ -1,5 +1,5 @@
 shader_type spatial;
-render_mode diffuse_toon, specular_toon;
+render_mode diffuse_toon, specular_toon, cull_disabled;
 
 
 uniform vec4 albedo : source_color = vec4(1.0);

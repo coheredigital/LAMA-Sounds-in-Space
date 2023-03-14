@@ -75,4 +75,4 @@ states/unlock_spaceship/position = Vector2(754, 100)
 states/warp/node = SubResource("AnimationNodeAnimation_v3f2i")
 states/warp/position = Vector2(1626.6, 100)
 transitions = ["Start", "intro", SubResource("AnimationNodeStateMachineTransition_678tg"), "intro", "approach_spaceship", SubResource("AnimationNodeStateMachineTransition_4u2k8"), "approach_spaceship", "unlock_spaceship", SubResource("AnimationNodeStateMachineTransition_1l0u3"), "unlock_spaceship", "enter_spaceship", SubResource("AnimationNodeStateMachineTransition_b8x0b"), "launch", "stars_light_up", SubResource("AnimationNodeStateMachineTransition_k0oyt"), "enter_spaceship", "pre_launchbegin", SubResource("AnimationNodeStateMachineTransition_yoplw"), "pre_launchbegin", "pre_launchbuckle_up", SubResource("AnimationNodeStateMachineTransition_j1ayj"), "pre_launchbuckle_up", "launch", SubResource("AnimationNodeStateMachineTransition_kdwip"), "stars_light_up", "warp", SubResource("AnimationNodeStateMachineTransition_lxeue")]
-graph_offset = Vector2(550.603, -143)
+graph_offset = Vector2(44.603, -89)

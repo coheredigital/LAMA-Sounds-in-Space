@@ -137,13 +137,14 @@ size = Vector2i(1280, 720)
 render_target_update_mode = 4
 
 [node name="Level" parent="SubViewportContainer/SubViewport" instance=ExtResource("2_2c52u")]
+state = "warp"
 
 [node name="Character" parent="SubViewportContainer/SubViewport" instance=ExtResource("6_8i88j")]
 transform = Transform3D(0.999995, 0, 0, 0, 1, 0, 0, 0, 0.999998, -10.6656, 2.10132, 5.55682)
 state = "intro"
 
 [node name="Alien" parent="SubViewportContainer/SubViewport" instance=ExtResource("8_q0ypx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.27987, 1.01353, 6.54353)
+transform = Transform3D(0.0793638, 0, -0.996846, 0, 1, 0, 0.996846, 0, 0.0793638, -8.71262, 1.01353, 6.54353)
 
 [node name="Lama" parent="SubViewportContainer/SubViewport" instance=ExtResource("9_ult1b")]
 transform = Transform3D(0.126251, 0, 0.991998, 0, 1, 0, -0.991998, 0, 0.126251, -8.77746, 1.03158, 5.20941)

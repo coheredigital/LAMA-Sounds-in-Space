@@ -1,21 +1,17 @@
-[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://cqvlw3i27fqqd"]
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cqvlw3i27fqqd"]
 
 [ext_resource type="Shader" path="res://shaders/toon.gdshader" id="1_hirk4"]
 [ext_resource type="Texture2D" uid="uid://b5fqhkhyw0h5y" path="res://characters/lama/materials/lama_albedo.png" id="2_gy8vw"]
-[ext_resource type="Texture2D" uid="uid://cwoinpuvn65ta" path="res://shaders/textures/diffuse_curve_01.png" id="3_4sekq"]
-[ext_resource type="Texture2D" uid="uid://cctoi84t7hl4r" path="res://shaders/textures/rim_curve_01.png" id="4_dcawe"]
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_hirk4")
 shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/diffuse_color = Color(0.5, 0.5, 0.5, 0.5)
 shader_parameter/specular = 0.5
 shader_parameter/specular_amount = 0.5
 shader_parameter/specular_smoothness = 0.05
 shader_parameter/wrap = 0.25
 shader_parameter/rim = 0.777
-shader_parameter/rim_color = Color(1, 0.745098, 0.968627, 1)
 shader_parameter/rim_amount = 0.3
 shader_parameter/rim_smoothness = 0.632
 shader_parameter/metallic = 0.0
@@ -24,5 +20,3 @@ shader_parameter/emission = Color(0, 0, 0, 1)
 shader_parameter/emission_energy = 1.0
 shader_parameter/use_alpha = false
 shader_parameter/albedo_texture = ExtResource("2_gy8vw")
-shader_parameter/diffuse_curve = ExtResource("3_4sekq")
-shader_parameter/rim_curve = ExtResource("4_dcawe")

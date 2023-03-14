@@ -390,6 +390,7 @@ script = ExtResource("1_58g46")
 unique_name_in_owner = true
 tree_root = SubResource("AnimationNodeStateMachine_xndii")
 anim_player = NodePath("AnimationPlayer")
+active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_4dohv")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="StateTree"]
@@ -410,13 +411,14 @@ parameters/screen_state/playback = SubResource("AnimationNodeStateMachinePlaybac
 transform = Transform3D(0.986019, -0.166182, 0.0121321, 0.16498, 0.983898, 0.0687219, -0.0233572, -0.0657595, 0.997561, 0, 0, 0)
 
 [node name="door" parent="Spaceship/spaceship" index="6"]
-transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0)
+transform = Transform3D(0.970024, 0, 0.243004, 0, 1, 0, -0.243004, 0, 0.970024, -0.00170398, 0.0493729, 0.623801)
 
 [node name="Accent" parent="Spaceship" index="3"]
-light_color = Color(0.113725, 0.113725, 0.266667, 1)
+light_color = Color(0.713726, 0.831373, 0.894118, 1)
+light_energy = 0.098
 
 [node name="Planet" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.25, 0, 6.33795e-07, 0, 0.25, 0, -6.33795e-07, 0, -0.25, 3.72275, 12.4627, -60.6043)
+transform = Transform3D(-0.25, 0, 6.33795e-07, 0, 0.25, 0, -6.33795e-07, 0, -0.25, 3.72275, 28.7924, -54.9282)
 cast_shadow = 0
 mesh = SubResource("3833")
 skeleton = NodePath("")
@@ -425,21 +427,22 @@ surface_material_override/0 = ExtResource("5_nosaa")
 [node name="WorldLight" type="DirectionalLight3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(0.867025, 0.404789, -0.29054, 0.107781, 0.416935, 0.902524, 0.486468, -0.813825, 0.317864, 0, 128, 0)
-light_energy = 0.0
-shadow_bias = 0.007
+light_energy = 0.2
+shadow_enabled = true
+shadow_bias = 0.078
+shadow_normal_bias = 1.422
+shadow_opacity = 0.31
+directional_shadow_blend_splits = true
 directional_shadow_max_distance = 25.0
 
 [node name="FogVolume" type="FogVolume" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -29.5195, -15.7909)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.8623, -15.7909)
 size = Vector3(64, 16, 64)
 shape = 0
 material = SubResource("FogMaterial_2rfwg")
 
 [node name="Environment" parent="." instance=ExtResource("6_wap6o")]
-sky_color = Color(0.113725, 0.113725, 0.266667, 1)
-fog_color = Color(0.290196, 0.168627, 0.403922, 1)
-horizon_color = Color(0.113725, 0.113725, 0.266667, 1)
-horizon_height = -64.0
+fog_color = Color(0.466667, 0.584314, 0.796078, 1)
 
 [node name="Stars" parent="." instance=ExtResource("9_s3nx5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.258, -19.133)
