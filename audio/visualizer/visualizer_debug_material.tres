@@ -8,5 +8,5 @@ gradient = ExtResource("2_wnwpe")
 
 [resource]
 shader = ExtResource("2")
-shader_parameter/background_color = Color(0, 0, 0, 0.6)
+shader_parameter/background_color = Color(0, 0, 0, 0)
 shader_parameter/waveform = SubResource("GradientTexture1D_n7km5")

@@ -1,8 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://dqmb5lg7lcwhf"]
 
-[ext_resource type="Theme" uid="uid://c0qwn552iqqur" path="res://ui/theme/simple_ui_theme.tres" id="1_2fppp"]
 [ext_resource type="Material" uid="uid://d1txi86rfk50c" path="res://audio/visualizer/visualizer_debug_material.tres" id="2_gxrj7"]
 [ext_resource type="Gradient" uid="uid://b71jutk4qdqv3" path="res://audio/visualizer/visualizer_gradient.tres" id="3_q6r2g"]
+
+[sub_resource type="Theme" id="Theme_yr20t"]
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_m2f1b"]
 gradient = ExtResource("3_q6r2g")
@@ -14,7 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_2fppp")
+theme = SubResource("Theme_yr20t")
 
 [node name="Panel" type="Panel" parent="."]
 clip_contents = true
@@ -123,6 +124,10 @@ custom_minimum_size = Vector2(120, 31)
 layout_mode = 2
 text = "Record
 "
+
+[node name="CheckButton" type="CheckButton" parent="Panel/MarginContainer/Controls/HBoxContainer/AudioControls/HBoxContainer"]
+layout_mode = 2
+text = "   Enable Mic "
 
 [node name="AudioControls2" type="VBoxContainer" parent="Panel/MarginContainer/Controls/HBoxContainer"]
 layout_mode = 2

@@ -411,7 +411,7 @@ parameters/screen_state/playback = SubResource("AnimationNodeStateMachinePlaybac
 transform = Transform3D(0.986019, -0.166182, 0.0121321, 0.16498, 0.983898, 0.0687219, -0.0233572, -0.0657595, 0.997561, 0, 0, 0)
 
 [node name="door" parent="Spaceship/spaceship" index="6"]
-transform = Transform3D(0.970024, 0, 0.243004, 0, 1, 0, -0.243004, 0, 0.970024, -0.00170398, 0.0493729, 0.623801)
+transform = Transform3D(0.999985, 0, -0.0052487, 0, 1, 0, 0.0052487, 0, 0.999985, 0.170105, 0.0400872, -0.0149483)
 
 [node name="Accent" parent="Spaceship" index="3"]
 light_color = Color(0.713726, 0.831373, 0.894118, 1)
