@@ -50,3 +50,6 @@ func _on_mission_launch_pressed():
 func _on_mission_stars_pressed():
 	var state_machine = %GameWindow/MissionStateTree.get("parameters/playback")
 	state_machine.travel('stars_light_up')
+
+
+

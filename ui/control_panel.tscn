@@ -125,7 +125,7 @@ layout_mode = 2
 text = "Record
 "
 
-[node name="CheckButton" type="CheckButton" parent="Panel/MarginContainer/Controls/HBoxContainer/AudioControls/HBoxContainer"]
+[node name="enable_mic" type="CheckButton" parent="Panel/MarginContainer/Controls/HBoxContainer/AudioControls/HBoxContainer"]
 custom_minimum_size = Vector2(7.269, 0)
 layout_mode = 2
 text = "   Enable Mic "

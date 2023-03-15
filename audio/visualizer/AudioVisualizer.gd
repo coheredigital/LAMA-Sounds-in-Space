@@ -127,3 +127,7 @@ func _process(delta):
 			var color = Color(level_x,level_y,level_z,level_a)
 			gradient.set_color(i,color)
 
+
+
+func _on_enable_mic_toggled(button_pressed):
+	%AudioStreamRecord.playing = button_pressed
