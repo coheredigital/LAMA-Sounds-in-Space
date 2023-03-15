@@ -132,7 +132,7 @@ transform = Transform3D(-0.0191451, 0, -0.999817, 0, 1, 0, 0.999817, 0, -0.01914
 transform = Transform3D(-0.979691, 0, 0.200514, 0, 1, 0, -0.200514, 0, -0.979691, -9.63367, 1.03565, 6.25391)
 
 [node name="Camera3D" parent="GameWindow/SubViewportContainer/SubViewport/Player" index="0"]
-transform = Transform3D(0.805126, 0.0753688, -0.588296, 1.15484e-07, 0.991893, 0.127075, 0.593104, -0.102312, 0.798599, -10.8537, 2.5, 7.2842)
+transform = Transform3D(0.805126, 0.0753689, -0.588296, 3.72529e-09, 0.991893, 0.127075, 0.593104, -0.102312, 0.798599, -10.8537, 2.5, 7.2842)
 
 [node name="PositionStateTree" parent="GameWindow/SubViewportContainer/SubViewport/Player" index="3"]
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_dvf1w")
