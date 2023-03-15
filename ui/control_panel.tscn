@@ -29,17 +29,16 @@ grow_vertical = 2
 [node name="AudioWaveform" type="TextureRect" parent="Panel"]
 material = ExtResource("2_gxrj7")
 layout_mode = 2
-offset_left = -76.0
-offset_top = 571.0
-offset_right = 1280.0
-offset_bottom = 800.0
+offset_left = -73.0
+offset_top = 493.0
+offset_right = 1283.0
+offset_bottom = 722.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = SubResource("GradientTexture2D_m2f1b")
 expand_mode = 2
-metadata/_edit_lock_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel"]
 layout_mode = 1
@@ -69,11 +68,13 @@ text = "Mission Control
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 
-[node name="ParticipantForm" type="VBoxContainer" parent="Panel/MarginContainer/Controls"]
+[node name="ParticipantForm" type="HBoxContainer" parent="Panel/MarginContainer/Controls"]
 layout_mode = 2
 
 [node name="MissionIDField" type="HBoxContainer" parent="Panel/MarginContainer/Controls/ParticipantForm"]
+custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="Panel/MarginContainer/Controls/ParticipantForm/MissionIDField"]
 custom_minimum_size = Vector2(160, 0)
@@ -81,24 +82,27 @@ layout_mode = 2
 text = "Mission ID
 "
 
-[node name="TextEdit" type="TextEdit" parent="Panel/MarginContainer/Controls/ParticipantForm/MissionIDField"]
+[node name="TextEdit" type="LineEdit" parent="Panel/MarginContainer/Controls/ParticipantForm/MissionIDField"]
 layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="NameField" type="HBoxContainer" parent="Panel/MarginContainer/Controls/ParticipantForm"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/ParticipantForm/NameField"]
-custom_minimum_size = Vector2(160, 0)
-layout_mode = 2
-text = "Participant Name
-"
-
-[node name="TextEdit" type="TextEdit" parent="Panel/MarginContainer/Controls/ParticipantForm/NameField"]
+custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Separator" type="HSeparator" parent="Panel/MarginContainer/Controls/ParticipantForm"]
+[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/ParticipantForm/NameField"]
+custom_minimum_size = Vector2(161.358, 0)
+layout_mode = 2
+text = "Participant Name
+"
+horizontal_alignment = 2
+
+[node name="TextEdit" type="LineEdit" parent="Panel/MarginContainer/Controls/ParticipantForm/NameField"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Separator" type="HSeparator" parent="Panel/MarginContainer/Controls"]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 
@@ -135,19 +139,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 
-[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/HBoxContainer/AudioControls2"]
-layout_mode = 2
-text = "Audio Controls
-"
-
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/Controls/HBoxContainer/AudioControls2"]
 layout_mode = 2
-
-[node name="start_recording" type="Button" parent="Panel/MarginContainer/Controls/HBoxContainer/AudioControls2/HBoxContainer"]
-custom_minimum_size = Vector2(120, 31)
-layout_mode = 2
-text = "Record
-"
 
 [node name="ScreenControls" type="VBoxContainer" parent="Panel/MarginContainer/Controls/HBoxContainer"]
 layout_mode = 2

@@ -1,6 +1,7 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://c0qwn552iqqur"]
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://c0qwn552iqqur"]
 
 [ext_resource type="StyleBox" uid="uid://dy4n2d15axk04" path="res://ui/theme/styles/button_box_flat.tres" id="1_vhd3o"]
+[ext_resource type="StyleBox" uid="uid://uaf6yuo5c7d1" path="res://ui/theme/styles/text_box_flat.tres" id="2_6oi7h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w6k65"]
 bg_color = Color(0.0823529, 0.0823529, 0.207843, 1)
@@ -11,8 +12,10 @@ corner_radius_bottom_left = 4
 
 [resource]
 Button/styles/normal = ExtResource("1_vhd3o")
+LineEdit/styles/normal = ExtResource("2_6oi7h")
 MarginContainer/constants/margin_bottom = 4
 MarginContainer/constants/margin_left = 4
 MarginContainer/constants/margin_right = 4
 MarginContainer/constants/margin_top = 4
 Panel/styles/panel = SubResource("StyleBoxFlat_w6k65")
+TextEdit/styles/normal = ExtResource("2_6oi7h")
