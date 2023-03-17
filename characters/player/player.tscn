@@ -1,29 +1,32 @@
-[gd_scene load_steps=23 format=3]
+[gd_scene load_steps=17 format=3 uid="uid://ciaubij6uaqb8"]
 
 [ext_resource type="Script" path="res://characters/player/player.gd" id="1"]
+[ext_resource type="AnimationLibrary" uid="uid://dip5qx70rf0l0" path="res://characters/player/player_animations.tres" id="2_be13w"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nvk1l"]
-animation = &"player/approach_spaceship"
+animation = &"player_animations/position_boarding"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sadxm"]
-animation = &"player/position_boarding"
+animation = &"player_animations/position_boarding"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_y7cy2"]
-animation = &"player/enter_spaceship"
+animation = &"player_animations/enter_spaceship"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lbgia"]
-animation = &"player/position_intro"
+animation = &"player_animations/position_intro"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hu3hs"]
-animation = &"player/position_sitting"
+animation = &"player_animations/position_sitting"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fg07o"]
 switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_60x8d"]
+xfade_time = 3.12
 switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7g886"]
+xfade_time = 3.04
 switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2g3hl"]
@@ -60,7 +63,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-10.8537, 2.5, 7.2842)]
+"values": [Vector3(-6.52603, 2.46426, 1.7955)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -72,7 +75,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-6.07119, 1.46695, 0.792042)]
+"values": [Vector3(-4.06493, 1.46695, 0.792042)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_os1bd"]
@@ -80,213 +83,31 @@ _data = {
 "RESET": SubResource("Animation_mbj6g")
 }
 
-[sub_resource type="Animation" id="Animation_ch716"]
-resource_name = "player_approach_spaceship"
-length = 5.0
-step = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PositionTarget:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-10.8537, 2.5, 7.2842), Vector3(-4.0814, 2.5, 0.6895)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("LookTarget:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-6.07119, 1.46695, 0.792042), Vector3(-0.103051, 2.03227, 0.871729)]
-}
-
-[sub_resource type="Animation" id="Animation_2aauk"]
-resource_name = "player_enter_spaceship"
-length = 6.0
-step = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("LookTarget:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 5.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-0.103051, 2.32933, 0.871729), Vector3(-0.0715632, 2.54856, -2.87139)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("PositionTarget:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 2.5, 5.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(-4.0814, 2.5, 0.6895), Vector3(-0.332051, 2.07097, 0.83749), Vector3(-0.0837799, 2.21405, -0.52231)]
-}
-
-[sub_resource type="Animation" id="Animation_p3n66"]
-resource_name = "position_boarding"
-length = 0.001
-step = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PositionTarget:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-4.0814, 2.5, 0.6895)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("LookTarget:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.103051, 2.03227, 0.871729)]
-}
-
-[sub_resource type="Animation" id="Animation_y3auc"]
-resource_name = "player_stand"
-length = 2.0
-step = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("LookTarget:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.0715632, 2.54856, -2.87139)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("PositionTarget:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.0837799, 2.21405, -0.52231)]
-}
-
-[sub_resource type="Animation" id="Animation_ej8lj"]
-resource_name = "position_intro"
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PositionTarget:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-10.8537, 2.5, 7.2842)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("LookTarget:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-6.07119, 1.46695, 0.792042)]
-}
-
-[sub_resource type="Animation" id="Animation_u1waw"]
-resource_name = "player_sit"
-length = 2.0
-step = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("LookTarget:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.224004, 2.43433, -2.87139)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("PositionTarget:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.294017, 2.22313, -0.854775)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_wjiuk"]
-_data = {
-"approach_spaceship": SubResource("Animation_ch716"),
-"enter_spaceship": SubResource("Animation_2aauk"),
-"position_boarding": SubResource("Animation_p3n66"),
-"position_cockpit": SubResource("Animation_y3auc"),
-"position_intro": SubResource("Animation_ej8lj"),
-"position_sitting": SubResource("Animation_u1waw")
-}
-
 [node name="Player" type="Node"]
 script = ExtResource("1")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.805126, 0.0753688, -0.588296, 1.15484e-07, 0.991893, 0.127075, 0.593104, -0.102312, 0.798599, -10.8537, 2.5, 7.2842)
+transform = Transform3D(0.377551, 0.325317, -0.866962, 3.27826e-07, 0.936256, 0.351319, 0.925989, -0.132641, 0.353485, -6.52603, 2.46426, 1.7955)
 current = true
 fov = 65.0
 far = 800.0
 
 [node name="PositionTarget" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8537, 2.5, 7.2842)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.52603, 2.46426, 1.7955)
 
 [node name="LookTarget" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.07119, 1.46695, 0.792042)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.06493, 1.46695, 0.792042)
 
 [node name="PositionStateTree" type="AnimationTree" parent="."]
 unique_name_in_owner = true
 tree_root = SubResource("AnimationNodeStateMachine_flr11")
-anim_player = NodePath("../AnimationPlayer")
+anim_player = NodePath("AnimationPlayer")
 active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_75b4d")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PositionStateTree"]
+root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_os1bd"),
-"player": SubResource("AnimationLibrary_wjiuk")
+"player_animations": ExtResource("2_be13w")
 }

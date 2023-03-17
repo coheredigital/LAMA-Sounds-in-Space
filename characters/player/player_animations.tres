@@ -1,33 +1,4 @@
-[gd_resource type="AnimationLibrary" load_steps=7 format=3 uid="uid://dip5qx70rf0l0"]
-
-[sub_resource type="Animation" id="Animation_ch716"]
-resource_name = "player_approach_spaceship"
-length = 5.0
-step = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SubViewportContainer/SubViewport/Player/PositionTarget:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-10.8537, 2.5, 7.2842), Vector3(-4.0814, 2.5, 0.6895)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SubViewportContainer/SubViewport/Player/LookTarget:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-6.07119, 1.46695, 0.792042), Vector3(-0.103051, 2.03227, 0.871729)]
-}
+[gd_resource type="AnimationLibrary" load_steps=6 format=3 uid="uid://dip5qx70rf0l0"]
 
 [sub_resource type="Animation" id="Animation_2aauk"]
 resource_name = "player_enter_spaceship"
@@ -36,7 +7,7 @@ step = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SubViewportContainer/SubViewport/Player/LookTarget:position")
+tracks/0/path = NodePath("LookTarget:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -48,7 +19,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SubViewportContainer/SubViewport/Player/PositionTarget:position")
+tracks/1/path = NodePath("PositionTarget:position")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -56,18 +27,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector3(-4.0814, 2.5, 0.6895), Vector3(-0.332051, 2.07097, 0.83749), Vector3(-0.0837799, 2.21405, -0.52231)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("SubViewportContainer/SubViewport/Environment/Spaceship:door_open")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(2.5),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_p3n66"]
@@ -77,7 +36,7 @@ step = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SubViewportContainer/SubViewport/Player/PositionTarget:position")
+tracks/0/path = NodePath("PositionTarget:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -89,7 +48,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SubViewportContainer/SubViewport/Player/LookTarget:position")
+tracks/1/path = NodePath("LookTarget:position")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -106,7 +65,7 @@ step = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SubViewportContainer/SubViewport/Player/LookTarget:position")
+tracks/0/path = NodePath("LookTarget:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -118,7 +77,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SubViewportContainer/SubViewport/Player/PositionTarget:position")
+tracks/1/path = NodePath("PositionTarget:position")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -134,26 +93,26 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SubViewportContainer/SubViewport/Player/PositionTarget:position")
+tracks/0/path = NodePath("PositionTarget:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-10.8537, 2.5, 7.2842)]
+"values": [Vector3(-6.85147, 2.66122, 1.69658)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SubViewportContainer/SubViewport/Player/LookTarget:position")
+tracks/1/path = NodePath("LookTarget:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-6.07119, 1.46695, 0.792042)]
+"values": [Vector3(-4.07884, 2.28889, -0.351151)]
 }
 
 [sub_resource type="Animation" id="Animation_u1waw"]
@@ -163,7 +122,7 @@ step = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SubViewportContainer/SubViewport/Player/LookTarget:position")
+tracks/0/path = NodePath("LookTarget:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -175,7 +134,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SubViewportContainer/SubViewport/Player/PositionTarget:position")
+tracks/1/path = NodePath("PositionTarget:position")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -187,7 +146,6 @@ tracks/1/keys = {
 
 [resource]
 _data = {
-"approach_spaceship": SubResource("Animation_ch716"),
 "enter_spaceship": SubResource("Animation_2aauk"),
 "position_boarding": SubResource("Animation_p3n66"),
 "position_cockpit": SubResource("Animation_y3auc"),
