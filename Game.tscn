@@ -84,6 +84,9 @@ bus = &"Record"
 
 [node name="ControlPanel" parent="." instance=ExtResource("10_ep7ri")]
 
+[node name="Label" parent="ControlPanel/Panel/MarginContainer/Controls/ParticipantForm/MissionIDField" index="0"]
+text = "Study ID"
+
 [node name="GameWindow" parent="." instance=ExtResource("3_ljibd")]
 unique_name_in_owner = true
 visible = false
@@ -133,7 +136,7 @@ transform = Transform3D(-0.0191451, 0, -0.999817, 0, 1, 0, 0.999817, 0, -0.01914
 transform = Transform3D(-0.979691, 0, 0.200514, 0, 1, 0, -0.200514, 0, -0.979691, -9.63367, 1.03565, 6.25391)
 
 [node name="Camera3D" parent="GameWindow/SubViewportContainer/SubViewport/Player" index="0"]
-transform = Transform3D(0.805126, 0.0753688, -0.588296, 1.45286e-07, 0.991893, 0.127075, 0.593104, -0.102312, 0.798599, -10.8537, 2.5, 7.2842)
+transform = Transform3D(0.805126, 0.0753688, -0.588296, 1.15484e-07, 0.991893, 0.127075, 0.593104, -0.102312, 0.798599, -10.8537, 2.5, 7.2842)
 
 [node name="PositionStateTree" parent="GameWindow/SubViewportContainer/SubViewport/Player" index="3"]
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_dvf1w")

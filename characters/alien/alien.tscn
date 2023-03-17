@@ -23,46 +23,34 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible")
+tracks/0/path = NodePath("alien/arm_right:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [true]
+"values": [Vector3(-0.10356, -0.149164, -1.97781)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("alien/arm_right:rotation")
+tracks/1/path = NodePath("alien/arm_left/forearm_left:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-0.10356, -0.149164, -1.97781)]
+"values": [Vector3(-0.492753, -0.970212, 1.4582)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("alien/arm_left/forearm_left:rotation")
+tracks/2/path = NodePath("alien/arm_right/forearm_right:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.492753, -0.970212, 1.4582)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("alien/arm_right/forearm_right:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -161,16 +149,16 @@ libraries = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.64144, 0, 0.046875)
 
 [node name="head" parent="alien" index="0"]
-transform = Transform3D(0.993156, 0.0536544, 0.103743, -0.049079, 0.997728, -0.0461655, -0.105985, 0.040758, 0.993532, -2.625, 1.42188, -0.046875)
+transform = Transform3D(0.997684, -0.0610246, -0.0300579, 0.0632968, 0.994657, 0.081566, 0.0249197, -0.0832796, 0.996214, -2.625, 1.42188, -0.046875)
 
 [node name="arm_left" parent="alien" index="1"]
-transform = Transform3D(0.916157, -0.392943, -0.0790721, 0.39988, 0.90955, 0.113206, 0.0274366, -0.135334, 0.990421, -2.46875, 1.34375, -0.046875)
+transform = Transform3D(0.911961, -0.409251, -0.0290229, 0.40955, 0.912274, 0.00499828, 0.0244313, -0.0164446, 0.999567, -2.46875, 1.34375, -0.046875)
 
 [node name="forearm_left" parent="alien/arm_left" index="0"]
-transform = Transform3D(0.451297, -0.517696, -0.726858, 0.875455, 0.0989918, 0.473053, -0.172945, -0.849819, 0.497894, 0.265625, 7.15256e-07, -9.68575e-08)
+transform = Transform3D(0.207496, -0.452927, -0.867065, 0.953502, -0.104412, 0.282723, -0.218585, -0.885413, 0.410202, 0.265625, 7.15256e-07, -9.68575e-08)
 
 [node name="arm_right" parent="alien" index="3"]
-transform = Transform3D(-0.40558, 0.902028, -0.147815, -0.913387, -0.393748, 0.103375, 0.0350452, 0.176939, 0.983598, -2.78125, 1.34375, -0.046875)
+transform = Transform3D(-0.268595, 0.962769, -0.0305255, -0.961957, -0.269742, -0.0433212, -0.0499423, 0.0177284, 0.998595, -2.78125, 1.34375, -0.046875)
 
 [node name="forearm_right" parent="alien/arm_right" index="0"]
-transform = Transform3D(0.885325, 0.00248433, -0.464965, -0.0586146, 0.992605, -0.106303, 0.461262, 0.121366, 0.878924, 0.264508, -0.0193959, 0.0146966)
+transform = Transform3D(0.956587, -0.120317, -0.265449, 0.0922464, 0.988976, -0.115835, 0.276459, 0.0863198, 0.957141, 0.264508, -0.0193959, 0.0146966)

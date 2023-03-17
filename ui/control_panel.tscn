@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqmb5lg7lcwhf"]
+[gd_scene load_steps=6 format=3 uid="uid://dqmb5lg7lcwhf"]
 
 [ext_resource type="Material" uid="uid://d1txi86rfk50c" path="res://audio/visualizer/visualizer_debug_material.tres" id="2_gxrj7"]
+[ext_resource type="PackedScene" uid="uid://br8xc3xjk04s" path="res://audio/recorder/MicRecord.tscn" id="3_cdqfj"]
 [ext_resource type="Gradient" uid="uid://b71jutk4qdqv3" path="res://audio/visualizer/visualizer_gradient.tres" id="3_q6r2g"]
 
 [sub_resource type="Theme" id="Theme_yr20t"]
@@ -77,14 +78,14 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="Panel/MarginContainer/Controls/ParticipantForm/MissionIDField"]
-custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
-text = "Mission ID
+text = "Study ID
 "
 
 [node name="TextEdit" type="LineEdit" parent="Panel/MarginContainer/Controls/ParticipantForm/MissionIDField"]
 layout_mode = 2
 size_flags_horizontal = 3
+placeholder_text = "ABC"
 
 [node name="NameField" type="HBoxContainer" parent="Panel/MarginContainer/Controls/ParticipantForm"]
 custom_minimum_size = Vector2(0, 32)
@@ -92,15 +93,39 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="Panel/MarginContainer/Controls/ParticipantForm/NameField"]
-custom_minimum_size = Vector2(161.358, 0)
 layout_mode = 2
-text = "Participant Name
+text = "Participant ID
 "
 horizontal_alignment = 2
 
-[node name="TextEdit" type="LineEdit" parent="Panel/MarginContainer/Controls/ParticipantForm/NameField"]
+[node name="TextEdit" type="SpinBox" parent="Panel/MarginContainer/Controls/ParticipantForm/NameField"]
 layout_mode = 2
 size_flags_horizontal = 3
+min_value = 1.0
+max_value = 999.0
+value = 1.0
+allow_greater = true
+alignment = 2
+
+[node name="NameField2" type="HBoxContainer" parent="Panel/MarginContainer/Controls/ParticipantForm"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/ParticipantForm/NameField2"]
+layout_mode = 2
+text = "Participant ID
+"
+horizontal_alignment = 2
+
+[node name="TextEdit" type="SpinBox" parent="Panel/MarginContainer/Controls/ParticipantForm/NameField2"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1.0
+max_value = 999.0
+value = 1.0
+allow_greater = true
+alignment = 2
 
 [node name="Separator" type="HSeparator" parent="Panel/MarginContainer/Controls"]
 custom_minimum_size = Vector2(0, 32)
@@ -245,3 +270,10 @@ text = "Stars"
 custom_minimum_size = Vector2(120, 31)
 layout_mode = 2
 text = "Warp"
+
+[node name="MicRecord" parent="." instance=ExtResource("3_cdqfj")]
+layout_mode = 1
+offset_left = 288.0
+offset_top = 492.0
+offset_right = -453.0
+offset_bottom = -146.0

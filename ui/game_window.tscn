@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bw70w15xhifwc"]
+[gd_scene load_steps=14 format=3 uid="uid://bw70w15xhifwc"]
 
 [ext_resource type="AnimationNodeStateMachine" uid="uid://c23xty37kg5n2" path="res://animations/mission_state_tree.tres" id="1_0f2d7"]
 [ext_resource type="PackedScene" uid="uid://d1vswr8s4m5gh" path="res://level/level.tscn" id="2_2c52u"]
@@ -103,6 +103,10 @@ _data = {
 "RESET": SubResource("Animation_p0umf")
 }
 
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_paaf8"]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_h3gny"]
+
 [node name="GameWindow" type="Window"]
 initial_position = 1
 size = Vector2i(1280, 720)
@@ -142,14 +146,43 @@ render_target_update_mode = 4
 transform = Transform3D(0.999995, 0, 0, 0, 1, 0, 0, 0, 0.999998, -10.6656, 2.10132, 5.55682)
 state = "intro"
 
+[node name="StateTree" parent="SubViewportContainer/SubViewport/Character" index="0"]
+active = false
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_paaf8")
+
+[node name="ActionTree" parent="SubViewportContainer/SubViewport/Character" index="1"]
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_h3gny")
+
+[node name="character" parent="SubViewportContainer/SubViewport/Character" index="2"]
+transform = Transform3D(0.997429, 0, -0.0716511, 0, 1, 0, 0.0716513, 0, 0.997427, 0, 0, 0)
+
+[node name="helmet" parent="SubViewportContainer/SubViewport/Character/character" index="0"]
+transform = Transform3D(0.996006, 0.0227564, 0.0863203, -0.0333301, 0.991832, 0.123104, -0.082814, -0.12549, 0.988631, 0, 0.359375, 0)
+
+[node name="face" parent="SubViewportContainer/SubViewport/Character/character/helmet" index="3"]
+transform = Transform3D(1, -4.82672e-10, -1.26069e-09, 2.36301e-10, 0.982061, -0.188558, 1.32908e-09, 0.188558, 0.982062, 0.00768932, 0.217194, 0.0399466)
+
+[node name="arm_right" parent="SubViewportContainer/SubViewport/Character/character" index="1"]
+transform = Transform3D(0.910434, 0.400251, -0.104441, -0.412166, 0.899161, -0.147065, 0.0350463, 0.176939, 0.983598, -0.203125, 0.296875, -2.32831e-10)
+
+[node name="arm_left" parent="SubViewportContainer/SubViewport/Character/character" index="2"]
+transform = Transform3D(0.91263, -0.406936, -0.0388891, 0.408035, 0.912593, 0.0261646, 0.0248426, -0.0397466, 0.998901, 0.25, 0.296875, 3.72529e-09)
+
+[node name="forarm_left" parent="SubViewportContainer/SubViewport/Character/character/arm_left" index="0"]
+transform = Transform3D(0.897888, 0.0713003, -0.434411, 0.434411, -0.303331, 0.848102, -0.0713003, -0.950214, -0.303331, 0, -0.28125, -3.72529e-09)
+
 [node name="Alien" parent="SubViewportContainer/SubViewport" instance=ExtResource("8_q0ypx")]
 transform = Transform3D(0.0793638, 0, -0.996846, 0, 1, 0, 0.996846, 0, 0.0793638, -8.71262, 1.01353, 6.54353)
+visible = false
 
 [node name="Lama" parent="SubViewportContainer/SubViewport" instance=ExtResource("9_ult1b")]
 transform = Transform3D(0.126251, 0, 0.991998, 0, 1, 0, -0.991998, 0, 0.126251, -8.77746, 1.03158, 5.20941)
+visible = false
 
 [node name="Player" parent="SubViewportContainer/SubViewport" instance=ExtResource("7_mwy2h")]
 follow_speed = 1.96
 turn_speed = 4.469
 distance_buffer = 3.438
 distance_boost = 2.904
+
+[editable path="SubViewportContainer/SubViewport/Character"]
