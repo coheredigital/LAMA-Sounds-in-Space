@@ -141,7 +141,7 @@ render_target_update_mode = 4
 [node name="Level" parent="SubViewportContainer/SubViewport" instance=ExtResource("2_2c52u")]
 
 [node name="Character" parent="SubViewportContainer/SubViewport" instance=ExtResource("6_8i88j")]
-transform = Transform3D(0.963162, 0, -0.268902, 0, 1, 0, 0.268901, 0, 0.963165, -6.33502, 2.10132, 0.0940139)
+transform = Transform3D(0.963162, 0, -0.268902, 0, 1, 0, 0.268902, 0, 0.963165, -6.33502, 2.10132, 0.0940139)
 state = "intro"
 
 [node name="Alien" parent="SubViewportContainer/SubViewport" instance=ExtResource("8_q0ypx")]
@@ -151,14 +151,13 @@ transform = Transform3D(0.0793638, 0, -0.996846, 0, 1, 0, 0.996846, 0, 0.0793638
 transform = Transform3D(0.126251, 0, 0.991998, 0, 1, 0, -0.991998, 0, 0.126251, -8.77746, 1.03158, 5.20941)
 
 [node name="Player" parent="SubViewportContainer/SubViewport" instance=ExtResource("7_mwy2h")]
-state = "approach_spaceship"
 follow_speed = 1.96
 turn_speed = 4.469
 distance_buffer = 3.438
 distance_boost = 2.904
 
 [node name="Camera3D" parent="SubViewportContainer/SubViewport/Player" index="0"]
-transform = Transform3D(-0.045758, 0.116522, -0.992134, 4.47035e-08, 0.993174, 0.116644, 0.998953, 0.00533736, -0.0454457, -4.0814, 2.5, 0.6895)
+transform = Transform3D(0.59409, 0.0863893, -0.799746, -7.45058e-09, 0.994216, 0.107396, 0.804399, -0.0638029, 0.590654, -6.85147, 2.66122, 1.69658)
 
 [node name="PositionStateTree" parent="SubViewportContainer/SubViewport/Player" index="3"]
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_1ch33")
