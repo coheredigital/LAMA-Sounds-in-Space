@@ -1,7 +1,7 @@
 @tool
 extends Node
 
-@export_enum("home","launch","stars_light","warp") var state: String = "home":
+@export_enum("home","launch","stars_light","warp","landing") var state: String = "home":
 	set(value):
 		state = value
 		if %StateTree:

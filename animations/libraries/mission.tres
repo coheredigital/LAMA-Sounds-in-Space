@@ -1,4 +1,4 @@
-[gd_resource type="AnimationLibrary" load_steps=10 format=3 uid="uid://bc4hsf1v4gx2q"]
+[gd_resource type="AnimationLibrary" load_steps=11 format=3 uid="uid://bc4hsf1v4gx2q"]
 
 [sub_resource type="Animation" id="Animation_apv81"]
 resource_name = "approach_spaceship"
@@ -307,12 +307,30 @@ tracks/0/keys = {
 "values": ["warp"]
 }
 
+[sub_resource type="Animation" id="Animation_1sstv"]
+resource_name = "landing"
+length = 8.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/Level:state")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["landing"]
+}
+
 [resource]
 _data = {
 "approach_spaceship": SubResource("Animation_apv81"),
 "countdown": SubResource("Animation_47d11"),
 "enter_spaceship": SubResource("Animation_2hkov"),
 "intro": SubResource("Animation_scgrp"),
+"landing": SubResource("Animation_1sstv"),
 "launch": SubResource("Animation_a5ge3"),
 "pre_launch": SubResource("Animation_wmmeq"),
 "stars_light_up": SubResource("Animation_bd1uy"),

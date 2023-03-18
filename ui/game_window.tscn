@@ -1,9 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://bw70w15xhifwc"]
+[gd_scene load_steps=19 format=3 uid="uid://bw70w15xhifwc"]
 
 [ext_resource type="AnimationNodeStateMachine" uid="uid://c23xty37kg5n2" path="res://animations/mission_state_tree.tres" id="1_0f2d7"]
-[ext_resource type="PackedScene" uid="uid://d1vswr8s4m5gh" path="res://level/level.tscn" id="2_2c52u"]
+[ext_resource type="PackedScene" uid="uid://dahkxa81prn10" path="res://level/level.tscn" id="2_2c52u"]
 [ext_resource type="AnimationLibrary" uid="uid://bc4hsf1v4gx2q" path="res://animations/libraries/mission.tres" id="2_wiigf"]
 [ext_resource type="AnimationLibrary" uid="uid://d4hu2xr0cuoh8" path="res://animations/libraries/pre_launch.tres" id="3_xc1kt"]
+[ext_resource type="Shader" path="res://shaders/toon.gdshader" id="5_5qy3w"]
+[ext_resource type="Script" path="res://level/spaceship/spaceship.gd" id="5_7rlnh"]
 [ext_resource type="PackedScene" uid="uid://cq3x5n33r2d8c" path="res://characters/character/character.tscn" id="6_8i88j"]
 [ext_resource type="PackedScene" uid="uid://ciaubij6uaqb8" path="res://characters/player/player.tscn" id="7_mwy2h"]
 [ext_resource type="PackedScene" uid="uid://bq23ckwovuhf4" path="res://characters/alien/alien.tscn" id="8_q0ypx"]
@@ -97,11 +99,70 @@ tracks/6/keys = {
 "update": 1,
 "values": ["home"]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SubViewportContainer/SubViewport/Level/Environment/Ground/planet_stardust/Alien:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("SubViewportContainer/SubViewport/Level/Environment/Ground/planet_stardust/Lama:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_68h00"]
 _data = {
 "RESET": SubResource("Animation_p0umf")
 }
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_dmno2"]
+
+[sub_resource type="Gradient" id="18"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.0777027, 0.169916, 0.226351, 0.307432, 0.39527, 0.459459, 0.503378, 0.567568, 0.716981, 0.797297, 0.912162, 0.986072)
+colors = PackedColorArray(0.397039, 0.190276, 0.476563, 1, 0.397039, 0.190276, 0.476563, 1, 0.385435, 0.21108, 0.487957, 1, 0.368764, 0.240969, 0.504327, 1, 0.349939, 0.274717, 0.52281, 1, 0.325323, 0.31885, 0.546981, 1, 0.34087, 0.290977, 0.531715, 1, 0.296851, 0.369894, 0.574937, 1, 0.293041, 0.376725, 0.578678, 1, 0.314778, 0.337755, 0.557335, 1, 0.26814, 0.421369, 0.603129, 1, 0.241887, 0.468435, 0.628906, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2qk74"]
+resource_local_to_scene = true
+gradient = SubResource("18")
+width = 512
+height = 512
+fill = 1
+fill_from = Vector2(0.653846, 0.397436)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dvrrq"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("5_5qy3w")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/specular = 0.5
+shader_parameter/specular_amount = 0.5
+shader_parameter/specular_smoothness = 0.05
+shader_parameter/wrap = 0.25
+shader_parameter/rim = 0.5
+shader_parameter/rim_amount = 0.2
+shader_parameter/rim_smoothness = 0.05
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 1.0
+shader_parameter/emission = Color(0, 0, 0, 1)
+shader_parameter/emission_energy = 0.193
+shader_parameter/use_alpha = false
+shader_parameter/albedo_texture = SubResource("GradientTexture2D_2qk74")
+shader_parameter/emission_texture = SubResource("GradientTexture2D_2qk74")
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_1ch33"]
 
@@ -139,28 +200,96 @@ size = Vector2i(1280, 720)
 render_target_update_mode = 4
 
 [node name="Level" parent="SubViewportContainer/SubViewport" instance=ExtResource("2_2c52u")]
+state = "home"
+
+[node name="StateTree" parent="SubViewportContainer/SubViewport/Level" index="0"]
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_dmno2")
+
+[node name="AnimationPlayer" parent="SubViewportContainer/SubViewport/Level/StateTree" index="0"]
+reset_on_save = true
+
+[node name="Spaceship" parent="SubViewportContainer/SubViewport/Level" index="1"]
+script = ExtResource("5_7rlnh")
+screen_state = "idle"
+
+[node name="Planet" parent="SubViewportContainer/SubViewport/Level" index="2"]
+transform = Transform3D(-0.249969, 0, -0.00392246, 0, 0.25, 0, 0.00392246, 0, -0.249969, 3.72275, 28.7924, -54.9282)
+surface_material_override/0 = SubResource("ShaderMaterial_dvrrq")
+
+[node name="Environment" parent="SubViewportContainer/SubViewport/Level" index="4"]
+sky_color = Color(0.164706, 0.172549, 0.301961, 1)
+ground_color = Color(0.623529, 0.721569, 0.596078, 1)
+horizon_height = 0.038
+
+[node name="Ground" parent="SubViewportContainer/SubViewport/Level/Environment" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.038, 0)
+
+[node name="space_station" parent="SubViewportContainer/SubViewport/Level/Environment/Ground" index="2"]
+visible = true
+
+[node name="planet_stardust" parent="SubViewportContainer/SubViewport/Level/Environment/Ground" index="3"]
+visible = false
+
+[node name="Alien" parent="SubViewportContainer/SubViewport/Level/Environment/Ground/planet_stardust" index="1" instance=ExtResource("8_q0ypx")]
+transform = Transform3D(0.999969, 0, 0.00795862, 0, 1, 0, -0.00795862, 0, 0.999969, 0, 1.16156, -4.03149)
+
+[node name="Lama" parent="SubViewportContainer/SubViewport/Level/Environment/Ground/planet_stardust" index="2" instance=ExtResource("9_ult1b")]
+transform = Transform3D(-0.693188, 0, 0.720757, 0, 1, 0, -0.720757, 0, -0.693188, 1.06523, 1.25392, -3.57965)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/Level/Environment/Ground/planet_stardust" index="3"]
+transform = Transform3D(1, 0, 0, 0, 0.925818, 0.37797, 0, -0.37797, 0.925818, 0, 4.23888, -1.83817)
+light_energy = 0.215
+spot_attenuation = 0.965939
+
+[node name="Positions" parent="SubViewportContainer/SubViewport/Level/Stars" index="0"]
+transform = Transform3D(7.529, -9.00084e-07, 0, 1.13685e-06, 5.961, 0, 0, 0, 1.217, 0, 0, 0)
+
+[node name="StarTransform1" parent="SubViewportContainer/SubViewport/Level/Stars/Positions" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -2)
+
+[node name="StarTransform2" parent="SubViewportContainer/SubViewport/Level/Stars/Positions" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.45021, 2.48044, -0.999998)
+
+[node name="StarTransform3" parent="SubViewportContainer/SubViewport/Level/Stars/Positions" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.53659e-07, 3.72628, 0)
+
+[node name="StarTransform4" parent="SubViewportContainer/SubViewport/Level/Stars/Positions" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.60207, 2.16581, 0.999999)
+
+[node name="StarTransform5" parent="SubViewportContainer/SubViewport/Level/Stars/Positions" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.11041, -6.55651e-07, 2)
+
+[node name="Star1" parent="SubViewportContainer/SubViewport/Level/Stars" index="1"]
+transform = Transform3D(1.781, 0, 0, 0, 1.781, 0, 0, 0, 1.781, -37.645, -5.72205e-06, -2.434)
+
+[node name="Star2" parent="SubViewportContainer/SubViewport/Level/Stars" index="2"]
+transform = Transform3D(1.781, 0, 0, 0, 1.781, 0, 0, 0, 1.781, -25.9766, 14.7859, -1.217)
+
+[node name="Star3" parent="SubViewportContainer/SubViewport/Level/Stars" index="3"]
+transform = Transform3D(1.781, 0, 0, 0, 1.781, 0, 0, 0, 1.781, 6.16326e-08, 22.2124, 0)
+
+[node name="Star4" parent="SubViewportContainer/SubViewport/Level/Stars" index="4"]
+transform = Transform3D(1.781, 0, 0, 0, 1.781, 0, 0, 0, 1.781, 34.649, 12.9104, 1.217)
+
+[node name="Star5" parent="SubViewportContainer/SubViewport/Level/Stars" index="5"]
+transform = Transform3D(1.81748, 0, 0, 0, 1.81748, 0, 0, 0, 1.81748, 38.4763, 1.90735e-06, 2.434)
 
 [node name="Character" parent="SubViewportContainer/SubViewport" instance=ExtResource("6_8i88j")]
 transform = Transform3D(0.963162, 0, -0.268902, 0, 1, 0, 0.268902, 0, 0.963165, -6.33502, 2.10132, 0.0940139)
-state = "sitting"
-
-[node name="Alien" parent="SubViewportContainer/SubViewport" instance=ExtResource("8_q0ypx")]
-transform = Transform3D(0.0793638, 0, -0.996846, 0, 1, 0, 0.996846, 0, 0.0793638, -8.71262, 1.01353, 6.54353)
-
-[node name="Lama" parent="SubViewportContainer/SubViewport" instance=ExtResource("9_ult1b")]
-transform = Transform3D(0.126251, 0, 0.991998, 0, 1, 0, -0.991998, 0, 0.126251, -8.77746, 1.03158, 5.20941)
 
 [node name="Player" parent="SubViewportContainer/SubViewport" instance=ExtResource("7_mwy2h")]
-state = "sitting"
 follow_speed = 1.96
 turn_speed = 4.469
 distance_buffer = 3.438
 distance_boost = 2.904
 
 [node name="Camera3D" parent="SubViewportContainer/SubViewport/Player" index="0"]
-transform = Transform3D(0.999398, 0.00361193, 0.0345088, 5.82077e-10, 0.994567, -0.104098, -0.0346973, 0.104036, 0.993968, 0.294017, 2.22313, -0.854775)
+transform = Transform3D(0.59409, 0.0863893, -0.799746, 2.6077e-08, 0.994216, 0.107396, 0.804399, -0.063803, 0.590654, -6.85147, 2.66122, 1.69658)
 
 [node name="PositionStateTree" parent="SubViewportContainer/SubViewport/Player" index="3"]
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_1ch33")
 
+[editable path="SubViewportContainer/SubViewport/Level"]
+[editable path="SubViewportContainer/SubViewport/Level/Environment"]
+[editable path="SubViewportContainer/SubViewport/Level/Stars"]
 [editable path="SubViewportContainer/SubViewport/Player"]

@@ -16,8 +16,8 @@ const SKY_SIZE = 64.0
 @export_range(-64.0, 0.0) var horizon_height := 0.0 : 
 	set(value):
 		horizon_height = value
-		if %SpaceStation:
-			%SpaceStation.position.y = value
+		if %Ground:
+			%Ground.position.y = value
 		if sky_material:
 			sky_material.set_shader_parameter("horizon_height", value / SKY_SIZE)
 			

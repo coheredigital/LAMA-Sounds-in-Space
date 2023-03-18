@@ -16,6 +16,11 @@ extends Node3D
 			var state_machine : AnimationNodeStateMachinePlayback = %AnimationTree.get("parameters/door_state/playback")
 			state_machine.travel( 'open' if door_open else 'close' ) 
 
+@export var siren_active := false : 
+	set(value):
+		siren_active = value
+		if %Siren:
+			%Siren.active = siren_active
 
 @export_range(0.0,1.0) var steering_motion := 0.0 : 
 	set(value):

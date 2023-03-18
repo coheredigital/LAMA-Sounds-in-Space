@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cq3x5n33r2d8c"]
+[gd_scene load_steps=28 format=3 uid="uid://cq3x5n33r2d8c"]
 
 [ext_resource type="PackedScene" uid="uid://whalw4rdvy64" path="res://characters/character/character.gltf" id="1"]
 [ext_resource type="Material" uid="uid://bx7exngufqj3u" path="res://characters/character/materials/character_material.tres" id="2"]
@@ -6,55 +6,84 @@
 [ext_resource type="AnimationLibrary" uid="uid://bbcnd7nev7420" path="res://characters/character/materials/character_positions.tres" id="3_y5uxh"]
 [ext_resource type="AnimationLibrary" uid="uid://c4hslfw7atlus" path="res://characters/character/character_actions.tres" id="4_cmukm"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_srqh5"]
-animation = &"character_positions/enter_spaceship"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kjlnr"]
+animation = &"actions/idle"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_d7xpr"]
-animation = &"character/position_intro"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3i75r"]
+animation = &"actions/talk"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_g5yjc"]
-animation = &"character_positions/cockpit_sitting"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qeutw"]
-animation = &"character_positions/cockpit_standing"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cdeol"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bftsn"]
 switch_mode = 2
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jvddq"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fwopg"]
+xfade_time = 0.46
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_n4doy"]
+xfade_time = 0.89
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_gqfoj"]
+states/idle/node = SubResource("AnimationNodeAnimation_kjlnr")
+states/idle/position = Vector2(354, 100)
+states/talk/node = SubResource("AnimationNodeAnimation_3i75r")
+states/talk/position = Vector2(482, 100)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_bftsn"), "idle", "talk", SubResource("AnimationNodeStateMachineTransition_fwopg"), "talk", "idle", SubResource("AnimationNodeStateMachineTransition_n4doy")]
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_del6b"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vs4va"]
+animation = &"positions/enter_spaceship"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mkn6m"]
+animation = &"positions/intro"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qgw3k"]
+animation = &"positions/cockpit_sitting"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_oxh5o"]
+animation = &"positions/cockpit_standing"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_81ykl"]
 switch_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_al8lj"]
-xfade_time = 1.08
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_oq8ni"]
 switch_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_w2pdv"]
-xfade_time = 0.77
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_w3ko8"]
 switch_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5f8b1"]
-xfade_time = 0.59
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7g8t0"]
 switch_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mpnd6"]
-xfade_time = 1.18
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_b583j"]
 switch_mode = 2
 
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_h65gc"]
-states/End/position = Vector2(1320, 76)
-states/Start/position = Vector2(168, 93)
-states/enter_spaceship/node = SubResource("AnimationNodeAnimation_srqh5")
-states/enter_spaceship/position = Vector2(510, 93)
-states/intro/node = SubResource("AnimationNodeAnimation_d7xpr")
-states/intro/position = Vector2(331, 93)
-states/sitting/node = SubResource("AnimationNodeAnimation_g5yjc")
-states/sitting/position = Vector2(852, 93)
-states/standing/node = SubResource("AnimationNodeAnimation_qeutw")
-states/standing/position = Vector2(693, 93)
-transitions = ["Start", "intro", SubResource("AnimationNodeStateMachineTransition_cdeol"), "intro", "enter_spaceship", SubResource("AnimationNodeStateMachineTransition_jvddq"), "enter_spaceship", "standing", SubResource("AnimationNodeStateMachineTransition_al8lj"), "standing", "sitting", SubResource("AnimationNodeStateMachineTransition_w2pdv"), "sitting", "standing", SubResource("AnimationNodeStateMachineTransition_5f8b1"), "standing", "enter_spaceship", SubResource("AnimationNodeStateMachineTransition_mpnd6")]
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_yvqnv"]
+states/End/position = Vector2(1343, 131)
+states/Start/position = Vector2(218, 131)
+states/enter_spaceship/node = SubResource("AnimationNodeAnimation_vs4va")
+states/enter_spaceship/position = Vector2(581, 131)
+states/intro/node = SubResource("AnimationNodeAnimation_mkn6m")
+states/intro/position = Vector2(411, 131)
+states/sitting/node = SubResource("AnimationNodeAnimation_qgw3k")
+states/sitting/position = Vector2(888, 131)
+states/standing/node = SubResource("AnimationNodeAnimation_oxh5o")
+states/standing/position = Vector2(745, 131)
+transitions = ["Start", "intro", SubResource("AnimationNodeStateMachineTransition_81ykl"), "intro", "enter_spaceship", SubResource("AnimationNodeStateMachineTransition_oq8ni"), "enter_spaceship", "standing", SubResource("AnimationNodeStateMachineTransition_w3ko8"), "standing", "sitting", SubResource("AnimationNodeStateMachineTransition_7g8t0"), "sitting", "standing", SubResource("AnimationNodeStateMachineTransition_b583j")]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_kj0so"]
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_0wsu7"]
+nodes/action/node = SubResource("AnimationNodeStateMachine_gqfoj")
+nodes/action/position = Vector2(200, 320)
+nodes/blend/node = SubResource("AnimationNodeBlend2_del6b")
+nodes/blend/position = Vector2(560, 160)
+nodes/output/position = Vector2(880, 180)
+nodes/position/node = SubResource("AnimationNodeStateMachine_yvqnv")
+nodes/position/position = Vector2(206, 150)
+node_connections = [&"output", 0, &"blend", &"blend", 0, &"position", &"blend", 1, &"action"]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_fy6q8"]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_7p8js"]
 
 [sub_resource type="Animation" id="Animation_oa1q3"]
 resource_name = "RESET"
@@ -101,61 +130,33 @@ _data = {
 "RESET": SubResource("Animation_oa1q3")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x20my"]
-animation = &"character_actions/idle"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tisce"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_kkj1q"]
-states/End/position = Vector2(1035, 93)
-states/Start/position = Vector2(168, 93)
-states/idle/node = SubResource("AnimationNodeAnimation_x20my")
-states/idle/position = Vector2(347, 93)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_tisce")]
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_ps5x4"]
-
 [node name="Character" instance=ExtResource("1")]
 transform = Transform3D(0.963167, 0, -0.268903, 0, 1, 0, 0.268903, 0, 0.963167, -6.33502, 2.10132, 0.0940139)
 script = ExtResource("2_bwdwg")
-state = "enter_spaceship"
 
 [node name="StateTree" type="AnimationTree" parent="." index="0"]
 unique_name_in_owner = true
-tree_root = SubResource("AnimationNodeStateMachine_h65gc")
+tree_root = SubResource("AnimationNodeBlendTree_0wsu7")
 anim_player = NodePath("AnimationPlayer")
 active = true
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_kj0so")
+parameters/action/playback = SubResource("AnimationNodeStateMachinePlayback_fy6q8")
+parameters/blend/blend_amount = 1.0
+parameters/position/playback = SubResource("AnimationNodeStateMachinePlayback_7p8js")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="StateTree" index="0"]
 root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_twnuj"),
-"character_positions": ExtResource("3_y5uxh")
+"actions": ExtResource("4_cmukm"),
+"positions": ExtResource("3_y5uxh")
 }
 
-[node name="ActionTree" type="AnimationTree" parent="." index="1"]
-unique_name_in_owner = true
-tree_root = SubResource("AnimationNodeStateMachine_kkj1q")
-anim_player = NodePath("ActionPlayer")
-active = true
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_ps5x4")
-
-[node name="ActionPlayer" type="AnimationPlayer" parent="ActionTree" index="0"]
-root_node = NodePath("../..")
-autoplay = "idle"
-libraries = {
-"": SubResource("AnimationLibrary_twnuj"),
-"character_actions": ExtResource("4_cmukm")
-}
-
-[node name="character" parent="." index="2"]
-transform = Transform3D(0.997993, 0, 0.0633132, 0, 1, 0, -0.0633133, 0, 0.997991, 0, 0, 0)
+[node name="character" parent="." index="1"]
+transform = Transform3D(0.996792, 0, 0.0800253, 0, 1, 0, -0.0800255, 0, 0.99679, 0, 0, 0)
 surface_material_override/0 = ExtResource("2")
 
 [node name="helmet" parent="character" index="0"]
-transform = Transform3D(0.997779, -0.0605654, -0.0276497, 0.0620398, 0.996499, 0.0560135, 0.0241604, -0.0576046, 0.998046, 0, 0.359375, 0)
+transform = Transform3D(0.999484, -0.0163369, 0.0276037, 0.0146248, 0.998022, 0.0611241, -0.0285476, -0.060689, 0.997747, 0, 0.359375, 0)
 
 [node name="FaceLight" type="SpotLight3D" parent="character/helmet" index="0"]
 transform = Transform3D(1, -5.72763e-08, 4.84288e-08, 2.51457e-08, 0.999521, 0.0309398, -4.47035e-08, -0.0309398, 0.999522, 1.86265e-09, 0.266703, 0.337111)
@@ -175,7 +176,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.72529e-09, 0.203125, 0.062
 cast_shadow = 0
 
 [node name="face" parent="character/helmet" index="3"]
-transform = Transform3D(0.99807, -0.00149057, -0.0620729, 6.27465e-11, 0.999711, -0.0240062, 0.0620908, 0.0239599, 0.997783, 0.00768932, 0.217194, 0.0399466)
+transform = Transform3D(0.996656, -0.00189785, -0.0816851, 8.75207e-11, 0.999729, -0.0232275, 0.0817071, 0.0231498, 0.996388, 0.00768932, 0.217194, 0.0399466)
 
 [node name="glasses" parent="character/helmet/face" index="1"]
 material_overlay = ExtResource("2")
@@ -190,10 +191,10 @@ transform = Transform3D(0.962225, -0.261495, 0.0757897, 0.179371, 0.818303, 0.54
 transform = Transform3D(1, -4.47035e-08, 3.72529e-08, 2.98023e-08, 0.997372, 0.0724441, 2.23517e-08, -0.0724442, 0.997372, 0, -0.234375, -7.45058e-09)
 
 [node name="arm_left" parent="character" index="2"]
-transform = Transform3D(0.911375, -0.398375, 0.103424, 0.410891, 0.866101, -0.284674, 0.0238314, 0.30194, 0.953029, 0.25, 0.296875, 3.72529e-09)
+transform = Transform3D(0.911035, -0.400537, 0.097913, 0.411646, 0.869816, -0.271976, 0.0237703, 0.288085, 0.957309, 0.25, 0.296875, 3.72529e-09)
 
 [node name="forarm_left" parent="character/arm_left" index="0"]
-transform = Transform3D(0.871356, -0.227564, -0.434686, 0.434686, 0.768939, 0.468807, 0.227564, -0.597451, 0.768939, 0, -0.28125, -3.72529e-09)
+transform = Transform3D(0.970014, -0.132352, -0.203847, 0.203847, 0.899772, 0.385819, 0.132352, -0.415805, 0.899771, 0, -0.28125, -3.72529e-09)
 
 [node name="backpack" parent="character" index="5"]
 transform = Transform3D(1, 0, -7.45058e-09, 0, 1, 0, 7.45058e-09, 0, 1, 0, 0.0625, 0)

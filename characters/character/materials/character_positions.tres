@@ -99,46 +99,6 @@ tracks/1/keys = {
 "values": [Vector3(-1.26852, 1.9061, 2.45102), Vector3(-1.26852, 2.0014, -0.802084)]
 }
 
-[sub_resource type="Animation" id="Animation_hnn0a"]
-resource_name = "position_intro"
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-6.33502, 2.10132, 0.0940139)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, -0.272254, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_tsdfa"]
 resource_name = "idle"
 length = 5.0
@@ -216,11 +176,51 @@ tracks/5/keys = {
 "values": [Vector3(-18.6758, 2.99858e-07, -9.36432e-07), Vector3(-75.3451, -180, 180)]
 }
 
+[sub_resource type="Animation" id="Animation_hnn0a"]
+resource_name = "position_intro"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-6.33502, 2.10132, 0.0940139)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.272254, 0)]
+}
+
 [resource]
 _data = {
 "cockpit_sitting": SubResource("Animation_337ay"),
 "cockpit_standing": SubResource("Animation_o2ocl"),
 "enter_spaceship": SubResource("Animation_8x5ke"),
-"position_intro": SubResource("Animation_hnn0a"),
+"intro": SubResource("Animation_hnn0a"),
 "talk": SubResource("Animation_tsdfa")
 }

@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://c888ucv872mau"]
+[gd_scene load_steps=5 format=3 uid="uid://c888ucv872mau"]
 
 [ext_resource type="Environment" uid="uid://n48hdvn72r0x" path="res://level/environment/environment.tres" id="1_58t83"]
 [ext_resource type="Script" path="res://level/environment/environment.gd" id="2_4hx8g"]
 [ext_resource type="Material" uid="uid://b2vt57g8dosf0" path="res://level/environment/materials/sky_material.tres" id="3_lc1et"]
-[ext_resource type="PackedScene" uid="uid://dt1vpkmuodkmu" path="res://level/space_station/space_station.gltf" id="4_lhgmt"]
 
 [sub_resource type="SphereMesh" id="3821"]
 radius = 64.0
@@ -27,5 +26,5 @@ skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_lc1et")
 metadata/_edit_lock_ = true
 
-[node name="SpaceStation" parent="." instance=ExtResource("4_lhgmt")]
+[node name="Ground" type="Node3D" parent="."]
 unique_name_in_owner = true
