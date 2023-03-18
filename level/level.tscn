@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dahkxa81prn10"]
+[gd_scene load_steps=33 format=3 uid="uid://dahkxa81prn10"]
 
 [ext_resource type="Script" path="res://level/level.gd" id="1_58g46"]
 [ext_resource type="AnimationLibrary" uid="uid://cjkhuv5cn32yu" path="res://level/environment/environment_animations.tres" id="2_3s2c1"]
@@ -373,6 +373,18 @@ tracks/25/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("Spaceship:rotation")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oeqp5"]
 _data = {
@@ -392,10 +404,45 @@ emission = Color(0.417038, 0.428295, 0.759765, 1)
 edge_fade = 0.857421
 
 [sub_resource type="FogMaterial" id="FogMaterial_m0jcv"]
-density = 0.1722
-albedo = Color(0.941176, 0.94902, 0.992157, 1)
+density = 0.0433
+albedo = Color(0.454902, 0.482353, 0.890196, 1)
 emission = Color(0.417038, 0.428295, 0.759765, 1)
 edge_fade = 0.857421
+
+[sub_resource type="BoxMesh" id="BoxMesh_fo1lf"]
+size = Vector3(16, 16, 16)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_85duv"]
+render_priority = 0
+shader = ExtResource("7_c46vp")
+shader_parameter/albedo = Color(0.466667, 0.584314, 0.796078, 1)
+shader_parameter/specular = 0.5
+shader_parameter/specular_amount = 0.5
+shader_parameter/specular_smoothness = 0.05
+shader_parameter/wrap = 0.25
+shader_parameter/rim = 0.5
+shader_parameter/rim_amount = 0.2
+shader_parameter/rim_smoothness = 0.05
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 1.0
+shader_parameter/emission = Color(0, 0, 0, 1)
+shader_parameter/emission_energy = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6uwuf"]
+render_priority = 0
+shader = ExtResource("7_c46vp")
+shader_parameter/albedo = Color(0.4, 0.733333, 0.521569, 1)
+shader_parameter/specular = 0.5
+shader_parameter/specular_amount = 0.5
+shader_parameter/specular_smoothness = 0.05
+shader_parameter/wrap = 0.25
+shader_parameter/rim = 0.198
+shader_parameter/rim_amount = 0.436
+shader_parameter/rim_smoothness = 0.619
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 1.0
+shader_parameter/emission = Color(0, 0, 0, 1)
+shader_parameter/emission_energy = 1.0
 
 [sub_resource type="PrismMesh" id="PrismMesh_ppcw0"]
 left_to_right = 0.7
@@ -416,7 +463,6 @@ shader_parameter/metallic = 0.0
 shader_parameter/roughness = 1.0
 shader_parameter/emission = Color(0, 0, 0, 1)
 shader_parameter/emission_energy = 1.0
-shader_parameter/use_alpha = false
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_mdyc1"]
 size = Vector2(500, 500)
@@ -436,7 +482,6 @@ shader_parameter/metallic = 0.0
 shader_parameter/roughness = 1.0
 shader_parameter/emission = Color(0, 0, 0, 1)
 shader_parameter/emission_energy = 1.0
-shader_parameter/use_alpha = false
 
 [node name="Level" type="Node"]
 script = ExtResource("1_58g46")
@@ -446,7 +491,6 @@ state = "landing"
 unique_name_in_owner = true
 tree_root = SubResource("AnimationNodeStateMachine_xndii")
 anim_player = NodePath("AnimationPlayer")
-active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_4dohv")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="StateTree"]
@@ -460,7 +504,7 @@ libraries = {
 [node name="Spaceship" parent="." instance=ExtResource("2_ovpdl")]
 
 [node name="Planet" type="MeshInstance3D" parent="."]
-transform = Transform3D(-15.998, 0, -0.251037, 0, 16, 0, 0.251037, 0, -15.998, 0, -64, 0)
+transform = Transform3D(-0.249969, 0, -0.00392246, 0, 0.25, 0, 0.00392246, 0, -0.249969, 3.72275, 28.7924, -54.9282)
 cast_shadow = 0
 mesh = SubResource("3833")
 skeleton = NodePath("")
@@ -478,10 +522,10 @@ directional_shadow_blend_splits = true
 directional_shadow_max_distance = 25.0
 
 [node name="Environment" parent="." instance=ExtResource("6_wap6o")]
-sky_color = Color(0.466667, 0.584314, 0.796078, 1)
-ground_color = Color(0.756863, 0.576471, 0.913725, 1)
 fog_color = Color(0.466667, 0.584314, 0.796078, 1)
-horizon_height = 0.0
+
+[node name="Ground" parent="Environment" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.038, 0)
 
 [node name="GroundFog" type="FogVolume" parent="Environment/Ground" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.07278, -43.6279)
@@ -490,15 +534,59 @@ shape = 0
 material = SubResource("FogMaterial_2rfwg")
 
 [node name="Atmosphere" type="FogVolume" parent="Environment/Ground" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.9278, -13.0963)
-size = Vector3(109.351, 22.5581, 69.4568)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.9278, -25.1359)
+size = Vector3(156.062, 47.7636, 75.441)
 shape = 0
 material = SubResource("FogMaterial_m0jcv")
 
 [node name="space_station" parent="Environment/Ground" index="2" instance=ExtResource("6_7tl8n")]
-visible = false
+
+[node name="buildings" type="Node3D" parent="Environment/Ground/space_station"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Ground/space_station/buildings"]
+transform = Transform3D(1, 0, 0, 0, 2.32323, 0, 0, 0, 1, 26.6242, 0, 21.5771)
+mesh = SubResource("BoxMesh_fo1lf")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_85duv")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Environment/Ground/space_station/buildings"]
+transform = Transform3D(1, 0, 0, 0, 1.51698, 0, 0, 0, 3.56057, 26.6242, -10.8923, 21.5771)
+mesh = SubResource("BoxMesh_fo1lf")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_85duv")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Environment/Ground/space_station/buildings"]
+transform = Transform3D(0.115715, 0, 1.27663, 0, 1.91438, 0, -0.911629, 0, 0.162046, 19.2072, -4.95456, -51.6809)
+mesh = SubResource("BoxMesh_fo1lf")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_85duv")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Environment/Ground/space_station/buildings"]
+transform = Transform3D(-0.116136, 0, 1.26849, 0, 1.67592, 0, -0.819915, 0, -0.179675, -14.6257, -6.17549, -39.8133)
+mesh = SubResource("BoxMesh_fo1lf")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_85duv")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Environment/Ground/space_station/buildings"]
+transform = Transform3D(-0.123483, 0, 0.70199, 0, 2.54568, 0, -0.87178, 0, -0.099433, 25.5903, 7.19297, -28.9712)
+mesh = SubResource("BoxMesh_fo1lf")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_85duv")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Environment/Ground/space_station/buildings"]
+transform = Transform3D(-1.91564, 0, 17.0585, 0, 0.750532, 0, -13.5243, 0, -2.41624, -14.6257, -6.17549, -6.46065)
+mesh = SubResource("BoxMesh_fo1lf")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_6uwuf")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Environment/Ground/space_station/buildings"]
+transform = Transform3D(1, 0, 0, 0, 2.32323, 0, 0, 0, 1.55228, 47.1145, 0, -15.575)
+mesh = SubResource("BoxMesh_fo1lf")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_85duv")
 
 [node name="planet_stardust" type="Node3D" parent="Environment/Ground" index="3"]
+visible = false
 
 [node name="mountains" type="Node3D" parent="Environment/Ground/planet_stardust"]
 

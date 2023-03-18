@@ -1,8 +1,8 @@
 [gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://bv4m3s78pu3gb"]
 
 [ext_resource type="Shader" path="res://shaders/toon_alpha.gdshader" id="1_8kjq4"]
-[ext_resource type="Texture2D" uid="uid://dpwxbis74fm20" path="res://level/spaceship/materials/spaceship_alpha.png" id="3"]
-[ext_resource type="Texture2D" uid="uid://dlds511n0al4j" path="res://level/spaceship/materials/spaceship_emission.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://7045y7ey7vss" path="res://level/spaceship/materials/spaceship_alpha.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://nlpie5uq8lof" path="res://level/spaceship/materials/spaceship_emission.png" id="4"]
 
 [resource]
 render_priority = 4

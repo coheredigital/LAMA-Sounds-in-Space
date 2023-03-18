@@ -25,8 +25,6 @@ uniform float roughness : hint_range(0.0,1.0) = 1.0;
 uniform vec4 emission : source_color = vec4(0.0, 0.0, 0.0, 1.0);
 uniform float emission_energy : hint_range(0.0, 8.0) = 1.0;
 uniform sampler2D emission_texture : hint_default_black, filter_nearest;
-uniform bool use_alpha = false;
-
 
 void fragment() {
 	ROUGHNESS = roughness;
@@ -34,14 +32,8 @@ void fragment() {
 	EMISSION = (emission.rgb + texture(emission_texture, UV).rgb) * emission_energy * COLOR.rgb;
 	ALBEDO = albedo.rgb * COLOR.rgb * texture(albedo_texture, UV).rgb;
 	float alpha = texture(albedo_texture, UV).a;
-	float alpha_scissor_threshold = 0.9;
-	if (use_alpha) {
-		alpha = texture(albedo_texture, UV).a;
-		alpha_scissor_threshold = 0.1;
-	}
 	ALPHA = alpha;
-	ALPHA_SCISSOR_THRESHOLD = alpha_scissor_threshold;
-	
+	ALPHA_SCISSOR_THRESHOLD = 0.1;
 }
 
 
