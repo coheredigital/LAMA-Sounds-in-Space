@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clje4m1r61g2p"
-path="res://.godot/imported/spaceship_albedo.png-dada32be8814d6c99f914a2d756b68bb.ctex"
+uid="uid://f0rr0ri8h3b0"
+path="res://.godot/imported/spaceship_albedo.png-984f55c9c981e035d0c8195b40abbbbe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level/spaceship/materials/spaceship_albedo.png"
-dest_files=["res://.godot/imported/spaceship_albedo.png-dada32be8814d6c99f914a2d756b68bb.ctex"]
+source_file="res://level/spaceship/spaceship_albedo.png"
+dest_files=["res://.godot/imported/spaceship_albedo.png-984f55c9c981e035d0c8195b40abbbbe.ctex"]
 
 [params]
 

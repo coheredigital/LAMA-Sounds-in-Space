@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://br8q6sb5j6nit"]
 
 [ext_resource type="Shader" path="res://shaders/toon.gdshader" id="1"]
-[ext_resource type="Texture2D" uid="uid://clje4m1r61g2p" path="res://level/spaceship/materials/spaceship_albedo.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://f0rr0ri8h3b0" path="res://level/spaceship/materials/spaceship_albedo.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://dlds511n0al4j" path="res://level/spaceship/materials/spaceship_emission.png" id="4"]
 
 [resource]
