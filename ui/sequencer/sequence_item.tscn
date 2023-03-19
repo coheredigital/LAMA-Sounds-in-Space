@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://b042q4lqa7qy8"]
+
+[ext_resource type="Script" path="res://ui/sequencer/sequence_item.gd" id="1_mfj6m"]
+[ext_resource type="PackedScene" uid="uid://c8edbldidupjb" path="res://ui/fields/audio_file_field.tscn" id="2_5k3lx"]
+
+[node name="SequenceItem" type="MarginContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 43.0
+grow_horizontal = 2
+script = ExtResource("1_mfj6m")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="AudioFileField" parent="HBoxContainer" instance=ExtResource("2_5k3lx")]
+layout_mode = 2
+
+[node name="StimulusTypeField" type="HBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/StimulusTypeField"]
+layout_mode = 2
+text = "Stimulus
+"
+
+[node name="StimulusType" type="OptionButton" parent="HBoxContainer/StimulusTypeField"]
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 4
+popup/item_0/text = "SpSp"
+popup/item_0/id = 0
+popup/item_1/text = "SpSo"
+popup/item_1/id = 1
+popup/item_2/text = "ImSp"
+popup/item_2/id = 2
+popup/item_3/text = "ImSo"
+popup/item_3/id = 3
+
+[node name="PracticeFlagField" type="HBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/PracticeFlagField"]
+layout_mode = 2
+text = "Practice Session"
+
+[node name="PracticeFlag" type="CheckButton" parent="HBoxContainer/PracticeFlagField"]
+layout_mode = 2
+size_flags_horizontal = 3

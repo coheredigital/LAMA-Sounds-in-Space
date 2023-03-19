@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b6w80q82d8yto"
+path="res://.godot/imported/Bring the fuel - speech - 1F.wav-bb8f059fbd2acd45f5aebc91102f6836.sample"
+
+[deps]
+
+source_file="res://audio/stimuli/Bring the fuel - speech - 1F.wav"
+dest_files=["res://.godot/imported/Bring the fuel - speech - 1F.wav-bb8f059fbd2acd45f5aebc91102f6836.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

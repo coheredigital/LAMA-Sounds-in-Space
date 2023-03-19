@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://wveuts3iqxir"
+path="res://.godot/imported/Fly to the moon -song - 2R.wav-ed1d0f4fa590b057ccdc8c71387611ee.sample"
+
+[deps]
+
+source_file="res://audio/stimuli/Fly to the moon -song - 2R.wav"
+dest_files=["res://.godot/imported/Fly to the moon -song - 2R.wav-ed1d0f4fa590b057ccdc8c71387611ee.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

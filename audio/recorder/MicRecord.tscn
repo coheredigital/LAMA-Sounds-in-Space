@@ -42,6 +42,7 @@ text = "Play"
 layout_mode = 2
 
 [node name="SaveButton" type="Button" parent="VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 disabled = true

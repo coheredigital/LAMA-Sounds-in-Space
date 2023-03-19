@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bxgyi2n28ilid"
+path="res://.godot/imported/Go Faster - speech - 3R.wav-f56e5ad01f5ef6b7bb4aa3c257f9c9d2.sample"
+
+[deps]
+
+source_file="res://audio/stimuli/Go Faster - speech - 3R.wav"
+dest_files=["res://.godot/imported/Go Faster - speech - 3R.wav-f56e5ad01f5ef6b7bb4aa3c257f9c9d2.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

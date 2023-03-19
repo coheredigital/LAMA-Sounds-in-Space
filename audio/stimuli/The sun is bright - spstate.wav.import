@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bcxlu23kocroo"
+path="res://.godot/imported/The sun is bright - spstate.wav-7629cbaabf7f5203ebca119114b625e2.sample"
+
+[deps]
+
+source_file="res://audio/stimuli/The sun is bright - spstate.wav"
+dest_files=["res://.godot/imported/The sun is bright - spstate.wav-7629cbaabf7f5203ebca119114b625e2.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

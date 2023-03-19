@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d2nqfthnrg7xg"
+path="res://.godot/imported/The star is up high - sgquest.wav-e0510cbf6ad80a02efe27de79795b045.sample"
+
+[deps]
+
+source_file="res://audio/stimuli/The star is up high - sgquest.wav"
+dest_files=["res://.godot/imported/The star is up high - sgquest.wav-e0510cbf6ad80a02efe27de79795b045.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

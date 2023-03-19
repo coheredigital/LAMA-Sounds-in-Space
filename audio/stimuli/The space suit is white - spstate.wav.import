@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bfm274nqlfev5"
+path="res://.godot/imported/The space suit is white - spstate.wav-f84de71e7d895769fd31a3b26c12408a.sample"
+
+[deps]
+
+source_file="res://audio/stimuli/The space suit is white - spstate.wav"
+dest_files=["res://.godot/imported/The space suit is white - spstate.wav-f84de71e7d895769fd31a3b26c12408a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

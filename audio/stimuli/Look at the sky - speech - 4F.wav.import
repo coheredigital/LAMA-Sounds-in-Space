@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ffr1s3sqq1xu"
+path="res://.godot/imported/Look at the sky - speech - 4F.wav-1ba69a8e56e0130d5cd4b2d1e814eeef.sample"
+
+[deps]
+
+source_file="res://audio/stimuli/Look at the sky - speech - 4F.wav"
+dest_files=["res://.godot/imported/Look at the sky - speech - 4F.wav-1ba69a8e56e0130d5cd4b2d1e814eeef.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://ca304y5ikwpep"]
+
+[ext_resource type="Script" path="res://ui/sequencer/sequencer.gd" id="1_4wv8p"]
+[ext_resource type="PackedScene" uid="uid://b042q4lqa7qy8" path="res://ui/sequencer/sequence_item.tscn" id="2_3ox5f"]
+
+[node name="Sequencer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4wv8p")
+
+[node name="Container" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="List" type="VBoxContainer" parent="Container"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SequenceItem" parent="Container/List" instance=ExtResource("2_3ox5f")]
+layout_mode = 2
+
+[node name="SequenceItem2" parent="Container/List" instance=ExtResource("2_3ox5f")]
+layout_mode = 2
+
+[node name="AddButton" type="Button" parent="Container"]
+layout_mode = 2
+text = "New"

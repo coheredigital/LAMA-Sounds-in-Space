@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cft3n3pmliftk"
+path="res://.godot/imported/Go Faster - song - 3F.wav-813787ad799f514a87feabd6a3a567c4.sample"
+
+[deps]
+
+source_file="res://audio/stimuli/Go Faster - song - 3F.wav"
+dest_files=["res://.godot/imported/Go Faster - song - 3F.wav-813787ad799f514a87feabd6a3a567c4.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
