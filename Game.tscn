@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dqdal17eldmvk"]
+[gd_scene load_steps=13 format=3 uid="uid://dqdal17eldmvk"]
 
 [ext_resource type="PackedScene" uid="uid://bw70w15xhifwc" path="res://ui/game_window.tscn" id="3_ljibd"]
 [ext_resource type="Gradient" uid="uid://b71jutk4qdqv3" path="res://audio/visualizer/visualizer_gradient.tres" id="4_bkdmv"]
@@ -11,51 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://dqmb5lg7lcwhf" path="res://ui/control_panel.tscn" id="10_ep7ri"]
 [ext_resource type="Curve" uid="uid://d1nfw1ns152lp" path="res://audio/visualizer/curves/a_acceleration_curve.tres" id="11_l1cg1"]
 [ext_resource type="Script" path="res://game.gd" id="12"]
-[ext_resource type="Shader" path="res://shaders/toon.gdshader" id="12_5csi5"]
 
 [sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_2n73o"]
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_3g6nu"]
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_igqrk"]
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_47gj7"]
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_wjahp"]
-
-[sub_resource type="Gradient" id="18"]
-interpolation_mode = 1
-offsets = PackedFloat32Array(0.0777027, 0.169916, 0.226351, 0.307432, 0.39527, 0.459459, 0.503378, 0.567568, 0.716981, 0.797297, 0.912162, 0.986072)
-colors = PackedColorArray(0.397039, 0.190276, 0.476563, 1, 0.397039, 0.190276, 0.476563, 1, 0.385435, 0.21108, 0.487957, 1, 0.368764, 0.240969, 0.504327, 1, 0.349939, 0.274717, 0.52281, 1, 0.325323, 0.31885, 0.546981, 1, 0.34087, 0.290977, 0.531715, 1, 0.296851, 0.369894, 0.574937, 1, 0.293041, 0.376725, 0.578678, 1, 0.314778, 0.337755, 0.557335, 1, 0.26814, 0.421369, 0.603129, 1, 0.241887, 0.468435, 0.628906, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_6rhpu"]
-resource_local_to_scene = true
-gradient = SubResource("18")
-width = 128
-height = 128
-fill = 1
-fill_from = Vector2(0.653846, 0.397436)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_hwg5f"]
-resource_local_to_scene = true
-render_priority = 0
-shader = ExtResource("12_5csi5")
-shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/specular = 0.5
-shader_parameter/specular_amount = 0.5
-shader_parameter/specular_smoothness = 0.05
-shader_parameter/wrap = 0.0
-shader_parameter/rim = 0.5
-shader_parameter/rim_amount = 0.2
-shader_parameter/rim_smoothness = 0.05
-shader_parameter/metallic = 0.0
-shader_parameter/roughness = 1.0
-shader_parameter/emission = Color(0, 0, 0, 1)
-shader_parameter/emission_energy = 0.193
-shader_parameter/albedo_texture = SubResource("GradientTexture2D_6rhpu")
-shader_parameter/emission_texture = SubResource("GradientTexture2D_6rhpu")
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_dvf1w"]
 
 [node name="Game" type="Node"]
 script = ExtResource("12")
@@ -83,67 +40,6 @@ bus = &"Record"
 
 [node name="ControlPanel" parent="." instance=ExtResource("10_ep7ri")]
 
-[node name="Label" parent="ControlPanel/Panel/MarginContainer/Controls/ParticipantForm/MissionIDField" index="0"]
-text = "Study ID"
-
 [node name="GameWindow" parent="." instance=ExtResource("3_ljibd")]
 unique_name_in_owner = true
 visible = false
-
-[node name="MissionStateTree" parent="GameWindow" index="0"]
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_3g6nu")
-
-[node name="SubViewport" parent="GameWindow/SubViewportContainer" index="0"]
-screen_space_aa = 1
-render_target_update_mode = 0
-
-[node name="StateTree" parent="GameWindow/SubViewportContainer/SubViewport/Level" index="0"]
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_igqrk")
-
-[node name="AnimationTree" parent="GameWindow/SubViewportContainer/SubViewport/Level/Spaceship" index="0"]
-parameters/door_state/playback = SubResource("AnimationNodeStateMachinePlayback_47gj7")
-parameters/screen_state/playback = SubResource("AnimationNodeStateMachinePlayback_wjahp")
-
-[node name="controls" parent="GameWindow/SubViewportContainer/SubViewport/Level/Spaceship/spaceship/cockpit/SpaceshipControls" index="0"]
-transform = Transform3D(0.986018, -0.166182, 0.0121321, 0.164979, 0.983898, 0.0687219, -0.0233571, -0.0657595, 0.997561, 0, 0, 0)
-
-[node name="door" parent="GameWindow/SubViewportContainer/SubViewport/Level/Spaceship/spaceship" index="6"]
-transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0)
-
-[node name="Accent" parent="GameWindow/SubViewportContainer/SubViewport/Level/Spaceship" index="3"]
-transform = Transform3D(0.999718, 0.0139388, -0.0192017, -0.0132201, 0.999225, 0.0370623, 0.0197034, -0.036798, 0.999128, 2.38738, 3.06532, 0.294377)
-
-[node name="Planet" parent="GameWindow/SubViewportContainer/SubViewport/Level" index="2"]
-transform = Transform3D(-0.25, 0, 6.33795e-07, 0, 0.25, 0, -6.33795e-07, 0, -0.25, 3.72275, 28.7924, -54.9282)
-surface_material_override/0 = SubResource("ShaderMaterial_hwg5f")
-
-[node name="WorldLight" parent="GameWindow/SubViewportContainer/SubViewport/Level" index="3"]
-transform = Transform3D(0.862182, 0.274283, -0.425924, 0.165907, 0.641514, 0.748956, 0.478662, -0.7164, 0.507597, 0, 128, 0)
-shadow_bias = 0.006
-shadow_normal_bias = 3.845
-
-[node name="Character" parent="GameWindow/SubViewportContainer/SubViewport" index="1"]
-transform = Transform3D(0.963162, 0, -0.268902, 0, 1, 0, 0.268902, 0, 0.963165, -6.33502, 2.10132, 0.0940139)
-state = "intro"
-
-[node name="Player" parent="GameWindow/SubViewportContainer/SubViewport" index="2"]
-state = "intro"
-
-[node name="Camera3D" parent="GameWindow/SubViewportContainer/SubViewport/Player" index="0"]
-transform = Transform3D(0.59409, 0.0863893, -0.799746, 3.35276e-08, 0.994216, 0.107396, 0.804399, -0.063803, 0.590654, -6.85147, 2.66122, 1.69658)
-
-[node name="PositionStateTree" parent="GameWindow/SubViewportContainer/SubViewport/Player" index="3"]
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_dvf1w")
-
-[connection signal="toggled" from="ControlPanel/Panel/MarginContainer/Controls/HBoxContainer/AudioControls/HBoxContainer/enable_mic" to="AudioVisualizer" method="_on_enable_mic_toggled"]
-
-[editable path="ControlPanel"]
-[editable path="GameWindow"]
-[editable path="GameWindow/SubViewportContainer/SubViewport/Level"]
-[editable path="GameWindow/SubViewportContainer/SubViewport/Level/Spaceship"]
-[editable path="GameWindow/SubViewportContainer/SubViewport/Level/Spaceship/spaceship/cockpit/monitor/seatbelt_indicator_right"]
-[editable path="GameWindow/SubViewportContainer/SubViewport/Level/Spaceship/spaceship/cockpit/monitor/seatbelt_indicator_left"]
-[editable path="GameWindow/SubViewportContainer/SubViewport/Level/Spaceship/spaceship/cockpit/monitor/fuel_gauge_right"]
-[editable path="GameWindow/SubViewportContainer/SubViewport/Level/Spaceship/spaceship/cockpit/monitor/fuel_gauge_left"]
-[editable path="GameWindow/SubViewportContainer/SubViewport/Level/Environment"]
-[editable path="GameWindow/SubViewportContainer/SubViewport/Player"]

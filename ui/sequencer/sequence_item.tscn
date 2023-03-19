@@ -10,23 +10,29 @@ offset_bottom = 43.0
 grow_horizontal = 2
 script = ExtResource("1_mfj6m")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="AudioFileField" parent="HBoxContainer" instance=ExtResource("2_5k3lx")]
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="StimulusTypeField" type="HBoxContainer" parent="HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="AudioFileField" parent="VBoxContainer/HBoxContainer" instance=ExtResource("2_5k3lx")]
+layout_mode = 2
+
+[node name="StimulusTypeField" type="HBoxContainer" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="HBoxContainer/StimulusTypeField"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/StimulusTypeField"]
 layout_mode = 2
 text = "Stimulus
 "
 
-[node name="StimulusType" type="OptionButton" parent="HBoxContainer/StimulusTypeField"]
+[node name="StimulusType" type="OptionButton" parent="VBoxContainer/HBoxContainer/StimulusTypeField"]
 layout_mode = 2
 size_flags_horizontal = 3
 item_count = 4
@@ -39,14 +45,17 @@ popup/item_2/id = 2
 popup/item_3/text = "ImSo"
 popup/item_3/id = 3
 
-[node name="PracticeFlagField" type="HBoxContainer" parent="HBoxContainer"]
+[node name="PracticeFlagField" type="HBoxContainer" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/PracticeFlagField"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/PracticeFlagField"]
 layout_mode = 2
 text = "Practice Session"
 
-[node name="PracticeFlag" type="CheckButton" parent="HBoxContainer/PracticeFlagField"]
+[node name="PracticeFlag" type="CheckButton" parent="VBoxContainer/HBoxContainer/PracticeFlagField"]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2

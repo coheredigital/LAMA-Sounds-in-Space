@@ -3,10 +3,6 @@ extends Node
 @onready var viewport := get_node('/root')
 
 
-#func _ready():
-#	%GameWindow.visible = true
-
-
 func _unhandled_input(event):
 	if event.is_action_pressed("screenshot"):
 		var time = Time.get_datetime_dict_from_system()

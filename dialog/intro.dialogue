@@ -1,13 +1,23 @@
-~ this_is_a_node_title
+~ start
 
-Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
-Nathan: Here are some choices.
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
-- Start again => this_is_a_node_title
-- End the conversation => END
-Nathan: For more information see the online documentation.
+Sam: Welcome to the Space Station! My name is Sam and I’m an Astronaut. We’re so glad you came to visit us today! 
+Sam: Here at the space station, we go on so many fun missions. Come on in so I can show you around! 
+Sam: First, I want you to meet our very own space llama named Lucky. She’s usually around here somewhere... 
+Sam: Let’s look up her location on our astronaut map. 
+Sam: Oh no! It looks like Lucky’s spaceship broke down and Lucky is stuck on another planet way out in space!
+
+~ question_rescue
+Sam: Will you help me rescue Lucky to get her back here to the space station?
+- Yes!
+	Sam: Thank you! 
+- No.
+	Sam: Are you sure?
+	- Yes. => END
+	- No. => question_rescue
+	
+Sam: We’re definitely going to need your help -- this spaceship works best when I have a co-pilot astronaut like you! 
+Sam: Our mission is to travel to Planet Stardust, where Lucky’s spaceship broke down, and bring Lucky the Llama back here safely.  
+Sam: Are you ready to start your astronaut training? If you help, you’ll get your very own space cadet prize for your help and your bravery!!   
+Sam: Press the GREEN button to open the spaceship door and start your training! 
 
 => END
