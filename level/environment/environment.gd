@@ -1,4 +1,4 @@
-#@tool
+@tool
 extends WorldEnvironment
 
 const SKY_SIZE = 64.0
@@ -16,14 +16,14 @@ const SKY_SIZE = 64.0
 @export_range(-64.0, 0.0) var horizon_height := 0.0 : 
 	set(value):
 		horizon_height = value
-		if %Ground:
-			%Ground.position.y = value
+		if ground:
+			ground.position.y = value
 		if sky_material:
 			sky_material.set_shader_parameter("horizon_height", value / SKY_SIZE)
 			
 			
 @onready var sky_material : ShaderMaterial  = %Sky.get_active_material(0)
-
+@onready var ground := %Ground
 
 func set_ground_color(value):
 	ground_color = value
