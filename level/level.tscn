@@ -131,7 +131,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.098]
+"values": [0.044]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -323,7 +323,7 @@ tracks/21/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0084]
+"values": [0.01]
 }
 tracks/22/type = "value"
 tracks/22/imported = false
@@ -485,12 +485,12 @@ shader_parameter/emission_energy = 1.0
 
 [node name="Level" type="Node"]
 script = ExtResource("1_58g46")
-state = "landing"
 
 [node name="StateTree" type="AnimationTree" parent="."]
 unique_name_in_owner = true
 tree_root = SubResource("AnimationNodeStateMachine_xndii")
 anim_player = NodePath("AnimationPlayer")
+active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_4dohv")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="StateTree"]
@@ -540,6 +540,7 @@ shape = 0
 material = SubResource("FogMaterial_m0jcv")
 
 [node name="space_station" parent="Environment/Ground" index="2" instance=ExtResource("6_7tl8n")]
+visible = false
 
 [node name="buildings" type="Node3D" parent="Environment/Ground/space_station"]
 
@@ -586,7 +587,6 @@ skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_85duv")
 
 [node name="planet_stardust" type="Node3D" parent="Environment/Ground" index="3"]
-visible = false
 
 [node name="mountains" type="Node3D" parent="Environment/Ground/planet_stardust"]
 
@@ -688,7 +688,6 @@ surface_material_override/0 = SubResource("ShaderMaterial_v77p2")
 
 [node name="Stars" parent="." instance=ExtResource("9_s3nx5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.258, -19.133)
-visible = false
 depth = 1.217
 width = 7.529
 height = 5.961
