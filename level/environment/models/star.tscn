@@ -148,12 +148,11 @@ libraries = {
 [node name="StarLight" type="OmniLight3D" parent="."]
 unique_name_in_owner = true
 light_color = Color(0.552941, 0.262745, 0.301961, 1)
-light_energy = 2.5
 omni_range = 6.768
 omni_attenuation = 2.07053
 
 [node name="MeshGroup" type="Node3D" parent="."]
-transform = Transform3D(-0.808579, -0.310158, -0.5, 0.58794, -0.392848, -0.707104, 0.0228895, -0.86572, 0.500004, 0, 0, 0)
+transform = Transform3D(-0.617896, 0.770218, -0.158011, 0.0786018, -0.139448, -0.987105, -0.782319, -0.622349, 0.0256241, 0, 0, 0)
 
 [node name="Particles" type="GPUParticles3D" parent="MeshGroup"]
 unique_name_in_owner = true

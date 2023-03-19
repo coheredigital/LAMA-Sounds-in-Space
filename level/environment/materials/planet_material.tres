@@ -1,35 +1,8 @@
-[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://bjft6os8hrr36"]
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bjft6os8hrr36"]
 
 [ext_resource type="Shader" path="res://shaders/toon.gdshader" id="1"]
-
-[sub_resource type="Gradient" id="18"]
-interpolation_mode = 1
-offsets = PackedFloat32Array(0.0777027, 0.169916, 0.226351, 0.307432, 0.39527, 0.459459, 0.503378, 0.567568, 0.716981, 0.797297, 0.912162, 0.986072)
-colors = PackedColorArray(0.397039, 0.190276, 0.476563, 1, 0.397039, 0.190276, 0.476563, 1, 0.385435, 0.21108, 0.487957, 1, 0.368764, 0.240969, 0.504327, 1, 0.349939, 0.274717, 0.52281, 1, 0.325323, 0.31885, 0.546981, 1, 0.34087, 0.290977, 0.531715, 1, 0.296851, 0.369894, 0.574937, 1, 0.293041, 0.376725, 0.578678, 1, 0.314778, 0.337755, 0.557335, 1, 0.26814, 0.421369, 0.603129, 1, 0.241887, 0.468435, 0.628906, 1)
-
-[sub_resource type="GradientTexture2D" id="19"]
-resource_local_to_scene = true
-gradient = SubResource("18")
-width = 512
-height = 512
-fill = 1
-fill_from = Vector2(0.653846, 0.397436)
 
 [resource]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("1")
-shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/specular = 0.5
-shader_parameter/specular_amount = 0.5
-shader_parameter/specular_smoothness = 0.05
-shader_parameter/wrap = 0.25
-shader_parameter/rim = 0.5
-shader_parameter/rim_amount = 0.2
-shader_parameter/rim_smoothness = 0.05
-shader_parameter/metallic = 0.0
-shader_parameter/roughness = 1.0
-shader_parameter/emission = Color(0, 0, 0, 1)
-shader_parameter/emission_energy = 0.193
-shader_parameter/albedo_texture = SubResource("19")
-shader_parameter/emission_texture = SubResource("19")

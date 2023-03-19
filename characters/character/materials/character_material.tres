@@ -1,23 +1,7 @@
-[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://bx7exngufqj3u"]
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bx7exngufqj3u"]
 
-[ext_resource type="Texture2D" uid="uid://b35bx011uc6ff" path="res://characters/character/materials/character_albedo.png" id="1"]
-[ext_resource type="Texture2D" uid="uid://bi5t50634dth1" path="res://characters/character/materials/character_emission.png" id="2"]
 [ext_resource type="Shader" path="res://shaders/toon.gdshader" id="3"]
 
 [resource]
 render_priority = 0
 shader = ExtResource("3")
-shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/specular = 0.5
-shader_parameter/specular_amount = 0.372
-shader_parameter/specular_smoothness = 0.112
-shader_parameter/wrap = 0.25
-shader_parameter/rim = 0.636
-shader_parameter/rim_amount = 0.652
-shader_parameter/rim_smoothness = 0.41
-shader_parameter/metallic = 0.0
-shader_parameter/roughness = 1.0
-shader_parameter/emission = Color(0, 0, 0, 1)
-shader_parameter/emission_energy = 0.302
-shader_parameter/albedo_texture = ExtResource("1")
-shader_parameter/emission_texture = ExtResource("2")

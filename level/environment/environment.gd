@@ -1,4 +1,4 @@
-@tool
+#@tool
 extends WorldEnvironment
 
 const SKY_SIZE = 64.0

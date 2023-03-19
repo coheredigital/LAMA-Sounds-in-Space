@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://dqmb5lg7lcwhf"]
+[gd_scene load_steps=5 format=3 uid="uid://dqmb5lg7lcwhf"]
 
 [ext_resource type="Material" uid="uid://d1txi86rfk50c" path="res://audio/visualizer/visualizer_debug_material.tres" id="2_gxrj7"]
-[ext_resource type="PackedScene" uid="uid://br8xc3xjk04s" path="res://audio/recorder/MicRecord.tscn" id="3_cdqfj"]
 [ext_resource type="Gradient" uid="uid://b71jutk4qdqv3" path="res://audio/visualizer/visualizer_gradient.tres" id="3_q6r2g"]
 
 [sub_resource type="Theme" id="Theme_yr20t"]
@@ -350,15 +349,3 @@ text = "Stars"
 custom_minimum_size = Vector2(120, 31)
 layout_mode = 2
 text = "Warp"
-
-[node name="Separator2" type="HSeparator" parent="Panel/MarginContainer/Controls"]
-custom_minimum_size = Vector2(0, 32)
-layout_mode = 2
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="Panel/MarginContainer/Controls"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="MicRecord" parent="Panel/MarginContainer/Controls/HBoxContainer3" instance=ExtResource("3_cdqfj")]
-layout_mode = 2
-size_flags_horizontal = 3

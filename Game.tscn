@@ -43,3 +43,7 @@ bus = &"Record"
 [node name="GameWindow" parent="." instance=ExtResource("3_ljibd")]
 unique_name_in_owner = true
 visible = false
+
+[connection signal="pressed" from="ControlPanel/Panel/MarginContainer/Controls/HBoxContainer/GameControls/HBoxContainer/start_game" to="." method="_on_start_game_pressed"]
+
+[editable path="ControlPanel"]
