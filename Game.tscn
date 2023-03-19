@@ -52,7 +52,6 @@ shader_parameter/metallic = 0.0
 shader_parameter/roughness = 1.0
 shader_parameter/emission = Color(0, 0, 0, 1)
 shader_parameter/emission_energy = 0.193
-shader_parameter/use_alpha = false
 shader_parameter/albedo_texture = SubResource("GradientTexture2D_6rhpu")
 shader_parameter/emission_texture = SubResource("GradientTexture2D_6rhpu")
 
@@ -101,9 +100,6 @@ render_target_update_mode = 0
 [node name="StateTree" parent="GameWindow/SubViewportContainer/SubViewport/Level" index="0"]
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_igqrk")
 
-[node name="Spaceship" parent="GameWindow/SubViewportContainer/SubViewport/Level" index="1"]
-door_open = false
-
 [node name="AnimationTree" parent="GameWindow/SubViewportContainer/SubViewport/Level/Spaceship" index="0"]
 parameters/door_state/playback = SubResource("AnimationNodeStateMachinePlayback_47gj7")
 parameters/screen_state/playback = SubResource("AnimationNodeStateMachinePlayback_wjahp")
@@ -126,17 +122,15 @@ transform = Transform3D(0.862182, 0.274283, -0.425924, 0.165907, 0.641514, 0.748
 shadow_bias = 0.006
 shadow_normal_bias = 3.845
 
-[node name="FogVolume" parent="GameWindow/SubViewportContainer/SubViewport/Level" index="4"]
-visible = false
+[node name="Character" parent="GameWindow/SubViewportContainer/SubViewport" index="1"]
+transform = Transform3D(0.963162, 0, -0.268902, 0, 1, 0, 0.268902, 0, 0.963165, -6.33502, 2.10132, 0.0940139)
+state = "intro"
 
-[node name="Alien" parent="GameWindow/SubViewportContainer/SubViewport" index="2"]
-transform = Transform3D(-0.0191451, 0, -0.999817, 0, 1, 0, 0.999817, 0, -0.0191451, -7.80826, 1.01353, 6.17074)
-
-[node name="Lama" parent="GameWindow/SubViewportContainer/SubViewport" index="3"]
-transform = Transform3D(-0.979691, 0, 0.200514, 0, 1, 0, -0.200514, 0, -0.979691, -9.63367, 1.03565, 6.25391)
+[node name="Player" parent="GameWindow/SubViewportContainer/SubViewport" index="2"]
+state = "intro"
 
 [node name="Camera3D" parent="GameWindow/SubViewportContainer/SubViewport/Player" index="0"]
-transform = Transform3D(0.805126, 0.0753688, -0.588296, 1.15484e-07, 0.991893, 0.127075, 0.593104, -0.102312, 0.798599, -10.8537, 2.5, 7.2842)
+transform = Transform3D(0.59409, 0.0863893, -0.799746, 3.35276e-08, 0.994216, 0.107396, 0.804399, -0.063803, 0.590654, -6.85147, 2.66122, 1.69658)
 
 [node name="PositionStateTree" parent="GameWindow/SubViewportContainer/SubViewport/Player" index="3"]
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_dvf1w")
@@ -151,4 +145,5 @@ parameters/playback = SubResource("AnimationNodeStateMachinePlayback_dvf1w")
 [editable path="GameWindow/SubViewportContainer/SubViewport/Level/Spaceship/spaceship/cockpit/monitor/seatbelt_indicator_left"]
 [editable path="GameWindow/SubViewportContainer/SubViewport/Level/Spaceship/spaceship/cockpit/monitor/fuel_gauge_right"]
 [editable path="GameWindow/SubViewportContainer/SubViewport/Level/Spaceship/spaceship/cockpit/monitor/fuel_gauge_left"]
+[editable path="GameWindow/SubViewportContainer/SubViewport/Level/Environment"]
 [editable path="GameWindow/SubViewportContainer/SubViewport/Player"]

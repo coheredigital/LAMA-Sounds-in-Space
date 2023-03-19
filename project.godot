@@ -146,5 +146,5 @@ diffuse_color={
 }
 rim_color={
 "type": "color",
-"value": Color(1, 0.607843, 0.74902, 1)
+"value": Color(0.568627, 0.278431, 0.74902, 1)
 }

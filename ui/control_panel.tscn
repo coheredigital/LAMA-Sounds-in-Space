@@ -69,36 +69,38 @@ text = "Mission Control
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 
-[node name="ParticipantForm" type="HBoxContainer" parent="Panel/MarginContainer/Controls"]
+[node name="ParticipantForm1" type="HBoxContainer" parent="Panel/MarginContainer/Controls"]
 layout_mode = 2
 
-[node name="MissionIDField" type="HBoxContainer" parent="Panel/MarginContainer/Controls/ParticipantForm"]
+[node name="StudyIDField" type="HBoxContainer" parent="Panel/MarginContainer/Controls/ParticipantForm1"]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/ParticipantForm/MissionIDField"]
+[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/ParticipantForm1/StudyIDField"]
 layout_mode = 2
 text = "Study ID
 "
 
-[node name="TextEdit" type="LineEdit" parent="Panel/MarginContainer/Controls/ParticipantForm/MissionIDField"]
+[node name="StudyID" type="LineEdit" parent="Panel/MarginContainer/Controls/ParticipantForm1/StudyIDField"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+text = "SIP"
 placeholder_text = "ABC"
 
-[node name="NameField" type="HBoxContainer" parent="Panel/MarginContainer/Controls/ParticipantForm"]
+[node name="AgeGroupField" type="HBoxContainer" parent="Panel/MarginContainer/Controls/ParticipantForm1"]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/ParticipantForm/NameField"]
+[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/ParticipantForm1/AgeGroupField"]
 layout_mode = 2
-text = "Participant ID
-"
+text = "Age Group"
 horizontal_alignment = 2
 
-[node name="TextEdit" type="SpinBox" parent="Panel/MarginContainer/Controls/ParticipantForm/NameField"]
+[node name="AgeGroup" type="SpinBox" parent="Panel/MarginContainer/Controls/ParticipantForm1/AgeGroupField"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 min_value = 1.0
@@ -107,18 +109,19 @@ value = 1.0
 allow_greater = true
 alignment = 2
 
-[node name="NameField2" type="HBoxContainer" parent="Panel/MarginContainer/Controls/ParticipantForm"]
+[node name="ParticipantIDField" type="HBoxContainer" parent="Panel/MarginContainer/Controls/ParticipantForm1"]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/ParticipantForm/NameField2"]
+[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/ParticipantForm1/ParticipantIDField"]
 layout_mode = 2
 text = "Participant ID
 "
 horizontal_alignment = 2
 
-[node name="TextEdit" type="SpinBox" parent="Panel/MarginContainer/Controls/ParticipantForm/NameField2"]
+[node name="ParticipantID" type="SpinBox" parent="Panel/MarginContainer/Controls/ParticipantForm1/ParticipantIDField"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 min_value = 1.0
@@ -126,6 +129,83 @@ max_value = 999.0
 value = 1.0
 allow_greater = true
 alignment = 2
+
+[node name="ParticipantForm2" type="HBoxContainer" parent="Panel/MarginContainer/Controls"]
+layout_mode = 2
+
+[node name="RunIDField" type="HBoxContainer" parent="Panel/MarginContainer/Controls/ParticipantForm2"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/ParticipantForm2/RunIDField"]
+layout_mode = 2
+text = "Run ID
+"
+horizontal_alignment = 2
+
+[node name="RunID" type="SpinBox" parent="Panel/MarginContainer/Controls/ParticipantForm2/RunIDField"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1.0
+max_value = 999.0
+value = 1.0
+allow_greater = true
+alignment = 2
+
+[node name="SentenceIDField" type="HBoxContainer" parent="Panel/MarginContainer/Controls/ParticipantForm2"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/ParticipantForm2/SentenceIDField"]
+layout_mode = 2
+text = "Sentence ID
+"
+
+[node name="SentenceID" type="LineEdit" parent="Panel/MarginContainer/Controls/ParticipantForm2/SentenceIDField"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "1A"
+
+[node name="StimulusTypeField" type="HBoxContainer" parent="Panel/MarginContainer/Controls/ParticipantForm2"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/ParticipantForm2/StimulusTypeField"]
+layout_mode = 2
+text = "Stimulus
+"
+
+[node name="StimulusType" type="OptionButton" parent="Panel/MarginContainer/Controls/ParticipantForm2/StimulusTypeField"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 4
+popup/item_0/text = "SpSp"
+popup/item_0/id = 0
+popup/item_1/text = "SpSo"
+popup/item_1/id = 1
+popup/item_2/text = "ImSp"
+popup/item_2/id = 2
+popup/item_3/text = "ImSo"
+popup/item_3/id = 3
+
+[node name="PracticeFlagField" type="HBoxContainer" parent="Panel/MarginContainer/Controls/ParticipantForm2"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/ParticipantForm2/PracticeFlagField"]
+layout_mode = 2
+text = "Practice Session"
+
+[node name="PracticeFlag" type="CheckButton" parent="Panel/MarginContainer/Controls/ParticipantForm2/PracticeFlagField"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="Separator" type="HSeparator" parent="Panel/MarginContainer/Controls"]
 custom_minimum_size = Vector2(0, 32)
@@ -271,9 +351,14 @@ custom_minimum_size = Vector2(120, 31)
 layout_mode = 2
 text = "Warp"
 
-[node name="MicRecord" parent="." instance=ExtResource("3_cdqfj")]
-layout_mode = 1
-offset_left = 288.0
-offset_top = 492.0
-offset_right = -453.0
-offset_bottom = -146.0
+[node name="Separator2" type="HSeparator" parent="Panel/MarginContainer/Controls"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Panel/MarginContainer/Controls"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MicRecord" parent="Panel/MarginContainer/Controls/HBoxContainer3" instance=ExtResource("3_cdqfj")]
+layout_mode = 2
+size_flags_horizontal = 3

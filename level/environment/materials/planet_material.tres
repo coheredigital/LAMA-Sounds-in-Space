@@ -31,6 +31,5 @@ shader_parameter/metallic = 0.0
 shader_parameter/roughness = 1.0
 shader_parameter/emission = Color(0, 0, 0, 1)
 shader_parameter/emission_energy = 0.193
-shader_parameter/use_alpha = false
 shader_parameter/albedo_texture = SubResource("19")
 shader_parameter/emission_texture = SubResource("19")
