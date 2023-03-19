@@ -53,6 +53,7 @@ script = ExtResource("1_b56ai")
 unique_name_in_owner = true
 tree_root = ExtResource("1_0f2d7")
 anim_player = NodePath("MissionAnimationPlayer")
+active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_vs8d4")
 
 [node name="MissionAnimationPlayer" type="AnimationPlayer" parent="MissionStateTree"]
@@ -89,7 +90,7 @@ distance_buffer = 3.438
 distance_boost = 2.904
 
 [node name="Camera3D" parent="SubViewportContainer/SubViewport/Player" index="0"]
-transform = Transform3D(0.59409, 0.0863893, -0.799746, 2.23517e-08, 0.994216, 0.107396, 0.804399, -0.063803, 0.590654, -6.85147, 2.66122, 1.69658)
+transform = Transform3D(0.59409, 0.0863893, -0.799746, 2.98023e-08, 0.994216, 0.107396, 0.804399, -0.063803, 0.590654, -6.85147, 2.66122, 1.69658)
 
 [node name="PositionStateTree" parent="SubViewportContainer/SubViewport/Player" index="3"]
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_1ch33")
