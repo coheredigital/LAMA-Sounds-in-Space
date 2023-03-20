@@ -1,4 +1,3 @@
-@tool
 extends Node
 
 @export_enum("intro","launch","stars_light","warp","landing") var state: String = "intro":
@@ -12,8 +11,7 @@ func _ready():
 	Sequencer.level_changed.connect(update_state)
 	
 func update_state(value: String) -> void: 
-	print("Sequencer level: %s" % Sequencer.level )
-	if state_tree:
-		var state_machine : AnimationNodeStateMachinePlayback = state_tree.get("parameters/playback")
-		state_machine.travel(state)
+	if %StateTree:
+		var state_machine : AnimationNodeStateMachinePlayback = %StateTree.get("parameters/playback")
+		state_machine.travel(value)
 		

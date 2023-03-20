@@ -29,7 +29,7 @@ animation = &"cockpit/steering_motion"
 [sub_resource type="AnimationNodeTimeScale" id="4"]
 
 [sub_resource type="AnimationNodeBlendTree" id="5"]
-graph_offset = Vector2(-141, 45)
+graph_offset = Vector2(-8, 289)
 nodes/blend_door/node = SubResource("AnimationNodeAdd2_nwkbc")
 nodes/blend_door/position = Vector2(560, 280)
 nodes/blend_screen/node = SubResource("AnimationNodeAdd2_h7dn0")
@@ -237,10 +237,10 @@ gradient = ExtResource("11_yx0mv")
 render_priority = 1
 shader = ExtResource("9_qdj4e")
 shader_parameter/emission_energy = 0.5
-shader_parameter/alpha = 0.767898
+shader_parameter/alpha = 0.2
 shader_parameter/waveform_controlled = false
 shader_parameter/screen_number = 12.0
-shader_parameter/frame_number = 5.96911
+shader_parameter/frame_number = 1.0
 shader_parameter/emission_texture = ExtResource("10_s46ft")
 shader_parameter/waveform = SubResource("3858")
 

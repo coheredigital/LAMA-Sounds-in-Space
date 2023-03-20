@@ -37,3 +37,4 @@ signal balloon_visibility_changed(value: bool)
 	set(value):
 		player_state = value
 		player_state_changed.emit(value)
+		

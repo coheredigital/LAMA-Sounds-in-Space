@@ -491,6 +491,7 @@ state = "home"
 unique_name_in_owner = true
 tree_root = SubResource("AnimationNodeStateMachine_xndii")
 anim_player = NodePath("AnimationPlayer")
+active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_4dohv")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="StateTree"]
