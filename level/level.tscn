@@ -44,8 +44,8 @@ switch_mode = 2
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_xndii"]
 states/End/position = Vector2(1428, 59)
 states/Start/position = Vector2(221, 100)
-states/home/node = SubResource("AnimationNodeAnimation_8dnu5")
-states/home/position = Vector2(349, 100)
+states/intro/node = SubResource("AnimationNodeAnimation_8dnu5")
+states/intro/position = Vector2(349, 100)
 states/landing/node = SubResource("AnimationNodeAnimation_e5fql")
 states/landing/position = Vector2(1037, 100)
 states/launch/node = SubResource("AnimationNodeAnimation_2a4g6")
@@ -54,7 +54,7 @@ states/stars_light/node = SubResource("AnimationNodeAnimation_gd7er")
 states/stars_light/position = Vector2(654, 100)
 states/warp/node = SubResource("AnimationNodeAnimation_w0kem")
 states/warp/position = Vector2(817, 100)
-transitions = ["home", "launch", SubResource("AnimationNodeStateMachineTransition_7tb2q"), "launch", "stars_light", SubResource("AnimationNodeStateMachineTransition_jflk3"), "Start", "home", SubResource("AnimationNodeStateMachineTransition_ycoeb"), "stars_light", "warp", SubResource("AnimationNodeStateMachineTransition_omi45"), "warp", "landing", SubResource("AnimationNodeStateMachineTransition_vdkye")]
+transitions = ["intro", "launch", SubResource("AnimationNodeStateMachineTransition_7tb2q"), "launch", "stars_light", SubResource("AnimationNodeStateMachineTransition_jflk3"), "Start", "intro", SubResource("AnimationNodeStateMachineTransition_ycoeb"), "stars_light", "warp", SubResource("AnimationNodeStateMachineTransition_omi45"), "warp", "landing", SubResource("AnimationNodeStateMachineTransition_vdkye")]
 graph_offset = Vector2(-38, -96)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_4dohv"]
@@ -485,6 +485,7 @@ shader_parameter/emission_energy = 1.0
 
 [node name="Level" type="Node"]
 script = ExtResource("1_58g46")
+state = "home"
 
 [node name="StateTree" type="AnimationTree" parent="."]
 unique_name_in_owner = true

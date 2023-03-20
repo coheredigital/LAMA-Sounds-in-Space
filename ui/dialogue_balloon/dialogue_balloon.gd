@@ -1,4 +1,5 @@
-extends CanvasLayer
+# Directly adapted from the "example_balloon" provided by the Dialogue Manager addon
+extends Control
 
 
 @onready var balloon: ColorRect = %Balloon
@@ -40,7 +41,7 @@ var dialogue_line: DialogueLine:
 		character_label.text = tr(dialogue_line.character, "dialogue")
 		
 		dialogue_label.modulate.a = 0
-		dialogue_label.custom_minimum_size.x = dialogue_label.get_parent().size.x - 1
+#		dialogue_label.custom_minimum_size.x = dialogue_label.get_parent().size.x - 1
 		dialogue_label.dialogue_line = dialogue_line
 
 		# Show any responses we have

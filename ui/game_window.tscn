@@ -1,6 +1,5 @@
-[gd_scene load_steps=12 format=3 uid="uid://bw70w15xhifwc"]
+[gd_scene load_steps=10 format=3 uid="uid://bw70w15xhifwc"]
 
-[ext_resource type="AnimationNodeStateMachine" uid="uid://c23xty37kg5n2" path="res://animations/mission_state_tree.tres" id="1_0f2d7"]
 [ext_resource type="Script" path="res://ui/game_window.gd" id="1_b56ai"]
 [ext_resource type="AnimationLibrary" uid="uid://bc4hsf1v4gx2q" path="res://animations/libraries/mission.tres" id="2_wiigf"]
 [ext_resource type="AnimationLibrary" uid="uid://d4hu2xr0cuoh8" path="res://animations/libraries/pre_launch.tres" id="3_xc1kt"]
@@ -8,8 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://cq3x5n33r2d8c" path="res://characters/character/character.tscn" id="6_8i88j"]
 [ext_resource type="PackedScene" uid="uid://ciaubij6uaqb8" path="res://characters/player/player.tscn" id="7_mwy2h"]
 [ext_resource type="PackedScene" uid="uid://327fug3x7j7" path="res://ui/dialogue_balloon/dialogue_balloon.tscn" id="8_ixeqy"]
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_vs8d4"]
 
 [sub_resource type="Animation" id="Animation_p0umf"]
 length = 0.001
@@ -48,14 +45,7 @@ initial_position = 1
 size = Vector2i(1280, 720)
 script = ExtResource("1_b56ai")
 
-[node name="MissionStateTree" type="AnimationTree" parent="."]
-unique_name_in_owner = true
-tree_root = ExtResource("1_0f2d7")
-anim_player = NodePath("MissionAnimationPlayer")
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_vs8d4")
-
-[node name="MissionAnimationPlayer" type="AnimationPlayer" parent="MissionStateTree"]
-root_node = NodePath("../..")
+[node name="MissionAnimationPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
 libraries = {
 "": SubResource("AnimationLibrary_68h00"),
@@ -82,6 +72,7 @@ render_target_update_mode = 4
 transform = Transform3D(0.963162, 0, -0.268902, 0, 1, 0, 0.268902, 0, 0.963165, -6.33502, 2.10132, 0.0940139)
 
 [node name="Player" parent="SubViewportContainer/SubViewport" instance=ExtResource("7_mwy2h")]
+state = "intro"
 follow_speed = 1.96
 turn_speed = 4.469
 distance_buffer = 3.438

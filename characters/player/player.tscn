@@ -85,9 +85,10 @@ _data = {
 
 [node name="Player" type="Node"]
 script = ExtResource("1")
+state = "enter_spaceship"
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.377551, 0.325317, -0.866962, 3.27826e-07, 0.936256, 0.351319, 0.925989, -0.132641, 0.353485, -6.52603, 2.46426, 1.7955)
+transform = Transform3D(0.377551, 0.325317, -0.866963, 5.96046e-08, 0.936256, 0.351319, 0.925989, -0.132641, 0.353484, -6.52603, 2.46426, 1.7955)
 current = true
 fov = 65.0
 far = 800.0

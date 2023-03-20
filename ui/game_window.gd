@@ -4,7 +4,7 @@ extends Window
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var resource = load("res://dialog/intro.dialogue")
+	var resource = load("res://dialogue/script.dialogue")
 	show_dialogue_balloon(resource, "start")
 
 

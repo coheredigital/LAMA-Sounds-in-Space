@@ -1,22 +1,19 @@
 @tool
 extends Node
 
-@export_enum("home","launch","stars_light","warp","landing") var state: String = "home":
+@export_enum("intro","launch","stars_light","warp","landing") var state: String = "intro":
 	set(value):
-		set_state(value)
+		state = value
+		update_state(value)
 
-@onready var StateTree := %StateTree
+@onready var state_tree := %StateTree
 
 func _ready():
-	Sequencer.level_changed.connect(_on_Sequencer_set_state)
+	Sequencer.level_changed.connect(update_state)
 	
-func set_state(value: String) -> void: 
-	state = value
-	if StateTree:
-		var state_machine : AnimationNodeStateMachinePlayback = StateTree.get("parameters/playback")
+func update_state(value: String) -> void: 
+	print("Sequencer level: %s" % Sequencer.level )
+	if state_tree:
+		var state_machine : AnimationNodeStateMachinePlayback = state_tree.get("parameters/playback")
 		state_machine.travel(state)
 		
-		
-func _on_Sequencer_set_state() -> void: 
-	print("Sequencer level: %s" % Sequencer.level )
-
