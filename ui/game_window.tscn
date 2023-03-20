@@ -52,7 +52,6 @@ script = ExtResource("1_b56ai")
 unique_name_in_owner = true
 tree_root = ExtResource("1_0f2d7")
 anim_player = NodePath("MissionAnimationPlayer")
-active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_vs8d4")
 
 [node name="MissionAnimationPlayer" type="AnimationPlayer" parent="MissionStateTree"]
