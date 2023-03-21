@@ -80,3 +80,4 @@ distance_boost = 2.904
 
 [node name="DialogueBalloon" parent="SubViewportContainer/SubViewport" instance=ExtResource("8_ixeqy")]
 unique_name_in_owner = true
+visible = false

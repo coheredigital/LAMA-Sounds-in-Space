@@ -1,19 +1,7 @@
-[gd_resource type="ShaderMaterial" load_steps=5 format=3]
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://iq11l5wetibu"]
 
 [ext_resource type="Shader" path="res://level/spaceship/materials/dashboard_screens.gdshader" id="1_ue41v"]
-[ext_resource type="Texture2D" uid="uid://bnfo0b752cn10" path="res://level/spaceship/materials/dashboard_emission.png" id="2_7iqly"]
-[ext_resource type="Gradient" uid="uid://b71jutk4qdqv3" path="res://audio/visualizer/visualizer_gradient.tres" id="3_ohrt5"]
-
-[sub_resource type="GradientTexture2D" id="3858"]
-gradient = ExtResource("3_ohrt5")
 
 [resource]
 render_priority = 1
 shader = ExtResource("1_ue41v")
-shader_parameter/emission_energy = 1.0
-shader_parameter/alpha = 1.0
-shader_parameter/waveform_controlled = false
-shader_parameter/screen_number = 9.0
-shader_parameter/frame_number = 1.0
-shader_parameter/emission_texture = ExtResource("2_7iqly")
-shader_parameter/waveform = SubResource("3858")

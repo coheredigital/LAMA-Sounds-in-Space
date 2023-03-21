@@ -155,3 +155,7 @@ rim_color={
 "type": "color",
 "value": Color(0.568627, 0.278431, 0.74902, 1)
 }
+fuel_level={
+"type": "float",
+"value": 0.997
+}

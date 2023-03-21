@@ -1,4 +1,4 @@
-[gd_resource type="AnimationLibrary" load_steps=12 format=3 uid="uid://dywe6iokyofm1"]
+[gd_resource type="AnimationLibrary" load_steps=13 format=3 uid="uid://dywe6iokyofm1"]
 
 [sub_resource type="Animation" id="Animation_8q5bf"]
 resource_name = "screen_failure"
@@ -28,6 +28,22 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [13.0]
+}
+
+[sub_resource type="Animation" id="Animation_yvi7q"]
+resource_name = "battery"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("spaceship/cockpit/monitor/screen:surface_material_override/0:shader_parameter/screen_number")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [7.0]
 }
 
 [sub_resource type="Animation" id="Animation_tp0ma"]
@@ -411,7 +427,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [10.0]
+"values": [11.0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -465,6 +481,7 @@ tracks/5/keys = {
 [resource]
 _data = {
 "alert": SubResource("Animation_8q5bf"),
+"battery": SubResource("Animation_yvi7q"),
 "buckle_warning": SubResource("Animation_tp0ma"),
 "failure": SubResource("Animation_ex31g"),
 "idle": SubResource("Animation_ds544"),
@@ -472,7 +489,7 @@ _data = {
 "restart": SubResource("Animation_ukuei"),
 "start_button": SubResource("Animation_wg55r"),
 "success": SubResource("Animation_3f0s6"),
-"talking_head": SubResource("Animation_66wja"),
+"talking": SubResource("Animation_66wja"),
 "visualizer": SubResource("Animation_l74ce"),
 "wipe": SubResource("Animation_8f7r0")
 }

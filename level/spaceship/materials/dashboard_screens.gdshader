@@ -8,10 +8,11 @@ const vec2 resolution = vec2(16.0,32.0);
 const int pixel_size = 1;
 uniform sampler2D waveform : hint_default_black;
 uniform bool waveform_controlled = false;
+global uniform float fuel_level : hint_range(0.0, 1.0) = 0.0;
 
 const float screen_count = 16.0;
 const float frame_count = 8.0;
-uniform float screen_number : hint_range(1,16.0,1.0) = 1.0;
+uniform float screen_number : hint_range(1,17.0,1.0) = 1.0;
 uniform float frame_number : hint_range(1.0,8.0,1.0) = 1.0;
 
 float steppify(float value, int steps){
@@ -56,9 +57,13 @@ void fragment() {
 				mouth_mask
 			);	
 		}
-		else   {
-			offset.y = frame_size.y * round(mix(0.0,8.0,waveform_y));	
+		else {
+			offset.y = frame_size.y * round(mix(0.0,7.0,waveform_y));	
 		}
+	}
+//	fuel / battery screen
+	else if(screen_number == 7.0) {
+		offset.y = frame_size.y * floor(mix(0.0,7.0,fuel_level));	
 	}
 	else {
 		offset.y = frame_size.y * (frame_number - 1.0);	
