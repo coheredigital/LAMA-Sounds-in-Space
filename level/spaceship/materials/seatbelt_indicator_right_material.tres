@@ -1,7 +1,14 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://c5f5la1efp4x1"]
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://c5f5la1efp4x1"]
 
+[ext_resource type="Texture2D" uid="uid://bnfo0b752cn10" path="res://level/spaceship/materials/dashboard_emission.png" id="2_mk38a"]
 [ext_resource type="Shader" path="res://level/spaceship/materials/dashboard_screens.gdshader" id="3"]
 
 [resource]
 render_priority = 1
 shader = ExtResource("3")
+shader_parameter/emission_energy = 1.0
+shader_parameter/alpha = 1.0
+shader_parameter/waveform_controlled = false
+shader_parameter/screen_number = 1.0
+shader_parameter/frame_number = 1.0
+shader_parameter/emission_texture = ExtResource("2_mk38a")
