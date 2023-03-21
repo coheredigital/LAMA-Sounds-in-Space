@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bw70w15xhifwc"]
+[gd_scene load_steps=10 format=3 uid="uid://bw70w15xhifwc"]
 
 [ext_resource type="Script" path="res://ui/game_window.gd" id="1_b56ai"]
 [ext_resource type="Shader" path="res://shaders/toon.gdshader" id="3_pturu"]
@@ -25,6 +25,8 @@ shader_parameter/metallic = 0.0
 shader_parameter/roughness = 1.0
 shader_parameter/emission = Color(0, 0, 0, 1)
 shader_parameter/emission_energy = 1.0
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_prjcq"]
 
 [node name="GameWindow" type="Window"]
 initial_position = 1
@@ -56,12 +58,17 @@ surface_material_override/0 = SubResource("ShaderMaterial_15lxc")
 [node name="Character" parent="SubViewportContainer/SubViewport" instance=ExtResource("6_8i88j")]
 transform = Transform3D(0.963162, 0, -0.268902, 0, 1, 0, 0.268902, 0, 0.963165, -6.33502, 2.10132, 0.0940139)
 
-[node name="Player" parent="SubViewportContainer/SubViewport" instance=ExtResource("7_mwy2h")]
+[node name="Player" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("position_target", "look_target") instance=ExtResource("7_mwy2h")]
 state = "intro"
 follow_speed = 1.96
 turn_speed = 4.469
 distance_buffer = 3.438
 distance_boost = 2.904
+position_target = NodePath("PositionTarget")
+look_target = NodePath("LookTarget")
+
+[node name="PositionStateTree" parent="SubViewportContainer/SubViewport/Player" index="3"]
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_prjcq")
 
 [node name="PathFollow3D" parent="SubViewportContainer/SubViewport/Player/PlayerPath3D" index="0"]
 transform = Transform3D(0.0518205, 0.0875934, 0.994784, 0.65612, 0.747977, -0.100038, -0.752856, 0.657896, -0.0187113, 0.175951, 0.386346, 0.751082)
