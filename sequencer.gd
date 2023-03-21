@@ -9,7 +9,7 @@ signal door_open_changed(value: bool)
 signal seatbelt_status_changed(value: bool)
 signal screen_changed(value: String)
 signal steering_motion_changed(value: float)
-signal fuel_level_changed(value: float)
+signal fuel_level_changed(value: int)
 
 @export var dialogue_visible: bool = false:
 	set(value):
@@ -38,9 +38,14 @@ signal fuel_level_changed(value: float)
 
 @export_range(0.0,1.0) var steering_motion: float = 0.0:
 	set(value):
-		steering_motion = value
-		steering_motion_changed.emit(value)
+		steering_motion = clamp(value, 0.0,1.0)
+		steering_motion_changed.emit(steering_motion)
 		
+@export_range(1,8) var fuel_level: int = 1:
+	set(value):
+		fuel_level = clamp(value, 1,8)
+		fuel_level_changed.emit(value) 
+			
 @export var door_open: bool = false:
 	set(value):
 		door_open = value

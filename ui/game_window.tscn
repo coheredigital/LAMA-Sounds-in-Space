@@ -1,57 +1,35 @@
-[gd_scene load_steps=10 format=3 uid="uid://bw70w15xhifwc"]
+[gd_scene load_steps=9 format=3 uid="uid://bw70w15xhifwc"]
 
 [ext_resource type="Script" path="res://ui/game_window.gd" id="1_b56ai"]
-[ext_resource type="AnimationLibrary" uid="uid://bc4hsf1v4gx2q" path="res://animations/libraries/mission.tres" id="2_wiigf"]
-[ext_resource type="AnimationLibrary" uid="uid://d4hu2xr0cuoh8" path="res://animations/libraries/pre_launch.tres" id="3_xc1kt"]
+[ext_resource type="Shader" path="res://shaders/toon.gdshader" id="3_pturu"]
 [ext_resource type="PackedScene" uid="uid://dahkxa81prn10" path="res://level/level.tscn" id="4_7ey7j"]
 [ext_resource type="PackedScene" uid="uid://cq3x5n33r2d8c" path="res://characters/character/character.tscn" id="6_8i88j"]
 [ext_resource type="PackedScene" uid="uid://ciaubij6uaqb8" path="res://characters/player/player.tscn" id="7_mwy2h"]
 [ext_resource type="PackedScene" uid="uid://327fug3x7j7" path="res://ui/dialogue_balloon/dialogue_balloon.tscn" id="8_ixeqy"]
 
-[sub_resource type="Animation" id="Animation_p0umf"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SubViewportContainer/SubViewport/Player:state")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["intro"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SubViewportContainer/SubViewport/Character:state")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["intro"]
-}
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_8wvt6"]
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_68h00"]
-_data = {
-"RESET": SubResource("Animation_p0umf")
-}
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_15lxc"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("3_pturu")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/specular = 0.5
+shader_parameter/specular_amount = 0.5
+shader_parameter/specular_smoothness = 0.05
+shader_parameter/wrap = 0.25
+shader_parameter/rim = 0.5
+shader_parameter/rim_amount = 0.2
+shader_parameter/rim_smoothness = 0.05
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 1.0
+shader_parameter/emission = Color(0, 0, 0, 1)
+shader_parameter/emission_energy = 1.0
 
 [node name="GameWindow" type="Window"]
 initial_position = 1
 size = Vector2i(1280, 720)
 script = ExtResource("1_b56ai")
-
-[node name="MissionAnimationPlayer" type="AnimationPlayer" parent="."]
-reset_on_save = false
-libraries = {
-"": SubResource("AnimationLibrary_68h00"),
-"mission": ExtResource("2_wiigf"),
-"pre_launch": ExtResource("3_xc1kt")
-}
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 anchors_preset = 15
@@ -68,6 +46,13 @@ render_target_update_mode = 4
 
 [node name="Level" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_7ey7j")]
 
+[node name="StateTree" parent="SubViewportContainer/SubViewport/Level" index="0"]
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_8wvt6")
+
+[node name="Planet" parent="SubViewportContainer/SubViewport/Level" index="2"]
+transform = Transform3D(-0.249969, 0, -0.00392246, 0, 0.25, 0, 0.00392246, 0, -0.249969, 3.72275, 28.7924, -54.9282)
+surface_material_override/0 = SubResource("ShaderMaterial_15lxc")
+
 [node name="Character" parent="SubViewportContainer/SubViewport" instance=ExtResource("6_8i88j")]
 transform = Transform3D(0.963162, 0, -0.268902, 0, 1, 0, 0.268902, 0, 0.963165, -6.33502, 2.10132, 0.0940139)
 
@@ -78,6 +63,14 @@ turn_speed = 4.469
 distance_buffer = 3.438
 distance_boost = 2.904
 
+[node name="PathFollow3D" parent="SubViewportContainer/SubViewport/Player/PlayerPath3D" index="0"]
+transform = Transform3D(0.0518205, 0.0875934, 0.994784, 0.65612, 0.747977, -0.100038, -0.752856, 0.657896, -0.0187113, 0.175951, 0.386346, 0.751082)
+progress = 2.43
+
 [node name="DialogueBalloon" parent="SubViewportContainer/SubViewport" instance=ExtResource("8_ixeqy")]
 unique_name_in_owner = true
 visible = false
+
+[editable path="SubViewportContainer/SubViewport/Level"]
+[editable path="SubViewportContainer/SubViewport/Level/Environment"]
+[editable path="SubViewportContainer/SubViewport/Player"]

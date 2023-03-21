@@ -503,6 +503,7 @@ libraries = {
 }
 
 [node name="Spaceship" parent="." instance=ExtResource("2_ovpdl")]
+fuel_level = 0
 
 [node name="Planet" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.249969, 0, -0.00392246, 0, 0.25, 0, 0.00392246, 0, -0.249969, 3.72275, 28.7924, -54.9282)

@@ -8,7 +8,7 @@ const vec2 resolution = vec2(16.0,32.0);
 const int pixel_size = 1;
 uniform sampler2D waveform : hint_default_black;
 uniform bool waveform_controlled = false;
-global uniform float fuel_level : hint_range(0.0, 1.0) = 0.0;
+global uniform int fuel_level : hint_range(1, 8) = 1;
 
 const float screen_count = 16.0;
 const float frame_count = 8.0;
@@ -63,7 +63,7 @@ void fragment() {
 	}
 //	fuel / battery screen
 	else if(screen_number == 7.0) {
-		offset.y = frame_size.y * floor(mix(0.0,7.0,fuel_level));	
+		offset.y = frame_size.y * floor(mix(0.0,7.0,(float(fuel_level) / 8.0)));	
 	}
 	else {
 		offset.y = frame_size.y * (frame_number - 1.0);	

@@ -1,7 +1,7 @@
 @tool
 extends Node3D
 
-@export_enum("idle","wipe","alert","computer","start_button","restart_button","success", "failure", "buckle_warning") var screen_state: String = "intro":
+@export_enum("idle","wipe","alert","computer","start_button","restart_button","success", "failure", "buckle_warning","visualizer") var screen_state: String = "intro":
 	set(value):
 		screen_state = value
 		update_screen(value)
@@ -23,10 +23,11 @@ extends Node3D
 		set_steering_motion(value)
 
 
-@export_range(0.0,1.0) var fuel_level := 0.0 : 
+@export_range(1,8) var fuel_level := 1: 
 	set(value):
 		fuel_level = value
-		RenderingServer.global_shader_parameter_set("fuel_level", value)
+		set_fuel_level(value)
+
 		
 @onready var animation_tree := %AnimationTree
 
@@ -34,10 +35,14 @@ func _ready():
 	Sequencer.screen_changed.connect(update_screen)
 	Sequencer.door_open_changed.connect(set_door_open)
 	Sequencer.steering_motion_changed.connect(set_steering_motion)
+	Sequencer.fuel_level_changed.connect(set_fuel_level)
 
 func set_steering_motion(value: float) -> void:
 	if animation_tree:
 		animation_tree.set("parameters/steering_speed/scale", value)
+
+func set_fuel_level(value: float) -> void:
+	RenderingServer.global_shader_parameter_set("fuel_level", value)
 
 func set_door_open(value: bool) -> void:
 	if animation_tree:

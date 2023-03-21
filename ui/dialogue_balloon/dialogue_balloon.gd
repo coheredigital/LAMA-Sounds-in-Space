@@ -25,7 +25,7 @@ var will_hide_balloon: bool = false
 var dialogue_line: DialogueLine:
 	set(next_dialogue_line):
 		is_waiting_for_input = false
-		
+
 		if not next_dialogue_line:
 			queue_free()
 			return
@@ -87,9 +87,11 @@ func _ready() -> void:
 	response_template.hide()
 	balloon.hide()
 	balloon.custom_minimum_size.x = balloon.get_viewport_rect().size.x
-	
+	Sequencer.dialogue_visibility_changed.connect(set_dialogue_visbility)
 	Engine.get_singleton("DialogueManager").mutated.connect(_on_mutated)
 
+func set_dialogue_visbility(value: bool)-> void:
+	self.visible = value
 
 func _unhandled_input(_event: InputEvent) -> void:
 	# Only the balloon is allowed to handle input while it's showing

@@ -81,6 +81,7 @@ func _ready():
 	set_definition(definition)
 
 func _enter_tree():
+	%AudioStreamRecord.playing = true
 	set_definition(definition)
 	
 func _process(delta):

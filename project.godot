@@ -25,6 +25,7 @@ driver/enable_input=true
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 Sequencer="*res://sequencer.gd"
 Session="*res://session.gd"
+AudioVisualizer="*res://audio/visualizer/AudioVisualizer.tscn"
 
 [dialogue_manager]
 
@@ -156,6 +157,6 @@ rim_color={
 "value": Color(0.568627, 0.278431, 0.74902, 1)
 }
 fuel_level={
-"type": "float",
-"value": 0.997
+"type": "int",
+"value": 0
 }

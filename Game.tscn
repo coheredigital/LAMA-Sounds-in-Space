@@ -1,42 +1,31 @@
-[gd_scene load_steps=13 format=3 uid="uid://dqdal17eldmvk"]
+[gd_scene load_steps=7 format=3 uid="uid://dqdal17eldmvk"]
 
 [ext_resource type="PackedScene" uid="uid://bw70w15xhifwc" path="res://ui/game_window.tscn" id="3_ljibd"]
-[ext_resource type="Gradient" uid="uid://b71jutk4qdqv3" path="res://audio/visualizer/visualizer_gradient.tres" id="4_bkdmv"]
-[ext_resource type="Script" path="res://audio/visualizer/AudioVisualizer.gd" id="5_cnmhu"]
-[ext_resource type="Curve" uid="uid://dymfoswhbthj1" path="res://audio/visualizer/curves/waveform_curve.tres" id="6_6kuuw"]
-[ext_resource type="Curve" uid="uid://djq65vh7dm2ol" path="res://audio/visualizer/curves/response_curve.tres" id="7_0nslx"]
-[ext_resource type="Curve" uid="uid://vnofp0kutp4i" path="res://audio/visualizer/curves/x_acceleration_curve.tres" id="8_ry1wg"]
-[ext_resource type="Curve" uid="uid://t7kqhabg0q1l" path="res://audio/visualizer/curves/y_acceleration_curve.tres" id="9_vncay"]
-[ext_resource type="Curve" uid="uid://dxn1rtet5pm80" path="res://audio/visualizer/curves/z_acceleration_curve.tres" id="10_dsba6"]
+[ext_resource type="Shader" path="res://shaders/toon.gdshader" id="4_tcvem"]
 [ext_resource type="PackedScene" uid="uid://dqmb5lg7lcwhf" path="res://ui/control_panel.tscn" id="10_ep7ri"]
-[ext_resource type="Curve" uid="uid://d1nfw1ns152lp" path="res://audio/visualizer/curves/a_acceleration_curve.tres" id="11_l1cg1"]
 [ext_resource type="Script" path="res://game.gd" id="12"]
 
-[sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_2n73o"]
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_s757q"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7utsx"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_tcvem")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/specular = 0.5
+shader_parameter/specular_amount = 0.5
+shader_parameter/specular_smoothness = 0.05
+shader_parameter/wrap = 0.25
+shader_parameter/rim = 0.5
+shader_parameter/rim_amount = 0.2
+shader_parameter/rim_smoothness = 0.05
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 1.0
+shader_parameter/emission = Color(0, 0, 0, 1)
+shader_parameter/emission_energy = 1.0
 
 [node name="Game" type="Node"]
 script = ExtResource("12")
-
-[node name="AudioVisualizer" type="Node" parent="."]
-unique_name_in_owner = true
-script = ExtResource("5_cnmhu")
-waveform = ExtResource("6_6kuuw")
-gradient = ExtResource("4_bkdmv")
-max_frequency = 660.0
-max_db = -1.6
-min_db = -64.9
-response_curve = ExtResource("7_0nslx")
-x_curve = ExtResource("8_ry1wg")
-y_curve = ExtResource("9_vncay")
-z_curve = ExtResource("10_dsba6")
-a_curve = ExtResource("11_l1cg1")
-
-[node name="AudioStreamRecord" type="AudioStreamPlayer" parent="AudioVisualizer"]
-unique_name_in_owner = true
-stream = SubResource("AudioStreamMicrophone_2n73o")
-volume_db = 17.187
-autoplay = true
-bus = &"Record"
 
 [node name="ControlPanel" parent="." instance=ExtResource("10_ep7ri")]
 
@@ -44,6 +33,21 @@ bus = &"Record"
 unique_name_in_owner = true
 visible = false
 
+[node name="SubViewport" parent="GameWindow/SubViewportContainer" index="0"]
+render_target_update_mode = 0
+
+[node name="StateTree" parent="GameWindow/SubViewportContainer/SubViewport/Level" index="0"]
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_s757q")
+
+[node name="Planet" parent="GameWindow/SubViewportContainer/SubViewport/Level" index="2"]
+surface_material_override/0 = SubResource("ShaderMaterial_7utsx")
+
+[node name="Character" parent="GameWindow/SubViewportContainer/SubViewport" index="1"]
+transform = Transform3D(0.963162, 0, -0.268902, 0, 1, 0, 0.268902, 0, 0.963165, -6.33502, 2.10132, 0.0940139)
+
 [connection signal="pressed" from="ControlPanel/Panel/MarginContainer/Controls/HBoxContainer/GameControls/HBoxContainer/start_game" to="." method="_on_start_game_pressed"]
 
 [editable path="ControlPanel"]
+[editable path="GameWindow"]
+[editable path="GameWindow/SubViewportContainer/SubViewport/Level"]
+[editable path="GameWindow/SubViewportContainer/SubViewport/Level/Environment"]

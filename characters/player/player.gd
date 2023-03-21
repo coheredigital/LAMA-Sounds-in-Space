@@ -14,8 +14,8 @@ extends Node
 @export_range (1.0, 10.0) var distance_boost = 2.0
 
 @onready var position_state_tree = %PositionStateTree
-@onready var target : Marker3D = $PositionTarget
-@onready var look_target : Marker3D = $LookTarget
+@export var position_target : Node3D
+@export var look_target : Node3D
 @onready var camera := $Camera3D
 
 func update_state(value: String) -> void:
@@ -28,13 +28,13 @@ func _ready():
 
 func _process(delta):
 
-	if not target or not look_target:
+	if not position_target or not look_target:
 		return
-	var distance = camera.position.distance_to(target.global_transform.origin)
+	var distance = camera.position.distance_to(position_target.global_transform.origin)
 	var follow_distance_speed = lerp(0.1, pow(follow_speed,distance_boost), clamp(smoothstep(0.0, distance_buffer, distance), 0.0,1.0));
 
 #	position = lerp(position, target.global_transform.origin, delta * follow_distance_speed)
-	camera.position = camera.position.move_toward(target.global_transform.origin, delta * follow_distance_speed)
+	camera.position = camera.position.move_toward(position_target.global_transform.origin, delta * follow_distance_speed)
 #	look_at_from_position(target.global_transform.origin, look_target.global_transform.origin, Vector3.UP)
 	var look_transform = camera.global_transform.looking_at(look_target.global_transform.origin, Vector3.UP)
 

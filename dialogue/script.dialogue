@@ -4,8 +4,11 @@ set character_state = "intro"
 set player_state = "intro"
 set level = "intro"
 set screen = "idle"
+set steering_motion = 0.0
+set fuel_level = 1
 
-Sam: Welcome to the Space Station! My name is Sam and I’m an Astronaut. We’re so glad you came to visit us today! 
+~ welcome
+Sam: Welcome to the Space Station! My name is Sam and I’m an Astronaut. We’re so glad you came to visit us today!
 Sam: Here at the space station, we go on so many fun missions. Come on in so I can show you around! 
 Sam: First, I want you to meet our very own space llama named Lucky. She’s usually around here somewhere... 
 Sam: Let’s look up her location on our astronaut map. 
@@ -25,28 +28,40 @@ Sam: Our mission is to travel to Planet Stardust, where Lucky’s spaceship brok
 Sam: Are you ready to start your astronaut training? If you help, you’ll get your very own space cadet prize for your help and your bravery!!   
 
 set player_state = "approach_spaceship"
-Sam: [wait=5] Press the GREEN button to open the spaceship door and start your training! 
+
+set dialogue_visible = false
+[next=5]
+set dialogue_visible = true
+
+Sam: Press the GREEN button to open the spaceship door and start your training! 
 - Green Button => unlock_door
 
+
 ~ unlock_door
+set dialogue_visible = false
 set door_open = true
+set player_state = "enter_spaceship"
+[next=10]
 
 ~ task_0
 set character_state = "intro"
-set player_state = "enter_spaceship"
+set player_state = "standing"
 set level = "intro"
 set character_state = "enter_spaceship"
-
+set dialogue_visible = true
 Sam: Welcome aboard! 
 Sam: To become a Junior Astronaut, you will need to listen closely so we can make it to Planet Stardust, find Lucky the Llama, and bring Lucky back to the Space Station.
 Sam: Our first job is to make sure we have everything we need before we fly. 
+set player_state = "sitting"
 Sam: This is our handy dandy computer! The computer will help us travel to Planet Stardust. 
 Sam: This computer is voice-activated, which means that we have to say the commands out loud with our voices so the computer can help us activate the spaceship! 
 Sam: First, the computer will say the right words for a command and then your job is to repeat the words out loud with your voice.  
-set player_state = "sitting"
+
 Sam: This is what the computer sounds like 
+set dialogue_visible = false
 set screen = "computer" 
-[wait=5]
+[next=1]
+set dialogue_visible = true
 Computer: Nice to meet you
 
 Sam: Ok, now I’ll have the computer say a command and your job is to repeat what the computer just said with your voice.
@@ -55,11 +70,17 @@ Sam: After you repeat after the computer, I’ll press the red button to send te
 Sam: Ok here we go!
 
 Computer: Activate spaceship!
-
+set dialogue_visible = false
+set screen = "visualizer" 
+[next=5]
 # [red, yellow, green light sequence then child repeats] 
-
+~ spaceship_activated
+set dialogue_visible = true
+set screen = "success"
 Sam: Great job! Looks like it heard you! We’re ready to start preparing the ship for blast off. 
-Sam: I’ll sit here next to you and let you give the computer the voice commands! 
+set screen = "idle"
+Sam: I’ll sit here next to you and let you give the computer the voice commands!
+set character_state = "sitting"
 Sam: When you're ready, press the GREEN button to get started. 
 
 # |press green button to move to warm-ups| 
@@ -74,13 +95,40 @@ set screen = "visualizer"
 
 [wait=15]
 set screen = "idle"
+
+~ warning_sirens
 Sam: Great, now let’s test out our warning sirens! Listen to the command from the computer and then repeat what it says with your voice.
 Computer: Siren noise: low to high to low to high to low
-
 Sam: Awesome! We are almost ready to blast off, but first we need some fuel. 
+set screen = "battery"
 Sam: Listen to the command from the computer and then repeat what it says with your voice:  
-
+[next=0.5]
+set screen = "computer"
 Computer: Let’s fuel up
+set dialogue_visible = false
+set screen = "visualizer"
+[next=5.0]
+set screen = "success"
+[next=5.0]
+# auto fuel up temp
+set screen = "battery"
+[next=0.5]
+set fuel_level = 2
+[next=0.5]
+set fuel_level = 3
+[next=0.5]
+set fuel_level = 4
+[next=0.5]
+set fuel_level = 5
+[next=0.5]
+set fuel_level = 6
+[next=0.5]
+set fuel_level = 7
+[next=0.5]
+set fuel_level = 8
+[next=2.0]
+set dialogue_visible = true
+
 
 Sam: The computer wants us to yawn out loud to tell it to turn down the lights if we want to sleep! Let’s see if it works. 
 Sam: Listen to the command from the computer and then repeat what it says with your voice: 
@@ -92,7 +140,9 @@ Sam: Now that our spaceship is full of fuel and the computer knows your voice, i
 Sam: Our handy dandy computer will countdown to blast off, listen closely and then repeat what you hear to send us into space! 
 
 Computer: *Blast Off!* 
+
 set level = "launch"
+
 ~ task_1
 
 Sam: We’re flying! 
