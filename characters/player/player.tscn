@@ -32,5 +32,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.19235, 1.39121, -0.134955)
 curve = SubResource("Curve3D_xwyno")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="PlayerPath3D"]
-transform = Transform3D(-0.114894, 0.338199, 0.934017, 0.679576, 0.712556, -0.174413, -0.724539, 0.614706, -0.311701, -0.525509, 0.482915, 0.862522)
-progress = 1.71
+transform = Transform3D(-0.216381, 0.504847, 0.835628, 0.702378, 0.674985, -0.225914, -0.678102, 0.538054, -0.500649, -0.877025, 0.562023, 1.02391)
+progress = 1.31

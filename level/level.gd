@@ -11,7 +11,7 @@ func _ready():
 	Sequencer.level_changed.connect(update_state)
 	
 func update_state(value: String) -> void: 
-	if %StateTree:
-		var state_machine : AnimationNodeStateMachinePlayback = %StateTree.get("parameters/playback")
+	if state_tree:
+		var state_machine : AnimationNodeStateMachinePlayback = state_tree.get("parameters/playback")
 		state_machine.travel(value)
 		
