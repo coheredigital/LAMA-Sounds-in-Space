@@ -51,12 +51,17 @@ render_target_update_mode = 4
 [node name="StateTree" parent="SubViewportContainer/SubViewport/Level" index="0"]
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_8wvt6")
 
+[node name="Spaceship" parent="SubViewportContainer/SubViewport/Level" index="1"]
+fuel_level = 0
+
 [node name="Planet" parent="SubViewportContainer/SubViewport/Level" index="2"]
 transform = Transform3D(-0.249969, 0, -0.00392246, 0, 0.25, 0, 0.00392246, 0, -0.249969, 3.72275, 28.7924, -54.9282)
 surface_material_override/0 = SubResource("ShaderMaterial_15lxc")
 
 [node name="Character" parent="SubViewportContainer/SubViewport" instance=ExtResource("6_8i88j")]
 transform = Transform3D(0.963162, 0, -0.268902, 0, 1, 0, 0.268902, 0, 0.963165, -6.33502, 2.10132, 0.0940139)
+state = "standing"
+action = "talking"
 
 [node name="Player" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("position_target", "look_target") instance=ExtResource("7_mwy2h")]
 state = "intro"
@@ -71,12 +76,12 @@ look_target = NodePath("LookTarget")
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_prjcq")
 
 [node name="PathFollow3D" parent="SubViewportContainer/SubViewport/Player/PlayerPath3D" index="0"]
-transform = Transform3D(0.0518205, 0.0875934, 0.994784, 0.65612, 0.747977, -0.100038, -0.752856, 0.657896, -0.0187113, 0.175951, 0.386346, 0.751082)
+transform = Transform3D(0.0518205, 0.0875934, 0.994784, 0.65612, 0.747976, -0.100038, -0.752856, 0.657896, -0.0187113, 0.175951, 0.386346, 0.751082)
 progress = 2.43
 
 [node name="DialogueBalloon" parent="SubViewportContainer/SubViewport" instance=ExtResource("8_ixeqy")]
 unique_name_in_owner = true
-visible = false
+custom_minimum_size = Vector2(1280, 720)
 
 [editable path="SubViewportContainer/SubViewport/Level"]
 [editable path="SubViewportContainer/SubViewport/Level/Environment"]

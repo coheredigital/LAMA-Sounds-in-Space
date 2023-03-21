@@ -45,7 +45,6 @@ set player_state = "enter_spaceship"
 
 ~ task_0
 set character_state = "intro"
-set player_state = "standing"
 set level = "intro"
 set character_state = "enter_spaceship"
 set dialogue_visible = true
@@ -58,12 +57,11 @@ Sam: This computer is voice-activated, which means that we have to say the comma
 Sam: First, the computer will say the right words for a command and then your job is to repeat the words out loud with your voice.  
 
 Sam: This is what the computer sounds like 
-set dialogue_visible = false
 set screen = "computer" 
 [next=1]
-set dialogue_visible = true
 Computer: Nice to meet you
-
+[next=0.5]
+set screen = "idle" 
 Sam: Ok, now I’ll have the computer say a command and your job is to repeat what the computer just said with your voice.
 Sam: Make sure you say it loud and clear, so the computer can hear you! 
 Sam: After you repeat after the computer, I’ll press the red button to send tell the computer to send your voice to the spaceship. 
@@ -110,6 +108,7 @@ set screen = "visualizer"
 [next=5.0]
 set screen = "success"
 [next=5.0]
+
 # auto fuel up temp
 set screen = "battery"
 [next=0.5]
@@ -140,13 +139,18 @@ Sam: Now that our spaceship is full of fuel and the computer knows your voice, i
 Sam: Our handy dandy computer will countdown to blast off, listen closely and then repeat what you hear to send us into space! 
 
 Computer: *Blast Off!* 
+set dialogue_visible = false
 
+~ blast_off 
 set level = "launch"
+[wait=5]
 
 ~ task_1
-
-Sam: We’re flying! 
-Sam: Boy, it’s dark out here! This time, let’s light up wake up the stars with our voices. 
+set dialogue_visible = true
+Sam: We’re flying!
+set dialogue_visible = false
+[wait=5]
+Sam: Boy, it’s dark out here! This time, let’s wake up the stars with our voices. 
 Sam: Just like we practiced, you will listen to the computer’s commands and repeat them loud and clear! 
 Sam: After each voice command, I’ll press the red button to send tell the computer to send your voice to the stars.  
 

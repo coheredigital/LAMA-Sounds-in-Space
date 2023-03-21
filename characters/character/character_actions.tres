@@ -64,18 +64,6 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector3(8.45685, -6.06109, -24.6262)]
 }
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("./character/arm_left/forarm_left:rotation_degrees")
-tracks/5/interp = 2
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(1.98, 3.28),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-18.6758, 2.99858e-07, -9.36432e-07), Vector3(-75.3451, -180, 180)]
-}
 
 [sub_resource type="Animation" id="Animation_njsat"]
 resource_name = "idle"
