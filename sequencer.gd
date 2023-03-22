@@ -15,7 +15,8 @@ signal fuel_level_changed(value: int)
 var dialogue_visible: bool = false:
 	set(value):
 		dialogue_visible = value
-		dialogue_visibility_changed.emit(value)
+#		TODO: renable
+#		dialogue_visibility_changed.emit(value) 
 
 var character_state: String = "intro":
 	set(value):

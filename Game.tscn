@@ -1,13 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://dqdal17eldmvk"]
+[gd_scene load_steps=8 format=3 uid="uid://dqdal17eldmvk"]
 
 [ext_resource type="PackedScene" uid="uid://bw70w15xhifwc" path="res://ui/game_window.tscn" id="3_ljibd"]
 [ext_resource type="Shader" path="res://shaders/toon.gdshader" id="4_tcvem"]
 [ext_resource type="PackedScene" uid="uid://dqmb5lg7lcwhf" path="res://ui/control_panel.tscn" id="10_ep7ri"]
 [ext_resource type="Script" path="res://game.gd" id="12"]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_s757q"]
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_rn7w1"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7utsx"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0ivqt"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("4_tcvem")
@@ -24,6 +24,8 @@ shader_parameter/roughness = 1.0
 shader_parameter/emission = Color(0, 0, 0, 1)
 shader_parameter/emission_energy = 1.0
 
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_wv0yw"]
+
 [node name="Game" type="Node"]
 script = ExtResource("12")
 
@@ -37,17 +39,25 @@ visible = false
 render_target_update_mode = 0
 
 [node name="StateTree" parent="GameWindow/SubViewportContainer/SubViewport/Level" index="0"]
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_s757q")
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_rn7w1")
 
 [node name="Planet" parent="GameWindow/SubViewportContainer/SubViewport/Level" index="2"]
-surface_material_override/0 = SubResource("ShaderMaterial_7utsx")
+transform = Transform3D(-0.249969, 0, -0.00392246, 0, 0.25, 0, 0.00392246, 0, -0.249969, 3.72275, 28.7924, -54.9282)
+surface_material_override/0 = SubResource("ShaderMaterial_0ivqt")
 
 [node name="Character" parent="GameWindow/SubViewportContainer/SubViewport" index="1"]
 transform = Transform3D(0.963162, 0, -0.268902, 0, 1, 0, 0.268902, 0, 0.963165, -6.33502, 2.10132, 0.0940139)
 
-[connection signal="pressed" from="ControlPanel/Panel/MarginContainer/Controls/HBoxContainer/GameControls/HBoxContainer/start_game" to="." method="_on_start_game_pressed"]
+[node name="PositionStateTree" parent="GameWindow/SubViewportContainer/SubViewport/Player" index="3"]
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_wv0yw")
+
+[node name="PathFollow3D" parent="GameWindow/SubViewportContainer/SubViewport/Player/PlayerPath3D" index="0"]
+transform = Transform3D(0.0518205, 0.0875933, 0.994784, 0.65612, 0.747976, -0.100038, -0.752856, 0.657896, -0.0187113, 0.175951, 0.386346, 0.751082)
+
+[connection signal="pressed" from="ControlPanel/Panel/MarginContainer/Controls/Control/VBoxContainer/GameControls/HBoxContainer/start_game" to="." method="_on_start_game_pressed"]
 
 [editable path="ControlPanel"]
 [editable path="GameWindow"]
 [editable path="GameWindow/SubViewportContainer/SubViewport/Level"]
 [editable path="GameWindow/SubViewportContainer/SubViewport/Level/Environment"]
+[editable path="GameWindow/SubViewportContainer/SubViewport/Player"]

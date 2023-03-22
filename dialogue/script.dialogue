@@ -36,11 +36,11 @@ set dialogue_visible = true
 Sam: Press the GREEN button to open the spaceship door and start your training! 
 - Green Button => unlock_door
 
-
 ~ unlock_door
-set dialogue_visible = false
+
 set door_open = true
 set player_state = "enter_spaceship"
+set dialogue_visible = false
 [next=10]
 
 ~ task_0
@@ -49,6 +49,7 @@ set level = "intro"
 set character_state = "enter_spaceship"
 set dialogue_visible = true
 Sam: Welcome aboard! 
+set character_state = "standing"
 Sam: To become a Junior Astronaut, you will need to listen closely so we can make it to Planet Stardust, find Lucky the Llama, and bring Lucky back to the Space Station.
 Sam: Our first job is to make sure we have everything we need before we fly. 
 set player_state = "sitting"
@@ -71,11 +72,14 @@ Computer: Activate spaceship!
 set dialogue_visible = false
 set screen = "visualizer" 
 [next=5]
-# [red, yellow, green light sequence then child repeats] 
+
+# red, yellow, green light sequence then child repeats
 ~ spaceship_activated
-set dialogue_visible = true
 set screen = "success"
-Sam: Great job! Looks like it heard you! We’re ready to start preparing the ship for blast off. 
+[next=2]
+set dialogue_visible = true
+[next=2]
+Sam: Great job! Looks like it heard you! We’re ready to start preparing the ship for blast off. [next=2]
 set screen = "idle"
 Sam: I’ll sit here next to you and let you give the computer the voice commands!
 set character_state = "sitting"
@@ -86,12 +90,11 @@ Sam: When you're ready, press the GREEN button to get started.
 ~ buckle_up
 set screen = "buckle_warning"
 Sam: OK. First, we need to buckle up! Listen to the command from the computer and then repeat what it says with your voice.
-[wait=5]
+[next=5]
 set screen = "computer"
 Computer: Seat belts buckled!
 set screen = "visualizer"
-
-[wait=15]
+[next=5]
 set screen = "idle"
 
 ~ warning_sirens
@@ -131,25 +134,29 @@ set dialogue_visible = true
 
 Sam: The computer wants us to yawn out loud to tell it to turn down the lights if we want to sleep! Let’s see if it works. 
 Sam: Listen to the command from the computer and then repeat what it says with your voice: 
-
-Computer: *Loud Yawn: from high to low* 
+set screen = "computer"
+[next=1]
+Computer: *Loud Yawn: from high to low*
+set screen = "visualizer"
 
 Sam: You did it! [Turn lights back up?] You’re working really hard at this – Great Job! 
 Sam: Now that our spaceship is full of fuel and the computer knows your voice, it’s time to find Planet Stardust! 
 Sam: Our handy dandy computer will countdown to blast off, listen closely and then repeat what you hear to send us into space! 
-
+set screen = "computer"
+[next=1]
 Computer: *Blast Off!* 
-set dialogue_visible = false
+
 
 ~ blast_off 
+set dialogue_visible = false
 set level = "launch"
-[wait=5]
+[next=5]
+set dialogue_visible = true
 
 ~ task_1
-set dialogue_visible = true
 Sam: We’re flying!
 set dialogue_visible = false
-[wait=5]
+[next=5]
 Sam: Boy, it’s dark out here! This time, let’s wake up the stars with our voices. 
 Sam: Just like we practiced, you will listen to the computer’s commands and repeat them loud and clear! 
 Sam: After each voice command, I’ll press the red button to send tell the computer to send your voice to the stars.  

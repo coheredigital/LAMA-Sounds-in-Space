@@ -60,7 +60,7 @@ layout_mode = 2
 
 [node name="Mission Control" type="Label" parent="Panel/MarginContainer/Controls/TitleContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 32
 text = "Mission Control
 "
 
@@ -68,37 +68,44 @@ text = "Mission Control
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 
-[node name="ParticipantForm1" type="HBoxContainer" parent="Panel/MarginContainer/Controls"]
+[node name="Control" type="HSplitContainer" parent="Panel/MarginContainer/Controls"]
 layout_mode = 2
+size_flags_vertical = 3
+split_offset = -786
 
-[node name="StudyIDField" type="HBoxContainer" parent="Panel/MarginContainer/Controls/ParticipantForm1"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/Controls/Control"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="StudyIDField" type="HBoxContainer" parent="Panel/MarginContainer/Controls/Control/VBoxContainer"]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/ParticipantForm1/StudyIDField"]
+[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/Control/VBoxContainer/StudyIDField"]
 layout_mode = 2
 text = "Study ID
 "
 
-[node name="StudyID" type="LineEdit" parent="Panel/MarginContainer/Controls/ParticipantForm1/StudyIDField"]
+[node name="StudyID" type="LineEdit" parent="Panel/MarginContainer/Controls/Control/VBoxContainer/StudyIDField"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "SIP"
 placeholder_text = "ABC"
 
-[node name="AgeGroupField" type="HBoxContainer" parent="Panel/MarginContainer/Controls/ParticipantForm1"]
+[node name="AgeGroupField" type="HBoxContainer" parent="Panel/MarginContainer/Controls/Control/VBoxContainer"]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/ParticipantForm1/AgeGroupField"]
+[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/Control/VBoxContainer/AgeGroupField"]
 layout_mode = 2
 text = "Age Group"
 horizontal_alignment = 2
 
-[node name="AgeGroup" type="SpinBox" parent="Panel/MarginContainer/Controls/ParticipantForm1/AgeGroupField"]
+[node name="AgeGroup" type="SpinBox" parent="Panel/MarginContainer/Controls/Control/VBoxContainer/AgeGroupField"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -108,18 +115,18 @@ value = 1.0
 allow_greater = true
 alignment = 2
 
-[node name="ParticipantIDField" type="HBoxContainer" parent="Panel/MarginContainer/Controls/ParticipantForm1"]
+[node name="ParticipantIDField" type="HBoxContainer" parent="Panel/MarginContainer/Controls/Control/VBoxContainer"]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/ParticipantForm1/ParticipantIDField"]
+[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/Control/VBoxContainer/ParticipantIDField"]
 layout_mode = 2
 text = "Participant ID
 "
 horizontal_alignment = 2
 
-[node name="ParticipantID" type="SpinBox" parent="Panel/MarginContainer/Controls/ParticipantForm1/ParticipantIDField"]
+[node name="ParticipantID" type="SpinBox" parent="Panel/MarginContainer/Controls/Control/VBoxContainer/ParticipantIDField"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -129,21 +136,18 @@ value = 1.0
 allow_greater = true
 alignment = 2
 
-[node name="ParticipantForm2" type="HBoxContainer" parent="Panel/MarginContainer/Controls"]
-layout_mode = 2
-
-[node name="RunIDField" type="HBoxContainer" parent="Panel/MarginContainer/Controls/ParticipantForm2"]
+[node name="RunIDField" type="HBoxContainer" parent="Panel/MarginContainer/Controls/Control/VBoxContainer"]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/ParticipantForm2/RunIDField"]
+[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/Control/VBoxContainer/RunIDField"]
 layout_mode = 2
 text = "Run ID
 "
 horizontal_alignment = 2
 
-[node name="RunID" type="SpinBox" parent="Panel/MarginContainer/Controls/ParticipantForm2/RunIDField"]
+[node name="RunID" type="SpinBox" parent="Panel/MarginContainer/Controls/Control/VBoxContainer/RunIDField"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -153,199 +157,48 @@ value = 1.0
 allow_greater = true
 alignment = 2
 
-[node name="SentenceIDField" type="HBoxContainer" parent="Panel/MarginContainer/Controls/ParticipantForm2"]
-custom_minimum_size = Vector2(0, 32)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/ParticipantForm2/SentenceIDField"]
-layout_mode = 2
-text = "Sentence ID
-"
-
-[node name="SentenceID" type="LineEdit" parent="Panel/MarginContainer/Controls/ParticipantForm2/SentenceIDField"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-placeholder_text = "1A"
-
-[node name="StimulusTypeField" type="HBoxContainer" parent="Panel/MarginContainer/Controls/ParticipantForm2"]
-custom_minimum_size = Vector2(0, 32)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/ParticipantForm2/StimulusTypeField"]
-layout_mode = 2
-text = "Stimulus
-"
-
-[node name="StimulusType" type="OptionButton" parent="Panel/MarginContainer/Controls/ParticipantForm2/StimulusTypeField"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-item_count = 4
-popup/item_0/text = "SpSp"
-popup/item_0/id = 0
-popup/item_1/text = "SpSo"
-popup/item_1/id = 1
-popup/item_2/text = "ImSp"
-popup/item_2/id = 2
-popup/item_3/text = "ImSo"
-popup/item_3/id = 3
-
-[node name="PracticeFlagField" type="HBoxContainer" parent="Panel/MarginContainer/Controls/ParticipantForm2"]
+[node name="Separator" type="HSeparator" parent="Panel/MarginContainer/Controls/Control/VBoxContainer"]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/ParticipantForm2/PracticeFlagField"]
-layout_mode = 2
-text = "Practice Session"
-
-[node name="PracticeFlag" type="CheckButton" parent="Panel/MarginContainer/Controls/ParticipantForm2/PracticeFlagField"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Separator" type="HSeparator" parent="Panel/MarginContainer/Controls"]
-custom_minimum_size = Vector2(0, 32)
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/Controls"]
-custom_minimum_size = Vector2(0, 80)
-layout_mode = 2
-
-[node name="AudioControls" type="VBoxContainer" parent="Panel/MarginContainer/Controls/HBoxContainer"]
+[node name="AudioControls" type="VBoxContainer" parent="Panel/MarginContainer/Controls/Control/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 
-[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/HBoxContainer/AudioControls"]
+[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/Control/VBoxContainer/AudioControls"]
 layout_mode = 2
 text = "Audio Controls
 "
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/Controls/HBoxContainer/AudioControls"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/Controls/Control/VBoxContainer/AudioControls"]
 layout_mode = 2
 
-[node name="start_recording" type="Button" parent="Panel/MarginContainer/Controls/HBoxContainer/AudioControls/HBoxContainer"]
+[node name="start_recording" type="Button" parent="Panel/MarginContainer/Controls/Control/VBoxContainer/AudioControls/HBoxContainer"]
 custom_minimum_size = Vector2(120, 31)
 layout_mode = 2
 text = "Record
 "
 
-[node name="enable_mic" type="CheckButton" parent="Panel/MarginContainer/Controls/HBoxContainer/AudioControls/HBoxContainer"]
-custom_minimum_size = Vector2(7.269, 0)
-layout_mode = 2
-text = "   Enable Mic "
-
-[node name="AudioControls2" type="VBoxContainer" parent="Panel/MarginContainer/Controls/HBoxContainer"]
+[node name="GameControls" type="VBoxContainer" parent="Panel/MarginContainer/Controls/Control/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/Controls/HBoxContainer/AudioControls2"]
-layout_mode = 2
-
-[node name="ScreenControls" type="VBoxContainer" parent="Panel/MarginContainer/Controls/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
-
-[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/HBoxContainer/ScreenControls"]
-layout_mode = 2
-text = "Screen Controls
-"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/Controls/HBoxContainer/ScreenControls"]
-layout_mode = 2
-
-[node name="set_screen_success" type="Button" parent="Panel/MarginContainer/Controls/HBoxContainer/ScreenControls/HBoxContainer"]
-custom_minimum_size = Vector2(120, 31)
-layout_mode = 2
-text = "Success
-"
-
-[node name="set_screen_failure" type="Button" parent="Panel/MarginContainer/Controls/HBoxContainer/ScreenControls/HBoxContainer"]
-custom_minimum_size = Vector2(120, 31)
-layout_mode = 2
-text = "Failure
-"
-
-[node name="GameControls" type="VBoxContainer" parent="Panel/MarginContainer/Controls/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
-
-[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/HBoxContainer/GameControls"]
+[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/Control/VBoxContainer/GameControls"]
 layout_mode = 2
 text = "Game Controls
 "
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/Controls/HBoxContainer/GameControls"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/Controls/Control/VBoxContainer/GameControls"]
 layout_mode = 2
 
-[node name="start_game" type="Button" parent="Panel/MarginContainer/Controls/HBoxContainer/GameControls/HBoxContainer"]
+[node name="start_game" type="Button" parent="Panel/MarginContainer/Controls/Control/VBoxContainer/GameControls/HBoxContainer"]
 custom_minimum_size = Vector2(200, 31)
 layout_mode = 2
 text = "Start / Restart Game
 "
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/MarginContainer/Controls"]
-layout_mode = 2
-
-[node name="AudioControls" type="VBoxContainer" parent="Panel/MarginContainer/Controls/HBoxContainer2"]
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/Controls/Control"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 0
-
-[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/HBoxContainer2/AudioControls"]
-layout_mode = 2
-text = "Mission State
-"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/Controls/HBoxContainer2/AudioControls"]
-layout_mode = 2
-
-[node name="mission_intro" type="Button" parent="Panel/MarginContainer/Controls/HBoxContainer2/AudioControls/HBoxContainer"]
-custom_minimum_size = Vector2(120, 31)
-layout_mode = 2
-text = "Intro
-"
-
-[node name="mission_approach" type="Button" parent="Panel/MarginContainer/Controls/HBoxContainer2/AudioControls/HBoxContainer"]
-custom_minimum_size = Vector2(120, 31)
-layout_mode = 2
-text = "Approach
-"
-
-[node name="mission_board" type="Button" parent="Panel/MarginContainer/Controls/HBoxContainer2/AudioControls/HBoxContainer"]
-custom_minimum_size = Vector2(120, 31)
-layout_mode = 2
-text = "Boarding
-"
-
-[node name="mission_unlock" type="Button" parent="Panel/MarginContainer/Controls/HBoxContainer2/AudioControls/HBoxContainer"]
-custom_minimum_size = Vector2(120, 31)
-layout_mode = 2
-text = "Unlock
-"
-
-[node name="mission_enter" type="Button" parent="Panel/MarginContainer/Controls/HBoxContainer2/AudioControls/HBoxContainer"]
-custom_minimum_size = Vector2(120, 31)
-layout_mode = 2
-text = "Enter Ship"
-
-[node name="mission_launch" type="Button" parent="Panel/MarginContainer/Controls/HBoxContainer2/AudioControls/HBoxContainer"]
-custom_minimum_size = Vector2(120, 31)
-layout_mode = 2
-text = "Launch"
-
-[node name="mission_stars" type="Button" parent="Panel/MarginContainer/Controls/HBoxContainer2/AudioControls/HBoxContainer"]
-custom_minimum_size = Vector2(120, 31)
-layout_mode = 2
-text = "Stars"
-
-[node name="mission_warp" type="Button" parent="Panel/MarginContainer/Controls/HBoxContainer2/AudioControls/HBoxContainer"]
-custom_minimum_size = Vector2(120, 31)
-layout_mode = 2
-text = "Warp"

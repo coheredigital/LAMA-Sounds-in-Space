@@ -79,10 +79,6 @@ func set_definition(value):
 func _ready():
 	%AudioStreamRecord.playing = true
 	set_definition(definition)
-
-func _enter_tree():
-	%AudioStreamRecord.playing = true
-	set_definition(definition)
 	
 func _process(delta):
 
@@ -90,7 +86,7 @@ func _process(delta):
 		return
 
 	var freq := min_frequency
-	var interval := (max_frequency - min_frequency) / float(definition)
+
 	var segment = 1.0 / float(definition)
 	
 	var offsets = {}
@@ -105,7 +101,6 @@ func _process(delta):
 		var decibels := 0.0
 		decibels = linear_to_db(magnitude.length())
 		decibels = remap(decibels, min_db, max_db, 0.0, 1.0)
-		decibels += 0.3 * (freq - min_frequency) / (max_frequency - min_frequency)
 		decibels = clamp(decibels, 0.0, 1.0)
 
 		var x_acceleration = x_curve.sample_baked(decibels)
