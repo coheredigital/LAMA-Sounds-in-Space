@@ -30,7 +30,11 @@ shader_parameter/emission_energy = 1.0
 
 [node name="GameWindow" type="Window"]
 initial_position = 1
+title = "Adventure"
 size = Vector2i(1280, 720)
+content_scale_size = Vector2i(1280, 720)
+content_scale_mode = 1
+content_scale_aspect = 1
 script = ExtResource("1_b56ai")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
@@ -51,15 +55,23 @@ render_target_update_mode = 4
 [node name="StateTree" parent="SubViewportContainer/SubViewport/Level" index="0"]
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_8wvt6")
 
-[node name="Spaceship" parent="SubViewportContainer/SubViewport/Level" index="1"]
-fuel_level = 0
-
 [node name="Planet" parent="SubViewportContainer/SubViewport/Level" index="2"]
 transform = Transform3D(-0.249969, 0, -0.00392246, 0, 0.25, 0, 0.00392246, 0, -0.249969, 3.72275, 28.7924, -54.9282)
 surface_material_override/0 = SubResource("ShaderMaterial_15lxc")
 
-[node name="Stars" parent="SubViewportContainer/SubViewport/Level" index="5"]
+[node name="Environment" parent="SubViewportContainer/SubViewport/Level" index="4"]
+sky_color = Color(0.164706, 0.172549, 0.301961, 1)
+ground_color = Color(0.623529, 0.721569, 0.596078, 1)
+horizon_height = 0.038
+
+[node name="Ground" parent="SubViewportContainer/SubViewport/Level/Environment" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.038, 0)
+
+[node name="space_station" parent="SubViewportContainer/SubViewport/Level/Environment/Ground" index="2"]
 visible = true
+
+[node name="planet_stardust" parent="SubViewportContainer/SubViewport/Level/Environment/Ground" index="3"]
+visible = false
 
 [node name="Character" parent="SubViewportContainer/SubViewport" instance=ExtResource("6_8i88j")]
 transform = Transform3D(0.963162, 0, -0.268902, 0, 1, 0, 0.268902, 0, 0.963165, -6.33502, 2.10132, 0.0940139)

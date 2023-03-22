@@ -133,6 +133,7 @@ turbulence_influence_max = 0.19
 [node name="Star" type="Node3D"]
 transform = Transform3D(1.781, 0, 0, 0, 1.781, 0, 0, 0, 1.781, 0, 0, 0)
 script = ExtResource("1_a8fv1")
+color = null
 rotation_speed = 0.263
 
 [node name="IdleAnimationPlayer" type="AnimationPlayer" parent="."]

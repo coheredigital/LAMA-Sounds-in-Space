@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://dahkxa81prn10"]
+[gd_scene load_steps=36 format=3 uid="uid://dahkxa81prn10"]
 
 [ext_resource type="Script" path="res://level/level.gd" id="1_58g46"]
 [ext_resource type="AnimationLibrary" uid="uid://cjkhuv5cn32yu" path="res://level/environment/environment_animations.tres" id="2_3s2c1"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://dt1vpkmuodkmu" path="res://level/space_station/space_station.gltf" id="6_7tl8n"]
 [ext_resource type="PackedScene" uid="uid://c888ucv872mau" path="res://level/environment/environment.tscn" id="6_wap6o"]
 [ext_resource type="Shader" path="res://shaders/toon.gdshader" id="7_c46vp"]
+[ext_resource type="PackedScene" uid="uid://bq23ckwovuhf4" path="res://characters/alien/alien.tscn" id="8_bs0lj"]
+[ext_resource type="PackedScene" uid="uid://322sh12iustv" path="res://characters/lama/lama.tscn" id="8_t1ik6"]
 [ext_resource type="PackedScene" uid="uid://c5yey57xayegg" path="res://level/environment/stars.tscn" id="9_s3nx5"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8dnu5"]
@@ -41,8 +43,11 @@ switch_mode = 2
 xfade_time = 0.98
 switch_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kbvn4"]
+switch_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_xndii"]
-states/End/position = Vector2(1428, 59)
+states/End/position = Vector2(1220, 100)
 states/Start/position = Vector2(221, 100)
 states/intro/node = SubResource("AnimationNodeAnimation_8dnu5")
 states/intro/position = Vector2(349, 100)
@@ -54,7 +59,7 @@ states/stars_light/node = SubResource("AnimationNodeAnimation_gd7er")
 states/stars_light/position = Vector2(654, 100)
 states/warp/node = SubResource("AnimationNodeAnimation_w0kem")
 states/warp/position = Vector2(817, 100)
-transitions = ["intro", "launch", SubResource("AnimationNodeStateMachineTransition_7tb2q"), "launch", "stars_light", SubResource("AnimationNodeStateMachineTransition_jflk3"), "Start", "intro", SubResource("AnimationNodeStateMachineTransition_ycoeb"), "stars_light", "warp", SubResource("AnimationNodeStateMachineTransition_omi45"), "warp", "landing", SubResource("AnimationNodeStateMachineTransition_vdkye")]
+transitions = ["intro", "launch", SubResource("AnimationNodeStateMachineTransition_7tb2q"), "launch", "stars_light", SubResource("AnimationNodeStateMachineTransition_jflk3"), "Start", "intro", SubResource("AnimationNodeStateMachineTransition_ycoeb"), "stars_light", "warp", SubResource("AnimationNodeStateMachineTransition_omi45"), "warp", "landing", SubResource("AnimationNodeStateMachineTransition_vdkye"), "landing", "End", SubResource("AnimationNodeStateMachineTransition_kbvn4")]
 graph_offset = Vector2(-38, -96)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_4dohv"]
@@ -485,7 +490,7 @@ shader_parameter/emission_energy = 1.0
 
 [node name="Level" type="Node"]
 script = ExtResource("1_58g46")
-state = "home"
+state = "landing"
 
 [node name="StateTree" type="AnimationTree" parent="."]
 unique_name_in_owner = true
@@ -503,10 +508,10 @@ libraries = {
 }
 
 [node name="Spaceship" parent="." instance=ExtResource("2_ovpdl")]
-fuel_level = 0.0
+fuel_level = 0
 
 [node name="Planet" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.249969, 0, -0.00392246, 0, 0.25, 0, 0.00392246, 0, -0.249969, 3.72275, 28.7924, -54.9282)
+transform = Transform3D(-15.998, 0, -0.251037, 0, 16, 0, 0.251037, 0, -15.998, 0, -64, 0)
 cast_shadow = 0
 mesh = SubResource("3833")
 skeleton = NodePath("")
@@ -524,10 +529,10 @@ directional_shadow_blend_splits = true
 directional_shadow_max_distance = 25.0
 
 [node name="Environment" parent="." instance=ExtResource("6_wap6o")]
+sky_color = Color(0.466667, 0.584314, 0.796078, 1)
+ground_color = Color(0.756863, 0.576471, 0.913725, 1)
 fog_color = Color(0.466667, 0.584314, 0.796078, 1)
-
-[node name="Ground" parent="Environment" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.038, 0)
+horizon_height = 0.0
 
 [node name="GroundFog" type="FogVolume" parent="Environment/Ground" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.07278, -43.6279)
@@ -542,6 +547,7 @@ shape = 0
 material = SubResource("FogMaterial_m0jcv")
 
 [node name="space_station" parent="Environment/Ground" index="2" instance=ExtResource("6_7tl8n")]
+visible = false
 
 [node name="buildings" type="Node3D" parent="Environment/Ground/space_station"]
 
@@ -588,7 +594,12 @@ skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_85duv")
 
 [node name="planet_stardust" type="Node3D" parent="Environment/Ground" index="3"]
-visible = false
+
+[node name="Alien" parent="Environment/Ground/planet_stardust" instance=ExtResource("8_bs0lj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.144829, 1.4212, -4.83209)
+
+[node name="Lama" parent="Environment/Ground/planet_stardust" instance=ExtResource("8_t1ik6")]
+transform = Transform3D(-0.693842, 0, 0.720127, 0, 1, 0, -0.720127, 0, -0.693842, 1.08525, 1.61328, -4.12834)
 
 [node name="mountains" type="Node3D" parent="Environment/Ground/planet_stardust"]
 
