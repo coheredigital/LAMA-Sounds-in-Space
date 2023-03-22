@@ -98,9 +98,11 @@ set screen = "visualizer"
 set screen = "idle"
 
 ~ warning_sirens
-Sam: Great, now let’s test out our warning sirens! Listen to the command from the computer and then repeat what it says with your voice.
+Sam: Great, now let’s test out our warning sirens! [set screen = "alert"] Listen to the command from the computer and then repeat what it says with your voice.
+
 Computer: Siren noise: low to high to low to high to low
 Sam: Awesome! We are almost ready to blast off, but first we need some fuel. 
+[next=2]
 set screen = "battery"
 Sam: Listen to the command from the computer and then repeat what it says with your voice:  
 [next=0.5]
@@ -108,9 +110,9 @@ set screen = "computer"
 Computer: Let’s fuel up
 set dialogue_visible = false
 set screen = "visualizer"
-[next=5.0]
+[next=5]
 set screen = "success"
-[next=5.0]
+[next=2]
 
 # auto fuel up temp
 set screen = "battery"
@@ -128,7 +130,7 @@ set fuel_level = 6
 set fuel_level = 7
 [next=0.5]
 set fuel_level = 8
-[next=2.0]
+[next=2]
 set dialogue_visible = true
 
 
@@ -139,7 +141,8 @@ set screen = "computer"
 Computer: *Loud Yawn: from high to low*
 set screen = "visualizer"
 
-Sam: You did it! [Turn lights back up?] You’re working really hard at this – Great Job! 
+# maybe adjust lights here ?
+Sam: You did it! You’re working really hard at this – Great Job! 
 Sam: Now that our spaceship is full of fuel and the computer knows your voice, it’s time to find Planet Stardust! 
 Sam: Our handy dandy computer will countdown to blast off, listen closely and then repeat what you hear to send us into space! 
 set screen = "computer"
@@ -157,18 +160,23 @@ set dialogue_visible = true
 Sam: We’re flying!
 set dialogue_visible = false
 [next=5]
+set dialogue_visible = true
 Sam: Boy, it’s dark out here! This time, let’s wake up the stars with our voices. 
 Sam: Just like we practiced, you will listen to the computer’s commands and repeat them loud and clear! 
-Sam: After each voice command, I’ll press the red button to send tell the computer to send your voice to the stars.  
+Sam: After each voice command, I’ll press the red button to send your voice to the stars.  
+set level = "stars_light"
+[next=5]
 
 # *12 Phrases – 6 song, 6 speech randomized (see list of sentences on last page)* 
 
 Sam: Awesome job, partner! Look at all the bright things you put in space! 
 Sam: Now let’s go to Planet Stardust, press the GO button to get closer to finding Lucky!  
-
+set screen = "start_button"
+[next=2]
 # "Navigate the Spaceship (Practice)"
-~ task_2 
+~ task_2_practice
 set screen = "idle" 
+# Session Variable (used for file naming)
 set Session.stimuli_type = "SpSo"
 set Session.type = "PRAC"
 
@@ -179,30 +187,71 @@ Sam: The computer will send your voice to the Command Centre to steer our ship.
 Sam: The Command Centre is very picky and will only follow directions if you repeat the commands in EXACTLY the same way you heard them. 
 Sam: Let’s hear an example of a space cadet not repeating the command right. 
 Sam: Click the RED button to hear it. 
-
-# *bad imitation example* 
+set screen = "start_button_red"
+[next=2]
+set screen = "failure"
 Sam: Oh no, did you hear that? 
+set screen = "idle"
+
+~ task_2_bad_example
 Sam: That space cadet didn’t do the best job of repeating EXACTLY what they heard. 
 Sam: Let’s hear it again to see where they went wrong! Press the red button again. 
-
-# *bad imitation example*  
-
+set screen = "start_button_red"
+[next=2]
+set screen = "failure"
 Sam: Did you hear that? The space cadet said the right words, but didn’t copy the ^highs^ and ~lows~ of the voice. 
+set screen = "idle"
+
+~ task_2_good_example
 Sam: For the Command Centre to move our ship, we have to repeat the words in the exact same way we hear them. 
 Sam: Let’s make sure we do a better job. Click the green button to hear a space cadet repeating it back exactly right. 
-
-# *good imitation example* 
-
+set screen = "start_button"
+[next=2]
+set screen = "success"
+[next=2]
+set screen = "idle"
 Sam: That time, the space cadet did a great job of repeating the words AND the ^highs^ and ~lows~ of the voice. 
 Sam: Click the green button to hear the example again. 
-
-# *good imitation example* 
-
+set screen = "start_button"
+[next=2]
+set screen = "success"
+[next=2]
+set screen = "idle"
 Sam: Perfect! Are you ready to communicate with the Command Centre to move our ship to Planet Stardust? 
 Sam: Remember, we have to move our voice high and low just like the command to steer our ship.  
-
 Sam: Let your Flight Engineer know if you are ready or if you would like to hear the examples again. 
+# experimenter will decide if participant needs to loop back to 1st bad imitation example
 
-# |experimenter will decide if participant needs to loop back to 1st bad imitation example| 
+~ task_2_real
+Sam: OK, here we go! Remember that the Command Centre is very sensitive, so repeat what the computer says exactly. 
+Sam: Once you repeat after the computer, I’ll click the GREEN button to send the directions to the Command Centre 
+Sam: and we can see if our ship moves! I’ll have a seat and let you take control!
+set level = "warp"
+#12 Phrases – 6 song, 6 speech randomized (see list of sentences on last page)*
+Sam: Awesome job, partner! Thanks for steering the ship so well! Look, it’s Planet Stardust!  
+Sam: To use our spaceship to look around, press the Landing Button.
+set screen = "start_button"
+[next=1]
+
+set level = "landing"
+[next=10]
+Sam: We did it - we found Planet Stardust! 
+Sam: I don’t see Lucky, but I do see something else! It looks like there are aliens on Planet Stardust! 
+Sam: They look really friendly, I think they are nice! 
+Sam: Let’s ask them if they have seen Lucky or know where Lucky the Llama is. 
+Sam: Aliens on Planet Stardust only speak in beeping sounds so the computer will tell us how to talk to them in their language to find out where Lucky is. 
+Sam: Listen to the computer and repeat back the alien beeps as best as you can.
+set screen = "computer"
+[next=2]
+# 10 stimuli – 5 pure tones, 5 intervals?*
+Sam: You did a great job! 
+Sam: The aliens said Lucky the Llama is over there – look, they’re bringing Lucky to us! 
+Sam: Now the only thing left to do is take Lucky back to the Space Station.
+
+# blast off and fade to intro (station)
+
+Sam: You made it back to the Space Station - great job today! 
+Sam: Thanks for bringing Lucky the Llama back home from Planet Stardust safely. 
+Sam: You are a great Astronaut! Come back any time!
 
 => END

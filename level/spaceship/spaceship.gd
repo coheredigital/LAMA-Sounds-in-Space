@@ -1,7 +1,7 @@
 @tool
 extends Node3D
 
-@export_enum("idle","wipe","alert","computer","start_button","restart_button","success", "failure", "buckle_warning","visualizer") var screen_state: String = "intro":
+@export_enum("idle","wipe","alert","computer","start_button","start_button_red","restart_button","success", "failure", "buckle_warning","visualizer") var screen_state: String = "intro":
 	set(value):
 		screen_state = value
 		update_screen(value)

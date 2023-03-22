@@ -133,7 +133,6 @@ turbulence_influence_max = 0.19
 [node name="Star" type="Node3D"]
 transform = Transform3D(1.781, 0, 0, 0, 1.781, 0, 0, 0, 1.781, 0, 0, 0)
 script = ExtResource("1_a8fv1")
-color = Color(0.552941, 0.262745, 0.301961, 1)
 rotation_speed = 0.263
 
 [node name="IdleAnimationPlayer" type="AnimationPlayer" parent="."]
@@ -148,11 +147,12 @@ libraries = {
 [node name="StarLight" type="OmniLight3D" parent="."]
 unique_name_in_owner = true
 light_color = Color(0.552941, 0.262745, 0.301961, 1)
+light_energy = 0.0
 omni_range = 6.768
 omni_attenuation = 2.07053
 
 [node name="MeshGroup" type="Node3D" parent="."]
-transform = Transform3D(-0.617896, 0.770218, -0.158011, 0.0786018, -0.139448, -0.987105, -0.782319, -0.622349, 0.0256241, 0, 0, 0)
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Particles" type="GPUParticles3D" parent="MeshGroup"]
 unique_name_in_owner = true

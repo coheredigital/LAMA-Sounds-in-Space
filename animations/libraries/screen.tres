@@ -1,4 +1,4 @@
-[gd_resource type="AnimationLibrary" load_steps=13 format=3 uid="uid://dywe6iokyofm1"]
+[gd_resource type="AnimationLibrary" load_steps=14 format=3 uid="uid://dywe6iokyofm1"]
 
 [sub_resource type="Animation" id="Animation_8q5bf"]
 resource_name = "screen_failure"
@@ -293,6 +293,47 @@ tracks/2/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_fuvui"]
+resource_name = "start_button_red"
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("spaceship/cockpit/monitor/screen:surface_material_override/0:shader_parameter/frame_number")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [5.0, 6.0, 7.0, 8.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("spaceship/cockpit/monitor/screen:surface_material_override/0:shader_parameter/screen_number")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [4.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("spaceship/cockpit/monitor/screen:surface_material_override/0:shader_parameter/waveform_controlled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+
 [sub_resource type="Animation" id="Animation_3f0s6"]
 resource_name = "screen_success"
 loop_mode = 1
@@ -489,6 +530,7 @@ _data = {
 "recording_prompt": SubResource("Animation_vvf3d"),
 "restart": SubResource("Animation_ukuei"),
 "start_button": SubResource("Animation_wg55r"),
+"start_button_red": SubResource("Animation_fuvui"),
 "success": SubResource("Animation_3f0s6"),
 "talking": SubResource("Animation_66wja"),
 "visualizer": SubResource("Animation_l74ce"),

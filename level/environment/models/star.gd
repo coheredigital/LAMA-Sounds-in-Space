@@ -14,5 +14,5 @@ extends Node3D
 			animation_player.speed_scale = rotation_speed
 
 @onready var star_light := %StarLight
-@onready var Particles := %Particles
+@onready var particles := %Particles
 @onready var animation_player := %IdleAnimationPlayer
