@@ -72,7 +72,6 @@ states/standing/position = Vector2(745, 131)
 transitions = ["Start", "intro", SubResource("AnimationNodeStateMachineTransition_81ykl"), "intro", "enter_spaceship", SubResource("AnimationNodeStateMachineTransition_oq8ni"), "enter_spaceship", "standing", SubResource("AnimationNodeStateMachineTransition_w3ko8"), "standing", "sitting", SubResource("AnimationNodeStateMachineTransition_7g8t0"), "sitting", "standing", SubResource("AnimationNodeStateMachineTransition_b583j")]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_0wsu7"]
-graph_offset = Vector2(-7, 77)
 nodes/action/node = SubResource("AnimationNodeStateMachine_gqfoj")
 nodes/action/position = Vector2(200, 320)
 nodes/merge/node = SubResource("AnimationNodeAdd2_jxsib")
@@ -141,11 +140,11 @@ libraries = {
 }
 
 [node name="character" parent="." index="1"]
-transform = Transform3D(0.997521, 0, 0.0703533, 0, 1, 0, -0.0703534, 0, 0.997519, 0, 0, 0)
+transform = Transform3D(0.997853, 0, -0.0654763, 0, 1, 0, 0.0654764, 0, 0.997851, 0, 0, 0)
 surface_material_override/0 = ExtResource("2")
 
 [node name="helmet" parent="character" index="0"]
-transform = Transform3D(0.999051, -0.0431283, -0.00590226, 0.0433996, 0.997352, 0.0583274, 0.00337107, -0.0585282, 0.998279, 0, 0.359375, 0)
+transform = Transform3D(0.999554, -0.0255157, 0.0154507, 0.024063, 0.995842, 0.0878464, -0.0176279, -0.0874355, 0.996013, 0, 0.359375, 0)
 
 [node name="FaceLight" type="SpotLight3D" parent="character/helmet" index="0"]
 transform = Transform3D(1, -5.72763e-08, 4.84288e-08, 2.51457e-08, 0.999521, 0.0309398, -4.47035e-08, -0.0309398, 0.999522, 1.86265e-09, 0.266703, 0.337111)
@@ -165,7 +164,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.72529e-09, 0.203125, 0.062
 cast_shadow = 0
 
 [node name="face" parent="character/helmet" index="3"]
-transform = Transform3D(0.997524, -0.00167917, -0.0702852, 8.01646e-11, 0.999713, -0.023884, 0.0703052, 0.0238249, 0.997242, 0.00768932, 0.217194, 0.0399466)
+transform = Transform3D(0.999998, -5.47502e-05, 0.00111019, -2.63602e-09, 0.998784, 0.0492587, -0.00111154, -0.0492585, 0.998786, 0.00768932, 0.217194, 0.0399466)
 
 [node name="glasses" parent="character/helmet/face" index="1"]
 material_overlay = ExtResource("2")
@@ -180,7 +179,7 @@ transform = Transform3D(0.962225, -0.261495, 0.0757897, 0.179371, 0.818303, 0.54
 transform = Transform3D(1, -4.47035e-08, 3.72529e-08, 2.98023e-08, 0.997372, 0.0724441, 2.23517e-08, -0.0724442, 0.997372, 0, -0.234375, -7.45058e-09)
 
 [node name="arm_left" parent="character" index="2"]
-transform = Transform3D(0.911283, -0.398944, 0.102016, 0.411092, 0.867069, -0.281421, 0.0238159, 0.298393, 0.954146, 0.25, 0.296875, 3.72529e-09)
+transform = Transform3D(0.914711, -0.398959, -0.0643136, 0.403252, 0.911496, 0.0810281, 0.0262947, -0.100052, 0.994635, 0.25, 0.296875, 3.72529e-09)
 
 [node name="forarm_left" parent="character/arm_left" index="0"]
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999998, 0, -0.28125, -3.72529e-09)

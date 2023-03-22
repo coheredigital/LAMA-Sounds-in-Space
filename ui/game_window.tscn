@@ -76,7 +76,7 @@ look_target = NodePath("LookTarget")
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_prjcq")
 
 [node name="PathFollow3D" parent="SubViewportContainer/SubViewport/Player/PlayerPath3D" index="0"]
-transform = Transform3D(0.0518205, 0.0875934, 0.994784, 0.65612, 0.747976, -0.100038, -0.752856, 0.657896, -0.0187113, 0.175951, 0.386346, 0.751082)
+transform = Transform3D(0.0518205, 0.0875933, 0.994784, 0.65612, 0.747976, -0.100038, -0.752856, 0.657896, -0.0187113, 0.175951, 0.386346, 0.751082)
 progress = 2.43
 
 [node name="DialogueBalloon" parent="SubViewportContainer/SubViewport" instance=ExtResource("8_ixeqy")]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://ciaubij6uaqb8"]
 
 [ext_resource type="Script" path="res://characters/player/player.gd" id="1"]
-[ext_resource type="AnimationLibrary" uid="uid://dip5qx70rf0l0" path="res://characters/player/player_animations.tres" id="2_be13w"]
+[ext_resource type="AnimationLibrary" uid="uid://dip5qx70rf0l0" path="res://animations/libraries/player.tres" id="2_be13w"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nvk1l"]
 animation = &"player_animations/position_boarding"
