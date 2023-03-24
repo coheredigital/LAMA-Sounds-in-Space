@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqmb5lg7lcwhf"]
+[gd_scene load_steps=6 format=3 uid="uid://dqmb5lg7lcwhf"]
 
 [ext_resource type="Material" uid="uid://d1txi86rfk50c" path="res://audio/visualizer/visualizer_debug_material.tres" id="2_gxrj7"]
 [ext_resource type="Gradient" uid="uid://b71jutk4qdqv3" path="res://audio/visualizer/visualizer_gradient.tres" id="3_q6r2g"]
+[ext_resource type="PackedScene" uid="uid://csdyola6ih7oi" path="res://ui/dialogue_balloon/control_dialogue.tscn" id="3_uetn4"]
 
 [sub_resource type="Theme" id="Theme_yr20t"]
 
@@ -73,39 +74,46 @@ layout_mode = 2
 size_flags_vertical = 3
 split_offset = -786
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/Controls/Control"]
+[node name="FormColumn" type="MarginContainer" parent="Panel/MarginContainer/Controls/Control"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="FieldList" type="VBoxContainer" parent="Panel/MarginContainer/Controls/Control/FormColumn"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="StudyIDField" type="HBoxContainer" parent="Panel/MarginContainer/Controls/Control/VBoxContainer"]
+[node name="StudyIDField" type="HBoxContainer" parent="Panel/MarginContainer/Controls/Control/FormColumn/FieldList"]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/Control/VBoxContainer/StudyIDField"]
+[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/Control/FormColumn/FieldList/StudyIDField"]
 layout_mode = 2
 text = "Study ID
 "
 
-[node name="StudyID" type="LineEdit" parent="Panel/MarginContainer/Controls/Control/VBoxContainer/StudyIDField"]
+[node name="StudyID" type="LineEdit" parent="Panel/MarginContainer/Controls/Control/FormColumn/FieldList/StudyIDField"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "SIP"
 placeholder_text = "ABC"
 
-[node name="AgeGroupField" type="HBoxContainer" parent="Panel/MarginContainer/Controls/Control/VBoxContainer"]
+[node name="AgeGroupField" type="HBoxContainer" parent="Panel/MarginContainer/Controls/Control/FormColumn/FieldList"]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/Control/VBoxContainer/AgeGroupField"]
+[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/Control/FormColumn/FieldList/AgeGroupField"]
 layout_mode = 2
 text = "Age Group"
 horizontal_alignment = 2
 
-[node name="AgeGroup" type="SpinBox" parent="Panel/MarginContainer/Controls/Control/VBoxContainer/AgeGroupField"]
+[node name="AgeGroup" type="SpinBox" parent="Panel/MarginContainer/Controls/Control/FormColumn/FieldList/AgeGroupField"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -115,18 +123,18 @@ value = 1.0
 allow_greater = true
 alignment = 2
 
-[node name="ParticipantIDField" type="HBoxContainer" parent="Panel/MarginContainer/Controls/Control/VBoxContainer"]
+[node name="ParticipantIDField" type="HBoxContainer" parent="Panel/MarginContainer/Controls/Control/FormColumn/FieldList"]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/Control/VBoxContainer/ParticipantIDField"]
+[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/Control/FormColumn/FieldList/ParticipantIDField"]
 layout_mode = 2
 text = "Participant ID
 "
 horizontal_alignment = 2
 
-[node name="ParticipantID" type="SpinBox" parent="Panel/MarginContainer/Controls/Control/VBoxContainer/ParticipantIDField"]
+[node name="ParticipantID" type="SpinBox" parent="Panel/MarginContainer/Controls/Control/FormColumn/FieldList/ParticipantIDField"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -136,18 +144,18 @@ value = 1.0
 allow_greater = true
 alignment = 2
 
-[node name="RunIDField" type="HBoxContainer" parent="Panel/MarginContainer/Controls/Control/VBoxContainer"]
+[node name="RunIDField" type="HBoxContainer" parent="Panel/MarginContainer/Controls/Control/FormColumn/FieldList"]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/Control/VBoxContainer/RunIDField"]
+[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/Control/FormColumn/FieldList/RunIDField"]
 layout_mode = 2
 text = "Run ID
 "
 horizontal_alignment = 2
 
-[node name="RunID" type="SpinBox" parent="Panel/MarginContainer/Controls/Control/VBoxContainer/RunIDField"]
+[node name="RunID" type="SpinBox" parent="Panel/MarginContainer/Controls/Control/FormColumn/FieldList/RunIDField"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -157,48 +165,54 @@ value = 1.0
 allow_greater = true
 alignment = 2
 
-[node name="Separator" type="HSeparator" parent="Panel/MarginContainer/Controls/Control/VBoxContainer"]
+[node name="Separator" type="HSeparator" parent="Panel/MarginContainer/Controls/Control/FormColumn/FieldList"]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 
-[node name="AudioControls" type="VBoxContainer" parent="Panel/MarginContainer/Controls/Control/VBoxContainer"]
+[node name="AudioControls" type="VBoxContainer" parent="Panel/MarginContainer/Controls/Control/FormColumn/FieldList"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 
-[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/Control/VBoxContainer/AudioControls"]
+[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/Control/FormColumn/FieldList/AudioControls"]
 layout_mode = 2
 text = "Audio Controls
 "
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/Controls/Control/VBoxContainer/AudioControls"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/Controls/Control/FormColumn/FieldList/AudioControls"]
 layout_mode = 2
 
-[node name="start_recording" type="Button" parent="Panel/MarginContainer/Controls/Control/VBoxContainer/AudioControls/HBoxContainer"]
+[node name="start_recording" type="Button" parent="Panel/MarginContainer/Controls/Control/FormColumn/FieldList/AudioControls/HBoxContainer"]
 custom_minimum_size = Vector2(120, 31)
 layout_mode = 2
 text = "Record
 "
 
-[node name="GameControls" type="VBoxContainer" parent="Panel/MarginContainer/Controls/Control/VBoxContainer"]
+[node name="GameControls" type="VBoxContainer" parent="Panel/MarginContainer/Controls/Control/FormColumn/FieldList"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 
-[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/Control/VBoxContainer/GameControls"]
+[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/Control/FormColumn/FieldList/GameControls"]
 layout_mode = 2
 text = "Game Controls
 "
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/Controls/Control/VBoxContainer/GameControls"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/Controls/Control/FormColumn/FieldList/GameControls"]
 layout_mode = 2
 
-[node name="start_game" type="Button" parent="Panel/MarginContainer/Controls/Control/VBoxContainer/GameControls/HBoxContainer"]
+[node name="start_game" type="Button" parent="Panel/MarginContainer/Controls/Control/FormColumn/FieldList/GameControls/HBoxContainer"]
 custom_minimum_size = Vector2(200, 31)
 layout_mode = 2
 text = "Start / Restart Game
 "
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/Controls/Control"]
+[node name="DialogueColumn" type="MarginContainer" parent="Panel/MarginContainer/Controls/Control"]
 layout_mode = 2
-size_flags_horizontal = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="ControlDialogue" parent="Panel/MarginContainer/Controls/Control/DialogueColumn" instance=ExtResource("3_uetn4")]
+layout_mode = 2

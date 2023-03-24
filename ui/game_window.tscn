@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bw70w15xhifwc"]
+[gd_scene load_steps=9 format=3 uid="uid://bw70w15xhifwc"]
 
 [ext_resource type="Script" path="res://ui/game_window.gd" id="1_b56ai"]
 [ext_resource type="Shader" path="res://shaders/toon.gdshader" id="3_pturu"]
 [ext_resource type="PackedScene" uid="uid://dahkxa81prn10" path="res://level/level.tscn" id="4_7ey7j"]
 [ext_resource type="PackedScene" uid="uid://cq3x5n33r2d8c" path="res://characters/character/character.tscn" id="6_8i88j"]
 [ext_resource type="PackedScene" uid="uid://ciaubij6uaqb8" path="res://characters/player/player.tscn" id="7_mwy2h"]
-[ext_resource type="PackedScene" uid="uid://327fug3x7j7" path="res://ui/dialogue_balloon/dialogue_balloon.tscn" id="8_ixeqy"]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_8wvt6"]
 
@@ -81,7 +80,7 @@ position_progress = 0.5
 view_progress = 0.5
 
 [node name="Camera3D" parent="ViewportContainer/Viewport/Player" index="0"]
-transform = Transform3D(-0.118118, 0.0614332, -0.991097, 9.31323e-09, 0.998084, 0.0618663, 0.993, 0.00730752, -0.117892, -4.70759, 2.40442, 0.884143)
+transform = Transform3D(-0.11812, 0.0614335, -0.991097, 1.30385e-07, 0.998084, 0.0618666, 0.992999, 0.00730758, -0.117894, -4.70759, 2.40442, 0.884143)
 
 [node name="PositionPath" parent="ViewportContainer/Viewport/Player" index="1"]
 visible = false
@@ -94,13 +93,8 @@ progress = 8.08529
 visible = false
 
 [node name="ViewTarget" parent="ViewportContainer/Viewport/Player/ViewPath" index="0"]
-transform = Transform3D(-0.204338, 0.0669966, 0.976448, 0.0758654, 0.995566, -0.0524348, -0.975803, 0.0633725, -0.208549, 4.25778, 0.356156, 2.3562)
+transform = Transform3D(-0.204338, 0.0669966, 0.976448, 0.0758654, 0.995566, -0.0524349, -0.975803, 0.0633725, -0.208549, 4.25778, 0.356156, 2.3562)
 progress = 6.44953
-
-[node name="DialogueBalloon" parent="ViewportContainer/Viewport" instance=ExtResource("8_ixeqy")]
-unique_name_in_owner = true
-visible = false
-custom_minimum_size = Vector2(1280, 720)
 
 [editable path="ViewportContainer/Viewport/Level"]
 [editable path="ViewportContainer/Viewport/Level/Environment"]
