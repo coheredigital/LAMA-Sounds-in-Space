@@ -52,28 +52,28 @@ size = Vector2i(1280, 720)
 render_target_update_mode = 4
 
 [node name="Level" parent="ViewportContainer/Viewport" instance=ExtResource("4_7ey7j")]
+state = "stars_light"
 
 [node name="StateTree" parent="ViewportContainer/Viewport/Level" index="0"]
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_8wvt6")
 
 [node name="Planet" parent="ViewportContainer/Viewport/Level" index="2"]
+transform = Transform3D(-0.249969, 0, -0.00392246, 0, 0.25, 0, 0.00392246, 0, -0.249969, 3.72275, 28.7924, -54.9282)
 surface_material_override/0 = SubResource("ShaderMaterial_15lxc")
 
 [node name="Character" parent="ViewportContainer/Viewport" instance=ExtResource("6_8i88j")]
 transform = Transform3D(0.963162, 0, -0.268902, 0, 1, 0, 0.268902, 0, 0.963165, -6.33502, 2.10132, 0.0940139)
-state = "standing"
+state = "sitting"
 action = "talking"
 
-[node name="Player" parent="ViewportContainer/Viewport" node_paths=PackedStringArray("position_target", "look_target") instance=ExtResource("7_mwy2h")]
-state = "intro"
+[node name="Player" parent="ViewportContainer/Viewport" instance=ExtResource("7_mwy2h")]
 follow_speed = 1.96
 turn_speed = 4.469
 distance_buffer = 3.438
 distance_boost = 2.904
-position_target = NodePath("PositionTarget")
-look_target = NodePath("LookTarget")
 
 [node name="PositionStateTree" parent="ViewportContainer/Viewport/Player" index="3"]
+active = false
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_prjcq")
 
 [node name="PathFollow3D" parent="ViewportContainer/Viewport/Player/PlayerPath3D" index="0"]

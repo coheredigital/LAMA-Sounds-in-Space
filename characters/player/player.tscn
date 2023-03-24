@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://ciaubij6uaqb8"]
 
 [ext_resource type="Script" path="res://characters/player/player.gd" id="1"]
-[ext_resource type="AnimationLibrary" uid="uid://dip5qx70rf0l0" path="res://animations/libraries/player.tres" id="2_be13w"]
+[ext_resource type="AnimationLibrary" uid="uid://dip5qx70rf0l0" path="res://characters/player/player_animations.tres" id="2_be13w"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nvk1l"]
 animation = &"player_animations/position_boarding"
@@ -48,6 +48,7 @@ states/intro/position = Vector2(313, 100)
 states/sitting/node = SubResource("AnimationNodeAnimation_hu3hs")
 states/sitting/position = Vector2(1021, 100)
 transitions = ["Start", "intro", SubResource("AnimationNodeStateMachineTransition_fg07o"), "intro", "approach_spaceship", SubResource("AnimationNodeStateMachineTransition_60x8d"), "approach_spaceship", "boarding", SubResource("AnimationNodeStateMachineTransition_7g886"), "boarding", "enter_spaceship", SubResource("AnimationNodeStateMachineTransition_2g3hl"), "enter_spaceship", "sitting", SubResource("AnimationNodeStateMachineTransition_dn0kl")]
+graph_offset = Vector2(8, -37)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_75b4d"]
 
@@ -85,14 +86,15 @@ _data = {
 
 [sub_resource type="Curve3D" id="Curve3D_21tvn"]
 _data = {
-"points": PackedVector3Array(-0.268987, 0.119378, -0.404694, 0.268987, -0.119378, 0.404694, -1.78631, 1.01264, 1.675, -1.55496, 0.160515, 0.0491271, 1.55496, -0.160515, -0.0491271, 0.127733, 0.39128, 0.752315, -0.604177, -0.145639, 0.608566, 0.604177, 0.145639, -0.608566, 5.13058, 0.29814, 1.06319, -0.196868, -0.0960288, 0.277888, 0.196868, 0.0960288, -0.277888, 5.29379, 0.349519, -0.558672, 0, 0, 0, 0, 0, 0, 5.8677, 0.227672, -1.29624),
+"points": PackedVector3Array(-0.268987, 0.119378, -0.404694, 0.268987, -0.119378, 0.404694, -1.78631, 1.01264, 1.675, -1.55496, 0.160515, 0.0491271, 1.55496, -0.160515, -0.0491271, 0.127733, 0.39128, 0.752315, -0.604177, -0.145639, 0.608566, 0.604177, 0.145639, -0.608566, 5.13058, 0.29814, 1.06319, -0.0924988, -0.0249991, 0.278758, 0.0924988, 0.0249991, -0.278758, 5.29379, 0.349519, -0.558672, 0, 0, 0, 0, 0, 0, 5.8677, 0.227672, -1.29624),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0)
 }
 point_count = 5
 
-[node name="Player" type="Node"]
+[node name="Player" type="Node" node_paths=PackedStringArray("position_target", "look_target")]
 script = ExtResource("1")
-state = "enter_spaceship"
+position_target = NodePath("PositionTarget")
+look_target = NodePath("LookTarget")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.377551, 0.325317, -0.866963, 5.96046e-08, 0.936256, 0.351319, 0.925989, -0.132641, 0.353484, -6.52603, 2.46426, 1.7955)
@@ -101,9 +103,11 @@ fov = 65.0
 far = 800.0
 
 [node name="PositionTarget" type="Marker3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.52603, 2.46426, 1.7955)
 
 [node name="LookTarget" type="Marker3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.06493, 1.46695, 0.792042)
 
 [node name="PositionStateTree" type="AnimationTree" parent="."]
@@ -125,5 +129,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.19235, 1.39121, -0.134955)
 curve = SubResource("Curve3D_21tvn")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="PlayerPath3D"]
-transform = Transform3D(-0.216381, 0.504847, 0.835628, 0.702378, 0.674985, -0.225914, -0.678102, 0.538054, -0.500649, -0.877025, 0.562023, 1.02391)
-progress = 1.31
+transform = Transform3D(0.678818, 0.232277, 0.696552, 0.0774914, 0.92066, -0.382518, -0.730166, 0.31365, 0.606971, -1.76047, 0.998527, 1.70111)
+progress = 0.0466576
