@@ -13,3 +13,5 @@ func show_dialogue_balloon(resource: DialogueResource, title: String = "0", extr
 	var balloon: Node = BalloonScene.instantiate()
 	add_child(balloon)
 	balloon.start(resource, title, extra_game_states)
+
+

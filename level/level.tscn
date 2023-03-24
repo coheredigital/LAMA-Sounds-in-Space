@@ -511,7 +511,7 @@ libraries = {
 fuel_level = 0
 
 [node name="Planet" type="MeshInstance3D" parent="."]
-transform = Transform3D(-15.998, 0, -0.251037, 0, 16, 0, 0.251037, 0, -15.998, 0, -64, 0)
+transform = Transform3D(-0.249969, 0, -0.00392246, 0, 0.25, 0, 0.00392246, 0, -0.249969, 3.72275, 28.7924, -54.9282)
 cast_shadow = 0
 mesh = SubResource("3833")
 skeleton = NodePath("")
@@ -529,10 +529,10 @@ directional_shadow_blend_splits = true
 directional_shadow_max_distance = 25.0
 
 [node name="Environment" parent="." instance=ExtResource("6_wap6o")]
-sky_color = Color(0.466667, 0.584314, 0.796078, 1)
-ground_color = Color(0.756863, 0.576471, 0.913725, 1)
 fog_color = Color(0.466667, 0.584314, 0.796078, 1)
-horizon_height = 0.0
+
+[node name="Ground" parent="Environment" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.038, 0)
 
 [node name="GroundFog" type="FogVolume" parent="Environment/Ground" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.07278, -43.6279)
@@ -547,7 +547,6 @@ shape = 0
 material = SubResource("FogMaterial_m0jcv")
 
 [node name="space_station" parent="Environment/Ground" index="2" instance=ExtResource("6_7tl8n")]
-visible = false
 
 [node name="buildings" type="Node3D" parent="Environment/Ground/space_station"]
 
@@ -594,6 +593,7 @@ skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_85duv")
 
 [node name="planet_stardust" type="Node3D" parent="Environment/Ground" index="3"]
+visible = false
 
 [node name="Alien" parent="Environment/Ground/planet_stardust" instance=ExtResource("8_bs0lj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.144829, 1.4212, -4.83209)
