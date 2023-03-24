@@ -1,8 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqdal17eldmvk"]
+[gd_scene load_steps=7 format=3 uid="uid://dqdal17eldmvk"]
 
 [ext_resource type="PackedScene" uid="uid://bw70w15xhifwc" path="res://ui/game_window.tscn" id="3_ljibd"]
+[ext_resource type="Shader" path="res://shaders/toon.gdshader" id="4_x85cq"]
 [ext_resource type="PackedScene" uid="uid://dqmb5lg7lcwhf" path="res://ui/control_panel.tscn" id="10_ep7ri"]
 [ext_resource type="Script" path="res://game.gd" id="12"]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_rtoun"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nmgur"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_x85cq")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/specular = 0.5
+shader_parameter/specular_amount = 0.5
+shader_parameter/specular_smoothness = 0.05
+shader_parameter/wrap = 0.25
+shader_parameter/rim = 0.5
+shader_parameter/rim_amount = 0.2
+shader_parameter/rim_smoothness = 0.05
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 1.0
+shader_parameter/emission = Color(0, 0, 0, 1)
+shader_parameter/emission_energy = 1.0
 
 [node name="Game" type="Node"]
 script = ExtResource("12")
@@ -13,6 +33,29 @@ script = ExtResource("12")
 unique_name_in_owner = true
 always_on_top = true
 
+[node name="StateTree" parent="GameWindow/ViewportContainer/Viewport/Level" index="0"]
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_rtoun")
+
+[node name="Planet" parent="GameWindow/ViewportContainer/Viewport/Level" index="2"]
+surface_material_override/0 = SubResource("ShaderMaterial_nmgur")
+
+[node name="Player" parent="GameWindow/ViewportContainer/Viewport" index="2"]
+position_progress = 0.428
+view_progress = 0.287
+
+[node name="Camera3D" parent="GameWindow/ViewportContainer/Viewport/Player" index="0"]
+transform = Transform3D(0.816104, 0.0459264, -0.576078, 7.45058e-09, 0.996837, 0.0794705, 0.577905, -0.0648562, 0.813523, -6.69054, 2.61865, 1.73725)
+
+[node name="PositionTarget" parent="GameWindow/ViewportContainer/Viewport/Player/PositionPath" index="0"]
+transform = Transform3D(-0.508704, -0.025343, 0.860497, 0, 0.999513, 0.0294366, -0.860877, 0.0149755, -0.50848, -1.30619, 0.766377, 1.6997)
+
+[node name="ViewTarget" parent="GameWindow/ViewportContainer/Viewport/Player/ViewPath" index="0"]
+transform = Transform3D(0.141489, 0.10273, 0.984542, -0.0289975, 0.994558, -0.0996067, -0.989471, -0.0144567, 0.143703, 1.71751, 0.603087, 0.678673)
+
 [connection signal="pressed" from="ControlPanel/Panel/MarginContainer/Controls/Control/VBoxContainer/GameControls/HBoxContainer/start_game" to="." method="_on_start_game_pressed"]
 
 [editable path="ControlPanel"]
+[editable path="GameWindow"]
+[editable path="GameWindow/ViewportContainer/Viewport/Level"]
+[editable path="GameWindow/ViewportContainer/Viewport/Level/Environment"]
+[editable path="GameWindow/ViewportContainer/Viewport/Player"]

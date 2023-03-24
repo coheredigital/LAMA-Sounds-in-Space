@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bw70w15xhifwc"]
+[gd_scene load_steps=9 format=3 uid="uid://bw70w15xhifwc"]
 
 [ext_resource type="Script" path="res://ui/game_window.gd" id="1_b56ai"]
 [ext_resource type="Shader" path="res://shaders/toon.gdshader" id="3_pturu"]
@@ -25,8 +25,6 @@ shader_parameter/metallic = 0.0
 shader_parameter/roughness = 1.0
 shader_parameter/emission = Color(0, 0, 0, 1)
 shader_parameter/emission_energy = 1.0
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_prjcq"]
 
 [node name="GameWindow" type="Window"]
 initial_position = 1
@@ -71,14 +69,19 @@ follow_speed = 1.96
 turn_speed = 4.469
 distance_buffer = 3.438
 distance_boost = 2.904
+position_progress = 1.0
+view_progress = 0.712
 
-[node name="PositionStateTree" parent="ViewportContainer/Viewport/Player" index="3"]
-active = false
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_prjcq")
+[node name="Camera3D" parent="ViewportContainer/Viewport/Player" index="0"]
+transform = Transform3D(0.981139, 0.0214196, 0.192115, 1.21072e-08, 0.993842, -0.110807, -0.193305, 0.108717, 0.975097, 0.644462, 2.11934, -1.06431)
 
-[node name="PathFollow3D" parent="ViewportContainer/Viewport/Player/PlayerPath3D" index="0"]
-transform = Transform3D(0.0518205, 0.0875933, 0.994784, 0.65612, 0.747976, -0.100038, -0.752856, 0.657896, -0.0187113, 0.175951, 0.386346, 0.751082)
-progress = 2.43
+[node name="PositionTarget" parent="ViewportContainer/Viewport/Player/PositionPath" index="0"]
+transform = Transform3D(-0.893936, 0.16336, 0.417198, -0.079237, 0.858779, -0.506041, -0.440982, -0.485463, -0.754794, 6.02882, 0.267064, -1.10186)
+progress = 10.3964
+
+[node name="ViewTarget" parent="ViewportContainer/Viewport/Player/ViewPath" index="0"]
+transform = Transform3D(-0.945543, -0.120516, 0.302094, -0.168648, 0.975804, -0.138577, -0.278107, -0.181994, -0.943062, 6.76044, 0.719502, -3.31452)
+progress = 13.8337
 
 [node name="DialogueBalloon" parent="ViewportContainer/Viewport" instance=ExtResource("8_ixeqy")]
 unique_name_in_owner = true

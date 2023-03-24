@@ -3,6 +3,8 @@ extends Node
 signal dialogue_visibility_changed(value: bool)
 signal level_changed(value: String)
 signal player_state_changed(value: String)
+signal player_position_changed(value: String)
+signal player_view_changed(value: String)
 signal character_state_changed(value: String)
 signal character_action_changed(value: String)
 signal spaceship_motion_changed(value: float)
@@ -33,10 +35,15 @@ var level: String = "intro":
 		level = value
 		level_changed.emit(value)
 
-var player_state: String = "intro":
+var player_position: float = 0.0:
 	set(value):
-		player_state = value
-		player_state_changed.emit(value)
+		player_position = clamp(value, 0.0,1.0)
+		player_position_changed.emit(value)
+		
+var player_view: float = 0.0:
+	set(value):
+		player_view = clamp(value, 0.0,1.0)
+		player_view_changed.emit(value)
 		
 var spaceship_motion: float = 0.0:
 	set(value):
