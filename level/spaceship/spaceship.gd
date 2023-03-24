@@ -11,6 +11,11 @@ extends Node3D
 		door_open = value
 		set_door_open(value)
 
+@export var seatbelts_buckled := false : 
+	set(value):
+		seatbelts_buckled = value
+		set_seatbelts_buckled(value)
+
 @export var siren_active := false : 
 	set(value):
 		siren_active = value
@@ -45,6 +50,11 @@ func set_fuel_level(value: float) -> void:
 	RenderingServer.global_shader_parameter_set("fuel_level", value)
 
 func set_door_open(value: bool) -> void:
+	if animation_tree:
+		var state_machine : AnimationNodeStateMachinePlayback = animation_tree.get("parameters/door_state/playback")
+		state_machine.travel( 'open' if value else 'close' ) 
+
+func set_seatbelts_buckled(value: bool) -> void:
 	if animation_tree:
 		var state_machine : AnimationNodeStateMachinePlayback = animation_tree.get("parameters/door_state/playback")
 		state_machine.travel( 'open' if value else 'close' ) 

@@ -58,6 +58,7 @@ state = "stars_light"
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_8wvt6")
 
 [node name="Spaceship" parent="ViewportContainer/Viewport/Level" index="1"]
+seatbelts_buckled = false
 fuel_level = 8
 
 [node name="Planet" parent="ViewportContainer/Viewport/Level" index="2"]
@@ -73,22 +74,28 @@ state = "sitting"
 action = "talking"
 
 [node name="Player" parent="ViewportContainer/Viewport" instance=ExtResource("7_mwy2h")]
-follow_speed = 1.96
+follow_speed = 2.1
 turn_speed = 2.981
-distance_buffer = 3.438
-distance_boost = 2.904
-position_progress = 0.0
+max_distance = 2.9
+position_progress = 0.5
+view_progress = 0.5
 
 [node name="Camera3D" parent="ViewportContainer/Viewport/Player" index="0"]
-transform = Transform3D(0.685038, -0.0699991, -0.725137, 8.19564e-08, 0.995373, -0.0960856, 0.728508, 0.0658222, 0.681868, -6.81052, 2.47477, 1.64349)
+transform = Transform3D(-0.11812, 0.0614334, -0.991097, -1.30385e-08, 0.998084, 0.0618665, 0.992999, 0.00730767, -0.117893, -4.70759, 2.40442, 0.884143)
+
+[node name="PositionPath" parent="ViewportContainer/Viewport/Player" index="1"]
+visible = false
 
 [node name="PositionTarget" parent="ViewportContainer/Viewport/Player/PositionPath" index="0"]
-transform = Transform3D(-0.508695, -0.0253423, 0.860479, -1.86251e-09, 0.999488, 0.029436, -0.860861, 0.0149751, -0.50847, -1.42617, 0.570849, 1.60594)
-progress = 0.0
+transform = Transform3D(0.000197535, -0.0374274, 0.999169, 0.102971, 0.993814, 0.0372097, -0.994535, 0.102889, 0.00405104, 0.676762, 0.500502, 0.846592)
+progress = 8.08529
+
+[node name="ViewPath" parent="ViewportContainer/Viewport/Player" index="2"]
+visible = false
 
 [node name="ViewTarget" parent="ViewportContainer/Viewport/Player/ViewPath" index="0"]
-transform = Transform3D(0.27169, -0.0336627, 0.9617, 0.0364937, 0.998938, 0.0246562, -0.961597, 0.0283998, 0.272655, 2.05276, 0.835348, 0.916285)
-progress = 3.75621
+transform = Transform3D(-0.204338, 0.0669966, 0.976448, 0.0758654, 0.995566, -0.0524348, -0.975803, 0.0633725, -0.208549, 4.25778, 0.356156, 2.3562)
+progress = 6.44953
 
 [node name="DialogueBalloon" parent="ViewportContainer/Viewport" instance=ExtResource("8_ixeqy")]
 unique_name_in_owner = true

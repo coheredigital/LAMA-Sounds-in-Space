@@ -152,11 +152,11 @@ rim_curve={
 }
 diffuse_color={
 "type": "color",
-"value": Color(0.156863, 0.12549, 1, 0.4)
+"value": Color(0.211765, 0.207843, 1, 0.4)
 }
 rim_color={
 "type": "color",
-"value": Color(0.568627, 0.278431, 0.74902, 1)
+"value": Color(1, 0.164706, 0.996078, 1)
 }
 fuel_level={
 "type": "int",

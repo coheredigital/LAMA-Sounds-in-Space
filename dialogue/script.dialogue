@@ -1,13 +1,15 @@
 ~ start
 set character_state = "intro"
 set player_position = 0.0
-set player_view = 0.29
+set player_view = 0.1
 set level = "intro"
 set screen = "idle"
 set steering_motion = 0.0
 set fuel_level = 1
-
+[next=5]
 ~ welcome
+set player_position = 0.35
+set player_view = 0.25
 Sam: Welcome to the Space Station! My name is Sam and I’m an Astronaut. We’re so glad you came to visit us today!
 Sam: Here at the space station, we go on so many fun missions. Come on in so I can show you around! 
 Sam: First, I want you to meet our very own space llama named Lucky. She’s usually around here somewhere... 
@@ -15,9 +17,11 @@ Sam: Let’s look up her location on our astronaut map.
 Sam: Oh no! It looks like Lucky’s spaceship broke down and Lucky is stuck on another planet way out in space!
 
 ~ question_rescue
+set player_view = 0.3
 Sam: Will you help me rescue Lucky to get her back here to the space station?
 - Yes!
 	Sam: Thank you! 
+	set player_view = 0.25
 - No.
 	Sam: Are you sure?
 	- Yes. => END
@@ -27,7 +31,7 @@ Sam: We’re definitely going to need your help -- this spaceship works best whe
 Sam: Our mission is to travel to Planet Stardust, where Lucky’s spaceship broke down, and bring Lucky the Llama back here safely.  
 Sam: Are you ready to start your astronaut training? If you help, you’ll get your very own space cadet prize for your help and your bravery!!   
 
-set player_position = 0.2
+set player_position = 0.4
 set player_view = 0.5
 
 set dialogue_visible = false
@@ -42,27 +46,33 @@ set door_open = true
 set player_position = 0.5
 set player_view = 0.6
 set dialogue_visible = false
-[next=10]
+[next=5]
+set player_position = 0.7
+set player_view = 0.8
 
 ~ enter_spaceship
 set character_state = "intro"
 set level = "intro"
-set player_position = 0.7
+set player_position = 0.8
 set player_view = 0.9
 set character_state = "enter_spaceship"
 
 set dialogue_visible = true
 Sam: Welcome aboard! 
+set player_position = 0.8
+set player_view = 0.95
 set character_state = "standing"
 Sam: To become a Junior Astronaut, you will need to listen closely so we can make it to Planet Stardust, find Lucky the Llama, and bring Lucky back to the Space Station.
 Sam: Our first job is to make sure we have everything we need before we fly.
 
-~ take_control
+~ computer_intro
+set player_position = 0.9
+set player_view = 0.9
 Sam: This is our handy dandy computer! The computer will help us travel to Planet Stardust. 
 Sam: This computer is voice-activated, which means that we have to say the commands out loud with our voices so the computer can help us activate the spaceship! 
 Sam: First, the computer will say the right words for a command and then your job is to repeat the words out loud with your voice.  
 
-~ computer_intro
+~ computer_greeting
 Sam: This is what the computer sounds like 
 set screen = "computer" 
 [next=1]
@@ -87,6 +97,8 @@ set screen = "success"
 set dialogue_visible = true
 [next=2]
 Sam: Great job! Looks like it heard you! We’re ready to start preparing the ship for blast off. [next=2]
+set player_position = 1.0
+set player_view = 0.95
 set screen = "idle"
 Sam: I’ll sit here next to you and let you give the computer the voice commands!
 set character_state = "sitting"
@@ -167,8 +179,8 @@ set level = "launch"
 [next=5]
 set dialogue_visible = true
 
+
 ~ TASK_1
-~ flying_dark
 Sam: We’re flying!
 set dialogue_visible = false
 [next=5]

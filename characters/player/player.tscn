@@ -6,11 +6,10 @@
 
 [node name="PlayerCamera" type="Node"]
 script = ExtResource("1")
-position_progress = 0.196
-view_progress = 0.317
+max_distance = null
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.999451, -0.00963075, -0.031715, -1.53668e-08, 0.956855, -0.290565, 0.033145, 0.290405, 0.95633, -4.39532, 2.34488, 0.725161)
+transform = Transform3D(0.745674, -0.0175058, -0.666081, -1.58325e-08, 0.999655, -0.0262727, 0.666311, 0.0195909, 0.745417, -8.31993, 2.40252, 4.51174)
 current = true
 fov = 65.0
 far = 800.0
@@ -21,8 +20,10 @@ curve = ExtResource("2_aq7mr")
 
 [node name="PositionTarget" type="PathFollow3D" parent="PositionPath"]
 unique_name_in_owner = true
-transform = Transform3D(-0.0866516, 0.0266411, 0.995817, -0.0261117, 0.999182, -0.0290028, -0.995838, -0.0285175, -0.0858893, 0.989035, 0.440962, 0.687611)
-progress = 2.61724
+transform = Transform3D(-0.126784, 0.0899351, 0.987765, 0, 0.995814, -0.0906658, -0.991856, -0.0114959, -0.126261, -5.20439, 0.715174, 5.63135)
+cubic_interp = false
+loop = false
+tilt_enabled = false
 
 [node name="ViewPath" type="Path3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.79856, 1.91301, -1.21431)
@@ -30,5 +31,8 @@ curve = ExtResource("3_dhkr8")
 
 [node name="ViewTarget" type="PathFollow3D" parent="ViewPath"]
 unique_name_in_owner = true
-transform = Transform3D(0.392797, 0.103382, 0.913739, 0.00745623, 0.993221, -0.115579, -0.919545, 0.0522149, 0.389379, 2.42847, 0.662975, 1.17885)
-progress = 4.19635
+transform = Transform3D(0.469355, 0.0954525, 0.87776, 0.00276359, 0.993901, -0.109561, -0.882942, 0.0538516, 0.466258, 1.50313, 0.76387, 0.90861)
+progress = 3.22476
+cubic_interp = false
+loop = false
+tilt_enabled = false
