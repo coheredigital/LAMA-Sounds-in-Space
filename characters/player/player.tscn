@@ -1,20 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://ciaubij6uaqb8"]
 
 [ext_resource type="Script" path="res://characters/player/player.gd" id="1"]
-
-[sub_resource type="Curve3D" id="Curve3D_bx6b0"]
-_data = {
-"points": PackedVector3Array(-0.535665, -0.0183245, 0.316532, 0.535665, 0.0183245, -0.316532, -1.42617, 0.570849, 1.60594, -1.62273, 0.00662637, -0.0670142, 1.62273, -0.00662637, 0.0670142, 1.63681, 0.430265, 0.674115, -0.55011, -0.000116587, 0.455413, 0.55011, 0.000116587, -0.455413, 5.8957, 0.651434, 1.35457, -0.204528, 0.0198367, 0.416284, 0.204528, -0.0198367, -0.416284, 5.76346, 0.588924, -0.621787, 0, 0, 0, 0, 0, 0, 6.02882, 0.267064, -1.10186),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
-}
-point_count = 5
-
-[sub_resource type="Curve3D" id="Curve3D_21tvn"]
-_data = {
-"points": PackedVector3Array(-0.535665, -0.0183245, 0.316532, 0.535665, 0.0183245, -0.316532, -1.1434, 0.611665, 1.75321, -1.55496, 0.160515, 0.0491271, 1.55496, -0.160515, -0.0491271, 1.30105, 0.64565, 0.650756, -1.26395, -0.162296, 0.871351, 1.26395, 0.162296, -0.871351, 6.79179, 0.500101, 1.73723, -0.64698, -0.233715, 0.621998, 0.64698, 0.233715, -0.621998, 6.20151, 0.202645, -1.32803, 0, 0, 0, 0, 0, 0, 8.34916, -0.324459, -1.35277),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
-}
-point_count = 5
+[ext_resource type="Curve3D" uid="uid://bnnm33024rtvp" path="res://characters/player/player_position_path.tres" id="2_aq7mr"]
+[ext_resource type="Curve3D" uid="uid://cudp8mjob81b1" path="res://characters/player/player_view_path.tres" id="3_dhkr8"]
 
 [node name="PlayerCamera" type="Node"]
 script = ExtResource("1")
@@ -22,25 +10,25 @@ position_progress = 0.196
 view_progress = 0.317
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.959656, -0.00738167, -0.28108, 1.05449e-06, 0.999655, -0.0262491, 0.281177, 0.0251899, 0.959325, -4.39532, 2.29324, 0.725161)
+transform = Transform3D(0.999451, -0.00963075, -0.031715, -1.53668e-08, 0.956855, -0.290565, 0.033145, 0.290405, 0.95633, -4.39532, 2.34488, 0.725161)
 current = true
 fov = 65.0
 far = 800.0
 
 [node name="PositionPath" type="Path3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.38435, 1.85228, 0.0375506)
-curve = SubResource("Curve3D_bx6b0")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.38435, 1.90392, 0.0375506)
+curve = ExtResource("2_aq7mr")
 
 [node name="PositionTarget" type="PathFollow3D" parent="PositionPath"]
 unique_name_in_owner = true
-transform = Transform3D(-0.0866509, 0.0266412, 0.995817, -0.0261115, 0.999182, -0.0290028, -0.995838, -0.0285173, -0.0858886, 0.989038, 0.440963, 0.687611)
+transform = Transform3D(-0.0866516, 0.0266411, 0.995817, -0.0261117, 0.999182, -0.0290028, -0.995838, -0.0285175, -0.0858893, 0.989035, 0.440962, 0.687611)
 progress = 2.61724
 
 [node name="ViewPath" type="Path3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.79856, 1.79354, -1.21431)
-curve = SubResource("Curve3D_21tvn")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.79856, 1.91301, -1.21431)
+curve = ExtResource("3_dhkr8")
 
 [node name="ViewTarget" type="PathFollow3D" parent="ViewPath"]
 unique_name_in_owner = true
-transform = Transform3D(0.326366, 0.0747057, 0.942231, -0.043193, 0.996961, -0.0640835, -0.944208, -0.0197841, 0.328614, 2.69548, 0.528372, 0.942474)
+transform = Transform3D(0.392797, 0.103382, 0.913739, 0.00745623, 0.993221, -0.115579, -0.919545, 0.0522149, 0.389379, 2.42847, 0.662975, 1.17885)
 progress = 4.19635

@@ -140,11 +140,11 @@ libraries = {
 }
 
 [node name="character" parent="." index="1"]
-transform = Transform3D(0.996904, 0, 0.0786137, 0, 1, 0, -0.0786138, 0, 0.996902, 0, 0, 0)
+transform = Transform3D(0.999834, 0, -0.0181852, 0, 1, 0, 0.0181853, 0, 0.999831, 0, 0, 0)
 surface_material_override/0 = ExtResource("2")
 
 [node name="helmet" parent="character" index="0"]
-transform = Transform3D(0.999537, -0.0203562, 0.0225729, 0.0189512, 0.997968, 0.0607998, -0.0237648, -0.0603438, 0.997894, 0, 0.359375, 0)
+transform = Transform3D(0.995284, -0.0803981, -0.0542667, 0.0842764, 0.993731, 0.0734281, 0.0480231, -0.0776552, 0.995822, 0, 0.359375, 0)
 
 [node name="FaceLight" type="SpotLight3D" parent="character/helmet" index="0"]
 transform = Transform3D(1, -5.72763e-08, 4.84288e-08, 2.51457e-08, 0.999521, 0.0309398, -4.47035e-08, -0.0309398, 0.999522, 1.86265e-09, 0.266703, 0.337111)
@@ -164,7 +164,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.72529e-09, 0.203125, 0.062
 cast_shadow = 0
 
 [node name="face" parent="character/helmet" index="3"]
-transform = Transform3D(0.996789, -0.00186981, -0.0800281, 8.76689e-11, 0.999725, -0.0233582, 0.0800497, 0.0232832, 0.99652, 0.00768932, 0.217194, 0.0399466)
+transform = Transform3D(0.999998, -3.12417e-08, 9.54919e-05, -9.43233e-10, 0.999998, 0.000337045, -9.54916e-05, -0.000337043, 1, 0.00768932, 0.217194, 0.0399466)
 
 [node name="glasses" parent="character/helmet/face" index="1"]
 material_overlay = ExtResource("2")
@@ -179,7 +179,7 @@ transform = Transform3D(0.962225, -0.261495, 0.0757897, 0.179371, 0.818303, 0.54
 transform = Transform3D(1, -4.47035e-08, 3.72529e-08, 2.98023e-08, 0.997372, 0.0724441, 2.23517e-08, -0.0724442, 0.997372, 0, -0.234375, -7.45058e-09)
 
 [node name="arm_left" parent="character" index="2"]
-transform = Transform3D(0.911077, -0.400261, 0.0986434, 0.41155, 0.869335, -0.273653, 0.0237784, 0.289916, 0.956757, 0.25, 0.296875, 3.72529e-09)
+transform = Transform3D(0.910544, -0.413408, -0.0021676, 0.412735, 0.909339, -0.0524934, 0.0236722, 0.0469029, 0.998619, 0.25, 0.296875, 3.72529e-09)
 
 [node name="forarm_left" parent="character/arm_left" index="0"]
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999998, 0, -0.28125, -3.72529e-09)
