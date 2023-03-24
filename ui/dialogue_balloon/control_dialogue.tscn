@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://csdyola6ih7oi"]
+[gd_scene load_steps=7 format=3 uid="uid://csdyola6ih7oi"]
 
 [ext_resource type="Script" path="res://ui/dialogue_balloon/control_balloon.gd" id="1_t31g0"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_5ceo5"]
+[ext_resource type="Resource" uid="uid://bk0lon8v1cc1g" path="res://dialogue/script.dialogue" id="2_ltgdy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o25fr"]
 content_margin_left = 16.0
@@ -48,6 +49,7 @@ focus_mode = 2
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_o25fr")
 script = ExtResource("1_t31g0")
+resource = ExtResource("2_ltgdy")
 
 [node name="VBox" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -90,6 +92,7 @@ theme_override_constants/separation = 2
 
 [node name="ResponseTemplate" type="RichTextLabel" parent="VBox"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 24
 theme_override_font_sizes/bold_font_size = 24
@@ -107,5 +110,4 @@ meta_underlined = false
 hint_underlined = false
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="gui_input" from="VBox/Responses" to="." method="_on_responses_gui_input"]

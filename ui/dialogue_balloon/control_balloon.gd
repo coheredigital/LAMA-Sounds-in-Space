@@ -1,4 +1,5 @@
 # Directly adapted from the "example_balloon" provided by the Dialogue Manager addon
+@tool
 extends Panel
 
 @onready var character_label: RichTextLabel = %CharacterLabel
@@ -7,7 +8,7 @@ extends Panel
 @onready var response_template: RichTextLabel = %ResponseTemplate
 
 ## The dialogue resource
-var resource: DialogueResource
+@export var resource: DialogueResource
 
 ## Temporary game states
 var temporary_game_states: Array = []
@@ -73,8 +74,7 @@ var dialogue_line: DialogueLine:
 
 
 func _ready():
-	focus_mode = Control.FOCUS_ALL
-	var resource = load("res://dialogue/script.dialogue")
+#	focus_mode = Control.FOCUS_ALL
 	start(resource, "load")
 	response_template.hide()
 	Engine.get_singleton("DialogueManager").mutated.connect(_on_mutated)
@@ -126,19 +126,15 @@ func _on_gui_input(event: InputEvent) -> void:
 	get_viewport().set_input_as_handled()
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == 1:
 		next(dialogue_line.next_id)
-#	elif event.is_action_pressed("ui_accept") and get_viewport().gui_get_focus_owner() == balloon:
 	elif event.is_action_pressed("ui_accept"):
 		next(dialogue_line.next_id)
 
 
 func _on_responses_gui_input(event: InputEvent, item: Control) -> void:
-	if "Disallowed" in item.name: return
+	print(event)
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == 1:
 		next(dialogue_line.responses[item.get_index()].next_id)
 	elif event.is_action_pressed("ui_accept") and item in get_responses():
 		next(dialogue_line.responses[item.get_index()].next_id)
 
 
-func _on_mouse_entered(item: Control) -> void:
-	if "Disallowed" in item.name: return
-	grab_focus()
