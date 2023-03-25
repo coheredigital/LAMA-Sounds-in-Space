@@ -80,7 +80,7 @@ position_progress = 0.5
 view_progress = 0.5
 
 [node name="Camera3D" parent="ViewportContainer/Viewport/Player" index="0"]
-transform = Transform3D(-0.11812, 0.0614335, -0.991097, 1.30385e-07, 0.998084, 0.0618666, 0.992999, 0.00730758, -0.117894, -4.70759, 2.40442, 0.884143)
+transform = Transform3D(-0.11812, 0.0614334, -0.991097, 5.58794e-08, 0.998084, 0.0618665, 0.992999, 0.00730759, -0.117893, -4.70759, 2.40442, 0.884143)
 
 [node name="PositionPath" parent="ViewportContainer/Viewport/Player" index="1"]
 visible = false

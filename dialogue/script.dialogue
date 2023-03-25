@@ -6,7 +6,8 @@ set level = "intro"
 set screen = "idle"
 set steering_motion = 0.0
 set fuel_level = 1
-System: Loading...[next=1]
+System: Loading...
+System: Testing...
 System: Ready.
 - Begin => welcome
 [next=5]
