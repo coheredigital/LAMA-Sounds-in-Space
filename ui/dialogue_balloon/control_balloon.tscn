@@ -1,71 +1,65 @@
-[gd_scene load_steps=7 format=3 uid="uid://csdyola6ih7oi"]
+[gd_scene load_steps=6 format=3 uid="uid://cothlddswoqrl"]
 
-[ext_resource type="Script" path="res://ui/dialogue_balloon/control_balloon.gd" id="1_t31g0"]
-[ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_5ceo5"]
-[ext_resource type="Resource" uid="uid://bk0lon8v1cc1g" path="res://dialogue/script.dialogue" id="2_ltgdy"]
+[ext_resource type="Script" path="res://ui/dialogue_balloon/control_balloon.gd" id="1_h6o3q"]
+[ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_ovdsy"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o25fr"]
-content_margin_left = 16.0
-content_margin_top = 16.0
-content_margin_right = 16.0
-content_margin_bottom = 16.0
-bg_color = Color(0.156863, 0.160784, 0.352941, 0.807843)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1xs0r"]
+bg_color = Color(0.134378, 0.137807, 0.310155, 0.847059)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
-border_color = Color(0.211765, 0.215686, 0.45098, 1)
+border_color = Color(0.156863, 0.160784, 0.352941, 1)
 border_blend = true
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-shadow_color = Color(0, 0, 0, 0.0392157)
-shadow_size = 7
-shadow_offset = Vector2(0, 4)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5d24i"]
 content_margin_left = 40.0
 content_margin_top = 5.0
 content_margin_right = 5.0
 content_margin_bottom = 5.0
-bg_color = Color(0.152941, 0.152941, 0.152941, 0.74902)
+bg_color = Color(1, 1, 1, 0.25098)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oj3c8"]
 content_margin_left = 40.0
 content_margin_top = 5.0
 content_margin_right = 5.0
 content_margin_bottom = 5.0
-bg_color = Color(0.6, 0.6, 0.6, 0.996078)
 draw_center = false
 
-[node name="ControlDialogue" type="Panel"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="ControlBalloon" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 size_flags_horizontal = 3
-focus_mode = 2
-mouse_filter = 1
-theme_override_styles/panel = SubResource("StyleBoxFlat_o25fr")
-script = ExtResource("1_t31g0")
-resource = ExtResource("2_ltgdy")
+size_flags_vertical = 3
+script = ExtResource("1_h6o3q")
 
-[node name="VBox" type="VBoxContainer" parent="."]
+[node name="CenterContainer" type="MarginContainer" parent="."]
+clip_contents = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 21.0
-offset_top = 21.0
-offset_right = -21.0
-offset_bottom = -21.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Balloon" type="Panel" parent="CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1xs0r")
+
+[node name="VBox" type="VBoxContainer" parent="CenterContainer/Balloon"]
+layout_mode = 2
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 873.0
+offset_bottom = 163.0
 theme_override_constants/separation = 10
 
-[node name="CharacterLabel" type="RichTextLabel" parent="VBox"]
+[node name="CharacterLabel" type="RichTextLabel" parent="CenterContainer/Balloon/VBox"]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.501961)
 layout_mode = 2
@@ -75,10 +69,9 @@ text = "Character"
 fit_content = true
 scroll_active = false
 
-[node name="DialogueLabel" parent="VBox" instance=ExtResource("2_5ceo5")]
+[node name="DialogueLabel" parent="CenterContainer/Balloon/VBox" instance=ExtResource("2_ovdsy")]
 unique_name_in_owner = true
 layout_mode = 2
-mouse_filter = 0
 theme_override_font_sizes/normal_font_size = 24
 theme_override_font_sizes/bold_font_size = 24
 theme_override_font_sizes/italics_font_size = 24
@@ -86,16 +79,13 @@ theme_override_font_sizes/bold_italics_font_size = 24
 theme_override_font_sizes/mono_font_size = 24
 text = "Dialogue"
 
-[node name="Responses" type="VBoxContainer" parent="VBox"]
+[node name="Responses" type="VBoxContainer" parent="CenterContainer/Balloon/VBox"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_vertical = 3
-focus_mode = 2
 theme_override_constants/separation = 2
 
-[node name="ResponseTemplate" type="RichTextLabel" parent="VBox"]
+[node name="ResponseTemplate" type="RichTextLabel" parent="CenterContainer/Balloon/VBox"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 24
 theme_override_font_sizes/bold_font_size = 24
@@ -112,6 +102,4 @@ shortcut_keys_enabled = false
 meta_underlined = false
 hint_underlined = false
 
-[connection signal="gui_input" from="." to="." method="_on_gui_input"]
-[connection signal="gui_input" from="VBox/Responses" to="." method="_on_responses_gui_input"]
-[connection signal="mouse_entered" from="VBox/Responses" to="." method="_on_responses_mouse_entered"]
+[connection signal="gui_input" from="CenterContainer/Balloon" to="." method="_on_balloon_gui_input"]
