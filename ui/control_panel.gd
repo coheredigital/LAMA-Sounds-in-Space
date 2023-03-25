@@ -8,4 +8,4 @@ func _ready():
 
 
 func show_dialogue_balloon(resource: DialogueResource, title: String = "0", extra_game_states: Array = []) -> void:
- 	%ControlBalloon.start(resource, title, extra_game_states)
+	%ControlBalloon.start(resource, title, extra_game_states)

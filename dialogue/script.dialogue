@@ -2,17 +2,12 @@
 set character_state = "intro"
 set player_position = 0.0
 set player_view = 0.1
-set level = "intro"
-set screen = "idle"
-set steering_motion = 0.0
-set fuel_level = 1
-System: Loading...
-System: Testing...
+System: Loading...[next=5]
 System: Ready.
 - Begin => welcome
-[next=5]
 
 ~ welcome
+set fuel_level = 1
 set player_position = 0.35
 set player_view = 0.25
 Sam: Welcome to the Space Station! My name is Sam and I’m an Astronaut. We’re so glad you came to visit us today!
