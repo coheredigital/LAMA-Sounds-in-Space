@@ -89,7 +89,6 @@ func _process(delta):
 
 	var segment = 1.0 / float(definition)
 	
-	var offsets = {}
 
 	for i in range(definition):
 		

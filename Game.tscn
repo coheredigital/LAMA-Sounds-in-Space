@@ -13,7 +13,3 @@ script = ExtResource("12")
 unique_name_in_owner = true
 visible = false
 always_on_top = true
-
-[connection signal="pressed" from="ControlPanel/Panel/MarginContainer/Controls/Control/FormColumn/FieldList/GameControls/HBoxContainer/start_game" to="." method="_on_start_game_pressed"]
-
-[editable path="ControlPanel"]
