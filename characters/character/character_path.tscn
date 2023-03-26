@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://dftilry51e2f6"]
+
+[ext_resource type="Script" path="res://characters/character/character_path.gd" id="1_j21by"]
+
+[sub_resource type="Curve3D" id="Curve3D_tkkn5"]
+_data = {
+"points": PackedVector3Array(-0.724383, -0.115955, 1.16252, 0.724383, 0.115955, -1.16252, -6.78964, 0.778574, 0.299408, -1.92371, -0.0355021, -0.158548, 1.92371, 0.0355021, 0.158548, -3.16392, 0.862194, 0.644332, -0.354619, -0.0303485, 0.27272, 0.354619, 0.0303485, -0.27272, -0.486183, 0.874442, 0.82548, -0.309433, -0.0299907, 0.771876, 0.309433, 0.0299907, -0.771876, -0.462228, 0.901, -0.906474, 0, 0, 0, -0.217357, 0.00624865, -0.0388684, -1.16603, 0.678443, -1.73266),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[node name="CharacterPath" type="Path3D"]
+transform = Transform3D(0.999756, 0.0221115, 0, -0.0221115, 0.999756, 0, 0, 0, 1, 0, 0, 0)
+curve = SubResource("Curve3D_tkkn5")
+script = ExtResource("1_j21by")
+
+[node name="PathFollow" type="PathFollow3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(-0.848574, -0.044601, 0.526881, 0, 0.996235, 0.0843397, -0.528761, 0.0715773, -0.845557, -6.78964, 0.778574, 0.299408)
+rotation_mode = 2
+loop = false
+tilt_enabled = false
+
+[node name="Marker3D" type="Marker3D" parent="PathFollow"]
+transform = Transform3D(-0.40259, -2.79397e-09, -0.915381, 0, 1, -2.79397e-09, 0.915381, 6.28643e-09, -0.40259, 0, 0, 0)
+gizmo_extents = 0.5
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="PathFollow"]
+transform = Transform3D(-0.40259, -2.79397e-09, -0.915381, -1.11759e-08, 1, -9.31323e-10, 0.915381, 8.84756e-09, -0.40259, 0, 0, 0)
+remote_path = NodePath("../../../Character")

@@ -1,5 +1,5 @@
 ~ load
-set character_state = "intro"
+set character_position = 0.0
 set player_position = 0.0
 set player_view = 0.1
 System: Loading...[next=5]
@@ -31,9 +31,13 @@ Sam: We’re definitely going to need your help -- this spaceship works best whe
 Sam: Our mission is to travel to Planet Stardust, where Lucky’s spaceship broke down, and bring Lucky the Llama back here safely.  
 Sam: Are you ready to start your astronaut training? If you help, you’ll get your very own space cadet prize for your help and your bravery!!   
 
+~ approach_spaceship
 set player_position = 0.4
 set player_view = 0.5
 set dialogue_visible = false
+set player_position = 0.55
+set player_view = 0.52
+
 [next=5]
 set dialogue_visible = true
 
@@ -42,8 +46,7 @@ Sam: Press the GREEN button to open the spaceship door and start your training!
 
 ~ unlock_door
 set door_open = true
-set player_position = 0.6
-set player_view = 0.6
+
 set dialogue_visible = false
 [next=5]
 set player_position = 0.7
@@ -56,6 +59,7 @@ set player_position = 0.8
 set player_view = 0.9
 set character_state = "enter_spaceship"
 
+~ welcome_aboard
 set dialogue_visible = true
 Sam: Welcome aboard! 
 set player_position = 0.8

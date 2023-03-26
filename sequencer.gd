@@ -5,7 +5,7 @@ signal level_changed(value: String)
 signal player_state_changed(value: String)
 signal player_position_changed(value: String)
 signal player_view_changed(value: String)
-signal character_state_changed(value: String)
+signal character_position_changed(value: float)
 signal character_action_changed(value: String)
 signal spaceship_motion_changed(value: float)
 signal door_open_changed(value: bool)
@@ -20,15 +20,15 @@ var dialogue_visible: bool = false:
 #		TODO: renable
 #		dialogue_visibility_changed.emit(value) 
 
-var character_state: String = "intro":
+var character_position: float = 0.0:
 	set(value):
-		character_state = value
-		character_state_changed.emit(value)
+		character_position = value
+		character_position_changed.emit(value)
 
 var character_action: String = "idle":
 	set(value):
-		character_state = value
-		character_state_changed.emit(value)
+		character_action = value
+		character_action_changed.emit(value)
 
 var level: String = "intro":
 	set(value):
