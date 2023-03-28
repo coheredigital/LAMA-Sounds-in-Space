@@ -15,6 +15,7 @@ set player_view = 0.5
 set dialogue_visible = false
 set player_position = 0.55
 set player_view = 0.52
+[next=5]
 => END
 
 

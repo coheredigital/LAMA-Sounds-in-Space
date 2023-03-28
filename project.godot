@@ -26,6 +26,7 @@ DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 Sequencer="*res://sequencer.gd"
 Session="*res://session.gd"
 AudioVisualizer="*res://audio/visualizer/AudioVisualizer.tscn"
+Recorder="*res://audio/recorder/Recorder.gd"
 
 [dialogue_manager]
 

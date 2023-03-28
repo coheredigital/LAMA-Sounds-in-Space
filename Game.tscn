@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dqdal17eldmvk"]
 
 [ext_resource type="PackedScene" uid="uid://bw70w15xhifwc" path="res://ui/game_window.tscn" id="3_ljibd"]
-[ext_resource type="PackedScene" uid="uid://dqmb5lg7lcwhf" path="res://ui/control_panel.tscn" id="10_ep7ri"]
+[ext_resource type="PackedScene" uid="uid://cd2cy5xbal8wf" path="res://ui/control_panel.tscn" id="10_ep7ri"]
 [ext_resource type="Script" path="res://game.gd" id="12"]
 
 [node name="Game" type="Node"]
@@ -14,6 +14,6 @@ unique_name_in_owner = true
 visible = false
 always_on_top = true
 
-[connection signal="pressed" from="ControlPanel/Panel/MarginContainer/Controls/Control/FormColumn/FieldList/GameControls/HBoxContainer/start_game" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="ControlPanel/Panel/MarginContainer/Controls/TitleContainer/HBoxContainer/GameControls/HBoxContainer/start_game" to="." method="_on_start_game_pressed"]
 
 [editable path="ControlPanel"]
