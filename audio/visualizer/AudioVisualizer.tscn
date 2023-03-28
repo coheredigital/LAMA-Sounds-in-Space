@@ -25,5 +25,5 @@ a_curve = ExtResource("7_1a83d")
 [node name="AudioStreamRecord" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = SubResource("AudioStreamMicrophone_2n73o")
-volume_db = 24.0
+volume_db = 5.267
 bus = &"Record"

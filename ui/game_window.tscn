@@ -58,9 +58,11 @@ state = "stars_light"
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_8wvt6")
 
 [node name="Spaceship" parent="ViewportContainer/Viewport/Level" index="1"]
+screen_state = "visualizer"
 fuel_level = 8
 
 [node name="Planet" parent="ViewportContainer/Viewport/Level" index="2"]
+transform = Transform3D(-0.249969, 0, -0.00392246, 0, 0.25, 0, 0.00392246, 0, -0.249969, 3.72275, 28.7924, -54.9282)
 surface_material_override/0 = SubResource("ShaderMaterial_15lxc")
 
 [node name="CharacterPath" type="Path3D" parent="ViewportContainer/Viewport/Level"]
@@ -77,7 +79,7 @@ max_distance = 2.9
 view_progress = 0.94
 
 [node name="Camera3D" parent="ViewportContainer/Viewport/Player" index="0"]
-transform = Transform3D(0.617942, 0.0275554, -0.78574, 0, 0.999386, 0.0350479, 0.786223, -0.0216576, 0.617563, -10.5887, 2.61909, 5.6689)
+transform = Transform3D(0.617942, 0.0275555, -0.78574, 2.79397e-09, 0.999386, 0.0350479, 0.786223, -0.0216576, 0.617563, -10.5887, 2.61909, 5.6689)
 
 [node name="PositionPath" parent="ViewportContainer/Viewport/Player" index="1"]
 visible = false
