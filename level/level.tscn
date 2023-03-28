@@ -508,6 +508,7 @@ libraries = {
 }
 
 [node name="Spaceship" parent="." instance=ExtResource("2_ovpdl")]
+seatbelts_buckled = false
 fuel_level = 0
 
 [node name="Planet" type="MeshInstance3D" parent="."]
@@ -519,7 +520,7 @@ surface_material_override/0 = ExtResource("5_nosaa")
 
 [node name="WorldLight" type="DirectionalLight3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(0.867025, 0.404789, -0.29054, 0.107781, 0.416935, 0.902524, 0.486468, -0.813825, 0.317864, 0, 128, 0)
+transform = Transform3D(0.741917, -0.638017, 0.206141, 0.107781, 0.416935, 0.902523, -0.661772, -0.647379, 0.378097, 0, 128, 0)
 light_energy = 0.2
 shadow_enabled = true
 shadow_bias = 0.078

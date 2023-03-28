@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dqmb5lg7lcwhf"]
+[gd_scene load_steps=7 format=3 uid="uid://cd2cy5xbal8wf"]
 
 [ext_resource type="Script" path="res://ui/control_panel.gd" id="1_yqxgb"]
 [ext_resource type="Material" uid="uid://d1txi86rfk50c" path="res://audio/visualizer/visualizer_debug_material.tres" id="2_gxrj7"]
@@ -61,10 +61,27 @@ layout_mode = 2
 [node name="TitleContainer" type="VBoxContainer" parent="Panel/MarginContainer/Controls"]
 layout_mode = 2
 
-[node name="Mission Control" type="Label" parent="Panel/MarginContainer/Controls/TitleContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/Controls/TitleContainer"]
 layout_mode = 2
+
+[node name="Mission Control" type="Label" parent="Panel/MarginContainer/Controls/TitleContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 32
 text = "Mission Control
+"
+
+[node name="GameControls" type="VBoxContainer" parent="Panel/MarginContainer/Controls/TitleContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/Controls/TitleContainer/HBoxContainer/GameControls"]
+layout_mode = 2
+
+[node name="start_game" type="Button" parent="Panel/MarginContainer/Controls/TitleContainer/HBoxContainer/GameControls/HBoxContainer"]
+custom_minimum_size = Vector2(200, 31)
+layout_mode = 2
+text = "Start / Restart Game
 "
 
 [node name="HSeparator3" type="HSeparator" parent="Panel/MarginContainer/Controls/TitleContainer"]
@@ -170,44 +187,6 @@ alignment = 2
 [node name="Separator" type="HSeparator" parent="Panel/MarginContainer/Controls/Control/FormColumn/FieldList"]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
-
-[node name="AudioControls" type="VBoxContainer" parent="Panel/MarginContainer/Controls/Control/FormColumn/FieldList"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
-
-[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/Control/FormColumn/FieldList/AudioControls"]
-layout_mode = 2
-text = "Audio Controls
-"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/Controls/Control/FormColumn/FieldList/AudioControls"]
-layout_mode = 2
-
-[node name="start_recording" type="Button" parent="Panel/MarginContainer/Controls/Control/FormColumn/FieldList/AudioControls/HBoxContainer"]
-custom_minimum_size = Vector2(120, 31)
-layout_mode = 2
-text = "Record
-"
-
-[node name="GameControls" type="VBoxContainer" parent="Panel/MarginContainer/Controls/Control/FormColumn/FieldList"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
-
-[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/Control/FormColumn/FieldList/GameControls"]
-layout_mode = 2
-text = "Game Controls
-"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/Controls/Control/FormColumn/FieldList/GameControls"]
-layout_mode = 2
-
-[node name="start_game" type="Button" parent="Panel/MarginContainer/Controls/Control/FormColumn/FieldList/GameControls/HBoxContainer"]
-custom_minimum_size = Vector2(200, 31)
-layout_mode = 2
-text = "Start / Restart Game
-"
 
 [node name="DialogueColumn" type="MarginContainer" parent="Panel/MarginContainer/Controls/Control"]
 layout_mode = 2

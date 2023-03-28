@@ -1,4 +1,4 @@
-[gd_resource type="Environment" load_steps=3 format=3 uid="uid://n48hdvn72r0x"]
+[gd_resource type="Environment" load_steps=3 format=3 uid="uid://e82nx1vn6g3m"]
 
 [sub_resource type="Gradient" id="25"]
 offsets = PackedFloat32Array(0.0462428, 0.283237, 0.644509, 0.875723, 1)
@@ -16,18 +16,20 @@ ambient_light_color = Color(0.113725, 0.113725, 0.266667, 1)
 ambient_light_sky_contribution = 0.28
 tonemap_white = 16.0
 ssao_enabled = true
-ssao_intensity = 2.51
-ssao_power = 0.776445
-ssao_detail = 1.4
+ssao_radius = 3.44
+ssao_intensity = 2.57
+ssao_power = 0.461678
+ssao_detail = 3.72
 ssao_horizon = 0.12
 ssao_light_affect = 1.0
 ssao_ao_channel_affect = 1.0
 ssil_enabled = true
 ssil_radius = 0.62
-ssil_intensity = 0.3
+ssil_intensity = 1.25
 ssil_sharpness = 0.0
 ssil_normal_rejection = 0.0
 sdfgi_enabled = true
+sdfgi_use_occlusion = true
 sdfgi_min_cell_size = 0.279102
 sdfgi_y_scale = 0
 glow_enabled = true

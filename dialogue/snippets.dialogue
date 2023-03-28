@@ -1,0 +1,72 @@
+~ reset
+set character_position = 0.0
+set player_position = 0.0
+set player_view = 0.1
+set fuel_level = 1
+set player_position = 0.35
+set player_view = 0.25
+=> END
+# NOTE: Don't use "=> END!" this variant of the END title will end the entire script
+
+
+~ approach_spaceship
+set player_position = 0.4
+set player_view = 0.5
+set dialogue_visible = false
+set player_position = 0.55
+set player_view = 0.52
+=> END
+
+
+~ unlock_door
+set character_position = 0.25
+set door_open = true
+set dialogue_visible = false
+[next=5]
+set player_position = 0.7
+set player_view = 0.8
+=> END
+
+
+~ fuel_up_animation
+# auto fuel up temp
+set screen = "battery"
+[next=0.5]
+set fuel_level = 2
+[next=0.5]
+set fuel_level = 3
+[next=0.5]
+set fuel_level = 4
+[next=0.5]
+set fuel_level = 5
+[next=0.5]
+set fuel_level = 6
+[next=0.5]
+set fuel_level = 7
+[next=0.5]
+set fuel_level = 8
+[next=2]
+set dialogue_visible = true
+=> END
+
+
+~ enter_spaceship
+set character_position = 0.4
+set level = "intro"
+set player_position = 0.8
+set player_view = 0.9
+=> END
+
+
+~ player_aboard
+set player_position = 0.8
+set player_view = 0.95
+set character_position = 0.85
+=> END
+
+
+~ computer_intro
+set player_position = 0.9
+set player_view = 0.9
+set character_position = 0.9
+=> END
