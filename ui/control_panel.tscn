@@ -142,27 +142,6 @@ value = 1.0
 allow_greater = true
 alignment = 2
 
-[node name="ParticipantIDField" type="HBoxContainer" parent="Panel/MarginContainer/Controls/Control/FormColumn/FieldList"]
-custom_minimum_size = Vector2(0, 32)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/Control/FormColumn/FieldList/ParticipantIDField"]
-layout_mode = 2
-text = "Participant ID
-"
-horizontal_alignment = 2
-
-[node name="ParticipantID" type="SpinBox" parent="Panel/MarginContainer/Controls/Control/FormColumn/FieldList/ParticipantIDField"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-min_value = 1.0
-max_value = 999.0
-value = 1.0
-allow_greater = true
-alignment = 2
-
 [node name="RunIDField" type="HBoxContainer" parent="Panel/MarginContainer/Controls/Control/FormColumn/FieldList"]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
@@ -198,3 +177,7 @@ theme_override_constants/margin_bottom = 16
 [node name="ControlBalloon" parent="Panel/MarginContainer/Controls/Control/DialogueColumn" instance=ExtResource("4_vrcsm")]
 unique_name_in_owner = true
 layout_mode = 2
+
+[connection signal="text_changed" from="Panel/MarginContainer/Controls/Control/FormColumn/FieldList/StudyIDField/StudyID" to="." method="_on_study_id_text_changed"]
+[connection signal="value_changed" from="Panel/MarginContainer/Controls/Control/FormColumn/FieldList/AgeGroupField/AgeGroup" to="." method="_on_age_group_value_changed"]
+[connection signal="value_changed" from="Panel/MarginContainer/Controls/Control/FormColumn/FieldList/RunIDField/RunID" to="." method="_on_run_id_value_changed"]

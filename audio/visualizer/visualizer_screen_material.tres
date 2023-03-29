@@ -1,7 +1,13 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://q6um5lgw4f4k"]
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://q6um5lgw4f4k"]
 
 [ext_resource type="Shader" path="res://audio/visualizer/visualizer.gdshader" id="2"]
+[ext_resource type="Gradient" uid="uid://b71jutk4qdqv3" path="res://audio/visualizer/visualizer_gradient.tres" id="2_woebh"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_cdis6"]
+gradient = ExtResource("2_woebh")
 
 [resource]
 render_priority = 6
 shader = ExtResource("2")
+shader_parameter/emission_boost = 1.0
+shader_parameter/waveform = SubResource("GradientTexture1D_cdis6")

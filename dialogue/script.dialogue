@@ -1,12 +1,13 @@
 import "res://dialogue/snippets.dialogue" as snippets
 
 ~ load
-System: 
-- Load / Reset =>< snippets/reset
-System: Loading...[next=1]
-System: Loading...[next=1]
-System: Loading...[next=1]
-System: Loading...[next=1]
+System: ...[next=1]
+do Recorder.start()
+=>< snippets/reset
+System: ...[next=1]
+System: ...[next=1]
+do Recorder.stop()
+do Recorder.save()
 System: Ready.
 - Begin
 
