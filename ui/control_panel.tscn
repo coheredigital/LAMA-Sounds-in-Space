@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cd2cy5xbal8wf"]
+[gd_scene load_steps=8 format=3 uid="uid://cd2cy5xbal8wf"]
 
 [ext_resource type="Script" path="res://ui/control_panel.gd" id="1_yqxgb"]
 [ext_resource type="Material" uid="uid://d1txi86rfk50c" path="res://audio/visualizer/visualizer_debug_material.tres" id="2_gxrj7"]
 [ext_resource type="Gradient" uid="uid://b71jutk4qdqv3" path="res://audio/visualizer/visualizer_gradient.tres" id="3_q6r2g"]
 [ext_resource type="PackedScene" uid="uid://cothlddswoqrl" path="res://ui/dialogue_balloon/control_balloon.tscn" id="4_vrcsm"]
+[ext_resource type="StyleBox" uid="uid://uaf6yuo5c7d1" path="res://ui/theme/styles/text_box_default_style.tres" id="5_r3xif"]
 
 [sub_resource type="Theme" id="Theme_yr20t"]
 
@@ -58,33 +59,30 @@ grow_vertical = 2
 [node name="Controls" type="VBoxContainer" parent="Panel/MarginContainer"]
 layout_mode = 2
 
-[node name="TitleContainer" type="VBoxContainer" parent="Panel/MarginContainer/Controls"]
+[node name="Header" type="HBoxContainer" parent="Panel/MarginContainer/Controls"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/Controls/TitleContainer"]
-layout_mode = 2
-
-[node name="Mission Control" type="Label" parent="Panel/MarginContainer/Controls/TitleContainer/HBoxContainer"]
+[node name="Mission Control" type="Label" parent="Panel/MarginContainer/Controls/Header"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 32
 text = "Mission Control
 "
 
-[node name="GameControls" type="VBoxContainer" parent="Panel/MarginContainer/Controls/TitleContainer/HBoxContainer"]
+[node name="GameControls" type="VBoxContainer" parent="Panel/MarginContainer/Controls/Header"]
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/Controls/TitleContainer/HBoxContainer/GameControls"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/Controls/Header/GameControls"]
 layout_mode = 2
 
-[node name="start_game" type="Button" parent="Panel/MarginContainer/Controls/TitleContainer/HBoxContainer/GameControls/HBoxContainer"]
+[node name="start_game" type="Button" parent="Panel/MarginContainer/Controls/Header/GameControls/HBoxContainer"]
 custom_minimum_size = Vector2(200, 31)
 layout_mode = 2
-text = "Start / Restart Game
+text = "Toggle Game View
 "
 
-[node name="HSeparator3" type="HSeparator" parent="Panel/MarginContainer/Controls/TitleContainer"]
+[node name="Divider" type="HSeparator" parent="Panel/MarginContainer/Controls"]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 
@@ -174,10 +172,38 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="ControlBalloon" parent="Panel/MarginContainer/Controls/Control/DialogueColumn" instance=ExtResource("4_vrcsm")]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/Controls/Control/DialogueColumn"]
+layout_mode = 2
+
+[node name="ControlBalloon" parent="Panel/MarginContainer/Controls/Control/DialogueColumn/VBoxContainer" instance=ExtResource("4_vrcsm")]
 unique_name_in_owner = true
 layout_mode = 2
 
+[node name="Panel" type="Panel" parent="Panel/MarginContainer/Controls/Control/DialogueColumn/VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("5_r3xif")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/Controls/Control/DialogueColumn/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="StatusBar" type="HBoxContainer" parent="Panel/MarginContainer/Controls/Control/DialogueColumn/VBoxContainer/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/Control/DialogueColumn/VBoxContainer/Panel/MarginContainer/StatusBar"]
+layout_mode = 2
+text = "Title"
+
+[connection signal="pressed" from="Panel/MarginContainer/Controls/Header/GameControls/HBoxContainer/start_game" to="." method="_on_start_game_pressed"]
 [connection signal="text_changed" from="Panel/MarginContainer/Controls/Control/FormColumn/FieldList/StudyIDField/StudyID" to="." method="_on_study_id_text_changed"]
 [connection signal="value_changed" from="Panel/MarginContainer/Controls/Control/FormColumn/FieldList/AgeGroupField/AgeGroup" to="." method="_on_age_group_value_changed"]
 [connection signal="value_changed" from="Panel/MarginContainer/Controls/Control/FormColumn/FieldList/RunIDField/RunID" to="." method="_on_run_id_value_changed"]

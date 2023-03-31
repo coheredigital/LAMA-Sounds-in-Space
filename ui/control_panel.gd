@@ -1,5 +1,6 @@
 extends Control
 
+signal start_game_pressed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,3 +18,7 @@ func _on_age_group_value_changed(value):
 
 func _on_run_id_value_changed(value):
 	Session.run_id
+
+
+func _on_start_game_pressed():
+	self.emit_signal("start_game_pressed")

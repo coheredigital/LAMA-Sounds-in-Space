@@ -14,6 +14,4 @@ unique_name_in_owner = true
 visible = false
 always_on_top = true
 
-[connection signal="pressed" from="ControlPanel/Panel/MarginContainer/Controls/TitleContainer/HBoxContainer/GameControls/HBoxContainer/start_game" to="." method="_on_start_game_pressed"]
-
-[editable path="ControlPanel"]
+[connection signal="start_game_pressed" from="ControlPanel" to="." method="_on_control_panel_start_game_pressed"]
