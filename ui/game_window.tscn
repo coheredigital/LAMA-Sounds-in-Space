@@ -37,6 +37,7 @@ render_target_update_mode = 4
 state = "warp"
 
 [node name="StateTree" parent="ViewportContainer/Viewport/Level" index="0"]
+active = false
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_8wvt6")
 
 [node name="Spaceship" parent="ViewportContainer/Viewport/Level" index="1"]
@@ -46,20 +47,29 @@ fuel_level = 8
 [node name="Planet" parent="ViewportContainer/Viewport/Level" index="2"]
 transform = Transform3D(-4.99938, 0, -0.0784492, 0, 5, 0, 0.0784492, 0, -4.99938, 0, 2.5, -32)
 
+[node name="OmniLight3D" type="OmniLight3D" parent="ViewportContainer/Viewport/Level/Planet" index="0"]
+omni_range = 24.053
+omni_attenuation = 0.366022
+
 [node name="WorldLight" parent="ViewportContainer/Viewport/Level" index="3"]
 light_energy = 0.01
 
 [node name="Environment" parent="ViewportContainer/Viewport/Level" index="4"]
-sky_color = Color(0.113725, 0.113725, 0.266667, 1)
-fog_color = Color(0.113725, 0.113725, 0.266667, 1)
+ground_color = Color(0.756863, 0.576471, 0.913725, 1)
+fog_color = Color(0.290196, 0.168627, 0.403922, 1)
 horizon_height = -64.0
 
 [node name="Ground" parent="ViewportContainer/Viewport/Level/Environment" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -64, 0)
 
+[node name="space_station" parent="ViewportContainer/Viewport/Level/Environment/Ground" index="2"]
+visible = false
+
+[node name="planet_stardust" parent="ViewportContainer/Viewport/Level/Environment/Ground" index="3"]
+visible = true
+
 [node name="Stars" parent="ViewportContainer/Viewport/Level" index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.375521, 0.266819, 19.2373)
-visible = true
 depth = 0.657
 width = 7.604
 height = 6.487
@@ -75,16 +85,18 @@ action = "talking"
 follow_speed = 2.1
 turn_speed = 2.981
 max_distance = 2.9
+position_progress = 1.0
 view_progress = 0.94
 
 [node name="Camera3D" parent="ViewportContainer/Viewport/Player" index="0"]
-transform = Transform3D(0.617942, 0.0275555, -0.78574, 1.86265e-09, 0.999386, 0.0350479, 0.786223, -0.0216576, 0.617563, -10.5887, 2.61909, 5.6689)
+transform = Transform3D(0.990982, 0.0019487, 0.133984, 8.73115e-10, 0.999894, -0.0145428, -0.133998, 0.0144116, 0.990877, 0.53213, 2.10987, -1.38524)
 
 [node name="PositionPath" parent="ViewportContainer/Viewport/Player" index="1"]
 visible = false
 
 [node name="PositionTarget" parent="ViewportContainer/Viewport/Player/PositionPath" index="0"]
-transform = Transform3D(-0.126774, 0.0899263, 0.987688, 0, 0.995716, -0.0906587, -0.991776, -0.0114948, -0.126251, -5.20439, 0.715174, 5.63135)
+transform = Transform3D(-0.320023, 0.0684194, 0.944758, -0.509408, 0.828301, -0.232537, -0.798609, -0.555765, -0.230261, 5.91648, 0.20595, -1.42279)
+progress = 16.1706
 
 [node name="ViewPath" parent="ViewportContainer/Viewport/Player" index="2"]
 visible = false
