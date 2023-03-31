@@ -36,12 +36,12 @@ extends Node3D
 @onready var seatbelt_indicator := %seatbelt_indicator_left
 
 
-
 func _ready():
 	Sequencer.screen_changed.connect(update_screen)
 	Sequencer.door_open_changed.connect(set_door_open)
 	Sequencer.steering_motion_changed.connect(set_steering_motion)
 	Sequencer.fuel_level_changed.connect(set_fuel_level)
+	Sequencer.seatbelts_buckled_changed.connect(set_fuel_level)
 
 func set_steering_motion(value: float) -> void:
 	if animation_tree:

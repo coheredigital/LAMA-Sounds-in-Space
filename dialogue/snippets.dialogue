@@ -9,12 +9,9 @@ set player_view = 0.23
 # NOTE: Don't use "=> END!" this variant of the END title will end the entire script
 
 
-
-
 ~ unlock_door
 set character_position = 0.25
 set door_open = true
-set dialogue_visible = false
 [next=5]
 set player_position = 0.7
 set player_view = 0.8
@@ -39,7 +36,6 @@ set fuel_level = 7
 [next=0.5]
 set fuel_level = 8
 [next=2]
-set dialogue_visible = true
 => END
 
 

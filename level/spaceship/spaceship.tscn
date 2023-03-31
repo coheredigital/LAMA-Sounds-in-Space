@@ -25,16 +25,16 @@ animation = &"cockpit/steering_motion"
 [sub_resource type="AnimationNodeTimeScale" id="4"]
 
 [sub_resource type="AnimationNodeBlendTree" id="5"]
-graph_offset = Vector2(-152.273, 141.636)
+graph_offset = Vector2(-338.273, -16)
 nodes/blend_door/node = SubResource("AnimationNodeAdd2_nwkbc")
-nodes/blend_door/position = Vector2(560, 280)
+nodes/blend_door/position = Vector2(580, 200)
 nodes/blend_screen/node = SubResource("AnimationNodeAdd2_h7dn0")
-nodes/blend_screen/position = Vector2(760, 320)
+nodes/blend_screen/position = Vector2(780, 200)
 nodes/door_state/node = ExtResource("10_csjlb")
-nodes/door_state/position = Vector2(60, 340)
-nodes/output/position = Vector2(1240, 320)
+nodes/door_state/position = Vector2(340, 340)
+nodes/output/position = Vector2(1000, 200)
 nodes/screen_state/node = ExtResource("5_rc7u6")
-nodes/screen_state/position = Vector2(560, 480)
+nodes/screen_state/position = Vector2(580, 400)
 nodes/steering/node = SubResource("3")
 nodes/steering/position = Vector2(60, 200)
 nodes/steering_speed/node = SubResource("4")
@@ -309,8 +309,9 @@ transform = Transform3D(1, 0, 0, 0, 0.999349, 0.0360664, 0, -0.0360664, 0.999349
 material_override = ExtResource("8_fylk6")
 
 [node name="visualizer_screen" type="MeshInstance3D" parent="spaceship/cockpit/monitor" index="5"]
-transform = Transform3D(1, 0, 0, 0, 0.99583, -0.0912235, 0, 0.0912235, 0.99583, 0, 0.108774, 0.103741)
+transform = Transform3D(1, 0, 0, 0, 0.99583, -0.0912235, 0, 0.0912235, 0.99583, 0, 0.0995411, 0.0980353)
 visible = false
+cast_shadow = 0
 mesh = SubResource("15")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("7_1hbaj")

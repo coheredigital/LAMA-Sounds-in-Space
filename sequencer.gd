@@ -9,16 +9,10 @@ signal character_position_changed(value: float)
 signal character_action_changed(value: String)
 signal spaceship_motion_changed(value: float)
 signal door_open_changed(value: bool)
-signal seatbelt_status_changed(value: bool)
+signal seatbelts_buckled_changed(value: bool)
 signal screen_changed(value: String)
 signal steering_motion_changed(value: float)
 signal fuel_level_changed(value: int)
-
-var dialogue_visible: bool = false:
-	set(value):
-		dialogue_visible = value
-#		TODO: renable
-#		dialogue_visibility_changed.emit(value) 
 
 var character_position: float = 0.0:
 	set(value):
@@ -65,10 +59,10 @@ var door_open: bool = false:
 		door_open = value
 		door_open_changed.emit(value)
 		
-var seatbelt_status: bool = false:
+var seatbelts_buckled: bool = false:
 	set(value):
-		seatbelt_status = value
-		seatbelt_status_changed.emit(value)
+		seatbelts_buckled = value
+		seatbelts_buckled_changed.emit(value)
 		
 var screen: String = "idle":
 	set(value):

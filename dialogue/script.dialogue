@@ -33,7 +33,6 @@ Sam: Are you ready to start your astronaut training? If you help, you’ll get y
 ~ approach_spaceship
 set player_position = 0.4
 set player_view = 0.5
-set dialogue_visible = false
 set player_position = 0.55
 set player_view = 0.52
 [next=4]
@@ -97,7 +96,7 @@ set screen = "computer"
 Computer: Activate spaceship!
 
 
-~ activate_spaceship_record
+~ activate_spaceship_recording
 System: 
 - Begin Recording
 set screen = "visualizer"
@@ -110,17 +109,17 @@ System:
 	set screen = "success"
 	do Recorder.stop()
 	do Recorder.save()
-	Sam: Great job! Looks like it heard you! We’re ready to start preparing the ship for blast off. [next=2]
+	Sam: Great job! Looks like it heard you! We’re ready to start preparing the ship for blast off.
 	=> spaceship_activated
 - Quiet
 	set screen = "failure"
 	do Recorder.stop()
-	Sam: Uh oh! It looks like the spaceship couldn't quite hear what you said. Let's try again a bit louder. [next=2]
+	Sam: Uh oh! It looks like the spaceship couldn't quite hear what you said. Let's try again a bit louder.
 	=> activate_spaceship
 #- Loud
 #	set screen = "failure"
 #	do Recorder.stop()
-#	Sam: Uh oh! It looks like the spaceship couldn't quite understand what you said. Let's try again a bit quieter. [next=2]
+#	Sam: Uh oh! It looks like the spaceship couldn't quite understand what you said. Let's try again a bit quieter.
 #	=> activate_spaceship
 
 
@@ -138,9 +137,28 @@ Sam: OK. First, we need to buckle up! Listen to the command from the computer an
 [next=5]
 set screen = "computer"
 Computer: Seat belts buckled!
+
+~ buckle_up_recording
+System: 
+- Begin Recording
 set screen = "visualizer"
+do Recorder.start()
 [next=5]
-set screen = "idle"
+
+~ buckle_up_result
+System: 
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save()
+	Sam: Great job! Looks like it heard you!
+	=> spaceship_activated
+- Quiet
+	set screen = "failure"
+	do Recorder.stop()
+	Sam: Uh oh! It looks like the spaceship couldn't quite hear what you said. Let's try again a bit louder.
+	=> activate_spaceship
+
 
 ~ warning_sirens
 Sam: Great, now let’s test out our warning sirens! 
@@ -186,9 +204,7 @@ set level = "launch"
 
 ~ TASK_1
 Sam: We’re flying!
-set dialogue_visible = false
 [next=5]
-set dialogue_visible = true
 Sam: Boy, it’s dark out here! This time, let’s wake up the stars with our voices. 
 Sam: Just like we practiced, you will listen to the computer’s commands and repeat them loud and clear! 
 Sam: After each voice command, I’ll press the red button to send your voice to the stars.  
