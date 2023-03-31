@@ -1,12 +1,55 @@
-[gd_scene load_steps=8 format=3 uid="uid://bw70w15xhifwc"]
+[gd_scene load_steps=13 format=3 uid="uid://bw70w15xhifwc"]
 
 [ext_resource type="Script" path="res://ui/game_window.gd" id="1_b56ai"]
+[ext_resource type="Shader" path="res://shaders/toon.gdshader" id="3_5g72k"]
 [ext_resource type="PackedScene" uid="uid://dahkxa81prn10" path="res://level/level.tscn" id="4_7ey7j"]
 [ext_resource type="PackedScene" uid="uid://dftilry51e2f6" path="res://characters/character/character_path.tscn" id="6_3ngje"]
 [ext_resource type="PackedScene" uid="uid://cq3x5n33r2d8c" path="res://characters/character/character.tscn" id="6_8i88j"]
 [ext_resource type="PackedScene" uid="uid://ciaubij6uaqb8" path="res://characters/player/player.tscn" id="7_mwy2h"]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_8wvt6"]
+
+[sub_resource type="Gradient" id="Gradient_md7p6"]
+offsets = PackedFloat32Array(0.251121, 0.345291, 0.484305, 0.618834, 0.757848)
+colors = PackedColorArray(0.264853, 0.115738, 0.374003, 1, 0.398074, 0.405165, 0.773843, 1, 0.327519, 0.424305, 0.763903, 1, 0.331718, 0.624834, 0.866443, 1, 0.333333, 0.701961, 0.905882, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kuh6x"]
+noise_type = 3
+fractal_octaves = 4
+fractal_lacunarity = 1.98
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 2.239
+domain_warp_frequency = 0.333
+domain_warp_fractal_octaves = 2
+domain_warp_fractal_lacunarity = 2.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_e8406"]
+width = 1024
+height = 1024
+seamless = true
+seamless_blend_skirt = 0.13
+color_ramp = SubResource("Gradient_md7p6")
+noise = SubResource("FastNoiseLite_kuh6x")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5l5ny"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("3_5g72k")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/specular = 0.5
+shader_parameter/specular_amount = 0.5
+shader_parameter/specular_smoothness = 0.05
+shader_parameter/wrap = 0.227
+shader_parameter/rim = 0.406
+shader_parameter/rim_amount = 0.567
+shader_parameter/rim_smoothness = 0.359
+shader_parameter/metallic = 0.122
+shader_parameter/roughness = 1.0
+shader_parameter/emission = Color(0, 0, 0, 1)
+shader_parameter/emission_energy = 0.0
+shader_parameter/albedo_texture = SubResource("NoiseTexture2D_e8406")
+shader_parameter/emission_texture = SubResource("NoiseTexture2D_e8406")
 
 [sub_resource type="Curve3D" id="Curve3D_1ax01"]
 
@@ -37,7 +80,6 @@ render_target_update_mode = 4
 state = "warp"
 
 [node name="StateTree" parent="ViewportContainer/Viewport/Level" index="0"]
-active = false
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_8wvt6")
 
 [node name="Spaceship" parent="ViewportContainer/Viewport/Level" index="1"]
@@ -45,40 +87,18 @@ screen_state = "visualizer"
 fuel_level = 8
 
 [node name="Planet" parent="ViewportContainer/Viewport/Level" index="2"]
-transform = Transform3D(-4.99938, 0, -0.0784492, 0, 5, 0, 0.0784492, 0, -4.99938, 0, 2.5, -32)
+transform = Transform3D(-0.249969, 0, -0.00392246, 0, 0.25, 0, 0.00392246, 0, -0.249969, 3.72275, 28.7924, -54.9282)
+surface_material_override/0 = SubResource("ShaderMaterial_5l5ny")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="ViewportContainer/Viewport/Level/Planet" index="0"]
 omni_range = 24.053
 omni_attenuation = 0.366022
 
-[node name="WorldLight" parent="ViewportContainer/Viewport/Level" index="3"]
-light_energy = 0.01
-
-[node name="Environment" parent="ViewportContainer/Viewport/Level" index="4"]
-ground_color = Color(0.756863, 0.576471, 0.913725, 1)
-fog_color = Color(0.290196, 0.168627, 0.403922, 1)
-horizon_height = -64.0
-
-[node name="Ground" parent="ViewportContainer/Viewport/Level/Environment" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -64, 0)
-
-[node name="space_station" parent="ViewportContainer/Viewport/Level/Environment/Ground" index="2"]
-visible = false
-
-[node name="planet_stardust" parent="ViewportContainer/Viewport/Level/Environment/Ground" index="3"]
-visible = true
-
-[node name="Stars" parent="ViewportContainer/Viewport/Level" index="5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.375521, 0.266819, 19.2373)
-depth = 0.657
-width = 7.604
-height = 6.487
-
 [node name="CharacterPath" type="Path3D" parent="ViewportContainer/Viewport/Level"]
 curve = SubResource("Curve3D_1ax01")
 
 [node name="Character" parent="ViewportContainer/Viewport" instance=ExtResource("6_8i88j")]
-transform = Transform3D(-0.999579, 0.0221079, -0.00606534, 0.0221076, 0.999593, 0.00013414, 0.00606677, -4.63573e-09, -0.999823, -0.835455, 0.621442, -1.69756)
+transform = Transform3D(-0.0294734, 0.0221079, 0.999153, 0.000651853, 0.999593, -0.0220982, -0.999396, -6.63927e-09, -0.0294806, -0.742995, 0.902957, 0.476001)
 action = "talking"
 
 [node name="Player" parent="ViewportContainer/Viewport" instance=ExtResource("7_mwy2h")]
@@ -89,7 +109,7 @@ position_progress = 1.0
 view_progress = 0.94
 
 [node name="Camera3D" parent="ViewportContainer/Viewport/Player" index="0"]
-transform = Transform3D(0.990982, 0.0019487, 0.133984, 8.73115e-10, 0.999894, -0.0145428, -0.133998, 0.0144116, 0.990877, 0.53213, 2.10987, -1.38524)
+transform = Transform3D(0.990982, 0.0019487, 0.133984, -1.57161e-09, 0.999894, -0.0145428, -0.133998, 0.0144116, 0.990877, 0.53213, 2.10987, -1.38524)
 
 [node name="PositionPath" parent="ViewportContainer/Viewport/Player" index="1"]
 visible = false
@@ -106,11 +126,11 @@ transform = Transform3D(-0.0480739, 0.457993, 0.887478, -0.195069, 0.867078, -0.
 progress = 12.1251
 
 [node name="CharacterPath" parent="ViewportContainer/Viewport" instance=ExtResource("6_3ngje")]
-progress = 1.0
+progress = 0.72
 
 [node name="PathFollow" parent="ViewportContainer/Viewport/CharacterPath" index="0"]
-transform = Transform3D(0.00308591, 0, -0.999836, 0, 0.999837, 0, 0.999836, 0, 0.00308591, -0.848991, 0.602817, -1.69756)
-progress = 8.94866
+transform = Transform3D(-0.999479, 0, -0.0265009, 0, 0.999837, 0, 0.0265009, 0, -0.999479, -0.762779, 0.886307, 0.476001)
+progress = 6.44304
 rotation_mode = 1
 
 [node name="RemoteTransform3D" parent="ViewportContainer/Viewport/CharacterPath/PathFollow" index="1"]
