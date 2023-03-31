@@ -27,14 +27,15 @@ extends Node3D
 		steering_motion = value
 		set_steering_motion(value)
 
-
 @export_range(1,8) var fuel_level := 1: 
 	set(value):
 		fuel_level = value
 		set_fuel_level(value)
 
-		
 @onready var animation_tree := %AnimationTree
+@onready var seatbelt_indicator := %seatbelt_indicator_left
+
+
 
 func _ready():
 	Sequencer.screen_changed.connect(update_screen)
@@ -55,9 +56,10 @@ func set_door_open(value: bool) -> void:
 		state_machine.travel( 'open' if value else 'close' ) 
 
 func set_seatbelts_buckled(value: bool) -> void:
-	if animation_tree:
-		var state_machine : AnimationNodeStateMachinePlayback = animation_tree.get("parameters/door_state/playback")
-		state_machine.travel( 'open' if value else 'close' ) 
+	if %seatbelt_indicator_left.get_active_material(0):
+		print(2 if value else 1)
+		%seatbelt_indicator_left.get_active_material(0).set_shader_parameter("frame_number", 2 if value else 1)
+
 
 func update_screen(value: String)-> void:
 	if animation_tree:

@@ -1,6 +1,5 @@
-[gd_scene load_steps=13 format=3 uid="uid://bw70w15xhifwc"]
+[gd_scene load_steps=12 format=3 uid="uid://bw70w15xhifwc"]
 
-[ext_resource type="Script" path="res://ui/game_window.gd" id="1_b56ai"]
 [ext_resource type="Shader" path="res://shaders/toon.gdshader" id="3_5g72k"]
 [ext_resource type="PackedScene" uid="uid://dahkxa81prn10" path="res://level/level.tscn" id="4_7ey7j"]
 [ext_resource type="PackedScene" uid="uid://dftilry51e2f6" path="res://characters/character/character_path.tscn" id="6_3ngje"]
@@ -58,9 +57,7 @@ initial_position = 1
 title = "Adventure"
 size = Vector2i(1280, 720)
 content_scale_size = Vector2i(1280, 720)
-content_scale_mode = 1
-content_scale_aspect = 1
-script = ExtResource("1_b56ai")
+content_scale_aspect = 4
 
 [node name="ViewportContainer" type="SubViewportContainer" parent="."]
 anchors_preset = 15
@@ -84,6 +81,7 @@ parameters/playback = SubResource("AnimationNodeStateMachinePlayback_8wvt6")
 
 [node name="Spaceship" parent="ViewportContainer/Viewport/Level" index="1"]
 screen_state = "visualizer"
+door_open = true
 fuel_level = 8
 
 [node name="Planet" parent="ViewportContainer/Viewport/Level" index="2"]
@@ -94,43 +92,41 @@ surface_material_override/0 = SubResource("ShaderMaterial_5l5ny")
 omni_range = 24.053
 omni_attenuation = 0.366022
 
+[node name="WorldLight" parent="ViewportContainer/Viewport/Level" index="3"]
+shadow_bias = 0.117
+shadow_normal_bias = 0.443
+shadow_opacity = 0.22
+shadow_blur = 1.511
+
 [node name="CharacterPath" type="Path3D" parent="ViewportContainer/Viewport/Level"]
 curve = SubResource("Curve3D_1ax01")
 
 [node name="Character" parent="ViewportContainer/Viewport" instance=ExtResource("6_8i88j")]
-transform = Transform3D(-0.0294734, 0.0221079, 0.999153, 0.000651853, 0.999593, -0.0220982, -0.999396, -6.63927e-09, -0.0294806, -0.742995, 0.902957, 0.476001)
+transform = Transform3D(0.994176, 0.0221079, -0.103915, -0.0219881, 0.999593, 0.00229827, 0.10394, 5.32609e-09, 0.994419, -5.83847, 0.93526, 0.533405)
 action = "talking"
 
 [node name="Player" parent="ViewportContainer/Viewport" instance=ExtResource("7_mwy2h")]
 follow_speed = 2.1
 turn_speed = 2.981
 max_distance = 2.9
-position_progress = 1.0
-view_progress = 0.94
+view_progress = 0.0
 
 [node name="Camera3D" parent="ViewportContainer/Viewport/Player" index="0"]
-transform = Transform3D(0.990982, 0.0019487, 0.133984, -1.57161e-09, 0.999894, -0.0145428, -0.133998, 0.0144116, 0.990877, 0.53213, 2.10987, -1.38524)
-
-[node name="PositionPath" parent="ViewportContainer/Viewport/Player" index="1"]
-visible = false
+transform = Transform3D(0.600992, 0.000899386, -0.799255, -2.61934e-10, 0.999999, 0.00112528, 0.799255, -0.000676284, 0.600991, -10.8949, 2.63937, 4.35122)
 
 [node name="PositionTarget" parent="ViewportContainer/Viewport/Player/PositionPath" index="0"]
-transform = Transform3D(-0.320023, 0.0684194, 0.944758, -0.509408, 0.828301, -0.232537, -0.798609, -0.555765, -0.230261, 5.91648, 0.20595, -1.42279)
-progress = 16.1706
-
-[node name="ViewPath" parent="ViewportContainer/Viewport/Player" index="2"]
-visible = false
+transform = Transform3D(-0.126776, 0.0899253, 0.987711, 3.72478e-09, 0.995705, -0.0906608, -0.991792, -0.0114947, -0.126254, -5.51051, 0.735448, 4.31367)
 
 [node name="ViewTarget" parent="ViewportContainer/Viewport/Player/ViewPath" index="0"]
-transform = Transform3D(-0.0480739, 0.457993, 0.887478, -0.195069, 0.867078, -0.45804, -0.979455, -0.195167, 0.0476641, 7.12456, 0.219234, -1.69537)
-progress = 12.1251
+transform = Transform3D(0.559767, 0.109644, 0.821173, -0.00975036, 0.991825, -0.125789, -0.828412, 0.0624138, 0.556357, 1.83102, 0.718013, 1.10855)
+progress = 3.61174
 
 [node name="CharacterPath" parent="ViewportContainer/Viewport" instance=ExtResource("6_3ngje")]
-progress = 0.72
+progress = 0.12
 
 [node name="PathFollow" parent="ViewportContainer/Viewport/CharacterPath" index="0"]
-transform = Transform3D(-0.999479, 0, -0.0265009, 0, 0.999837, 0, 0.0265009, 0, -0.999479, -0.762779, 0.886307, 0.476001)
-progress = 6.44304
+transform = Transform3D(0.106905, 0, 0.994104, 0, 0.999837, 0, -0.994104, 0, 0.106905, -5.85772, 0.805934, 0.533405)
+progress = 0.965696
 rotation_mode = 1
 
 [node name="RemoteTransform3D" parent="ViewportContainer/Viewport/CharacterPath/PathFollow" index="1"]

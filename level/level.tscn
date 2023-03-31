@@ -508,7 +508,6 @@ libraries = {
 }
 
 [node name="Spaceship" parent="." instance=ExtResource("2_ovpdl")]
-seatbelts_buckled = false
 fuel_level = 0
 
 [node name="Planet" type="MeshInstance3D" parent="."]
@@ -597,10 +596,11 @@ surface_material_override/0 = SubResource("ShaderMaterial_85duv")
 visible = false
 
 [node name="Alien" parent="Environment/Ground/planet_stardust" instance=ExtResource("8_bs0lj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.144829, 1.4212, -4.83209)
+transform = Transform3D(0.956661, 0, -0.291203, 0, 1, 0, 0.291203, 0, 0.956661, 1.23626, 1.35833, -4.83209)
 
 [node name="Lama" parent="Environment/Ground/planet_stardust" instance=ExtResource("8_t1ik6")]
 transform = Transform3D(-0.693842, 0, 0.720127, 0, 1, 0, -0.720127, 0, -0.693842, 1.08525, 1.61328, -4.12834)
+visible = false
 
 [node name="mountains" type="Node3D" parent="Environment/Ground/planet_stardust"]
 

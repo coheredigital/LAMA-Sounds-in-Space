@@ -34,6 +34,9 @@ func update_view(value: float, duration: float = 2.0) -> void:
 
 
 func _ready():
+#	reset view and position
+	position_progress = 0.0
+	view_progress = 0.0
 	Sequencer.player_position_changed.connect(update_postion)
 	Sequencer.player_view_changed.connect(update_view)
 

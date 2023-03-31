@@ -1,12 +1,11 @@
 [gd_scene load_steps=11 format=3 uid="uid://cd2cy5xbal8wf"]
 
+[ext_resource type="Theme" uid="uid://jvj03s2xln54" path="res://ui/theme/simple_ui_theme.tres" id="1_u63ke"]
 [ext_resource type="Script" path="res://ui/control_panel.gd" id="1_yqxgb"]
 [ext_resource type="Material" uid="uid://d1txi86rfk50c" path="res://audio/visualizer/visualizer_debug_material.tres" id="2_gxrj7"]
 [ext_resource type="Gradient" uid="uid://b71jutk4qdqv3" path="res://audio/visualizer/visualizer_gradient.tres" id="3_q6r2g"]
 [ext_resource type="PackedScene" uid="uid://cothlddswoqrl" path="res://ui/dialogue_balloon/control_balloon.tscn" id="4_vrcsm"]
 [ext_resource type="StyleBox" uid="uid://uaf6yuo5c7d1" path="res://ui/theme/styles/text_box_default_style.tres" id="5_r3xif"]
-
-[sub_resource type="Theme" id="Theme_yr20t"]
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_m2f1b"]
 gradient = ExtResource("3_q6r2g")
@@ -32,32 +31,25 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[node name="ControlPanel" type="Control"]
-layout_mode = 3
+[node name="ControlPanel" type="Panel"]
+clip_contents = true
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_yr20t")
+theme = ExtResource("1_u63ke")
 script = ExtResource("1_yqxgb")
 
-[node name="Panel" type="Panel" parent="."]
-clip_contents = true
+[node name="AudioWaveform" type="TextureRect" parent="."]
+material = ExtResource("2_gxrj7")
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 12
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="AudioWaveform" type="TextureRect" parent="Panel"]
-material = ExtResource("2_gxrj7")
-layout_mode = 2
-offset_left = -73.0
-offset_top = 493.0
-offset_right = 1283.0
-offset_bottom = 722.0
+offset_left = -124.0
+offset_top = -255.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 3
@@ -65,39 +57,114 @@ size_flags_vertical = 3
 texture = SubResource("GradientTexture2D_m2f1b")
 expand_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+[node name="Controls" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 33.0
-offset_top = 37.0
-offset_right = -33.0
-offset_bottom = -37.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Controls" type="VBoxContainer" parent="Panel/MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Controls"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Header" type="HBoxContainer" parent="Controls/MarginContainer"]
 layout_mode = 2
 
-[node name="Header" type="HBoxContainer" parent="Panel/MarginContainer/Controls"]
-layout_mode = 2
-
-[node name="Mission Control" type="Label" parent="Panel/MarginContainer/Controls/Header"]
+[node name="Mission Control" type="Label" parent="Controls/MarginContainer/Header"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 32
 text = "Mission Control
 "
 
-[node name="GameControls" type="VBoxContainer" parent="Panel/MarginContainer/Controls/Header"]
-layout_mode = 2
-size_flags_vertical = 0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/Controls/Header/GameControls"]
+[node name="Fields" type="HBoxContainer" parent="Controls/MarginContainer/Header"]
 layout_mode = 2
 
-[node name="start_game" type="Button" parent="Panel/MarginContainer/Controls/Header/GameControls/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Controls/MarginContainer/Header/Fields"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="StudyIDField" type="HBoxContainer" parent="Controls/MarginContainer/Header/Fields/MarginContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Controls/MarginContainer/Header/Fields/MarginContainer/StudyIDField"]
+layout_mode = 2
+text = "Study ID
+"
+
+[node name="StudyID" type="LineEdit" parent="Controls/MarginContainer/Header/Fields/MarginContainer/StudyIDField"]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "ACME"
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="MarginContainer2" type="MarginContainer" parent="Controls/MarginContainer/Header/Fields"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="AgeGroupField" type="HBoxContainer" parent="Controls/MarginContainer/Header/Fields/MarginContainer2"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Controls/MarginContainer/Header/Fields/MarginContainer2/AgeGroupField"]
+layout_mode = 2
+text = "Age Group"
+horizontal_alignment = 2
+
+[node name="AgeGroup" type="SpinBox" parent="Controls/MarginContainer/Header/Fields/MarginContainer2/AgeGroupField"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1.0
+max_value = 999.0
+value = 1.0
+allow_greater = true
+alignment = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="Controls/MarginContainer/Header/Fields"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="RunIDField" type="HBoxContainer" parent="Controls/MarginContainer/Header/Fields/MarginContainer3"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Controls/MarginContainer/Header/Fields/MarginContainer3/RunIDField"]
+layout_mode = 2
+text = "Run ID
+"
+horizontal_alignment = 2
+
+[node name="RunID" type="SpinBox" parent="Controls/MarginContainer/Header/Fields/MarginContainer3/RunIDField"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1.0
+max_value = 999.0
+value = 1.0
+allow_greater = true
+alignment = 2
+
+[node name="StartGame" type="Button" parent="Controls/MarginContainer/Header/Fields"]
 custom_minimum_size = Vector2(200, 36)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.0101576, 0.0449464, 0.0199781, 1)
@@ -108,109 +175,36 @@ toggle_mode = true
 text = "Toggle Game View
 "
 
-[node name="Divider" type="HSeparator" parent="Panel/MarginContainer/Controls"]
-custom_minimum_size = Vector2(0, 32)
+[node name="Divider" type="HSeparator" parent="Controls"]
+custom_minimum_size = Vector2(0, 1)
 layout_mode = 2
 
-[node name="Control" type="HSplitContainer" parent="Panel/MarginContainer/Controls"]
+[node name="Control" type="HSplitContainer" parent="Controls"]
 layout_mode = 2
 size_flags_vertical = 3
 split_offset = -786
 
-[node name="FormColumn" type="MarginContainer" parent="Panel/MarginContainer/Controls/Control"]
+[node name="ColumnLeft" type="MarginContainer" parent="Controls/Control"]
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="FieldList" type="VBoxContainer" parent="Panel/MarginContainer/Controls/Control/FormColumn"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="StudyIDField" type="HBoxContainer" parent="Panel/MarginContainer/Controls/Control/FormColumn/FieldList"]
-custom_minimum_size = Vector2(0, 32)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/Control/FormColumn/FieldList/StudyIDField"]
-layout_mode = 2
-text = "Study ID
-"
-
-[node name="StudyID" type="LineEdit" parent="Panel/MarginContainer/Controls/Control/FormColumn/FieldList/StudyIDField"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-text = "SIP"
-placeholder_text = "ABC"
-
-[node name="AgeGroupField" type="HBoxContainer" parent="Panel/MarginContainer/Controls/Control/FormColumn/FieldList"]
-custom_minimum_size = Vector2(0, 32)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/Control/FormColumn/FieldList/AgeGroupField"]
-layout_mode = 2
-text = "Age Group"
-horizontal_alignment = 2
-
-[node name="AgeGroup" type="SpinBox" parent="Panel/MarginContainer/Controls/Control/FormColumn/FieldList/AgeGroupField"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-min_value = 1.0
-max_value = 999.0
-value = 1.0
-allow_greater = true
-alignment = 2
-
-[node name="RunIDField" type="HBoxContainer" parent="Panel/MarginContainer/Controls/Control/FormColumn/FieldList"]
-custom_minimum_size = Vector2(0, 32)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/Control/FormColumn/FieldList/RunIDField"]
-layout_mode = 2
-text = "Run ID
-"
-horizontal_alignment = 2
-
-[node name="RunID" type="SpinBox" parent="Panel/MarginContainer/Controls/Control/FormColumn/FieldList/RunIDField"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-min_value = 1.0
-max_value = 999.0
-value = 1.0
-allow_greater = true
-alignment = 2
-
-[node name="Separator" type="HSeparator" parent="Panel/MarginContainer/Controls/Control/FormColumn/FieldList"]
-custom_minimum_size = Vector2(0, 32)
+[node name="VBoxContainer" type="VBoxContainer" parent="Controls/Control/ColumnLeft"]
 layout_mode = 2
 
-[node name="DialogueColumn" type="MarginContainer" parent="Panel/MarginContainer/Controls/Control"]
-layout_mode = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/Controls/Control/DialogueColumn"]
-layout_mode = 2
-
-[node name="ControlBalloon" parent="Panel/MarginContainer/Controls/Control/DialogueColumn/VBoxContainer" instance=ExtResource("4_vrcsm")]
+[node name="ControlBalloon" parent="Controls/Control/ColumnLeft/VBoxContainer" instance=ExtResource("4_vrcsm")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="StatusBar" type="Panel" parent="Panel/MarginContainer/Controls/Control/DialogueColumn/VBoxContainer"]
+[node name="StatusBar" type="Panel" parent="Controls/Control/ColumnLeft/VBoxContainer"]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 theme_override_styles/panel = ExtResource("5_r3xif")
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/Controls/Control/DialogueColumn/VBoxContainer/StatusBar"]
+[node name="MarginContainer" type="MarginContainer" parent="Controls/Control/ColumnLeft/VBoxContainer/StatusBar"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -222,12 +216,24 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="StatusBarLabel" type="Label" parent="Panel/MarginContainer/Controls/Control/DialogueColumn/VBoxContainer/StatusBar/MarginContainer"]
+[node name="StatusBarLabel" type="Label" parent="Controls/Control/ColumnLeft/VBoxContainer/StatusBar/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Title"
 
-[connection signal="pressed" from="Panel/MarginContainer/Controls/Header/GameControls/HBoxContainer/start_game" to="." method="_on_start_game_pressed"]
-[connection signal="text_changed" from="Panel/MarginContainer/Controls/Control/FormColumn/FieldList/StudyIDField/StudyID" to="." method="_on_study_id_text_changed"]
-[connection signal="value_changed" from="Panel/MarginContainer/Controls/Control/FormColumn/FieldList/AgeGroupField/AgeGroup" to="." method="_on_age_group_value_changed"]
-[connection signal="value_changed" from="Panel/MarginContainer/Controls/Control/FormColumn/FieldList/RunIDField/RunID" to="." method="_on_run_id_value_changed"]
+[node name="ColumnRight" type="MarginContainer" parent="Controls/Control"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Controls/Control/ColumnRight"]
+layout_mode = 2
+text = "Log placeholder..."
+
+[connection signal="text_changed" from="Controls/MarginContainer/Header/Fields/MarginContainer/StudyIDField/StudyID" to="." method="_on_study_id_text_changed"]
+[connection signal="value_changed" from="Controls/MarginContainer/Header/Fields/MarginContainer2/AgeGroupField/AgeGroup" to="." method="_on_age_group_value_changed"]
+[connection signal="value_changed" from="Controls/MarginContainer/Header/Fields/MarginContainer3/RunIDField/RunID" to="." method="_on_run_id_value_changed"]
+[connection signal="pressed" from="Controls/MarginContainer/Header/Fields/StartGame" to="." method="_on_start_game_pressed"]

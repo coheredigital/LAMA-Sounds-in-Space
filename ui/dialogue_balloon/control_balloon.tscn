@@ -2,21 +2,7 @@
 
 [ext_resource type="Script" path="res://ui/dialogue_balloon/control_balloon.gd" id="1_h6o3q"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_ovdsy"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_whqb3"]
-bg_color = Color(0.127227, 0.127263, 0.292206, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.15559, 0.15571, 0.347102, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-shadow_color = Color(0, 0, 0, 0.109804)
-shadow_size = 8
-shadow_offset = Vector2(0, 5.438)
+[ext_resource type="StyleBox" uid="uid://dydyv8h1ltwxk" path="res://ui/theme/styles/panel_raised_style.tres" id="2_t0twx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5d24i"]
 content_margin_left = 40.0
@@ -51,7 +37,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_whqb3")
+theme_override_styles/panel = ExtResource("2_t0twx")
 
 [node name="VBox" type="VBoxContainer" parent="Balloon"]
 layout_mode = 1

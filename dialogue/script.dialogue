@@ -1,12 +1,12 @@
 import "res://dialogue/snippets.dialogue" as snippets
 
-~ load
+~ start
 System: ...[next=1]
 =>< snippets/reset
 System: ...[next=1]
 System: ...[next=1]
 System: Ready.
-- Begin
+- Start
 
 ~ welcome
 Sam: Welcome to the Space Station! My name is Sam and I’m an Astronaut. We’re so glad you came to visit us today!
@@ -16,7 +16,7 @@ Sam: Let’s look up her location on our astronaut map.
 Sam: Oh no! It looks like Lucky’s spaceship broke down and Lucky is stuck on another planet way out in space!
 
 ~ question_rescue
-set player_view = 0.3
+set player_view = 0.28
 Sam: Will you help me rescue Lucky to get her back here to the space station?
 - Yes!
 	Sam: Thank you! 
@@ -31,9 +31,12 @@ Sam: Our mission is to travel to Planet Stardust, where Lucky’s spaceship brok
 Sam: Are you ready to start your astronaut training? If you help, you’ll get your very own space cadet prize for your help and your bravery!!   
 
 ~ approach_spaceship
-=>< snippets/approach_spaceship
-
-
+set player_position = 0.4
+set player_view = 0.5
+set dialogue_visible = false
+set player_position = 0.55
+set player_view = 0.52
+[next=4]
 Sam: Press the GREEN button to open the spaceship door and start your training! 
 - Green Button => unlock_door
 
@@ -42,25 +45,35 @@ set character_position = 0.25
 set door_open = true
 [next=5]
 set player_position = 0.7
-set player_view = 0.8
+set player_view = 0.55
+[next=0.25]
+set character_position = 0.5
+set player_view = 0.6
+[next=1]
 
 ~ enter_spaceship
 set character_position = 0.4
 set level = "intro"
 set player_position = 0.8
+set player_view = 0.75
+[next=1]
 set player_view = 0.9
+[next=2]
 
 ~ welcome_aboard
-Sam: Welcome aboard! 
-set player_position = 0.8
-set player_view = 0.95
+set character_position = 0.6
+[next=1]
 set character_position = 0.85
+[next=1]
+Sam: Welcome aboard! 
+set player_view = 0.95
 Sam: To become a Junior Astronaut, you will need to listen closely so we can make it to Planet Stardust, find Lucky the Llama, and bring Lucky back to the Space Station.
 Sam: Our first job is to make sure we have everything we need before we fly.
 
 ~ computer_intro
 set player_position = 0.9
 set player_view = 0.9
+[next=0.25]
 set character_position = 0.9
 Sam: This is our handy dandy computer! The computer will help us travel to Planet Stardust. 
 Sam: This computer is voice-activated, which means that we have to say the commands out loud with our voices so the computer can help us activate the spaceship! 
@@ -82,10 +95,16 @@ Sam: After you repeat after the computer, I’ll press the red button to send te
 Sam: Ok here we go!
 set screen = "computer" 
 Computer: Activate spaceship!
+
+
+~ activate_spaceship_record
+System: 
+- Begin Recording
 set screen = "visualizer"
 do Recorder.start()
-
 [next=5]
+
+~ activate_spaceship_result
 System: 
 - Success
 	set screen = "success"
@@ -98,11 +117,12 @@ System:
 	do Recorder.stop()
 	Sam: Uh oh! It looks like the spaceship couldn't quite hear what you said. Let's try again a bit louder. [next=2]
 	=> activate_spaceship
-- Loud
-	set screen = "failure"
-	do Recorder.stop()
-	Sam: Uh oh! It looks like the spaceship couldn't quite understand what you said. Let's try again a bit quieter. [next=2]
-	=> activate_spaceship
+#- Loud
+#	set screen = "failure"
+#	do Recorder.stop()
+#	Sam: Uh oh! It looks like the spaceship couldn't quite understand what you said. Let's try again a bit quieter. [next=2]
+#	=> activate_spaceship
+
 
 ~ spaceship_activated
 set player_position = 1.0
@@ -162,6 +182,7 @@ Computer: *Blast Off!*
 ~ blast_off 
 set level = "launch"
 [next=5]
+
 
 ~ TASK_1
 Sam: We’re flying!
@@ -264,4 +285,7 @@ Sam: You made it back to the Space Station - great job today!
 Sam: Thanks for bringing Lucky the Llama back home from Planet Stardust safely. 
 Sam: You are a great Astronaut! Come back any time!
 
+
+System: 
+- restart => start
 => END

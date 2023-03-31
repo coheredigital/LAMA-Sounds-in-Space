@@ -1,4 +1,3 @@
-@tool
 extends Node
 
 @export var waveform : Curve
