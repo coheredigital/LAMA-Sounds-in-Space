@@ -1,7 +1,17 @@
-[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://q6um5lgw4f4k"]
+[gd_resource type="ShaderMaterial" load_steps=8 format=3 uid="uid://q6um5lgw4f4k"]
 
 [ext_resource type="Shader" path="res://audio/visualizer/visualizer.gdshader" id="2"]
+[ext_resource type="Texture2D" uid="uid://efw8q5fwtw3s" path="res://audio/visualizer/textures/visualizer_gradient.png" id="2_1b8qe"]
 [ext_resource type="Gradient" uid="uid://b71jutk4qdqv3" path="res://audio/visualizer/visualizer_gradient.tres" id="2_woebh"]
+[ext_resource type="Texture2D" uid="uid://ddbud7dok4cao" path="res://audio/visualizer/textures/visualizer_screen_mask.png" id="3_hfu6u"]
+
+[sub_resource type="Curve" id="Curve_x7tor"]
+max_value = 2.0
+_data = [Vector2(0, 0.609091), 0.0, 0.0, 0, 0, Vector2(1, 1.45455), -2.69394, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_s3ax4"]
+curve = SubResource("Curve_x7tor")
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_cdis6"]
 gradient = ExtResource("2_woebh")
@@ -11,3 +21,6 @@ render_priority = 6
 shader = ExtResource("2")
 shader_parameter/emission_boost = 1.0
 shader_parameter/waveform = SubResource("GradientTexture1D_cdis6")
+shader_parameter/gradient = ExtResource("2_1b8qe")
+shader_parameter/mask = ExtResource("3_hfu6u")
+shader_parameter/emission_curve = SubResource("CurveTexture_s3ax4")

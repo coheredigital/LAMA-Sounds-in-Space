@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cd2cy5xbal8wf"]
+[gd_scene load_steps=11 format=3 uid="uid://cd2cy5xbal8wf"]
 
 [ext_resource type="Script" path="res://ui/control_panel.gd" id="1_yqxgb"]
 [ext_resource type="Material" uid="uid://d1txi86rfk50c" path="res://audio/visualizer/visualizer_debug_material.tres" id="2_gxrj7"]
@@ -10,6 +10,27 @@
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_m2f1b"]
 gradient = ExtResource("3_q6r2g")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ku874"]
+bg_color = Color(0.4, 0.733333, 0.521569, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p1tpq"]
+bg_color = Color(0.301961, 0.588235, 0.411765, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfq2c"]
+bg_color = Color(0.180392, 0.380392, 0.258824, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [node name="ControlPanel" type="Control"]
 layout_mode = 3
@@ -77,8 +98,13 @@ size_flags_vertical = 0
 layout_mode = 2
 
 [node name="start_game" type="Button" parent="Panel/MarginContainer/Controls/Header/GameControls/HBoxContainer"]
-custom_minimum_size = Vector2(200, 31)
+custom_minimum_size = Vector2(200, 36)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.0101576, 0.0449464, 0.0199781, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_ku874")
+theme_override_styles/hover = SubResource("StyleBoxFlat_p1tpq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lfq2c")
+toggle_mode = true
 text = "Toggle Game View
 "
 
@@ -179,12 +205,12 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Panel" type="Panel" parent="Panel/MarginContainer/Controls/Control/DialogueColumn/VBoxContainer"]
+[node name="StatusBar" type="Panel" parent="Panel/MarginContainer/Controls/Control/DialogueColumn/VBoxContainer"]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 theme_override_styles/panel = ExtResource("5_r3xif")
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/Controls/Control/DialogueColumn/VBoxContainer/Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/Controls/Control/DialogueColumn/VBoxContainer/StatusBar"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -196,10 +222,8 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="StatusBar" type="HBoxContainer" parent="Panel/MarginContainer/Controls/Control/DialogueColumn/VBoxContainer/Panel/MarginContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Panel/MarginContainer/Controls/Control/DialogueColumn/VBoxContainer/Panel/MarginContainer/StatusBar"]
+[node name="StatusBarLabel" type="Label" parent="Panel/MarginContainer/Controls/Control/DialogueColumn/VBoxContainer/StatusBar/MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Title"
 

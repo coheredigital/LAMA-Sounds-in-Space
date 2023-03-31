@@ -13,7 +13,7 @@ var study_id: String = "ACME":
 		print('Study ID: %s' % value)
 		study_name_changed.emit(value)
 
-var age_group: String = "01":
+var age_group: int = 1:
 	set(value):
 		age_group = value
 		print('Age Group: %s' % value)

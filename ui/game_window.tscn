@@ -1,30 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://bw70w15xhifwc"]
+[gd_scene load_steps=8 format=3 uid="uid://bw70w15xhifwc"]
 
 [ext_resource type="Script" path="res://ui/game_window.gd" id="1_b56ai"]
-[ext_resource type="Shader" path="res://shaders/toon.gdshader" id="3_pturu"]
 [ext_resource type="PackedScene" uid="uid://dahkxa81prn10" path="res://level/level.tscn" id="4_7ey7j"]
 [ext_resource type="PackedScene" uid="uid://dftilry51e2f6" path="res://characters/character/character_path.tscn" id="6_3ngje"]
 [ext_resource type="PackedScene" uid="uid://cq3x5n33r2d8c" path="res://characters/character/character.tscn" id="6_8i88j"]
 [ext_resource type="PackedScene" uid="uid://ciaubij6uaqb8" path="res://characters/player/player.tscn" id="7_mwy2h"]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_8wvt6"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_15lxc"]
-resource_local_to_scene = true
-render_priority = 0
-shader = ExtResource("3_pturu")
-shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/specular = 0.5
-shader_parameter/specular_amount = 0.5
-shader_parameter/specular_smoothness = 0.05
-shader_parameter/wrap = 0.25
-shader_parameter/rim = 0.5
-shader_parameter/rim_amount = 0.2
-shader_parameter/rim_smoothness = 0.05
-shader_parameter/metallic = 0.0
-shader_parameter/roughness = 1.0
-shader_parameter/emission = Color(0, 0, 0, 1)
-shader_parameter/emission_energy = 1.0
 
 [sub_resource type="Curve3D" id="Curve3D_1ax01"]
 
@@ -52,7 +34,7 @@ size = Vector2i(1280, 720)
 render_target_update_mode = 4
 
 [node name="Level" parent="ViewportContainer/Viewport" instance=ExtResource("4_7ey7j")]
-state = "stars_light"
+state = "warp"
 
 [node name="StateTree" parent="ViewportContainer/Viewport/Level" index="0"]
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_8wvt6")
@@ -62,14 +44,31 @@ screen_state = "visualizer"
 fuel_level = 8
 
 [node name="Planet" parent="ViewportContainer/Viewport/Level" index="2"]
-transform = Transform3D(-0.249969, 0, -0.00392246, 0, 0.25, 0, 0.00392246, 0, -0.249969, 3.72275, 28.7924, -54.9282)
-surface_material_override/0 = SubResource("ShaderMaterial_15lxc")
+transform = Transform3D(-4.99938, 0, -0.0784492, 0, 5, 0, 0.0784492, 0, -4.99938, 0, 2.5, -32)
+
+[node name="WorldLight" parent="ViewportContainer/Viewport/Level" index="3"]
+light_energy = 0.01
+
+[node name="Environment" parent="ViewportContainer/Viewport/Level" index="4"]
+sky_color = Color(0.113725, 0.113725, 0.266667, 1)
+fog_color = Color(0.113725, 0.113725, 0.266667, 1)
+horizon_height = -64.0
+
+[node name="Ground" parent="ViewportContainer/Viewport/Level/Environment" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -64, 0)
+
+[node name="Stars" parent="ViewportContainer/Viewport/Level" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.375521, 0.266819, 19.2373)
+visible = true
+depth = 0.657
+width = 7.604
+height = 6.487
 
 [node name="CharacterPath" type="Path3D" parent="ViewportContainer/Viewport/Level"]
 curve = SubResource("Curve3D_1ax01")
 
 [node name="Character" parent="ViewportContainer/Viewport" instance=ExtResource("6_8i88j")]
-transform = Transform3D(0.663318, 0.0221079, 0.747805, -0.0146705, 0.999593, -0.0165391, -0.747988, -1.76347e-09, 0.663479, -0.641115, 0.907581, -0.628924)
+transform = Transform3D(-0.999579, 0.0221079, -0.00606534, 0.0221076, 0.999593, 0.00013414, 0.00606677, -4.63573e-09, -0.999823, -0.835455, 0.621442, -1.69756)
 action = "talking"
 
 [node name="Player" parent="ViewportContainer/Viewport" instance=ExtResource("7_mwy2h")]
@@ -79,7 +78,7 @@ max_distance = 2.9
 view_progress = 0.94
 
 [node name="Camera3D" parent="ViewportContainer/Viewport/Player" index="0"]
-transform = Transform3D(0.617942, 0.0275554, -0.78574, 1.86265e-09, 0.999386, 0.0350479, 0.786223, -0.0216576, 0.617563, -10.5887, 2.61909, 5.6689)
+transform = Transform3D(0.617942, 0.0275555, -0.78574, 1.86265e-09, 0.999386, 0.0350479, 0.786223, -0.0216576, 0.617563, -10.5887, 2.61909, 5.6689)
 
 [node name="PositionPath" parent="ViewportContainer/Viewport/Player" index="1"]
 visible = false
@@ -95,11 +94,11 @@ transform = Transform3D(-0.0480739, 0.457993, 0.887478, -0.195069, 0.867078, -0.
 progress = 12.1251
 
 [node name="CharacterPath" parent="ViewportContainer/Viewport" instance=ExtResource("6_3ngje")]
-progress = 0.85
+progress = 1.0
 
 [node name="PathFollow" parent="ViewportContainer/Viewport/CharacterPath" index="0"]
-transform = Transform3D(-0.746006, 0, 0.665706, 0, 0.999837, 0, -0.665706, 0, -0.746006, -0.661026, 0.893183, -0.628924)
-progress = 7.60636
+transform = Transform3D(0.00308591, 0, -0.999836, 0, 0.999837, 0, 0.999836, 0, 0.00308591, -0.848991, 0.602817, -1.69756)
+progress = 8.94866
 rotation_mode = 1
 
 [node name="RemoteTransform3D" parent="ViewportContainer/Viewport/CharacterPath/PathFollow" index="1"]
