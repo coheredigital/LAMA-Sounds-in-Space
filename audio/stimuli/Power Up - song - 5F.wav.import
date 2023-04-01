@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://4yohs1eg5khk"
-path="res://.godot/imported/Power Up - song -5F.wav-7225f71283b8685538363cbd500ad7ee.sample"
+path="res://.godot/imported/Power Up - song - 5F.wav-6d07d32474bbae971b52ebd91e042ba3.sample"
 
 [deps]
 
-source_file="res://audio/stimuli/Power Up - song -5F.wav"
-dest_files=["res://.godot/imported/Power Up - song -5F.wav-7225f71283b8685538363cbd500ad7ee.sample"]
+source_file="res://audio/stimuli/Power Up - song - 5F.wav"
+dest_files=["res://.godot/imported/Power Up - song - 5F.wav-6d07d32474bbae971b52ebd91e042ba3.sample"]
 
 [params]
 

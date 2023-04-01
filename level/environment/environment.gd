@@ -25,6 +25,13 @@ const SKY_SIZE = 64.0
 @onready var sky_material : ShaderMaterial  = %Sky.get_active_material(0)
 @onready var ground := %Ground
 
+func _ready():
+	Sequencer.stars_brightness_changed.connect(set_stars_brightness)
+
+func set_stars_brightness(value):
+	if sky_material:
+		sky_material.set_shader_parameter("stars_brightness", value)
+
 func set_ground_color(value):
 	ground_color = value
 	if sky_material:

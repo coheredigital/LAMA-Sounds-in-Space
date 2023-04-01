@@ -2,16 +2,22 @@ extends Node
 
 signal dialogue_visibility_changed(value: bool)
 signal level_changed(value: String)
+signal stars_brightness_changed(value: float)
+
+
 signal player_state_changed(value: String)
 signal player_position_changed(value: String)
 signal player_view_changed(value: String)
+
 signal character_position_changed(value: float)
 signal character_action_changed(value: String)
+
 signal spaceship_motion_changed(value: float)
 signal door_open_changed(value: bool)
 signal seatbelts_buckled_changed(value: bool)
 signal screen_changed(value: String)
 signal steering_motion_changed(value: float)
+signal flying_motion_changed(value: float)
 signal fuel_level_changed(value: int)
 
 var character_position: float = 0.0:
@@ -28,6 +34,11 @@ var level: String = "intro":
 	set(value):
 		level = value
 		level_changed.emit(value)
+
+var stars_brightness: float = 0.0:
+	set(value):
+		stars_brightness = clamp(value, 0.0,4.0)
+		stars_brightness_changed.emit(stars_brightness)
 
 var player_position: float = 0.0:
 	set(value):
@@ -48,6 +59,11 @@ var steering_motion: float = 0.0:
 	set(value):
 		steering_motion = clamp(value, 0.0,1.0)
 		steering_motion_changed.emit(steering_motion)
+		
+var flying_motion: float = 0.0:
+	set(value):
+		flying_motion = clamp(value, 0.0,1.0)
+		flying_motion_changed.emit(flying_motion)
 		
 var fuel_level: int = 1:
 	set(value):

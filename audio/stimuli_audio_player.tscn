@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://qag0ekdx2ry7"]
+
+[ext_resource type="AudioStream" uid="uid://boj8a2ah4j5hw" path="res://audio/stimuli/Bring the fuel - song - 1F.wav" id="1_28les"]
+
+[node name="StimuliAudioPlayer" type="Node3D"]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("1_28les")
+bus = &"Computer"

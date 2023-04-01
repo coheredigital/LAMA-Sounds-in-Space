@@ -9,10 +9,8 @@ System: Ready.
 - Start
 
 ~ welcome
-Sam: Welcome to the Space Station! My name is Sam and I’m an Astronaut. We’re so glad you came to visit us today!
-Sam: Here at the space station, we go on so many fun missions. Come on in so I can show you around!
-Sam: First, I want you to meet our very own space llama named Lucky. She’s usually around here somewhere...
-Sam: Let’s look up her location on our astronaut map.
+Sam: Welcome to the Space Station! My name is Sam and I’m an Astronaut. We’re so glad you came to visit us today! Here at the space station, we go on so many fun missions. Come on in so I can show you around!
+Sam: First, I want you to meet our very own space llama named Lucky. She’s usually around here somewhere... Let’s look up her location on our astronaut map.
 Sam: Oh no! It looks like Lucky’s spaceship broke down and Lucky is stuck on another planet way out in space!
 
 ~ question_rescue
@@ -26,9 +24,7 @@ Sam: Will you help me rescue Lucky to get her back here to the space station?
 	- Yes. => END
 	- No. => question_rescue
 
-Sam: We’re definitely going to need your help -- this spaceship works best when I have a co-pilot astronaut like you! 
-Sam: Our mission is to travel to Planet Stardust, where Lucky’s spaceship broke down, and bring Lucky the Llama back here safely.  
-Sam: Are you ready to start your astronaut training? If you help, you’ll get your very own space cadet prize for your help and your bravery!!   
+Sam: We’re definitely going to need your help -- this spaceship works best when I have a co-pilot astronaut like you! Our mission is to travel to Planet Stardust, where Lucky’s spaceship broke down, and bring Lucky the Llama back here safely. Are you ready to start your astronaut training? If you help, you’ll get your very own space cadet prize for your help and your bravery!!   
 
 ~ approach_spaceship
 set player_position = 0.4
@@ -37,7 +33,7 @@ set player_position = 0.55
 set player_view = 0.52
 [next=4]
 Sam: Press the GREEN button to open the spaceship door and start your training! 
-- Green Button => unlock_door
+- Green Button
 
 ~ unlock_door
 set character_position = 0.25
@@ -74,9 +70,7 @@ set player_position = 0.9
 set player_view = 0.9
 [next=0.25]
 set character_position = 0.9
-Sam: This is our handy dandy computer! The computer will help us travel to Planet Stardust. 
-Sam: This computer is voice-activated, which means that we have to say the commands out loud with our voices so the computer can help us activate the spaceship! 
-Sam: First, the computer will say the right words for a command and then your job is to repeat the words out loud with your voice.  
+Sam: This is our handy dandy computer! The computer will help us travel to Planet Stardust. This computer is voice-activated, which means that we have to say the commands out loud with our voices so the computer can help us activate the spaceship! First, the computer will say the right words for a command and then your job is to repeat the words out loud with your voice.  
 
 ~ computer_greeting
 Sam: This is what the computer sounds like 
@@ -85,9 +79,7 @@ set screen = "computer"
 Computer: Nice to meet you
 [next=0.5]
 set screen = "idle" 
-Sam: Ok, now I’ll have the computer say a command and your job is to repeat what the computer just said with your voice.
-Sam: Make sure you say it loud and clear, so the computer can hear you! 
-Sam: After you repeat after the computer, I’ll press the red button to send tell the computer to send your voice to the spaceship. 
+Sam: Ok, now I’ll have the computer say a command and your job is to repeat what the computer just said with your voice.Make sure you say it loud and clear, so the computer can hear you! After you repeat after the computer, I’ll press the red button to send tell the computer to send your voice to the spaceship. 
 
 
 ~ activate_spaceship
@@ -99,7 +91,7 @@ Computer: Activate spaceship!
 ~ activate_spaceship_recording
 System: 
 - Begin Recording
-set screen = "visualizer"
+set screen = "recording"
 do Recorder.start()
 [next=5]
 
@@ -110,7 +102,6 @@ System:
 	do Recorder.stop()
 	do Recorder.save()
 	Sam: Great job! Looks like it heard you! We’re ready to start preparing the ship for blast off.
-	=> spaceship_activated
 - Quiet
 	set screen = "failure"
 	do Recorder.stop()
@@ -130,6 +121,9 @@ set screen = "idle"
 Sam: I’ll sit here next to you and let you give the computer the voice commands!
 set character_position = 1.0 # sitting
 Sam: When you're ready, press the GREEN button to get started. 
+set screen = "start_button"
+Prompt:
+- Green Button
 
 ~ buckle_up
 set screen = "buckle_warning"
@@ -141,7 +135,7 @@ Computer: Seat belts buckled!
 ~ buckle_up_recording
 System: 
 - Begin Recording
-set screen = "visualizer"
+set screen = "recording"
 do Recorder.start()
 [next=5]
 
@@ -149,10 +143,10 @@ do Recorder.start()
 System: 
 - Success
 	set screen = "success"
+	set seatbelts_buckled = true
 	do Recorder.stop()
 	do Recorder.save()
 	Sam: Great job! Looks like it heard you!
-	=> spaceship_activated
 - Quiet
 	set screen = "failure"
 	do Recorder.stop()
@@ -174,7 +168,7 @@ Sam: Listen to the command from the computer and then repeat what it says with y
 ~ fuel_up
 set screen = "computer"
 Computer: Let’s fuel up
-set screen = "visualizer"
+set screen = "recording"
 [next=5]
 set screen = "success"
 [next=2]
@@ -186,12 +180,10 @@ Sam: Listen to the command from the computer and then repeat what it says with y
 set screen = "computer"
 [next=1]
 Computer: *Loud Yawn: from high to low*
-set screen = "visualizer"
+set screen = "recording"
 
 # maybe adjust lights here ?
-Sam: You did it! You’re working really hard at this – Great Job! 
-Sam: Now that our spaceship is full of fuel and the computer knows your voice, it’s time to find Planet Stardust! 
-Sam: Our handy dandy computer will countdown to blast off, listen closely and then repeat what you hear to send us into space! 
+Sam: You did it! You’re working really hard at this – Great Job! Now that our spaceship is full of fuel and the computer knows your voice, it’s time to find Planet Stardust!  Our handy dandy computer will countdown to blast off, listen closely and then repeat what you hear to send us into space! 
 set screen = "computer"
 [next=1]
 Computer: *Blast Off!* 
@@ -199,40 +191,41 @@ Computer: *Blast Off!*
 
 ~ blast_off 
 set level = "launch"
-[next=5]
+set steering_motion = 1.0
+set flying_motion = 1.0
+[next=0.5]
+set steering_motion = 0.5
+Sam: We’re flying![next=5]
+set steering_motion = 0.2
 
 
 ~ TASK_1
-Sam: We’re flying!
-[next=5]
-Sam: Boy, it’s dark out here! This time, let’s wake up the stars with our voices. 
-Sam: Just like we practiced, you will listen to the computer’s commands and repeat them loud and clear! 
-Sam: After each voice command, I’ll press the red button to send your voice to the stars.  
+set steering_motion = 0.05
+set flying_motion = 0.2
+Sam: Boy, it’s dark out here! This time, let’s wake up the stars with our voices. Just like we practiced, you will listen to the computer’s commands and repeat them loud and clear! After each voice command, I’ll press the red button to send your voice to the stars.  
 
 ~ stars_light
 set level = "stars_light"
+set stars_brightness = 1.0
 [next=5]
 
 # *12 Phrases – 6 song, 6 speech randomized (see list of sentences on last page)* 
-
 Sam: Awesome job, partner! Look at all the bright things you put in space! 
-Sam: Now let’s go to Planet Stardust, press the GO button to get closer to finding Lucky!  
+Sam: Now let’s go to Planet Stardust, press the GO button to get closer to finding Lucky!
 set screen = "start_button"
 [next=2]
-# "Navigate the Spaceship (Practice)"
 
+# "Navigate the Spaceship (Practice)"
 ~ TASK_2_practice
-set screen = "idle" 
+set screen = "idle"
+
 # Session Variable (used for file naming)
 set Session.stimuli_type = "SpSo"
 set Session.type = "PRAC"
 
-Sam: Our next task is to find Planet Stardust! 
-Sam: To help us get to Planet Stardust, we’ll need the help of the Command Centre to steer our ship. 
-Sam: Like before, you’ll listen to the computer and repeat the directions with your voice loud and clear! 
-Sam: The computer will send your voice to the Command Centre to steer our ship. 
-Sam: The Command Centre is very picky and will only follow directions if you repeat the commands in EXACTLY the same way you heard them. 
-Sam: Let’s hear an example of a space cadet not repeating the command right. 
+Sam: Our next task is to find Planet Stardust! To help us get to Planet Stardust, we’ll need the help of the Command Centre to steer our ship. Like before, you’ll listen to the computer and repeat the directions with your voice loud and clear! The computer will send your voice to the Command Centre to steer our ship. 
+Sam: The Command Centre is very picky and will only follow directions if you repeat the commands in EXACTLY the same way you heard them. Let’s hear an example of a space cadet not repeating the command right. 
+
 Sam: Click the RED button to hear it. 
 set screen = "start_button_red"
 [next=2]

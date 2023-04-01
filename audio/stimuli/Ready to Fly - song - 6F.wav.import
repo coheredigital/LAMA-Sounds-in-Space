@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://10hthrety8j6"
-path="res://.godot/imported/Ready to Fly - song -6F.wav-cdb5af06ab23663ba9f6b0194439a7ef.sample"
+path="res://.godot/imported/Ready to Fly - song - 6F.wav-72294487e0b8546646dcce25cb5133af.sample"
 
 [deps]
 
-source_file="res://audio/stimuli/Ready to Fly - song -6F.wav"
-dest_files=["res://.godot/imported/Ready to Fly - song -6F.wav-cdb5af06ab23663ba9f6b0194439a7ef.sample"]
+source_file="res://audio/stimuli/Ready to Fly - song - 6F.wav"
+dest_files=["res://.godot/imported/Ready to Fly - song - 6F.wav-72294487e0b8546646dcce25cb5133af.sample"]
 
 [params]
 

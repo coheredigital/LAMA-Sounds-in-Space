@@ -32,6 +32,7 @@ Recorder="*res://audio/recorder/recorder.gd"
 
 general/states=["Sequencer"]
 general/custom_test_scene_path="res://ui/game_window.tscn"
+general/wrap_lines=true
 
 [display]
 
