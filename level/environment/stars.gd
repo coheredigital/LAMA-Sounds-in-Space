@@ -32,10 +32,11 @@ func _ready():
 
 
 func set_star_progess(star_number: int, progress: float, duration: float = 1.0) -> void:
-	var star_path = %Paths.find_child('StarPath3D%s' % star_number)
-	if star_path:
-		var path_follow : PathFollow3D = star_path.find_child('PathFollow3D')
-		if path_follow:
-			var tween = create_tween()
-			if tween:
-				tween.tween_property(path_follow, "progress_ratio", progress, duration).set_trans(Tween.TRANS_SINE)
+	if %Paths:
+		var star_path = %Paths.find_child('StarPath3D%s' % star_number)
+		if star_path:
+			var path_follow : PathFollow3D = star_path.find_child('PathFollow3D')
+			if path_follow:
+				var tween = create_tween()
+				if tween:
+					tween.tween_property(path_follow, "progress_ratio", progress, duration).set_trans(Tween.TRANS_SINE)

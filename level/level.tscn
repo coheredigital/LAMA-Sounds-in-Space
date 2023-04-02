@@ -580,7 +580,6 @@ skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_v77p2")
 
 [node name="Stars" parent="." instance=ExtResource("9_s3nx5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.258, -19.133)
-visible = false
+transform = Transform3D(0.994069, -0.0955685, -0.051896, 0.0855213, 0.981762, -0.169792, 0.0671762, 0.164346, 0.984113, 0, 0, 0)
 
 [editable path="Environment"]
