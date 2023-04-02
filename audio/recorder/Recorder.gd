@@ -16,7 +16,7 @@ func stop():
 
 func save():
 	var time = Time.get_datetime_dict_from_system()
-	var unix_time = Time.get_unix_time_from_system()
+#	var unix_time = Time.get_unix_time_from_system()
 	var folder_name := Session.study_id
 	var file_name := "%s_%s_%s_%s_%s.wav" % [ 
 		Session.study_id, 

@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_8"
+type="Resource"
+uid="uid://bk0lon8v1cc1g"
+path="res://.godot/imported/sequence.dialogue-de115ea6662afb2ecf837c1c4086d309.tres"
+
+[deps]
+
+source_file="res://dialogue/sequence.dialogue"
+dest_files=["res://.godot/imported/sequence.dialogue-de115ea6662afb2ecf837c1c4086d309.tres"]
+
+[params]
+

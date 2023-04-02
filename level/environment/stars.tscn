@@ -5,10 +5,10 @@
 
 [sub_resource type="Curve3D" id="Curve3D_w65o5"]
 _data = {
-"points": PackedVector3Array(12, 3, 75, -12, -3, -75, 65, 3.39002e-06, 1, 4, -26, -15, -4, 26, 15, 9.07206, -7.52627, -41.1224, 23, 5, -9, -23, -5, 9, 6.8255, -0.440375, -22.0504),
-"tilts": PackedFloat32Array(0, 0, 0)
+"points": PackedVector3Array(18, 3, 73, -18, -3, -73, 65, 3.39002e-06, 1, 11, -30, -15, -11, 30, 15, 4.17927, -6.09146, -41.0783, 8, -4, -6, -8, 4, 6, 6.8255, -0.440375, -22.0504, 0, 0, 0, 0, 0, 0, 15.1835, -0.501707, 22.8956),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
 }
-point_count = 3
+point_count = 4
 
 [node name="Stars" type="Node3D"]
 script = ExtResource("1_3xcsl")
@@ -21,7 +21,7 @@ transform = Transform3D(-0.996116, 0.0877406, 0.00736376, -0.0877941, -0.996112,
 curve = SubResource("Curve3D_w65o5")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Paths/StarPath3D1"]
-transform = Transform3D(-0.987334, -0.00623474, -0.157849, 0, 0.999116, -0.0394623, 0.157974, -0.0389671, -0.986558, 65, 3.39002e-06, 1)
+transform = Transform3D(-0.970815, -0.00954385, -0.239187, 4.65611e-10, 0.9991, -0.0398645, 0.239379, -0.0387056, -0.970036, 65, 3.39002e-06, 1)
 loop = false
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="Paths/StarPath3D1/PathFollow3D"]
@@ -32,7 +32,7 @@ transform = Transform3D(-0.765461, -0.643473, 0.00349056, 0.6434, -0.765439, -0.
 curve = SubResource("Curve3D_w65o5")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Paths/StarPath3D2"]
-transform = Transform3D(-0.987363, -0.00623489, -0.157856, 0, 0.99914, -0.0394639, 0.157978, -0.038968, -0.986597, 65, 3.39002e-06, 1)
+transform = Transform3D(-0.970844, -0.00954408, -0.239197, 4.65625e-10, 0.999124, -0.0398661, 0.239386, -0.0387066, -0.970075, 65, 3.39002e-06, 1)
 loop = false
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="Paths/StarPath3D2/PathFollow3D"]
@@ -43,7 +43,7 @@ transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0)
 curve = SubResource("Curve3D_w65o5")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Paths/StarPath3D3"]
-transform = Transform3D(-0.987364, -0.006235, -0.157854, 0, 0.999158, -0.0394635, 0.157978, -0.0389687, -0.986587, 65, 3.39002e-06, 1)
+transform = Transform3D(-0.970844, -0.00954425, -0.239194, 4.65625e-10, 0.999142, -0.0398657, 0.239386, -0.0387072, -0.970065, 65, 3.39002e-06, 1)
 loop = false
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="Paths/StarPath3D3/PathFollow3D"]
@@ -54,7 +54,7 @@ transform = Transform3D(0.819152, -0.573577, 0, 0.573577, 0.819152, 0, 0, 0, 1, 
 curve = SubResource("Curve3D_w65o5")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Paths/StarPath3D4"]
-transform = Transform3D(-0.987367, -0.00623499, -0.157854, 0, 0.999157, -0.0394636, 0.157979, -0.0389687, -0.986589, 65, 3.39002e-06, 1)
+transform = Transform3D(-0.970847, -0.00954424, -0.239195, 4.65626e-10, 0.999141, -0.0398658, 0.239387, -0.0387072, -0.970067, 65, 3.39002e-06, 1)
 loop = false
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="Paths/StarPath3D4/PathFollow3D"]
@@ -65,14 +65,14 @@ transform = Transform3D(0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 0, 0, 1, 
 curve = SubResource("Curve3D_w65o5")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Paths/StarPath3D5"]
-transform = Transform3D(-0.987286, -0.00623432, -0.157843, 0, 0.99905, -0.0394608, 0.157966, -0.0389645, -0.98652, 65, 3.39002e-06, 1)
+transform = Transform3D(-0.970768, -0.00954322, -0.239178, 4.65588e-10, 0.999034, -0.039863, 0.239367, -0.0387031, -0.969999, 65, 3.39002e-06, 1)
 loop = false
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="Paths/StarPath3D5/PathFollow3D"]
 remote_path = NodePath("../../../../Star5")
 
 [node name="Star1" parent="." instance=ExtResource("1_nweus")]
-transform = Transform3D(0.984663, 0.0935866, 0.146509, 0.0855317, -0.9944, 0.0603514, 0.151354, -0.0469002, -0.98725, -64.7402, -5.7139, 1.4352)
+transform = Transform3D(0.968807, 0.0968834, 0.227617, 0.0834886, -0.994096, 0.0677727, 0.232865, -0.0466608, -0.971271, -64.7402, -5.7139, 1.4352)
 color = Color(0.941176, 0.901961, 0.54902, 1)
 rotation_speed = 0.239
 
@@ -81,7 +81,7 @@ light_color = Color(0.862745, 0, 0, 1)
 light_energy = 0.327
 
 [node name="Star2" parent="." instance=ExtResource("1_nweus")]
-transform = Transform3D(0.75634, -0.638283, 0.142783, -0.637143, -0.76833, -0.0596591, 0.147795, -0.0458536, -0.987878, -49.7515, 41.8091, 1.66952)
+transform = Transform3D(0.743979, -0.635739, 0.205362, -0.627479, -0.77045, -0.111882, 0.229367, -0.0456261, -0.972193, -49.7515, 41.8091, 1.66952)
 color = Color(0.941176, 0.901961, 0.54902, 1)
 rotation_speed = 0.341
 
@@ -90,7 +90,7 @@ light_color = Color(0.694118, 0.517647, 0, 1)
 light_energy = 0.327
 
 [node name="Star3" parent="." instance=ExtResource("1_nweus")]
-transform = Transform3D(0, -0.999158, 0.0394635, -0.987364, -0.006235, -0.157854, 0.157978, -0.0389687, -0.986587, -3.39002e-06, 65, 1)
+transform = Transform3D(-4.65625e-10, -0.999142, 0.0398657, -0.970844, -0.00954425, -0.239194, 0.239386, -0.0387072, -0.970065, -3.39002e-06, 65, 1)
 color = Color(0.941176, 0.901961, 0.54902, 1)
 rotation_speed = 0.366
 
@@ -99,7 +99,7 @@ light_color = Color(0, 0.560784, 0.266667, 1)
 light_energy = 0.327
 
 [node name="Star4" parent="." instance=ExtResource("1_nweus")]
-transform = Transform3D(-0.808803, -0.578201, -0.106671, -0.566331, 0.814885, -0.122868, 0.157979, -0.0389687, -0.986589, 53.2449, 37.2825, 1)
+transform = Transform3D(-0.795271, -0.580902, -0.173071, -0.556855, 0.812974, -0.169853, 0.239387, -0.0387072, -0.970067, 53.2449, 37.2825, 1)
 color = Color(0.941176, 0.901961, 0.54902, 1)
 rotation_speed = 0.37
 
@@ -108,7 +108,7 @@ light_color = Color(0, 0.419608, 0.831373, 1)
 light_energy = 0.327
 
 [node name="Star5" parent="." instance=ExtResource("1_nweus")]
-transform = Transform3D(-0.972287, 0.167344, -0.162298, 0.17144, 0.984954, -0.0114521, 0.157966, -0.0389645, -0.98652, 64.0125, -11.2871, 1)
+transform = Transform3D(-0.95602, 0.164082, -0.242466, 0.168572, 0.985513, 0.00227541, 0.239367, -0.0387031, -0.969999, 64.0125, -11.2871, 1)
 color = Color(0.6, 0, 0.407843, 1)
 rotation_speed = 0.285
 

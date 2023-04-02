@@ -1,5 +1,5 @@
 shader_type spatial;
-render_mode cull_front, shadows_disabled, diffuse_lambert_wrap, depth_draw_always;
+render_mode cull_front, shadows_disabled, diffuse_lambert_wrap;
 
 const float STEPS_FACTOR = 8.0;
 const float HORIZON_OFFSET = 0.05;

@@ -1,3 +1,4 @@
+@tool
 extends Node
 
 @export_enum("intro","launch","stars_light","warp","landing") var state: String = "intro":

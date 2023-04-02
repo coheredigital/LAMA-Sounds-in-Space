@@ -1,4 +1,3 @@
-@tool
 extends Node
 
 @export var waveform : Curve
@@ -77,53 +76,51 @@ func set_definition(value):
 			gradient_offsets.append( (i + 1.0) / definition)
 		gradient.offsets = gradient_offsets
 
+
 func _ready():
+#	ensure the audio analyzer is always running
 	%AudioStreamRecord.playing = true
 	set_definition(definition)
-	
+
 func _process(delta):
 
 	if not(spectrum):
 		return
 
-	var freq := min_frequency
-
 	var segment = 1.0 / float(definition)
-	
 
+	var prev_hz = 0
 	for i in range(definition):
-		
+
 		var offset := i / float(definition)
 		var freq_low = response_curve.sample_baked(offset - (segment * 0.25))
 		var freq_high = response_curve.sample_baked(offset + (segment * 0.25))
+		var magnitude: float = spectrum.get_magnitude_for_frequency_range(freq_low, freq_high).length()
 		
-		var magnitude := spectrum.get_magnitude_for_frequency_range(freq_low, freq_high)
+#		convert to decibels
 		var decibels := 0.0
-		decibels = linear_to_db(magnitude.length())
+		decibels = linear_to_db(magnitude)
 		decibels = remap(decibels, min_db, max_db, 0.0, 1.0)
 		decibels = clamp(decibels, 0.0, 1.0)
-
+		
+#		apply acceleration to each "axis/channel"
 		var x_acceleration = x_curve.sample_baked(decibels)
 		var y_acceleration = y_curve.sample_baked(decibels)
 		var z_acceleration = z_curve.sample_baked(decibels)
 		var a_acceleration = a_curve.sample_baked(decibels)
-		
 		var level_x = lerp(float(x_histogram[i]), decibels, x_acceleration * delta)
 		var level_y = lerp(float(y_histogram[i]), decibels, y_acceleration * delta)
 		var level_z = lerp(float(z_histogram[i]), decibels, z_acceleration * delta)
 		var level_a = lerp(float(a_histogram[i]), decibels, a_acceleration * delta)
-		
+
+#		store each value in histogram arrays to facilitate interpolation
 		histogram[i] = decibels
 		x_histogram[i] = level_x
 		y_histogram[i] = level_y
 		z_histogram[i] = level_z
 		a_histogram[i] = level_a
-		
+
+#		apply current value to Gradient resource
 		if gradient and gradient is Gradient:
 			var color = Color(level_x,level_y,level_z,level_a)
 			gradient.set_color(i,color)
-
-
-
-func _on_enable_mic_toggled(button_pressed):
-	%AudioStreamRecord.playing = button_pressed

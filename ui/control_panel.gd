@@ -2,10 +2,16 @@ extends Control
 
 signal start_game_pressed
 
+var sequence : DialogueResource  = load("res://dialogue/sequence.dialogue")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var resource = load("res://dialogue/script.dialogue")
-	show_dialogue_balloon(resource, "start")
+	show_dialogue_balloon(sequence, "start")
+	
+#	set title jump options
+	var titles = sequence.get_titles()
+	for title in titles:
+		print(title)
 	
 func _process(delta):
 	%StatusBarLabel.text = "Session Type: %s  Stimuili: %s  Sentence ID: %s" % [Session.type, Session.stimuli_type, Session.sentence_id]

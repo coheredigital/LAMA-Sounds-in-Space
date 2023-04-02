@@ -1,5 +1,5 @@
-import "res://dialogue/snippets.dialogue" as snippets
-import "res://dialogue/reset.dialogue" as reset
+import "res://dialogue/snippets/snippets.dialogue" as snippets
+import "res://dialogue/snippets/reset.dialogue" as reset
 
 ~ start
 System: ...[next=1]
@@ -47,6 +47,8 @@ set player_view = 0.6
 [next=1]
 
 ~ enter_spaceship
+# USAGE: move_character(position: float [0-1], duration: float [>=0])
+do move_character(0.4,1.0)
 set character_position = 0.4
 set level = "intro"
 set player_position = 0.8
@@ -56,10 +58,8 @@ set player_view = 0.9
 [next=2]
 
 ~ welcome_aboard
-set character_position = 0.6
-[next=1]
-set character_position = 0.85
-[next=1]
+do move_character(0.85,5.0)
+[next=5]
 Sam: Welcome aboard! 
 set player_view = 0.95
 Sam: To become a Junior Astronaut, you will need to listen closely so we can make it to Planet Stardust, find Lucky the Llama, and bring Lucky back to the Space Station.
@@ -69,7 +69,7 @@ Sam: Our first job is to make sure we have everything we need before we fly.
 set player_position = 0.9
 set player_view = 0.9
 [next=0.25]
-set character_position = 0.9
+do move_character(0.9,1.0)
 Sam: This is our handy dandy computer! The computer will help us travel to Planet Stardust. This computer is voice-activated, which means that we have to say the commands out loud with our voices so the computer can help us activate the spaceship! First, the computer will say the right words for a command and then your job is to repeat the words out loud with your voice.  
 
 ~ computer_greeting
@@ -79,8 +79,7 @@ set screen = "computer"
 Computer: Nice to meet you
 [next=0.5]
 set screen = "idle" 
-Sam: Ok, now I’ll have the computer say a command and your job is to repeat what the computer just said with your voice.Make sure you say it loud and clear, so the computer can hear you! After you repeat after the computer, I’ll press the red button to send tell the computer to send your voice to the spaceship. 
-
+Sam: Ok, now I’ll have the computer say a command and your job is to repeat what the computer just said with your voice.Make sure you say it loud and clear, so the computer can hear you! After you repeat after the computer, I’ll press the red button to send tell the computer to send your voice to the spaceship.
 
 ~ activate_spaceship
 Sam: Ok here we go!
@@ -114,7 +113,7 @@ set player_position = 1.0
 set player_view = 0.95
 set screen = "idle"
 Sam: I’ll sit here next to you and let you give the computer the voice commands!
-set character_position = 1.0 # sitting
+do move_character(1.0,1.0) # sitting
 Sam: When you're ready, press the GREEN button to get started. 
 set screen = "start_button"
 Prompt:
@@ -123,7 +122,6 @@ Prompt:
 ~ buckle_up
 set screen = "buckle_warning"
 Sam: OK. First, we need to buckle up! Listen to the command from the computer and then repeat what it says with your voice.
-[next=5]
 set screen = "computer"
 Computer: Seat belts buckled!
 
@@ -259,6 +257,7 @@ Sam: OK, here we go! Remember that the Command Centre is very sensitive, so repe
 Sam: Once you repeat after the computer, I’ll click the GREEN button to send the directions to the Command Centre 
 Sam: and we can see if our ship moves! I’ll have a seat and let you take control!
 set level = "warp"
+=>< snippets/stars_warp_sequence
 #12 Phrases – 6 song, 6 speech randomized (see list of sentences on last page)*
 Sam: Awesome job, partner! Thanks for steering the ship so well! Look, it’s Planet Stardust!  
 Sam: To use our spaceship to look around, press the Landing Button.
@@ -275,13 +274,13 @@ Sam: Aliens on Planet Stardust only speak in beeping sounds so the computer will
 Sam: Listen to the computer and repeat back the alien beeps as best as you can.
 set screen = "computer"
 [next=2]
+
 # 10 stimuli – 5 pure tones, 5 intervals?*
 Sam: You did a great job! 
 Sam: The aliens said Lucky the Llama is over there – look, they’re bringing Lucky to us! 
 Sam: Now the only thing left to do is take Lucky back to the Space Station.
 
 # blast off and fade to intro (station)
-
 Sam: You made it back to the Space Station - great job today! 
 Sam: Thanks for bringing Lucky the Llama back home from Planet Stardust safely. 
 Sam: You are a great Astronaut! Come back any time!

@@ -195,6 +195,17 @@ theme_override_constants/margin_bottom = 16
 [node name="VBoxContainer" type="VBoxContainer" parent="Controls/Control/ColumnLeft"]
 layout_mode = 2
 
+[node name="TitleJump" type="OptionButton" parent="Controls/Control/ColumnLeft/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+item_count = 1
+selected = 0
+popup/item_0/text = "start"
+popup/item_0/id = 0
+
+[node name="Control" type="Control" parent="Controls/Control/ColumnLeft/VBoxContainer"]
+layout_mode = 2
+
 [node name="ControlBalloon" parent="Controls/Control/ColumnLeft/VBoxContainer" instance=ExtResource("4_vrcsm")]
 unique_name_in_owner = true
 layout_mode = 2
