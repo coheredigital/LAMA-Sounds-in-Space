@@ -20,7 +20,7 @@ const SKY_SIZE = 64.0
 			ground.position.y = value
 		if sky_material:
 			sky_material.set_shader_parameter("horizon_height", value / SKY_SIZE)
-@export_range(0.0, 4.0) var stars_brightness := 0.0 : 
+@export_range(0.0, 4.0, 0.1) var stars_brightness := 0.0 : 
 	set(value):
 		stars_brightness = value
 		set_stars_brightness(value)
