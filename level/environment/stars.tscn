@@ -65,8 +65,7 @@ transform = Transform3D(0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 0, 0, 1, 
 curve = SubResource("Curve3D_w65o5")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Paths/StarPath3D5"]
-transform = Transform3D(0.0173834, -0.256413, -0.966251, 0.420985, 0.878391, -0.225533, 0.906729, -0.402912, 0.123237, 26.2035, -17.1757, -54.2862)
-progress = 76.525
+transform = Transform3D(-0.987286, -0.00623432, -0.157843, 0, 0.99905, -0.0394608, 0.157966, -0.0389645, -0.98652, 65, 3.39002e-06, 1)
 loop = false
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="Paths/StarPath3D5/PathFollow3D"]
@@ -109,7 +108,7 @@ light_color = Color(0, 0.419608, 0.831373, 1)
 light_energy = 0.327
 
 [node name="Star5" parent="." instance=ExtResource("1_nweus")]
-transform = Transform3D(0.0902225, -0.0999867, -0.990735, 0.411571, 0.909572, -0.0543185, 0.906729, -0.402912, 0.123237, 22.8229, -21.4649, -54.2862)
+transform = Transform3D(-0.972287, 0.167344, -0.162298, 0.17144, 0.984954, -0.0114521, 0.157966, -0.0389645, -0.98652, 64.0125, -11.2871, 1)
 color = Color(0.6, 0, 0.407843, 1)
 rotation_speed = 0.285
 

@@ -1,9 +1,9 @@
 import "res://dialogue/snippets.dialogue" as snippets
+import "res://dialogue/reset.dialogue" as reset
 
 ~ start
 System: ...[next=1]
-=>< snippets/reset
-System: ...[next=1]
+=>< reset/all
 System: ...[next=1]
 System: Ready.
 - Start
@@ -107,11 +107,6 @@ System:
 	do Recorder.stop()
 	Sam: Uh oh! It looks like the spaceship couldn't quite hear what you said. Let's try again a bit louder.
 	=> activate_spaceship
-#- Loud
-#	set screen = "failure"
-#	do Recorder.stop()
-#	Sam: Uh oh! It looks like the spaceship couldn't quite understand what you said. Let's try again a bit quieter.
-#	=> activate_spaceship
 
 
 ~ spaceship_activated
@@ -174,6 +169,7 @@ set screen = "success"
 [next=2]
 =>< snippets/fuel_up_animation
 
+
 ~ sleep_mode
 Sam: The computer wants us to yawn out loud to tell it to turn down the lights if we want to sleep! Let’s see if it works. 
 Sam: Listen to the command from the computer and then repeat what it says with your voice: 
@@ -205,31 +201,7 @@ set flying_motion = 0.1
 Sam: Boy, it’s dark out here! This time, let’s wake up the stars with our voices. Just like we practiced, you will listen to the computer’s commands and repeat them loud and clear! After each voice command, I’ll press the red button to send your voice to the stars.  
 
 ~ stars_light
-# USAGE: move_star(star_number: int [1-5], progress: float [0-1], duration: float [>0] )
-# *12 Phrases – 6 song, 6 speech randomized (see list of sentences on last page)* 
-- Next
-do move_star(1,1.0,5.0)
-[next=4]
-set stars_brightness = 0.2
-- Next
-do move_star(2,1.0,5.0)
-[next=4]
-set stars_brightness = 0.6
-- Next
-do move_star(3,1.0,5.0)
-[next=4]
-set stars_brightness = 1.0
-- Next
-do move_star(4,1.0,5.0)
-[next=4]
-set stars_brightness = 2.0
-- Next
-do move_star(5,1.0,5.0)
-[next=1]
-set stars_brightness = 4.0
-[next=5]
-
-
+=>< snippets/stars_light_sequence
 Sam: Awesome job, partner! Look at all the bright things you put in space! 
 Sam: Now let’s go to Planet Stardust, press the GO button to get closer to finding Lucky!
 set screen = "start_button"

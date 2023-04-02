@@ -83,7 +83,6 @@ var dialogue_line: DialogueLine:
 
 func _ready() -> void:
 	response_template.hide()
-	Sequencer.dialogue_visibility_changed.connect(set_dialogue_visbility)
 	Engine.get_singleton("DialogueManager").mutated.connect(_on_mutated)
 
 func set_dialogue_visbility(value: bool)-> void:

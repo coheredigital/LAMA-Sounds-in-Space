@@ -1,40 +1,40 @@
 extends Node
 
-signal dialogue_visibility_changed(value: bool)
+
 signal level_changed(value: String)
 signal stars_brightness_changed(value: float)
 signal star_moved(star_number: int, progress: float)
 
+signal player_position_changed(value: float)
+signal player_view_changed(value: float)
 
-signal player_state_changed(value: String)
-signal player_position_changed(value: String)
-signal player_view_changed(value: String)
-
-signal character_position_changed(value: float)
+signal character_position_changed(value: float, duration: float)
 signal character_action_changed(value: String)
 
 signal spaceship_motion_changed(value: float)
 signal door_open_changed(value: bool)
-signal seatbelts_buckled_changed(value: bool)
-signal screen_changed(value: String)
 signal steering_motion_changed(value: float)
 signal flying_motion_changed(value: float)
+
+signal seatbelts_buckled_changed(value: bool)
+signal screen_changed(value: String)
 signal fuel_level_changed(value: int)
 
-var character_position: float = 0.0:
-	set(value):
-		character_position = value
-		character_position_changed.emit(value)
-
-var character_action: String = "idle":
-	set(value):
-		character_action = value
-		character_action_changed.emit(value)
 
 var level: String = "intro":
 	set(value):
 		level = value
 		level_changed.emit(value)
+
+var character_position: float = 0.0:
+	set(value):
+		character_position = value
+		character_position_changed.emit(value, 0.0)
+
+var character_action: String = "idle":
+	set(value):
+		character_action = value
+		character_action_changed.emit(value)
 
 var stars_brightness: float = 0.0:
 	set(value):
@@ -85,7 +85,10 @@ var screen: String = "idle":
 	set(value):
 		screen = value
 		screen_changed.emit(value)
-		
+
+func move_character(progress: float, duration: float = 1.0) -> void:
+	character_position_changed.emit(progress, duration)
+
 func move_star(star_number: int, progress: float, duration: float = 1.0) -> void:
 	star_moved.emit(star_number, progress, duration)
 
