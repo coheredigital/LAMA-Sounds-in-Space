@@ -8,7 +8,7 @@ extends Control
 @onready var response_template: RichTextLabel = %ResponseTemplate
 
 ## The dialogue resource
-var resource: DialogueResource = load("res://dialogue/script.dialogue")
+var resource: DialogueResource = load("res://dialogue/sequence.dialogue")
 
 ## Temporary game states
 var temporary_game_states: Array = []
