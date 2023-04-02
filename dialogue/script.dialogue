@@ -201,15 +201,35 @@ set steering_motion = 0.2
 
 ~ TASK_1
 set steering_motion = 0.05
-set flying_motion = 0.2
+set flying_motion = 0.1
 Sam: Boy, it’s dark out here! This time, let’s wake up the stars with our voices. Just like we practiced, you will listen to the computer’s commands and repeat them loud and clear! After each voice command, I’ll press the red button to send your voice to the stars.  
 
 ~ stars_light
-set level = "stars_light"
+# USAGE: move_star(star_number: int [1-5], progress: float [0-1], duration: float [>0] )
+# *12 Phrases – 6 song, 6 speech randomized (see list of sentences on last page)* 
+- Next
+do move_star(1,1.0,5.0)
+[next=4]
+set stars_brightness = 0.2
+- Next
+do move_star(2,1.0,5.0)
+[next=4]
+set stars_brightness = 0.6
+- Next
+do move_star(3,1.0,5.0)
+[next=4]
 set stars_brightness = 1.0
+- Next
+do move_star(4,1.0,5.0)
+[next=4]
+set stars_brightness = 2.0
+- Next
+do move_star(5,1.0,5.0)
+[next=1]
+set stars_brightness = 4.0
 [next=5]
 
-# *12 Phrases – 6 song, 6 speech randomized (see list of sentences on last page)* 
+
 Sam: Awesome job, partner! Look at all the bright things you put in space! 
 Sam: Now let’s go to Planet Stardust, press the GO button to get closer to finding Lucky!
 set screen = "start_button"
@@ -225,8 +245,8 @@ set Session.type = "PRAC"
 
 Sam: Our next task is to find Planet Stardust! To help us get to Planet Stardust, we’ll need the help of the Command Centre to steer our ship. Like before, you’ll listen to the computer and repeat the directions with your voice loud and clear! The computer will send your voice to the Command Centre to steer our ship. 
 Sam: The Command Centre is very picky and will only follow directions if you repeat the commands in EXACTLY the same way you heard them. Let’s hear an example of a space cadet not repeating the command right. 
-
 Sam: Click the RED button to hear it. 
+
 set screen = "start_button_red"
 [next=2]
 set screen = "failure"

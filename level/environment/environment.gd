@@ -20,8 +20,10 @@ const SKY_SIZE = 64.0
 			ground.position.y = value
 		if sky_material:
 			sky_material.set_shader_parameter("horizon_height", value / SKY_SIZE)
-			
-			
+@export_range(0.0, 4.0) var stars_brightness := 0.0 : 
+	set(value):
+		stars_brightness = value
+		set_stars_brightness(value)
 @onready var sky_material : ShaderMaterial  = %Sky.get_active_material(0)
 @onready var ground := %Ground
 
@@ -30,7 +32,8 @@ func _ready():
 
 func set_stars_brightness(value):
 	if sky_material:
-		sky_material.set_shader_parameter("stars_brightness", value)
+		var tween = create_tween()
+		tween.tween_property(sky_material, "shader_parameter/stars_brightness", value, 1.0).set_trans(Tween.TRANS_SINE)
 
 func set_ground_color(value):
 	ground_color = value

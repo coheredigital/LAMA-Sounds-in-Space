@@ -1,24 +1,41 @@
 @tool
 extends Node3D
 
-@export_range(-16.0, 16.0) var depth := 0.0 : 
+@export_range(0.0, 1.0, 0.1) var star1_progress := 0.0: 
 	set(value):
-		depth = value
-		if positions:
-			positions.scale.z = depth
-
-
-@export_range(-16.0, 16.0) var width := 2.0 : 
+		star1_progress = value
+		set_star_progess(1,value)
+		
+@export_range(0.0, 1.0, 0.1) var star2_progress := 0.0: 
 	set(value):
-		width = value
-		if positions:
-			positions.scale.x = width
-
-@export_range(-16.0, 16.0) var height := 2.0 : 
+		star2_progress = value
+		set_star_progess(2,value)
+		
+@export_range(0.0, 1.0, 0.1) var star3_progress := 0.0: 
 	set(value):
-		height = value
-		if positions:
-			positions.scale.y = height
+		star3_progress = value
+		set_star_progess(3,value)
 
-@onready var positions := %Positions
+@export_range(0.0, 1.0, 0.1) var star4_progress := 0.0: 
+	set(value):
+		star4_progress = value
+		set_star_progess(4,value)
+		
+@export_range(0.0, 1.0, 0.1) var star5_progress := 0.0: 
+	set(value):
+		star5_progress = value
+		set_star_progess(5,value)
 
+
+func _ready():
+	Sequencer.star_moved.connect(set_star_progess)
+
+
+func set_star_progess(star_number: int, progress: float, duration: float = 1.0) -> void:
+	var star_path = %Paths.find_child('StarPath3D%s' % star_number)
+	if star_path:
+		var path_follow : PathFollow3D = star_path.find_child('PathFollow3D')
+		if path_follow:
+			var tween = create_tween()
+			if tween:
+				tween.tween_property(path_follow, "progress_ratio", progress, duration).set_trans(Tween.TRANS_SINE)

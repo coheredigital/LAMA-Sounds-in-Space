@@ -147,166 +147,106 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("Stars:visible")
+tracks/11/path = NodePath("Stars/Positions/StarTransform1:position")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Vector3(-5, 0, -2)]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("Stars/Positions/StarTransform1:position")
+tracks/12/path = NodePath("Stars/Positions/StarTransform2:position")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-5, 0, -2)]
+"values": [Vector3(-3.45021, 2.48044, -0.999998)]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("Stars/Positions/StarTransform2:position")
+tracks/13/path = NodePath("Stars/Positions/StarTransform3:position")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-3.45021, 2.48044, -0.999998)]
+"values": [Vector3(4.53659e-07, 3.72628, 0)]
 }
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("Stars/Positions/StarTransform3:position")
+tracks/14/path = NodePath("Stars/Positions/StarTransform4:position")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(4.53659e-07, 3.72628, 0)]
+"values": [Vector3(4.60207, 2.16581, 0.999999)]
 }
 tracks/15/type = "value"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("Stars/Positions/StarTransform4:position")
+tracks/15/path = NodePath("Stars/Positions/StarTransform5:position")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(4.60207, 2.16581, 0.999999)]
+"values": [Vector3(5.11041, -6.55651e-07, 2)]
 }
 tracks/16/type = "value"
 tracks/16/imported = false
 tracks/16/enabled = true
-tracks/16/path = NodePath("Stars/Positions/StarTransform5:position")
+tracks/16/path = NodePath("Environment:environment:volumetric_fog_density")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(5.11041, -6.55651e-07, 2)]
+"values": [0.01]
 }
 tracks/17/type = "value"
 tracks/17/imported = false
 tracks/17/enabled = true
-tracks/17/path = NodePath("Stars:position")
+tracks/17/path = NodePath("Planet:scale")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 5.258, -19.133)]
+"values": [Vector3(0.25, 0.25, 0.25)]
 }
 tracks/18/type = "value"
 tracks/18/imported = false
 tracks/18/enabled = true
-tracks/18/path = NodePath("Stars:depth")
+tracks/18/path = NodePath("Environment/Ground/planet_stardust:visible")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.217]
+"update": 1,
+"values": [false]
 }
 tracks/19/type = "value"
 tracks/19/imported = false
 tracks/19/enabled = true
-tracks/19/path = NodePath("Stars:width")
+tracks/19/path = NodePath("Environment/Ground/space_station:visible")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [7.529]
-}
-tracks/20/type = "value"
-tracks/20/imported = false
-tracks/20/enabled = true
-tracks/20/path = NodePath("Stars:height")
-tracks/20/interp = 1
-tracks/20/loop_wrap = true
-tracks/20/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [5.961]
-}
-tracks/21/type = "value"
-tracks/21/imported = false
-tracks/21/enabled = true
-tracks/21/path = NodePath("Environment:environment:volumetric_fog_density")
-tracks/21/interp = 1
-tracks/21/loop_wrap = true
-tracks/21/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.01]
-}
-tracks/22/type = "value"
-tracks/22/imported = false
-tracks/22/enabled = true
-tracks/22/path = NodePath("Planet:scale")
-tracks/22/interp = 1
-tracks/22/loop_wrap = true
-tracks/22/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.25, 0.25, 0.25)]
-}
-tracks/23/type = "value"
-tracks/23/imported = false
-tracks/23/enabled = true
-tracks/23/path = NodePath("Environment/Ground/planet_stardust:visible")
-tracks/23/interp = 1
-tracks/23/loop_wrap = true
-tracks/23/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/24/type = "value"
-tracks/24/imported = false
-tracks/24/enabled = true
-tracks/24/path = NodePath("Environment/Ground/space_station:visible")
-tracks/24/interp = 1
-tracks/24/loop_wrap = true
-tracks/24/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -385,7 +325,7 @@ size = Vector2i(1280, 720)
 render_target_update_mode = 4
 
 [node name="Level" parent="ViewportContainer/Viewport" instance=ExtResource("4_7ey7j")]
-state = "warp"
+state = "stars_light"
 
 [node name="StateTree" parent="ViewportContainer/Viewport/Level" index="0"]
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_8wvt6")
@@ -398,12 +338,12 @@ libraries = {
 }
 
 [node name="Spaceship" parent="ViewportContainer/Viewport/Level" index="1"]
-transform = Transform3D(0.999999, -0.000936405, -0.00134907, 0.000936683, 1, 0.000205915, 0.00134887, -0.000207178, 0.999999, 0, 0, 0)
 screen_state = "recording"
 door_open = true
 fuel_level = 8
 
 [node name="Planet" parent="ViewportContainer/Viewport/Level" index="2"]
+transform = Transform3D(-0.499938, 0, -0.00784492, 0, 0.5, 0, 0.00784492, 0, -0.499938, 3.72275, 12.4627, -60.6043)
 surface_material_override/0 = SubResource("ShaderMaterial_5l5ny")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="ViewportContainer/Viewport/Level/Planet" index="0"]
@@ -411,14 +351,38 @@ omni_range = 24.053
 omni_attenuation = 0.366022
 
 [node name="WorldLight" parent="ViewportContainer/Viewport/Level" index="3"]
+light_energy = 0.01
 shadow_bias = 0.117
 shadow_normal_bias = 0.443
 shadow_opacity = 0.22
 shadow_blur = 1.511
 
+[node name="Environment" parent="ViewportContainer/Viewport/Level" index="4"]
+sky_color = Color(0.113725, 0.113725, 0.266667, 1)
+fog_color = Color(0.113725, 0.113725, 0.266667, 1)
+horizon_color = Color(0.113725, 0.113725, 0.266667, 1)
+horizon_height = -64.0
+stars_brightness = 4.0
+
+[node name="Ground" parent="ViewportContainer/Viewport/Level/Environment" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -64, 0)
+
+[node name="space_station" parent="ViewportContainer/Viewport/Level/Environment/Ground" index="2"]
+visible = true
+
+[node name="planet_stardust" parent="ViewportContainer/Viewport/Level/Environment/Ground" index="3"]
+visible = false
+
 [node name="Lama" parent="ViewportContainer/Viewport/Level/Environment/Ground/planet_stardust" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Stars" parent="ViewportContainer/Viewport/Level" index="5"]
 visible = true
+star1_progress = 1.0
+star2_progress = 1.0
+star3_progress = 1.0
+star4_progress = 1.0
+star5_progress = 1.0
 
 [node name="CharacterPath" type="Path3D" parent="ViewportContainer/Viewport/Level"]
 curve = SubResource("Curve3D_1ax01")
@@ -434,7 +398,7 @@ max_distance = 2.9
 view_progress = 0.0
 
 [node name="Camera3D" parent="ViewportContainer/Viewport/Player" index="0"]
-transform = Transform3D(0.80375, 0.00815807, -0.594912, -1.86265e-09, 0.999906, 0.0137118, 0.594967, -0.0110208, 0.803674, -10.8949, 2.63937, 4.35122)
+transform = Transform3D(0.80375, 0.00815806, -0.594912, 3.72529e-09, 0.999906, 0.0137118, 0.594968, -0.0110208, 0.803674, -10.8949, 2.63937, 4.35122)
 
 [node name="PositionTarget" parent="ViewportContainer/Viewport/Player/PositionPath" index="0"]
 transform = Transform3D(-0.126773, 0.0899251, 0.987679, 0, 0.995703, -0.0906579, -0.991775, -0.0114947, -0.12625, -5.51051, 0.735448, 4.31367)

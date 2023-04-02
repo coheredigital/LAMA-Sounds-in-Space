@@ -3,6 +3,7 @@ extends Node
 signal dialogue_visibility_changed(value: bool)
 signal level_changed(value: String)
 signal stars_brightness_changed(value: float)
+signal star_moved(star_number: int, progress: float)
 
 
 signal player_state_changed(value: String)
@@ -84,6 +85,9 @@ var screen: String = "idle":
 	set(value):
 		screen = value
 		screen_changed.emit(value)
+		
+func move_star(star_number: int, progress: float, duration: float = 1.0) -> void:
+	star_moved.emit(star_number, progress, duration)
 
 
 
