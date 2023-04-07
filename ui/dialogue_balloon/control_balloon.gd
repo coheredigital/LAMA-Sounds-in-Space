@@ -4,8 +4,8 @@ extends Control
 @onready var balloon: Panel = %Balloon
 @onready var character_label: RichTextLabel = %CharacterLabel
 @onready var dialogue_label := %DialogueLabel
-@onready var responses_menu: VBoxContainer = %Responses
-@onready var response_template: RichTextLabel = %ResponseTemplate
+@onready var responses_menu: HFlowContainer = %Responses
+@onready var response_template := %ResponseTemplate
 
 ## The dialogue resource
 var resource: DialogueResource = load("res://dialogue/sequence.dialogue")
@@ -47,7 +47,7 @@ var dialogue_line: DialogueLine:
 		if dialogue_line.responses.size() > 0:
 			for response in dialogue_line.responses:
 				# Duplicate the template so we can grab the fonts, sizing, etc
-				var item: RichTextLabel = response_template.duplicate(0)
+				var item:= response_template.duplicate(0)
 				item.name = "Response%d" % responses_menu.get_child_count()
 				if not response.is_allowed:
 					item.name = String(item.name) + "Disallowed"

@@ -11,7 +11,6 @@ func _ready():
 	var titles = get_titles()
 	for title in titles:
 		%TitleJump.add_item(title)
-		%TitleJump2.add_item(title)
 
 
 # extract the currently available sequence titles

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cd2cy5xbal8wf"]
+[gd_scene load_steps=12 format=3 uid="uid://cd2cy5xbal8wf"]
 
 [ext_resource type="Theme" uid="uid://jvj03s2xln54" path="res://ui/theme/simple_ui_theme.tres" id="1_u63ke"]
 [ext_resource type="Script" path="res://ui/control_panel.gd" id="1_yqxgb"]
@@ -6,6 +6,7 @@
 [ext_resource type="Gradient" uid="uid://b71jutk4qdqv3" path="res://audio/visualizer/visualizer_gradient.tres" id="3_q6r2g"]
 [ext_resource type="PackedScene" uid="uid://cothlddswoqrl" path="res://ui/dialogue_balloon/control_balloon.tscn" id="4_vrcsm"]
 [ext_resource type="StyleBox" uid="uid://uaf6yuo5c7d1" path="res://ui/theme/styles/text_box_default_style.tres" id="5_r3xif"]
+[ext_resource type="StyleBox" uid="uid://bk5ybigpc34i7" path="res://ui/theme/styles/status_bar_style.tres" id="7_ynhmx"]
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_m2f1b"]
 gradient = ExtResource("3_q6r2g")
@@ -184,7 +185,7 @@ layout_mode = 2
 [node name="Control" type="HSplitContainer" parent="Controls"]
 layout_mode = 2
 size_flags_vertical = 3
-split_offset = -786
+split_offset = 871
 
 [node name="ColumnLeft" type="MarginContainer" parent="Controls/Control"]
 custom_minimum_size = Vector2(500, 0)
@@ -194,21 +195,19 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Controls/Control/ColumnLeft"]
+[node name="HSplitContainer" type="HSplitContainer" parent="Controls/Control/ColumnLeft"]
 layout_mode = 2
+split_offset = 207
 
-[node name="TitleJump" type="OptionButton" parent="Controls/Control/ColumnLeft/VBoxContainer"]
+[node name="TitleJump" type="ItemList" parent="Controls/Control/ColumnLeft/HSplitContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
+theme_override_styles/panel = ExtResource("5_r3xif")
 item_count = 1
-selected = 0
-popup/item_0/text = "start"
-popup/item_0/id = 0
+item_0/text = ""
 
-[node name="Control" type="Control" parent="Controls/Control/ColumnLeft/VBoxContainer"]
-layout_mode = 2
-
-[node name="ControlBalloon" parent="Controls/Control/ColumnLeft/VBoxContainer" instance=ExtResource("4_vrcsm")]
+[node name="ControlBalloon" parent="Controls/Control/ColumnLeft/HSplitContainer" instance=ExtResource("4_vrcsm")]
 unique_name_in_owner = true
 layout_mode = 2
 
@@ -223,13 +222,6 @@ theme_override_constants/margin_bottom = 16
 [node name="VBoxContainer" type="VSplitContainer" parent="Controls/Control/ColumnRight"]
 layout_mode = 2
 
-[node name="TitleJump2" type="ItemList" parent="Controls/Control/ColumnRight/VBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 200)
-layout_mode = 2
-item_count = 1
-item_0/text = ""
-
 [node name="RichTextLabel" type="RichTextLabel" parent="Controls/Control/ColumnRight/VBoxContainer"]
 layout_mode = 2
 text = "Log placeholder..."
@@ -237,27 +229,18 @@ text = "Log placeholder..."
 [node name="StatusBar" type="Panel" parent="Controls"]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
-theme_override_styles/panel = ExtResource("5_r3xif")
+theme_override_styles/panel = ExtResource("7_ynhmx")
 
-[node name="MarginContainer" type="MarginContainer" parent="Controls/StatusBar"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="StatusBarLabel" type="Label" parent="Controls/StatusBar/MarginContainer"]
+[node name="StatusBarLabel" type="Label" parent="Controls/StatusBar"]
 unique_name_in_owner = true
 layout_mode = 2
+offset_left = 8.0
+offset_top = 3.0
+offset_right = 1272.0
+offset_bottom = 29.0
 text = "Title"
 
 [connection signal="text_changed" from="Controls/MarginContainer/Header/Fields/MarginContainer/StudyIDField/StudyID" to="." method="_on_study_id_text_changed"]
 [connection signal="value_changed" from="Controls/MarginContainer/Header/Fields/MarginContainer2/AgeGroupField/AgeGroup" to="." method="_on_age_group_value_changed"]
 [connection signal="value_changed" from="Controls/MarginContainer/Header/Fields/MarginContainer3/RunIDField/RunID" to="." method="_on_run_id_value_changed"]
 [connection signal="pressed" from="Controls/MarginContainer/Header/Fields/StartGame" to="." method="_on_start_game_pressed"]
-[connection signal="item_selected" from="Controls/Control/ColumnLeft/VBoxContainer/TitleJump" to="." method="_on_title_jump_item_selected"]
