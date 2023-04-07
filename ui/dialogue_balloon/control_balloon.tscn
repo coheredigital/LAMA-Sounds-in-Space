@@ -1,35 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cothlddswoqrl"]
+[gd_scene load_steps=4 format=3 uid="uid://cothlddswoqrl"]
 
 [ext_resource type="Script" path="res://ui/dialogue_balloon/control_balloon.gd" id="1_h6o3q"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_ovdsy"]
 [ext_resource type="StyleBox" uid="uid://dydyv8h1ltwxk" path="res://ui/theme/styles/panel_raised_style.tres" id="2_t0twx"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oj3c8"]
-content_margin_left = 40.0
-content_margin_top = 5.0
-content_margin_right = 5.0
-content_margin_bottom = 5.0
-bg_color = Color(0.6, 0.6, 0.6, 0)
-draw_center = false
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5d24i"]
-content_margin_left = 40.0
-content_margin_top = 5.0
-content_margin_right = 5.0
-content_margin_bottom = 5.0
-bg_color = Color(0.145098, 0.145098, 0.329412, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.156863, 0.160784, 0.352941, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-shadow_color = Color(0, 0, 0, 0.0666667)
-shadow_size = 4
-shadow_offset = Vector2(0, 2)
 
 [node name="ControlBalloon" type="Control"]
 layout_mode = 3
@@ -93,8 +66,6 @@ layout_mode = 2
 [node name="ResponseTemplate" type="Button" parent="Balloon/VBox"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_oj3c8")
-theme_override_styles/focus = SubResource("StyleBoxFlat_5d24i")
 text = "Response"
 
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
