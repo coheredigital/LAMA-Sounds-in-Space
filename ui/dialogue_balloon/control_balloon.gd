@@ -5,7 +5,7 @@ extends Control
 @onready var character_label: RichTextLabel = %CharacterLabel
 @onready var dialogue_label := %DialogueLabel
 @onready var responses_menu: HFlowContainer = %Responses
-@onready var response_template := %ResponseTemplate
+@onready var response_template := %ResponseTemplate.duplicate(0)
 
 ## The dialogue resource
 var resource: DialogueResource = load("res://dialogue/sequence.dialogue")

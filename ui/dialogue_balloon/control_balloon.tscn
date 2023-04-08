@@ -63,7 +63,7 @@ text = "Dialogue"
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="ResponseTemplate" type="Button" parent="Balloon/VBox"]
+[node name="ResponseTemplate" type="Button" parent="Balloon/VBox/Responses"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Response"
