@@ -100,7 +100,6 @@ script = ExtResource("2_bwdwg")
 unique_name_in_owner = true
 tree_root = SubResource("AnimationNodeBlendTree_0wsu7")
 anim_player = NodePath("AnimationPlayer")
-active = true
 parameters/action/playback = SubResource("AnimationNodeStateMachinePlayback_fy6q8")
 parameters/merge/add_amount = 1.0
 parameters/position/playback = SubResource("AnimationNodeStateMachinePlayback_7p8js")
@@ -113,33 +112,27 @@ libraries = {
 }
 
 [node name="character" parent="." index="1"]
-transform = Transform3D(0.996987, 0, 0.077566, 0, 1, 0, -0.0775662, 0, 0.996984, 0, 1.04573, 0)
+transform = Transform3D(0.992982, 0, -0.118266, 0, 1, 0, 0.118266, 0, 0.992979, 0, 1.04573, 0)
 surface_material_override/0 = ExtResource("2")
 
 [node name="helmet" parent="character" index="0"]
-transform = Transform3D(0.997987, 0.0157015, 0.0614262, -0.0165166, 0.99978, 0.0127846, -0.061212, -0.0137734, 0.998029, 0, 0.359375, 0)
+transform = Transform3D(0.995026, 0.0382964, 0.0919473, -0.0398678, 0.999086, 0.0153141, -0.0912769, -0.0189036, 0.995645, 0, 0.359375, 0)
 
-[node name="FaceLight" type="SpotLight3D" parent="character/helmet" index="0"]
-transform = Transform3D(1, -5.72763e-08, 4.84288e-08, 2.51457e-08, 0.999521, 0.0309398, -4.47035e-08, -0.0309398, 0.999522, 1.86265e-09, 0.266703, 0.337111)
-layers = 2
-light_color = Color(0.109804, 0.109804, 0.109804, 1)
-light_indirect_energy = 0.0
-light_specular = 0.0
-shadow_reverse_cull_face = true
-spot_range = 0.333
-spot_attenuation = 2.5491
-spot_angle = 46.39
-spot_angle_attenuation = 0.101531
-
-[node name="visor" parent="character/helmet" index="2"]
+[node name="visor" parent="character/helmet" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.72529e-09, 0.203125, 0.0625)
 cast_shadow = 0
 
-[node name="face" parent="character/helmet" index="3"]
-transform = Transform3D(0.999621, 0.00164894, -0.027366, -1.06047e-09, 0.998188, 0.0601462, 0.0274155, -0.0601235, 0.997815, 0.00768932, 0.217194, 0.0399466)
+[node name="face" parent="character/helmet" index="2"]
+transform = Transform3D(0.999997, 2.3649e-09, 7.91537e-09, -2.84106e-09, 0.998154, 0.0607091, -7.75717e-09, -0.060709, 0.998156, 0.00768932, 0.217194, 0.0399466)
 
 [node name="glasses" parent="character/helmet/face" index="1"]
 material_overlay = ExtResource("2")
+
+[node name="FaceLight" type="OmniLight3D" parent="character/helmet/face" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0.05)
+light_color = Color(0.0784314, 0.0784314, 0.0784314, 1)
+omni_range = 0.259356
+omni_attenuation = 2.63902
 
 [node name="arm_right" parent="character" index="1"]
 transform = Transform3D(0.910434, 0.400251, -0.104441, -0.412166, 0.899161, -0.147065, 0.0350463, 0.176939, 0.983598, -0.203125, 0.296875, -2.32831e-10)
@@ -151,7 +144,7 @@ transform = Transform3D(0.962225, -0.261495, 0.0757897, 0.179371, 0.818303, 0.54
 transform = Transform3D(1, -4.47035e-08, 3.72529e-08, 2.98023e-08, 0.997372, 0.0724441, 2.23517e-08, -0.0724442, 0.997372, 0, -0.234375, -7.45058e-09)
 
 [node name="arm_left" parent="character" index="2"]
-transform = Transform3D(0.909562, -0.412712, 0.0486604, 0.414915, 0.895307, -0.162097, 0.0233334, 0.167627, 0.985574, 0.25, 0.296875, 3.72529e-09)
+transform = Transform3D(0.918586, -0.3822, -0.100625, 0.394116, 0.904878, 0.160852, 0.0295759, -0.187415, 0.981835, 0.25, 0.296875, 3.72529e-09)
 
 [node name="forarm_left" parent="character/arm_left" index="0"]
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999998, 0, -0.28125, -3.72529e-09)

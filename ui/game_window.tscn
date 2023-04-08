@@ -41,7 +41,7 @@ max_distance = 2.9
 view_progress = 0.0
 
 [node name="Camera3D" parent="ViewportContainer/Viewport/Player" index="0"]
-transform = Transform3D(0.80375, 0.00815807, -0.594912, -1.39698e-09, 0.999906, 0.0137118, 0.594968, -0.0110208, 0.803674, -10.8949, 2.63937, 4.35122)
+transform = Transform3D(0.80375, 0.00815807, -0.594912, -1.39698e-09, 0.999906, 0.0137118, 0.594967, -0.0110208, 0.803674, -10.8949, 2.63937, 4.35122)
 
 [node name="PositionTarget" parent="ViewportContainer/Viewport/Player/PositionPath" index="0"]
 transform = Transform3D(-0.126773, 0.0899251, 0.987679, 0, 0.995703, -0.0906579, -0.991775, -0.0114947, -0.12625, -5.51051, 0.735448, 4.31367)

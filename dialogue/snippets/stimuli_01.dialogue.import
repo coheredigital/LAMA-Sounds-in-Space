@@ -1,0 +1,14 @@
+[remap]
+
+importer="dialogue_manager_compiler_8"
+type="Resource"
+uid="uid://cmtesxphot75m"
+path="res://.godot/imported/stimuli_01.dialogue-57b1d6e661c97956dac04771bda563bf.tres"
+
+[deps]
+
+source_file="res://dialogue/snippets/stimuli_01.dialogue"
+dest_files=["res://.godot/imported/stimuli_01.dialogue-57b1d6e661c97956dac04771bda563bf.tres"]
+
+[params]
+
