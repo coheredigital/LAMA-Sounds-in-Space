@@ -1,12 +1,6 @@
 @tool
 extends Path3D
 
-@export_node_path("Node3D") var target_node:
-	set(value):
-		target_node = NodePath(value)
-		if remote_transform:
-			remote_transform.remote_path = target_node
-
 @export_range (0.0, 1.0, 0.01) var progress := 0.0 :
 	set(value):
 		progress = value
