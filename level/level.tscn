@@ -1,7 +1,8 @@
-[gd_scene load_steps=42 format=3 uid="uid://dahkxa81prn10"]
+[gd_scene load_steps=45 format=3 uid="uid://dahkxa81prn10"]
 
 [ext_resource type="Script" path="res://level/level.gd" id="1_58g46"]
 [ext_resource type="AnimationLibrary" uid="uid://cjkhuv5cn32yu" path="res://level/environment/environment_animations.tres" id="2_3s2c1"]
+[ext_resource type="Script" path="res://level/rumble_controller.gd" id="2_gas8d"]
 [ext_resource type="PackedScene" uid="uid://diok81rhcuhnh" path="res://level/spaceship/spaceship.tscn" id="2_ovpdl"]
 [ext_resource type="Material" uid="uid://bjft6os8hrr36" path="res://level/environment/materials/planet_material.tres" id="5_nosaa"]
 [ext_resource type="Environment" uid="uid://e82nx1vn6g3m" path="res://level/environment/environment.tres" id="5_ykjmj"]
@@ -14,6 +15,20 @@
 [ext_resource type="PackedScene" uid="uid://bi2ttsoa7h87g" path="res://components/remote_follow_path.tscn" id="8_xybyf"]
 [ext_resource type="Script" path="res://level/environment/stars.gd" id="13_77t1c"]
 [ext_resource type="PackedScene" uid="uid://cpyfijnifmpjh" path="res://level/environment/models/star.tscn" id="14_otpjb"]
+
+[sub_resource type="Curve3D" id="Curve3D_x0gxr"]
+_data = {
+"points": PackedVector3Array(-1.20809, 0.0664341, 0.684666, 1.20809, -0.0664341, -0.684666, 0.494567, 0.337866, 0.00391865, 1.34963, 0.193857, 3.16943, -1.34963, -0.193857, -3.16943, 0.302148, -0.599935, -6.13691, -1.72895, -0.0117598, -1.5052, 1.72895, 0.0117598, 1.5052, 8.60061, -0.436457, -7.5877),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="Curve3D" id="Curve3D_2e0tw"]
+_data = {
+"points": PackedVector3Array(1.73656, 0.695944, 1.08923, -1.73656, -0.695944, -1.08923, -1.10286, 0.465399, -0.0335197, 3.4606, -0.356686, -0.447596, -3.4606, 0.356686, 0.447596, -13.3211, -0.387013, -8.35757, 1.09171, -0.437854, 1.70241, -1.09171, 0.437854, -1.70241, -20.3728, -0.804035, -16.747, -1.38718, -0.364563, 1.28262, 1.38718, 0.364563, -1.28262, -21.9852, -0.577681, -29.515),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8dnu5"]
 animation = &"RESET"
@@ -262,6 +277,30 @@ tracks/15/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0)]
 }
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("RumbleController:strong_magnitude")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("RumbleController:weak_magnitude")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oeqp5"]
 _data = {
@@ -374,6 +413,30 @@ point_count = 4
 [node name="Level" type="Node"]
 script = ExtResource("1_58g46")
 
+[node name="RumbleController" type="Node" parent="."]
+script = ExtResource("2_gas8d")
+
+[node name="AlienFollowPath" parent="." instance=ExtResource("8_xybyf")]
+transform = Transform3D(0.999756, 0.0221115, 0, -0.0221115, 0.999756, 0, 0, 0, 1, 0.0914083, 0.686559, -5.2774)
+curve = SubResource("Curve3D_x0gxr")
+
+[node name="PathFollow" parent="AlienFollowPath" index="0"]
+transform = Transform3D(-0.492986, 0, 0.869872, 0, 0.999828, 0, -0.869872, 0, -0.492986, 0.494567, 0.337866, 0.00391865)
+
+[node name="RemoteTransform3D" parent="AlienFollowPath/PathFollow" index="1"]
+transform = Transform3D(-0.667833, 0, -0.744312, 0, 1, 0, 0.744312, 0, -0.667833, 0, 0, 0)
+remote_path = NodePath("../../../Environment/Ground/PlanetStardust/Alien")
+
+[node name="LamaFollowPath" parent="." instance=ExtResource("8_xybyf")]
+transform = Transform3D(0.999756, 0.0221115, 0, -0.0221115, 0.999756, 0, 0, 0, 1, 0, 0.796263, -5.25099)
+curve = SubResource("Curve3D_2e0tw")
+
+[node name="PathFollow" parent="LamaFollowPath" index="0"]
+transform = Transform3D(-0.531289, 0, -0.847038, 0, 0.999818, 0, 0.847038, 0, -0.531289, -1.10286, 0.465399, -0.0335197)
+
+[node name="RemoteTransform3D" parent="LamaFollowPath/PathFollow" index="1"]
+remote_path = NodePath("../../../Environment/Ground/PlanetStardust/Lama")
+
 [node name="StateTree" type="AnimationTree" parent="."]
 unique_name_in_owner = true
 tree_root = SubResource("AnimationNodeStateMachine_xndii")
@@ -445,6 +508,7 @@ shape = 0
 material = SubResource("FogMaterial_m0jcv")
 
 [node name="SpaceStation" parent="Environment/Ground" instance=ExtResource("6_7tl8n")]
+visible = false
 
 [node name="buildings" type="Node3D" parent="Environment/Ground/SpaceStation"]
 
@@ -491,35 +555,12 @@ skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_85duv")
 
 [node name="PlanetStardust" type="Node3D" parent="Environment/Ground"]
-visible = false
-
-[node name="AlienFollowPath" parent="Environment/Ground/PlanetStardust" instance=ExtResource("8_xybyf")]
-transform = Transform3D(0.999756, 0.0221115, 0, -0.0221115, 0.999756, 0, 0, 0, 1, 0, 0.758263, -5.25099)
-progress = 0.51
-
-[node name="PathFollow" parent="Environment/Ground/PlanetStardust/AlienFollowPath" index="0"]
-transform = Transform3D(0.981403, 0.0193836, 0.19014, 0, 0.994673, -0.101403, -0.191126, 0.0995321, 0.97634, -1.67285, -0.0972463, 0.77549)
-progress = 2.69711
-
-[node name="RemoteTransform3D" parent="Environment/Ground/PlanetStardust/AlienFollowPath/PathFollow" index="1"]
-remote_path = NodePath("../../../Alien")
-
-[node name="LamaFollowPath" parent="Environment/Ground/PlanetStardust" instance=ExtResource("8_xybyf")]
-transform = Transform3D(0.999756, 0.0221115, 0, -0.0221115, 0.999756, 0, 0, 0, 1, 0, 0.758263, -5.25099)
-progress = 0.51
-
-[node name="PathFollow" parent="Environment/Ground/PlanetStardust/LamaFollowPath" index="0"]
-transform = Transform3D(0.981403, 0.0193836, 0.19014, 0, 0.994673, -0.101403, -0.191126, 0.0995321, 0.97634, -1.67285, -0.0972463, 0.77549)
-progress = 2.69711
-
-[node name="RemoteTransform3D" parent="Environment/Ground/PlanetStardust/LamaFollowPath/PathFollow" index="1"]
-remote_path = NodePath("../../../Lama")
 
 [node name="Alien" parent="Environment/Ground/PlanetStardust" instance=ExtResource("8_bs0lj")]
-transform = Transform3D(-0.223051, 0.0413726, -0.973765, -0.0879119, 0.994002, 0.0623705, 0.970668, 0.0995321, -0.218112, -1.6746, 0.69803, -4.4755)
+transform = Transform3D(0.97645, 0.0221077, -0.213942, -0.021596, 0.999584, 0.00473172, 0.213994, 0, 0.976688, 0.593325, 0.975408, -5.27348)
 
 [node name="Lama" parent="Environment/Ground/PlanetStardust" instance=ExtResource("8_t1ik6")]
-transform = Transform3D(-0.223051, 0.0413726, -0.973765, -0.0879119, 0.994002, 0.0623705, 0.970668, 0.0995321, -0.218112, -1.6746, 0.69803, -4.4755)
+transform = Transform3D(-0.53116, 0.0221075, -0.846832, 0.0117476, 0.999574, 0.0187293, 0.847039, 0, -0.531289, -1.0923, 1.24793, -5.28451)
 
 [node name="mountains" type="Node3D" parent="Environment/Ground/PlanetStardust"]
 
@@ -727,8 +768,8 @@ rotation_speed = 0.285
 light_color = Color(0.6, 0, 0.407843, 1)
 light_energy = 0.327
 
-[editable path="Environment/Ground/PlanetStardust/AlienFollowPath"]
-[editable path="Environment/Ground/PlanetStardust/LamaFollowPath"]
+[editable path="AlienFollowPath"]
+[editable path="LamaFollowPath"]
 [editable path="Stars/Star1"]
 [editable path="Stars/Star2"]
 [editable path="Stars/Star3"]
