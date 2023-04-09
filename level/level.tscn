@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dahkxa81prn10"]
+[gd_scene load_steps=37 format=3 uid="uid://dahkxa81prn10"]
 
 [ext_resource type="Script" path="res://level/level.gd" id="1_58g46"]
 [ext_resource type="AnimationLibrary" uid="uid://cjkhuv5cn32yu" path="res://level/environment/environment_animations.tres" id="2_3s2c1"]
@@ -9,6 +9,7 @@
 [ext_resource type="Shader" path="res://shaders/toon.gdshader" id="7_c46vp"]
 [ext_resource type="PackedScene" uid="uid://bq23ckwovuhf4" path="res://characters/alien/alien.tscn" id="8_bs0lj"]
 [ext_resource type="PackedScene" uid="uid://322sh12iustv" path="res://characters/lama/lama.tscn" id="8_t1ik6"]
+[ext_resource type="PackedScene" uid="uid://bi2ttsoa7h87g" path="res://components/remote_follow_path.tscn" id="8_xybyf"]
 [ext_resource type="PackedScene" uid="uid://c5yey57xayegg" path="res://level/environment/stars.tscn" id="9_s3nx5"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8dnu5"]
@@ -358,7 +359,6 @@ shader_parameter/emission_energy = 1.0
 
 [node name="Level" type="Node"]
 script = ExtResource("1_58g46")
-state = "launch"
 
 [node name="StateTree" type="AnimationTree" parent="."]
 unique_name_in_owner = true
@@ -376,6 +376,8 @@ libraries = {
 }
 
 [node name="Spaceship" parent="." instance=ExtResource("2_ovpdl")]
+steering_motion = 0.0
+flying_motion = 0.0
 fuel_level = 0
 
 [node name="Planet" type="MeshInstance3D" parent="."]
@@ -416,6 +418,7 @@ shape = 0
 material = SubResource("FogMaterial_m0jcv")
 
 [node name="space_station" parent="Environment/Ground" index="2" instance=ExtResource("6_7tl8n")]
+visible = false
 
 [node name="buildings" type="Node3D" parent="Environment/Ground/space_station"]
 
@@ -462,13 +465,21 @@ skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_85duv")
 
 [node name="planet_stardust" type="Node3D" parent="Environment/Ground" index="3"]
-visible = false
+
+[node name="RemoteFollowPath" parent="Environment/Ground/planet_stardust" instance=ExtResource("8_xybyf")]
+transform = Transform3D(0.999756, 0.0221115, 0, -0.0221115, 0.999756, 0, 0, 0, 1, 0, 0.758263, -5.25099)
+target_node = NodePath("../Alien")
+progress = 0.34
+
+[node name="PathFollow" parent="Environment/Ground/planet_stardust/RemoteFollowPath" index="0"]
+transform = Transform3D(-0.036023, -0.0161927, -0.999057, 0, 0.999694, -0.0162034, 0.99919, -0.000583783, -0.0360183, -1.21864, -0.0627579, 0.183664)
+progress = 1.79808
 
 [node name="Alien" parent="Environment/Ground/planet_stardust" instance=ExtResource("8_bs0lj")]
-transform = Transform3D(0.956661, 0, -0.291203, 0, 1, 0, 0.291203, 0, 0.956661, 1.23626, 1.35833, -4.83209)
+transform = Transform3D(0.0285415, 0.0311275, -0.998947, -0.0198955, 0.999174, 0.0305662, 0.999237, 0.0190052, 0.0291376, 0, 0.758263, -5.25099)
 
 [node name="Lama" parent="Environment/Ground/planet_stardust" instance=ExtResource("8_t1ik6")]
-transform = Transform3D(-0.657724, 0.1097, -0.745228, -0.0215833, 0.986188, 0.164218, 0.75295, 0.124095, -0.646271, -0.188886, 1.57282, -4.47158)
+transform = Transform3D(-0.377481, 0.0245145, -0.925516, -0.0700234, 0.995854, 0.0549381, 0.923187, 0.0855588, -0.374265, -1.69445, 0.713919, -4.63566)
 
 [node name="mountains" type="Node3D" parent="Environment/Ground/planet_stardust"]
 
@@ -573,3 +584,4 @@ transform = Transform3D(0.853862, 0.519279, -0.0356162, -0.51218, 0.826062, -0.2
 star1_progress = 0.7
 
 [editable path="Environment"]
+[editable path="Environment/Ground/planet_stardust/RemoteFollowPath"]

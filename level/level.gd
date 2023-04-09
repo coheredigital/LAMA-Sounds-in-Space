@@ -1,7 +1,6 @@
-@tool
 extends Node
 
-@export_enum("intro","launch","stars_light","warp","landing") var state: String = "intro":
+var state: String = "intro":
 	set(value):
 		state = value
 		update_state(value)

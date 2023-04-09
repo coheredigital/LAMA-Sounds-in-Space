@@ -1,38 +1,37 @@
-@tool
 extends Node3D
 
-@export var screen_state: String = "intro":
+var screen_state: String = "intro":
 	set(value):
 		screen_state = value
 		update_screen(value)
 
-@export var door_open := false : 
+var door_open := false : 
 	set(value):
 		door_open = value
 		set_door_open(value)
 
-@export var seatbelts_buckled := false : 
+var seatbelts_buckled := false : 
 	set(value):
 		seatbelts_buckled = value
 		set_seatbelts_buckled(value)
 
-@export var siren_active := false : 
+var siren_active := false : 
 	set(value):
 		siren_active = value
 		if %Siren:
 			%Siren.active = siren_active
 
-@export_range(0.0,1.0) var steering_motion := 0.0 : 
+var steering_motion := 0.0 : 
 	set(value):
 		steering_motion = value
 		set_steering_motion(value)
 
-@export_range(0.0,1.0) var flying_motion := 0.0 : 
+var flying_motion := 0.0 : 
 	set(value):
 		flying_motion = value
 		set_flying_motion(value)
 
-@export_range(1,8) var fuel_level := 1: 
+var fuel_level := 1: 
 	set(value):
 		fuel_level = value
 		set_fuel_level(value)
