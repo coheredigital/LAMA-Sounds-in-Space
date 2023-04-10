@@ -1,5 +1,5 @@
 shader_type spatial;
-render_mode diffuse_toon, specular_toon, shadows_disabled;
+render_mode  shadows_disabled;
 
 
 uniform vec4 albedo : source_color = vec4(1.0);
@@ -25,14 +25,10 @@ uniform float roughness : hint_range(0,1) = 1.0;
 uniform vec4 emission : source_color = vec4(0.0, 0.0, 0.0, 1.0);
 uniform float emission_energy : hint_range(0.0, 2.0) = 1.0;
 uniform sampler2D emission_texture : hint_default_black, filter_nearest;
-uniform bool use_alpha = false;
-
-
-
 
 void fragment() {
-//	ROUGHNESS = roughness;
-//	METALLIC = metallic;
+	ROUGHNESS = roughness;
+	METALLIC = metallic;
 	EMISSION = (emission.rgb + texture(emission_texture, UV).rgb) * emission_energy * COLOR.rgb;
 	ALBEDO = albedo.rgb * COLOR.rgb * texture(albedo_texture, UV).rgb;
 	ALPHA = texture(albedo_texture, UV).a;

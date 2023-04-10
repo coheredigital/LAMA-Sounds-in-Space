@@ -18,7 +18,7 @@
 
 [sub_resource type="Curve3D" id="Curve3D_x0gxr"]
 _data = {
-"points": PackedVector3Array(-1.20809, 0.0664341, 0.684666, 1.20809, -0.0664341, -0.684666, 0.494567, 0.337866, 0.00391865, 1.34963, 0.193857, 3.16943, -1.34963, -0.193857, -3.16943, 0.302148, -0.599935, -6.13691, -1.72895, -0.0117598, -1.5052, 1.72895, 0.0117598, 1.5052, 8.60061, -0.436457, -7.5877),
+"points": PackedVector3Array(-0.455253, 0.038434, 0.980311, 0.455253, -0.038434, -0.980311, 0.475702, 0.271153, 0.110254, -0.337706, 0.220027, 2.80177, 0.337706, -0.220027, -2.80177, 0.302148, -0.599935, -6.13691, -2.01534, 0.0146794, 0.739766, 2.01534, -0.0146794, -0.739766, 8.56521, -0.353303, -8.09877),
 "tilts": PackedFloat32Array(0, 0, 0)
 }
 point_count = 3
@@ -421,10 +421,10 @@ transform = Transform3D(0.999756, 0.0221115, 0, -0.0221115, 0.999756, 0, 0, 0, 1
 curve = SubResource("Curve3D_x0gxr")
 
 [node name="PathFollow" parent="AlienFollowPath" index="0"]
-transform = Transform3D(-0.492986, 0, 0.869872, 0, 0.999828, 0, -0.869872, 0, -0.492986, 0.494567, 0.337866, 0.00391865)
+transform = Transform3D(-0.906812, 0, 0.42112, 0, 0.999828, 0, -0.42112, 0, -0.906812, 0.475702, 0.271153, 0.110254)
 
 [node name="RemoteTransform3D" parent="AlienFollowPath/PathFollow" index="1"]
-transform = Transform3D(-0.667833, 0, -0.744312, 0, 1, 0, 0.744312, 0, -0.667833, 0, 0, 0)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 remote_path = NodePath("../../../Environment/Ground/PlanetStardust/Alien")
 
 [node name="LamaFollowPath" parent="." instance=ExtResource("8_xybyf")]
@@ -557,7 +557,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_85duv")
 [node name="PlanetStardust" type="Node3D" parent="Environment/Ground"]
 
 [node name="Alien" parent="Environment/Ground/PlanetStardust" instance=ExtResource("8_bs0lj")]
-transform = Transform3D(0.97645, 0.0221077, -0.213942, -0.021596, 0.999584, 0.00473172, 0.213994, 0, 0.976688, 0.593325, 0.975408, -5.27348)
+transform = Transform3D(0.906591, 0.0221077, -0.421018, -0.020051, 0.999584, 0.0093116, 0.42112, 0, 0.906813, 0.57299, 0.909128, -5.16715)
 
 [node name="Lama" parent="Environment/Ground/PlanetStardust" instance=ExtResource("8_t1ik6")]
 transform = Transform3D(-0.53116, 0.0221075, -0.846832, 0.0117476, 0.999574, 0.0187293, 0.847039, 0, -0.531289, -1.0923, 1.24793, -5.28451)
