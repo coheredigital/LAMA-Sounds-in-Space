@@ -79,7 +79,7 @@ set screen = "computer"
 Computer: Nice to meet you
 [next=0.5]
 set screen = "idle" 
-Sam: Ok, now I’ll have the computer say a command and your job is to repeat what the computer just said with your voice.Make sure you say it loud and clear, so the computer can hear you! After you repeat after the computer, I’ll press the red button to send tell the computer to send your voice to the spaceship.
+Sam: Ok, now I’ll have the computer say a command and your job is to repeat what the computer just said with your voice.Make sure you say it loud and clear, so the computer can hear you! After you repeat after the computer, I’ll press the red button to send your voice to the spaceship.
 
 ~ activate_spaceship
 Sam: Ok here we go!
@@ -90,7 +90,6 @@ Computer: Activate spaceship!
 ~ activate_spaceship_recording
 System: 
 - Begin Recording
-set screen = "recording"
 do Recorder.start()
 [next=5]
 

@@ -16,20 +16,6 @@
 [ext_resource type="Script" path="res://level/environment/stars.gd" id="13_77t1c"]
 [ext_resource type="PackedScene" uid="uid://cpyfijnifmpjh" path="res://level/environment/models/star.tscn" id="14_otpjb"]
 
-[sub_resource type="Curve3D" id="Curve3D_x0gxr"]
-_data = {
-"points": PackedVector3Array(-0.455253, 0.038434, 0.980311, 0.455253, -0.038434, -0.980311, 0.475702, 0.271153, 0.110254, -0.337706, 0.220027, 2.80177, 0.337706, -0.220027, -2.80177, 0.302148, -0.599935, -6.13691, -2.01534, 0.0146794, 0.739766, 2.01534, -0.0146794, -0.739766, 8.56521, -0.353303, -8.09877),
-"tilts": PackedFloat32Array(0, 0, 0)
-}
-point_count = 3
-
-[sub_resource type="Curve3D" id="Curve3D_2e0tw"]
-_data = {
-"points": PackedVector3Array(1.73656, 0.695944, 1.08923, -1.73656, -0.695944, -1.08923, -1.10286, 0.465399, -0.0335197, 3.4606, -0.356686, -0.447596, -3.4606, 0.356686, 0.447596, -13.3211, -0.387013, -8.35757, 1.09171, -0.437854, 1.70241, -1.09171, 0.437854, -1.70241, -20.3728, -0.804035, -16.747, -1.38718, -0.364563, 1.28262, 1.38718, 0.364563, -1.28262, -21.9852, -0.577681, -29.515),
-"tilts": PackedFloat32Array(0, 0, 0, 0)
-}
-point_count = 4
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8dnu5"]
 animation = &"RESET"
 
@@ -307,6 +293,20 @@ _data = {
 "RESET": SubResource("Animation_k5ml7")
 }
 
+[sub_resource type="Curve3D" id="Curve3D_x0gxr"]
+_data = {
+"points": PackedVector3Array(-0.455253, 0.038434, 0.980311, 0.455253, -0.038434, -0.980311, 0.475702, 0.271153, 0.110254, -0.337706, 0.220027, 2.80177, 0.337706, -0.220027, -2.80177, 0.302148, -0.599935, -6.13691, -2.01534, 0.0146794, 0.739766, 2.01534, -0.0146794, -0.739766, 8.56521, -0.353303, -8.09877),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="Curve3D" id="Curve3D_2e0tw"]
+_data = {
+"points": PackedVector3Array(1.73656, 0.695944, 1.08923, -1.73656, -0.695944, -1.08923, -1.10286, 0.465399, -0.0335197, 3.4606, -0.356686, -0.447596, -3.4606, 0.356686, 0.447596, -13.3211, -0.387013, -8.35757, 1.09171, -0.437854, 1.70241, -1.09171, 0.437854, -1.70241, -20.3728, -0.804035, -16.747, -1.38718, -0.364563, 1.28262, 1.38718, 0.364563, -1.28262, -21.9852, -0.577681, -29.515),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
 [sub_resource type="SphereMesh" id="3833"]
 radius = 4.0
 height = 8.0
@@ -413,6 +413,21 @@ point_count = 4
 [node name="Level" type="Node"]
 script = ExtResource("1_58g46")
 
+[node name="StateTree" type="AnimationTree" parent="."]
+unique_name_in_owner = true
+tree_root = SubResource("AnimationNodeStateMachine_xndii")
+anim_player = NodePath("AnimationPlayer")
+active = true
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_4dohv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StateTree"]
+root_node = NodePath("../..")
+reset_on_save = false
+libraries = {
+"": SubResource("AnimationLibrary_oeqp5"),
+"environment_animations": ExtResource("2_3s2c1")
+}
+
 [node name="RumbleController" type="Node" parent="."]
 script = ExtResource("2_gas8d")
 
@@ -432,25 +447,10 @@ transform = Transform3D(0.999756, 0.0221115, 0, -0.0221115, 0.999756, 0, 0, 0, 1
 curve = SubResource("Curve3D_2e0tw")
 
 [node name="PathFollow" parent="LamaFollowPath" index="0"]
-transform = Transform3D(-0.531289, 0, -0.847038, 0, 0.999818, 0, 0.847038, 0, -0.531289, -1.10286, 0.465399, -0.0335197)
+transform = Transform3D(-0.531291, 0, -0.847037, 0, 0.999818, 0, 0.847037, 0, -0.531291, -1.10286, 0.465399, -0.0335197)
 
 [node name="RemoteTransform3D" parent="LamaFollowPath/PathFollow" index="1"]
 remote_path = NodePath("../../../Environment/Ground/PlanetStardust/Lama")
-
-[node name="StateTree" type="AnimationTree" parent="."]
-unique_name_in_owner = true
-tree_root = SubResource("AnimationNodeStateMachine_xndii")
-anim_player = NodePath("AnimationPlayer")
-active = true
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_4dohv")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="StateTree"]
-root_node = NodePath("../..")
-reset_on_save = false
-libraries = {
-"": SubResource("AnimationLibrary_oeqp5"),
-"environment_animations": ExtResource("2_3s2c1")
-}
 
 [node name="Spaceship" parent="." instance=ExtResource("2_ovpdl")]
 
@@ -557,10 +557,10 @@ surface_material_override/0 = SubResource("ShaderMaterial_85duv")
 [node name="PlanetStardust" type="Node3D" parent="Environment/Ground"]
 
 [node name="Alien" parent="Environment/Ground/PlanetStardust" instance=ExtResource("8_bs0lj")]
-transform = Transform3D(0.906591, 0.0221077, -0.421018, -0.020051, 0.999584, 0.0093116, 0.42112, 0, 0.906813, 0.57299, 0.909128, -5.16715)
+transform = Transform3D(0.906591, 0.0221077, -0.421017, -0.020051, 0.999584, 0.0093116, 0.42112, 0, 0.906812, 0.57299, 0.909127, -5.16715)
 
 [node name="Lama" parent="Environment/Ground/PlanetStardust" instance=ExtResource("8_t1ik6")]
-transform = Transform3D(-0.53116, 0.0221075, -0.846832, 0.0117476, 0.999574, 0.0187293, 0.847039, 0, -0.531289, -1.0923, 1.24793, -5.28451)
+transform = Transform3D(-0.531161, 0.0221075, -0.84683, 0.0117476, 0.999574, 0.0187293, 0.847037, 0, -0.531291, -1.0923, 1.24793, -5.28451)
 
 [node name="mountains" type="Node3D" parent="Environment/Ground/PlanetStardust"]
 
