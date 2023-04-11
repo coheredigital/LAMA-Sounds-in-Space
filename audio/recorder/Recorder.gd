@@ -32,6 +32,5 @@ func save():
 #	DirAccess.make_dir_absolute(save_folder)
 	DirAccess.make_dir_absolute("user://recordings/")
 	DirAccess.make_dir_absolute(save_folder)
-#	recording.save_to_wav("user://recordings/file.wav")
 	recording.save_to_wav(save_file)
 	print("Saved: %s" % [save_file])

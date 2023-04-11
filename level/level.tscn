@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://dahkxa81prn10"]
+[gd_scene load_steps=47 format=3 uid="uid://dahkxa81prn10"]
 
 [ext_resource type="Script" path="res://level/level.gd" id="1_58g46"]
 [ext_resource type="AnimationLibrary" uid="uid://cjkhuv5cn32yu" path="res://level/environment/environment_animations.tres" id="2_3s2c1"]
@@ -13,7 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://bq23ckwovuhf4" path="res://characters/alien/alien.tscn" id="8_bs0lj"]
 [ext_resource type="PackedScene" uid="uid://322sh12iustv" path="res://characters/lama/lama.tscn" id="8_t1ik6"]
 [ext_resource type="PackedScene" uid="uid://bi2ttsoa7h87g" path="res://components/remote_follow_path.tscn" id="8_xybyf"]
+[ext_resource type="PackedScene" uid="uid://d0f416j3xmved" path="res://characters/alien/ufo.gltf" id="12_poaea"]
 [ext_resource type="Script" path="res://level/environment/stars.gd" id="13_77t1c"]
+[ext_resource type="Material" uid="uid://eivgxthmke74" path="res://characters/alien/materials/ufo_beam_material.tres" id="13_tcyuu"]
 [ext_resource type="PackedScene" uid="uid://cpyfijnifmpjh" path="res://level/environment/models/star.tscn" id="14_otpjb"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8dnu5"]
@@ -556,6 +558,23 @@ surface_material_override/0 = SubResource("ShaderMaterial_85duv")
 
 [node name="PlanetStardust" type="Node3D" parent="Environment/Ground"]
 
+[node name="ufo" parent="Environment/Ground/PlanetStardust" instance=ExtResource("12_poaea")]
+transform = Transform3D(-0.972374, -0.196528, -0.125961, -0.215404, 0.963367, 0.159764, 0.0899488, 0.182483, -0.979086, -0.75274, 2.85946, -9.92066)
+
+[node name="beam" parent="Environment/Ground/PlanetStardust/ufo/UFO" index="1"]
+surface_material_override/0 = ExtResource("13_tcyuu")
+surface_material_override/1 = ExtResource("13_tcyuu")
+
+[node name="Alien2" parent="Environment/Ground/PlanetStardust/ufo" instance=ExtResource("8_bs0lj")]
+transform = Transform3D(-0.993001, 0.0812212, 0.0836806, 0.0815068, 0.9965, 7.45058e-08, -0.0834021, 0.0068218, -0.996317, -0.00306624, -0.0376196, -0.000257492)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Environment/Ground/PlanetStardust/ufo"]
+transform = Transform3D(1, -2.23517e-08, -1.49012e-08, 2.6077e-08, 1, -7.45058e-08, -3.72529e-08, 2.98023e-08, 1, -2.98023e-07, 1.56015, -0.148737)
+light_color = Color(0.890196, 0.768627, 0.886275, 1)
+light_energy = 0.179
+omni_range = 0.616159
+omni_attenuation = 0.176777
+
 [node name="Alien" parent="Environment/Ground/PlanetStardust" instance=ExtResource("8_bs0lj")]
 transform = Transform3D(0.906591, 0.0221077, -0.421017, -0.020051, 0.999584, 0.0093116, 0.42112, 0, 0.906812, 0.57299, 0.909127, -5.16715)
 
@@ -770,6 +789,7 @@ light_energy = 0.327
 
 [editable path="AlienFollowPath"]
 [editable path="LamaFollowPath"]
+[editable path="Environment/Ground/PlanetStardust/ufo"]
 [editable path="Stars/Star1"]
 [editable path="Stars/Star2"]
 [editable path="Stars/Star3"]

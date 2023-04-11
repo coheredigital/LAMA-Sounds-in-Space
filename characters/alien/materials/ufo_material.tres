@@ -1,0 +1,23 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://ddv5dmox5t1fn"]
+
+[ext_resource type="Shader" path="res://shaders/toon.gdshader" id="1_4uwa7"]
+[ext_resource type="Texture2D" uid="uid://bwobm7tiwh3am" path="res://characters/alien/materials/ufo_albedo.png" id="2_5r7bw"]
+[ext_resource type="Texture2D" uid="uid://ctq6stkygour2" path="res://characters/alien/materials/ufo_emission.png" id="3_xulk1"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_4uwa7")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/specular = 0.5
+shader_parameter/specular_amount = 0.372
+shader_parameter/specular_smoothness = 0.112
+shader_parameter/wrap = 0.25
+shader_parameter/rim = 0.522
+shader_parameter/rim_amount = 0.355
+shader_parameter/rim_smoothness = 0.393
+shader_parameter/metallic = 0.044
+shader_parameter/roughness = 0.583
+shader_parameter/emission = Color(0, 0, 0, 1)
+shader_parameter/emission_energy = 0.302
+shader_parameter/albedo_texture = ExtResource("2_5r7bw")
+shader_parameter/emission_texture = ExtResource("3_xulk1")

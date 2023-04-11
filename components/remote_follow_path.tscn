@@ -15,14 +15,12 @@ curve = SubResource("Curve3D_kynho")
 script = ExtResource("1_kh2yt")
 
 [node name="PathFollow" type="PathFollow3D" parent="."]
-transform = Transform3D(0.999833, 0, 0, 0, 0.999798, 0, 0, 0, 0.999842, 0, 0, 0)
+transform = Transform3D(0.903142, 0, 0.428956, 0, 0.999798, 0, -0.428953, 0, 0.90315, 0, 0, 0)
 rotation_mode = 1
 loop = false
 tilt_enabled = false
 
 [node name="Marker3D" type="Marker3D" parent="PathFollow"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 gizmo_extents = 0.5
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="PathFollow"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)

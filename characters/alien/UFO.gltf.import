@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://d0f416j3xmved"
-path="res://.godot/imported/UFO.gltf-dda74202a6768d5442965055af11287f.scn"
+path="res://.godot/imported/ufo.gltf-d10fc651e99c842a4c38a8d2f5e9aada.scn"
 
 [deps]
 
-source_file="res://characters/alien/UFO.gltf"
-dest_files=["res://.godot/imported/UFO.gltf-dda74202a6768d5442965055af11287f.scn"]
+source_file="res://characters/alien/ufo.gltf"
+dest_files=["res://.godot/imported/ufo.gltf-d10fc651e99c842a4c38a8d2f5e9aada.scn"]
 
 [params]
 
@@ -28,5 +28,20 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
-_subresources={}
+_subresources={
+"materials": {
+"material_0": {
+"use_external/enabled": true,
+"use_external/path": "res://characters/alien/materials/ufo_material.tres"
+},
+"material_1": {
+"use_external/enabled": true,
+"use_external/path": "res://characters/alien/materials/ufo_alpha_material.tres"
+},
+"material_2": {
+"use_external/enabled": true,
+"use_external/path": "res://level/spaceship/materials/cockpit_material.tres"
+}
+}
+}
 gltf/embedded_image_handling=0
