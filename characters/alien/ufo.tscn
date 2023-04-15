@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbugqyxo4xw7n"]
+
+[ext_resource type="PackedScene" uid="uid://d0f416j3xmved" path="res://characters/alien/ufo.gltf" id="1_1cqd3"]
+[ext_resource type="PackedScene" uid="uid://bq23ckwovuhf4" path="res://characters/alien/alien.tscn" id="2_dwwl8"]
+
+[node name="ufo" instance=ExtResource("1_1cqd3")]
+
+[node name="Alien" parent="." index="0" instance=ExtResource("2_dwwl8")]
+transform = Transform3D(-0.999752, 0, -0.0222685, 0, 1, 0, 0.0222685, 0, -0.999752, 0.0931226, -0.0327476, -0.00207422)
+
+[node name="BeamTransform" type="RemoteTransform3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.14404, 0)

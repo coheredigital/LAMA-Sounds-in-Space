@@ -1,5 +1,12 @@
 # NOTE: Don't use "=> END!" on these snippets. This variant of the "END" title will force end the entire script
 
+~ character_start
+set character_position = 0.2
+=> END
+
+
+
+
 ~ unlock_door
 set character_position = 0.25
 set door_open = true
@@ -38,13 +45,33 @@ set player_view = 0.9
 => END
 
 
+# PLAYER ===============================================================================
+
+~ player_start
+set player_position = 0.0
+set player_view = 0.1
+set player_position = 0.31
+set player_view = 0.23
+=> END
+
+~ player_approach_spaceship
+set player_position = 0.55
+set player_view = 0.52
+=> END
+
+
+~ player_enter_spaceship
+set player_position = 0.8
+set player_view = 0.9
+=> END
+
 ~ player_aboard
 set player_position = 0.8
 set player_view = 0.95
 set character_position = 0.85
 => END
 
-
+# COMPUTER ===============================================================================
 ~ computer_intro
 set player_position = 0.9
 set player_view = 0.9
