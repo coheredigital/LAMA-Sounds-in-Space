@@ -1,22 +1,16 @@
 [gd_scene load_steps=3 format=3 uid="uid://dftilry51e2f6"]
 
+[ext_resource type="Curve3D" uid="uid://bd3ishynqtvxl" path="res://characters/character/character_path.tres" id="1_8tmfm"]
 [ext_resource type="Script" path="res://characters/character/character_path.gd" id="1_j21by"]
-
-[sub_resource type="Curve3D" id="Curve3D_tkkn5"]
-_data = {
-"points": PackedVector3Array(-0.895379, -0.0188163, -0.423739, 0.895379, 0.0188163, 0.423739, -6.78964, 0.778574, 0.299408, -1.59033, -0.0731046, -0.180185, 1.59033, 0.0731046, 0.180185, -3.22793, 0.882268, 0.484055, -0.354619, -0.0303485, 0.27272, 0.354619, 0.0303485, -0.27272, -0.896611, 0.868713, 0.881546, -0.309666, -0.00817519, 0.242196, 0.309666, 0.00817519, -0.242196, -0.728314, 0.893784, -0.561927, 0.0969658, 0.0224348, 0.190992, -0.0969658, -0.0224348, -0.190992, -0.572257, 0.767737, -1.51429, 0.118154, 0.000798941, -0.000364661, -0.118154, -0.000798941, 0.000364661, -0.848991, 0.602817, -1.69756),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
-}
-point_count = 6
 
 [node name="CharacterPath" type="Path3D"]
 transform = Transform3D(0.999756, 0.0221115, 0, -0.0221115, 0.999756, 0, 0, 0, 1, 0, 0, 0)
-curve = SubResource("Curve3D_tkkn5")
+curve = ExtResource("1_8tmfm")
 script = ExtResource("1_j21by")
 
 [node name="PathFollow" type="PathFollow3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(0.427695, -0.017163, 0.903583, 0, 0.999618, 0.0189887, -0.903738, -0.00812239, 0.427622, -6.78964, 0.778574, 0.299408)
+transform = Transform3D(0.854337, -0.00504294, 0.519378, 0, 0.999751, 0.00970799, -0.519398, -0.00829493, 0.854304, -7.27856, 0.759245, -1.57)
 rotation_mode = 2
 loop = false
 tilt_enabled = false
