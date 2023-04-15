@@ -541,7 +541,6 @@ shape = 0
 material = SubResource("FogMaterial_m0jcv")
 
 [node name="SpaceStation" parent="Environment/Ground" instance=ExtResource("6_7tl8n")]
-visible = false
 
 [node name="buildings" type="Node3D" parent="Environment/Ground/SpaceStation"]
 
@@ -608,6 +607,7 @@ skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_85duv")
 
 [node name="PlanetStardust" type="Node3D" parent="Environment/Ground"]
+visible = false
 
 [node name="ufo" parent="Environment/Ground/PlanetStardust" instance=ExtResource("12_poaea")]
 transform = Transform3D(-0.972374, -0.196528, -0.125961, -0.215404, 0.963367, 0.159764, 0.0899488, 0.182483, -0.979086, -0.75274, 2.85946, -9.92066)

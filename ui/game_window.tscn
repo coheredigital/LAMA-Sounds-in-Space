@@ -31,7 +31,7 @@ render_target_update_mode = 4
 [node name="Level" parent="ViewportContainer/Viewport" instance=ExtResource("4_7ey7j")]
 
 [node name="Character" parent="ViewportContainer/Viewport" instance=ExtResource("6_8i88j")]
-transform = Transform3D(0.999262, 0.0221079, -0.0257111, -0.0221006, 0.999593, 0.000568642, 0.0257174, 4.84101e-09, 0.999506, -5.83119, 0.926156, 0.494834)
+transform = Transform3D(0.675049, 0.0221079, -0.737221, -0.01493, 0.999593, 0.016305, 0.737401, 7.95436e-09, 0.675214, -6.68672, 0.91736, -0.793989)
 action = "talking"
 
 [node name="Player" parent="ViewportContainer/Viewport" instance=ExtResource("7_mwy2h")]
@@ -41,7 +41,7 @@ max_distance = 2.9
 view_progress = 0.0
 
 [node name="Camera3D" parent="ViewportContainer/Viewport/Player" index="0"]
-transform = Transform3D(0.80375, 0.00815807, -0.594912, 1.86265e-09, 0.999906, 0.0137118, 0.594968, -0.0110208, 0.803674, -10.8949, 2.63937, 4.35122)
+transform = Transform3D(0.80375, 0.00815807, -0.594912, -6.98492e-09, 0.999906, 0.0137118, 0.594968, -0.0110208, 0.803674, -10.8949, 2.63937, 4.35122)
 
 [node name="PositionTarget" parent="ViewportContainer/Viewport/Player/PositionPath" index="0"]
 transform = Transform3D(-0.126773, 0.0899251, 0.987679, 0, 0.995703, -0.0906579, -0.991775, -0.0114947, -0.12625, -5.51051, 0.735448, 4.31367)
@@ -53,13 +53,4 @@ progress = 0.0
 [node name="CharacterPath" parent="ViewportContainer/Viewport" instance=ExtResource("6_3ngje")]
 progress = 0.12
 
-[node name="PathFollow" parent="ViewportContainer/Viewport/CharacterPath" index="0"]
-transform = Transform3D(0.0286971, 0, 0.999424, 0, 0.999837, 0, -0.999424, 0, 0.0286971, -5.85024, 0.796993, 0.494834)
-progress = 0.965696
-rotation_mode = 1
-
-[node name="RemoteTransform3D" parent="ViewportContainer/Viewport/CharacterPath/PathFollow" index="1"]
-transform = Transform3D(0.00298136, -4.65661e-09, -0.999996, -6.98492e-09, 1, -6.51926e-09, 0.999996, 6.51926e-09, 0.00298141, 0, 0, 0)
-
 [editable path="ViewportContainer/Viewport/Player"]
-[editable path="ViewportContainer/Viewport/CharacterPath"]
