@@ -11,7 +11,7 @@ System: Ready.
 ~ welcome
 Sam: Welcome to the Space Station! My name is Sam and I’m an Astronaut. We’re so glad you came to visit us today! Here at the space station, we go on so many fun missions. Come on in so I can show you around!
 Sam: First, I want you to meet our very own space llama named Lucky. She’s usually around here somewhere... Let’s look up her location on our astronaut map.
-set player_position = 0.33
+do move_character(0.25,1.5)
 # TODO: set player_view = (look at station_screen)
 # TODO: set station_screen = (starmap)
 # TODO: [next=0.5]
