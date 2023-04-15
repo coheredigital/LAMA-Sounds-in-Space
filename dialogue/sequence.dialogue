@@ -83,15 +83,18 @@ Sam: Ok, now I’ll have the computer say a command and your job is to repeat wh
 
 ~ activate_spaceship
 Sam: Ok here we go!
+
+~ activate_spaceship_command
 set screen = "computer" 
 Computer: Activate spaceship!
 
-
+#grdgdgdgrdg
 ~ activate_spaceship_recording
 System: 
 - Begin Recording
-do Recorder.start()
-[next=5]
+	do Recorder.start()
+	[next=5]
+
 
 ~ activate_spaceship_result
 System: 
@@ -104,7 +107,7 @@ System:
 	set screen = "failure"
 	do Recorder.stop()
 	Sam: Uh oh! It looks like the spaceship couldn't quite hear what you said. Let's try again a bit louder.
-	=> activate_spaceship
+	=> activate_spaceship_command
 
 
 ~ spaceship_activated
@@ -121,6 +124,8 @@ Prompt:
 ~ buckle_up
 set screen = "buckle_warning"
 Sam: OK. First, we need to buckle up! Listen to the command from the computer and then repeat what it says with your voice.
+
+~ buckle_up_command
 set screen = "computer"
 Computer: Seat belts buckled!
 
@@ -143,7 +148,7 @@ System:
 	set screen = "failure"
 	do Recorder.stop()
 	Sam: Uh oh! It looks like the spaceship couldn't quite hear what you said. Let's try again a bit louder.
-	=> activate_spaceship
+	=> buckle_up_command
 
 
 ~ warning_sirens
