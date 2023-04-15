@@ -1,13 +1,12 @@
-# example only, not implemented
-
+# not fully implemented
 
 # speech ================================================
 ~ speech_01F
 System:
 - Begin speech_01F
 set screen = "computer"
+do Sequencer.play_audio("res://audio/stimuli/speech_01F.wav")
 do Recorder.start()
-do AudioPlayer.play("res://audio/stimuli/speech_01F.wav")
 [next=2]
 set screen = "recording"
 [next=5]
@@ -26,8 +25,8 @@ System:
 System:
 - Begin speech_01R
 set screen = "computer"
+do Sequencer.play_audio("res://audio/stimuli/speech_01R.wav")
 do Recorder.start()
-do AudioPlayer.play("res://audio/stimuli/speech_01R.wav")
 [next=2]
 set screen = "recording"
 [next=5]
@@ -46,8 +45,8 @@ System:
 System:
 - Begin speech_02F
 set screen = "computer"
+do Sequencer.play_audio("res://audio/stimuli/speech_02F.wav")
 do Recorder.start()
-do AudioPlayer.play("res://audio/stimuli/speech_02F.wav")
 [next=2]
 set screen = "recording"
 [next=5]
@@ -66,8 +65,8 @@ System:
 System:
 - Begin speech_02R
 set screen = "computer"
+do Sequencer.play_audio("res://audio/stimuli/speech_02R.wav")
 do Recorder.start()
-do AudioPlayer.play("res://audio/stimuli/speech_02R.wav")
 [next=2]
 set screen = "recording"
 [next=5]
@@ -86,8 +85,8 @@ System:
 System:
 - Begin speech_03F
 set screen = "computer"
+do Sequencer.play_audio("res://audio/stimuli/speech_03F.wav")
 do Recorder.start()
-do AudioPlayer.play("res://audio/stimuli/speech_03F.wav")
 [next=2]
 set screen = "recording"
 [next=5]
@@ -106,8 +105,8 @@ System:
 System:
 - Begin speech_03R
 set screen = "computer"
+do Sequencer.play_audio("res://audio/stimuli/speech_03R.wav")
 do Recorder.start()
-do AudioPlayer.play("res://audio/stimuli/speech_03R.wav")
 [next=2]
 set screen = "recording"
 [next=5]
@@ -126,8 +125,8 @@ System:
 System:
 - Begin speech_04F
 set screen = "computer"
+do Sequencer.play_audio("res://audio/stimuli/speech_04F.wav")
 do Recorder.start()
-do AudioPlayer.play("res://audio/stimuli/speech_04F.wav")
 [next=2]
 set screen = "recording"
 [next=5]
@@ -146,8 +145,8 @@ System:
 System:
 - Begin speech_04R
 set screen = "computer"
+do Sequencer.play_audio("res://audio/stimuli/speech_04R.wav")
 do Recorder.start()
-do AudioPlayer.play("res://audio/stimuli/speech_04R.wav")
 [next=2]
 set screen = "recording"
 [next=5]
@@ -166,8 +165,8 @@ System:
 System:
 - Begin speech_05F
 set screen = "computer"
+do Sequencer.play_audio("res://audio/stimuli/speech_05F.wav")
 do Recorder.start()
-do AudioPlayer.play("res://audio/stimuli/speech_05F.wav")
 [next=2]
 set screen = "recording"
 [next=5]
@@ -186,8 +185,8 @@ System:
 System:
 - Begin speech_05R
 set screen = "computer"
+do Sequencer.play_audio("res://audio/stimuli/speech_05R.wav")
 do Recorder.start()
-do AudioPlayer.play("res://audio/stimuli/speech_05R.wav")
 [next=2]
 set screen = "recording"
 [next=5]
@@ -206,8 +205,8 @@ System:
 System:
 - Begin speech_06F
 set screen = "computer"
+do Sequencer.play_audio("res://audio/stimuli/speech_06F.wav")
 do Recorder.start()
-do AudioPlayer.play("res://audio/stimuli/speech_06F.wav")
 [next=2]
 set screen = "recording"
 [next=5]
@@ -226,8 +225,8 @@ System:
 System:
 - Begin speech_06R
 set screen = "computer"
+do Sequencer.play_audio("res://audio/stimuli/speech_06R.wav")
 do Recorder.start()
-do AudioPlayer.play("res://audio/stimuli/speech_06R.wav")
 [next=2]
 set screen = "recording"
 [next=5]
@@ -246,8 +245,8 @@ System:
 System:
 - Begin speech_07F
 set screen = "computer"
+do Sequencer.play_audio("res://audio/stimuli/speech_07F.wav")
 do Recorder.start()
-do AudioPlayer.play("res://audio/stimuli/speech_07F.wav")
 [next=2]
 set screen = "recording"
 [next=5]
@@ -266,8 +265,8 @@ System:
 System:
 - Begin speech_07R
 set screen = "computer"
+do Sequencer.play_audio("res://audio/stimuli/speech_07R.wav")
 do Recorder.start()
-do AudioPlayer.play("res://audio/stimuli/speech_07R.wav")
 [next=2]
 set screen = "recording"
 [next=5]
@@ -286,8 +285,8 @@ System:
 System:
 - Begin speech_08F
 set screen = "computer"
+do Sequencer.play_audio("res://audio/stimuli/speech_08F.wav")
 do Recorder.start()
-do AudioPlayer.play("res://audio/stimuli/speech_08F.wav")
 [next=2]
 set screen = "recording"
 [next=5]
@@ -306,8 +305,8 @@ System:
 System:
 - Begin speech_08R
 set screen = "computer"
+do Sequencer.play_audio("res://audio/stimuli/speech_08R.wav")
 do Recorder.start()
-do AudioPlayer.play("res://audio/stimuli/speech_08R.wav")
 [next=2]
 set screen = "recording"
 [next=5]
@@ -326,8 +325,8 @@ System:
 System:
 - Begin speech_09F
 set screen = "computer"
+do Sequencer.play_audio("res://audio/stimuli/speech_09F.wav")
 do Recorder.start()
-do AudioPlayer.play("res://audio/stimuli/speech_09F.wav")
 [next=2]
 set screen = "recording"
 [next=5]
@@ -346,8 +345,8 @@ System:
 System:
 - Begin speech_09R
 set screen = "computer"
+do Sequencer.play_audio("res://audio/stimuli/speech_09R.wav")
 do Recorder.start()
-do AudioPlayer.play("res://audio/stimuli/speech_09R.wav")
 [next=2]
 set screen = "recording"
 [next=5]
@@ -366,8 +365,8 @@ System:
 System:
 - Begin speech_10F
 set screen = "computer"
+do Sequencer.play_audio("res://audio/stimuli/speech_10F.wav")
 do Recorder.start()
-do AudioPlayer.play("res://audio/stimuli/speech_10F.wav")
 [next=2]
 set screen = "recording"
 [next=5]
@@ -386,8 +385,8 @@ System:
 System:
 - Begin speech_10R
 set screen = "computer"
+do Sequencer.play_audio("res://audio/stimuli/speech_10R.wav")
 do Recorder.start()
-do AudioPlayer.play("res://audio/stimuli/speech_10R.wav")
 [next=2]
 set screen = "recording"
 [next=5]
@@ -406,8 +405,8 @@ System:
 System:
 - Begin speech_11F
 set screen = "computer"
+do Sequencer.play_audio("res://audio/stimuli/speech_11F.wav")
 do Recorder.start()
-do AudioPlayer.play("res://audio/stimuli/speech_11F.wav")
 [next=2]
 set screen = "recording"
 [next=5]
@@ -426,8 +425,8 @@ System:
 System:
 - Begin speech_11R
 set screen = "computer"
+do Sequencer.play_audio("res://audio/stimuli/speech_11R.wav")
 do Recorder.start()
-do AudioPlayer.play("res://audio/stimuli/speech_11R.wav")
 [next=2]
 set screen = "recording"
 [next=5]
@@ -446,8 +445,8 @@ System:
 System:
 - Begin speech_12F
 set screen = "computer"
+do Sequencer.play_audio("res://audio/stimuli/speech_12F.wav")
 do Recorder.start()
-do AudioPlayer.play("res://audio/stimuli/speech_12F.wav")
 [next=2]
 set screen = "recording"
 [next=5]
@@ -466,8 +465,8 @@ System:
 System:
 - Begin speech_12R
 set screen = "computer"
+do Sequencer.play_audio("res://audio/stimuli/speech_12R.wav")
 do Recorder.start()
-do AudioPlayer.play("res://audio/stimuli/speech_12R.wav")
 [next=2]
 set screen = "recording"
 [next=5]
@@ -488,8 +487,8 @@ System:
 System:
 - Begin song_01F
 set screen = "computer"
+do Sequencer.play_audio("res://audio/stimuli/song_01F.wav")
 do Recorder.start()
-do AudioPlayer.play("res://audio/stimuli/song_01F.wav")
 [next=2]
 set screen = "recording"
 [next=5]
@@ -508,8 +507,8 @@ System:
 System:
 - Begin song_01R
 set screen = "computer"
+do Sequencer.play_audio("res://audio/stimuli/song_01R.wav")
 do Recorder.start()
-do AudioPlayer.play("res://audio/stimuli/song_01R.wav")
 [next=2]
 set screen = "recording"
 [next=5]
@@ -528,8 +527,8 @@ System:
 System:
 - Begin song_02F
 set screen = "computer"
+do Sequencer.play_audio("res://audio/stimuli/song_02F.wav")
 do Recorder.start()
-do AudioPlayer.play("res://audio/stimuli/song_02F.wav")
 [next=2]
 set screen = "recording"
 [next=5]
@@ -548,8 +547,8 @@ System:
 System:
 - Begin song_02R
 set screen = "computer"
+do Sequencer.play_audio("res://audio/stimuli/song_02R.wav")
 do Recorder.start()
-do AudioPlayer.play("res://audio/stimuli/song_02R.wav")
 [next=2]
 set screen = "recording"
 [next=5]
@@ -568,8 +567,8 @@ System:
 System:
 - Begin song_03F
 set screen = "computer"
+do Sequencer.play_audio("res://audio/stimuli/song_03F.wav")
 do Recorder.start()
-do AudioPlayer.play("res://audio/stimuli/song_03F.wav")
 [next=2]
 set screen = "recording"
 [next=5]
@@ -588,8 +587,8 @@ System:
 System:
 - Begin song_03R
 set screen = "computer"
+do Sequencer.play_audio("res://audio/stimuli/song_03R.wav")
 do Recorder.start()
-do AudioPlayer.play("res://audio/stimuli/song_03R.wav")
 [next=2]
 set screen = "recording"
 [next=5]
@@ -608,8 +607,8 @@ System:
 System:
 - Begin song_04F
 set screen = "computer"
+do Sequencer.play_audio("res://audio/stimuli/song_04F.wav")
 do Recorder.start()
-do AudioPlayer.play("res://audio/stimuli/song_04F.wav")
 [next=2]
 set screen = "recording"
 [next=5]
@@ -628,8 +627,8 @@ System:
 System:
 - Begin song_04R
 set screen = "computer"
+do Sequencer.play_audio("res://audio/stimuli/song_04R.wav")
 do Recorder.start()
-do AudioPlayer.play("res://audio/stimuli/song_04R.wav")
 [next=2]
 set screen = "recording"
 [next=5]
@@ -648,8 +647,8 @@ System:
 System:
 - Begin song_05F
 set screen = "computer"
+do Sequencer.play_audio("res://audio/stimuli/song_05F.wav")
 do Recorder.start()
-do AudioPlayer.play("res://audio/stimuli/song_05F.wav")
 [next=2]
 set screen = "recording"
 [next=5]
@@ -668,8 +667,8 @@ System:
 System:
 - Begin song_05R
 set screen = "computer"
+do Sequencer.play_audio("res://audio/stimuli/song_05R.wav")
 do Recorder.start()
-do AudioPlayer.play("res://audio/stimuli/song_05R.wav")
 [next=2]
 set screen = "recording"
 [next=5]
@@ -688,8 +687,8 @@ System:
 System:
 - Begin song_06F
 set screen = "computer"
+do Sequencer.play_audio("res://audio/stimuli/song_06F.wav")
 do Recorder.start()
-do AudioPlayer.play("res://audio/stimuli/song_06F.wav")
 [next=2]
 set screen = "recording"
 [next=5]
@@ -708,8 +707,8 @@ System:
 System:
 - Begin song_06R
 set screen = "computer"
+do Sequencer.play_audio("res://audio/stimuli/song_06R.wav")
 do Recorder.start()
-do AudioPlayer.play("res://audio/stimuli/song_06R.wav")
 [next=2]
 set screen = "recording"
 [next=5]
@@ -728,8 +727,8 @@ System:
 System:
 - Begin song_07F
 set screen = "computer"
+do Sequencer.play_audio("res://audio/stimuli/song_07F.wav")
 do Recorder.start()
-do AudioPlayer.play("res://audio/stimuli/song_07F.wav")
 [next=2]
 set screen = "recording"
 [next=5]
@@ -748,8 +747,8 @@ System:
 System:
 - Begin song_07R
 set screen = "computer"
+do Sequencer.play_audio("res://audio/stimuli/song_07R.wav")
 do Recorder.start()
-do AudioPlayer.play("res://audio/stimuli/song_07R.wav")
 [next=2]
 set screen = "recording"
 [next=5]
@@ -768,8 +767,8 @@ System:
 System:
 - Begin song_08F
 set screen = "computer"
+do Sequencer.play_audio("res://audio/stimuli/song_08F.wav")
 do Recorder.start()
-do AudioPlayer.play("res://audio/stimuli/song_08F.wav")
 [next=2]
 set screen = "recording"
 [next=5]
@@ -788,8 +787,8 @@ System:
 System:
 - Begin song_08R
 set screen = "computer"
+do Sequencer.play_audio("res://audio/stimuli/song_08R.wav")
 do Recorder.start()
-do AudioPlayer.play("res://audio/stimuli/song_08R.wav")
 [next=2]
 set screen = "recording"
 [next=5]
@@ -808,8 +807,8 @@ System:
 System:
 - Begin song_09F
 set screen = "computer"
+do Sequencer.play_audio("res://audio/stimuli/song_09F.wav")
 do Recorder.start()
-do AudioPlayer.play("res://audio/stimuli/song_09F.wav")
 [next=2]
 set screen = "recording"
 [next=5]
@@ -828,8 +827,8 @@ System:
 System:
 - Begin song_09R
 set screen = "computer"
+do Sequencer.play_audio("res://audio/stimuli/song_09R.wav")
 do Recorder.start()
-do AudioPlayer.play("res://audio/stimuli/song_09R.wav")
 [next=2]
 set screen = "recording"
 [next=5]
@@ -848,8 +847,8 @@ System:
 System:
 - Begin song_10F
 set screen = "computer"
+do Sequencer.play_audio("res://audio/stimuli/song_10F.wav")
 do Recorder.start()
-do AudioPlayer.play("res://audio/stimuli/song_10F.wav")
 [next=2]
 set screen = "recording"
 [next=5]
@@ -868,8 +867,8 @@ System:
 System:
 - Begin song_10R
 set screen = "computer"
+do Sequencer.play_audio("res://audio/stimuli/song_10R.wav")
 do Recorder.start()
-do AudioPlayer.play("res://audio/stimuli/song_10R.wav")
 [next=2]
 set screen = "recording"
 [next=5]
@@ -888,8 +887,8 @@ System:
 System:
 - Begin song_11F
 set screen = "computer"
+do Sequencer.play_audio("res://audio/stimuli/song_11F.wav")
 do Recorder.start()
-do AudioPlayer.play("res://audio/stimuli/song_11F.wav")
 [next=2]
 set screen = "recording"
 [next=5]
@@ -908,8 +907,8 @@ System:
 System:
 - Begin song_11R
 set screen = "computer"
+do Sequencer.play_audio("res://audio/stimuli/song_11R.wav")
 do Recorder.start()
-do AudioPlayer.play("res://audio/stimuli/song_11R.wav")
 [next=2]
 set screen = "recording"
 [next=5]
@@ -928,8 +927,8 @@ System:
 System:
 - Begin song_12F
 set screen = "computer"
+do Sequencer.play_audio("res://audio/stimuli/song_12F.wav")
 do Recorder.start()
-do AudioPlayer.play("res://audio/stimuli/song_12F.wav")
 [next=2]
 set screen = "recording"
 [next=5]
@@ -948,8 +947,8 @@ System:
 System:
 - Begin song_12R
 set screen = "computer"
+do Sequencer.play_audio("res://audio/stimuli/song_12R.wav")
 do Recorder.start()
-do AudioPlayer.play("res://audio/stimuli/song_12R.wav")
 [next=2]
 set screen = "recording"
 [next=5]

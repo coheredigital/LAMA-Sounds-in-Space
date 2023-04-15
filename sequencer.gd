@@ -92,5 +92,6 @@ func move_character(progress: float, duration: float = 1.0) -> void:
 func move_star(star_number: int, progress: float, duration: float = 1.0) -> void:
 	star_moved.emit(star_number, progress, duration)
 
-
+func play_audio(file: String) -> void:
+	print('Playing audio file: %s' % file)
 
