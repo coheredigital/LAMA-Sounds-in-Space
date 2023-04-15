@@ -1,5 +1,6 @@
-import "res://dialogue/snippets/snippets.dialogue" as snippets
 import "res://dialogue/snippets/reset.dialogue" as reset
+import "res://dialogue/snippets/snippets.dialogue" as snippets
+
 
 ~ start
 System: ...[next=1]

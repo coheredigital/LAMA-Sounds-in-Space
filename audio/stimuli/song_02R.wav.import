@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://rsyswmsh1ebh"
-path="res://.godot/imported/02R_song.wav-3acddb18d25edbc22d7246399968e3e6.sample"
+path="res://.godot/imported/song_02R.wav-84eec14c1ca65fb77b6deb27f374eac4.sample"
 
 [deps]
 
-source_file="res://audio/stimuli/02R_song.wav"
-dest_files=["res://.godot/imported/02R_song.wav-3acddb18d25edbc22d7246399968e3e6.sample"]
+source_file="res://audio/stimuli/song_02R.wav"
+dest_files=["res://.godot/imported/song_02R.wav-84eec14c1ca65fb77b6deb27f374eac4.sample"]
 
 [params]
 

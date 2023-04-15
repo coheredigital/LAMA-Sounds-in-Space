@@ -1,0 +1,62 @@
+# example only, not implemented
+import "res://dialogue/stimuli/stimuli.dialogue" as stimuli
+
+~ order_A
+=>< stimuli/speech_01F
+=>< stimuli/speech_02R
+=>< stimuli/song_03F
+=>< stimuli/song_04R
+=>< stimuli/speech_05F
+=>< stimuli/speech_06R
+=>< stimuli/song_07F
+=>< stimuli/song_08R
+=>< stimuli/speech_09F
+=>< stimuli/speech_10R
+=>< stimuli/song_11F
+=>< stimuli/song_12R
+=> END
+
+~ order_B
+=>< stimuli/speech_01R
+=>< stimuli/speech_02F
+=>< stimuli/song_03R
+=>< stimuli/song_04F
+=>< stimuli/speech_05R
+=>< stimuli/speech_06F
+=>< stimuli/song_07R
+=>< stimuli/song_08F
+=>< stimuli/speech_09R
+=>< stimuli/speech_10F
+=>< stimuli/song_11R
+=>< stimuli/song_12F
+=> END
+
+~ order_C
+=>< stimuli/song_01F
+=>< stimuli/song_02R
+=>< stimuli/speech_03F
+=>< stimuli/speech_04R
+=>< stimuli/song_05F
+=>< stimuli/song_06R
+=>< stimuli/speech_07F
+=>< stimuli/speech_08R
+=>< stimuli/song_09F
+=>< stimuli/song_10R
+=>< stimuli/speech_11F
+=>< stimuli/speech_12R
+=> END
+
+~ order_D
+=>< stimuli/song_01R
+=>< stimuli/song_02F
+=>< stimuli/speech_03R
+=>< stimuli/speech_04F
+=>< stimuli/song_05R
+=>< stimuli/song_06F
+=>< stimuli/speech_07R
+=>< stimuli/speech_08F
+=>< stimuli/song_09R
+=>< stimuli/song_10F
+=>< stimuli/speech_11R
+=>< stimuli/speech_12F
+=> END

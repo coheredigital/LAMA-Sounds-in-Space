@@ -1,0 +1,821 @@
+# example only, not implemented
+
+
+# speech ================================================
+~ speech_01F
+set screen = "computer"
+do Recorder.start()
+do Stimuli.play("speech_01F")
+set screen = "recording"
+[next=5]
+System:
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save()
+- Failure
+	set screen = "failure"
+	do Recorder.stop()
+	=> speech_01F
+=> END
+
+~ speech_01R
+set screen = "computer"
+do Recorder.start()
+do Stimuli.play("speech_01R")
+set screen = "recording"
+[next=5]
+System:
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save()
+- Failure
+	set screen = "failure"
+	do Recorder.stop()
+	=> speech_01R
+=> END
+
+~ speech_02F
+set screen = "computer"
+do Recorder.start()
+do Stimuli.play("speech_02F")
+set screen = "recording"
+[next=5]
+System:
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save()
+- Failure
+	set screen = "failure"
+	do Recorder.stop()
+	=> speech_02F
+=> END
+
+~ speech_02R
+set screen = "computer"
+do Recorder.start()
+do Stimuli.play("speech_02R")
+set screen = "recording"
+[next=5]
+System:
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save()
+- Failure
+	set screen = "failure"
+	do Recorder.stop()
+	=> speech_02R
+=> END
+
+~ speech_03F
+set screen = "computer"
+do Recorder.start()
+do Stimuli.play("speech_03F")
+set screen = "recording"
+[next=5]
+System:
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save()
+- Failure
+	set screen = "failure"
+	do Recorder.stop()
+	=> speech_03F
+=> END
+
+~ speech_03R
+set screen = "computer"
+do Recorder.start()
+do Stimuli.play("speech_03R")
+set screen = "recording"
+[next=5]
+System:
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save()
+- Failure
+	set screen = "failure"
+	do Recorder.stop()
+	=> speech_03R
+=> END
+
+~ speech_04F
+set screen = "computer"
+do Recorder.start()
+do Stimuli.play("speech_04F")
+set screen = "recording"
+[next=5]
+System:
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save()
+- Failure
+	set screen = "failure"
+	do Recorder.stop()
+	=> speech_04F
+=> END
+
+~ speech_04R
+set screen = "computer"
+do Recorder.start()
+do Stimuli.play("speech_04R")
+set screen = "recording"
+[next=5]
+System:
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save()
+- Failure
+	set screen = "failure"
+	do Recorder.stop()
+	=> speech_04R
+=> END
+
+~ speech_05F
+set screen = "computer"
+do Recorder.start()
+do Stimuli.play("speech_05F")
+set screen = "recording"
+[next=5]
+System:
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save()
+- Failure
+	set screen = "failure"
+	do Recorder.stop()
+	=> speech_05F
+=> END
+
+~ speech_05R
+set screen = "computer"
+do Recorder.start()
+do Stimuli.play("speech_05R")
+set screen = "recording"
+[next=5]
+System:
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save()
+- Failure
+	set screen = "failure"
+	do Recorder.stop()
+	=> speech_05R
+=> END
+
+~ speech_06F
+set screen = "computer"
+do Recorder.start()
+do Stimuli.play("speech_06F")
+set screen = "recording"
+[next=5]
+System:
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save()
+- Failure
+	set screen = "failure"
+	do Recorder.stop()
+	=> speech_06F
+=> END
+
+~ speech_06R
+set screen = "computer"
+do Recorder.start()
+do Stimuli.play("speech_06R")
+set screen = "recording"
+[next=5]
+System:
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save()
+- Failure
+	set screen = "failure"
+	do Recorder.stop()
+	=> speech_06R
+=> END
+
+~ speech_07F
+set screen = "computer"
+do Recorder.start()
+do Stimuli.play("speech_07F")
+set screen = "recording"
+[next=5]
+System:
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save()
+- Failure
+	set screen = "failure"
+	do Recorder.stop()
+	=> speech_07F
+=> END
+
+~ speech_07R
+set screen = "computer"
+do Recorder.start()
+do Stimuli.play("speech_07R")
+set screen = "recording"
+[next=5]
+System:
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save()
+- Failure
+	set screen = "failure"
+	do Recorder.stop()
+	=> speech_07R
+=> END
+
+~ speech_08F
+set screen = "computer"
+do Recorder.start()
+do Stimuli.play("speech_08F")
+set screen = "recording"
+[next=5]
+System:
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save()
+- Failure
+	set screen = "failure"
+	do Recorder.stop()
+	=> speech_08F
+=> END
+
+~ speech_08R
+set screen = "computer"
+do Recorder.start()
+do Stimuli.play("speech_08R")
+set screen = "recording"
+[next=5]
+System:
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save()
+- Failure
+	set screen = "failure"
+	do Recorder.stop()
+	=> speech_08R
+=> END
+
+~ speech_09F
+set screen = "computer"
+do Recorder.start()
+do Stimuli.play("speech_09F")
+set screen = "recording"
+[next=5]
+System:
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save()
+- Failure
+	set screen = "failure"
+	do Recorder.stop()
+	=> speech_09F
+=> END
+
+~ speech_09R
+set screen = "computer"
+do Recorder.start()
+do Stimuli.play("speech_09R")
+set screen = "recording"
+[next=5]
+System:
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save()
+- Failure
+	set screen = "failure"
+	do Recorder.stop()
+	=> speech_09R
+=> END
+
+~ speech_10F
+set screen = "computer"
+do Recorder.start()
+do Stimuli.play("speech_10F")
+set screen = "recording"
+[next=5]
+System:
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save()
+- Failure
+	set screen = "failure"
+	do Recorder.stop()
+	=> speech_10F
+=> END
+
+~ speech_10R
+set screen = "computer"
+do Recorder.start()
+do Stimuli.play("speech_10R")
+set screen = "recording"
+[next=5]
+System:
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save()
+- Failure
+	set screen = "failure"
+	do Recorder.stop()
+	=> speech_10R
+=> END
+
+~ speech_11F
+set screen = "computer"
+do Recorder.start()
+do Stimuli.play("speech_11F")
+set screen = "recording"
+[next=5]
+System:
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save()
+- Failure
+	set screen = "failure"
+	do Recorder.stop()
+	=> speech_11F
+=> END
+
+~ speech_11R
+set screen = "computer"
+do Recorder.start()
+do Stimuli.play("speech_11R")
+set screen = "recording"
+[next=5]
+System:
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save()
+- Failure
+	set screen = "failure"
+	do Recorder.stop()
+	=> speech_11R
+=> END
+
+~ speech_12F
+set screen = "computer"
+do Recorder.start()
+do Stimuli.play("speech_12F")
+set screen = "recording"
+[next=5]
+System:
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save()
+- Failure
+	set screen = "failure"
+	do Recorder.stop()
+	=> speech_12F
+=> END
+
+~ speech_12R
+set screen = "computer"
+do Recorder.start()
+do Stimuli.play("speech_12R")
+set screen = "recording"
+[next=5]
+System:
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save()
+- Failure
+	set screen = "failure"
+	do Recorder.stop()
+	=> speech_12R
+=> END
+
+
+# song ================================================
+~ song_01F
+set screen = "computer"
+do Recorder.start()
+do Stimuli.play("song_01F")
+set screen = "recording"
+[next=5]
+System:
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save()
+- Failure
+	set screen = "failure"
+	do Recorder.stop()
+	=> song_01F
+=> END
+
+~ song_01R
+set screen = "computer"
+do Recorder.start()
+do Stimuli.play("song_01R")
+set screen = "recording"
+[next=5]
+System:
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save()
+- Failure
+	set screen = "failure"
+	do Recorder.stop()
+	=> song_01R
+=> END
+
+~ song_02F
+set screen = "computer"
+do Recorder.start()
+do Stimuli.play("song_02F")
+set screen = "recording"
+[next=5]
+System:
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save()
+- Failure
+	set screen = "failure"
+	do Recorder.stop()
+	=> song_02F
+=> END
+
+~ song_02R
+set screen = "computer"
+do Recorder.start()
+do Stimuli.play("song_02R")
+set screen = "recording"
+[next=5]
+System:
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save()
+- Failure
+	set screen = "failure"
+	do Recorder.stop()
+	=> song_02R
+=> END
+
+~ song_03F
+set screen = "computer"
+do Recorder.start()
+do Stimuli.play("song_03F")
+set screen = "recording"
+[next=5]
+System:
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save()
+- Failure
+	set screen = "failure"
+	do Recorder.stop()
+	=> song_03F
+=> END
+
+~ song_03R
+set screen = "computer"
+do Recorder.start()
+do Stimuli.play("song_03R")
+set screen = "recording"
+[next=5]
+System:
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save()
+- Failure
+	set screen = "failure"
+	do Recorder.stop()
+	=> song_03R
+=> END
+
+~ song_04F
+set screen = "computer"
+do Recorder.start()
+do Stimuli.play("song_04F")
+set screen = "recording"
+[next=5]
+System:
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save()
+- Failure
+	set screen = "failure"
+	do Recorder.stop()
+	=> song_04F
+=> END
+
+~ song_04R
+set screen = "computer"
+do Recorder.start()
+do Stimuli.play("song_04R")
+set screen = "recording"
+[next=5]
+System:
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save()
+- Failure
+	set screen = "failure"
+	do Recorder.stop()
+	=> song_04R
+=> END
+
+~ song_05F
+set screen = "computer"
+do Recorder.start()
+do Stimuli.play("song_05F")
+set screen = "recording"
+[next=5]
+System:
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save()
+- Failure
+	set screen = "failure"
+	do Recorder.stop()
+	=> song_05F
+=> END
+
+~ song_05R
+set screen = "computer"
+do Recorder.start()
+do Stimuli.play("song_05R")
+set screen = "recording"
+[next=5]
+System:
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save()
+- Failure
+	set screen = "failure"
+	do Recorder.stop()
+	=> song_05R
+=> END
+
+~ song_06F
+set screen = "computer"
+do Recorder.start()
+do Stimuli.play("song_06F")
+set screen = "recording"
+[next=5]
+System:
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save()
+- Failure
+	set screen = "failure"
+	do Recorder.stop()
+	=> song_06F
+=> END
+
+~ song_06R
+set screen = "computer"
+do Recorder.start()
+do Stimuli.play("song_06R")
+set screen = "recording"
+[next=5]
+System:
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save()
+- Failure
+	set screen = "failure"
+	do Recorder.stop()
+	=> song_06R
+=> END
+
+~ song_07F
+set screen = "computer"
+do Recorder.start()
+do Stimuli.play("song_07F")
+set screen = "recording"
+[next=5]
+System:
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save()
+- Failure
+	set screen = "failure"
+	do Recorder.stop()
+	=> song_07F
+=> END
+
+~ song_07R
+set screen = "computer"
+do Recorder.start()
+do Stimuli.play("song_07R")
+set screen = "recording"
+[next=5]
+System:
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save()
+- Failure
+	set screen = "failure"
+	do Recorder.stop()
+	=> song_07R
+=> END
+
+~ song_08F
+set screen = "computer"
+do Recorder.start()
+do Stimuli.play("song_08F")
+set screen = "recording"
+[next=5]
+System:
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save()
+- Failure
+	set screen = "failure"
+	do Recorder.stop()
+	=> song_08F
+=> END
+
+~ song_08R
+set screen = "computer"
+do Recorder.start()
+do Stimuli.play("song_08R")
+set screen = "recording"
+[next=5]
+System:
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save()
+- Failure
+	set screen = "failure"
+	do Recorder.stop()
+	=> song_08R
+=> END
+
+~ song_09F
+set screen = "computer"
+do Recorder.start()
+do Stimuli.play("song_09F")
+set screen = "recording"
+[next=5]
+System:
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save()
+- Failure
+	set screen = "failure"
+	do Recorder.stop()
+	=> song_09F
+=> END
+
+~ song_09R
+set screen = "computer"
+do Recorder.start()
+do Stimuli.play("song_09R")
+set screen = "recording"
+[next=5]
+System:
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save()
+- Failure
+	set screen = "failure"
+	do Recorder.stop()
+	=> song_09R
+=> END
+
+~ song_10F
+set screen = "computer"
+do Recorder.start()
+do Stimuli.play("song_10F")
+set screen = "recording"
+[next=5]
+System:
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save()
+- Failure
+	set screen = "failure"
+	do Recorder.stop()
+	=> song_10F
+=> END
+
+~ song_10R
+set screen = "computer"
+do Recorder.start()
+do Stimuli.play("song_10R")
+set screen = "recording"
+[next=5]
+System:
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save()
+- Failure
+	set screen = "failure"
+	do Recorder.stop()
+	=> song_10R
+=> END
+
+~ song_11F
+set screen = "computer"
+do Recorder.start()
+do Stimuli.play("song_11F")
+set screen = "recording"
+[next=5]
+System:
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save()
+- Failure
+	set screen = "failure"
+	do Recorder.stop()
+	=> song_11F
+=> END
+
+~ song_11R
+set screen = "computer"
+do Recorder.start()
+do Stimuli.play("song_11R")
+set screen = "recording"
+[next=5]
+System:
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save()
+- Failure
+	set screen = "failure"
+	do Recorder.stop()
+	=> song_11R
+=> END
+
+~ song_12F
+set screen = "computer"
+do Recorder.start()
+do Stimuli.play("song_12F")
+set screen = "recording"
+[next=5]
+System:
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save()
+- Failure
+	set screen = "failure"
+	do Recorder.stop()
+	=> song_12F
+=> END
+
+~ song_12R
+set screen = "computer"
+do Recorder.start()
+do Stimuli.play("song_12R")
+set screen = "recording"
+[next=5]
+System:
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save()
+- Failure
+	set screen = "failure"
+	do Recorder.stop()
+	=> song_12R
+=> END

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://3f8ybf0wrtrp"
-path="res://.godot/imported/01R_speech.wav-95e033ff1a2b75b021d37415ce79632a.sample"
+path="res://.godot/imported/speech_01R.wav-ce5134f3dfc16986d6afe63f30afa256.sample"
 
 [deps]
 
-source_file="res://audio/stimuli/01R_speech.wav"
-dest_files=["res://.godot/imported/01R_speech.wav-95e033ff1a2b75b021d37415ce79632a.sample"]
+source_file="res://audio/stimuli/speech_01R.wav"
+dest_files=["res://.godot/imported/speech_01R.wav-ce5134f3dfc16986d6afe63f30afa256.sample"]
 
 [params]
 
