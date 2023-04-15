@@ -1,17 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bi2ttsoa7h87g"]
+[gd_scene load_steps=2 format=3 uid="uid://bi2ttsoa7h87g"]
 
 [ext_resource type="Script" path="res://components/remote_follow_path.gd" id="1_kh2yt"]
 
-[sub_resource type="Curve3D" id="Curve3D_kynho"]
-_data = {
-"points": PackedVector3Array(-0.554544, 0.0272059, -1.16757, 0.554544, -0.0272059, 1.16757, 0, 0, 0, 0.458369, -0.00116797, -0.583866, -0.458369, 0.00116797, 0.583866, -1.6151, -0.066613, 0.330265, 0, 0, 0, 0, 0, 0, -0.368817, -0.419608, 2.96665),
-"tilts": PackedFloat32Array(0, 0, 0)
-}
-point_count = 3
-
 [node name="RemoteFollowPath" type="Path3D"]
 transform = Transform3D(0.999756, 0.0221115, 0, -0.0221115, 0.999756, 0, 0, 0, 1, 0, 0, 0)
-curve = SubResource("Curve3D_kynho")
 script = ExtResource("1_kh2yt")
 
 [node name="PathFollow" type="PathFollow3D" parent="."]

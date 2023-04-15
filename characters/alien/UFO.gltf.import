@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://d0f416j3xmved"
-path="res://.godot/imported/ufo.gltf-d10fc651e99c842a4c38a8d2f5e9aada.scn"
+path="res://.godot/imported/UFO.gltf-dda74202a6768d5442965055af11287f.scn"
 
 [deps]
 
-source_file="res://characters/alien/ufo.gltf"
-dest_files=["res://.godot/imported/ufo.gltf-d10fc651e99c842a4c38a8d2f5e9aada.scn"]
+source_file="res://characters/alien/UFO.gltf"
+dest_files=["res://.godot/imported/UFO.gltf-dda74202a6768d5442965055af11287f.scn"]
 
 [params]
 

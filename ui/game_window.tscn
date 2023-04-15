@@ -125,7 +125,7 @@ transform = Transform3D(-0.795271, -0.580902, -0.173071, -0.556856, 0.812974, -0
 transform = Transform3D(-0.95602, 0.164082, -0.242466, 0.168572, 0.985514, 0.00227533, 0.239367, -0.0387031, -0.969999, 64.0125, -11.2871, 1)
 
 [node name="Character" parent="ViewportContainer/Viewport" instance=ExtResource("6_8i88j")]
-transform = Transform3D(0.730263, 6.04977e-09, 0.682958, -1.11736e-08, 0.999799, -9.31135e-10, -0.682958, -7.03287e-09, 0.730263, -6.69042, 0.916825, -1.52389)
+transform = Transform3D(0.609607, 6.41882e-09, -0.792501, -1.11736e-08, 0.999798, -9.31135e-10, 0.792502, 6.69753e-09, 0.609599, -9.15586, 1.06985, -2.33581)
 action = "talking"
 
 [node name="Player" parent="ViewportContainer/Viewport" instance=ExtResource("7_mwy2h")]
@@ -135,16 +135,16 @@ max_distance = 2.9
 view_progress = 0.0
 
 [node name="Camera3D" parent="ViewportContainer/Viewport/Player" index="0"]
-transform = Transform3D(0.899792, 0.00560823, -0.436283, -6.98492e-10, 0.999917, 0.0128535, 0.436319, -0.0115655, 0.899718, -10.8949, 2.63937, 4.35122)
+transform = Transform3D(0.881697, 0.00556332, -0.471783, 5.12227e-09, 0.999931, 0.0117913, 0.471816, -0.0103964, 0.881636, -10.8996, 2.627, 4.35253)
 
 [node name="PositionTarget" parent="ViewportContainer/Viewport/Player/PositionPath" index="0"]
-transform = Transform3D(-0.126773, 0.0899251, 0.987679, 0, 0.995703, -0.0906579, -0.991775, -0.0114947, -0.12625, -5.51051, 0.735448, 4.31367)
+transform = Transform3D(-0.235318, -0.0501191, 0.970455, 0, 0.998491, 0.0515683, -0.971758, 0.0121367, -0.235002, -5.51523, 0.723082, 4.31498)
 
 [node name="ViewPath" parent="ViewportContainer/Viewport/Player" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.518, 1.91301, -1.34113)
 
 [node name="ViewTarget" parent="ViewportContainer/Viewport/Player/ViewPath" index="0"]
-transform = Transform3D(0.10317, -0.0292764, 0.994086, -1.04443e-09, 0.999397, 0.0294342, -0.994523, -0.00303707, 0.103124, -1.16541, 0.661206, 1.13184)
+transform = Transform3D(-0.508661, -0.02534, 0.860426, -2.79358e-09, 0.999397, 0.0294342, -0.860804, 0.0149738, -0.508438, -1.26955, 0.661206, 1.74684)
 progress = 0.0
 
 [node name="CharacterPath" parent="ViewportContainer/Viewport" instance=ExtResource("6_3ngje")]
