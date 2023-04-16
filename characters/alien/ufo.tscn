@@ -1,12 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://bbugqyxo4xw7n"]
+[gd_scene load_steps=6 format=3 uid="uid://bbugqyxo4xw7n"]
 
 [ext_resource type="PackedScene" uid="uid://d0f416j3xmved" path="res://characters/alien/ufo.gltf" id="1_1cqd3"]
 [ext_resource type="PackedScene" uid="uid://bq23ckwovuhf4" path="res://characters/alien/alien.tscn" id="2_dwwl8"]
+[ext_resource type="Material" uid="uid://eivgxthmke74" path="res://characters/alien/materials/ufo_beam_material.tres" id="3_ju5pg"]
+
+[sub_resource type="Animation" id="Animation_f1na4"]
+resource_name = "idle"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6s5j1"]
+_data = {
+"idle": SubResource("Animation_f1na4")
+}
 
 [node name="ufo" instance=ExtResource("1_1cqd3")]
 
-[node name="Alien" parent="." index="0" instance=ExtResource("2_dwwl8")]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
+libraries = {
+"": SubResource("AnimationLibrary_6s5j1")
+}
+
+[node name="Alien" parent="." index="1" instance=ExtResource("2_dwwl8")]
 transform = Transform3D(-0.999752, 0, -0.0222685, 0, 1, 0, 0.0222685, 0, -0.999752, 0.0931226, -0.0327476, -0.00207422)
 
-[node name="BeamTransform" type="RemoteTransform3D" parent="." index="2"]
+[node name="beam" parent="ufo" index="2"]
+surface_material_override/0 = ExtResource("3_ju5pg")
+
+[node name="BeamTransform" type="RemoteTransform3D" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.14404, 0)
