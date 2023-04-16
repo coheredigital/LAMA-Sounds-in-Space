@@ -13,8 +13,6 @@ set character_position = 0.2
 => END
 
 ~ player
-set player_position = 0.0
-set player_view = 0.1
 set player_position = 0.31
 set player_view = 0.23
 => END
