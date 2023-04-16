@@ -1,7 +1,22 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://eivgxthmke74"]
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://eivgxthmke74"]
 
 [ext_resource type="Shader" path="res://shaders/toon_alpha.gdshader" id="1_ijmp4"]
+[ext_resource type="Texture2D" uid="uid://dcehynsjedtb8" path="res://characters/alien/materials/ufo_alpha.png" id="2_l0qoh"]
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_ijmp4")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/specular = 0.5
+shader_parameter/specular_amount = 0.5
+shader_parameter/specular_smoothness = 0.05
+shader_parameter/rim = 0.5
+shader_parameter/rim_amount = 0.2
+shader_parameter/rim_smoothness = 0.05
+shader_parameter/wrap = 0.32
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 1.0
+shader_parameter/emission = Color(0, 0, 0, 1)
+shader_parameter/emission_energy = 0.483
+shader_parameter/albedo_texture = ExtResource("2_l0qoh")
+shader_parameter/emission_texture = ExtResource("2_l0qoh")

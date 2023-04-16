@@ -6,7 +6,7 @@ extends Path3D
 		progress = value
 		update_progress(value)
 
-@export_range (0.0, 1.0, 0.01) var progress_ratio := 0.0 :
+@export_range (0.0, 1.0, 0.001) var progress_ratio := 0.0 :
 	set(value):
 		progress_ratio = value
 		update_progress_ratio(value)
