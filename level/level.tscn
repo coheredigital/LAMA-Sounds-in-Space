@@ -236,7 +236,7 @@ tracks/12/keys = {
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("Environment/Ground/PlanetStardust:visible")
+tracks/13/path = NodePath("PlanetStardust:visible")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
@@ -248,7 +248,7 @@ tracks/13/keys = {
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("Environment/Ground/SpaceStation:visible")
+tracks/14/path = NodePath("SpaceStation:visible")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
@@ -298,28 +298,6 @@ tracks/17/keys = {
 _data = {
 "RESET": SubResource("Animation_k5ml7")
 }
-
-[sub_resource type="SphereMesh" id="3833"]
-radius = 4.0
-height = 8.0
-radial_segments = 32
-rings = 16
-
-[sub_resource type="SphereMesh" id="3821"]
-radius = 64.0
-height = 128.0
-
-[sub_resource type="FogMaterial" id="FogMaterial_2rfwg"]
-density = 0.1192
-albedo = Color(0.529412, 0.564706, 0.909804, 1)
-emission = Color(0.417038, 0.428295, 0.759765, 1)
-edge_fade = 0.857421
-
-[sub_resource type="FogMaterial" id="FogMaterial_m0jcv"]
-density = 0.0433
-albedo = Color(0.454902, 0.482353, 0.890196, 1)
-emission = Color(0.417038, 0.428295, 0.759765, 1)
-edge_fade = 0.857421
 
 [sub_resource type="BoxMesh" id="BoxMesh_fo1lf"]
 size = Vector3(16, 16, 16)
@@ -425,6 +403,28 @@ shader_parameter/roughness = 1.0
 shader_parameter/emission = Color(0, 0, 0, 1)
 shader_parameter/emission_energy = 1.0
 
+[sub_resource type="SphereMesh" id="3833"]
+radius = 4.0
+height = 8.0
+radial_segments = 32
+rings = 16
+
+[sub_resource type="SphereMesh" id="3821"]
+radius = 64.0
+height = 128.0
+
+[sub_resource type="FogMaterial" id="FogMaterial_2rfwg"]
+density = 0.1192
+albedo = Color(0.529412, 0.564706, 0.909804, 1)
+emission = Color(0.417038, 0.428295, 0.759765, 1)
+edge_fade = 0.857421
+
+[sub_resource type="FogMaterial" id="FogMaterial_m0jcv"]
+density = 0.0433
+albedo = Color(0.454902, 0.482353, 0.890196, 1)
+emission = Color(0.417038, 0.428295, 0.759765, 1)
+edge_fade = 0.857421
+
 [sub_resource type="Curve3D" id="Curve3D_w65o5"]
 _data = {
 "points": PackedVector3Array(18, 3, 73, -18, -3, -73, 65, 3.39002e-06, 1, 11, -30, -15, -11, 30, 15, 4.17927, -6.09146, -41.0783, 8, -4, -6, -8, 4, 6, 6.8255, -0.440375, -22.0504, 0, 0, 0, 0, 0, 0, 15.1835, -0.501707, 22.8956),
@@ -453,42 +453,223 @@ libraries = {
 [node name="RumbleController" type="Node" parent="."]
 script = ExtResource("2_gas8d")
 
-[node name="AlienFollowPath" parent="." instance=ExtResource("8_xybyf")]
+[node name="FollowPaths" type="Node3D" parent="."]
+
+[node name="AlienFollowPath" parent="FollowPaths" instance=ExtResource("8_xybyf")]
 transform = Transform3D(0.999756, 0.0221115, 0, -0.0221115, 0.999756, 0, 0, 0, 1, 0.0914083, 0.686559, -5.2774)
 curve = ExtResource("5_8sic0")
 
-[node name="PathFollow" parent="AlienFollowPath" index="0"]
+[node name="PathFollow" parent="FollowPaths/AlienFollowPath" index="0"]
 transform = Transform3D(-0.906812, 0, 0.42112, 0, 0.999828, 0, -0.42112, 0, -0.906812, 0.475702, 0.271153, 0.110254)
 
-[node name="RemoteTransform3D" parent="AlienFollowPath/PathFollow" index="1"]
+[node name="RemoteTransform3D" parent="FollowPaths/AlienFollowPath/PathFollow" index="1"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
-remote_path = NodePath("../../../Environment/Ground/PlanetStardust/Alien")
+remote_path = NodePath("../../../../PlanetStardust/Alien")
 
-[node name="LamaFollowPath" parent="." instance=ExtResource("8_xybyf")]
+[node name="LamaFollowPath" parent="FollowPaths" instance=ExtResource("8_xybyf")]
 transform = Transform3D(0.999756, 0.0221115, 0, -0.0221115, 0.999756, 0, 0, 0, 1, 0, 0.796263, -5.25099)
 curve = ExtResource("6_4mufo")
 
-[node name="PathFollow" parent="LamaFollowPath" index="0"]
-transform = Transform3D(-0.531284, 0, -0.847027, 0, 0.999818, 0, 0.847027, 0, -0.531284, -1.10286, 0.465399, -0.0335197)
+[node name="PathFollow" parent="FollowPaths/LamaFollowPath" index="0"]
+transform = Transform3D(-0.531294, 0, -0.847043, 0, 0.999818, 0, 0.847043, 0, -0.531294, -1.10286, 0.465399, -0.0335197)
 
-[node name="RemoteTransform3D" parent="LamaFollowPath/PathFollow" index="1"]
-remote_path = NodePath("../../../Environment/Ground/PlanetStardust/Lama")
+[node name="RemoteTransform3D" parent="FollowPaths/LamaFollowPath/PathFollow" index="1"]
+remote_path = NodePath("../../../../PlanetStardust/Lama")
 
-[node name="UfoFollowPath" parent="." instance=ExtResource("8_xybyf")]
+[node name="UfoFollowPath" parent="FollowPaths" instance=ExtResource("8_xybyf")]
 transform = Transform3D(0.999756, 0.0221115, 0, -0.0221115, 0.999756, 0, 0, 0, 1, 0.0484185, 2.98547, -9.15046)
 curve = ExtResource("7_a8kou")
-progress = 14.5
+progress = 17.5
 progress_ratio = 0.327
 
-[node name="PathFollow" parent="UfoFollowPath" index="0"]
-transform = Transform3D(-0.164993, -0.0970225, -0.98136, 0.014622, 0.994633, -0.100797, 0.986034, -0.0309843, -0.162716, -12.2933, -0.281254, -8.27422)
-progress = 14.5
+[node name="PathFollow" parent="FollowPaths/UfoFollowPath" index="0"]
+transform = Transform3D(-0.510022, -0.100373, -0.854117, -0.0253624, 0.994319, -0.101711, 0.859621, -0.0302156, -0.509758, -15.1746, -0.594242, -8.87662)
+progress = 17.5
 rotation_mode = 3
 
-[node name="RemoteTransform3D" parent="UfoFollowPath/PathFollow" index="1"]
-remote_path = NodePath("../../../Environment/Ground/PlanetStardust/ufo")
+[node name="RemoteTransform3D" parent="FollowPaths/UfoFollowPath/PathFollow" index="1"]
+remote_path = NodePath("../../../../PlanetStardust/ufo")
 
 [node name="Spaceship" parent="." instance=ExtResource("2_ovpdl")]
+
+[node name="SpaceStation" parent="." instance=ExtResource("6_7tl8n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.038, 0)
+visible = false
+
+[node name="buildings" type="Node3D" parent="SpaceStation"]
+
+[node name="starmap" parent="SpaceStation/buildings" instance=ExtResource("17_molb0")]
+transform = Transform3D(1, 5.06573e-05, -0.000327756, 0, 0.988266, 0.152744, 0.000331648, -0.152744, 0.988266, -9.8813, 1.8689, -8.66658)
+
+[node name="starmap2" parent="SpaceStation/buildings" instance=ExtResource("17_molb0")]
+transform = Transform3D(1, 5.06573e-05, -0.000327756, 0, 0.988266, 0.152744, 0.000331648, -0.152744, 0.988266, -7.2527, 1.8689, -8.66571)
+
+[node name="starmap3" parent="SpaceStation/buildings" instance=ExtResource("17_molb0")]
+transform = Transform3D(1, 5.06573e-05, -0.000327756, 0, 0.988266, 0.152744, 0.000331648, -0.152744, 0.988266, -12.4903, 1.8689, -8.66744)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SpaceStation/buildings"]
+transform = Transform3D(1, 0, 0, 0, 2.32323, 0, 0, 0, 1, 26.6242, 0, 21.5771)
+mesh = SubResource("BoxMesh_fo1lf")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_85duv")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="SpaceStation/buildings"]
+transform = Transform3D(1, 0, 0, 0, 1.51698, 0, 0, 0, 3.56057, 26.6242, -10.8923, 21.5771)
+mesh = SubResource("BoxMesh_fo1lf")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_85duv")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="SpaceStation/buildings"]
+transform = Transform3D(0.115715, 0, 1.27663, 0, 1.91438, 0, -0.911629, 0, 0.162046, 19.2072, -4.95456, -51.6809)
+mesh = SubResource("BoxMesh_fo1lf")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_85duv")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="SpaceStation/buildings"]
+transform = Transform3D(-0.116136, 0, 1.26849, 0, 1.67592, 0, -0.819915, 0, -0.179675, -14.6257, -6.17549, -39.8133)
+mesh = SubResource("BoxMesh_fo1lf")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_85duv")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="SpaceStation/buildings"]
+transform = Transform3D(-0.123483, 0, 0.70199, 0, 2.54568, 0, -0.87178, 0, -0.099433, 25.5903, 7.19297, -28.9712)
+mesh = SubResource("BoxMesh_fo1lf")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_85duv")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="SpaceStation/buildings"]
+transform = Transform3D(-1.91564, 0, 17.0585, 0, 0.750532, 0, -13.5243, 0, -2.41624, -14.6257, -6.17549, -6.46065)
+mesh = SubResource("BoxMesh_fo1lf")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_6uwuf")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="SpaceStation/buildings"]
+transform = Transform3D(1, 0, 0, 0, 2.32323, 0, 0, 0, 1.55228, 47.1145, 0, -15.575)
+mesh = SubResource("BoxMesh_fo1lf")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_85duv")
+
+[node name="computer" type="MeshInstance3D" parent="SpaceStation/buildings"]
+transform = Transform3D(0.671501, 0, -0.741004, 0, 1, 0, 0.741004, 0, 0.671501, -5.40692, 0.888599, -1.34006)
+mesh = SubResource("ArrayMesh_8sm36")
+skeleton = NodePath("")
+
+[node name="starmap_main" parent="SpaceStation/buildings/computer" instance=ExtResource("17_molb0")]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 0.990926, 0.134419, 0, -0.134419, 0.990925, -0.00192213, 0.996238, -0.047621)
+
+[node name="PlanetStardust" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.038, 0)
+
+[node name="Alien" parent="PlanetStardust" instance=ExtResource("8_bs0lj")]
+transform = Transform3D(0.906591, 0.0221077, -0.421017, -0.020051, 0.999584, 0.0093116, 0.42112, 0, 0.906812, 0.57299, 0.909127, -5.16715)
+
+[node name="Lama" parent="PlanetStardust" instance=ExtResource("8_t1ik6")]
+transform = Transform3D(-0.510458, -0.0783624, -0.856158, -0.0140789, 0.996296, -0.0827999, 0.859621, -0.0302156, -0.509758, -14.9343, 0.128358, -17.9494)
+
+[node name="mountains" type="Node3D" parent="PlanetStardust"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlanetStardust/mountains"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.64582, -54.4001)
+mesh = SubResource("PrismMesh_ppcw0")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_mx1rk")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="PlanetStardust/mountains"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.8558, 2.4856, -54.4001)
+mesh = SubResource("PrismMesh_ppcw0")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_mx1rk")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="PlanetStardust/mountains"]
+transform = Transform3D(-1.63863, 0, -0.618833, 0, 1, 0, 1.29091, 0, -0.785522, -4.72388, 3.68456, -51.363)
+mesh = SubResource("PrismMesh_ppcw0")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_mx1rk")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="PlanetStardust/mountains"]
+transform = Transform3D(-1.63863, 0, -0.618833, 0, 1, 0, 1.29091, 0, -0.785522, -4.72388, -2.25591, -42.822)
+mesh = SubResource("PlaneMesh_mdyc1")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_v77p2")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="PlanetStardust/mountains"]
+transform = Transform3D(-1.41737, 0, 0.159165, 0, 0.566791, 0, -0.248085, 0, -0.909351, 9.44273, 5.58556, -54.8703)
+mesh = SubResource("PrismMesh_ppcw0")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_mx1rk")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="PlanetStardust/mountains"]
+transform = Transform3D(-1.41737, 0, 0.159165, 0, 0.566791, 0, -0.248085, 0, -0.909351, -14.559, 2.6608, -57.7764)
+mesh = SubResource("PrismMesh_ppcw0")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_mx1rk")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="PlanetStardust/mountains"]
+transform = Transform3D(2.55722, 0, 0.574305, 0, 0.566791, 0, -1.37709, 0, 1.06647, 16.9262, 3.34036, -57.0474)
+mesh = SubResource("PrismMesh_ppcw0")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_mx1rk")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="PlanetStardust/mountains"]
+transform = Transform3D(2.55722, 0, 0.574305, 0, 0.566791, 0, -1.37709, 0, 1.06647, 19.0549, -0.0266432, -65.4605)
+mesh = SubResource("PlaneMesh_mdyc1")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_v77p2")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="PlanetStardust/mountains"]
+transform = Transform3D(0.944181, 0, -0.329427, 0, 0.572169, 0, 0.329427, 0, 0.944181, -4.39684, 0.428538, -31.0769)
+mesh = SubResource("PrismMesh_ppcw0")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_mx1rk")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="PlanetStardust/mountains"]
+transform = Transform3D(0.944181, 0, -0.329427, 0, 0.572169, 0, 0.329427, 0, 0.944181, 11.5181, -2.52398, -25.5242)
+mesh = SubResource("PrismMesh_ppcw0")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_mx1rk")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="PlanetStardust/mountains"]
+transform = Transform3D(-1.97242, 0, -0.325519, 0, 0.572169, 0, 0.679044, 0, -0.945536, -9.85752, -1.83797, -29.7656)
+mesh = SubResource("PrismMesh_ppcw0")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_mx1rk")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="PlanetStardust/mountains"]
+transform = Transform3D(-1.97242, 0, -0.325519, 0, 0.572169, 0, 0.679044, 0, -0.945536, -12.6711, -5.23692, -21.7014)
+mesh = SubResource("PlaneMesh_mdyc1")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_v77p2")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="PlanetStardust/mountains"]
+transform = Transform3D(-1.25653, 0, 0.449845, 0, 0.3243, 0, -0.701157, 0, -0.806159, 4.67372, -0.750277, -28.4103)
+mesh = SubResource("PrismMesh_ppcw0")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_mx1rk")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="PlanetStardust/mountains"]
+transform = Transform3D(-1.25653, 0, 0.449845, 0, 0.3243, 0, -0.701157, 0, -0.806159, -17.0309, -2.42374, -39.061)
+mesh = SubResource("PrismMesh_ppcw0")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_mx1rk")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="PlanetStardust/mountains"]
+transform = Transform3D(2.86813, 0, 0.190925, 0, 0.3243, 0, -0.457808, 0, 1.19613, 12.4567, -2.03491, -28.0006)
+mesh = SubResource("PrismMesh_ppcw0")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_mx1rk")
+
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="PlanetStardust/mountains"]
+transform = Transform3D(2.86813, 0, 0.190925, 0, 0.3243, 0, -0.457808, 0, 1.19613, 17.2381, -3.96141, -35.2428)
+mesh = SubResource("PlaneMesh_mdyc1")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_v77p2")
+
+[node name="ufo" parent="PlanetStardust" instance=ExtResource("19_rgdib")]
+transform = Transform3D(-0.510458, -0.0783624, -0.856158, -0.0140789, 0.996296, -0.0827999, 0.859621, -0.0302156, -0.509758, -15.1357, 2.68891, -18.0271)
+
+[node name="BeamTransform" parent="PlanetStardust/ufo" index="3"]
+transform = Transform3D(1, 4.65661e-10, 0, 9.31323e-10, 1, 7.45058e-09, -7.45058e-09, 1.49012e-08, 1, 5.96046e-08, -2.57007, 9.53674e-07)
+remote_path = NodePath("../../Lama")
 
 [node name="Planet" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.249969, 0, -0.00392246, 0, 0.25, 0, 0.00392246, 0, -0.249969, 3.72275, 28.7924, -54.9282)
@@ -543,182 +724,9 @@ size = Vector3(156.062, 47.7636, 75.441)
 shape = 0
 material = SubResource("FogMaterial_m0jcv")
 
-[node name="SpaceStation" parent="Environment/Ground" instance=ExtResource("6_7tl8n")]
-visible = false
+[node name="PlanetTransform" type="RemoteTransform3D" parent="Environment/Ground"]
 
-[node name="buildings" type="Node3D" parent="Environment/Ground/SpaceStation"]
-
-[node name="starmap" parent="Environment/Ground/SpaceStation/buildings" instance=ExtResource("17_molb0")]
-transform = Transform3D(1, 5.06573e-05, -0.000327756, 0, 0.988266, 0.152744, 0.000331648, -0.152744, 0.988266, -9.8813, 1.8689, -8.66658)
-
-[node name="starmap2" parent="Environment/Ground/SpaceStation/buildings" instance=ExtResource("17_molb0")]
-transform = Transform3D(1, 5.06573e-05, -0.000327756, 0, 0.988266, 0.152744, 0.000331648, -0.152744, 0.988266, -7.2527, 1.8689, -8.66571)
-
-[node name="starmap3" parent="Environment/Ground/SpaceStation/buildings" instance=ExtResource("17_molb0")]
-transform = Transform3D(1, 5.06573e-05, -0.000327756, 0, 0.988266, 0.152744, 0.000331648, -0.152744, 0.988266, -12.4903, 1.8689, -8.66744)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Ground/SpaceStation/buildings"]
-transform = Transform3D(1, 0, 0, 0, 2.32323, 0, 0, 0, 1, 26.6242, 0, 21.5771)
-mesh = SubResource("BoxMesh_fo1lf")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("ShaderMaterial_85duv")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="Environment/Ground/SpaceStation/buildings"]
-transform = Transform3D(1, 0, 0, 0, 1.51698, 0, 0, 0, 3.56057, 26.6242, -10.8923, 21.5771)
-mesh = SubResource("BoxMesh_fo1lf")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("ShaderMaterial_85duv")
-
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="Environment/Ground/SpaceStation/buildings"]
-transform = Transform3D(0.115715, 0, 1.27663, 0, 1.91438, 0, -0.911629, 0, 0.162046, 19.2072, -4.95456, -51.6809)
-mesh = SubResource("BoxMesh_fo1lf")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("ShaderMaterial_85duv")
-
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="Environment/Ground/SpaceStation/buildings"]
-transform = Transform3D(-0.116136, 0, 1.26849, 0, 1.67592, 0, -0.819915, 0, -0.179675, -14.6257, -6.17549, -39.8133)
-mesh = SubResource("BoxMesh_fo1lf")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("ShaderMaterial_85duv")
-
-[node name="MeshInstance3D7" type="MeshInstance3D" parent="Environment/Ground/SpaceStation/buildings"]
-transform = Transform3D(-0.123483, 0, 0.70199, 0, 2.54568, 0, -0.87178, 0, -0.099433, 25.5903, 7.19297, -28.9712)
-mesh = SubResource("BoxMesh_fo1lf")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("ShaderMaterial_85duv")
-
-[node name="MeshInstance3D6" type="MeshInstance3D" parent="Environment/Ground/SpaceStation/buildings"]
-transform = Transform3D(-1.91564, 0, 17.0585, 0, 0.750532, 0, -13.5243, 0, -2.41624, -14.6257, -6.17549, -6.46065)
-mesh = SubResource("BoxMesh_fo1lf")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("ShaderMaterial_6uwuf")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Environment/Ground/SpaceStation/buildings"]
-transform = Transform3D(1, 0, 0, 0, 2.32323, 0, 0, 0, 1.55228, 47.1145, 0, -15.575)
-mesh = SubResource("BoxMesh_fo1lf")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("ShaderMaterial_85duv")
-
-[node name="computer" type="MeshInstance3D" parent="Environment/Ground/SpaceStation/buildings"]
-transform = Transform3D(0.671501, 0, -0.741004, 0, 1, 0, 0.741004, 0, 0.671501, -5.40692, 0.888599, -1.34006)
-mesh = SubResource("ArrayMesh_8sm36")
-skeleton = NodePath("")
-
-[node name="starmap_main" parent="Environment/Ground/SpaceStation/buildings/computer" instance=ExtResource("17_molb0")]
-transform = Transform3D(1, 0, -2.98023e-08, 0, 0.990926, 0.134419, 0, -0.134419, 0.990925, -0.00192213, 0.996238, -0.047621)
-
-[node name="PlanetStardust" type="Node3D" parent="Environment/Ground"]
-
-[node name="Alien" parent="Environment/Ground/PlanetStardust" instance=ExtResource("8_bs0lj")]
-transform = Transform3D(0.906591, 0.0221077, -0.421017, -0.020051, 0.999584, 0.0093116, 0.42112, 0, 0.906812, 0.57299, 0.909127, -5.16715)
-
-[node name="Lama" parent="Environment/Ground/PlanetStardust" instance=ExtResource("8_t1ik6")]
-transform = Transform3D(-0.164629, -0.075006, -0.98335, 0.0182667, 0.996535, -0.0790727, 0.986034, -0.0309843, -0.162716, -12.0553, 0.376942, -17.3451)
-
-[node name="mountains" type="Node3D" parent="Environment/Ground/PlanetStardust"]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Ground/PlanetStardust/mountains"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.64582, -54.4001)
-mesh = SubResource("PrismMesh_ppcw0")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("ShaderMaterial_mx1rk")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Environment/Ground/PlanetStardust/mountains"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.8558, 2.4856, -54.4001)
-mesh = SubResource("PrismMesh_ppcw0")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("ShaderMaterial_mx1rk")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="Environment/Ground/PlanetStardust/mountains"]
-transform = Transform3D(-1.63863, 0, -0.618833, 0, 1, 0, 1.29091, 0, -0.785522, -4.72388, 3.68456, -51.363)
-mesh = SubResource("PrismMesh_ppcw0")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("ShaderMaterial_mx1rk")
-
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="Environment/Ground/PlanetStardust/mountains"]
-transform = Transform3D(-1.63863, 0, -0.618833, 0, 1, 0, 1.29091, 0, -0.785522, -4.72388, -2.25591, -42.822)
-mesh = SubResource("PlaneMesh_mdyc1")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("ShaderMaterial_v77p2")
-
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="Environment/Ground/PlanetStardust/mountains"]
-transform = Transform3D(-1.41737, 0, 0.159165, 0, 0.566791, 0, -0.248085, 0, -0.909351, 9.44273, 5.58556, -54.8703)
-mesh = SubResource("PrismMesh_ppcw0")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("ShaderMaterial_mx1rk")
-
-[node name="MeshInstance3D6" type="MeshInstance3D" parent="Environment/Ground/PlanetStardust/mountains"]
-transform = Transform3D(-1.41737, 0, 0.159165, 0, 0.566791, 0, -0.248085, 0, -0.909351, -14.559, 2.6608, -57.7764)
-mesh = SubResource("PrismMesh_ppcw0")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("ShaderMaterial_mx1rk")
-
-[node name="MeshInstance3D7" type="MeshInstance3D" parent="Environment/Ground/PlanetStardust/mountains"]
-transform = Transform3D(2.55722, 0, 0.574305, 0, 0.566791, 0, -1.37709, 0, 1.06647, 16.9262, 3.34036, -57.0474)
-mesh = SubResource("PrismMesh_ppcw0")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("ShaderMaterial_mx1rk")
-
-[node name="MeshInstance3D8" type="MeshInstance3D" parent="Environment/Ground/PlanetStardust/mountains"]
-transform = Transform3D(2.55722, 0, 0.574305, 0, 0.566791, 0, -1.37709, 0, 1.06647, 19.0549, -0.0266432, -65.4605)
-mesh = SubResource("PlaneMesh_mdyc1")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("ShaderMaterial_v77p2")
-
-[node name="MeshInstance3D9" type="MeshInstance3D" parent="Environment/Ground/PlanetStardust/mountains"]
-transform = Transform3D(0.944181, 0, -0.329427, 0, 0.572169, 0, 0.329427, 0, 0.944181, -4.39684, 0.428538, -31.0769)
-mesh = SubResource("PrismMesh_ppcw0")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("ShaderMaterial_mx1rk")
-
-[node name="MeshInstance3D10" type="MeshInstance3D" parent="Environment/Ground/PlanetStardust/mountains"]
-transform = Transform3D(0.944181, 0, -0.329427, 0, 0.572169, 0, 0.329427, 0, 0.944181, 11.5181, -2.52398, -25.5242)
-mesh = SubResource("PrismMesh_ppcw0")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("ShaderMaterial_mx1rk")
-
-[node name="MeshInstance3D11" type="MeshInstance3D" parent="Environment/Ground/PlanetStardust/mountains"]
-transform = Transform3D(-1.97242, 0, -0.325519, 0, 0.572169, 0, 0.679044, 0, -0.945536, -9.85752, -1.83797, -29.7656)
-mesh = SubResource("PrismMesh_ppcw0")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("ShaderMaterial_mx1rk")
-
-[node name="MeshInstance3D12" type="MeshInstance3D" parent="Environment/Ground/PlanetStardust/mountains"]
-transform = Transform3D(-1.97242, 0, -0.325519, 0, 0.572169, 0, 0.679044, 0, -0.945536, -12.6711, -5.23692, -21.7014)
-mesh = SubResource("PlaneMesh_mdyc1")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("ShaderMaterial_v77p2")
-
-[node name="MeshInstance3D13" type="MeshInstance3D" parent="Environment/Ground/PlanetStardust/mountains"]
-transform = Transform3D(-1.25653, 0, 0.449845, 0, 0.3243, 0, -0.701157, 0, -0.806159, 4.67372, -0.750277, -28.4103)
-mesh = SubResource("PrismMesh_ppcw0")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("ShaderMaterial_mx1rk")
-
-[node name="MeshInstance3D14" type="MeshInstance3D" parent="Environment/Ground/PlanetStardust/mountains"]
-transform = Transform3D(-1.25653, 0, 0.449845, 0, 0.3243, 0, -0.701157, 0, -0.806159, -17.0309, -2.42374, -39.061)
-mesh = SubResource("PrismMesh_ppcw0")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("ShaderMaterial_mx1rk")
-
-[node name="MeshInstance3D15" type="MeshInstance3D" parent="Environment/Ground/PlanetStardust/mountains"]
-transform = Transform3D(2.86813, 0, 0.190925, 0, 0.3243, 0, -0.457808, 0, 1.19613, 12.4567, -2.03491, -28.0006)
-mesh = SubResource("PrismMesh_ppcw0")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("ShaderMaterial_mx1rk")
-
-[node name="MeshInstance3D16" type="MeshInstance3D" parent="Environment/Ground/PlanetStardust/mountains"]
-transform = Transform3D(2.86813, 0, 0.190925, 0, 0.3243, 0, -0.457808, 0, 1.19613, 17.2381, -3.96141, -35.2428)
-mesh = SubResource("PlaneMesh_mdyc1")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("ShaderMaterial_v77p2")
-
-[node name="ufo" parent="Environment/Ground/PlanetStardust" instance=ExtResource("19_rgdib")]
-transform = Transform3D(-0.164629, -0.0750059, -0.98335, 0.0182667, 0.996535, -0.0790727, 0.986034, -0.0309843, -0.162716, -12.2481, 2.93811, -17.4247)
-
-[node name="BeamTransform" parent="Environment/Ground/PlanetStardust/ufo" index="3"]
-transform = Transform3D(1, 4.65661e-10, 0, 9.31323e-10, 1, 7.45058e-09, -7.45058e-09, 1.49012e-08, 1, 5.96046e-08, -2.57007, 9.53674e-07)
-remote_path = NodePath("../../Lama")
+[node name="SpaceStationTransform" type="RemoteTransform3D" parent="Environment/Ground"]
 
 [node name="Stars" type="Node3D" parent="."]
 transform = Transform3D(0.853862, 0.519279, -0.0356162, -0.51218, 0.826062, -0.235142, -0.092683, 0.219021, 0.971308, 0, 0, 0)
@@ -828,10 +836,10 @@ rotation_speed = 0.285
 light_color = Color(0.6, 0, 0.407843, 1)
 light_energy = 0.327
 
-[editable path="AlienFollowPath"]
-[editable path="LamaFollowPath"]
-[editable path="UfoFollowPath"]
-[editable path="Environment/Ground/PlanetStardust/ufo"]
+[editable path="FollowPaths/AlienFollowPath"]
+[editable path="FollowPaths/LamaFollowPath"]
+[editable path="FollowPaths/UfoFollowPath"]
+[editable path="PlanetStardust/ufo"]
 [editable path="Stars/Star1"]
 [editable path="Stars/Star2"]
 [editable path="Stars/Star3"]
