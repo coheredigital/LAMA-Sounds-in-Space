@@ -9,7 +9,7 @@
 => END
 
 ~ character
-set character_position = 0.2
+set character_position = 0.02
 => END
 
 ~ player
