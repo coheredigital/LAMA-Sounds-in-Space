@@ -3,7 +3,8 @@ import "res://dialogue/snippets/snippets.dialogue" as snippets
 
 
 ~ start
-System: ...[next=1]
+#temp fix for sequence glitches
+System: ...[next]
 =>< reset/all
 System: ...[next=1]
 System: Ready.
@@ -12,10 +13,10 @@ System: Ready.
 ~ welcome
 Sam: Welcome to the Space Station! My name is Sam and I’m an Astronaut. We’re so glad you came to visit us today! Here at the space station, we go on so many fun missions. Come on in so I can show you around!
 Sam: First, I want you to meet our very own space llama named Lucky. She’s usually around here somewhere... Let’s look up her location on our astronaut map.
-do move_character(0.25,1.5)
+do move_character(0.12,1.5)
+[next=1.75]
 # TODO: set player_view = (look at station_screen)
 # TODO: set station_screen = (starmap)
-# TODO: [next=0.5]
 # TODO: set station_screen = (starmap_locate)
 Sam: Oh no! It looks like Lucky’s spaceship broke down and Lucky is stuck on another planet way out in space!
 

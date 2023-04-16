@@ -126,7 +126,7 @@ dialogic_default_action={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialog/script.dialogue", "res://dialogue/script.dialogue", "res://dialogue/snippets.dialogue", "res://dialogue/reset.dialogue", "res://dialogue/sequence.dialogue", "res://dialogue/snippets/reset.dialogue", "res://dialogue/snippets/snippets.dialogue", "res://dialogue/stimuli_01.dialogue", "res://dialogue/snippets/stimuli_01.dialogue", "res://dialogue/snippets/stimuli.dialogue", "res://dialogue/stimuli/stimuli.dialogue", "res://dialogue/stimuli/stimuli_01.dialogue", "res://dialogue/stimuli/speech.dialogue", "res://dialogue/stimuli/all.dialogue", "res://dialogue/stimuli/order_01.dialogue", "res://dialogue/stimuli/orders.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialog/script.dialogue", "res://dialogue/script.dialogue", "res://dialogue/snippets.dialogue", "res://dialogue/reset.dialogue", "res://dialogue/sequence.dialogue", "res://dialogue/snippets/reset.dialogue", "res://dialogue/snippets/snippets.dialogue", "res://dialogue/stimuli_01.dialogue", "res://dialogue/stimuli/stimuli.dialogue", "res://dialogue/stimuli/stimuli_01.dialogue", "res://dialogue/stimuli/speech.dialogue", "res://dialogue/stimuli/all.dialogue", "res://dialogue/stimuli/order_01.dialogue", "res://dialogue/stimuli/orders.dialogue")
 
 [physics]
 
