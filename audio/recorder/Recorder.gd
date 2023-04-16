@@ -14,7 +14,7 @@ func stop():
 	recording = effect.get_recording()
 	effect.set_recording_active(false)
 
-func save():
+func save(stimuli_type: String, sentence_id: String):
 	var time = Time.get_datetime_dict_from_system()
 #	var unix_time = Time.get_unix_time_from_system()
 	var folder_name := Session.study_id
@@ -22,8 +22,8 @@ func save():
 		Session.study_id, 
 		Session.age_group,
 		Session.run_id,
-		Session.type,
-		Session.sentence_id
+		stimuli_type,
+		sentence_id
 	]
 	
 	var date = "%s%s%s" % [time['year'],time['month'],time['day']]
