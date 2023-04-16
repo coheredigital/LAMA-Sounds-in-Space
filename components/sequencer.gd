@@ -89,6 +89,9 @@ var screen: String = "idle":
 func move_character(progress: float, duration: float = 1.0) -> void:
 	character_position_changed.emit(progress, duration)
 
+func character_view_angle(angle: Vector2, duration: float = 1.0) -> void:
+	character_position_changed.emit(angle, duration)
+
 func move_star(star_number: int, progress: float, duration: float = 1.0) -> void:
 	star_moved.emit(star_number, progress, duration)
 

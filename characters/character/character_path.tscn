@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dftilry51e2f6"]
 
-[ext_resource type="Curve3D" path="res://characters/character/character_path.tres" id="1_8tmfm"]
+[ext_resource type="Curve3D" uid="uid://h5hat0hxq5pn" path="res://characters/character/character_path.tres" id="1_8tmfm"]
 [ext_resource type="Script" path="res://characters/character/character_path.gd" id="1_j21by"]
 
 [node name="CharacterPath" type="Path3D"]
@@ -10,7 +10,7 @@ script = ExtResource("1_j21by")
 
 [node name="PathFollow" type="PathFollow3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(0.549306, 0, 0.835428, 0, 0.999798, 0, -0.835421, 0, 0.549311, -7.27856, 0.759245, -1.57)
+transform = Transform3D(-0.0975363, 0, 0.995072, 0, 0.999798, 0, -0.995064, 0, -0.0975371, -7.57617, 0.839362, 0.0375896)
 rotation_mode = 1
 loop = false
 tilt_enabled = false

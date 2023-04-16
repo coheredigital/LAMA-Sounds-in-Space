@@ -6,7 +6,7 @@ var state: String = "intro":
 		update_state(value)
 
 @onready var state_tree := %StateTree
-@onready var character_path := %Character
+@onready var character_path := %CharacterPath
 
 func _ready():
 	Sequencer.level_changed.connect(update_state)

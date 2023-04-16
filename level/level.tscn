@@ -426,7 +426,7 @@ script = ExtResource("2_gas8d")
 
 [node name="Character" parent="." instance=ExtResource("21_35viv")]
 unique_name_in_owner = true
-transform = Transform3D(0.77742, 0.022107, 0.628337, -0.0171941, 0.999554, -0.0138969, -0.62849, 0, 0.77761, -6.80135, 0.893274, -1.47407)
+transform = Transform3D(-0.0975132, 0.022107, 0.994828, 0.00215669, 0.999554, -0.0220025, -0.995071, 0, -0.097537, -7.55576, 1.00668, 0.0375896)
 action = "talking"
 
 [node name="Spaceship" parent="." instance=ExtResource("2_ovpdl")]
@@ -434,40 +434,50 @@ action = "talking"
 [node name="FollowPaths" type="Node3D" parent="."]
 
 [node name="CharacterPath" parent="FollowPaths" instance=ExtResource("8_xybyf")]
+unique_name_in_owner = true
 curve = ExtResource("22_lkuf6")
-progress = 2.2
+progress_ratio = 0.0
+look_height = 1.6
+look_angle = Vector2(0.245, -0.742)
 
 [node name="PathFollow" parent="FollowPaths/CharacterPath" index="0"]
-transform = Transform3D(0.77761, 0, 0.62849, 0, 0.999798, 0, -0.62849, 0, 0.77761, -6.81944, 0.742667, -1.47407)
-progress = 2.2
+transform = Transform3D(-0.097537, 0, 0.995071, 0, 0.999798, 0, -0.995071, 0, -0.097537, -7.57617, 0.839362, 0.0375896)
+progress = 0.0
+
+[node name="LookTarget" parent="FollowPaths/CharacterPath/PathFollow" index="1"]
+transform = Transform3D(1, 0, 0, 0, 0.868805, 0.495156, 0, -0.495156, 0.868805, 0.0157883, 1.6, 0.00357723)
 
 [node name="RemoteTransform3D" parent="FollowPaths/CharacterPath/PathFollow" index="2"]
 remote_path = NodePath("../../../../Character")
 
 [node name="AlienFollowPath" parent="FollowPaths" instance=ExtResource("8_xybyf")]
+unique_name_in_owner = true
 transform = Transform3D(0.999756, 0.0221115, 0, -0.0221115, 0.999756, 0, 0, 0, 1, 0.0914083, 0.686559, -5.2774)
 curve = ExtResource("5_8sic0")
 look_angle = Vector2(-1, -1)
 
 [node name="PathFollow" parent="FollowPaths/AlienFollowPath" index="0"]
-transform = Transform3D(-0.991446, 0, -0.129177, 0, 0.999828, 0, 0.129177, 0, -0.991446, 0.426365, -0.104939, -2.38112)
+transform = Transform3D(-0.906818, 0, 0.421123, 0, 0.999828, 0, -0.421123, 0, -0.906818, 0.475702, 0.271153, 0.110254)
+progress = 0.0
 
 [node name="RemoteTransform3D" parent="FollowPaths/AlienFollowPath/PathFollow" index="2"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 remote_path = NodePath("../../../../PlanetStardust/Alien")
 
 [node name="LamaFollowPath" parent="FollowPaths" instance=ExtResource("8_xybyf")]
+unique_name_in_owner = true
 transform = Transform3D(0.999756, 0.0221115, 0, -0.0221115, 0.999756, 0, 0, 0, 1, 0, 0.796263, -5.25099)
 curve = ExtResource("6_4mufo")
 look_angle = Vector2(-1, -1)
 
 [node name="PathFollow" parent="FollowPaths/LamaFollowPath" index="0"]
-transform = Transform3D(-0.670317, 0, -0.74191, 0, 0.999818, 0, 0.74191, 0, -0.670317, -3.02005, 0.0244465, -1.64138)
+transform = Transform3D(-0.670318, 0, -0.74191, 0, 0.999818, 0, 0.74191, 0, -0.670318, -3.02005, 0.0244464, -1.64138)
 
 [node name="RemoteTransform3D" parent="FollowPaths/LamaFollowPath/PathFollow" index="2"]
 remote_path = NodePath("../../../../PlanetStardust/Lama")
 
 [node name="UfoFollowPath" parent="FollowPaths" instance=ExtResource("8_xybyf")]
+unique_name_in_owner = true
 transform = Transform3D(0.999756, 0.0221115, 0, -0.0221115, 0.999756, 0, 0, 0, 1, 0.0484185, 2.98547, -9.15046)
 curve = ExtResource("7_a8kou")
 progress = 17.5
@@ -484,7 +494,6 @@ remote_path = NodePath("../../../../PlanetStardust/ufo")
 
 [node name="SpaceStation" parent="." instance=ExtResource("6_7tl8n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.038, 0)
-visible = false
 
 [node name="buildings" type="Node3D" parent="SpaceStation"]
 
@@ -547,12 +556,13 @@ transform = Transform3D(1, 0, -2.98023e-08, 0, 0.990926, 0.134419, 0, -0.134419,
 
 [node name="PlanetStardust" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.038, 0)
+visible = false
 
 [node name="Alien" parent="PlanetStardust" instance=ExtResource("8_bs0lj")]
-transform = Transform3D(0.991204, 0.0221077, 0.129146, -0.0219224, 0.999584, -0.00285631, -0.129177, 0, 0.991446, 0.515349, 0.534218, -7.65852)
+transform = Transform3D(0.906597, 0.0221077, -0.42102, -0.0200511, 0.999584, 0.00931166, 0.421123, 0, 0.906818, 0.57299, 0.909127, -5.16715)
 
 [node name="Lama" parent="PlanetStardust" instance=ExtResource("8_t1ik6")]
-transform = Transform3D(-0.670154, 0.0221075, -0.741728, 0.0148217, 0.999574, 0.0164047, 0.74191, 0, -0.670317, -3.01877, 0.849481, -6.89237)
+transform = Transform3D(-0.670154, 0.0221075, -0.741729, 0.0148217, 0.999574, 0.0164047, 0.74191, 0, -0.670318, -3.01878, 0.849481, -6.89237)
 
 [node name="mountains" type="Node3D" parent="PlanetStardust"]
 
