@@ -14,7 +14,7 @@ System: Ready.
 Sam: Welcome to the Space Station! My name is Sam and I’m an Astronaut. We’re so glad you came to visit us today! Here at the space station, we go on so many fun missions. Come on in so I can show you around!
 Sam: First, I want you to meet our very own space llama named Lucky. She’s usually around here somewhere... Let’s look up her location on our astronaut map.
 do Character.move_to(0.12,1.5)
-do Character.look_at(0,0,1.0)
+do Character.look_at(0.0,0.0,1.0)
 [next=1.75]
 # TODO: set player_view = (look at station_screen)
 # TODO: set station_screen = (starmap)
@@ -23,7 +23,7 @@ Sam: Oh no! It looks like Lucky’s spaceship broke down and Lucky is stuck on a
 
 ~ question_rescue
 set player_view = 0.28
-do Character.look_at(1)
+do Character.look_at(0.0,1.0,1.0)
 Sam: Will you help me rescue Lucky to get her back here to the space station?
 - Yes!
 	Sam: Thank you! 

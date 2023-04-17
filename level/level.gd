@@ -26,4 +26,4 @@ func update_character_postion(value: float, duration: float = 1.0) -> void:
 func update_character_view_angle(value: Vector2, duration: float = 1.0) -> void: 
 	if character_path:
 		var tween = create_tween()
-		tween.tween_property(character_path, "look_angle", value, duration).set_trans(Tween.TRANS_SINE)
+		tween.tween_property(character_path, "view_angle", value, duration).set_trans(Tween.TRANS_SINE)
