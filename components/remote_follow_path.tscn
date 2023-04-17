@@ -31,7 +31,7 @@ transform = Transform3D(0.999848, 0, 0, 0, 0.999799, 0, 0, 0, 0.999848, 0, 1.1, 
 
 [node name="PathFollow" type="PathFollow3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(-0.998229, 0, 0.0565872, 0, 0.999798, 0, -0.0565872, 0, -0.998229, 1.77073, 0.00205999, 0.067014)
+transform = Transform3D(-0.998229, 0, 0.0565848, 0, 0.999798, 0, -0.0565848, 0, -0.998229, 1.77073, 0.0020601, 0.0670109)
 progress = 2.4124
 rotation_mode = 1
 loop = false

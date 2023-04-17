@@ -77,4 +77,5 @@ func update_view_angle(value: Vector2, duration: float = 1.0) -> void:
 		var target_angle = Vector3(0.0,0.0,0.0)
 		target_angle.x = value.x * LOOK_ANGLE_LIMIT.x
 		target_angle.y = value.y * LOOK_ANGLE_LIMIT.y
-		tween.tween_property(%LookTargetPivot, "rotation_degrees", target_angle, duration).set_trans(Tween.TRANS_SINE)
+		if tween:
+			tween.tween_property(%LookTargetPivot, "rotation_degrees", target_angle, duration).set_trans(Tween.TRANS_SINE)

@@ -21,8 +21,8 @@ var action: String = "idle":
 
 
 
-func move(progress: float, duration: float = 1.0) -> void:
+func move_to(progress: float, duration: float = 1.0) -> void:
 	position_changed.emit(progress, duration)
 
-func look(angle_x: float = 0.0, angle_y: float = 0.0, duration: float = 1.0) -> void:
+func look_at(angle_x: float = 0.0, angle_y: float = 0.0, duration: float = 1.0) -> void:
 	view_angle_changed.emit(Vector2(angle_x,angle_y), duration)

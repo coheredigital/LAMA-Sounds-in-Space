@@ -13,7 +13,8 @@ System: Ready.
 ~ welcome
 Sam: Welcome to the Space Station! My name is Sam and I’m an Astronaut. We’re so glad you came to visit us today! Here at the space station, we go on so many fun missions. Come on in so I can show you around!
 Sam: First, I want you to meet our very own space llama named Lucky. She’s usually around here somewhere... Let’s look up her location on our astronaut map.
-do Character.move(0.12,1.5)
+do Character.move_to(0.12,1.5)
+do Character.look_at(0,0,1.0)
 [next=1.75]
 # TODO: set player_view = (look at station_screen)
 # TODO: set station_screen = (starmap)
@@ -22,6 +23,7 @@ Sam: Oh no! It looks like Lucky’s spaceship broke down and Lucky is stuck on a
 
 ~ question_rescue
 set player_view = 0.28
+do Character.look_at(1)
 Sam: Will you help me rescue Lucky to get her back here to the space station?
 - Yes!
 	Sam: Thank you! 
@@ -43,20 +45,19 @@ User:
 - Press Green Button
 
 ~ unlock_door
-set character_position = 0.25
+do Character.move_to(0.25,1.5)
 set door_open = true
 [next=5]
 set player_position = 0.7
 set player_view = 0.55
 [next=0.25]
-set character_position = 0.5
+do Character.move_to(0.35,2)
 set player_view = 0.6
 [next=1]
 
 ~ enter_spaceship
-# USAGE: Character.move(position: float [0-1], duration: float [>=0])
-do Character.move(0.4,1.0)
-set character_position = 0.4
+# USAGE: Character.move_to(position: float [0-1], duration: float [>=0])
+do Character.move_to(0.4,1.0)
 set level = "intro"
 set player_position = 0.8
 set player_view = 0.75
@@ -65,7 +66,7 @@ set player_view = 0.9
 [next=2]
 
 ~ welcome_aboard
-do Character.move(0.85,5.0)
+do Character.move_to(0.85,5.0)
 [next=5]
 Sam: Welcome aboard! 
 set player_view = 0.95
@@ -76,7 +77,7 @@ Sam: Our first job is to make sure we have everything we need before we fly.
 set player_position = 0.9
 set player_view = 0.9
 [next=0.25]
-do Character.move(0.9,1.0)
+do Character.move_to(0.9,1.0)
 Sam: This is our handy dandy computer! The computer will help us travel to Planet Stardust. This computer is voice-activated, which means that we have to say the commands out loud with our voices so the computer can help us activate the spaceship! First, the computer will say the right words for a command and then your job is to repeat the words out loud with your voice.  
 
 ~ computer_greeting
@@ -122,7 +123,7 @@ set player_position = 1.0
 set player_view = 0.95
 set screen = "idle"
 Sam: I’ll sit here next to you and let you give the computer the voice commands!
-do Character.move(1.0,1.0) # sitting
+do Character.move_to(1.0,1.0) # sitting
 Sam: When you're ready, press the GREEN button to get started. 
 set screen = "start_button"
 Prompt:

@@ -41,12 +41,12 @@ func _ready():
 	Sequencer.player_view_changed.connect(update_view)
 
 
-func _process(delta):
-	if not %PositionTarget or not %ViewTarget:
-		return
-	var distance = camera.position.distance_to(%PositionTarget.global_transform.origin)
-	var follow_distance_speed = lerp(0.1, follow_speed, clamp(smoothstep(0.0, max_distance, distance), 0.0,1.0));
-	camera.position = camera.position.move_toward(%PositionTarget.global_transform.origin, delta * follow_distance_speed)
-	var look_transform = camera.global_transform.looking_at(%ViewTarget.global_transform.origin, Vector3.UP)
-	camera.global_transform = camera.global_transform.interpolate_with(look_transform, delta * turn_speed)
+#func _process(delta):
+#	if not %PositionTarget or not %ViewTarget:
+#		return
+#	var distance = camera.position.distance_to(%PositionTarget.global_transform.origin)
+#	var follow_distance_speed = lerp(0.1, follow_speed, clamp(smoothstep(0.0, max_distance, distance), 0.0,1.0));
+#	camera.position = camera.position.move_toward(%PositionTarget.global_transform.origin, delta * follow_distance_speed)
+#	var look_transform = camera.global_transform.looking_at(%ViewTarget.global_transform.origin, Vector3.UP)
+#	camera.global_transform = camera.global_transform.interpolate_with(look_transform, delta * turn_speed)
 
