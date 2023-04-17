@@ -1,7 +1,5 @@
 extends Node
 
-
-
 signal position_changed(value: float, duration: float)
 signal action_changed(value: String)
 signal view_angle_changed(value: Vector2)
@@ -26,5 +24,5 @@ var action: String = "idle":
 func move(progress: float, duration: float = 1.0) -> void:
 	position_changed.emit(progress, duration)
 
-func view_angle(angle: Vector2, duration: float = 1.0) -> void:
-	view_angle_changed.emit(angle, duration)
+func look(angle_x: float = 0.0, angle_y: float = 0.0, duration: float = 1.0) -> void:
+	view_angle_changed.emit(Vector2(angle_x,angle_y), duration)
