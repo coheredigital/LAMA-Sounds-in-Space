@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bw70w15xhifwc"]
+[gd_scene load_steps=5 format=3 uid="uid://bw70w15xhifwc"]
 
+[ext_resource type="Script" path="res://ui/game_window.gd" id="1_ky7hr"]
 [ext_resource type="PackedScene" uid="uid://dahkxa81prn10" path="res://level/level.tscn" id="4_7ey7j"]
 [ext_resource type="PackedScene" uid="uid://bi2ttsoa7h87g" path="res://components/remote_follow_path.tscn" id="4_qyilq"]
 [ext_resource type="Curve3D" uid="uid://bnnm33024rtvp" path="res://characters/player/player_position_path.tres" id="5_uw7ls"]
@@ -11,6 +12,7 @@ size = Vector2i(1280, 720)
 extend_to_title = true
 content_scale_size = Vector2i(1280, 720)
 content_scale_aspect = 4
+script = ExtResource("1_ky7hr")
 
 [node name="ViewportContainer" type="SubViewportContainer" parent="."]
 anchors_preset = 15
@@ -30,15 +32,16 @@ render_target_update_mode = 4
 [node name="Level" parent="ViewportContainer/Viewport" instance=ExtResource("4_7ey7j")]
 
 [node name="PlayerFollowPath" parent="ViewportContainer/Viewport" instance=ExtResource("4_qyilq")]
+unique_name_in_owner = true
 curve = ExtResource("5_uw7ls")
 progress = 26.5
-progress_ratio = 0.958
+progress_ratio = 0.435
 view_marker_height = 0.6
 follow_speed = 4.0
 turn_speed = 4.0
 
 [node name="RemoteTransform" parent="ViewportContainer/Viewport/PlayerFollowPath" index="0"]
-transform = Transform3D(0.99804, -0.000119375, 0.0625778, 3.63798e-11, 0.999998, 0.00190762, -0.062578, -0.00190388, 0.998038, 0.586203, 2.09681, -1.45955)
+transform = Transform3D(0.68055, -0.000235707, -0.732702, -2.18279e-11, 1, -0.000321696, 0.732702, 0.00021893, 0.68055, -8.27093, 2.34423, 1.22011)
 remote_path = NodePath("../../PlayerCamera")
 use_global_coordinates = true
 
@@ -46,10 +49,10 @@ use_global_coordinates = true
 transform = Transform3D(0.999848, 0, 0, 0, 0.999799, 0, 0, 0, 0.999848, 0, 0.6, -1)
 
 [node name="PathFollow" parent="ViewportContainer/Viewport/PlayerFollowPath" index="1"]
-transform = Transform3D(-0.997848, 0, -0.0630252, 0, 0.999798, 0, 0.0630252, 0, -0.997848, 0.586088, 2.09489, -1.4687)
-progress = 26.5
+transform = Transform3D(-0.680445, 0, 0.732592, 0, 0.999798, 0, -0.732592, 0, -0.680445, -8.26446, 2.34455, 1.2141)
+progress = 8.72423
 
 [node name="PlayerCamera" type="Camera3D" parent="ViewportContainer/Viewport"]
-transform = Transform3D(0.99804, -0.000119375, 0.0625778, 3.63798e-11, 0.999998, 0.00190762, -0.062578, -0.00190388, 0.998038, 0.586203, 2.09681, -1.45955)
+transform = Transform3D(0.68055, -0.000235707, -0.732702, -2.18279e-11, 1, -0.000321696, 0.732702, 0.00021893, 0.68055, -8.27093, 2.34423, 1.22011)
 
 [editable path="ViewportContainer/Viewport/PlayerFollowPath"]
