@@ -1,6 +1,6 @@
 extends Node
 
-signal position_changed(value: float, duration: float)
+signal position_changed(progress: float, duration: float)
 signal view_angle_changed(value: Vector2)
 
 var position: float = 0.0:

@@ -1,23 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://bi2ttsoa7h87g"]
+[gd_scene load_steps=2 format=3 uid="uid://bi2ttsoa7h87g"]
 
 [ext_resource type="Script" path="res://components/remote_follow_path.gd" id="1_kh2yt"]
 
-[sub_resource type="Curve3D" id="Curve3D_d56bp"]
-_data = {
-"points": PackedVector3Array(-0.30628, 0.0903179, 1.10874, 0.30628, -0.0903179, -1.10874, 1.02812, 0.0218946, 2.35448, 0.667994, -0.0165767, 0.649464, -0.667994, 0.0165767, -0.649464, 1.52519, 0.0273512, -0.651412, 0.324854, -0.0138543, 0.574878, -0.324854, 0.0138543, -0.574878, -0.279955, 0.0250343, -0.999407),
-"tilts": PackedFloat32Array(0, 0, 0)
-}
-point_count = 3
-
 [node name="RemoteFollowPath" type="Path3D"]
-curve = SubResource("Curve3D_d56bp")
 script = ExtResource("1_kh2yt")
-progress_ratio = 0.182
-max_distance = 0.1
+follow_speed = 4.0
+turn_speed = 4.0
+max_distance = 2.0
 
 [node name="RemoteTransform" type="RemoteTransform3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(0.928418, 1.7997e-05, -0.371538, 0, 1, 4.84391e-05, 0.371538, -4.49717e-05, 0.928418, 1.34091, -0.0181907, 1.47845)
+transform = Transform3D(-0.999995, -7.74387e-08, 0.00190692, 1.63424e-13, 1, 4.06091e-05, -0.00190692, 4.06092e-05, -0.999995, 0.00379668, 8.08532e-05, 0.00869471)
 use_global_coordinates = false
 
 [node name="Marker3D" type="Marker3D" parent="RemoteTransform"]
@@ -26,8 +19,7 @@ gizmo_extents = 1.15
 
 [node name="PathFollow" type="PathFollow3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(-0.928277, 0, 0.371481, 0, 0.999798, 0, -0.371481, 0, -0.928277, 1.34332, -0.0182879, 1.47242)
-progress = 0.938154
+transform = Transform3D(0.999848, 0, 0, 0, 0.999798, 0, 0, 0, 0.999848, 0, 0, 0)
 rotation_mode = 1
 loop = false
 tilt_enabled = false

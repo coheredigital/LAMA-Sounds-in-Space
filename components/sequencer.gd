@@ -5,9 +5,6 @@ signal level_changed(value: String)
 signal stars_brightness_changed(value: float)
 signal star_moved(star_number: int, progress: float)
 
-signal player_position_changed(value: float)
-signal player_view_changed(value: float)
-
 signal character_position_changed(value: float, duration: float)
 signal character_action_changed(value: String)
 
@@ -41,15 +38,8 @@ var stars_brightness: float = 0.0:
 		stars_brightness = clamp(value, 0.0,4.0)
 		stars_brightness_changed.emit(stars_brightness)
 
-var player_position: float = 0.0:
-	set(value):
-		player_position = clamp(value, 0.0,1.0)
-		player_position_changed.emit(value)
-		
-var player_view: float = 0.0:
-	set(value):
-		player_view = clamp(value, 0.0,1.0)
-		player_view_changed.emit(value)
+var player_position: float = 0.0
+var player_view: float = 0.0
 		
 var spaceship_motion: float = 0.0:
 	set(value):
