@@ -38,7 +38,7 @@ follow_speed = 4.0
 turn_speed = 4.0
 
 [node name="RemoteTransform" parent="ViewportContainer/Viewport/PlayerFollowPath" index="0"]
-transform = Transform3D(0.99804, -0.000119375, 0.0625778, 3.63798e-11, 0.999998, 0.00190762, -0.062578, -0.00190388, 0.998038, 0.586203, 2.09681, -1.45955)
+transform = Transform3D(0.99804, -0.000119067, 0.0625789, 6.91216e-11, 0.999998, 0.00190266, -0.0625791, -0.00189894, 0.998038, 0.586203, 2.09681, -1.45955)
 remote_path = NodePath("../../PlayerCamera")
 use_global_coordinates = true
 
@@ -46,10 +46,10 @@ use_global_coordinates = true
 transform = Transform3D(0.999848, 0, 0, 0, 0.999799, 0, 0, 0, 0.999848, 0, 0.6, -1)
 
 [node name="PathFollow" parent="ViewportContainer/Viewport/PlayerFollowPath" index="1"]
-transform = Transform3D(-0.997848, 0, -0.0630252, 0, 0.999798, 0, 0.0630252, 0, -0.997848, 0.586088, 2.09489, -1.4687)
+transform = Transform3D(-0.997848, 0, -0.0630255, 0, 0.999798, 0, 0.0630255, 0, -0.997848, 0.586088, 2.09489, -1.4687)
 progress = 26.5
 
 [node name="PlayerCamera" type="Camera3D" parent="ViewportContainer/Viewport"]
-transform = Transform3D(0.99804, -0.000119375, 0.0625778, 3.63798e-11, 0.999998, 0.00190762, -0.062578, -0.00190388, 0.998038, 0.586203, 2.09681, -1.45955)
+transform = Transform3D(0.99804, -0.000119067, 0.0625789, 6.91216e-11, 0.999998, 0.00190266, -0.0625791, -0.00189894, 0.998038, 0.586203, 2.09681, -1.45955)
 
 [editable path="ViewportContainer/Viewport/PlayerFollowPath"]

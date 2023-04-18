@@ -81,13 +81,13 @@ do Character.move_to(0.9,1.0)
 Sam: This is our handy dandy computer! The computer will help us travel to Planet Stardust. This computer is voice-activated, which means that we have to say the commands out loud with our voices so the computer can help us activate the spaceship! First, the computer will say the right words for a command and then your job is to repeat the words out loud with your voice.  
 
 ~ computer_greeting
-Sam: This is what the computer sounds like 
+Sam: This is what the computer sounds like: 
 set screen = "computer" 
 [next=1]
 Computer: Nice to meet you
 [next=0.5]
 set screen = "idle" 
-Sam: Ok, now I’ll have the computer say a command and your job is to repeat what the computer just said with your voice.Make sure you say it loud and clear, so the computer can hear you! After you repeat after the computer, I’ll press the red button to send your voice to the spaceship.
+Sam: Ok, now I’ll have the computer say a command and your job is to repeat what the computer just said with your voice. Make sure you say it loud and clear, so the computer can hear you! After you repeat after the computer, I’ll press the red button to send your voice to the spaceship.
 
 ~ activate_spaceship
 Sam: Ok here we go!
@@ -96,13 +96,12 @@ Sam: Ok here we go!
 set screen = "computer" 
 Computer: Activate spaceship!
 
-#grdgdgdgrdg
 ~ activate_spaceship_recording
 System: 
 - Begin Recording
 	do Recorder.start()
-	[next=5]
-
+	set screen = "recording"
+	[next=3]
 
 ~ activate_spaceship_result
 System: 
@@ -150,7 +149,7 @@ System:
 	set screen = "success"
 	set seatbelts_buckled = true
 	do Recorder.stop()
-	do Recorder.save()
+	do Recorder.save("speech", "PRACTICE_buckle_up")
 	Sam: Great job! Looks like it heard you!
 - Quiet
 	set screen = "failure"
@@ -164,16 +163,23 @@ Sam: Great, now let’s test out our warning sirens!
 set screen = "alert"
 Sam: Listen to the command from the computer and then repeat what it says with your voice.
 Computer: Siren noise: low to high to low to high to low
+# TODO: Does the kid repeat the siren noise?
+
+
+~ fuel_up
 Sam: Awesome! We are almost ready to blast off, but first we need some fuel. 
 [next=2]
 set screen = "battery"
-Sam: Listen to the command from the computer and then repeat what it says with your voice:  
-[next=0.5]
 
-~ fuel_up
-set screen = "computer"
+~ fuel_up_command
+Sam: Listen to the command from the computer and then repeat what it says with your voice:  
+[next=0.5]set screen = "computer"
 Computer: Let’s fuel up
+
+~ fuel_up_recording
+- Beign Recording
 set screen = "recording"
+do Recorder.start()
 [next=5]
 set screen = "success"
 [next=2]
