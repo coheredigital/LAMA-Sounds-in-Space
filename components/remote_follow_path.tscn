@@ -18,7 +18,7 @@ max_distance = 0.1
 
 [node name="RemoteTransform" type="RemoteTransform3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(0.963913, -9.71037e-05, -0.266218, 0, 1, -0.000364753, 0.266218, 0.00035159, 0.963913, 1.02947, 0.0215317, 2.34979)
+transform = Transform3D(0.963913, -9.71037e-05, -0.266218, -3.63798e-12, 1, -0.000364753, 0.266218, 0.00035159, 0.963913, 1.02947, 0.0215317, 2.34979)
 use_global_coordinates = false
 
 [node name="Marker3D" type="Marker3D" parent="RemoteTransform"]
