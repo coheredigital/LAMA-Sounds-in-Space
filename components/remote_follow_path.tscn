@@ -12,26 +12,22 @@ point_count = 3
 [node name="RemoteFollowPath" type="Path3D"]
 curve = SubResource("Curve3D_d56bp")
 script = ExtResource("1_kh2yt")
-progress_ratio = 0.197
-view_marker_height = 1.1
+progress_ratio = 0.182
 max_distance = 0.1
 
 [node name="RemoteTransform" type="RemoteTransform3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(0.963913, -9.71037e-05, -0.266218, -3.63798e-12, 1, -0.000364753, 0.266218, 0.00035159, 0.963913, 1.02947, 0.0215317, 2.34979)
+transform = Transform3D(0.928418, 1.7997e-05, -0.371538, 0, 1, 4.84391e-05, 0.371538, -4.49717e-05, 0.928418, 1.34091, -0.0181907, 1.47845)
 use_global_coordinates = false
 
 [node name="Marker3D" type="Marker3D" parent="RemoteTransform"]
 transform = Transform3D(1.00017, 0, 0, 0, 1.0002, 0, 0, 0, 1.00017, 0, 0, 0)
 gizmo_extents = 1.15
 
-[node name="LookTargetMarker" type="Marker3D" parent="RemoteTransform/Marker3D"]
-unique_name_in_owner = true
-transform = Transform3D(0.999848, 0, 0, 0, 0.999799, 0, 0, 0, 0.999848, 0, 1.1, -1)
-
 [node name="PathFollow" type="PathFollow3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(-0.963747, 0, 0.266227, 0, 0.999798, 0, -0.266227, 0, -0.963747, 1.02812, 0.0218946, 2.35448)
+transform = Transform3D(-0.928277, 0, 0.371481, 0, 0.999798, 0, -0.371481, 0, -0.928277, 1.34332, -0.0182879, 1.47242)
+progress = 0.938154
 rotation_mode = 1
 loop = false
 tilt_enabled = false
@@ -44,8 +40,7 @@ unique_name_in_owner = true
 
 [node name="LookTarget" type="Node3D" parent="PathFollow/LookTargetPivot"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.19209e-07, 0, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 
 [node name="Marker3D" type="Marker3D" parent="PathFollow/LookTargetPivot/LookTarget"]
 transform = Transform3D(1, 0, 3.72529e-09, 0, 1, 0, -3.72529e-09, 0, 1, 0, 0, 0)
-gizmo_extents = 0.5

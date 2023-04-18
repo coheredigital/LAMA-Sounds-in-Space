@@ -15,11 +15,7 @@ const LOOK_ANGLE_LIMIT = Vector2(20.0,-180.0)
 		update_progress_ratio(value)
 
 
-@export_range (0.0, 2.0, 0.1) var view_marker_height := 1.0:
-	set(value):
-		view_marker_height = value
-		if %LookTargetMarker:
-			%LookTargetMarker.position.y = view_marker_height
+
 
 
 @export var view_angle := Vector2(0.0,0.0):
