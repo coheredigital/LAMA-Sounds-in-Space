@@ -2,13 +2,12 @@
 
 [ext_resource type="Script" path="res://characters/player/player.gd" id="1"]
 
-[node name="PlayerCamera" type="Node"]
+[node name="PlayerCamera" type="Node3D"]
 script = ExtResource("1")
-max_distance = null
 view_progress = 0.0
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.745674, -0.0175058, -0.666081, -1.58325e-08, 0.999655, -0.0262727, 0.666311, 0.0195909, 0.745417, -8.31993, 2.40252, 4.51174)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 current = true
 fov = 65.0
 far = 800.0
