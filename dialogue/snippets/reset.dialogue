@@ -9,12 +9,12 @@
 => END
 
 ~ character
-do Character.move_to(0.0,0.0)
+do Character.move_to(0.14,0.0)
 do Character.look_at(0.0,0.0,0.0)
 => END
 
 ~ player
-do Player.move_to(0.0,0.0)
+do Player.move_to(0.1,0.0)
 => END
 
 ~ spaceship

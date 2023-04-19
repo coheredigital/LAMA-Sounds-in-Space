@@ -7,7 +7,7 @@ script = ExtResource("1_11yyf")
 
 [node name="RemoteTransform" type="RemoteTransform3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(-0.999995, -7.74385e-08, 0.00190692, 1.77635e-13, 1, 4.06091e-05, -0.00190692, 4.06092e-05, -0.999995, 0.00379668, 8.08532e-05, 0.00869471)
+transform = Transform3D(-0.999995, -7.74386e-08, 0.00190692, 1.38555e-13, 1, 4.06091e-05, -0.00190692, 4.06092e-05, -0.999995, 0.00379668, 8.08532e-05, 0.00869471)
 use_global_coordinates = false
 
 [node name="Marker3D" type="Marker3D" parent="RemoteTransform"]
@@ -18,6 +18,7 @@ gizmo_extents = 1.15
 unique_name_in_owner = true
 transform = Transform3D(0.999848, 0, 0, 0, 0.999798, 0, 0, 0, 0.999848, 0, 0, 0)
 rotation_mode = 1
+cubic_interp = false
 loop = false
 tilt_enabled = false
 metadata/_edit_group_ = true
