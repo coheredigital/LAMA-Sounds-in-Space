@@ -5,5 +5,7 @@
 
 [node name="Computer" instance=ExtResource("1_djmjm")]
 
-[node name="starmap_main" parent="." index="1" instance=ExtResource("2_lhupy")]
+[node name="starmap" parent="." index="1" instance=ExtResource("2_lhupy")]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 0.990926, 0.134419, 0, -0.134419, 0.990925, -0.00192213, 0.996238, -0.047621)
+
+[editable path="starmap"]

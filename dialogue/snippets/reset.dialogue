@@ -9,7 +9,7 @@
 => END
 
 ~ character
-do Character.move_to(0.15,0.0)
+do Character.move_to(0.07,0.0)
 do Character.look_at(0.0,0.0,0.0)
 => END
 

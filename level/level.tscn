@@ -1,9 +1,9 @@
-[gd_scene load_steps=49 format=3]
+[gd_scene load_steps=49 format=3 uid="uid://uk3s0fjb5pmh"]
 
 [ext_resource type="Script" path="res://level/level.gd" id="1_58g46"]
 [ext_resource type="AnimationLibrary" uid="uid://cjkhuv5cn32yu" path="res://level/environment/environment_animations.tres" id="2_3s2c1"]
 [ext_resource type="Script" path="res://level/rumble_controller.gd" id="2_gas8d"]
-[ext_resource type="PackedScene" uid="uid://diok81rhcuhnh" path="res://level/spaceship/spaceship.tscn" id="2_ovpdl"]
+[ext_resource type="PackedScene" path="res://level/spaceship/spaceship.tscn" id="2_ovpdl"]
 [ext_resource type="Curve3D" uid="uid://cy536xdmk2g4n" path="res://characters/alien/alien_path.tres" id="5_8sic0"]
 [ext_resource type="Material" uid="uid://bjft6os8hrr36" path="res://level/environment/materials/planet_material.tres" id="5_nosaa"]
 [ext_resource type="Environment" uid="uid://e82nx1vn6g3m" path="res://level/environment/environment.tres" id="5_ykjmj"]
@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://322sh12iustv" path="res://characters/lama/lama.tscn" id="8_t1ik6"]
 [ext_resource type="PackedScene" uid="uid://bi2ttsoa7h87g" path="res://components/remote_follow_path.tscn" id="8_xybyf"]
 [ext_resource type="Script" path="res://level/environment/stars.gd" id="13_77t1c"]
-[ext_resource type="PackedScene" path="res://level/spacestation/computer.tscn" id="14_34eti"]
+[ext_resource type="PackedScene" uid="uid://vain2gp1dm54" path="res://level/spacestation/computer.tscn" id="14_34eti"]
 [ext_resource type="PackedScene" uid="uid://cpyfijnifmpjh" path="res://level/environment/models/star.tscn" id="14_otpjb"]
 [ext_resource type="PackedScene" uid="uid://cq3x5n33r2d8c" path="res://characters/character/character.tscn" id="21_35viv"]
 [ext_resource type="Curve3D" uid="uid://h5hat0hxq5pn" path="res://characters/character/character_path.tres" id="22_lkuf6"]
@@ -424,7 +424,7 @@ libraries = {
 script = ExtResource("2_gas8d")
 
 [node name="Character" parent="." instance=ExtResource("21_35viv")]
-transform = Transform3D(-0.381493, -0.00066955, -0.924371, 1.13505e-09, 0.999999, -0.00072433, 0.924371, -0.000276328, -0.381493, -6.71489, 1.11878, -2.83566)
+transform = Transform3D(-0.381498, -0.000670656, -0.924369, 5.52973e-10, 1, -0.000725528, 0.924369, -0.000276788, -0.381498, -6.71489, 1.11878, -2.83566)
 action = "talking"
 
 [node name="Spaceship" parent="." instance=ExtResource("2_ovpdl")]
@@ -438,11 +438,11 @@ progress = 1.9
 progress_ratio = 0.15
 
 [node name="RemoteTransform" parent="FollowPaths/CharacterPath" index="0"]
-transform = Transform3D(-0.381493, -0.00066955, -0.924371, 1.13505e-09, 0.999999, -0.00072433, 0.924371, -0.000276328, -0.381493, -6.71489, 1.11878, -2.83566)
+transform = Transform3D(-0.381498, -0.000670656, -0.924369, 5.52973e-10, 1, -0.000725528, 0.924369, -0.000276788, -0.381498, -6.71489, 1.11878, -2.83566)
 remote_path = NodePath("../../../Character")
 
 [node name="PathFollow" parent="FollowPaths/CharacterPath" index="1"]
-transform = Transform3D(0.381644, 0, 0.924153, 0, 0.999798, 0, -0.924153, 0, 0.381644, -6.72332, 1.12022, -2.83961)
+transform = Transform3D(0.381646, 0, 0.924152, 0, 0.999798, 0, -0.924152, 0, 0.381646, -6.72332, 1.12022, -2.83961)
 progress = 2.01442
 
 [node name="AlienFollowPath" parent="FollowPaths" instance=ExtResource("8_xybyf")]
@@ -451,7 +451,7 @@ transform = Transform3D(0.999756, 0.0221115, 0, -0.0221115, 0.999756, 0, 0, 0, 1
 curve = ExtResource("5_8sic0")
 
 [node name="RemoteTransform" parent="FollowPaths/AlienFollowPath" index="0"]
-transform = Transform3D(-0.978274, 0.0178622, -0.206538, -0.0216364, 0.982042, 0.187412, 0.206177, 0.18781, -0.960321, 0.57299, 0.947127, -5.16715)
+transform = Transform3D(-0.978275, 0.0178623, -0.206538, -0.0216364, 0.982042, 0.187413, 0.206177, 0.18781, -0.960322, 0.57299, 0.947127, -5.16715)
 
 [node name="PathFollow" parent="FollowPaths/AlienFollowPath" index="1"]
 transform = Transform3D(-0.906818, 0, 0.421123, 0, 0.999828, 0, -0.421123, 0, -0.906818, 0.475702, 0.271153, 0.110254)
@@ -462,7 +462,7 @@ transform = Transform3D(0.999756, 0.0221115, 0, -0.0221115, 0.999756, 0, 0, 0, 1
 curve = ExtResource("6_4mufo")
 
 [node name="RemoteTransform" parent="FollowPaths/LamaFollowPath" index="0"]
-transform = Transform3D(-0.924626, -0.0865392, 0.370911, -0.0204498, 0.983719, 0.178538, -0.380323, 0.157497, -0.911343, -1.0923, 1.28593, -5.28451)
+transform = Transform3D(-0.924626, -0.0865392, 0.37091, -0.0204499, 0.98372, 0.178538, -0.380323, 0.157497, -0.911344, -1.0923, 1.28593, -5.28451)
 
 [node name="PathFollow" parent="FollowPaths/LamaFollowPath" index="1"]
 transform = Transform3D(-0.531295, 0, -0.847044, 0, 0.999818, 0, 0.847044, 0, -0.531295, -1.10286, 0.465399, -0.0335197)

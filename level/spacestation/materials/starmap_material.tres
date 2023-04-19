@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3]
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://6hsbicqlt2el"]
 
 [ext_resource type="Shader" path="res://shaders/toon.gdshader" id="1_5crlr"]
 [ext_resource type="Texture2D" uid="uid://xhklnrh5d05r" path="res://level/spacestation/materials/spacestation_albedo.png" id="2_eaxbp"]
@@ -17,6 +17,6 @@ shader_parameter/rim_smoothness = 1.0
 shader_parameter/metallic = 0.0
 shader_parameter/roughness = 1.0
 shader_parameter/emission = Color(0, 0, 0, 1)
-shader_parameter/emission_energy = 1.0
+shader_parameter/emission_energy = 0.316
 shader_parameter/albedo_texture = ExtResource("2_eaxbp")
 shader_parameter/emission_texture = ExtResource("2_eaxbp")

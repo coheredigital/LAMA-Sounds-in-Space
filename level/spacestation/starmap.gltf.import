@@ -32,7 +32,7 @@ _subresources={
 "materials": {
 "material_0": {
 "use_external/enabled": true,
-"use_external/path": "res://level/spacestation/materials/spacestation_material.tres"
+"use_external/path": "res://level/spacestation/materials/starmap_material.tres"
 }
 }
 }
