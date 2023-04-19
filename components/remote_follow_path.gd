@@ -28,9 +28,9 @@ const LOOK_ANGLE_LIMIT = Vector2(20.0,-180.0)
 @onready var look_target : Node3D = %LookTarget
 @onready var remote_transform : Node3D = %RemoteTransform
 
-@export_range (4.0, 16.0, 0.1) var follow_speed := 16.0
-@export_range (4.0, 16.0, 0.1) var turn_speed := 16.0
-@export_range (0.1, 2.0, 0.1) var max_distance := 0.5
+@export_range (1.0, 8.0, 0.1) var follow_speed := 4.0
+@export_range (1.0, 8.0, 0.1) var turn_speed := 4.0
+@export_range (1.0, 8.0, 0.1) var max_distance := 0.5
 
 
 func _process(delta):
@@ -62,4 +62,4 @@ func update_view_angle(value: Vector2, duration: float = 1.0) -> void:
 		target_angle.x = value.x * LOOK_ANGLE_LIMIT.x
 		target_angle.y = value.y * LOOK_ANGLE_LIMIT.y
 		if tween:
-			tween.tween_property(%LookTargetPivot, "rotation_degrees", target_angle, duration).set_trans(Tween.TRANS_LINEAR)
+			tween.tween_property(%LookTargetPivot, "rotation_degrees", target_angle, duration).set_trans(Tween.TRANS_SINE)
