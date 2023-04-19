@@ -9,7 +9,7 @@ System: ...[next]
 System: ...[next=1]
 System: Ready.
 - Start
-do Character.move_to(0.25,1.5)
+do Character.move_to(0.14,1.5)
 do Player.move_to(0.4,3.0)
 
 ~ welcome

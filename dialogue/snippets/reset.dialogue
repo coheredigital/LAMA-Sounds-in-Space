@@ -15,8 +15,6 @@ do Character.look_at(0.0,0.0,0.0)
 
 ~ player
 do Player.move_to(0.0,0.0)
-set player_position = 0.31
-set player_view = 0.23
 => END
 
 ~ spaceship
