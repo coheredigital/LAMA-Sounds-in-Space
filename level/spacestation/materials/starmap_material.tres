@@ -1,7 +1,7 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://o7q3w5lh2h13"]
+[gd_resource type="ShaderMaterial" load_steps=3 format=3]
 
 [ext_resource type="Shader" path="res://shaders/toon.gdshader" id="1_5crlr"]
-[ext_resource type="Texture2D" uid="uid://xhklnrh5d05r" path="res://level/space_station/materials/space_station_albedo.png" id="2_eaxbp"]
+[ext_resource type="Texture2D" uid="uid://xhklnrh5d05r" path="res://level/spacestation/materials/spacestation_albedo.png" id="2_eaxbp"]
 
 [resource]
 render_priority = 0

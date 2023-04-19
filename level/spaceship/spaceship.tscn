@@ -1,8 +1,8 @@
-[gd_scene load_steps=41 format=3 uid="uid://diok81rhcuhnh"]
+[gd_scene load_steps=41 format=3]
 
 [ext_resource type="PackedScene" uid="uid://ctjlmbopaw2sa" path="res://level/spaceship/models/spaceship.gltf" id="1_m17hk"]
 [ext_resource type="Script" path="res://level/spaceship/spaceship.gd" id="2_tplkk"]
-[ext_resource type="PackedScene" uid="uid://qscqxippf6e2" path="res://level/space_station/computer.tscn" id="3_gtlrx"]
+[ext_resource type="PackedScene" uid="uid://qscqxippf6e2" path="res://level/spacestation/computer.tscn" id="3_gtlrx"]
 [ext_resource type="Material" uid="uid://bv4m3s78pu3gb" path="res://level/spaceship/materials/spaceship_alpha_material.tres" id="3_ngcse"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://bgas77vb0vl6b" path="res://level/spaceship/animation/screen_state_tree.tres" id="5_rc7u6"]
 [ext_resource type="AnimationLibrary" uid="uid://dywe6iokyofm1" path="res://animations/libraries/screen.tres" id="6_i8kbq"]

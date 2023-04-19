@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://ctwd8rh4im4x0"
-path="res://.godot/imported/starmap.gltf-ccabac958162122363b66b43b4c8922b.scn"
+path="res://.godot/imported/starmap.gltf-0804ecc821accc53f2ae4e469a51755c.scn"
 
 [deps]
 
-source_file="res://level/space_station/starmap.gltf"
-dest_files=["res://.godot/imported/starmap.gltf-ccabac958162122363b66b43b4c8922b.scn"]
+source_file="res://level/spacestation/starmap.gltf"
+dest_files=["res://.godot/imported/starmap.gltf-0804ecc821accc53f2ae4e469a51755c.scn"]
 
 [params]
 
@@ -32,7 +32,7 @@ _subresources={
 "materials": {
 "material_0": {
 "use_external/enabled": true,
-"use_external/path": "res://level/space_station/materials/space_station_material.tres"
+"use_external/path": "res://level/spacestation/materials/spacestation_material.tres"
 }
 }
 }

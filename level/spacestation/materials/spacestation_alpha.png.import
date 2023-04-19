@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://w7awncyslh16"
-path="res://.godot/imported/planet_stardust_albedo.png-3e73383bd2a288aa39c0f2ba748327ab.ctex"
+uid="uid://2gjsjhaaxs8q"
+path="res://.godot/imported/spacestation_alpha.png-ee83d58af89e673884fb99bd7133d45c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level/planet_stardust/planet_stardust_albedo.png"
-dest_files=["res://.godot/imported/planet_stardust_albedo.png-3e73383bd2a288aa39c0f2ba748327ab.ctex"]
+source_file="res://level/spacestation/materials/spacestation_alpha.png"
+dest_files=["res://.godot/imported/spacestation_alpha.png-ee83d58af89e673884fb99bd7133d45c.ctex"]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=1
 roughness/src_normal=""

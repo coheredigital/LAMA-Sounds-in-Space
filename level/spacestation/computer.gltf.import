@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cagr2cwikbnan"
-path="res://.godot/imported/space_station.gltf-e85feab1f49a8d8825b12d48a769225a.scn"
+uid="uid://go82v4orb8dc"
+path="res://.godot/imported/computer.gltf-9fab0d7d11f02284f8d08341a165a74e.scn"
 
 [deps]
 
-source_file="res://level/space_station/materials/space_station.gltf"
-dest_files=["res://.godot/imported/space_station.gltf-e85feab1f49a8d8825b12d48a769225a.scn"]
+source_file="res://level/spacestation/computer.gltf"
+dest_files=["res://.godot/imported/computer.gltf-9fab0d7d11f02284f8d08341a165a74e.scn"]
 
 [params]
 
@@ -28,5 +28,12 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
-_subresources={}
+_subresources={
+"materials": {
+"material_0": {
+"use_external/enabled": true,
+"use_external/path": "res://level/spacestation/materials/spacestation_material.tres"
+}
+}
+}
 gltf/embedded_image_handling=0

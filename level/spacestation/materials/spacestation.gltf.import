@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d05u8r18emnr6"
-path="res://.godot/imported/seat.gltf-6fdcfab11f9be33e91c65380de46b0b8.scn"
+uid="uid://cagr2cwikbnan"
+path="res://.godot/imported/spacestation.gltf-e85feab1f49a8d8825b12d48a769225a.scn"
 
 [deps]
 
-source_file="res://level/space_station/seat.gltf"
-dest_files=["res://.godot/imported/seat.gltf-6fdcfab11f9be33e91c65380de46b0b8.scn"]
+source_file="res://level/spacestation/materials/spacestation.gltf"
+dest_files=["res://.godot/imported/spacestation.gltf-e85feab1f49a8d8825b12d48a769225a.scn"]
 
 [params]
 

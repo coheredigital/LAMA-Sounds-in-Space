@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://vain2gp1dm54"]
+
+[ext_resource type="PackedScene" uid="uid://go82v4orb8dc" path="res://level/spacestation/computer.gltf" id="1_djmjm"]
+[ext_resource type="PackedScene" uid="uid://ctwd8rh4im4x0" path="res://level/spacestation/starmap.gltf" id="2_lhupy"]
+
+[node name="Computer" instance=ExtResource("1_djmjm")]
+
+[node name="starmap_main" parent="." index="1" instance=ExtResource("2_lhupy")]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 0.990926, 0.134419, 0, -0.134419, 0.990925, -0.00192213, 0.996238, -0.047621)

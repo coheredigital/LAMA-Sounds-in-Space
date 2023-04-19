@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dt1vpkmuodkmu"
-path="res://.godot/imported/space_station.gltf-925d4cc8e2c4ac57856f86345c595fbe.scn"
+path="res://.godot/imported/spacestation.gltf-cdb2100730394678f98dbbbe9144fc0c.scn"
 
 [deps]
 
-source_file="res://level/space_station/space_station.gltf"
-dest_files=["res://.godot/imported/space_station.gltf-925d4cc8e2c4ac57856f86345c595fbe.scn"]
+source_file="res://level/spacestation/spacestation.gltf"
+dest_files=["res://.godot/imported/spacestation.gltf-cdb2100730394678f98dbbbe9144fc0c.scn"]
 
 [params]
 
@@ -32,11 +32,11 @@ _subresources={
 "materials": {
 "material_0": {
 "use_external/enabled": true,
-"use_external/path": "res://level/space_station/materials/space_station_material.tres"
+"use_external/path": "res://level/spacestation/materials/spacestation_material.tres"
 },
 "material_1": {
 "use_external/enabled": true,
-"use_external/path": "res://level/space_station/materials/space_station_alpha_material.tres"
+"use_external/path": "res://level/spacestation/materials/spacestation_alpha_material.tres"
 },
 "material_2": {
 "use_external/enabled": true,
