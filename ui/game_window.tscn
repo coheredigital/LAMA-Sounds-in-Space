@@ -80,13 +80,13 @@ render_target_update_mode = 4
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_shlpt")
 
 [node name="Character" parent="ViewportContainer/Viewport/Level" index="2"]
-transform = Transform3D(-0.326162, -0.000361156, -0.945313, -1.60071e-10, 1, -0.000382048, 0.945314, -0.000124609, -0.326162, -5.85337, 0.983024, -1.94191)
+transform = Transform3D(-0.694395, -0.000329973, -0.719595, -2.61935e-10, 0.999999, -0.000458554, 0.719596, -0.000318417, -0.694394, -6.97514, 1.14171, -3.00426)
 
 [node name="RemoteTransform" parent="ViewportContainer/Viewport/Level/FollowPaths/CharacterPath" index="0"]
-transform = Transform3D(-0.326162, -0.000361156, -0.945313, -1.60071e-10, 1, -0.000382048, 0.945314, -0.000124609, -0.326162, -5.85337, 0.983024, -1.94191)
+transform = Transform3D(-0.694395, -0.000329973, -0.719595, -2.61935e-10, 0.999999, -0.000458554, 0.719596, -0.000318417, -0.694394, -6.97514, 1.14171, -3.00426)
 
 [node name="PathFollow" parent="ViewportContainer/Viewport/Level/FollowPaths/CharacterPath" index="1"]
-transform = Transform3D(0.329819, 0, 0.943898, 0, 0.999798, 0, -0.943898, 0, 0.329819, -5.84823, 0.98379, -1.94844)
+transform = Transform3D(0.694267, 0, 0.719526, 0, 0.999798, 0, -0.719526, 0, 0.694267, -6.98159, 1.14263, -3.01037)
 progress = 1.70178
 
 [node name="RemoteTransform" parent="ViewportContainer/Viewport/Level/FollowPaths/AlienFollowPath" index="0"]
@@ -98,27 +98,30 @@ transform = Transform3D(-0.924625, -0.0865392, 0.370911, -0.0204499, 0.98372, 0.
 [node name="RemoteTransform" parent="ViewportContainer/Viewport/Level/FollowPaths/UfoFollowPath" index="0"]
 transform = Transform3D(-0.975491, -0.104865, 0.193435, -0.0215748, 0.920474, 0.390205, -0.218971, 0.376469, -0.900178, -15.1355, 2.72691, -18.0276)
 
-[node name="PathFollow" parent="ViewportContainer/Viewport/Level/FollowPaths/UfoFollowPath" index="1"]
-transform = Transform3D(-0.510022, -0.100373, -0.854117, -0.0253624, 0.994319, -0.101711, 0.859621, -0.0302156, -0.509758, -15.1745, -0.594231, -8.8771)
+[node name="SpaceStation" parent="ViewportContainer/Viewport/Level" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Planet" parent="ViewportContainer/Viewport/Level" index="7"]
 surface_material_override/0 = SubResource("ShaderMaterial_63kun")
 
 [node name="PlayerFollowPath" parent="ViewportContainer/Viewport" instance=ExtResource("4_qyilq")]
 unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00428772, 0.00323153, -0.0330032)
 curve = ExtResource("5_uw7ls")
+progress_ratio = 0.17
 follow_speed = 1.8
 
 [node name="RemoteTransform" parent="ViewportContainer/Viewport/PlayerFollowPath" index="0"]
-transform = Transform3D(0.432641, -0.000157238, -0.901567, -1.16415e-10, 1, -0.000174405, 0.901566, 7.54548e-05, 0.432641, -14.6735, 2.1652, -0.428016)
+transform = Transform3D(0.368265, 0.00150878, -0.929719, -8.73115e-10, 0.999998, 0.00162283, 0.92972, -0.000597632, 0.368265, -9.24817, 2.50286, -1.47989)
 remote_path = NodePath("../../PlayerCamera")
 use_global_coordinates = true
 
 [node name="PathFollow" parent="ViewportContainer/Viewport/PlayerFollowPath" index="1"]
-transform = Transform3D(-0.432505, 0, 0.901464, 0, 0.999798, 0, -0.901464, 0, -0.432505, -14.6819, 2.16555, -0.424142)
+transform = Transform3D(-0.383161, 0, 0.923527, 0, 0.999798, 0, -0.923527, 0, -0.383161, -9.24388, 2.49963, -1.44689)
+progress = 2.57185
 
 [node name="PlayerCamera" type="Camera3D" parent="ViewportContainer/Viewport"]
-transform = Transform3D(0.432641, -0.000157238, -0.901567, -1.16415e-10, 1, -0.000174405, 0.901566, 7.54548e-05, 0.432641, -14.6735, 2.1652, -0.428016)
+transform = Transform3D(0.368265, 0.00150878, -0.929719, -8.73115e-10, 0.999998, 0.00162283, 0.92972, -0.000597632, 0.368265, -9.25246, 2.50609, -1.5129)
 
 [editable path="ViewportContainer/Viewport/Level"]
 [editable path="ViewportContainer/Viewport/Level/FollowPaths/CharacterPath"]

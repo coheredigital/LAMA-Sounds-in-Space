@@ -424,7 +424,7 @@ libraries = {
 script = ExtResource("2_gas8d")
 
 [node name="Character" parent="." instance=ExtResource("21_35viv")]
-transform = Transform3D(-0.421362, -0.000190131, -0.906892, 3.4197e-10, 1, -0.000209652, 0.906892, -8.83395e-05, -0.421362, -5.89515, 0.986182, -1.97382)
+transform = Transform3D(-0.381493, -0.00066955, -0.924371, 1.13505e-09, 0.999999, -0.00072433, 0.924371, -0.000276328, -0.381493, -6.71489, 1.11878, -2.83566)
 action = "talking"
 
 [node name="Spaceship" parent="." instance=ExtResource("2_ovpdl")]
@@ -435,15 +435,15 @@ action = "talking"
 unique_name_in_owner = true
 curve = ExtResource("22_lkuf6")
 progress = 1.9
-progress_ratio = 0.14
+progress_ratio = 0.15
 
 [node name="RemoteTransform" parent="FollowPaths/CharacterPath" index="0"]
-transform = Transform3D(-0.421362, -0.000190131, -0.906892, 3.4197e-10, 1, -0.000209652, 0.906892, -8.83395e-05, -0.421362, -5.89515, 0.986182, -1.97382)
+transform = Transform3D(-0.381493, -0.00066955, -0.924371, 1.13505e-09, 0.999999, -0.00072433, 0.924371, -0.000276328, -0.381493, -6.71489, 1.11878, -2.83566)
 remote_path = NodePath("../../../Character")
 
 [node name="PathFollow" parent="FollowPaths/CharacterPath" index="1"]
-transform = Transform3D(0.420745, 0, 0.907001, 0, 0.999798, 0, -0.907001, 0, 0.420745, -5.89762, 0.986601, -1.97363)
-progress = 1.64626
+transform = Transform3D(0.381644, 0, 0.924153, 0, 0.999798, 0, -0.924153, 0, 0.381644, -6.72332, 1.12022, -2.83961)
+progress = 2.01442
 
 [node name="AlienFollowPath" parent="FollowPaths" instance=ExtResource("8_xybyf")]
 unique_name_in_owner = true
@@ -527,17 +527,20 @@ mesh = SubResource("BoxMesh_fo1lf")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_85duv")
 
-[node name="Computer" parent="SpaceStation/buildings" instance=ExtResource("14_34eti")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.69084, 0.888599, -1.95662)
+[node name="Computer_01" parent="SpaceStation/buildings" instance=ExtResource("14_34eti")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.19084, 0.888599, -2.85662)
 
-[node name="Computer2" parent="SpaceStation/buildings" instance=ExtResource("14_34eti")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.69084, 0.888599, -4.9269)
+[node name="Computer_02" parent="SpaceStation/buildings" instance=ExtResource("14_34eti")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.19084, 0.888599, -5.25662)
 
-[node name="Computer3" parent="SpaceStation/buildings" instance=ExtResource("14_34eti")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.69084, 0.888599, -7.70736)
+[node name="Computer_04" parent="SpaceStation/buildings" instance=ExtResource("14_34eti")]
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, -7.49084, 0.888599, -7.25662)
 
-[node name="Computer4" parent="SpaceStation/buildings" instance=ExtResource("14_34eti")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7.21324, 0.888599, -7.70736)
+[node name="Computer_05" parent="SpaceStation/buildings" instance=ExtResource("14_34eti")]
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, -10.1908, 0.888599, -7.25662)
+
+[node name="Computer_06" parent="SpaceStation/buildings" instance=ExtResource("14_34eti")]
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, -12.8908, 0.888599, -7.25662)
 
 [node name="PlanetStardust" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.038, 0)
