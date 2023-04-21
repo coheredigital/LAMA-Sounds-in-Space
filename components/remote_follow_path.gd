@@ -3,10 +3,10 @@ extends Path3D
 
 const LOOK_ANGLE_LIMIT = Vector2(20.0,180.0)
 
-@export_range (0.0, 64.0, 0.1) var progress := 0.0 :
-	set(value):
-		progress = value
-		update_progress(value)
+#@export_range (0.0, 64.0, 0.1) var progress := 0.0 :
+#	set(value):
+#		progress = value
+#		update_progress(value)
 
 @export_range (0.0, 1.0, 0.01) var progress_ratio := 0.0 :
 	set(value):
