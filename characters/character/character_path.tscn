@@ -1,16 +1,40 @@
-[gd_scene load_steps=3 format=3 uid="uid://dftilry51e2f6"]
+[gd_scene load_steps=3 format=3 uid="uid://fd80b1c18ukc"]
 
 [ext_resource type="Curve3D" uid="uid://h5hat0hxq5pn" path="res://characters/character/character_path.tres" id="1_8tmfm"]
-[ext_resource type="Script" path="res://characters/character/character_path.gd" id="1_j21by"]
+
+[sub_resource type="GDScript" id="GDScript_m2uxu"]
+script/source = "@tool
+extends Path3D
+
+@export_range (0.0, 1.0, 0.01) var progress := 0.0 :
+	set(value):
+		progress = value
+		update_postion(value)
+
+@onready var path_follow : PathFollow3D = %PathFollow
+
+func _ready():
+	Sequencer.character_position_changed.connect(update_postion)
+
+func update_postion(value: float, duration: float = 2.0) -> void:
+	if path_follow:
+		var tween = create_tween()
+		tween.tween_property(path_follow, \"progress_ratio\", value, duration).set_trans(Tween.TRANS_SINE)
+
+
+
+func update_look_angle(value: Vector2, duration: float = 1.0) -> void:
+	pass
+"
 
 [node name="CharacterPath" type="Path3D"]
 transform = Transform3D(0.999756, 0.0221115, 0, -0.0221115, 0.999756, 0, 0, 0, 1, 0, 0, 0)
 curve = ExtResource("1_8tmfm")
-script = ExtResource("1_j21by")
+script = SubResource("GDScript_m2uxu")
 
 [node name="PathFollow" type="PathFollow3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(-0.0975363, 0, 0.995072, 0, 0.999798, 0, -0.995064, 0, -0.0975371, -7.57617, 0.839362, 0.0375896)
+transform = Transform3D(0.706989, 0, -0.706994, 0, 0.999798, 0, 0.706988, 0, 0.706995, -8.5, 1, -3.7)
 rotation_mode = 1
 loop = false
 tilt_enabled = false

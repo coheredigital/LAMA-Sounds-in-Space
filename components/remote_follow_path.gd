@@ -8,20 +8,10 @@ const LOOK_ANGLE_LIMIT = Vector2(20.0,180.0)
 		progress = value
 		update_progress(value)
 
-
 @export_range (0.0, 1.0, 0.01) var progress_ratio := 0.0 :
 	set(value):
 		progress_ratio = value
 		update_progress_ratio(value)
-
-
-#@export var view_angle := Vector2(0.0,0.0):
-#	set(value):
-#		view_angle.x = clamp(value.x, -1.0, 1.0)
-#		view_angle.y = clamp(value.y, -1.0, 1.0)
-#		update_view_angle(view_angle)
-
-
 
 @export_range (-1.0, 1.0, 0.05) var pivot := 0.0:
 	set(value):
@@ -38,12 +28,9 @@ const LOOK_ANGLE_LIMIT = Vector2(20.0,180.0)
 @export_range (1.0, 8.0, 0.1) var turn_speed := 4.0
 @export_range (1.0, 4.0, 0.1) var max_distance := 2.0
 
-
 @onready var path_follow : PathFollow3D = %PathFollow
 @onready var look_target : Node3D = %LookTarget
 @onready var remote_transform : Node3D = %RemoteTransform
-
-
 
 
 func _physics_process(delta):
@@ -66,16 +53,6 @@ func update_progress_ratio(value: float, duration: float = 1.0) -> void:
 	if path_follow:
 		var tween = create_tween()
 		tween.tween_property(path_follow, "progress_ratio", value, duration).set_trans(Tween.TRANS_LINEAR)
-
-
-#func update_view_angle(value: Vector2, duration: float = 1.0) -> void:
-#	if %LookTargetPivot:
-#		var tween = create_tween()
-#		var target_angle = Vector3(0.0,0.0,0.0)
-#		target_angle.x = value.x * LOOK_ANGLE_LIMIT.x
-#		target_angle.y = value.y * LOOK_ANGLE_LIMIT.y
-#		if tween:
-#			tween.tween_property(%LookTargetPivot, "rotation_degrees", target_angle, duration).set_trans(Tween.TRANS_LINEAR)
 
 func update_pivot(value: float, duration: float = 1.0) -> void:
 	if %LookTargetPivot:

@@ -10,7 +10,8 @@
 
 ~ character
 do Character.move_to(0.05,0.0)
-do Character.look_at(0.0,0.0,0.0)
+do Character.pivot(0.0)
+do Character.tilt(0.0)
 => END
 
 ~ player

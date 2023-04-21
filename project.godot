@@ -27,8 +27,8 @@ Sequencer="*res://components/sequencer.gd"
 Session="*res://components/session.gd"
 AudioVisualizer="*res://audio/visualizer/AudioVisualizer.tscn"
 Recorder="*res://audio/recorder/recorder.gd"
-Character="*res://components/character_sequencer.gd"
-Player="*res://components/player_sequencer.gd"
+Character="*res://characters/character/character_sequencer.gd"
+Player="*res://characters/player/player_sequencer.gd"
 
 [dialogue_manager]
 
