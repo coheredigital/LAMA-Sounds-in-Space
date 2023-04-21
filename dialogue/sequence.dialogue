@@ -12,11 +12,11 @@ System: Ready.
 
 ~ welcome
 
-do Character.move_to(0.0,1.5)
+do Character.look_at(0.0,0.0,1.0)
 Sam: Welcome to the Space Station! My name is Sam and I’m an Astronaut. We’re so glad you came to visit us today! Here at the space station, we go on so many fun missions. Come on in so I can show you around!
 do Player.move_to(0.15,2.5)
 Sam: First, I want you to meet our very own space llama named Lucky. She’s usually around here somewhere... Let’s look up her location on our astronaut map.
-do Character.look_at(0.0,0.0,1.0)
+
 [next=1.75]
 # TODO: set player_view = (look at station_screen)
 # TODO: set station_screen = (starmap)
@@ -160,12 +160,37 @@ System:
 	=> buckle_up_command
 
 
-~ warning_sirens
+~ siren
 Sam: Great, now let’s test out our warning sirens! 
 set screen = "alert"
 Sam: Listen to the command from the computer and then repeat what it says with your voice.
+
+~ siren_command
+set screen = "computer"
 Computer: Siren noise: low to high to low to high to low
-# TODO: Does the kid repeat the siren noise?
+
+~ siren_recording
+System: 
+- Begin Recording
+set screen = "recording"
+do Recorder.start()
+[next=5]
+
+~ siren_result
+System: 
+- Success
+	set screen = "success"
+	set seatbelts_buckled = true
+	do Recorder.stop()
+	do Recorder.save("speech", "PRACTICE_buckle_up")
+	Sam: Great job! Looks like it heard you!
+- Quiet
+	set screen = "failure"
+	do Recorder.stop()
+	Sam: Uh oh! It looks like the spaceship couldn't quite hear what you said. Let's try again a bit louder.
+	=> buckle_up_command
+
+
 
 
 ~ fuel_up
