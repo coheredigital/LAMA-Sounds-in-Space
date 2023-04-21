@@ -7,7 +7,7 @@ script = ExtResource("1_11yyf")
 
 [node name="RemoteTransform" type="RemoteTransform3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(-0.999995, -7.74386e-08, 0.00190692, 1.38555e-13, 1, 4.06091e-05, -0.00190692, 4.06092e-05, -0.999995, 0.00379668, 8.08532e-05, 0.00869471)
+transform = Transform3D(-0.999995, 7.96273e-06, 0.00314073, 8.01828e-06, 1, 1.76732e-05, -0.00314073, 1.76983e-05, -0.999995, 0.00379668, 8.08532e-05, 0.00869471)
 use_global_coordinates = false
 
 [node name="Marker3D" type="Marker3D" parent="RemoteTransform"]
@@ -28,9 +28,12 @@ metadata/_edit_group_ = true
 [node name="LookTargetPivot" type="Node3D" parent="PathFollow"]
 unique_name_in_owner = true
 
-[node name="LookTarget" type="Node3D" parent="PathFollow/LookTargetPivot"]
+[node name="LookTargetTilt" type="Node3D" parent="PathFollow/LookTargetPivot"]
+unique_name_in_owner = true
+
+[node name="LookTarget" type="Node3D" parent="PathFollow/LookTargetPivot/LookTargetTilt"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 
-[node name="Marker3D" type="Marker3D" parent="PathFollow/LookTargetPivot/LookTarget"]
+[node name="Marker3D" type="Marker3D" parent="PathFollow/LookTargetPivot/LookTargetTilt/LookTarget"]
 transform = Transform3D(1, 0, 3.72529e-09, 0, 1, 0, -3.72529e-09, 0, 1, 0, 0, 0)

@@ -12,6 +12,7 @@ func _ready():
 	Sequencer.level_changed.connect(update_state)
 	Character.position_changed.connect(update_character_postion)
 	Character.view_angle_changed.connect(update_character_view_angle)
+	Character.rotation_changed.connect(update_character_view_angle)
 	
 func update_state(value: String) -> void: 
 	if state_tree:
@@ -24,6 +25,12 @@ func update_character_postion(value: float, duration: float = 1.0) -> void:
 		tween.tween_property(character_path, "progress_ratio", value, duration).set_trans(Tween.TRANS_SINE)
 
 func update_character_view_angle(value: Vector2, duration: float = 1.0) -> void: 
+	if character_path:
+		var tween = create_tween()
+		tween.tween_property(character_path, "view_angle", value, duration).set_trans(Tween.TRANS_SINE)
+
+
+func update_character_rotation(value: float, duration: float = 1.0) -> void: 
 	if character_path:
 		var tween = create_tween()
 		tween.tween_property(character_path, "view_angle", value, duration).set_trans(Tween.TRANS_SINE)
