@@ -42,12 +42,10 @@ func _physics_process(delta):
 	var look_transform = remote_transform.global_transform.looking_at(look_target.global_transform.origin, Vector3.UP)
 	remote_transform.global_transform = remote_transform.global_transform.interpolate_with(look_transform, delta * turn_speed)
 
-
 func update_progress(value: float, duration: float = 1.0) -> void:
 	if path_follow:
 		var tween = create_tween()
 		tween.tween_property(path_follow, "progress", value, duration).set_trans(Tween.TRANS_LINEAR)
-
 
 func update_progress_ratio(value: float, duration: float = 1.0) -> void:
 	if path_follow:
@@ -57,7 +55,6 @@ func update_progress_ratio(value: float, duration: float = 1.0) -> void:
 func update_pivot(value: float, duration: float = 1.0) -> void:
 	if %LookTargetPivot:
 		var tween = create_tween()
-
 		var rotation = clamp(value,-1.0,1.0) * LOOK_ANGLE_LIMIT.y
 		var target_angle = Vector3(0.0,rotation,0.0)
 		if tween:
