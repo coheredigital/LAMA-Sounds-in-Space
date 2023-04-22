@@ -1,6 +1,6 @@
 extends Node3D
 
-var screen_state: String = "intro":
+var screen_state: String = "idle":
 	set(value):
 		screen_state = value
 		update_screen(value)
