@@ -1,6 +1,7 @@
 import "res://dialogue/snippets/reset.dialogue" as reset
 import "res://dialogue/snippets/snippets.dialogue" as snippets
 
+# USAGE: Character.move_to(progress_ratio: float [0-1], duration: float [>=0])
 
 ~ start
 #temp fix for sequence glitches
@@ -11,14 +12,14 @@ System: Ready.
 - Start
 
 ~ welcome
-do Character.pivot(0.6)
+do Character.pivot(0.6, 0.5)
 [next=1]
 do Player.move_to(0.15,3)
 Sam: Welcome to the Space Station! My name is Sam and I’m an Astronaut. We’re so glad you came to visit us today! Here at the space station, we go on so many fun missions. Come on in so I can show you around!
-do Player.move_to(0.15,3)
+do Player.move_to(0.15,4)
 Sam: First, I want you to meet our very own space llama named Lucky. She’s usually around here somewhere... Let’s look up her location on our astronaut map.
 do Player.move_to(0.25,2)
-do Player.pivot(-0.6,2)
+do Player.pivot(-0.6,3)
 do Character.pivot(0)
 [next=1.75]
 # TODO: set player_view = (look at station_screen)
@@ -29,11 +30,10 @@ do Character.pivot(0.4)
 [next=1]
 
 ~ question_rescue
-set player_view = 0.28
+do Player.move_to(0.25,2)
 Sam: Will you help me rescue Lucky to get her back here to the space station?
 - Yes!
-	Sam: Thank you! 
-	set player_view = 0.25
+	Sam: Thank you!
 #- No.
 #	Sam: Are you sure?
 #	- Yes. => END
@@ -43,48 +43,48 @@ Sam: We’re definitely going to need your help -- this spaceship works best whe
 do Player.pivot(0)
 
 ~ approach_spaceship
-=>< snippets/player_approach_spaceship
+do Player.move_to(0.65,6)
+
 [next=3]
 Sam: Press the GREEN button to open the spaceship door and start your training! 
-
 
 User:
 - Press Green Button
 
 ~ unlock_door
-do Character.move_to(0.25,1.5)
 set door_open = true
 [next=5]
-set player_position = 0.7
-set player_view = 0.55
-[next=0.25]
-do Character.move_to(0.35,2)
-set player_view = 0.6
-[next=1]
+
 
 ~ enter_spaceship
-# USAGE: Character.move_to(position: float [0-1], duration: float [>=0])
+do Player.move_to(0.85,2.5)
+[next=0.25]
+do Player.pivot(-0.3)
+[next=1]
 do Character.move_to(0.4,1.0)
 set level = "intro"
 set player_position = 0.8
 set player_view = 0.75
 [next=1]
-set player_view = 0.9
+#set player_view = 0.9
 [next=2]
 
 ~ welcome_aboard
-do Character.move_to(0.85,5.0)
-[next=5]
+do Character.move_to(0.9,4.0)
+[next=3.5]
+do Character.pivot(0.6,2.0)
+[next=1.5]
 Sam: Welcome aboard! 
-set player_view = 0.95
 Sam: To become a Junior Astronaut, you will need to listen closely so we can make it to Planet Stardust, find Lucky the Llama, and bring Lucky back to the Space Station.
+do Character.pivot(0.5)
 Sam: Our first job is to make sure we have everything we need before we fly.
 
 ~ computer_intro
-set player_position = 0.9
-set player_view = 0.9
-[next=0.25]
-do Character.move_to(0.9,1.0)
+do Player.move_to(0.93,2)
+do Player.pivot(-0.15,2)
+do Character.move_to(0.96,2)
+do Character.pivot(0.4)
+[next=0.5]
 Sam: This is our handy dandy computer! The computer will help us travel to Planet Stardust. This computer is voice-activated, which means that we have to say the commands out loud with our voices so the computer can help us activate the spaceship! First, the computer will say the right words for a command and then your job is to repeat the words out loud with your voice.  
 
 ~ computer_greeting
@@ -128,7 +128,10 @@ System:
 set player_position = 1.0
 set screen = "idle"
 Sam: I’ll sit here next to you and let you give the computer the voice commands!
-do Character.move_to(1.0,1.0) # sitting
+do Character.move_to(1.0,1.0) 
+do Character.pivot(0) 
+do Player.move_to(1.0,1.0)
+do Player.pivot(0) 
 Sam: When you're ready, press the GREEN button to get started. 
 set screen = "start_button"
 Prompt:
