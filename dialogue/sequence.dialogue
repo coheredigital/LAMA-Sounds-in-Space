@@ -62,15 +62,8 @@ set door_open = true
 ~ spaceship_enter
 do Player.move_to(0.85,2.5)
 [next=0.25]
-do Player.pivot(-0.3)
-[next=1]
-do Character.move_to(0.4,1.0)
-set level = "intro"
-set player_position = 0.8
-set player_view = 0.75
-[next=1]
-#set player_view = 0.9
-[next=2]
+do Player.pivot(-0.4)
+do Character.move_to(0.6,1.0)
 
 ~ spaceship_aboard
 do Character.move_to(0.9,4.0)
@@ -131,7 +124,7 @@ Sam: I’ll sit here next to you and let you give the computer the voice command
 do Character.move_to(1.0,1.0) 
 do Character.pivot(0) 
 do Player.move_to(1.0,1.0)
-do Player.pivot(0) 
+do Player.pivot(-0.15)
 Sam: When you're ready, press the GREEN button to get started. 
 set screen = "start_button"
 Prompt:
@@ -139,8 +132,10 @@ Prompt:
 
 ~ buckle_up
 set screen = "buckle_warning"
+do Character.pivot(0.25) 
 Sam: OK. First, we need to buckle up! Listen to the command from the computer and then repeat what it says with your voice.
-
+do Character.pivot(0)
+do Player.pivot(0)
 ~ buckle_up_command
 set screen = "computer"
 Computer: Seat belts buckled!

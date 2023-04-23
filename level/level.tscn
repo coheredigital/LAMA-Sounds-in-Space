@@ -392,6 +392,7 @@ script = ExtResource("1_58g46")
 unique_name_in_owner = true
 tree_root = SubResource("AnimationNodeStateMachine_xndii")
 anim_player = NodePath("AnimationPlayer")
+active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_4dohv")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="StateTree"]
@@ -468,7 +469,7 @@ follow_speed = 1.8
 turn_speed = 1.2
 
 [node name="RemoteTransform" parent="FollowPaths/PlayerPath" index="0"]
-transform = Transform3D(0.852061, 0.000857023, -0.52344, -5.23869e-10, 0.999998, 0.00163728, 0.523441, -0.00139507, 0.85206, -12.2, 2.4, -0.2)
+transform = Transform3D(0.852061, 0.000857023, -0.52344, -4.94765e-10, 0.999998, 0.00163728, 0.523441, -0.00139507, 0.85206, -12.2, 2.4, -0.2)
 remote_path = NodePath("../../PlayerCamera")
 use_global_coordinates = true
 
