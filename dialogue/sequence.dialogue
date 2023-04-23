@@ -12,25 +12,28 @@ System: Ready.
 - Start
 
 ~ welcome
-do Character.pivot(0.6, 0.5)
-[next=1]
-do Player.move_to(0.15,3)
+do Player.move_to(0.1,5)
+[next=3]
 Sam: Welcome to the Space Station! My name is Sam and I’m an Astronaut. We’re so glad you came to visit us today! Here at the space station, we go on so many fun missions. Come on in so I can show you around!
-do Player.move_to(0.15,4)
+
+~ welcome_enter
+do Player.move_to(0.18,3)
 Sam: First, I want you to meet our very own space llama named Lucky. She’s usually around here somewhere... Let’s look up her location on our astronaut map.
+do Character.move_to(0.05)
+
+~ welcome_map
 do Player.move_to(0.25,2)
-do Player.pivot(-0.6,3)
+do Player.pivot(-0.45,2)
 do Character.pivot(0)
 [next=1.75]
 # TODO: set player_view = (look at station_screen)
 # TODO: set station_screen = (starmap)
 # TODO: set station_screen = (starmap_locate)
 Sam: Oh no! It looks like Lucky’s spaceship broke down and Lucky is stuck on another planet way out in space!
-do Character.pivot(0.4)
+do Character.pivot(0.5)
 [next=1]
 
 ~ question_rescue
-do Player.move_to(0.25,2)
 Sam: Will you help me rescue Lucky to get her back here to the space station?
 - Yes!
 	Sam: Thank you!
@@ -56,7 +59,7 @@ set door_open = true
 [next=5]
 
 
-~ enter_spaceship
+~ spaceship_enter
 do Player.move_to(0.85,2.5)
 [next=0.25]
 do Player.pivot(-0.3)
@@ -69,7 +72,7 @@ set player_view = 0.75
 #set player_view = 0.9
 [next=2]
 
-~ welcome_aboard
+~ spaceship_aboard
 do Character.move_to(0.9,4.0)
 [next=3.5]
 do Character.pivot(0.6,2.0)
@@ -81,7 +84,7 @@ Sam: Our first job is to make sure we have everything we need before we fly.
 
 ~ computer_intro
 do Player.move_to(0.93,2)
-do Player.pivot(-0.15,2)
+do Player.pivot(-0.05,2)
 do Character.move_to(0.96,2)
 do Character.pivot(0.4)
 [next=0.5]
@@ -123,7 +126,6 @@ System:
 
 
 ~ spaceship_activated
-set player_position = 1.0
 set screen = "idle"
 Sam: I’ll sit here next to you and let you give the computer the voice commands!
 do Character.move_to(1.0,1.0) 

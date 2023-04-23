@@ -76,61 +76,92 @@ render_target_update_mode = 4
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_shlpt")
 
 [node name="Character" parent="ViewportContainer/Viewport/Level" index="2"]
-transform = Transform3D(0.584736, 0.000999201, -0.811223, 1.74623e-10, 0.999999, 0.00123172, 0.811223, -0.000720232, 0.584736, -0.897144, 0.602465, -1.69321)
+transform = Transform3D(-0.329919, -2.82463e-08, -0.944009, -1.42109e-14, 1, -2.99216e-08, 0.944009, -9.87169e-09, -0.329919, -8.37276, 1, -3.05545)
 
 [node name="CharacterPath" parent="ViewportContainer/Viewport/Level/FollowPaths" index="0"]
-progress_ratio = 1.0
-pivot = 0.35
+progress_ratio = 0.06
 follow_speed = 4.6
 turn_speed = 5.6
 
 [node name="RemoteTransform" parent="ViewportContainer/Viewport/Level/FollowPaths/CharacterPath" index="0"]
-transform = Transform3D(0.584736, 0.000999201, -0.811223, 1.74623e-10, 0.999999, 0.00123172, 0.811223, -0.000720232, 0.584736, -0.897144, 0.602465, -1.69321)
+transform = Transform3D(-0.329919, -2.82463e-08, -0.944009, -1.42109e-14, 1, -2.99216e-08, 0.944009, -9.87169e-09, -0.329919, -8.37276, 1, -3.05545)
 
 [node name="PathFollow" parent="ViewportContainer/Viewport/Level/FollowPaths/CharacterPath" index="1"]
-transform = Transform3D(-0.988653, 0, -0.149145, 0, 0.999798, 0, 0.149145, 0, -0.988653, -0.9, 0.6, -1.7)
-progress = 13.4595
+transform = Transform3D(0.332829, 0, 0.942823, 0, 0.999798, 0, -0.942823, 0, 0.332829, -8.37791, 1, -3.0639)
+progress = 0.80757
 
 [node name="LookTargetPivot" parent="ViewportContainer/Viewport/Level/FollowPaths/CharacterPath/PathFollow" index="1"]
-transform = Transform3D(0.453991, 0, -0.891007, 0, 1, 0, 0.891007, 0, 0.453991, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="RemoteTransform" parent="ViewportContainer/Viewport/Level/FollowPaths/AlienPath" index="0"]
+transform = Transform3D(-0.978275, 0.0178623, -0.206538, -0.0216364, 0.982042, 0.187413, 0.206177, 0.18781, -0.960322, 0.57299, 0.947127, -5.16715)
+
+[node name="PathFollow" parent="ViewportContainer/Viewport/Level/FollowPaths/AlienPath" index="1"]
+transform = Transform3D(-0.906818, 0, 0.421123, 0, 0.999828, 0, -0.421123, 0, -0.906818, 0.475702, 0.271153, 0.110254)
+
+[node name="RemoteTransform" parent="ViewportContainer/Viewport/Level/FollowPaths/LamaPath" index="0"]
+transform = Transform3D(-0.924626, -0.0865392, 0.37091, -0.0204499, 0.98372, 0.178538, -0.380323, 0.157497, -0.911344, -1.0923, 1.28593, -5.28451)
+
+[node name="PathFollow" parent="ViewportContainer/Viewport/Level/FollowPaths/LamaPath" index="1"]
+transform = Transform3D(-0.531295, 0, -0.847044, 0, 0.999818, 0, 0.847044, 0, -0.531295, -1.10286, 0.465399, -0.0335197)
+
+[node name="RemoteTransform" parent="ViewportContainer/Viewport/Level/FollowPaths/UfoPath" index="0"]
+transform = Transform3D(-0.975491, -0.104865, 0.193435, -0.0215748, 0.920474, 0.390205, -0.218971, 0.376469, -0.900178, -15.1355, 2.72691, -18.0276)
 
 [node name="PathFollow" parent="ViewportContainer/Viewport/Level/FollowPaths/UfoPath" index="1"]
 transform = Transform3D(-0.510022, -0.100373, -0.854117, -0.0253624, 0.994319, -0.101711, 0.859621, -0.0302156, -0.509758, -15.1745, -0.594231, -8.8771)
 
 [node name="PlayerPath" parent="ViewportContainer/Viewport/Level/FollowPaths" index="4"]
-progress_ratio = 1.0
+progress_ratio = 0.18
+pivot = -0.2
 
 [node name="RemoteTransform" parent="ViewportContainer/Viewport/Level/FollowPaths/PlayerPath" index="0"]
-transform = Transform3D(0.999384, -5.76158e-05, 0.0350619, -1.8008e-10, 0.999998, 0.00164326, -0.035062, -0.00164225, 0.999383, 0.5818, 2.09812, -1.5017)
+transform = Transform3D(0.711532, 0.00114733, -0.702652, 2.38651e-09, 0.999998, 0.00163285, 0.702653, -0.00116183, 0.71153, -10.0244, 2.49975, -2.39871)
 remote_path = NodePath("../../../../PlayerCamera")
 
 [node name="PathFollow" parent="ViewportContainer/Viewport/Level/FollowPaths/PlayerPath" index="1"]
-transform = Transform3D(-0.999163, 0, -0.0366191, 0, 0.999798, 0, 0.0366191, 0, -0.999163, 0.586088, 2.09489, -1.4687)
-progress = 16.3504
+transform = Transform3D(-0.175543, 0, 0.984323, 0, 0.999798, 0, -0.984323, 0, -0.175543, -10.0201, 2.49652, -2.3657)
+progress = 3.18016
 
 [node name="LookTargetPivot" parent="ViewportContainer/Viewport/Level/FollowPaths/PlayerPath/PathFollow" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(0.809017, 0, 0.587785, 0, 1, 0, -0.587785, 0, 0.809017, 0, 0, 0)
 
-[node name="SpaceStation" parent="ViewportContainer/Viewport/Level" index="5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-
-[node name="Planet" parent="ViewportContainer/Viewport/Level" index="7"]
+[node name="Planet" parent="ViewportContainer/Viewport/Level" index="6"]
+transform = Transform3D(-0.249969, 0, -0.00392246, 0, 0.25, 0, 0.00392246, 0, -0.249969, 3.72275, 28.7924, -54.9282)
 surface_material_override/0 = SubResource("ShaderMaterial_63kun")
+
+[node name="PathFollow3D" parent="ViewportContainer/Viewport/Level/Stars/Paths/StarPath3D1" index="0"]
+transform = Transform3D(-0.970815, -0.00954385, -0.239187, 4.65611e-10, 0.9991, -0.0398645, 0.239379, -0.0387056, -0.970036, 65, 3.39002e-06, 1)
 
 [node name="PathFollow3D" parent="ViewportContainer/Viewport/Level/Stars/Paths/StarPath3D2" index="0"]
 transform = Transform3D(-0.970844, -0.00954408, -0.239197, 4.65625e-10, 0.999124, -0.0398661, 0.239386, -0.0387066, -0.970075, 65, 3.39002e-06, 1)
 
+[node name="PathFollow3D" parent="ViewportContainer/Viewport/Level/Stars/Paths/StarPath3D3" index="0"]
+transform = Transform3D(-0.970844, -0.00954425, -0.239194, 4.65625e-10, 0.999142, -0.0398657, 0.239386, -0.0387073, -0.970065, 65, 3.39002e-06, 1)
+
+[node name="PathFollow3D" parent="ViewportContainer/Viewport/Level/Stars/Paths/StarPath3D4" index="0"]
+transform = Transform3D(-0.970847, -0.00954424, -0.239195, 4.65626e-10, 0.999141, -0.0398658, 0.239387, -0.0387072, -0.970068, 65, 3.39002e-06, 1)
+
 [node name="PathFollow3D" parent="ViewportContainer/Viewport/Level/Stars/Paths/StarPath3D5" index="0"]
 transform = Transform3D(-0.970768, -0.00954322, -0.239178, 4.65588e-10, 0.999034, -0.039863, 0.239367, -0.0387031, -0.969999, 65, 3.39002e-06, 1)
 
+[node name="Star1" parent="ViewportContainer/Viewport/Level/Stars" index="1"]
+transform = Transform3D(0.968807, 0.0968834, 0.227617, 0.0834886, -0.994096, 0.0677727, 0.232865, -0.0466607, -0.97127, -64.7402, -5.7139, 1.4352)
+
 [node name="Star2" parent="ViewportContainer/Viewport/Level/Stars" index="2"]
 transform = Transform3D(0.743979, -0.635739, 0.205362, -0.627479, -0.77045, -0.111882, 0.229367, -0.0456261, -0.972193, -49.7515, 41.8091, 1.66951)
+
+[node name="Star3" parent="ViewportContainer/Viewport/Level/Stars" index="3"]
+transform = Transform3D(-2.87546e-08, -0.999142, 0.0398657, -0.970844, -0.00954424, -0.239194, 0.239386, -0.0387072, -0.970065, -5.60284e-06, 65, 0.999999)
+
+[node name="Star4" parent="ViewportContainer/Viewport/Level/Stars" index="4"]
+transform = Transform3D(-0.795271, -0.580902, -0.173071, -0.556856, 0.812974, -0.169853, 0.239387, -0.0387072, -0.970068, 53.2449, 37.2825, 1)
 
 [node name="Star5" parent="ViewportContainer/Viewport/Level/Stars" index="5"]
 transform = Transform3D(-0.95602, 0.164082, -0.242466, 0.168572, 0.985514, 0.00227533, 0.239367, -0.0387031, -0.969999, 64.0125, -11.2871, 1)
 
 [node name="PlayerCamera" type="Camera3D" parent="ViewportContainer/Viewport"]
-transform = Transform3D(0.999384, -5.76158e-05, 0.0350619, -1.8008e-10, 0.999998, 0.00164326, -0.035062, -0.00164225, 0.999383, 0.577513, 2.10135, -1.53471)
+transform = Transform3D(0.711532, 0.00114733, -0.702652, 2.38651e-09, 0.999998, 0.00163285, 0.702653, -0.00116183, 0.71153, -10.0287, 2.50299, -2.43171)
 
 [editable path="ViewportContainer/Viewport/Level"]
 [editable path="ViewportContainer/Viewport/Level/FollowPaths/CharacterPath"]
@@ -138,11 +169,12 @@ transform = Transform3D(0.999384, -5.76158e-05, 0.0350619, -1.8008e-10, 0.999998
 [editable path="ViewportContainer/Viewport/Level/FollowPaths/LamaPath"]
 [editable path="ViewportContainer/Viewport/Level/FollowPaths/UfoPath"]
 [editable path="ViewportContainer/Viewport/Level/FollowPaths/PlayerPath"]
-[editable path="ViewportContainer/Viewport/Level/SpaceStation"]
-[editable path="ViewportContainer/Viewport/Level/SpaceStation/Computers/Computer_01"]
-[editable path="ViewportContainer/Viewport/Level/SpaceStation/Computers/Computer_01/starmap"]
-[editable path="ViewportContainer/Viewport/Level/SpaceStation/Computers/Computer_02"]
-[editable path="ViewportContainer/Viewport/Level/SpaceStation/Computers/Computer_02/starmap"]
+[editable path="ViewportContainer/Viewport/Level/Ground/SpaceStation"]
+[editable path="ViewportContainer/Viewport/Level/Ground/SpaceStation/Computers/Computer_01"]
+[editable path="ViewportContainer/Viewport/Level/Ground/SpaceStation/Computers/Computer_01/starmap"]
+[editable path="ViewportContainer/Viewport/Level/Ground/SpaceStation/Computers/Computer_02"]
+[editable path="ViewportContainer/Viewport/Level/Ground/SpaceStation/Computers/Computer_02/starmap"]
+[editable path="ViewportContainer/Viewport/Level/Environment"]
 [editable path="ViewportContainer/Viewport/Level/Stars/Star1"]
 [editable path="ViewportContainer/Viewport/Level/Stars/Star2"]
 [editable path="ViewportContainer/Viewport/Level/Stars/Star3"]

@@ -9,13 +9,14 @@
 => END
 
 ~ character
-do Character.move_to(0.05,0.0)
+do Character.move_to(0)
 do Character.pivot(0)
 do Character.tilt(0)
 => END
 
 ~ player
-do Player.move_to(0.0,0.0)
+do Player.move_to(0)
+do Player.pivot(0)
 => END
 
 ~ spaceship

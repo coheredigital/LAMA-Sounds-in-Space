@@ -1,3 +1,4 @@
+@tool
 extends Node3D
 
 var screen_state: String = "idle":
@@ -5,17 +6,17 @@ var screen_state: String = "idle":
 		screen_state = value
 		update_screen(value)
 
-var door_open := false : 
+@export var door_open := false : 
 	set(value):
 		door_open = value
 		set_door_open(value)
 
-var seatbelts_buckled := false : 
+@export var seatbelts_buckled := false : 
 	set(value):
 		seatbelts_buckled = value
 		set_seatbelts_buckled(value)
 
-var siren_active := false : 
+@export var siren_active := false : 
 	set(value):
 		siren_active = value
 		if %Siren:

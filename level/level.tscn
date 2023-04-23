@@ -405,7 +405,7 @@ libraries = {
 script = ExtResource("2_gas8d")
 
 [node name="Character" parent="." instance=ExtResource("21_35viv")]
-transform = Transform3D(-0.989218, 1.98506e-06, 0.146456, 1.13687e-13, 1, -1.3554e-05, -0.146456, -1.34079e-05, -0.989218, -8.61991, 0.999973, -3.42571)
+transform = Transform3D(-0.989218, 1.98507e-06, 0.146456, 2.27374e-13, 1, -1.3554e-05, -0.146456, -1.34079e-05, -0.989218, -8.61991, 0.999973, -3.42571)
 action = "talking"
 
 [node name="Spaceship" parent="." instance=ExtResource("2_ovpdl")]
@@ -418,7 +418,7 @@ unique_name_in_owner = true
 curve = ExtResource("22_lkuf6")
 
 [node name="RemoteTransform" parent="FollowPaths/CharacterPath" index="0"]
-transform = Transform3D(-0.989218, 1.98506e-06, 0.146456, 1.13687e-13, 1, -1.3554e-05, -0.146456, -1.34079e-05, -0.989218, -8.61991, 0.999973, -3.42571)
+transform = Transform3D(-0.989218, 1.98507e-06, 0.146456, 2.27374e-13, 1, -1.3554e-05, -0.146456, -1.34079e-05, -0.989218, -8.61991, 0.999973, -3.42571)
 remote_path = NodePath("../../../Character")
 
 [node name="PathFollow" parent="FollowPaths/CharacterPath" index="1"]
@@ -468,7 +468,7 @@ follow_speed = 1.8
 turn_speed = 1.2
 
 [node name="RemoteTransform" parent="FollowPaths/PlayerPath" index="0"]
-transform = Transform3D(0.852061, 0.000857023, -0.52344, -4.07453e-10, 0.999998, 0.00163728, 0.523441, -0.00139507, 0.85206, -12.2, 2.4, -0.2)
+transform = Transform3D(0.852061, 0.000857023, -0.52344, -5.23869e-10, 0.999998, 0.00163728, 0.523441, -0.00139507, 0.85206, -12.2, 2.4, -0.2)
 remote_path = NodePath("../../PlayerCamera")
 use_global_coordinates = true
 
@@ -476,7 +476,7 @@ use_global_coordinates = true
 transform = Transform3D(-0.857363, 0, 0.514418, 0, 0.999798, 0, -0.514418, 0, -0.857363, -12.1957, 2.39677, -0.166997)
 
 [node name="Ground" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -62.4236, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.038, 0)
 
 [node name="SpaceStation" parent="Ground" instance=ExtResource("6_7tl8n")]
 
