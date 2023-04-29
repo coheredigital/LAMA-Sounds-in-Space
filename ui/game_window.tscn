@@ -76,7 +76,7 @@ render_target_update_mode = 4
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_shlpt")
 
 [node name="Character" parent="ViewportContainer/Viewport/Level" index="2"]
-transform = Transform3D(-0.902379, -1.29087e-08, -0.430943, 2.66453e-15, 1, -2.99544e-08, 0.430943, -2.70303e-08, -0.902379, -8.37276, 1, -3.05545)
+transform = Transform3D(-0.90238, 0, -0.430941, 0, 1, 0, 0.430941, 0, -0.90238, -8.37276, 1, -3.05545)
 
 [node name="CharacterPath" parent="ViewportContainer/Viewport/Level/FollowPaths" index="0"]
 progress_ratio = 0.06
@@ -85,10 +85,10 @@ follow_speed = 4.6
 turn_speed = 5.6
 
 [node name="RemoteTransform" parent="ViewportContainer/Viewport/Level/FollowPaths/CharacterPath" index="0"]
-transform = Transform3D(-0.902379, -1.29087e-08, -0.430943, 2.66453e-15, 1, -2.99544e-08, 0.430943, -2.70303e-08, -0.902379, -8.37276, 1, -3.05545)
+transform = Transform3D(-0.90238, 0, -0.430941, 0, 1, 0, 0.430941, 0, -0.90238, -8.37276, 1, -3.05545)
 
 [node name="PathFollow" parent="ViewportContainer/Viewport/Level/FollowPaths/CharacterPath" index="1"]
-transform = Transform3D(0.332829, 0, 0.942823, 0, 0.999798, 0, -0.942823, 0, 0.332829, -8.37791, 1, -3.0639)
+transform = Transform3D(0.33283, 0, 0.942823, 0, 0.999798, 0, -0.942823, 0, 0.33283, -8.37791, 1, -3.0639)
 progress = 0.80757
 
 [node name="LookTargetPivot" parent="ViewportContainer/Viewport/Level/FollowPaths/CharacterPath/PathFollow" index="1"]
@@ -113,16 +113,17 @@ transform = Transform3D(-0.975491, -0.104865, 0.193435, -0.0215748, 0.920474, 0.
 transform = Transform3D(-0.510022, -0.100373, -0.854117, -0.0253624, 0.994319, -0.101711, 0.859621, -0.0302156, -0.509758, -15.1745, -0.594231, -8.8771)
 
 [node name="PlayerPath" parent="ViewportContainer/Viewport/Level/FollowPaths" index="4"]
-progress_ratio = 0.18
+progress_ratio = 0.16
 pivot = -0.15
+max_distance = 1.3
 
 [node name="RemoteTransform" parent="ViewportContainer/Viewport/Level/FollowPaths/PlayerPath" index="0"]
-transform = Transform3D(0.591689, 0.00131345, -0.806165, -1.97906e-09, 0.999998, 0.00162926, 0.806166, -0.000964013, 0.591688, -10.0244, 2.49975, -2.39871)
+transform = Transform3D(0.795572, 0.000444638, -0.605858, -1.45519e-11, 0.999999, 0.000733897, 0.605858, -0.000583868, 0.795572, -10.3847, 2.49667, -2.23857)
 remote_path = NodePath("../../../../PlayerCamera")
 
 [node name="PathFollow" parent="ViewportContainer/Viewport/Level/FollowPaths/PlayerPath" index="1"]
-transform = Transform3D(-0.175543, 0, 0.984323, 0, 0.999798, 0, -0.984323, 0, -0.175543, -10.0201, 2.49652, -2.3657)
-progress = 3.18016
+transform = Transform3D(-0.431923, 0, 0.901761, 0, 0.999798, 0, -0.901761, 0, -0.431923, -10.3829, 2.4952, -2.2476)
+progress = 2.79754
 
 [node name="LookTargetPivot" parent="ViewportContainer/Viewport/Level/FollowPaths/PlayerPath/PathFollow" index="1"]
 transform = Transform3D(0.891007, 0, 0.45399, 0, 1, 0, -0.45399, 0, 0.891007, 0, 0, 0)
@@ -162,7 +163,7 @@ transform = Transform3D(-0.795271, -0.580902, -0.173071, -0.556856, 0.812974, -0
 transform = Transform3D(-0.95602, 0.164082, -0.242466, 0.168572, 0.985514, 0.00227533, 0.239367, -0.0387031, -0.969999, 64.0125, -11.2871, 1)
 
 [node name="PlayerCamera" type="Camera3D" parent="ViewportContainer/Viewport"]
-transform = Transform3D(0.591689, 0.00131345, -0.806165, -1.97906e-09, 0.999998, 0.00162926, 0.806166, -0.000964013, 0.591688, -10.0287, 2.50299, -2.43171)
+transform = Transform3D(0.795572, 0.000444638, -0.605858, -1.45519e-11, 0.999999, 0.000733897, 0.605858, -0.000583868, 0.795572, -10.389, 2.4999, -2.27157)
 
 [editable path="ViewportContainer/Viewport/Level"]
 [editable path="ViewportContainer/Viewport/Level/FollowPaths/CharacterPath"]

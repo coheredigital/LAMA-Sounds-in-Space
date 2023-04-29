@@ -12,21 +12,22 @@ System: Ready.
 - Start
 
 ~ welcome
-do Player.move_to(0.1,5)
-[next=3]
+do Player.move_to(0.13,3)
+[next=4]
 Sam: Welcome to the Space Station! My name is Sam and I’m an Astronaut. We’re so glad you came to visit us today! Here at the space station, we go on so many fun missions. Come on in so I can show you around!
 
 ~ welcome_enter
 do Player.move_to(0.18,3)
+[next=2]
 Sam: First, I want you to meet our very own space llama named Lucky. She’s usually around here somewhere... Let’s look up her location on our astronaut map.
 do Character.move_to(0.05)
+[next=2]
 
 ~ welcome_map
 do Player.move_to(0.25,2)
 do Player.pivot(-0.45,2)
 do Character.pivot(0)
-[next=1.75]
-# TODO: set player_view = (look at station_screen)
+[next=3]
 # TODO: set station_screen = (starmap)
 # TODO: set station_screen = (starmap_locate)
 Sam: Oh no! It looks like Lucky’s spaceship broke down and Lucky is stuck on another planet way out in space!
