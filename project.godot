@@ -29,6 +29,8 @@ AudioVisualizer="*res://audio/visualizer/AudioVisualizer.tscn"
 Recorder="*res://audio/recorder/recorder.gd"
 Character="*res://characters/character/character_sequencer.gd"
 Player="*res://characters/player/player_sequencer.gd"
+Alien="*res://characters/alien/alien_sequencer.gd"
+Ufo="*res://characters/alien/ufo_sequencer.gd"
 
 [dialogue_manager]
 

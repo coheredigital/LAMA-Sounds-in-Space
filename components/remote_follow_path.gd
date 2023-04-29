@@ -29,6 +29,11 @@ const LOOK_ANGLE_LIMIT = Vector2(20.0,180.0)
 
 
 func _physics_process(delta):
+#	prevent global offset
+	self.position = Vector3(0.0,0.0,0.0)
+	self.rotation = Vector3(0.0,0.0,0.0)
+	
+	
 	var distance = remote_transform.position.distance_to(path_follow.position)
 	var distance_ratio = clamp(smoothstep(0.0, max_distance, distance), 0.0,1.0)
 	if distance > 0.01:
