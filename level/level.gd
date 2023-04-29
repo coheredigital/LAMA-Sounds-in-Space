@@ -15,14 +15,26 @@ var state: String = "intro":
 func _ready():
 #	Global Sequencer
 	Sequencer.level_changed.connect(update_state)
+	
 #	Player
 	Player.position_changed.connect(update_player_position)
 	Player.pivot_changed.connect(update_player_pivot)
 	Player.tilt_changed.connect(update_player_tilt)
+	
 #	Character (Sam)
 	Character.position_changed.connect(update_character_postion)
 	Character.pivot_changed.connect(update_character_pivot)
 	Character.tilt_changed.connect(update_character_tilt)
+	
+#	Alien
+	Alien.position_changed.connect(update_alien_postion)
+	Alien.pivot_changed.connect(update_alien_pivot)
+	Alien.tilt_changed.connect(update_alien_tilt)
+	
+#	UFO
+	Ufo.position_changed.connect(update_ufo_postion)
+	Ufo.pivot_changed.connect(update_ufo_pivot)
+	Ufo.tilt_changed.connect(update_ufo_tilt)	
 
 # Control the over "level" state (home, launch, warp, landing)
 func update_state(value: String) -> void: 
@@ -65,3 +77,26 @@ func update_character_pivot(pivot: float, duration: float = 1.0) -> void:
 
 func update_character_tilt(tilt: float, duration: float = 1.0) -> void: 
 	update_path_tilt(character_path,tilt,duration)
+
+
+#	Alien
+func update_alien_postion(position: float, duration: float = 1.0) -> void: 
+	update_path_position(alien_path,position,duration)
+
+func update_alien_pivot(pivot: float, duration: float = 1.0) -> void: 
+	update_path_pivot(alien_path,pivot,duration)
+
+func update_alien_tilt(tilt: float, duration: float = 1.0) -> void: 
+	update_path_tilt(alien_path,tilt,duration)
+	
+
+#	UFO
+func update_ufo_postion(position: float, duration: float = 1.0) -> void: 
+	update_path_position(ufo_path,position,duration)
+
+func update_ufo_pivot(pivot: float, duration: float = 1.0) -> void: 
+	update_path_pivot(ufo_path,pivot,duration)
+
+func update_ufo_tilt(tilt: float, duration: float = 1.0) -> void: 
+	update_path_tilt(ufo_path,tilt,duration)
+	
