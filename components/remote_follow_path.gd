@@ -3,11 +3,6 @@ extends Path3D
 
 const LOOK_ANGLE_LIMIT = Vector2(20.0,180.0)
 
-#@export_range (0.0, 64.0, 0.1) var progress := 0.0 :
-#	set(value):
-#		progress = value
-#		update_progress(value)
-
 @export_range (0.0, 1.0, 0.01) var progress_ratio := 0.0 :
 	set(value):
 		progress_ratio = value
@@ -41,11 +36,6 @@ func _physics_process(delta):
 		remote_transform.position = remote_transform.position.move_toward(path_follow.global_transform.origin, delta * follow_distance_speed)
 	var look_transform = remote_transform.global_transform.looking_at(look_target.global_transform.origin, Vector3.UP)
 	remote_transform.global_transform = remote_transform.global_transform.interpolate_with(look_transform, delta * turn_speed)
-
-func update_progress(value: float, duration: float = 1.0) -> void:
-	if path_follow:
-		var tween = create_tween()
-		tween.tween_property(path_follow, "progress", value, duration).set_trans(Tween.TRANS_LINEAR)
 
 func update_progress_ratio(value: float, duration: float = 1.0) -> void:
 	if path_follow:
