@@ -577,8 +577,14 @@ remote_path = NodePath("../../Lama")
 [node name="ufo" parent="Ground/PlanetStardust/Ufo" index="4"]
 transform = Transform3D(0.986388, 0.115874, 0.116671, -0.116671, 0.99317, 0, -0.115874, -0.013612, 0.99317, 0, 0, 0)
 
+[node name="ring_light" parent="Ground/PlanetStardust/Ufo/ufo" index="11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
 [node name="beam" parent="Ground/PlanetStardust/Ufo/ufo" index="12"]
-transform = Transform3D(0.964768, 0.249972, -0.082139, 0.0679574, 0.0648597, 0.995583, 0.254196, -0.966086, 0.0455869, 0.000375509, -0.629505, -0.0625134)
+transform = Transform3D(0.951453, 0.30368, -0.0502391, 0.0480092, 0.0148095, 0.998742, 0.304042, -0.952667, -0.000488904, 0.000339985, -0.629812, -0.0624628)
+
+[node name="OmniLight3D" parent="Ground/PlanetStardust/Ufo/ufo" index="13"]
+light_energy = 0.142
 
 [node name="Alien" parent="Ground/PlanetStardust" instance=ExtResource("8_bs0lj")]
 transform = Transform3D(-0.951976, 0.000759903, 0.306025, -1.45515e-10, 0.999704, -0.00248288, -0.306077, -0.00236349, -0.951812, 0.78405, 1.01247, -4)
