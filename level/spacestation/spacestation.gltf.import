@@ -37,10 +37,6 @@ _subresources={
 "material_1": {
 "use_external/enabled": true,
 "use_external/path": "res://level/spacestation/materials/spacestation_alpha_material.tres"
-},
-"material_2": {
-"use_external/enabled": true,
-"use_external/path": "res://level/spaceship/materials/cockpit_material.tres"
 }
 }
 }
