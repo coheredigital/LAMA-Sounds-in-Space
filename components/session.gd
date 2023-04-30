@@ -25,8 +25,7 @@ var run_id: int = 1:
 		print('Run ID: %s' % value)
 		run_id_changed.emit(value)
 
-#@export_enum("PRAC","TEST") var type: String = "TEST":
-var type: String = "TEST":
+@export_enum("PRAC","TEST") var type: String = "TEST":
 	set(value):
 		type = value
 		print('Session Type: %s' % value)
@@ -34,15 +33,15 @@ var type: String = "TEST":
 		
 		
 #@export_enum("SpSp","SpSo","ImSp","ImSo") var type : String
-var stimuli_type: String = "SpSo":
+var stimuli_type: String:
 	set(value):
 		type = value
 		print('Stimuli Type: %s' % value)
 		type_changed.emit(value)
 
 
-var sentence_id: String = "1R":
+var sentence_id: String:
 	set(value):
 		sentence_id = value
-		print('Stimuli Type: %s' % value)
+		print('Sentence ID: %s' % value)
 		sentence_id_changed.emit(value)

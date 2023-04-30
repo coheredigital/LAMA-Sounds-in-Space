@@ -4,10 +4,11 @@
 
 [node name="RemoteFollowPath" type="Path3D"]
 script = ExtResource("1_11yyf")
+follow_speed = 2.0
 
 [node name="RemoteTransform" type="RemoteTransform3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(-0.999997, -7.74385e-08, 0.00190692, 2.4869e-14, 1, 4.06092e-05, -0.00190692, 4.06091e-05, -0.999997, 0.00379668, 8.08532e-05, 0.00869471)
+transform = Transform3D(-0.999997, -7.74385e-08, 0.00190692, 2.13163e-14, 1, 4.06092e-05, -0.00190692, 4.06091e-05, -0.999997, 0.00379668, 8.08532e-05, 0.00869471)
 use_global_coordinates = false
 
 [node name="Marker3D" type="Marker3D" parent="RemoteTransform"]

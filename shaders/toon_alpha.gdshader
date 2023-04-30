@@ -9,15 +9,13 @@ global uniform vec4 diffuse_color : source_color = vec4(0.5);
 uniform float specular : hint_range(0,1) = 0.5;
 uniform float specular_amount : hint_range(0,1) = 0.5;
 uniform float specular_smoothness : hint_range(0,1) = 0.05;
-
+uniform float alpha_amount : hint_range(0,1) = 1.0;
 uniform float rim : hint_range(0,1) = 0.5;
 global uniform sampler2D rim_curve : hint_default_black, filter_nearest, repeat_disable;
 global uniform vec4 rim_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
 uniform float rim_amount : hint_range(0,1) = 0.2;
 uniform float rim_smoothness : hint_range(0.001,1.0) = 0.05;
-
 uniform float wrap : hint_range(-2.0, 2.0) = 0.32;
-
 uniform float metallic : hint_range(0,1) = 0.0;
 uniform float roughness : hint_range(0,1) = 1.0;
 
@@ -31,13 +29,9 @@ void fragment() {
 	METALLIC = metallic;
 	EMISSION = (emission.rgb + texture(emission_texture, UV).rgb) * emission_energy * COLOR.rgb;
 	ALBEDO = albedo.rgb * COLOR.rgb * texture(albedo_texture, UV).rgb;
-	ALPHA = texture(albedo_texture, UV).a;
-
-	
+	ALPHA = texture(albedo_texture, UV).a * alpha_amount;
 }
 
-
-//
 void light() {
 	float spec_value = specular;
 	float spec_gloss = pow(2.0, 8.0 * (1.0 - specular_amount));

@@ -1,29 +1,138 @@
-[gd_scene load_steps=6 format=3 uid="uid://bbugqyxo4xw7n"]
+[gd_scene load_steps=11 format=3 uid="uid://bbugqyxo4xw7n"]
 
 [ext_resource type="PackedScene" uid="uid://d0f416j3xmved" path="res://characters/alien/ufo.gltf" id="1_1cqd3"]
+[ext_resource type="Script" path="res://characters/alien/ufo.gd" id="2_dq5n3"]
 [ext_resource type="PackedScene" uid="uid://bq23ckwovuhf4" path="res://characters/alien/alien.tscn" id="2_dwwl8"]
 [ext_resource type="Material" uid="uid://eivgxthmke74" path="res://characters/alien/materials/ufo_beam_material.tres" id="3_ju5pg"]
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bbquf"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_yse6w"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_m1lfx"]
+nodes/Animation/node = SubResource("AnimationNodeAnimation_bbquf")
+nodes/Animation/position = Vector2(380, 120)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_yse6w")
+nodes/TimeScale/position = Vector2(600, 120)
+nodes/output/position = Vector2(960, 140)
+node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Animation"]
+
+[sub_resource type="Animation" id="Animation_bgnuo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ufo/ring_light:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ufo:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.116937, -0.116937)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ufo:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_f1na4"]
 resource_name = "idle"
+length = 8.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ufo/ring_light:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ufo:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.6, 2.8, 4.6, 7.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.0750492, -0.0575959), Vector3(-0.113446, -0.109956, 0.109956), Vector3(-0.0820305, -0.151844, -0.0366519)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ufo:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2, 4.1, 6.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.069, -0.049, 0), Vector3(-0.214, 0.243, 0.103)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6s5j1"]
 _data = {
+"RESET": SubResource("Animation_bgnuo"),
 "idle": SubResource("Animation_f1na4")
 }
 
 [node name="Ufo" instance=ExtResource("1_1cqd3")]
+script = ExtResource("2_dq5n3")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
+[node name="AnimationTree" type="AnimationTree" parent="." index="0"]
+tree_root = SubResource("AnimationNodeBlendTree_m1lfx")
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/TimeScale/scale = 0.52
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
 libraries = {
 "": SubResource("AnimationLibrary_6s5j1")
 }
 
-[node name="Alien" parent="." index="1" instance=ExtResource("2_dwwl8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0931226, -0.0327476, -0.00207422)
-
-[node name="beam" parent="ufo" index="2"]
-surface_material_override/0 = ExtResource("3_ju5pg")
+[node name="BeamTransformTarget" type="Marker3D" parent="." index="2"]
+unique_name_in_owner = true
+transform = Transform3D(0.999997, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
 
 [node name="BeamTransform" type="RemoteTransform3D" parent="." index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.14404, 0)
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3175e-10, -2.99019, 4.36505e-10)
+top_level = true
+
+[node name="ufo" parent="." index="4"]
+transform = Transform3D(0.986388, 0.115874, 0.116671, -0.116671, 0.993171, 0, -0.115874, -0.0136121, 0.99317, 0, 0, 0)
+
+[node name="Alien" parent="ufo" index="0" instance=ExtResource("2_dwwl8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.140122, -0.184915, 0.0138138)
+
+[node name="beam" parent="ufo" index="12"]
+transform = Transform3D(-0.998958, -0.019416, -0.0413766, -0.0417762, 0.0206508, 0.998917, -0.0185404, 0.999602, -0.0214402, 1.86265e-06, -0.628451, -0.0628448)
+surface_material_override/0 = ExtResource("3_ju5pg")
