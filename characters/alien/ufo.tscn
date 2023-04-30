@@ -128,13 +128,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3175e-10, -2.99019, 4.3650
 top_level = true
 
 [node name="ufo" parent="." index="4"]
-transform = Transform3D(0.986388, 0.115874, 0.116671, -0.116671, 0.993171, 0, -0.115874, -0.0136121, 0.99317, 0, 0, 0)
+transform = Transform3D(0.986388, 0.115874, 0.116671, -0.116671, 0.993171, 0, -0.115874, -0.013612, 0.99317, 0, 0, 0)
 
 [node name="Alien" parent="ufo" index="0" instance=ExtResource("2_dwwl8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.140122, -0.184915, 0.0138138)
 
 [node name="beam" parent="ufo" index="12"]
-transform = Transform3D(-0.979603, 0.172444, -0.103192, -0.126686, -0.131302, 0.983218, 0.156, 0.976233, 0.150469, 8.79169e-07, -0.628612, -0.062861)
+transform = Transform3D(-0.994146, -0.0840918, -0.0678899, -0.0711209, 0.0360373, 0.996818, -0.0813777, 0.995809, -0.0418071, 1.15111e-06, -0.628742, -0.0628744)
 surface_material_override/0 = ExtResource("3_ju5pg")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="ufo" index="13"]

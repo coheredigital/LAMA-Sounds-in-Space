@@ -1,0 +1,23 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://b1y76t4c1qs7n"]
+
+[ext_resource type="Shader" path="res://shaders/toon.gdshader" id="1_ksh61"]
+[ext_resource type="Texture2D" uid="uid://dmjxjcsy4p226" path="res://level/spaceship/materials/spaceship_albedo.png" id="2_mx3r4"]
+[ext_resource type="Texture2D" uid="uid://nlpie5uq8lof" path="res://level/spaceship/materials/spaceship_emission.png" id="3_ixn7d"]
+
+[resource]
+render_priority = 4
+shader = ExtResource("1_ksh61")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/specular = 0.5
+shader_parameter/specular_amount = 0.5
+shader_parameter/specular_smoothness = 0.05
+shader_parameter/wrap = 1.076
+shader_parameter/rim = 0.476
+shader_parameter/rim_amount = 0.447
+shader_parameter/rim_smoothness = 1.0
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 1.0
+shader_parameter/emission = Color(0, 0, 0, 1)
+shader_parameter/emission_energy = 1.0
+shader_parameter/albedo_texture = ExtResource("2_mx3r4")
+shader_parameter/emission_texture = ExtResource("3_ixn7d")

@@ -51,7 +51,7 @@ libraries = {
 [node name="RedLight" type="SpotLight3D" parent="Lights"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 light_color = Color(0.956863, 0.34902, 0.470588, 1)
-light_energy = 0.123841
+light_energy = 0.25
 spot_range = 1.5
 spot_attenuation = 0.420448
 spot_angle_attenuation = 0.0853777

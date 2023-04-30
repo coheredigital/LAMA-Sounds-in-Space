@@ -1,0 +1,140 @@
+[gd_scene load_steps=6 format=3 uid="uid://bshyrsivebdd0"]
+
+[ext_resource type="Shader" path="res://shaders/toon.gdshader" id="1_mfard"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_ppcw0"]
+left_to_right = 0.7
+size = Vector3(16, 16, 16)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mx1rk"]
+render_priority = 0
+shader = ExtResource("1_mfard")
+shader_parameter/albedo = Color(0.572549, 0.317647, 0.768627, 1)
+shader_parameter/specular = 0.5
+shader_parameter/specular_amount = 0.5
+shader_parameter/specular_smoothness = 0.05
+shader_parameter/wrap = 0.25
+shader_parameter/rim = 0.5
+shader_parameter/rim_amount = 0.2
+shader_parameter/rim_smoothness = 0.05
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 1.0
+shader_parameter/emission = Color(0, 0, 0, 1)
+shader_parameter/emission_energy = 1.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mdyc1"]
+size = Vector2(500, 500)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v77p2"]
+render_priority = 0
+shader = ExtResource("1_mfard")
+shader_parameter/albedo = Color(0.612097, 0.348263, 0.360486, 1)
+shader_parameter/specular = 0.5
+shader_parameter/specular_amount = 0.5
+shader_parameter/specular_smoothness = 0.05
+shader_parameter/wrap = 0.25
+shader_parameter/rim = 0.5
+shader_parameter/rim_amount = 0.2
+shader_parameter/rim_smoothness = 0.05
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 1.0
+shader_parameter/emission = Color(0, 0, 0, 1)
+shader_parameter/emission_energy = 1.0
+
+[node name="mountains" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.64582, -54.4001)
+mesh = SubResource("PrismMesh_ppcw0")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_mx1rk")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.8558, 2.4856, -54.4001)
+mesh = SubResource("PrismMesh_ppcw0")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_mx1rk")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.63863, 0, -0.618833, 0, 1, 0, 1.29091, 0, -0.785522, -4.72388, 3.68456, -51.363)
+mesh = SubResource("PrismMesh_ppcw0")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_mx1rk")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.63863, 0, -0.618833, 0, 1, 0, 1.29091, 0, -0.785522, -4.72388, -2.25591, -42.822)
+mesh = SubResource("PlaneMesh_mdyc1")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_v77p2")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.41737, 0, 0.159165, 0, 0.566791, 0, -0.248085, 0, -0.909351, 9.44273, 5.58556, -54.8703)
+mesh = SubResource("PrismMesh_ppcw0")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_mx1rk")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.41737, 0, 0.159165, 0, 0.566791, 0, -0.248085, 0, -0.909351, -14.559, 2.6608, -57.7764)
+mesh = SubResource("PrismMesh_ppcw0")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_mx1rk")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.55722, 0, 0.574305, 0, 0.566791, 0, -1.37709, 0, 1.06647, 16.9262, 3.34036, -57.0474)
+mesh = SubResource("PrismMesh_ppcw0")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_mx1rk")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.55722, 0, 0.574305, 0, 0.566791, 0, -1.37709, 0, 1.06647, 19.0549, -0.0266432, -65.4605)
+mesh = SubResource("PlaneMesh_mdyc1")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_v77p2")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.944181, 0, -0.329427, 0, 0.572169, 0, 0.329427, 0, 0.944181, -4.39684, 0.428538, -31.0769)
+mesh = SubResource("PrismMesh_ppcw0")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_mx1rk")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.944181, 0, -0.329427, 0, 0.572169, 0, 0.329427, 0, 0.944181, 11.5181, -2.52398, -25.5242)
+mesh = SubResource("PrismMesh_ppcw0")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_mx1rk")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.97242, 0, -0.325519, 0, 0.572169, 0, 0.679044, 0, -0.945536, -9.85752, -1.83797, -29.7656)
+mesh = SubResource("PrismMesh_ppcw0")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_mx1rk")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.97242, 0, -0.325519, 0, 0.572169, 0, 0.679044, 0, -0.945536, -12.6711, -5.23692, -21.7014)
+mesh = SubResource("PlaneMesh_mdyc1")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_v77p2")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.25653, 0, 0.449845, 0, 0.3243, 0, -0.701157, 0, -0.806159, 4.67372, -0.750277, -28.4103)
+mesh = SubResource("PrismMesh_ppcw0")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_mx1rk")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.25653, 0, 0.449845, 0.495793, 0.263712, 0.570041, -0.495793, 0.263712, -0.570041, -10.4309, -0.82374, -27.661)
+mesh = SubResource("PrismMesh_ppcw0")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_mx1rk")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.86813, 0, 0.190925, 0, 0.3243, 0, -0.457808, 0, 1.19613, 12.4567, -2.03491, -28.0006)
+mesh = SubResource("PrismMesh_ppcw0")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_mx1rk")
+
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.86813, 0, 0.190925, 0, 0.3243, 0, -0.457808, 0, 1.19613, 17.2381, -3.96141, -35.2428)
+mesh = SubResource("PlaneMesh_mdyc1")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_v77p2")

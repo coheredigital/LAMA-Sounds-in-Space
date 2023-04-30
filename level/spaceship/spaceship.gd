@@ -47,7 +47,7 @@ func _ready():
 	Sequencer.steering_motion_changed.connect(set_steering_motion)
 	Sequencer.flying_motion_changed.connect(set_flying_motion)
 	Sequencer.fuel_level_changed.connect(set_fuel_level)
-	Sequencer.seatbelts_buckled_changed.connect(set_fuel_level)
+	Sequencer.seatbelts_buckled_changed.connect(set_seatbelts_buckled)
 
 func set_steering_motion(value: float) -> void:
 	if animation_tree:

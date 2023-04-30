@@ -1,0 +1,130 @@
+[gd_scene load_steps=4 format=3 uid="uid://vxidh3w2f2yq"]
+
+[ext_resource type="Script" path="res://level/environment/stars.gd" id="1_4po5l"]
+[ext_resource type="PackedScene" uid="uid://cpyfijnifmpjh" path="res://level/environment/models/star.tscn" id="2_hsnls"]
+
+[sub_resource type="Curve3D" id="Curve3D_w65o5"]
+_data = {
+"points": PackedVector3Array(18, 3, 73, -18, -3, -73, 65, 3.39002e-06, 1, 11, -30, -15, -11, 30, 15, 4.17927, -6.09146, -41.0783, 8, -4, -6, -8, 4, 6, 6.8255, -0.440375, -22.0504, 0, 0, 0, 0, 0, 0, 15.1835, -0.501707, 22.8956),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[node name="Stars" type="Node3D"]
+transform = Transform3D(0.853862, 0.519279, -0.0356162, -0.51218, 0.826062, -0.235142, -0.092683, 0.219021, 0.971308, 0, 0, 0)
+script = ExtResource("1_4po5l")
+star1_progress = 0.7
+
+[node name="Paths" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="StarPath3D1" type="Path3D" parent="Paths"]
+transform = Transform3D(-0.996116, 0.0877407, 0.00736374, -0.087794, -0.996112, -0.00728218, 0.00669618, -0.0079004, 0.999946, 0, 0, 0)
+visible = false
+curve = SubResource("Curve3D_w65o5")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Paths/StarPath3D1"]
+transform = Transform3D(-0.970815, -0.00954385, -0.239187, 4.65611e-10, 0.9991, -0.0398645, 0.239379, -0.0387056, -0.970036, 65, 3.39002e-06, 1)
+loop = false
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Paths/StarPath3D1/PathFollow3D"]
+remote_path = NodePath("../../../../Star1")
+
+[node name="StarPath3D2" type="Path3D" parent="Paths"]
+transform = Transform3D(-0.765461, -0.643473, 0.00349055, 0.6434, -0.765439, -0.0118569, 0.0103014, -0.00683013, 0.999924, 0, 0, 0)
+visible = false
+curve = SubResource("Curve3D_w65o5")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Paths/StarPath3D2"]
+transform = Transform3D(-0.970844, -0.00954408, -0.239197, 4.65625e-10, 0.999124, -0.0398661, 0.239386, -0.0387066, -0.970075, 65, 3.39002e-06, 1)
+loop = false
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Paths/StarPath3D2/PathFollow3D"]
+remote_path = NodePath("../../../../Star2")
+
+[node name="StarPath3D3" type="Path3D" parent="Paths"]
+transform = Transform3D(-2.04891e-08, -1, -7.45058e-09, 1, 2.98023e-08, 1.49012e-08, 0, 7.45058e-09, 1, 0, 0, 0)
+visible = false
+curve = SubResource("Curve3D_w65o5")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Paths/StarPath3D3"]
+transform = Transform3D(-0.970844, -0.00954425, -0.239194, 4.65625e-10, 0.999142, -0.0398657, 0.239386, -0.0387073, -0.970065, 65, 3.39002e-06, 1)
+loop = false
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Paths/StarPath3D3/PathFollow3D"]
+remote_path = NodePath("../../../../Star3")
+
+[node name="StarPath3D4" type="Path3D" parent="Paths"]
+transform = Transform3D(0.819152, -0.573577, -7.45058e-09, 0.573577, 0.819152, 1.49012e-08, 0, -2.98023e-08, 1, 0, 0, 0)
+visible = false
+curve = SubResource("Curve3D_w65o5")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Paths/StarPath3D4"]
+transform = Transform3D(-0.970847, -0.00954424, -0.239195, 4.65626e-10, 0.999141, -0.0398658, 0.239387, -0.0387072, -0.970068, 65, 3.39002e-06, 1)
+loop = false
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Paths/StarPath3D4/PathFollow3D"]
+remote_path = NodePath("../../../../Star4")
+
+[node name="StarPath3D5" type="Path3D" parent="Paths"]
+transform = Transform3D(0.984808, 0.173648, -7.45058e-09, -0.173648, 0.984808, 1.49012e-08, -1.49012e-08, -5.96046e-08, 1, 0, 0, 0)
+visible = false
+curve = SubResource("Curve3D_w65o5")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Paths/StarPath3D5"]
+transform = Transform3D(-0.970768, -0.00954322, -0.239178, 4.65588e-10, 0.999034, -0.039863, 0.239367, -0.0387031, -0.969999, 65, 3.39002e-06, 1)
+loop = false
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Paths/StarPath3D5/PathFollow3D"]
+remote_path = NodePath("../../../../Star5")
+
+[node name="Star1" parent="." instance=ExtResource("2_hsnls")]
+transform = Transform3D(0.968807, 0.0968835, 0.227617, 0.0834885, -0.994096, 0.0677726, 0.232865, -0.0466607, -0.97127, -64.7402, -5.71389, 1.4352)
+color = Color(0.941176, 0.901961, 0.54902, 1)
+rotation_speed = 0.239
+
+[node name="StarLight" parent="Star1" index="1"]
+light_color = Color(0.862745, 0, 0, 1)
+light_energy = 0.327
+
+[node name="Star2" parent="." instance=ExtResource("2_hsnls")]
+transform = Transform3D(0.743979, -0.635739, 0.205362, -0.627479, -0.77045, -0.111882, 0.229367, -0.0456261, -0.972193, -49.7515, 41.8091, 1.66951)
+color = Color(0.941176, 0.901961, 0.54902, 1)
+rotation_speed = 0.341
+
+[node name="StarLight" parent="Star2" index="1"]
+light_color = Color(0.694118, 0.517647, 0, 1)
+light_energy = 0.327
+
+[node name="Star3" parent="." instance=ExtResource("2_hsnls")]
+transform = Transform3D(-2.87546e-08, -0.999142, 0.0398657, -0.970844, -0.00954424, -0.239194, 0.239386, -0.0387072, -0.970065, -5.60284e-06, 65, 0.999999)
+color = Color(0.941176, 0.901961, 0.54902, 1)
+rotation_speed = 0.366
+
+[node name="StarLight" parent="Star3" index="1"]
+light_color = Color(0, 0.560784, 0.266667, 1)
+light_energy = 0.327
+
+[node name="Star4" parent="." instance=ExtResource("2_hsnls")]
+transform = Transform3D(-0.795271, -0.580902, -0.173071, -0.556856, 0.812974, -0.169853, 0.239387, -0.0387072, -0.970068, 53.2449, 37.2825, 1)
+color = Color(0.941176, 0.901961, 0.54902, 1)
+rotation_speed = 0.37
+
+[node name="StarLight" parent="Star4" index="1"]
+light_color = Color(0, 0.419608, 0.831373, 1)
+light_energy = 0.327
+
+[node name="Star5" parent="." instance=ExtResource("2_hsnls")]
+transform = Transform3D(-0.95602, 0.164082, -0.242466, 0.168572, 0.985514, 0.00227533, 0.239367, -0.0387031, -0.969999, 64.0125, -11.2871, 0.999999)
+color = Color(0.6, 0, 0.407843, 1)
+rotation_speed = 0.285
+
+[node name="StarLight" parent="Star5" index="1"]
+light_color = Color(0.6, 0, 0.407843, 1)
+light_energy = 0.327
+
+[editable path="Star1"]
+[editable path="Star2"]
+[editable path="Star3"]
+[editable path="Star4"]
+[editable path="Star5"]
