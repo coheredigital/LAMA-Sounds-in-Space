@@ -15,6 +15,7 @@ func stop():
 	effect.set_recording_active(false)
 
 func save(stimuli_type: String, sentence_id: String):
+	
 	var time = Time.get_datetime_dict_from_system()
 #	var unix_time = Time.get_unix_time_from_system()
 	var folder_name := Session.study_id

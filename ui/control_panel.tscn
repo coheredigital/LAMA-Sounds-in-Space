@@ -182,24 +182,12 @@ text = "Toggle Game View
 custom_minimum_size = Vector2(0, 1)
 layout_mode = 2
 
-[node name="Control" type="HSplitContainer" parent="Controls"]
+[node name="HSplitContainer" type="HSplitContainer" parent="Controls"]
 layout_mode = 2
 size_flags_vertical = 3
-split_offset = 871
-
-[node name="ColumnLeft" type="MarginContainer" parent="Controls/Control"]
-custom_minimum_size = Vector2(500, 0)
-layout_mode = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
-
-[node name="HSplitContainer" type="HSplitContainer" parent="Controls/Control/ColumnLeft"]
-layout_mode = 2
 split_offset = 207
 
-[node name="TitleJump" type="ItemList" parent="Controls/Control/ColumnLeft/HSplitContainer"]
+[node name="TitleJump" type="ItemList" parent="Controls/HSplitContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
@@ -207,24 +195,9 @@ theme_override_styles/panel = ExtResource("5_r3xif")
 item_count = 1
 item_0/text = ""
 
-[node name="ControlBalloon" parent="Controls/Control/ColumnLeft/HSplitContainer" instance=ExtResource("4_vrcsm")]
+[node name="ControlBalloon" parent="Controls/HSplitContainer" instance=ExtResource("4_vrcsm")]
 unique_name_in_owner = true
 layout_mode = 2
-
-[node name="ColumnRight" type="MarginContainer" parent="Controls/Control"]
-custom_minimum_size = Vector2(300, 0)
-layout_mode = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
-
-[node name="VBoxContainer" type="VSplitContainer" parent="Controls/Control/ColumnRight"]
-layout_mode = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Controls/Control/ColumnRight/VBoxContainer"]
-layout_mode = 2
-text = "Log placeholder..."
 
 [node name="StatusBar" type="Panel" parent="Controls"]
 custom_minimum_size = Vector2(0, 32)
