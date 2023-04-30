@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://n088b8ab4tef"]
+
+[ext_resource type="Shader" path="res://shaders/screen_overlay.gdshader" id="1_g8msj"]
+[ext_resource type="Script" path="res://ui/screen_overlay.gd" id="2_wsev3"]
+[ext_resource type="Texture2D" uid="uid://xhklnrh5d05r" path="res://level/spacestation/materials/spacestation_albedo.png" id="3_044wt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hs5e2"]
+shader = ExtResource("1_g8msj")
+shader_parameter/blur_amount = 3.6
+shader_parameter/mix_amount = 0.7
+shader_parameter/color_over = Color(0.117647, 0.117647, 0.4, 1)
+
+[node name="ScreenOverlay" type="ColorRect"]
+material = SubResource("ShaderMaterial_hs5e2")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_wsev3")
+active = true
+
+[node name="SpacestationAlbedo" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(627, 348)
+texture = ExtResource("3_044wt")
+region_enabled = true
+region_rect = Rect2(123, 334.5, 375, 87)
