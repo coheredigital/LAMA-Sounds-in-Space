@@ -292,32 +292,163 @@ set steering_motion = 0.5
 Sam: We’re flying![next=5]
 set steering_motion = 0.2
 
-~ TASK_1
+~ stars_light_task
 set steering_motion = 0.05
 set flying_motion = 0.1
 Sam: Boy, it’s dark out here! This time, let’s wake up the stars with our voices. Just like we practiced, you will listen to the computer’s commands and repeat them loud and clear! After each voice command, I’ll press the red button to send your voice to the stars.  
 
 # USAGE: move_star(star_number: int [1-5], progress: float [0-1], duration: float [>=0] )
 # *12 Phrases – 6 song, 6 speech randomized (see list of sentences on last page)* 
+
+~ stars_light_1_command
+set screen = "computer"
+[next=1]
+Computer: Star 1! 
+# TODO: What command do they want for bringing in stars?
+
+~ stars_light_1_recording
+System:
+- Begin Recording
+set screen = "recording"
+do Recorder.start()
+[next=2]
+
+~ stars_light_1_result
+System: 
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save("speech", "TEST_stars_light_1")
+	Sam: Great job! Looks like it heard you! 
+- Quiet
+	set screen = "failure"
+	do Recorder.stop()
+	Sam: Uh oh! It looks like the spaceship couldn't quite hear you. Let's try again a bit louder.
+	=> stars_light_1_command
+
 - Next
 do move_star(1,0.7,5.0)
 [next=4]
 set stars_brightness = 0.2
+
+~ stars_light_2_command
+set screen = "computer"
+[next=1]
+Computer: Star 1! 
+# TODO: What command do they want for bringing in stars?
+
+~ stars_light_2_recording
+System:
+- Begin Recording
+set screen = "recording"
+do Recorder.start()
+[next=2]
+
+~ stars_light_2_result
+System: 
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save("speech", "TEST_stars_light_2")
+	Sam: Great job! Looks like it heard you! 
+- Quiet
+	set screen = "failure"
+	do Recorder.stop()
+	Sam: Uh oh! It looks like the spaceship couldn't quite hear you. Let's try again a bit louder.
+	=> stars_light_2_command
 
 - Next
 do move_star(2,0.7,5.0)
 [next=4]
 set stars_brightness = 0.6
 
+~ stars_light_3_command
+set screen = "computer"
+[next=1]
+Computer: Star 1! 
+# TODO: What command do they want for bringing in stars?
+
+~ stars_light_3_recording
+System:
+- Begin Recording
+set screen = "recording"
+do Recorder.start()
+[next=2]
+
+~ stars_light_3_result
+System: 
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save("speech", "TEST_stars_light_3")
+	Sam: Great job! Looks like it heard you! 
+- Quiet
+	set screen = "failure"
+	do Recorder.stop()
+	Sam: Uh oh! It looks like the spaceship couldn't quite hear you. Let's try again a bit louder.
+	=> stars_light_3_command
+
 - Next
 do move_star(3,0.7,5.0)
 [next=4]
 set stars_brightness = 1.0
 
+~ stars_light_4_command
+set screen = "computer"
+[next=1]
+Computer: Star 1! 
+# TODO: What command do they want for bringing in stars?
+
+~ stars_light_4_recording
+System:
+- Begin Recording
+set screen = "recording"
+do Recorder.start()
+[next=2]
+
+~ stars_light_4_result
+System: 
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save("speech", "TEST_stars_light_4")
+	Sam: Great job! Looks like it heard you! 
+- Quiet
+	set screen = "failure"
+	do Recorder.stop()
+	Sam: Uh oh! It looks like the spaceship couldn't quite hear you. Let's try again a bit louder.
+	=> stars_light_4_command
+
 - Next
 do move_star(4,0.7,5.0)
 [next=4]
 set stars_brightness = 2.0
+
+~ stars_light_5_command
+set screen = "computer"
+[next=1]
+Computer: Star 1! 
+# TODO: What command do they want for bringing in stars?
+
+~ stars_light_5_recording
+System:
+- Begin Recording
+set screen = "recording"
+do Recorder.start()
+[next=2]
+
+~ stars_light_5_result
+System: 
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save("speech", "TEST_stars_light_5")
+	Sam: Great job! Looks like it heard you! 
+- Quiet
+	set screen = "failure"
+	do Recorder.stop()
+	Sam: Uh oh! It looks like the spaceship couldn't quite hear you. Let's try again a bit louder.
+	=> stars_light_5_command
 
 - Next
 do move_star(5,0.7,5.0)
@@ -326,8 +457,7 @@ set stars_brightness = 4.0
 [next=5]
 
 
-~ stars_light
-=>< snippets/stars_light_sequence
+# =>< snippets/stars_light_sequence
 Sam: Awesome job, partner! Look at all the bright things you put in space! 
 Sam: Now let’s go to Planet Stardust, press the GO button to get closer to finding Lucky!
 set screen = "start_button"
