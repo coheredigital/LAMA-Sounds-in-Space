@@ -1,7 +1,9 @@
 import "res://dialogue/snippets/reset.dialogue" as reset
 import "res://dialogue/snippets/snippets.dialogue" as snippets
 
-# USAGE: Character.move_to(progress_ratio: float [0-1], duration: float [>=0])
+# USAGE: Character.move_to(progress_ratio: float [0.0 - 1.0], duration: float [ >= 0.0 ])
+# USAGE: Character.pivot(angle: float [-1.0 - 1.0], duration: float [ >= 0.0 ])
+# USAGE: Character.tilt() Not yet used.
 
 ~ start
 #temp fix for sequence glitches
@@ -13,26 +15,26 @@ System: Ready.
 
 ~ welcome
 do Player.move_to(0.13,3)
-[next=4]
+[next=2]
 Sam: Welcome to the Space Station! My name is Sam and I’m an Astronaut. We’re so glad you came to visit us today! Here at the space station, we go on so many fun missions. Come on in so I can show you around!
 
 ~ welcome_enter
-do Player.move_to(0.18,3)
+do Player.move_to(0.18,1.5)
 [next=2]
 Sam: First, I want you to meet our very own space llama named Lucky. She’s usually around here somewhere... Let’s look up her location on our astronaut map.
-do Character.move_to(0.05)
+do Character.move_to(0.05,0.4)
 [next=2]
 
 ~ welcome_map
-do Player.move_to(0.25,2)
-do Player.pivot(-0.45,2)
-do Character.pivot(0)
+do Player.move_to(0.25,1.5)
+do Player.pivot(-0.45,1.5)
+do Character.pivot(0,0.4)
 [next=3]
 # TODO: set station_screen = (starmap)
 # TODO: set station_screen = (starmap_locate)
 Sam: Oh no! It looks like Lucky’s spaceship broke down and Lucky is stuck on another planet way out in space!
-do Character.pivot(0.5)
-[next=1]
+do Character.pivot(0.5,0.4)
+[next=2]
 
 ~ question_rescue
 Sam: Will you help me rescue Lucky to get her back here to the space station?
@@ -48,10 +50,8 @@ do Player.pivot(0)
 
 ~ approach_spaceship
 do Player.move_to(0.65,6)
-
-[next=3]
+[next=5.5]
 Sam: Press the GREEN button to open the spaceship door and start your training! 
-
 User:
 - Press Green Button
 
@@ -82,11 +82,11 @@ do Player.pivot(-0.05,2)
 do Character.move_to(0.96,2)
 do Character.pivot(0.4)
 [next=0.5]
+set screen = "computer"
 Sam: This is our handy dandy computer! The computer will help us travel to Planet Stardust. This computer is voice-activated, which means that we have to say the commands out loud with our voices so the computer can help us activate the spaceship! First, the computer will say the right words for a command and then your job is to repeat the words out loud with your voice.  
 
 ~ computer_greeting
-Sam: This is what the computer sounds like: 
-set screen = "computer" 
+Sam: This is what the computer sounds like. 
 [next=1]
 Computer: Nice to meet you
 [next=0.5]
@@ -96,6 +96,7 @@ Sam: Ok, now I’ll have the computer say a command and your job is to repeat wh
 Sam: Ok here we go!
 
 ~ activate_spaceship_command
+set screen = "computer"
 Computer: Activate spaceship!
 
 ~ activate_spaceship_recording
@@ -103,14 +104,14 @@ System:
 - Begin Recording
 	do Recorder.start()
 	set screen = "recording"
-	[next=3]
+	[next=2]
 
 ~ activate_spaceship_result
 System: 
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save()
+	do Recorder.save("speech", "PRAC_activate_spaceship")
 	Sam: Great job! Looks like it heard you! We’re ready to start preparing the ship for blast off.
 - Quiet
 	set screen = "failure"
@@ -137,6 +138,7 @@ do Character.pivot(0.25)
 Sam: OK. First, we need to buckle up! Listen to the command from the computer and then repeat what it says with your voice.
 do Character.pivot(0)
 do Player.pivot(0)
+
 ~ buckle_up_command
 set screen = "computer"
 Computer: Seat belts buckled!
@@ -146,7 +148,7 @@ System:
 - Begin Recording
 set screen = "recording"
 do Recorder.start()
-[next=5]
+[next=2]
 
 ~ buckle_up_result
 System: 
@@ -154,14 +156,13 @@ System:
 	set screen = "success"
 	set seatbelts_buckled = true
 	do Recorder.stop()
-	do Recorder.save("speech", "PRACTICE_buckle_up")
+	do Recorder.save("speech", "PRAC_buckle_up")
 	Sam: Great job! Looks like it heard you!
 - Quiet
 	set screen = "failure"
 	do Recorder.stop()
 	Sam: Uh oh! It looks like the spaceship couldn't quite hear what you said. Let's try again a bit louder.
 	=> buckle_up_command
-
 
 ~ siren
 Sam: Great, now let’s test out our warning sirens! 
@@ -170,31 +171,27 @@ Sam: Listen to the command from the computer and then repeat what it says with y
 
 ~ siren_command
 set screen = "computer"
-Computer: Siren noise: low to high to low to high to low
+Computer: Siren noise (low to high to low to high to low)
 
 ~ siren_recording
 System: 
 - Begin Recording
 set screen = "recording"
 do Recorder.start()
-[next=5]
+[next=2]
 
 ~ siren_result
 System: 
 - Success
 	set screen = "success"
-	set seatbelts_buckled = true
 	do Recorder.stop()
-	do Recorder.save("speech", "PRACTICE_buckle_up")
+	do Recorder.save("song", "PRAC_siren")
 	Sam: Great job! Looks like it heard you!
 - Quiet
 	set screen = "failure"
 	do Recorder.stop()
-	Sam: Uh oh! It looks like the spaceship couldn't quite hear what you said. Let's try again a bit louder.
-	=> buckle_up_command
-
-
-
+	Sam: Uh oh! It looks like the spaceship couldn't quite hear you. Let's try again a bit louder.
+	=> siren_command
 
 ~ fuel_up
 Sam: Awesome! We are almost ready to blast off, but first we need some fuel. 
@@ -203,35 +200,90 @@ set screen = "battery"
 
 ~ fuel_up_command
 Sam: Listen to the command from the computer and then repeat what it says with your voice:  
-[next=0.5]set screen = "computer"
-Computer: Let’s fuel up
+[next=0.5]
+set screen = "computer"
+Computer: Let’s fuel up!
 
 ~ fuel_up_recording
-- Beign Recording
+System:
+- Begin Recording
 set screen = "recording"
 do Recorder.start()
-[next=5]
-set screen = "success"
 [next=2]
-=>< snippets/fuel_up_animation
 
+~ fuel_up_result
+System: 
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save("speech", "PRAC_fuel_up")
+	Sam: Great job! Looks like it heard you!
+	=>< snippets/fuel_up_animation
+- Quiet
+	set screen = "failure"
+	do Recorder.stop()
+	Sam: Uh oh! It looks like the spaceship couldn't quite hear you. Let's try again a bit louder.
+	=> fuel_up_command
 
 ~ sleep_mode
 Sam: The computer wants us to yawn out loud to tell it to turn down the lights if we want to sleep! Let’s see if it works. 
+
+~ sleep_mode_command
 Sam: Listen to the command from the computer and then repeat what it says with your voice: 
 set screen = "computer"
 [next=1]
 Computer: *Loud Yawn: from high to low*
-set screen = "recording"
 
-# maybe adjust lights here ?
-Sam: You did it! You’re working really hard at this – Great Job! Now that our spaceship is full of fuel and the computer knows your voice, it’s time to find Planet Stardust!  Our handy dandy computer will countdown to blast off, listen closely and then repeat what you hear to send us into space! 
+~ sleep_mode_recording
+System:
+- Begin Recording
+set screen = "recording"
+do Recorder.start()
+[next=2]
+
+~ sleep_mode_result
+System: 
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save("song", "PRAC_sleep_mode")
+	Sam: Great job! Looks like it heard you! 
+	# maybe adjust lights here ? Might not need last line.
+- Quiet
+	set screen = "failure"
+	do Recorder.stop()
+	Sam: Uh oh! It looks like the spaceship couldn't quite hear you. Let's try again a bit louder.
+	=> sleep_mode_command
+
+~ blast_off
+Sam: You did it! You’re working really hard at this – Great Job! Now that our spaceship is full of fuel and the computer knows your voice, it’s time to find Planet Stardust!  Our handy dandy computer will countdown to blast off. Listen closely and then repeat what you hear to send us into space! 
+
+~ blast_off_command
 set screen = "computer"
 [next=1]
 Computer: *Blast Off!* 
 
+~ blast_off_recording
+System:
+- Begin Recording
+set screen = "recording"
+do Recorder.start()
+[next=2]
 
-~ blast_off 
+~ blast_off_result
+System: 
+- Success
+	set screen = "success"
+	do Recorder.stop()
+	do Recorder.save("speech", "PRAC_blast_off")
+	Sam: Great job! Looks like it heard you! 
+- Quiet
+	set screen = "failure"
+	do Recorder.stop()
+	Sam: Uh oh! It looks like the spaceship couldn't quite hear you. Let's try again a bit louder.
+	=> blast_off_command
+
+~ launch
 set level = "launch"
 set steering_motion = 1.0
 set flying_motion = 1.0
@@ -240,11 +292,39 @@ set steering_motion = 0.5
 Sam: We’re flying![next=5]
 set steering_motion = 0.2
 
-
 ~ TASK_1
 set steering_motion = 0.05
 set flying_motion = 0.1
 Sam: Boy, it’s dark out here! This time, let’s wake up the stars with our voices. Just like we practiced, you will listen to the computer’s commands and repeat them loud and clear! After each voice command, I’ll press the red button to send your voice to the stars.  
+
+# USAGE: move_star(star_number: int [1-5], progress: float [0-1], duration: float [>=0] )
+# *12 Phrases – 6 song, 6 speech randomized (see list of sentences on last page)* 
+- Next
+do move_star(1,0.7,5.0)
+[next=4]
+set stars_brightness = 0.2
+
+- Next
+do move_star(2,0.7,5.0)
+[next=4]
+set stars_brightness = 0.6
+
+- Next
+do move_star(3,0.7,5.0)
+[next=4]
+set stars_brightness = 1.0
+
+- Next
+do move_star(4,0.7,5.0)
+[next=4]
+set stars_brightness = 2.0
+
+- Next
+do move_star(5,0.7,5.0)
+[next=1]
+set stars_brightness = 4.0
+[next=5]
+
 
 ~ stars_light
 =>< snippets/stars_light_sequence
