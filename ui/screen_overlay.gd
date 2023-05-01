@@ -10,6 +10,9 @@ extends ColorRect
 		var tween_blur = create_tween()
 		var tween_mix = create_tween()
 		
+		if not overlay_material:
+			return
+		
 		if active:
 			tween_blur.tween_property(overlay_material, "shader_parameter/blur_amount", 3.6, 3.0).set_trans(Tween.TRANS_EXPO)
 			tween_mix.tween_property(overlay_material, "shader_parameter/mix_amount", 0.7, 3.0).set_trans(Tween.TRANS_EXPO)

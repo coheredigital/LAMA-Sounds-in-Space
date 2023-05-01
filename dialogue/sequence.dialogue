@@ -17,15 +17,18 @@ System: Ready.
 Sam: Welcome to the Space Station! My name is Sam and I’m an Astronaut. We’re so glad you came to visit us today! Here at the space station, we go on so many fun missions. Come on in so I can show you around!
 
 ~ welcome_enter
-do Player.move_to(0.2,2.5)
+do Player.move_to(0.13,2.5)
 [next=2]
+do Player.move_to(0.13,2.5)
 Sam: First, I want you to meet our very own space llama named Lucky. She’s usually around here somewhere... Let’s look up her location on our astronaut map.
-do Character.move_to(0.05,0.4)
+
 [next=2]
 
 ~ welcome_map
-do Player.move_to(0.25,1)
-do Player.pivot(-0.15,1.5)
+do Character.move_to(0.17,2.0)
+do Player.move_to(0.3,2)
+[next=1]
+do Player.pivot(-0.25,1)
 do Character.pivot(0,0.4)
 [next=3]
 # TODO: set station_screen = (starmap)
@@ -44,9 +47,9 @@ Sam: Will you help me rescue Lucky to get her back here to the space station?
 #	- No. => question_rescue
 
 Sam: We’re definitely going to need your help -- this spaceship works best when I have a co-pilot astronaut like you! Our mission is to travel to Planet Stardust, where Lucky’s spaceship broke down, and bring Lucky the Llama back here safely. Are you ready to start your astronaut training? If you help, you’ll get your very own space cadet prize for your help and your bravery!!   
-do Player.pivot(0)
 
 ~ approach_spaceship
+do Player.pivot(0,3)
 do Player.move_to(0.65,6)
 [next=5.5]
 Sam: Press the GREEN button to open the spaceship door and start your training! 
