@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bbugqyxo4xw7n"]
+[gd_scene load_steps=12 format=3 uid="uid://bbugqyxo4xw7n"]
 
 [ext_resource type="PackedScene" uid="uid://d0f416j3xmved" path="res://characters/alien/ufo.gltf" id="1_1cqd3"]
 [ext_resource type="Script" path="res://characters/alien/ufo.gd" id="2_dq5n3"]
 [ext_resource type="PackedScene" uid="uid://bq23ckwovuhf4" path="res://characters/alien/alien.tscn" id="2_dwwl8"]
 [ext_resource type="Material" uid="uid://eivgxthmke74" path="res://characters/alien/materials/ufo_beam_material.tres" id="3_ju5pg"]
+[ext_resource type="AudioStream" uid="uid://o3h7jy5iix8l" path="res://audio/effects/warble_loop_01.wav" id="3_yv0qb"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bbquf"]
 animation = &"idle"
@@ -130,14 +131,23 @@ top_level = true
 [node name="ufo" parent="." index="4"]
 transform = Transform3D(0.986388, 0.115874, 0.116671, -0.116671, 0.993171, 0, -0.115874, -0.013612, 0.99317, 0, 0, 0)
 
-[node name="Alien" parent="ufo" index="0" instance=ExtResource("2_dwwl8")]
+[node name="EngineSounds" type="AudioStreamPlayer3D" parent="ufo" index="0"]
+transform = Transform3D(1, -7.91624e-09, 0, 8.3819e-09, 1, -7.45058e-09, 0, -7.45058e-09, 1, 0, 0, 0)
+stream = ExtResource("3_yv0qb")
+volume_db = -17.079
+unit_size = 16.74
+max_db = -13.18
+pitch_scale = 0.98
+autoplay = true
+
+[node name="Alien" parent="ufo" index="1" instance=ExtResource("2_dwwl8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.140122, -0.184915, 0.0138138)
 
-[node name="beam" parent="ufo" index="12"]
-transform = Transform3D(-0.994146, -0.0840918, -0.0678899, -0.0711209, 0.0360373, 0.996818, -0.0813777, 0.995809, -0.0418071, 1.15111e-06, -0.628742, -0.0628744)
+[node name="beam" parent="ufo" index="13"]
+transform = Transform3D(-0.987202, 0.159469, 0.00270462, -0.0244023, -0.167778, 0.985525, 0.157614, 0.972845, 0.169522, 1.3411e-06, -0.629057, -0.06291)
 surface_material_override/0 = ExtResource("3_ju5pg")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="ufo" index="13"]
+[node name="OmniLight3D" type="OmniLight3D" parent="ufo" index="14"]
 transform = Transform3D(0.996755, -0.0776546, -0.0212205, 0.0773998, 0.996921, -0.0125754, 0.0221317, 0.0108922, 0.999696, -0.130048, 1.39157, -0.216589)
 light_energy = 0.102
 omni_range = 1.6

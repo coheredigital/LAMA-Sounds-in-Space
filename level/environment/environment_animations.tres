@@ -1,4 +1,6 @@
-[gd_resource type="AnimationLibrary" load_steps=5 format=3 uid="uid://cjkhuv5cn32yu"]
+[gd_resource type="AnimationLibrary" load_steps=6 format=3 uid="uid://cjkhuv5cn32yu"]
+
+[ext_resource type="AudioStream" uid="uid://dggjv0j620k8s" path="res://audio/effects/warp_02.wav" id="1_byiti"]
 
 [sub_resource type="Animation" id="Animation_167a7"]
 resource_name = "landing"
@@ -474,6 +476,30 @@ tracks/7/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [2.992, 2.496]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Spaceship/SpaceshipAudio:stream")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_byiti")]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Spaceship/SpaceshipAudio:playing")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [resource]
