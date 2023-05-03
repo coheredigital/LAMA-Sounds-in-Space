@@ -1,15 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://cd2cy5xbal8wf"]
+[gd_scene load_steps=10 format=3 uid="uid://cd2cy5xbal8wf"]
 
 [ext_resource type="Theme" uid="uid://jvj03s2xln54" path="res://ui/theme/simple_ui_theme.tres" id="1_u63ke"]
 [ext_resource type="Script" path="res://ui/control_panel.gd" id="1_yqxgb"]
-[ext_resource type="Material" uid="uid://d1txi86rfk50c" path="res://audio/visualizer/visualizer_debug_material.tres" id="2_gxrj7"]
-[ext_resource type="Gradient" uid="uid://b71jutk4qdqv3" path="res://audio/visualizer/visualizer_gradient.tres" id="3_q6r2g"]
 [ext_resource type="PackedScene" uid="uid://cothlddswoqrl" path="res://ui/dialogue_balloon/control_balloon.tscn" id="4_vrcsm"]
 [ext_resource type="StyleBox" uid="uid://uaf6yuo5c7d1" path="res://ui/theme/styles/text_box_default_style.tres" id="5_r3xif"]
 [ext_resource type="StyleBox" uid="uid://bk5ybigpc34i7" path="res://ui/theme/styles/status_bar_style.tres" id="7_ynhmx"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_m2f1b"]
-gradient = ExtResource("3_q6r2g")
+[ext_resource type="Material" uid="uid://q6um5lgw4f4k" path="res://audio/visualizer/visualizer_screen_material.tres" id="8_yfgbq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ku874"]
 bg_color = Color(0.4, 0.733333, 0.521569, 1)
@@ -41,24 +37,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_u63ke")
 script = ExtResource("1_yqxgb")
-
-[node name="AudioWaveform" type="TextureRect" parent="."]
-material = ExtResource("2_gxrj7")
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -226.0
-offset_top = -255.0
-offset_right = 19.0
-offset_bottom = -19.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = SubResource("GradientTexture2D_m2f1b")
-expand_mode = 2
 
 [node name="Controls" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -212,6 +190,14 @@ offset_top = 3.0
 offset_right = 1272.0
 offset_bottom = 29.0
 text = "Title"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = ExtResource("8_yfgbq")
+layout_mode = 0
+offset_left = 1058.0
+offset_top = 535.0
+offset_right = 1252.0
+offset_bottom = 657.0
 
 [connection signal="text_changed" from="Controls/MarginContainer/Header/Fields/MarginContainer/StudyIDField/StudyID" to="." method="_on_study_id_text_changed"]
 [connection signal="value_changed" from="Controls/MarginContainer/Header/Fields/MarginContainer2/AgeGroupField/AgeGroup" to="." method="_on_age_group_value_changed"]

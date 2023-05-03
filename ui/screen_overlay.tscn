@@ -6,8 +6,8 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hs5e2"]
 shader = ExtResource("1_g8msj")
-shader_parameter/blur_amount = 3.6
-shader_parameter/mix_amount = 0.7
+shader_parameter/blur_amount = 0.0
+shader_parameter/mix_amount = 0.0
 shader_parameter/color_over = Color(0.117647, 0.117647, 0.4, 1)
 
 [node name="ScreenOverlay" type="ColorRect"]
@@ -18,7 +18,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_wsev3")
-active = true
 
 [node name="SpacestationAlbedo" type="Sprite2D" parent="."]
 visible = false

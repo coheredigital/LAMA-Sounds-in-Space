@@ -1,4 +1,4 @@
-[gd_resource type="AnimationLibrary" load_steps=16 format=3 uid="uid://dywe6iokyofm1"]
+[gd_resource type="AnimationLibrary" load_steps=15 format=3 uid="uid://dywe6iokyofm1"]
 
 [sub_resource type="Animation" id="Animation_8q5bf"]
 resource_name = "screen_failure"
@@ -179,6 +179,18 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("spaceship/cockpit/monitor/visualizer_screen:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_ueobg"]
@@ -499,34 +511,6 @@ tracks/2/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_l74ce"]
-resource_name = "screen_visualizer"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("spaceship/cockpit/monitor/visualizer_screen:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("spaceship/cockpit/monitor/screen:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="Animation" id="Animation_8f7r0"]
 resource_name = "screen_rainbow_wipe"
 length = 0.5
@@ -619,6 +603,5 @@ _data = {
 "start_button_red": SubResource("Animation_fuvui"),
 "success": SubResource("Animation_3f0s6"),
 "talking": SubResource("Animation_66wja"),
-"visualizer": SubResource("Animation_l74ce"),
 "wipe": SubResource("Animation_8f7r0")
 }

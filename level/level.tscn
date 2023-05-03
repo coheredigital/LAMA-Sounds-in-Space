@@ -462,7 +462,6 @@ transform = Transform3D(-0.573376, 0, 0.819108, 0, 0.999798, 0, -0.819108, 0, -0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.038, 0)
 
 [node name="Station" type="Node3D" parent="Ground"]
-visible = false
 
 [node name="spacestation" parent="Ground/Station" instance=ExtResource("6_7tl8n")]
 
@@ -550,7 +549,7 @@ volume_db = -21.573
 pitch_scale = 0.68
 
 [node name="beam" parent="Ground/PlanetStardust/Ufo/ufo" index="13"]
-transform = Transform3D(-0.139866, -0.9832, -0.117322, 0.0942102, -0.131163, 0.986878, -0.985684, 0.126977, 0.110972, 0.000328064, -0.629388, -0.0630112)
+transform = Transform3D(-0.00264667, -0.99856, 0.0536544, 0.0330371, 0.053538, 0.998023, -0.999456, 0.00441402, 0.0328477, 6.10352e-05, -0.629583, -0.0629158)
 
 [node name="Alien" parent="Ground/PlanetStardust" instance=ExtResource("8_bs0lj")]
 transform = Transform3D(-0.951976, 0.000759903, 0.306024, -2.61927e-10, 0.999704, -0.00248287, -0.306077, -0.00236349, -0.95181, 0.78405, 1.01247, -4)

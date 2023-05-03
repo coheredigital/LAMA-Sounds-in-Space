@@ -1,15 +1,40 @@
-import "res://dialogue/snippets/reset.dialogue" as reset
+
 import "res://dialogue/snippets/snippets.dialogue" as snippets
 
 # USAGE: Character.move_to(progress_ratio: float [0.0 - 1.0], duration: float [ >= 0.0 ])
 # USAGE: Character.pivot(angle: float [-1.0 - 1.0], duration: float [ >= 0.0 ])
 # USAGE: Character.tilt() Not yet used.
-
 ~ start
-#temp fix for sequence glitches
 System: ...[next]
-=>< reset/all
-System: ...[next=1]
+
+~ reset
+# it seems the below reset will only run properly
+# if at least one line of dialogue has been shown
+System: ...[next]
+# character
+do Character.move_to(0)
+do Character.pivot(0)
+do Character.tilt(0.25)
+# player
+do Player.move_to(0)
+do Player.pivot(0)
+# spaceship
+set steering_motion = 0.0
+set flying_motion = 0.0
+set fuel_level = 1
+# stars
+set stars_brightness = 0.0
+do move_star(1,0.0,0.0)
+do move_star(2,0.0,0.0)
+do move_star(3,0.0,0.0)
+do move_star(4,0.0,0.0)
+do move_star(5,0.0,0.0)
+# delay start so tweens can finish
+System: ...[next]
+System: ...[next]
+System: ...[next]
+
+~ ready
 System: Ready.
 - Start
 
@@ -19,13 +44,12 @@ Sam: Welcome to the Space Station! My name is Sam and I’m an Astronaut. We’r
 ~ welcome_enter
 do Player.move_to(0.13,2.5)
 [next=2]
-do Player.move_to(0.13,2.5)
 Sam: First, I want you to meet our very own space llama named Lucky. She’s usually around here somewhere... Let’s look up her location on our astronaut map.
 
 [next=2]
 
 ~ welcome_map
-do Character.move_to(0.17,2.0)
+do Character.move_to(0.17,3)
 do Player.move_to(0.3,2)
 [next=1]
 do Player.pivot(-0.25,1)
@@ -89,6 +113,7 @@ Sam: This is our handy dandy computer! The computer will help us travel to Plane
 ~ computer_greeting
 Sam: This is what the computer sounds like. 
 [next=1]
+do Stimuli.play("song_01F")
 Computer: Nice to meet you
 [next=0.5]
 Sam: Ok, now I’ll have the computer say a command and your job is to repeat what the computer just said with your voice. Make sure you say it loud and clear, so the computer can hear you! After you repeat after the computer, I’ll press the red button to send your voice to the spaceship.
