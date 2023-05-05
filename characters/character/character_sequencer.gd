@@ -5,8 +5,8 @@ signal position_changed(value: float, duration: float)
 signal pivot_changed(value: float, duration: float)
 signal tilt_changed(value: float, duration: float)
 
-func action(action: String) -> void:
-	action_changed.emit(action)
+func action(target_action: String) -> void:
+	action_changed.emit(target_action)
 
 func move_to(progress: float, duration: float = 1.0) -> void:
 	position_changed.emit(progress, duration)

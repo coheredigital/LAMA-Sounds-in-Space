@@ -50,16 +50,16 @@ func update_progress_ratio(value: float, duration: float = 1.0) -> void:
 func update_pivot(value: float, duration: float = 1.0) -> void:
 	if %LookTargetPivot:
 		var tween = create_tween()
-		var rotation = clamp(value,-1.0,1.0) * LOOK_ANGLE_LIMIT.y
-		var target_angle = Vector3(0.0,rotation,0.0)
+		var traget_rotation = clamp(value,-1.0,1.0) * LOOK_ANGLE_LIMIT.y
+		var target_angle = Vector3(0.0,traget_rotation,0.0)
 		if tween:
 			tween.tween_property(%LookTargetPivot, "rotation_degrees", target_angle, duration).set_trans(Tween.TRANS_LINEAR)
 
 func update_tilt(value: float, duration: float = 1.0) -> void:
 	if %LookTargetTilt:
 		var tween = create_tween()
-		var rotation = clamp(value,-1.0,1.0) * LOOK_ANGLE_LIMIT.x
-		var target_angle = Vector3(rotation,0.0,0.0)
+		var traget_rotation = clamp(value,-1.0,1.0) * LOOK_ANGLE_LIMIT.x
+		var target_angle = Vector3(traget_rotation,0.0,0.0)
 		if tween:
 			tween.tween_property(%LookTargetTilt, "rotation_degrees", target_angle, duration).set_trans(Tween.TRANS_LINEAR)
 

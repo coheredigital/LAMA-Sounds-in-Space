@@ -11,7 +11,7 @@ extends Control
 var resource: DialogueResource = load("res://dialogue/sequence.dialogue")
 
 ## Temporary game states
-var temporary_game_states: Array = []
+#var temporary_game_states: Array = []
 
 ## See if we are waiting for the player
 var is_waiting_for_input: bool = false
@@ -94,17 +94,17 @@ func _unhandled_input(_event: InputEvent) -> void:
 
 
 ## Start some dialogue
-func start(dialogue_resource: DialogueResource, title: String, extra_game_states: Array = []) -> void:
-	temporary_game_states = extra_game_states
+func start(dialogue_resource: DialogueResource, title: String) -> void:
+#	temporary_game_states = extra_game_states
 	is_waiting_for_input = false
 	resource = dialogue_resource
 
-	self.dialogue_line = await resource.get_next_dialogue_line(title, temporary_game_states)
+	self.dialogue_line = await resource.get_next_dialogue_line(title)
 
 
 ## Go to the next line
 func next(next_id: String) -> void:
-	self.dialogue_line = await resource.get_next_dialogue_line(next_id, temporary_game_states)
+	self.dialogue_line = await resource.get_next_dialogue_line(next_id)
 
 
 ### Helpers
@@ -153,7 +153,7 @@ func get_responses() -> Array:
 
 
 ### Signals
-func _on_mutated(mutation: Dictionary) -> void:
+func _on_mutated(_mutation: Dictionary) -> void:
 	is_waiting_for_input = false
 	will_hide_balloon = true
 	get_tree().create_timer(0.1).timeout.connect(func():

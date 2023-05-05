@@ -1,7 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://bq23ckwovuhf4"]
+[gd_scene load_steps=9 format=3 uid="uid://bq23ckwovuhf4"]
 
 [ext_resource type="PackedScene" uid="uid://dybngyd2g0glm" path="res://characters/alien/alien.gltf" id="1_wlnkb"]
-[ext_resource type="Script" path="res://characters/alien/alien.gd" id="2_q48go"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x20my"]
 animation = &"idle"
@@ -129,7 +128,6 @@ _data = {
 }
 
 [node name="Alien" instance=ExtResource("1_wlnkb")]
-script = ExtResource("2_q48go")
 
 [node name="ActionTree" type="AnimationTree" parent="." index="0"]
 unique_name_in_owner = true
@@ -149,10 +147,10 @@ libraries = {
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="head" parent="alien" index="0"]
-transform = Transform3D(0.999062, -0.0429475, -0.0056764, 0.0432059, 0.997362, 0.0583501, 0.00315543, -0.0585407, 0.998279, 0, 1.34375, -5.75928e-16)
+transform = Transform3D(0.994864, 0.0379987, 0.0938298, -0.0417509, 0.998393, 0.0383544, -0.0922216, -0.0420749, 0.994848, 0, 1.34375, -5.75928e-16)
 
 [node name="arm_left" parent="alien" index="1"]
-transform = Transform3D(0.911247, -0.399174, 0.101437, 0.411173, 0.867462, -0.280084, 0.0238096, 0.296933, 0.954602, 0.15625, 1.26563, 9.31322e-10)
+transform = Transform3D(0.911688, -0.410146, -0.024618, 0.410167, 0.911999, -0.0044388, 0.0242722, -0.0060507, 0.999688, 0.15625, 1.26563, 9.31322e-10)
 
 [node name="forearm_left" parent="alien/arm_left" index="0"]
 transform = Transform3D(0.451297, -0.517696, -0.726858, 0.875455, 0.0989918, 0.473053, -0.172945, -0.849819, 0.497894, 0.265625, 7.15256e-07, -9.68575e-08)
@@ -161,4 +159,4 @@ transform = Transform3D(0.451297, -0.517696, -0.726858, 0.875455, 0.0989918, 0.4
 transform = Transform3D(-0.40558, 0.902028, -0.147815, -0.913387, -0.393748, 0.103375, 0.0350452, 0.176939, 0.983598, -0.15625, 1.26563, 9.31322e-10)
 
 [node name="forearm_right" parent="alien/arm_right" index="0"]
-transform = Transform3D(0.885325, 0.00248433, -0.464965, -0.0586145, 0.992605, -0.106303, 0.461262, 0.121366, 0.878924, 0.264508, -0.0193959, 0.0146966)
+transform = Transform3D(0.885325, 0.00248433, -0.464965, -0.0586146, 0.992605, -0.106303, 0.461262, 0.121366, 0.878924, 0.264508, -0.0193959, 0.0146966)

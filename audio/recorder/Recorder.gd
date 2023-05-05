@@ -27,7 +27,7 @@ func save(stimuli_type: String, sentence_id: String):
 		sentence_id
 	]
 	
-	var date = "%s%s%s" % [time['year'],time['month'],time['day']]
+#	var date = "%s%s%s" % [time['year'],time['month'],time['day']]
 	var save_folder = "user://recordings/%s/" % [folder_name]
 	var save_file = "%s%s" % [save_folder, file_name]
 #	DirAccess.make_dir_absolute(save_folder)

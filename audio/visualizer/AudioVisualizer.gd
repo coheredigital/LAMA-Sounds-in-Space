@@ -88,13 +88,13 @@ func _process(delta):
 		return
 
 	var segment = 1.0 / float(definition)
-
 	var prev_hz = 0
+	
 	for i in range(definition):
 
 		var offset := i / float(definition)
-		var freq_low = response_curve.sample_baked(offset - (segment * 0.25))
-		var freq_high = response_curve.sample_baked(offset + (segment * 0.25))
+		var freq_low = response_curve.sample_baked(offset - (segment))
+		var freq_high = response_curve.sample_baked(offset + (segment))
 		var magnitude: float = spectrum.get_magnitude_for_frequency_range(freq_low, freq_high).length()
 		
 #		convert to decibels
