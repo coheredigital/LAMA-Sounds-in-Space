@@ -7,3 +7,4 @@ script = ExtResource("1_wtqfw")
 folder = "res://audio/stimuli"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
