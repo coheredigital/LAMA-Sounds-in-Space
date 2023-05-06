@@ -1,5 +1,12 @@
 extends Node
 
+
+@export_enum("Analyze","Stimuli") var channel := "Analyze":
+	set(value):
+		channel = value
+		var idx = AudioServer.get_bus_index(channel)
+		spectrum = AudioServer.get_bus_effect_instance(idx, 0)
+
 @export var waveform : Curve
 @export var gradient : Gradient
 @export_range (4, 32) var definition := 16: set = set_definition
@@ -26,9 +33,7 @@ extends Node
 @export var a_curve : Curve
 
 
-var idx = AudioServer.get_bus_index("Analyze")
-var spectrum : AudioEffectSpectrumAnalyzerInstance = AudioServer.get_bus_effect_instance(idx, 0)
-
+var spectrum : AudioEffectSpectrumAnalyzerInstance
 var histogram := []
 var x_histogram := []
 var y_histogram := []
@@ -57,10 +62,8 @@ func set_max_frequency(value):
 
 func set_definition(value):
 	definition = value
-#	if response_curve:
-#		response_curve.bake_resolution = value
-#		response_curve.bake()
 	
+#	create the placeholder values to the histograms
 	for i in range(definition):
 		histogram.append(0.0)
 		x_histogram.append(0.0)
@@ -69,7 +72,6 @@ func set_definition(value):
 		a_histogram.append(0.0)
 	
 	var gradient_offsets = []
-
 	if gradient and value:
 		print(value)
 		for i in range(0, value):

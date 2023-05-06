@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3]
+[gd_scene load_steps=10 format=3 uid="uid://c01v71n4objej"]
 
 [ext_resource type="Gradient" uid="uid://b71jutk4qdqv3" path="res://audio/visualizer/visualizer_gradient.tres" id="1"]
 [ext_resource type="Script" path="res://audio/visualizer/audio_visualizer.gd" id="2"]
@@ -13,12 +13,13 @@
 
 [node name="AudioVisualizer" type="Node"]
 script = ExtResource("2")
+channel = null
 waveform = ExtResource("2_bx51b")
 gradient = ExtResource("1")
 min_frequency = 100.0
 max_frequency = 640.0
 max_db = -6.1
-min_db = -80.0
+min_db = -73.6
 response_curve = ExtResource("3_syknx")
 x_curve = ExtResource("4_mgpj0")
 y_curve = ExtResource("5_k8vkg")
@@ -29,4 +30,5 @@ a_curve = ExtResource("7_1a83d")
 unique_name_in_owner = true
 stream = SubResource("AudioStreamMicrophone_2n73o")
 volume_db = 5.267
+stream_paused = true
 bus = &"Record"

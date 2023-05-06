@@ -1,10 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://cnkjx7lwj4vs3"]
+[gd_scene load_steps=3 format=3 uid="uid://cnkjx7lwj4vs3"]
 
 [ext_resource type="Script" path="res://audio/stimuli_player.gd" id="1_wtqfw"]
+[ext_resource type="AudioStream" uid="uid://c56mbfm480a2o" path="res://audio/stimuli/song_01F.wav" id="2_3eptj"]
 
 [node name="SimuliPlayer" type="Node"]
 script = ExtResource("1_wtqfw")
 folder = "res://audio/stimuli"
+volume = 0.618
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
+stream = ExtResource("2_3eptj")
+volume_db = -6.112
+bus = &"Stimuli"
+
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

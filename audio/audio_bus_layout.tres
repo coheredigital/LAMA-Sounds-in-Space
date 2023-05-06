@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=6 format=3 uid="uid://4s3yiw422jjv"]
+[gd_resource type="AudioBusLayout" load_steps=7 format=3 uid="uid://4s3yiw422jjv"]
 
 [sub_resource type="AudioEffectSpectrumAnalyzer" id="3"]
 resource_name = "SpectrumAnalyzer"
@@ -32,6 +32,9 @@ surround = 0.23
 
 [sub_resource type="AudioEffectStereoEnhance" id="AudioEffectStereoEnhance_4hjmi"]
 resource_name = "StereoEnhance"
+
+[sub_resource type="AudioEffectSpectrumAnalyzer" id="AudioEffectSpectrumAnalyzer_2cop6"]
+resource_name = "SpectrumAnalyzer"
 
 [resource]
 bus/1/name = &"Void"
@@ -74,9 +77,11 @@ bus/5/volume_db = 1.45601
 bus/5/send = &"Master"
 bus/5/effect/0/effect = SubResource("AudioEffectStereoEnhance_4hjmi")
 bus/5/effect/0/enabled = true
-bus/6/name = &"Voice"
+bus/6/name = &"Stimuli"
 bus/6/solo = false
 bus/6/mute = false
 bus/6/bypass_fx = false
-bus/6/volume_db = 2.05151
+bus/6/volume_db = 0.662756
 bus/6/send = &"Master"
+bus/6/effect/0/effect = SubResource("AudioEffectSpectrumAnalyzer_2cop6")
+bus/6/effect/0/enabled = true

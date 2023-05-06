@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://ui/control_panel.gd" id="1_yqxgb"]
 [ext_resource type="PackedScene" uid="uid://cothlddswoqrl" path="res://ui/dialogue_balloon/control_balloon.tscn" id="4_vrcsm"]
 [ext_resource type="StyleBox" uid="uid://uaf6yuo5c7d1" path="res://ui/theme/styles/text_box_default_style.tres" id="5_r3xif"]
+[ext_resource type="Material" uid="uid://xsadexiscljr" path="res://audio/visualizer/visualizer_canvas_material.tres" id="6_pdu0b"]
 [ext_resource type="StyleBox" uid="uid://bk5ybigpc34i7" path="res://ui/theme/styles/status_bar_style.tres" id="7_ynhmx"]
-[ext_resource type="Material" uid="uid://q6um5lgw4f4k" path="res://audio/visualizer/visualizer_screen_material.tres" id="8_yfgbq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ku874"]
 bg_color = Color(0.4, 0.733333, 0.521569, 1)
@@ -192,7 +192,7 @@ offset_bottom = 29.0
 text = "Title"
 
 [node name="ColorRect" type="ColorRect" parent="."]
-material = ExtResource("8_yfgbq")
+material = ExtResource("6_pdu0b")
 layout_mode = 0
 offset_left = 1058.0
 offset_top = 535.0
