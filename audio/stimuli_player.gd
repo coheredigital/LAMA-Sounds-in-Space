@@ -35,7 +35,9 @@ func play(sentence_id: String) -> void:
 	player.stream = wav_file
 	player.playing = true
 	events.create({
-		"label": 'Stimuli: %s' % [filename]
+		"type": 'stimuli_played',
+		"label": filename,
+		"session": Session.pocketbase_id
 	})
 
 # restore sequence and visualizer state on finish

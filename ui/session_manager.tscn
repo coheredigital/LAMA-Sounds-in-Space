@@ -1,11 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://b8v5wdflx71wa"]
+[gd_scene load_steps=4 format=3 uid="uid://b8v5wdflx71wa"]
 
 [ext_resource type="Theme" uid="uid://jvj03s2xln54" path="res://ui/theme/simple_ui_theme.tres" id="1_pp1yo"]
-[ext_resource type="Script" path="res://ui/control_panel.gd" id="2_at5re"]
+[ext_resource type="Script" path="res://ui/session_manager.gd" id="2_cup32"]
 [ext_resource type="StyleBox" uid="uid://uaf6yuo5c7d1" path="res://ui/theme/styles/text_box_default_style.tres" id="3_0rwgr"]
-[ext_resource type="PackedScene" uid="uid://cothlddswoqrl" path="res://ui/dialogue_balloon/control_balloon.tscn" id="4_805ba"]
-[ext_resource type="StyleBox" uid="uid://bk5ybigpc34i7" path="res://ui/theme/styles/status_bar_style.tres" id="5_olq2y"]
-[ext_resource type="Material" uid="uid://xsadexiscljr" path="res://audio/visualizer/visualizer_canvas_material.tres" id="6_mrdsy"]
 
 [node name="SessionManager" type="Panel"]
 clip_contents = true
@@ -15,53 +12,24 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_pp1yo")
-script = ExtResource("2_at5re")
+script = ExtResource("2_cup32")
 
-[node name="SessionList" type="ItemList" parent="."]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 200)
-layout_mode = 2
-offset_right = 207.0
-offset_bottom = 684.0
-theme_override_styles/panel = ExtResource("3_0rwgr")
-item_count = 1
-item_0/text = ""
-
-[node name="Controls" type="VBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
 
-[node name="HSplitContainer" type="HSplitContainer" parent="Controls"]
-layout_mode = 2
-size_flags_vertical = 3
-split_offset = 207
-
-[node name="ControlBalloon" parent="Controls/HSplitContainer" instance=ExtResource("4_805ba")]
+[node name="SessionList" type="ItemList" parent="MarginContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
-
-[node name="StatusBar" type="Panel" parent="Controls"]
-custom_minimum_size = Vector2(0, 32)
-layout_mode = 2
-theme_override_styles/panel = ExtResource("5_olq2y")
-
-[node name="StatusBarLabel" type="Label" parent="Controls/StatusBar"]
-unique_name_in_owner = true
-layout_mode = 2
-offset_left = 8.0
-offset_top = 3.0
-offset_right = 1272.0
-offset_bottom = 29.0
-text = "Title"
-
-[node name="ColorRect" type="ColorRect" parent="."]
-material = ExtResource("6_mrdsy")
-layout_mode = 0
-offset_left = 1058.0
-offset_top = 535.0
-offset_right = 1252.0
-offset_bottom = 657.0
+theme_override_styles/panel = ExtResource("3_0rwgr")
+item_count = 1
+item_0/text = ""

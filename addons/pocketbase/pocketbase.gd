@@ -25,7 +25,7 @@ func stop_server():
 		print('Pocketbase: process(%s) stopped' % [process_id])
 		OS.kill(process_id)
 
-func collection(collection_name: String) -> Node:
+func collection(collection_name: String) -> PocketbaseCollection:
 	var collection_scene := load("res://addons/pocketbase/pocketbase_collection.tscn")
 	var collection : Node = collection_scene.instantiate()
 	

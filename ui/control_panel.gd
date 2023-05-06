@@ -8,21 +8,21 @@ var sequence : DialogueResource  = load("res://dialogue/sequence.dialogue")
 func _ready():
 	show_dialogue_balloon(sequence, "start")
 #	set title jump options
-	var titles = get_titles()
-	for title in titles:
-		%TitleJump.add_item(title)
+#	var titles = get_titles()
+#	for title in titles:
+#		%TitleJump.add_item(title)
 
 
 # extract the currently available sequence titles
-func get_titles() -> PackedStringArray:
-	var file: FileAccess = FileAccess.open("res://dialogue/sequence.dialogue", FileAccess.READ)
-	var file_text: String = file.get_as_text()
-	var titles = PackedStringArray([])
-	var lines = file_text.split("\n")
-	for line in lines:
-		if line.begins_with("~ "):
-			titles.append(line.substr(2).strip_edges())
-	return titles
+#func get_titles() -> PackedStringArray:
+#	var file: FileAccess = FileAccess.open("res://dialogue/sequence.dialogue", FileAccess.READ)
+#	var file_text: String = file.get_as_text()
+#	var titles = PackedStringArray([])
+#	var lines = file_text.split("\n")
+#	for line in lines:
+#		if line.begins_with("~ "):
+#			titles.append(line.substr(2).strip_edges())
+#	return titles
 
 
 func _process(_delta):

@@ -4,8 +4,3 @@
 
 [node name="PocketbaseCollection" type="Node"]
 script = ExtResource("1_8x6hb")
-
-[node name="HTTPRequest" type="HTTPRequest" parent="."]
-unique_name_in_owner = true
-
-[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]

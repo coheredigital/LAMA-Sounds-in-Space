@@ -1,11 +1,18 @@
 extends Node
 
+
 signal study_name_changed(value: String)
 signal age_group_changed(value: String)
 signal run_id_changed(value: String)
 signal type_changed(value: String)
 signal sentence_id_changed(value: String)
 
+
+var pocketbase_id: String:
+	set(value):
+		study_id = value
+		print('Study ID: %s' % value)
+		study_name_changed.emit(value)
 
 var study_id: String = "ACME":
 	set(value):

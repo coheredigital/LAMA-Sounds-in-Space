@@ -2,8 +2,8 @@
 
 [ext_resource type="Theme" uid="uid://jvj03s2xln54" path="res://ui/theme/simple_ui_theme.tres" id="1_u63ke"]
 [ext_resource type="Script" path="res://ui/control_panel.gd" id="1_yqxgb"]
+[ext_resource type="PackedScene" uid="uid://b8v5wdflx71wa" path="res://ui/session_manager.tscn" id="3_0snk5"]
 [ext_resource type="PackedScene" uid="uid://cothlddswoqrl" path="res://ui/dialogue_balloon/control_balloon.tscn" id="4_vrcsm"]
-[ext_resource type="StyleBox" uid="uid://uaf6yuo5c7d1" path="res://ui/theme/styles/text_box_default_style.tres" id="5_r3xif"]
 [ext_resource type="Material" uid="uid://xsadexiscljr" path="res://audio/visualizer/visualizer_canvas_material.tres" id="6_pdu0b"]
 [ext_resource type="StyleBox" uid="uid://bk5ybigpc34i7" path="res://ui/theme/styles/status_bar_style.tres" id="7_ynhmx"]
 
@@ -163,15 +163,10 @@ layout_mode = 2
 [node name="HSplitContainer" type="HSplitContainer" parent="Controls"]
 layout_mode = 2
 size_flags_vertical = 3
-split_offset = 207
+split_offset = 435
 
-[node name="TitleJump" type="ItemList" parent="Controls/HSplitContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 200)
+[node name="SessionManager" parent="Controls/HSplitContainer" instance=ExtResource("3_0snk5")]
 layout_mode = 2
-theme_override_styles/panel = ExtResource("5_r3xif")
-item_count = 1
-item_0/text = ""
 
 [node name="ControlBalloon" parent="Controls/HSplitContainer" instance=ExtResource("4_vrcsm")]
 unique_name_in_owner = true

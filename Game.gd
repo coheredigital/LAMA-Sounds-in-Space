@@ -1,9 +1,19 @@
 extends Node
 
+@onready var sessions_collection := Pocketbase.collection('sessions')
+
 
 func _ready():
 	Pocketbase.start_server()
-
+	var session_response = await sessions_collection.create({
+		"study_id": Session.study_id,
+		"age_group": Session.age_group,
+		"run_id": Session.run_id,
+	})
+	print(session_response)
+	Session.pocketbase_id = session_response.get("id")
+	
+	
 func _exit_tree():
 	Pocketbase.stop_server()
 
