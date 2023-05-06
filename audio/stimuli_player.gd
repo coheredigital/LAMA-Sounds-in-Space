@@ -11,6 +11,11 @@ extends Node
 
 var previous_screen := "idle"
 var previous_analyzer_channel := "Analyze"
+var events 
+
+
+func _ready():
+	events = Pocketbase.collection('events')
 
 func play(sentence_id: String) -> void:
 #	get the file or cancel operation
@@ -29,7 +34,7 @@ func play(sentence_id: String) -> void:
 	await get_tree().create_timer(1.0).timeout
 	player.stream = wav_file
 	player.playing = true
-	Pocketbase.create({
+	events.create({
 		"label": 'Stimuli: %s' % [filename]
 	})
 

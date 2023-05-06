@@ -1,31 +1,25 @@
 extends Node
+class_name PocketbaseCollection
 
 var root_url := "http://127.0.0.1:8090"
-var request_url := "http://127.0.0.1:8090"
+var request_url : String
 var collection_name := "events":
 	set(value):
 		collection_name = value
-		print("Pockebase Collection: %s" % [value])
+		print("PockebaseCollection (name): %s" % [value])
 		request_url = "%s/api/collections/%s/records" % [root_url, value]
-		
-@onready var http_request := HTTPRequest.new() 
 
 func _ready():
-	add_child(http_request)
+	add_child(%HTTPRequest)
 	self.collection_name = collection_name
-	http_request.request_completed.connect(_on_request_completed)
-
-
-func collection(name: String) -> Node:
-	self.collection_name = name
-	return self
 
 func create(data: Dictionary) -> void:
 	var json = JSON.stringify(data)
 	var headers = ["Content-Type: application/json"]
-	http_request.request(request_url, headers, HTTPClient.METHOD_POST, json)
+	%HTTPRequest.request(request_url, headers, HTTPClient.METHOD_POST, json)
 	print("HTTP Request: %s" % [request_url])
 	print("HTTP Data: %s" % [json])
 
-func _on_request_completed(result : int, response_code : int, headers, body : PackedByteArray ):
+
+func _on_http_request_request_completed(result, response_code, headers, body):
 	print("HTTP Response: %s %s " % [result, response_code])
