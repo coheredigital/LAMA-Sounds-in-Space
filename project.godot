@@ -32,6 +32,7 @@ Player="*res://characters/player/player_sequencer.gd"
 Alien="*res://characters/alien/alien_sequencer.gd"
 Ufo="*res://characters/alien/ufo_sequencer.gd"
 Stimuli="*res://audio/stimuli_player.tscn"
+Pocketbase="*res://addons/pocketbase/pocketbase.gd"
 
 [dialogue_manager]
 
