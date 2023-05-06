@@ -20,13 +20,13 @@ func create(data: Dictionary):
 	var request_url : String
 	request_url = "%s/api/collections/%s/records" % [root_url, collection_name]
 	print("Pocketbase (create) url: %s" % [request_url])
-	
+	print(data)
 	var http = HTTPRequest.new()
 	add_child(http)
 	var json = JSON.stringify(data)
 	var headers = ["Content-Type: application/json"]
 	http.request(request_url, headers, HTTPClient.METHOD_POST, json)
-	await http.request_completed.connect(self._on_get_list_completed)
+	await http.request_completed.connect(_on_request_completed)
 	await self.reponse_received
 	return current_response
 	
@@ -49,25 +49,15 @@ func get_list(page: int, perPage: int, parameters: Dictionary = {}):
 	var json = JSON.stringify(parameters)
 	var headers = ["Content-Type: application/json"]
 	http.request(request_url, headers, HTTPClient.METHOD_GET, json)
-	await http.request_completed.connect(self._on_get_list_completed)
+	await http.request_completed.connect(_on_request_completed)
 	await self.reponse_received
-
 	return current_response
 
 
-func _on_create_completed(result, response_code, headers, body):
-	var json = JSON.new()
-	json.parse(body.get_string_from_utf8())
-	current_response = json.get_data()
-
-func _on_get_list_completed(result, response_code, headers, body):
+func _on_request_completed(result, response_code, headers, body):
 	var json = JSON.new()
 	json.parse(body.get_string_from_utf8())
 	current_response = json.get_data()
 
 
-func _on_http_request_request_completed(result, response_code, headers, body):
-	var json = JSON.new()
-	json.parse(body.get_string_from_utf8())
-	current_response = json.get_data()
 

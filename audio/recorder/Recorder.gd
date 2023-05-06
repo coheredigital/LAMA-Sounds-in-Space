@@ -1,18 +1,28 @@
 extends Node
 
 var recording : AudioStreamWAV
+var events : PocketbaseCollection
 
 @onready var record_bus_index := AudioServer.get_bus_index("Record")
 @onready var effect : AudioEffectRecord = AudioServer.get_bus_effect(record_bus_index, 0)
 
+func _ready():
+	events = Pocketbase.collection('events')
+
 func start():
-	print("Recording...")
 	effect.set_recording_active(true)
+	await events.create({
+		"type": 'recording_start',
+		"session": Session.pocketbase_id
+	})
 
 func stop():
-	print("STOP!")
 	recording = effect.get_recording()
 	effect.set_recording_active(false)
+	await events.create({
+		"type": 'recording_stopped',
+		"session": Session.pocketbase_id
+	})
 
 func save(stimuli_type: String, sentence_id: String):
 	
@@ -35,3 +45,10 @@ func save(stimuli_type: String, sentence_id: String):
 	DirAccess.make_dir_absolute(save_folder)
 	recording.save_to_wav(save_file)
 	print("Saved: %s" % [save_file])
+	
+	await events.create({
+		"type": 'recording_saved',
+		"info": save_file,
+		"session": Session.pocketbase_id
+	})
+

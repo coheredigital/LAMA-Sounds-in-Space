@@ -8,11 +8,7 @@ signal type_changed(value: String)
 signal sentence_id_changed(value: String)
 
 
-var pocketbase_id: String:
-	set(value):
-		study_id = value
-		print('Study ID: %s' % value)
-		study_name_changed.emit(value)
+var pocketbase_id : String
 
 var study_id: String = "ACME":
 	set(value):

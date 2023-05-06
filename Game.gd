@@ -10,7 +10,6 @@ func _ready():
 		"age_group": Session.age_group,
 		"run_id": Session.run_id,
 	})
-	print(session_response)
 	Session.pocketbase_id = session_response.get("id")
 	
 	

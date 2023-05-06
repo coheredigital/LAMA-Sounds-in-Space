@@ -38,6 +38,7 @@ System: ...[next]
 System: Ready.
 - Start
 do Stimuli.play("song_01F")
+[next=2]
 
 ~ welcome
 do Stimuli.play("song_02F")
