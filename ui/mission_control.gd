@@ -1,7 +1,6 @@
 extends Panel
 
-signal game_started
-signal session_ended
+signal game_window_toggled
 
 var sequence : DialogueResource  = load("res://dialogue/sequence.dialogue")
 
@@ -26,13 +25,12 @@ func _on_end_session_button_pressed():
 
 func _on_end_session_confirm_button_pressed():
 	%EndSessionConfirmation.visible = false
+	Session.session_ended.emit()	
 	await EventLogger.add('session','ended')
-	self.emit_signal("session_ended")
-
 
 func _on_end_session_cancel_button_pressed():
 	%EndSessionConfirmation.visible = false
 
 
-func _on_start_game_pressed():
-	self.emit_signal("game_started")
+func _on_toggle_game_window_pressed():
+	self.emit_signal("game_window_toggled")

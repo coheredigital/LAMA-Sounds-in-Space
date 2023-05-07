@@ -5,8 +5,8 @@ extends Node
 
 func _ready():
 	Pocketbase.start_server()
-
-	
+	Session.session_ended.connect(func(): %GameWindow.visible = false)
+	%GameWindow.visible = false
 	
 func _exit_tree():
 	Pocketbase.stop_server()
@@ -22,5 +22,5 @@ func _unhandled_input(event):
 		print('Screenshot save: "%s" ' % filepath)
 
 
-func _on_control_panel_game_started():
+func _on_control_panel_game_window_toggled():
 	%GameWindow.visible = !%GameWindow.visible

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cd2cy5xbal8wf"]
 
-[ext_resource type="Theme" path="res://ui/theme/simple_ui_theme.tres" id="1_u63ke"]
+[ext_resource type="Theme" uid="uid://cvc3eceirtq34" path="res://ui/theme/simple_ui_theme.tres" id="1_u63ke"]
 [ext_resource type="Script" path="res://ui/control_panel.gd" id="1_yqxgb"]
 [ext_resource type="PackedScene" uid="uid://lntdn5vgbyh1" path="res://ui/session_manager.tscn" id="3_0snk5"]
 [ext_resource type="PackedScene" uid="uid://dkiigs8xo4igp" path="res://ui/mission_control.tscn" id="4_iuefr"]
@@ -31,5 +31,4 @@ visible = false
 layout_mode = 2
 
 [connection signal="new_session_started" from="MainContainer/SessionManager" to="." method="_on_session_manager_new_session_started"]
-[connection signal="game_started" from="MainContainer/MissionControl" to="." method="_on_mission_control_game_started"]
-[connection signal="session_ended" from="MainContainer/MissionControl" to="." method="_on_mission_control_session_ended"]
+[connection signal="game_window_toggled" from="MainContainer/MissionControl" to="." method="_on_mission_control_game_window_toggled"]

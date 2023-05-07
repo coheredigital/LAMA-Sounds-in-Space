@@ -96,7 +96,7 @@ custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="StartGame" type="Button" parent="MarginContainer/Controls/Header/Fields"]
+[node name="ToggleGameWindow" type="Button" parent="MarginContainer/Controls/Header/Fields"]
 custom_minimum_size = Vector2(200, 36)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.0823529, 0.2, 0.129412, 1)
@@ -213,7 +213,7 @@ theme_override_styles/normal = ExtResource("8_aybif")
 theme_override_styles/hover = ExtResource("9_sp4yj")
 text = "Cancel"
 
-[connection signal="pressed" from="MarginContainer/Controls/Header/Fields/StartGame" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="MarginContainer/Controls/Header/Fields/ToggleGameWindow" to="." method="_on_toggle_game_window_pressed"]
 [connection signal="pressed" from="MarginContainer/Controls/StatusBar/HBoxContainer2/EndSessionButton" to="." method="_on_end_session_button_pressed"]
 [connection signal="pressed" from="EndSessionConfirmation/CenterContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/EndSessionConfirmButton" to="." method="_on_end_session_confirm_button_pressed"]
 [connection signal="pressed" from="EndSessionConfirmation/CenterContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/EndSessionCancelButton" to="." method="_on_end_session_cancel_button_pressed"]

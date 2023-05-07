@@ -1,6 +1,8 @@
 extends Node
 
 
+signal session_started
+signal session_ended
 signal session_id_changed(value: String)
 signal study_id_changed(value: String)
 signal age_group_changed(value: String)

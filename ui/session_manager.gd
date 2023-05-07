@@ -25,7 +25,7 @@ func _on_new_session_button_pressed():
 #	create the session save directory
 	DirAccess.make_dir_absolute("user://sessions/")
 	DirAccess.make_dir_absolute(Session.save_folder)
-	
+	Session.session_started.emit()
 	emit_signal("new_session_started")
 	%SessionList.update_list()
 
