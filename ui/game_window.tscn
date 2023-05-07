@@ -79,7 +79,7 @@ render_target_update_mode = 4
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_wyxcb")
 
 [node name="Character" parent="ViewportContainer/Viewport/Level" index="2"]
-transform = Transform3D(-0.704521, -3.54716e-06, 0.709682, 2.6148e-12, 1, 4.99823e-06, -0.709683, 3.52136e-06, -0.704521, -11.4922, 1.00001, -3.99746)
+transform = Transform3D(-0.704521, -3.54716e-06, 0.709682, 1.59162e-12, 1, 4.99823e-06, -0.709683, 3.52136e-06, -0.704521, -11.4922, 1.00001, -3.99746)
 
 [node name="Spaceship" parent="ViewportContainer/Viewport/Level" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
@@ -90,13 +90,13 @@ siren_active = true
 visible = true
 
 [node name="RemoteTransform" parent="ViewportContainer/Viewport/Level/FollowPaths/CharacterPath" index="0"]
-transform = Transform3D(-0.704521, -3.54716e-06, 0.709682, 2.6148e-12, 1, 4.99823e-06, -0.709683, 3.52136e-06, -0.704521, -11.4922, 1.00001, -3.99746)
+transform = Transform3D(-0.704521, -3.54716e-06, 0.709682, 1.59162e-12, 1, 4.99823e-06, -0.709683, 3.52136e-06, -0.704521, -11.4922, 1.00001, -3.99746)
 
 [node name="PathFollow" parent="ViewportContainer/Viewport/Level/FollowPaths/CharacterPath" index="1"]
 transform = Transform3D(0.706998, 0, -0.706997, 0, 0.999798, 0, 0.706997, 0, 0.706998, -11.5, 1, -4)
 
 [node name="RemoteTransform" parent="ViewportContainer/Viewport/Level/FollowPaths/AlienPath" index="0"]
-transform = Transform3D(-0.952962, -4.97069e-05, 0.303089, -9.09495e-12, 1, 0.000164001, -0.303089, 0.000156287, -0.952962, 0.779878, 1.01777, -4.00766)
+transform = Transform3D(-0.952962, -4.97069e-05, 0.303089, -1.27329e-11, 1, 0.000164001, -0.303089, 0.000156287, -0.952962, 0.779878, 1.01777, -4.00766)
 
 [node name="PathFollow" parent="ViewportContainer/Viewport/Level/FollowPaths/AlienPath" index="1"]
 transform = Transform3D(0.952779, 0, -0.303156, 0, 0.999828, 0, 0.303156, 0, 0.952779, 0.777695, 1.01744, -4.00001)
@@ -108,17 +108,17 @@ transform = Transform3D(-0.513738, -1.89404e-05, -0.857947, 9.09494e-13, 1, -2.2
 transform = Transform3D(0.513582, 0, 0.857867, 0, 0.999818, 0, -0.857867, 0, 0.513582, -8.16635, 1.24791, -8.27054)
 
 [node name="RemoteTransform" parent="ViewportContainer/Viewport/Level/FollowPaths/UfoPath" index="0"]
-transform = Transform3D(0.00305241, 0.0566483, 0.998387, -7.63684e-08, 0.998393, -0.0566484, -0.999994, 0.000172837, 0.00304752, -19.3967, 0.800617, -41.1939)
+transform = Transform3D(0.00305241, 0.0566483, 0.998387, -6.14672e-08, 0.998393, -0.0566485, -0.999994, 0.000172853, 0.00304752, -19.3967, 0.800617, -41.1939)
 
 [node name="PathFollow" parent="ViewportContainer/Viewport/Level/FollowPaths/UfoPath" index="1"]
-transform = Transform3D(-4.37052e-08, 0.057041, -0.998241, 0, 0.998218, 0.0570423, 0.999859, 2.49334e-09, -4.36345e-08, -19.4, 0.8, -41.2)
+transform = Transform3D(-4.37052e-08, 0.057041, -0.998241, 0, 0.998218, 0.0570424, 0.999859, 2.49334e-09, -4.36345e-08, -19.4, 0.8, -41.2)
 
 [node name="PlayerPath" parent="ViewportContainer/Viewport/Level/FollowPaths" index="4"]
 visible = true
 tilt = 0.25
 
 [node name="RemoteTransform" parent="ViewportContainer/Viewport/Level/FollowPaths/PlayerPath" index="0"]
-transform = Transform3D(0.706918, -0.0621941, -0.704555, 2.42144e-08, 0.996127, -0.0879323, 0.707294, 0.062161, 0.70418, -14.5941, 2.59921, -1.20664)
+transform = Transform3D(0.706918, -0.0621941, -0.704554, 1.67638e-08, 0.996127, -0.0879322, 0.707294, 0.062161, 0.70418, -14.5941, 2.59921, -1.20664)
 remote_path = NodePath("../../../../PlayerCamera")
 
 [node name="PathFollow" parent="ViewportContainer/Viewport/Level/FollowPaths/PlayerPath" index="1"]
@@ -134,10 +134,10 @@ transform = Transform3D(-0.950352, 0.0061164, -0.311121, -1.62982e-09, 0.999806,
 transform = Transform3D(0.986388, 0.115874, 0.116671, -0.116671, 0.993171, 0, -0.115874, -0.013612, 0.99317, 0, 0, 0)
 
 [node name="beam" parent="ViewportContainer/Viewport/Level/Ground/PlanetStardust/Ufo/ufo" index="13"]
-transform = Transform3D(0.936329, 0.348671, -0.041429, 0.0510494, -0.0184441, 0.998526, 0.347394, -0.937061, -0.0350692, 0.000674725, -0.627019, -0.0653477)
+transform = Transform3D(0.93527, 0.353864, -0.00738625, 0.00864507, -0.00197668, 0.99996, 0.353837, -0.935292, -0.00490762, 0.000668049, -0.627016, -0.0653381)
 
 [node name="Alien" parent="ViewportContainer/Viewport/Level/Ground/PlanetStardust" index="1"]
-transform = Transform3D(-0.95293, -4.96923e-05, 0.30303, -9.09464e-12, 0.999705, 0.000163969, -0.303079, 0.000156241, -0.952776, 0.779878, 1.01777, -4.00766)
+transform = Transform3D(-0.95293, -4.96923e-05, 0.30303, -1.27325e-11, 0.999705, 0.000163969, -0.303079, 0.000156241, -0.952776, 0.779878, 1.01777, -4.00766)
 
 [node name="Lama" parent="ViewportContainer/Viewport/Level/Ground/PlanetStardust" index="2"]
 transform = Transform3D(-0.513738, -1.89404e-05, -0.857947, 9.09494e-13, 1, -2.20764e-05, 0.857947, -1.13415e-05, -0.513738, -8.16011, 1.24787, -8.26702)
@@ -148,7 +148,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_s2ui6")
 
 [node name="PlayerCamera" type="Camera3D" parent="ViewportContainer/Viewport"]
 unique_name_in_owner = true
-transform = Transform3D(0.706918, -0.0621941, -0.704555, 2.42144e-08, 0.996127, -0.0879323, 0.707294, 0.062161, 0.70418, -14.5941, 2.59921, -1.20664)
+transform = Transform3D(0.706918, -0.0621941, -0.704554, 1.67638e-08, 0.996127, -0.0879322, 0.707294, 0.062161, 0.70418, -14.5941, 2.59921, -1.20664)
 fov = 65.0
 
 [node name="ScreenOverlay" parent="." instance=ExtResource("4_p5m14")]

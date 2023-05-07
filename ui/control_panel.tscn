@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://jvj03s2xln54" path="res://ui/theme/simple_ui_theme.tres" id="1_u63ke"]
 [ext_resource type="Script" path="res://ui/control_panel.gd" id="1_yqxgb"]
-[ext_resource type="PackedScene" uid="uid://cothlddswoqrl" path="res://ui/dialogue_balloon/control_balloon.tscn" id="4_vrcsm"]
+[ext_resource type="PackedScene" uid="uid://b8v5wdflx71wa" path="res://ui/session_manager.tscn" id="3_0snk5"]
 [ext_resource type="Material" uid="uid://xsadexiscljr" path="res://audio/visualizer/visualizer_canvas_material.tres" id="6_pdu0b"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ku874"]
@@ -44,106 +44,24 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Controls"]
+[node name="HeaderContainer" type="MarginContainer" parent="Controls"]
 layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="Header" type="HBoxContainer" parent="Controls/MarginContainer"]
+[node name="Header" type="HBoxContainer" parent="Controls/HeaderContainer"]
 layout_mode = 2
 
-[node name="Mission Control" type="Label" parent="Controls/MarginContainer/Header"]
+[node name="Mission Control" type="Label" parent="Controls/HeaderContainer/Header"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 32
 text = "Mission Control
 "
 
-[node name="Fields" type="HBoxContainer" parent="Controls/MarginContainer/Header"]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="Controls/MarginContainer/Header/Fields"]
-layout_mode = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 6
-theme_override_constants/margin_right = 6
-theme_override_constants/margin_bottom = 6
-
-[node name="StudyIDField" type="HBoxContainer" parent="Controls/MarginContainer/Header/Fields/MarginContainer"]
-custom_minimum_size = Vector2(0, 32)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Label" type="Label" parent="Controls/MarginContainer/Header/Fields/MarginContainer/StudyIDField"]
-layout_mode = 2
-text = "Study ID
-"
-
-[node name="StudyID" type="LineEdit" parent="Controls/MarginContainer/Header/Fields/MarginContainer/StudyIDField"]
-unique_name_in_owner = true
-layout_mode = 2
-placeholder_text = "ACME"
-caret_blink = true
-caret_blink_interval = 0.5
-
-[node name="MarginContainer2" type="MarginContainer" parent="Controls/MarginContainer/Header/Fields"]
-layout_mode = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 6
-theme_override_constants/margin_right = 6
-theme_override_constants/margin_bottom = 6
-
-[node name="AgeGroupField" type="HBoxContainer" parent="Controls/MarginContainer/Header/Fields/MarginContainer2"]
-custom_minimum_size = Vector2(0, 32)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Label" type="Label" parent="Controls/MarginContainer/Header/Fields/MarginContainer2/AgeGroupField"]
-layout_mode = 2
-text = "Age Group"
-horizontal_alignment = 2
-
-[node name="AgeGroup" type="SpinBox" parent="Controls/MarginContainer/Header/Fields/MarginContainer2/AgeGroupField"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-min_value = 1.0
-max_value = 999.0
-value = 1.0
-allow_greater = true
-alignment = 2
-
-[node name="MarginContainer3" type="MarginContainer" parent="Controls/MarginContainer/Header/Fields"]
-layout_mode = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 6
-theme_override_constants/margin_right = 6
-theme_override_constants/margin_bottom = 6
-
-[node name="RunIDField" type="HBoxContainer" parent="Controls/MarginContainer/Header/Fields/MarginContainer3"]
-custom_minimum_size = Vector2(0, 32)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Label" type="Label" parent="Controls/MarginContainer/Header/Fields/MarginContainer3/RunIDField"]
-layout_mode = 2
-text = "Run ID
-"
-horizontal_alignment = 2
-
-[node name="RunID" type="SpinBox" parent="Controls/MarginContainer/Header/Fields/MarginContainer3/RunIDField"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-min_value = 1.0
-max_value = 999.0
-value = 1.0
-allow_greater = true
-alignment = 2
-
-[node name="StartGame" type="Button" parent="Controls/MarginContainer/Header/Fields"]
+[node name="StartGame" type="Button" parent="Controls/HeaderContainer/Header"]
 custom_minimum_size = Vector2(200, 36)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.0101576, 0.0449464, 0.0199781, 1)
@@ -154,7 +72,7 @@ toggle_mode = true
 text = "Toggle Game View
 "
 
-[node name="MarginContainer2" type="MarginContainer" parent="Controls"]
+[node name="MainContainer" type="MarginContainer" parent="Controls"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 16
@@ -162,19 +80,15 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="ControlBalloon" parent="Controls/MarginContainer2" instance=ExtResource("4_vrcsm")]
-unique_name_in_owner = true
+[node name="SessionManager" parent="Controls/MainContainer" instance=ExtResource("3_0snk5")]
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Waveform" type="ColorRect" parent="."]
 material = ExtResource("6_pdu0b")
 layout_mode = 0
-offset_left = 1058.0
-offset_top = 535.0
-offset_right = 1252.0
-offset_bottom = 657.0
+offset_left = 908.0
+offset_top = 11.0
+offset_right = 1022.0
+offset_bottom = 72.0
 
-[connection signal="text_changed" from="Controls/MarginContainer/Header/Fields/MarginContainer/StudyIDField/StudyID" to="." method="_on_study_id_text_changed"]
-[connection signal="value_changed" from="Controls/MarginContainer/Header/Fields/MarginContainer2/AgeGroupField/AgeGroup" to="." method="_on_age_group_value_changed"]
-[connection signal="value_changed" from="Controls/MarginContainer/Header/Fields/MarginContainer3/RunIDField/RunID" to="." method="_on_run_id_value_changed"]
-[connection signal="pressed" from="Controls/MarginContainer/Header/Fields/StartGame" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="Controls/HeaderContainer/Header/StartGame" to="." method="_on_start_game_pressed"]
