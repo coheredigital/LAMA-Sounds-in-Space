@@ -11,7 +11,7 @@ func _ready():
 
 func start():
 	effect.set_recording_active(true)
-	await EventLogger.add('recording','start')
+	await EventLogger.add('recording','started')
 
 func stop():
 	recording = effect.get_recording()
@@ -34,4 +34,4 @@ func save(stimuli_type: String, sentence_id: String):
 
 	var save_file = "%s%s" % [Session.save_folder, file_name]
 	recording.save_to_wav(save_file)
-	await EventLogger.add('recording','start', save_file)
+	await EventLogger.add('recording','saved', save_file)

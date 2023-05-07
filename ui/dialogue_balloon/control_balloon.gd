@@ -10,14 +10,9 @@ extends Control
 ## The dialogue resource
 var resource: DialogueResource = load("res://dialogue/sequence.dialogue")
 
-## Temporary game states
-#var temporary_game_states: Array = []
-
 ## See if we are waiting for the player
 var is_waiting_for_input: bool = false
 
-## See if we are running a long mutation and should hide the balloon
-var will_hide_balloon: bool = false
 
 ## The current line
 var dialogue_line: DialogueLine:
@@ -58,7 +53,6 @@ var dialogue_line: DialogueLine:
 
 		# Show our balloon
 		balloon.show()
-		will_hide_balloon = false
 
 		dialogue_label.modulate.a = 1
 		if not dialogue_line.text.is_empty():
@@ -85,8 +79,6 @@ func _ready() -> void:
 	response_template.hide()
 	Engine.get_singleton("DialogueManager").mutated.connect(_on_mutated)
 
-func set_dialogue_visbility(value: bool)-> void:
-	self.visible = value
 
 func _unhandled_input(_event: InputEvent) -> void:
 	# Only the balloon is allowed to handle input while it's showing
@@ -95,6 +87,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 
 ## Start some dialogue
 func start(dialogue_resource: DialogueResource, title: String) -> void:
+	
 #	temporary_game_states = extra_game_states
 	is_waiting_for_input = false
 	resource = dialogue_resource
@@ -155,12 +148,6 @@ func get_responses() -> Array:
 ### Signals
 func _on_mutated(_mutation: Dictionary) -> void:
 	is_waiting_for_input = false
-	will_hide_balloon = true
-	get_tree().create_timer(0.1).timeout.connect(func():
-		if will_hide_balloon:
-			will_hide_balloon = false
-			balloon.hide()
-	)
 
 
 func _on_response_mouse_entered(item: Control) -> void:
@@ -170,11 +157,14 @@ func _on_response_mouse_entered(item: Control) -> void:
 
 func _on_response_gui_input(event: InputEvent, item: Control) -> void:
 	if "Disallowed" in item.name: return
+	
+	
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == 1:
 		next(dialogue_line.responses[item.get_index()].next_id)
+		EventLogger.add('sequence','response',item.text)
 	elif event.is_action_pressed("ui_accept") and item in get_responses():
 		next(dialogue_line.responses[item.get_index()].next_id)
-
+		EventLogger.add('sequence','response',item.text)
 
 func _on_balloon_gui_input(event: InputEvent) -> void:
 	if not is_waiting_for_input: return
