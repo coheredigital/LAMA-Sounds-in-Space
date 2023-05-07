@@ -27,6 +27,7 @@ func _on_new_session_button_pressed():
 	DirAccess.make_dir_absolute(Session.save_folder)
 	
 	emit_signal("new_session_started")
+	%SessionList.update_list()
 
 func _on_study_id_input_text_changed(new_text):
 	Session.study_id = new_text

@@ -6,19 +6,27 @@ var items : Array
 
 func _ready():
 	collection = Pocketbase.collection('sessions')
-	
+	update_list()
+
+
+func update_list() -> void:
+	clear()
 	list = await collection.get_list(1,100, {
 		"sort": "-created"
 	})
 	items = list.get('items')
 	
 	for item in items:
-		%SessionList.add_item("Session ID: %s   Study ID: %s   Age Group: %s   Run ID: %s" % [
-			item.get("id"),
-			item.get("study_id"),
-			item.get("age_group"),
-			item.get("run_id"),
-		])
+		add(item)
+
+
+func add(item: Dictionary):
+	add_item("Session ID: %s   Study ID: %s   Age Group: %s   Run ID: %s" % [
+		item.get("id"),
+		item.get("study_id"),
+		item.get("age_group"),
+		item.get("run_id"),
+	])
 
 
 func _on_item_activated(index):
