@@ -1,63 +1,38 @@
+class_name PocketbaseRealtime
 extends Node
-class_name PocketbaseCollection
 
-signal reponse_received
+# The URL we will connect to
+@export var websocket_url = "http://127.0.0.1:8090/"
 
-var root_url := "http://127.0.0.1:8090"
-var current_request : HTTPRequest
-var current_response:
-	set(value):
-		current_response = value
-		emit_signal('reponse_received')
-
-var collection_name := "events":
-	set(value):
-		collection_name = value
-		print("PockebaseCollection (name): %s" % [value])
+# Our WebSocketClient instance
+var socket = WebSocketPeer.new()
 
 
-func create(data: Dictionary):
-	var request_url : String
-	request_url = "%s/api/collections/%s/records" % [root_url, collection_name]
-	print("Pocketbase (create) url: %s" % [request_url])
-	print(data)
-	var http = HTTPRequest.new()
-	add_child(http)
-	var json = JSON.stringify(data)
-	var headers = ["Content-Type: application/json"]
-	http.request(request_url, headers, HTTPClient.METHOD_POST, json)
-	await http.request_completed.connect(_on_request_completed)
-	await self.reponse_received
-	return current_response
-	
-	
-func get_list(page: int, perPage: int, parameters: Dictionary = {}):
-	
-	var request_url : String
-	request_url = "%s/api/collections/%s/records?page%s&perPage=%s" % [
-		root_url, 
-		collection_name, 
-		page, 
-		perPage
-	]
-	
-	print("Pocketbase (get_list) url: %s" % [request_url])
-	
-	var http = HTTPRequest.new()
-	add_child(http)
-	
-	var json = JSON.stringify(parameters)
-	var headers = ["Content-Type: application/json"]
-	http.request(request_url, headers, HTTPClient.METHOD_GET, json)
-	await http.request_completed.connect(_on_request_completed)
-	await self.reponse_received
-	return current_response
+func _ready():
+	# Connect base signals to get notified of connection open, close, and errors.
+	socket.connection_closed.connect(_closed)
+	socket.connection_error.connect(_closed)
+	socket.connection_established.connect(_connected)
 
 
-func _on_request_completed(result, response_code, headers, body):
-	var json = JSON.new()
-	json.parse(body.get_string_from_utf8())
-	current_response = json.get_data()
+func _closed(was_clean = false):
+	# was_clean will tell you if the disconnection was correctly notified
+	# by the remote peer before closing the socket.
+	print("Closed, clean: ", was_clean)
+	set_process(false)
 
+func _connected(proto = ""):
+	# This is called on connection, "proto" will be the selected WebSocket
+	# sub-protocol (which is optional)
+	print("Connected with protocol: ", proto)
 
+func _on_data():
+	# Print the received packet, you MUST always use get_peer(1).get_packet
+	# to receive data from server, and not get_packet directly when not
+	# using the MultiplayerAPI.
+	print("Got data from server: ", socket.get_peer(1).get_packet().get_string_from_utf8())
 
+func _process(delta):
+	# Call this in _process or _physics_process. Data transfer, 
+	# and signals emission will only happen when calling this function.
+	socket.poll()
