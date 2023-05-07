@@ -1,6 +1,8 @@
 # Directly adapted from the "example_balloon" provided by the Dialogue Manager addon
 extends Control
 
+const DialogueConstants = preload("res://addons/dialogue_manager/constants.gd")
+
 @onready var balloon: Panel = %Balloon
 @onready var character_label: RichTextLabel = %CharacterLabel
 @onready var dialogue_label := %DialogueLabel
@@ -87,7 +89,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 
 ## Start some dialogue
 func start(dialogue_resource: DialogueResource, title: String) -> void:
-	
+
 #	temporary_game_states = extra_game_states
 	is_waiting_for_input = false
 	resource = dialogue_resource
@@ -157,8 +159,8 @@ func _on_response_mouse_entered(item: Control) -> void:
 
 func _on_response_gui_input(event: InputEvent, item: Control) -> void:
 	if "Disallowed" in item.name: return
-	
-	
+
+
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == 1:
 		next(dialogue_line.responses[item.get_index()].next_id)
 		EventLogger.add('sequence','response',item.text)
@@ -175,4 +177,3 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 		next(dialogue_line.next_id)
 	elif event.is_action_pressed("ui_accept") and get_viewport().gui_get_focus_owner() == balloon:
 		next(dialogue_line.next_id)
-

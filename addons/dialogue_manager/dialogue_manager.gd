@@ -1,6 +1,7 @@
 extends Node
 
 signal got_dialogue(line)
+signal title_passed(title: String)
 signal mutated(mutation)
 signal dialogue_ended(resource)
 signal bridge_get_next_dialogue_line_completed(line)
@@ -181,7 +182,9 @@ func get_line(resource: DialogueResource, key: String, extra_game_states: Array)
 
 	# See if it is a title
 	if key.begins_with("~ "):
+		print("title_passed: %s" % key)
 		key = key.substr(2)
+		
 	if resource.titles.has(key):
 		key = resource.titles.get(key)
 
