@@ -3,3 +3,6 @@
 
 # pocketbase data
 addons/pocketbase/pb_data
+
+# metabase executable
+addons/metabase/metabase.jar
