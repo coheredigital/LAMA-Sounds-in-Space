@@ -14,4 +14,4 @@ unique_name_in_owner = true
 visible = false
 always_on_top = true
 
-[connection signal="start_game_pressed" from="ControlPanel" to="." method="_on_control_panel_start_game_pressed"]
+[connection signal="game_started" from="ControlPanel" to="." method="_on_control_panel_game_started"]

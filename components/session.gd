@@ -1,28 +1,33 @@
 extends Node
 
 
-signal study_name_changed(value: String)
+signal session_id_changed(value: String)
+signal study_id_changed(value: String)
 signal age_group_changed(value: String)
 signal run_id_changed(value: String)
 signal type_changed(value: String)
 signal sentence_id_changed(value: String)
 
 
-var pocketbase_id : String
-
+var session_id : String :
+	set(value):
+		session_id = value
+		print('Session ID: %s' % value)
+		session_id_changed.emit(value)
+		
 var study_id: String = "ACME":
 	set(value):
 		study_id = value
 		print('Study ID: %s' % value)
-		study_name_changed.emit(value)
+		study_id_changed.emit(value)
 
-var age_group: int = 1:
+var age_group: String:
 	set(value):
 		age_group = value
 		print('Age Group: %s' % value)
 		age_group_changed.emit(value)
 
-var run_id: int = 1:
+var run_id: String:
 	set(value):
 		run_id = value
 		print('Run ID: %s' % value)

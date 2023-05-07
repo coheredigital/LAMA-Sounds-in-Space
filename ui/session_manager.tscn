@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8v5wdflx71wa"]
+[gd_scene load_steps=7 format=3 uid="uid://lntdn5vgbyh1"]
 
-[ext_resource type="Theme" uid="uid://jvj03s2xln54" path="res://ui/theme/simple_ui_theme.tres" id="1_pp1yo"]
+[ext_resource type="Theme" path="res://ui/theme/simple_ui_theme.tres" id="1_pp1yo"]
 [ext_resource type="Script" path="res://ui/session_manager.gd" id="2_cup32"]
 [ext_resource type="StyleBox" uid="uid://uaf6yuo5c7d1" path="res://ui/theme/styles/text_box_default_style.tres" id="3_0rwgr"]
+[ext_resource type="StyleBox" uid="uid://b4xe4agmi26xs" path="res://ui/theme/styles/buttons/button_primary_normal_style.tres" id="4_45fkp"]
+[ext_resource type="StyleBox" uid="uid://qrbtgqthaadb" path="res://ui/theme/styles/buttons/button_primary_hover_style.tres" id="5_4cabv"]
+[ext_resource type="StyleBox" uid="uid://u6i3xd58vtip" path="res://ui/theme/styles/buttons/button_primary_pressed_style.tres" id="6_a7orr"]
 
 [node name="SessionManager" type="Panel"]
 clip_contents = true
@@ -15,37 +18,115 @@ theme = ExtResource("1_pp1yo")
 script = ExtResource("2_cup32")
 metadata/_edit_lock_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
 
-[node name="Button" type="Button" parent="VBoxContainer/MarginContainer"]
+[node name="Header" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "New Session"
 
-[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "Session Manager
+"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/Header"]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
+theme_override_constants/separation = 32
+theme_override_constants/minimum_grab_thickness = 4
+split_offset = 800
 
-[node name="SessionList" type="ItemList" parent="VBoxContainer/MarginContainer2"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 200)
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HSplitContainer"]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HSplitContainer/VBoxContainer"]
+layout_mode = 2
+text = "Previous Sessions"
+
+[node name="SessionList" type="ItemList" parent="MarginContainer/VBoxContainer/HSplitContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("3_0rwgr")
 item_count = 1
 item_0/text = ""
+
+[node name="RightContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HSplitContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="FieldContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HSplitContainer/RightContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HSplitContainer/RightContainer/FieldContainer"]
+layout_mode = 2
+text = "Study ID"
+
+[node name="StudyIDInput" type="LineEdit" parent="MarginContainer/VBoxContainer/HSplitContainer/RightContainer/FieldContainer"]
+layout_mode = 2
+placeholder_text = "ACME"
+max_length = 32
+
+[node name="FieldContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HSplitContainer/RightContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HSplitContainer/RightContainer/FieldContainer2"]
+layout_mode = 2
+text = "Age Group"
+
+[node name="AgeGroupInput" type="LineEdit" parent="MarginContainer/VBoxContainer/HSplitContainer/RightContainer/FieldContainer2"]
+layout_mode = 2
+placeholder_text = "001"
+max_length = 32
+
+[node name="RunIDField" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HSplitContainer/RightContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HSplitContainer/RightContainer/RunIDField"]
+layout_mode = 2
+text = "Run ID"
+
+[node name="RunIDInput" type="LineEdit" parent="MarginContainer/VBoxContainer/HSplitContainer/RightContainer/RunIDField"]
+layout_mode = 2
+placeholder_text = "001"
+max_length = 32
+
+[node name="NewSessionButton" type="Button" parent="MarginContainer/VBoxContainer/HSplitContainer/RightContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0823529, 0.2, 0.129412, 1)
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = ExtResource("4_45fkp")
+theme_override_styles/hover = ExtResource("5_4cabv")
+theme_override_styles/pressed = ExtResource("6_a7orr")
+disabled = true
+text = "New Session"
+
+[connection signal="text_changed" from="MarginContainer/VBoxContainer/HSplitContainer/RightContainer/FieldContainer/StudyIDInput" to="." method="_on_study_id_input_text_changed"]
+[connection signal="text_changed" from="MarginContainer/VBoxContainer/HSplitContainer/RightContainer/FieldContainer2/AgeGroupInput" to="." method="_on_age_group_input_text_changed"]
+[connection signal="text_changed" from="MarginContainer/VBoxContainer/HSplitContainer/RightContainer/RunIDField/RunIDInput" to="." method="_on_run_id_input_text_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HSplitContainer/RightContainer/NewSessionButton" to="." method="_on_new_session_button_pressed"]

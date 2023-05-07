@@ -1,13 +1,13 @@
-[gd_resource type="Theme" load_steps=16 format=3 uid="uid://jvj03s2xln54"]
+[gd_resource type="Theme" load_steps=16 format=3]
 
 [ext_resource type="StyleBox" uid="uid://dvps6k1q2xqei" path="res://ui/theme/styles/separator_style.tres" id="1_k4d0l"]
 [ext_resource type="StyleBox" uid="uid://uaf6yuo5c7d1" path="res://ui/theme/styles/text_box_default_style.tres" id="2_2v72q"]
-[ext_resource type="StyleBox" uid="uid://do8nakpp2bdlo" path="res://ui/theme/styles/button_disabled_style.tres" id="2_y0ytu"]
-[ext_resource type="StyleBox" uid="uid://b7u0uob1ex3wh" path="res://ui/theme/styles/button_focus_style.tres" id="3_cqb6h"]
+[ext_resource type="StyleBox" uid="uid://do8nakpp2bdlo" path="res://ui/theme/styles/buttons/button_disabled_style.tres" id="2_y0ytu"]
+[ext_resource type="StyleBox" uid="uid://b7u0uob1ex3wh" path="res://ui/theme/styles/buttons/button_focus_style.tres" id="3_cqb6h"]
 [ext_resource type="StyleBox" uid="uid://dpwsbdfkj6f8x" path="res://ui/theme/styles/panel_style.tres" id="3_uga2j"]
-[ext_resource type="StyleBox" uid="uid://do1dfxcttk32e" path="res://ui/theme/styles/button_hover_style.tres" id="4_udaii"]
-[ext_resource type="StyleBox" uid="uid://bx5aipfnb7vqy" path="res://ui/theme/styles/button_normal_style.tres" id="5_mpifv"]
-[ext_resource type="StyleBox" uid="uid://lad68ye8yr8m" path="res://ui/theme/styles/button_pressed_style.tres" id="6_wecnn"]
+[ext_resource type="StyleBox" uid="uid://do1dfxcttk32e" path="res://ui/theme/styles/buttons/button_hover_style.tres" id="4_udaii"]
+[ext_resource type="StyleBox" uid="uid://bx5aipfnb7vqy" path="res://ui/theme/styles/buttons/button_normal_style.tres" id="5_mpifv"]
+[ext_resource type="StyleBox" uid="uid://lad68ye8yr8m" path="res://ui/theme/styles/buttons/button_pressed_style.tres" id="6_wecnn"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xt6nx"]
 

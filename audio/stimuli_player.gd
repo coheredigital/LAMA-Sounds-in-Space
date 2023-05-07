@@ -37,7 +37,7 @@ func play(sentence_id: String) -> void:
 	events.create({
 		"type": 'stimuli_played',
 		"info": filename,
-		"session": '%s' % [Session.pocketbase_id]
+		"session": '%s' % [Session.session_id]
 	})
 
 # restore sequence and visualizer state on finish

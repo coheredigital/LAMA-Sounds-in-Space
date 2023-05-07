@@ -13,7 +13,7 @@ func start():
 	effect.set_recording_active(true)
 	await events.create({
 		"type": 'recording_start',
-		"session": Session.pocketbase_id
+		"session": Session.session_id
 	})
 
 func stop():
@@ -21,7 +21,7 @@ func stop():
 	effect.set_recording_active(false)
 	await events.create({
 		"type": 'recording_stopped',
-		"session": Session.pocketbase_id
+		"session": Session.session_id
 	})
 
 func save(stimuli_type: String, sentence_id: String):
@@ -49,6 +49,6 @@ func save(stimuli_type: String, sentence_id: String):
 	await events.create({
 		"type": 'recording_saved',
 		"info": save_file,
-		"session": Session.pocketbase_id
+		"session": Session.session_id
 	})
 

@@ -1,30 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cd2cy5xbal8wf"]
+[gd_scene load_steps=5 format=3 uid="uid://cd2cy5xbal8wf"]
 
-[ext_resource type="Theme" uid="uid://jvj03s2xln54" path="res://ui/theme/simple_ui_theme.tres" id="1_u63ke"]
+[ext_resource type="Theme" path="res://ui/theme/simple_ui_theme.tres" id="1_u63ke"]
 [ext_resource type="Script" path="res://ui/control_panel.gd" id="1_yqxgb"]
-[ext_resource type="PackedScene" uid="uid://b8v5wdflx71wa" path="res://ui/session_manager.tscn" id="3_0snk5"]
-[ext_resource type="Material" uid="uid://xsadexiscljr" path="res://audio/visualizer/visualizer_canvas_material.tres" id="6_pdu0b"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ku874"]
-bg_color = Color(0.4, 0.733333, 0.521569, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p1tpq"]
-bg_color = Color(0.301961, 0.588235, 0.411765, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfq2c"]
-bg_color = Color(0.180392, 0.380392, 0.258824, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
+[ext_resource type="PackedScene" uid="uid://lntdn5vgbyh1" path="res://ui/session_manager.tscn" id="3_0snk5"]
+[ext_resource type="PackedScene" uid="uid://dkiigs8xo4igp" path="res://ui/mission_control.tscn" id="4_iuefr"]
 
 [node name="ControlPanel" type="Panel"]
 clip_contents = true
@@ -36,59 +15,21 @@ grow_vertical = 2
 theme = ExtResource("1_u63ke")
 script = ExtResource("1_yqxgb")
 
-[node name="Controls" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="HeaderContainer" type="MarginContainer" parent="Controls"]
+[node name="MainContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
-
-[node name="Header" type="HBoxContainer" parent="Controls/HeaderContainer"]
-layout_mode = 2
-
-[node name="Mission Control" type="Label" parent="Controls/HeaderContainer/Header"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 32
-text = "Mission Control
-"
-
-[node name="StartGame" type="Button" parent="Controls/HeaderContainer/Header"]
-custom_minimum_size = Vector2(200, 36)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.0101576, 0.0449464, 0.0199781, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_ku874")
-theme_override_styles/hover = SubResource("StyleBoxFlat_p1tpq")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_lfq2c")
-toggle_mode = true
-text = "Toggle Game View
-"
-
-[node name="MainContainer" type="MarginContainer" parent="Controls"]
-layout_mode = 2
+offset_right = 1280.0
+offset_bottom = 720.0
 size_flags_vertical = 3
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
 
-[node name="SessionManager" parent="Controls/MainContainer" instance=ExtResource("3_0snk5")]
+[node name="SessionManager" parent="MainContainer" instance=ExtResource("3_0snk5")]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Waveform" type="ColorRect" parent="."]
-material = ExtResource("6_pdu0b")
-layout_mode = 0
-offset_left = 908.0
-offset_top = 11.0
-offset_right = 1022.0
-offset_bottom = 72.0
+[node name="MissionControl" parent="MainContainer" instance=ExtResource("4_iuefr")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
 
-[connection signal="pressed" from="Controls/HeaderContainer/Header/StartGame" to="." method="_on_start_game_pressed"]
+[connection signal="new_session_started" from="MainContainer/SessionManager" to="." method="_on_session_manager_new_session_started"]
+[connection signal="game_started" from="MainContainer/MissionControl" to="." method="_on_mission_control_game_started"]
+[connection signal="session_ended" from="MainContainer/MissionControl" to="." method="_on_mission_control_session_ended"]
