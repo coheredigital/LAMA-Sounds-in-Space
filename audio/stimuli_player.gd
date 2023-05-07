@@ -11,7 +11,7 @@ extends Node
 
 var previous_screen := "idle"
 var previous_analyzer_channel := "Analyze"
-var events 
+var events
 
 
 func _ready():
@@ -24,21 +24,17 @@ func play(sentence_id: String) -> void:
 	if not wav_file:
 		push_warning('Stilumi not found: %s' % [filename])
 		return
-	
+
 	print('Stimuli: %s' % [filename])
 	previous_screen = Sequencer.screen
 	Sequencer.screen = "playing"
-	
+
 	previous_analyzer_channel = AudioVisualizer.channel
 #	wait for screen to change before playing
 	await get_tree().create_timer(1.0).timeout
 	player.stream = wav_file
 	player.playing = true
-	events.create({
-		"type": 'stimuli_played',
-		"info": filename,
-		"session": '%s' % [Session.session_id]
-	})
+	await EventLogger.add('stimuli','played',filename)
 
 # restore sequence and visualizer state on finish
 func _on_audio_stream_player_finished():

@@ -13,14 +13,10 @@ var current_response:
 var collection_name := "events":
 	set(value):
 		collection_name = value
-		print("PockebaseCollection (name): %s" % [value])
-
 
 func create(data: Dictionary):
 	var request_url : String
 	request_url = "%s/api/collections/%s/records" % [root_url, collection_name]
-	print("Pocketbase (create) url: %s" % [request_url])
-	print(data)
 	var http = HTTPRequest.new()
 	add_child(http)
 	var json = JSON.stringify(data)
@@ -34,14 +30,13 @@ func create(data: Dictionary):
 func get_list(page: int, perPage: int, parameters: Dictionary = {}):
 
 	var request_url : String
-	request_url = "%s/api/collections/%s/records?page%s&perPage=%s" % [
+	request_url = "%s/api/collections/%s/records?page%s&perPage=%s&sort=%s" % [
 		root_url,
 		collection_name,
 		page,
-		perPage
+		perPage,
+		parameters.sort if parameters.sort else '+created'
 	]
-
-	print("Pocketbase (get_list) url: %s" % [request_url])
 
 	var http = HTTPRequest.new()
 	add_child(http)

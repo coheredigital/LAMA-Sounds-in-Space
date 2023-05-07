@@ -112,13 +112,26 @@ text = "Toggle Game View
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Visualizer" type="ColorRect" parent="MarginContainer/Controls/ControlBalloon"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Controls/ControlBalloon"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -195.0
+offset_top = -138.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Visualizer" type="ColorRect" parent="MarginContainer/Controls/ControlBalloon/MarginContainer"]
 material = ExtResource("4_0k6ey")
-layout_mode = 0
-offset_left = 1007.0
-offset_top = 401.0
-offset_right = 1201.0
-offset_bottom = 523.0
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
 
 [node name="StatusBar" parent="MarginContainer/Controls" instance=ExtResource("8_nqb8x")]
 layout_mode = 2

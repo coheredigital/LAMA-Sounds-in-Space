@@ -8,6 +8,9 @@ signal run_id_changed(value: String)
 signal type_changed(value: String)
 signal sentence_id_changed(value: String)
 
+var save_folder: String:
+	get:
+		return "user://sessions/%s/" % [Session.session_id]
 
 var session_id : String :
 	set(value):

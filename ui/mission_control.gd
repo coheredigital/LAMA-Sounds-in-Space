@@ -26,6 +26,7 @@ func _on_end_session_button_pressed():
 
 func _on_end_session_confirm_button_pressed():
 	%EndSessionConfirmation.visible = false
+	await EventLogger.add('session','ended')
 	self.emit_signal("session_ended")
 
 

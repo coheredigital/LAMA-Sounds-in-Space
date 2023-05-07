@@ -5,18 +5,8 @@ signal new_session_started
 var sessions_collection : PocketbaseCollection
 
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	sessions_collection = Pocketbase.collection('sessions')
-	var list = await sessions_collection.get_list(1,20)
-	for item in list.get('items'):
-		%SessionList.add_item("Session ID: %s   Study ID: %s   Age Group: %s   Run ID: %s" % [
-			item.get("id"),
-			item.get("study_id"),
-			item.get("age_group"),
-			item.get("run_id"),
-		])
 
 func is_new_session_ready() -> bool:
 	if Session.study_id.length() > 0 and Session.age_group.length() > 0 and Session.run_id.length() > 0:
@@ -29,7 +19,13 @@ func _on_new_session_button_pressed():
 		"age_group": Session.age_group,
 		"run_id": Session.run_id,
 	})
+	
 	Session.session_id = session_response.get("id")
+	await EventLogger.add('session','started')
+#	create the session save directory
+	DirAccess.make_dir_absolute("user://sessions/")
+	DirAccess.make_dir_absolute(Session.save_folder)
+	
 	emit_signal("new_session_started")
 
 func _on_study_id_input_text_changed(new_text):
