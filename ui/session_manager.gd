@@ -1,9 +1,6 @@
 extends Panel
 
-signal new_session_started
-
 var sessions_collection : PocketbaseCollection
-
 
 func _ready():
 	sessions_collection = Pocketbase.collection('sessions')
@@ -14,6 +11,18 @@ func is_new_session_ready() -> bool:
 	return false
 
 func _on_new_session_button_pressed():
+	
+	var time = Time.get_datetime_dict_from_system()
+	var unix_time = Time.get_unix_time_from_system()
+	var date = "%s/%s/%s %s:%s:%s" % [
+		time['year'],
+		"%02d" % time['month'],
+		"%02d" % time['day'],
+		"%02d" % time['hour'],
+		"%02d" % time['minute'],
+		"%02d" % time['second']
+	]
+
 	var session_response = await sessions_collection.create({
 		"study_id": Session.study_id,
 		"age_group": Session.age_group,
@@ -23,10 +32,25 @@ func _on_new_session_button_pressed():
 	Session.session_id = session_response.get("id")
 	await EventLogger.add('session','started')
 #	create the session save directory
-	DirAccess.make_dir_absolute("user://sessions/")
-	DirAccess.make_dir_absolute(Session.save_folder)
+	DirAccess.make_dir_recursive_absolute(Session.save_folder)
+#	store info.json file
+	var info_file_name = "%s%s" %[Session.save_folder,'info.json']
+	var info_file = FileAccess.open(info_file_name, FileAccess.WRITE)
+	var info_json = JSON.stringify({
+		"session_id": Session.session_id,
+		"study_id": Session.study_id,
+		"age_group": Session.age_group,
+		"run_id": Session.run_id,
+		"create_timestamp": unix_time,
+		"create_datetime": date,
+	})
+
+	if info_file:
+		info_file.store_string(info_json)
+		info_file.close()
+
+
 	Session.session_started.emit()
-	emit_signal("new_session_started")
 	%SessionList.update_list()
 
 func _on_study_id_input_text_changed(new_text):

@@ -30,5 +30,4 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[connection signal="new_session_started" from="MainContainer/SessionManager" to="." method="_on_session_manager_new_session_started"]
 [connection signal="game_window_toggled" from="MainContainer/MissionControl" to="." method="_on_mission_control_game_window_toggled"]
