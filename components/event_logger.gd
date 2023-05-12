@@ -10,8 +10,8 @@ func _ready():
 	Session.session_started.connect(create_csv)
 
 	
-func create_csv():
-	var csv_file_name = "%s%s" %[Session.save_folder,'events.csv']
+func create_csv(_session):
+	var csv_file_name = "%s%s" % [Session.save_folder,'events.csv']
 	csv_file = FileAccess.open(csv_file_name, FileAccess.WRITE)
 
 	if csv_file:
@@ -24,7 +24,7 @@ func add(type: String, action: String, info: String = '') -> void:
 	
 	print('EVENT! %s (%s): %s' % [type,action,info])
 
-	var time = Time.get_datetime_dict_from_system()
+#	var time = Time.get_datetime_dict_from_system()
 	var unix_time = Time.get_unix_time_from_system()
 #	var date = "%s%s%s" % [time['year'],time['month'],time['day']]
 	
@@ -39,7 +39,7 @@ func add(type: String, action: String, info: String = '') -> void:
 		"type": type,
 		"action": action,
 		"info": info,
-		"session": Session.session_id
+		"session": Session.pocketbase_id
 	})
 	if csv_file:
 		csv_file.close()

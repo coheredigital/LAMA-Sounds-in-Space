@@ -6,7 +6,7 @@ func _ready():
 	Session.session_started.connect(_on_session_started)
 	Session.session_ended.connect(_on_session_ended)
 
-func _on_session_started():
+func _on_session_started(_session):
 	%SessionManager.visible = false
 	%MissionControl.visible = true
 
