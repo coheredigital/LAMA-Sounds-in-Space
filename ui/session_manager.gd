@@ -12,7 +12,7 @@ func is_new_session_ready() -> bool:
 	return false
 
 func _on_new_session_button_pressed():
-	
+
 	var time = Time.get_datetime_dict_from_system()
 	var unix_time = Time.get_unix_time_from_system()
 	var date = "%s/%s/%s %s:%s:%s" % [
@@ -23,7 +23,7 @@ func _on_new_session_button_pressed():
 		"%02d" % time['minute'],
 		"%02d" % time['second']
 	]
-	
+
 	var date_id = "%s%s%s-%s%s%s" % [
 		time['year'],
 		"%02d" % time['month'],
@@ -34,7 +34,7 @@ func _on_new_session_button_pressed():
 	]
 
 	Session.session_id = "%s__%s" % [date_id,Session.unique_name]
-	
+
 	var session_response = await sessions_collection.create({
 		"study_id": Session.study_id,
 		"age_group": Session.age_group,
@@ -43,11 +43,11 @@ func _on_new_session_button_pressed():
 	})
 	Session.pocketbase_id = session_response.get("id")
 
-	
+
 	await EventLogger.add('session','started')
 #	create the session save directory
 	DirAccess.make_dir_recursive_absolute(Session.save_folder)
-	
+
 #	store info.json file
 	var info_file_name = "%s%s" % [ Session.save_folder, 'info.json' ]
 	var info_file = FileAccess.open(info_file_name, FileAccess.WRITE)
@@ -58,15 +58,9 @@ func _on_new_session_button_pressed():
 		"run_id": Session.run_id,
 		"create_timestamp": unix_time,
 		"create_datetime": date,
-	})
-	
-#	create the session resource file and save the .tres with the session data
-#	var session_resource = SessionResource.new()
-#	session_resource.create_unix_time = unix_time
-#	session_resource.create_datetime = date
-#	print("SessiomResource %s:" % [session_resource.get_instance_id()])
-#	ResourceSaver.save( session_resource,"%s%s" % [Session.save_folder,'session.tres'])
-#	Session.session_started.emit(session_resource)
+	}, "\t")
+
+	Session.session_started.emit()
 
 	if info_file:
 		info_file.store_string(info_json)

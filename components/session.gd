@@ -2,7 +2,7 @@ extends Node
 
 const root_directory : String = "user://sessions/"
 
-signal session_started(value: SessionResource)
+signal session_started()
 signal session_ended
 signal session_id_changed(value: String)
 signal study_id_changed(value: String)
