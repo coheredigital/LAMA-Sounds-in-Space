@@ -9,25 +9,12 @@ func _ready():
 	update_list()
 
 
-func get_list() -> Array:
-	var directories = DirAccess.get_directories_at(Session.root_directory)
-	
-	return  DirAccess.get_directories_at(Session.root_directory)
-
 
 func update_list() -> void:
 	clear()
-#	list = await collection.get_list(1,100, {
-#		"sort": "-created"
-#	})
-#	items = list.get('items')
-	
-	items = get_list()
-	print(items)
+	items = DirAccess.get_directories_at(Session.root_directory)
 	for item in items:
-		print(item)		
 		add(item)
-
 
 
 func add(item: String):
@@ -39,11 +26,7 @@ func add(item: String):
 	
 	if session_directory.file_exists(info_file):
 		info_file = FileAccess.open(info_file, FileAccess.READ)
-		var info_json = JSON.parse_string(info_file.get_as_text())
-		print(info_json)
-#		add_item(info_json)
-#
-	
+		var info_json = JSON.parse_string(info_file.get_as_text())#
 		add_item("Datetime: %s   Study ID: %s   Age Group: %s   Run ID: %s" % [
 			info_json.get("create_datetime"),
 			info_json.get("study_id"),

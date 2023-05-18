@@ -13,28 +13,8 @@ func is_new_session_ready() -> bool:
 
 func _on_new_session_button_pressed():
 
-	var time = Time.get_datetime_dict_from_system()
-	var unix_time = Time.get_unix_time_from_system()
-	var date = "%s/%s/%s %s:%s:%s" % [
-		time['year'],
-		"%02d" % time['month'],
-		"%02d" % time['day'],
-		"%02d" % time['hour'],
-		"%02d" % time['minute'],
-		"%02d" % time['second']
-	]
-
-	var date_id = "%s%s%s-%s%s%s" % [
-		time['year'],
-		"%02d" % time['month'],
-		"%02d" % time['day'],
-		"%02d" % time['hour'],
-		"%02d" % time['minute'],
-		"%02d" % time['second']
-	]
-
-	Session.session_id = "%s__%s" % [date_id,Session.unique_name]
-
+	Session.start()
+	
 	var session_response = await sessions_collection.create({
 		"study_id": Session.study_id,
 		"age_group": Session.age_group,
@@ -45,8 +25,8 @@ func _on_new_session_button_pressed():
 
 
 	await EventLogger.add('session','started')
-#	create the session save directory
-	DirAccess.make_dir_recursive_absolute(Session.save_folder)
+	
+
 
 #	store info.json file
 	var info_file_name = "%s%s" % [ Session.save_folder, 'info.json' ]
@@ -56,8 +36,8 @@ func _on_new_session_button_pressed():
 		"study_id": Session.study_id,
 		"age_group": Session.age_group,
 		"run_id": Session.run_id,
-		"create_timestamp": unix_time,
-		"create_datetime": date,
+		"create_timestamp": Session.unix_time,
+		"create_datetime": Session.date_formatted,
 	}, "\t", false)
 
 	Session.session_started.emit()
