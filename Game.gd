@@ -1,15 +1,9 @@
 extends Node
 
-@onready var sessions_collection := Pocketbase.collection('sessions')
-
 
 func _ready():
-	Pocketbase.start_server()
 	Session.session_ended.connect(func(): %GameWindow.visible = false)
 	%GameWindow.visible = false
-	
-func _exit_tree():
-	Pocketbase.stop_server()
 
 func _unhandled_input(event):
 	if event.is_action_pressed("screenshot"):

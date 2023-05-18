@@ -14,9 +14,6 @@ var previous_analyzer_channel := "Analyze"
 var events
 
 
-func _ready():
-	events = Pocketbase.collection('events')
-
 func play(sentence_id: String) -> void:
 #	get the file or cancel operation
 	var filename = "%s/%s.wav" % [folder,sentence_id];

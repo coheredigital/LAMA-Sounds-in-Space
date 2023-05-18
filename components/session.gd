@@ -10,7 +10,6 @@ signal run_id_changed(value: String)
 signal type_changed(value: String)
 signal study_id_changed(value: String)
 
-var pocketbase_id : String 
 var unix_time : float
 var datetime : Dictionary
 

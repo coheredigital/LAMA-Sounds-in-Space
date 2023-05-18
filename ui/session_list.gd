@@ -1,13 +1,10 @@
 extends ItemList
 
-var collection : PocketbaseCollection
 var list : Array
 var items : Array
 
 func _ready():
-	collection = Pocketbase.collection('sessions')
 	update_list()
-
 
 
 func update_list() -> void:

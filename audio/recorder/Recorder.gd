@@ -1,13 +1,9 @@
 extends Node
 
 var recording : AudioStreamWAV
-var events : PocketbaseCollection
 
 @onready var record_bus_index := AudioServer.get_bus_index("Record")
 @onready var effect : AudioEffectRecord = AudioServer.get_bus_effect(record_bus_index, 0)
-
-func _ready():
-	events = Pocketbase.collection('events')
 
 func start():
 	effect.set_recording_active(true)

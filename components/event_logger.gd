@@ -1,14 +1,10 @@
 extends Node
 
-var events_collection : PocketbaseCollection
-
 var csv_file : FileAccess
 
 func _ready():
-	events_collection = Pocketbase.collection('events')
 	DialogueManager.title_passed.connect(_on_title_passed)
 	Session.session_started.connect(create_csv)
-
 
 func create_csv():
 	var csv_file_name = "%s%s" % [Session.save_folder,'events.csv']
@@ -29,12 +25,6 @@ func add(type: String, action: String, info: String = '') -> void:
 	else:
 		push_error("event.csv missing! (%s)" % csv_file_name)
 
-	await events_collection.create({
-		"type": type,
-		"action": action,
-		"info": info,
-		"session": Session.pocketbase_id
-	})
 	if csv_file:
 		csv_file.close()
 

@@ -1,10 +1,5 @@
 extends Panel
 
-var sessions_collection : PocketbaseCollection
-
-func _ready():
-	sessions_collection = Pocketbase.collection('sessions')
-
 
 func is_new_session_ready() -> bool:
 	if Session.study_id.length() > 0 and Session.age_group.length() > 0 and Session.run_id.length() > 0:
@@ -15,19 +10,8 @@ func _on_new_session_button_pressed():
 
 	Session.start()
 	
-	var session_response = await sessions_collection.create({
-		"study_id": Session.study_id,
-		"age_group": Session.age_group,
-		"run_id": Session.run_id,
-		"folder": Session.save_folder,
-	})
-	Session.pocketbase_id = session_response.get("id")
-
-
 	await EventLogger.add('session','started')
 	
-
-
 #	store info.json file
 	var info_file_name = "%s%s" % [ Session.save_folder, 'info.json' ]
 	var info_file = FileAccess.open(info_file_name, FileAccess.WRITE)
