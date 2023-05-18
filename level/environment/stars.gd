@@ -26,14 +26,15 @@ extends Node3D
 		star5_progress = value
 		set_star_progess(5,value)
 
+@onready var paths := %Paths
 
 func _ready():
 	Sequencer.star_moved.connect(set_star_progess)
 
 
 func set_star_progess(star_number: int, progress: float, duration: float = 1.0) -> void:
-	if %Paths:
-		var star_path = %Paths.find_child('StarPath3D%s' % star_number)
+	if paths:
+		var star_path = paths.find_child('StarPath3D%s' % star_number)
 		if star_path:
 			var path_follow : PathFollow3D = star_path.find_child('PathFollow3D')
 			if path_follow:

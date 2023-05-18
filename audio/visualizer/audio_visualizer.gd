@@ -90,7 +90,7 @@ func _process(delta):
 		return
 
 	var segment = 1.0 / float(definition)
-	var prev_hz = 0
+#	var prev_hz = 0
 	
 	for i in range(definition):
 

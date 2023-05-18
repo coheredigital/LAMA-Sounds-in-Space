@@ -20,10 +20,6 @@ func stop():
 
 func save(stimuli_type: String, sentence_id: String):
 
-	var time = Time.get_datetime_dict_from_system()
-#	var unix_time = Time.get_unix_time_from_system()
-#	var date = "%s%s%s" % [time['year'],time['month'],time['day']]
-
 	var file_name := "%s_%s_%s_%s_%s.wav" % [
 		Session.study_id,
 		Session.age_group,
