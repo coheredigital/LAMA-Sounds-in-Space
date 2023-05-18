@@ -58,7 +58,7 @@ func _on_new_session_button_pressed():
 		"run_id": Session.run_id,
 		"create_timestamp": unix_time,
 		"create_datetime": date,
-	}, "\t")
+	}, "\t", false)
 
 	Session.session_started.emit()
 
