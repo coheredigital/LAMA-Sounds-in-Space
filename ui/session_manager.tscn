@@ -68,7 +68,6 @@ custom_minimum_size = Vector2(300, 200)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("3_0rwgr")
-max_columns = 2
 same_column_width = true
 script = ExtResource("4_byfkq")
 

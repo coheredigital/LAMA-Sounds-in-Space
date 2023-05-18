@@ -1,5 +1,6 @@
 extends Node
 
+const root_directory : String = "user://sessions/"
 
 signal session_started(value: SessionResource)
 signal session_ended

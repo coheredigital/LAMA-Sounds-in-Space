@@ -5,6 +5,7 @@ var sessions_collection : PocketbaseCollection
 func _ready():
 	sessions_collection = Pocketbase.collection('sessions')
 
+
 func is_new_session_ready() -> bool:
 	if Session.study_id.length() > 0 and Session.age_group.length() > 0 and Session.run_id.length() > 0:
 		return true
@@ -60,20 +61,20 @@ func _on_new_session_button_pressed():
 	})
 	
 #	create the session resource file and save the .tres with the session data
-	var session_resource = SessionResource.new()
-	session_resource.create_unix_time = unix_time
-	session_resource.create_dateime = date
-	print("SessiomResource %s:" % [session_resource.get_instance_id()])
-	
-	ResourceSaver.save( session_resource,"%s%s" % [Session.save_folder,'session.tres'])
+#	var session_resource = SessionResource.new()
+#	session_resource.create_unix_time = unix_time
+#	session_resource.create_datetime = date
+#	print("SessiomResource %s:" % [session_resource.get_instance_id()])
+#	ResourceSaver.save( session_resource,"%s%s" % [Session.save_folder,'session.tres'])
+#	Session.session_started.emit(session_resource)
 
 	if info_file:
 		info_file.store_string(info_json)
 		info_file.close()
 
-
-	Session.session_started.emit(session_resource)
 	%SessionList.update_list()
+
+
 
 func _on_study_id_input_text_changed(new_text):
 	Session.study_id = new_text
