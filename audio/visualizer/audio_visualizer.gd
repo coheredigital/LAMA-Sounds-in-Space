@@ -1,5 +1,12 @@
 extends Node
 
+var spectrum : AudioEffectSpectrumAnalyzerInstance
+var histogram := []
+var x_histogram := []
+var y_histogram := []
+var z_histogram := []
+var a_histogram := []
+var interval := 0.0
 
 @export_enum("Analyze","Stimuli") var channel := "Analyze":
 	set(value):
@@ -33,14 +40,7 @@ extends Node
 @export var a_curve : Curve
 
 
-var spectrum : AudioEffectSpectrumAnalyzerInstance
-var histogram := []
-var x_histogram := []
-var y_histogram := []
-var z_histogram := []
-var a_histogram := []
 
-var interval := 0.0
 
 
 func set_min_frequency(value):

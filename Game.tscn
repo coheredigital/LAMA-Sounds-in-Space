@@ -15,3 +15,4 @@ visible = false
 always_on_top = true
 
 [connection signal="game_window_toggled" from="ControlPanel" to="." method="_on_control_panel_game_window_toggled"]
+[connection signal="window_input" from="GameWindow" to="." method="_on_game_window_window_input"]

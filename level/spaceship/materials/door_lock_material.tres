@@ -18,6 +18,6 @@ shader_parameter/rim_smoothness = 1.0
 shader_parameter/metallic = 0.0
 shader_parameter/roughness = 1.0
 shader_parameter/emission = Color(0, 0, 0, 1)
-shader_parameter/emission_energy = 0.0
+shader_parameter/emission_energy = 1.0
 shader_parameter/albedo_texture = ExtResource("2_mx3r4")
 shader_parameter/emission_texture = ExtResource("3_ixn7d")

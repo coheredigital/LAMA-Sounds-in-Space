@@ -9,6 +9,9 @@ signal age_group_changed(value: String)
 signal run_id_changed(value: String)
 signal type_changed(value: String)
 signal study_id_changed(value: String)
+signal player_control_enabled(value: bool)
+signal user_clicked
+
 
 var unix_time : float
 var datetime : Dictionary

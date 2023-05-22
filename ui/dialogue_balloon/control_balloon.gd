@@ -12,13 +12,16 @@ const DialogueConstants = preload("res://addons/dialogue_manager/constants.gd")
 ## The dialogue resource
 var resource: DialogueResource = load("res://dialogue/sequence.dialogue")
 
-## See if we are waiting for the player
+## See if we are waiting for a resonse
 var is_waiting_for_input: bool = false
+var user_input_allowed: bool = false
 
 
 ## The current line
 var dialogue_line: DialogueLine:
 	set(next_dialogue_line):
+		
+
 		is_waiting_for_input = false
 
 		if not next_dialogue_line:
@@ -31,17 +34,26 @@ var dialogue_line: DialogueLine:
 			child.queue_free()
 
 		dialogue_line = next_dialogue_line
-
+		
+		var character_name = tr(dialogue_line.character, "dialogue")
 		character_label.visible = not dialogue_line.character.is_empty()
-		character_label.text = tr(dialogue_line.character, "dialogue")
-
+		character_label.text = character_name
+#		check for "Player" character as a flag to enable the player to respond
+		if character_name == "Player":
+			user_input_allowed = true
+			Session.player_control_enabled.emit(true)
+		else:
+			user_input_allowed = false
+			Session.player_control_enabled.emit(false)
+		
 		dialogue_label.modulate.a = 0
-#		dialogue_label.custom_minimum_size.x = dialogue_label.get_parent().size.x - 1
 		dialogue_label.dialogue_line = dialogue_line
 
 		# Show any responses we have
 		responses_menu.modulate.a = 0
 		if dialogue_line.responses.size() > 0:
+
+			
 			for response in dialogue_line.responses:
 				# Duplicate the template so we can grab the fonts, sizing, etc
 				var item:= response_template.duplicate(0)
@@ -71,20 +83,31 @@ var dialogue_line: DialogueLine:
 			next(dialogue_line.next_id)
 		else:
 			is_waiting_for_input = true
-			balloon.focus_mode = Control.FOCUS_ALL
-			balloon.grab_focus()
+#			balloon.focus_mode = Control.FOCUS_ALL
+#			balloon.grab_focus()
 	get:
 		return dialogue_line
 
 
 func _ready() -> void:
+	Session.user_clicked.connect(attempt_user_response)
 	response_template.hide()
 	Engine.get_singleton("DialogueManager").mutated.connect(_on_mutated)
 
+func attempt_user_response() -> void:
+	print("attempt_response")
+	var items := get_responses()
+	if items.size() == 0 or not user_input_allowed:
+		return
+	var item : Button = items[0]
+	if item:
+		next(dialogue_line.responses[0].next_id)
+		EventLogger.add('player','response',item.text)
 
-func _unhandled_input(_event: InputEvent) -> void:
-	# Only the balloon is allowed to handle input while it's showing
-	get_viewport().set_input_as_handled()
+
+#func _unhandled_input(_event: InputEvent) -> void:
+#	# Only the balloon is allowed to handle input while it's showing
+#	get_viewport().set_input_as_handled()
 
 
 ## Start some dialogue
@@ -131,7 +154,7 @@ func configure_menu() -> void:
 			item.focus_neighbor_bottom = items[i + 1].get_path()
 			item.focus_next = items[i + 1].get_path()
 
-		item.mouse_entered.connect(_on_response_mouse_entered.bind(item))
+#		item.mouse_entered.connect(_on_response_mouse_entered.bind(item))
 		item.gui_input.connect(_on_response_gui_input.bind(item))
 
 	items[0].grab_focus()

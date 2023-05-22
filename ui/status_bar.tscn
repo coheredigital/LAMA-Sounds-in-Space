@@ -9,20 +9,6 @@ script = ExtResource("1_4h75g")
 layout_mode = 2
 theme_override_constants/separation = 32
 
-[node name="StatusIndicator01" type="HBoxContainer" parent="HBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 8
-
-[node name="Label" type="Label" parent="HBoxContainer/StatusIndicator01"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.612635, 0.634222, 0.887623, 1)
-text = "Session ID"
-
-[node name="SessionIDValue" type="Label" parent="HBoxContainer/StatusIndicator01"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "6nxibiccjrv6pce"
-
 [node name="StatusIndicator02" type="HBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 8
@@ -64,3 +50,17 @@ text = "Run ID"
 unique_name_in_owner = true
 layout_mode = 2
 text = "001"
+
+[node name="StatusIndicator05" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="HBoxContainer/StatusIndicator05"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.612635, 0.634222, 0.887623, 1)
+text = "Player Control"
+
+[node name="PlayerControlState" type="Label" parent="HBoxContainer/StatusIndicator05"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Disabled"

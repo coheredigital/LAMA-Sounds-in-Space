@@ -33,9 +33,11 @@ do move_star(5,0.0,0.0)
 System: ...[next]
 System: ...[next]
 System: ...[next]
+System: ...[next]
 
 ~ ready
-System: Ready.
+# User must "say" something for the prompt to be connected to them (allowd input from player)
+Player: ...
 - Start
 do Stimuli.play("song_01F")
 [next=2]
@@ -66,12 +68,9 @@ do Character.pivot(0.5,0.4)
 
 ~ question_rescue
 Sam: Will you help me rescue Lucky to get her back here to the space station?
+Player: ...
 - Yes!
 	Sam: Thank you!
-#- No.
-#	Sam: Are you sure?
-#	- Yes. => END
-#	- No. => question_rescue
 
 Sam: We’re definitely going to need your help -- this spaceship works best when I have a co-pilot astronaut like you! Our mission is to travel to Planet Stardust, where Lucky’s spaceship broke down, and bring Lucky the Llama back here safely. Are you ready to start your astronaut training? If you help, you’ll get your very own space cadet prize for your help and your bravery!!   
 
@@ -80,7 +79,7 @@ do Player.pivot(0,3)
 do Player.move_to(0.65,6)
 [next=5.5]
 Sam: Press the GREEN button to open the spaceship door and start your training! 
-User:
+Player: ...
 - Press Green Button
 
 ~ unlock_door
@@ -129,14 +128,14 @@ set screen = "computer"
 Computer: Activate spaceship!
 
 ~ activate_spaceship_recording
-System: 
+System: ...
 - Begin Recording
 	do Recorder.start()
 	set screen = "recording"
 	[next=2]
 
 ~ activate_spaceship_result
-System: 
+System: ...
 - Success
 	set screen = "success"
 	do Recorder.stop()
@@ -158,7 +157,7 @@ do Player.move_to(1.0,1.0)
 do Player.pivot(-0.15)
 Sam: When you're ready, press the GREEN button to get started. 
 set screen = "start_button"
-Prompt:
+Player: ...
 - Green Button
 
 ~ buckle_up
@@ -173,14 +172,14 @@ set screen = "computer"
 Computer: Seat belts buckled!
 
 ~ buckle_up_recording
-System: 
+System: ...
 - Begin Recording
 set screen = "recording"
 do Recorder.start()
 [next=2]
 
 ~ buckle_up_result
-System: 
+System: ...
 - Success
 	set screen = "success"
 	set seatbelts_buckled = true
@@ -203,14 +202,14 @@ set screen = "computer"
 Computer: Siren noise (low to high to low to high to low)
 
 ~ siren_recording
-System: 
+System: ...
 - Begin Recording
 set screen = "recording"
 do Recorder.start()
 [next=2]
 
 ~ siren_result
-System: 
+System: ...
 - Success
 	set screen = "success"
 	do Recorder.stop()
@@ -234,14 +233,14 @@ set screen = "computer"
 Computer: Let’s fuel up!
 
 ~ fuel_up_recording
-System:
+System: ...
 - Begin Recording
 set screen = "recording"
 do Recorder.start()
 [next=2]
 
 ~ fuel_up_result
-System: 
+System: ...
 - Success
 	set screen = "success"
 	do Recorder.stop()
@@ -264,14 +263,14 @@ set screen = "computer"
 Computer: *Loud Yawn: from high to low*
 
 ~ sleep_mode_recording
-System:
+System: ...
 - Begin Recording
 set screen = "recording"
 do Recorder.start()
 [next=2]
 
 ~ sleep_mode_result
-System: 
+System: ...
 - Success
 	set screen = "success"
 	do Recorder.stop()
@@ -293,14 +292,14 @@ set screen = "computer"
 Computer: *Blast Off!* 
 
 ~ blast_off_recording
-System:
+System: ...
 - Begin Recording
 set screen = "recording"
 do Recorder.start()
 [next=2]
 
 ~ blast_off_result
-System: 
+System: ...
 - Success
 	set screen = "success"
 	do Recorder.stop()
@@ -336,14 +335,14 @@ Computer: Star 1!
 # TODO: What command do they want for bringing in stars?
 
 ~ stars_light_1_recording
-System:
+System: ...
 - Begin Recording
 set screen = "recording"
 do Recorder.start()
 [next=2]
 
 ~ stars_light_1_result
-System: 
+System: ...
 - Success
 	set screen = "success"
 	do Recorder.stop()
@@ -367,14 +366,14 @@ Computer: Star 1!
 # TODO: What command do they want for bringing in stars?
 
 ~ stars_light_2_recording
-System:
+System: ...
 - Begin Recording
 set screen = "recording"
 do Recorder.start()
 [next=2]
 
 ~ stars_light_2_result
-System: 
+System: ...
 - Success
 	set screen = "success"
 	do Recorder.stop()
@@ -398,14 +397,14 @@ Computer: Star 1!
 # TODO: What command do they want for bringing in stars?
 
 ~ stars_light_3_recording
-System:
+System: ...
 - Begin Recording
 set screen = "recording"
 do Recorder.start()
 [next=2]
 
 ~ stars_light_3_result
-System: 
+System: ...
 - Success
 	set screen = "success"
 	do Recorder.stop()
@@ -429,14 +428,14 @@ Computer: Star 1!
 # TODO: What command do they want for bringing in stars?
 
 ~ stars_light_4_recording
-System:
+System: ...
 - Begin Recording
 set screen = "recording"
 do Recorder.start()
 [next=2]
 
 ~ stars_light_4_result
-System: 
+System: ... 
 - Success
 	set screen = "success"
 	do Recorder.stop()
@@ -460,14 +459,14 @@ Computer: Star 1!
 # TODO: What command do they want for bringing in stars?
 
 ~ stars_light_5_recording
-System:
+System: ...
 - Begin Recording
 set screen = "recording"
 do Recorder.start()
 [next=2]
 
 ~ stars_light_5_result
-System: 
+System: ... 
 - Success
 	set screen = "success"
 	do Recorder.stop()
@@ -478,7 +477,6 @@ System:
 	do Recorder.stop()
 	Sam: Uh oh! It looks like the spaceship couldn't quite hear you. Let's try again a bit louder.
 	=> stars_light_5_command
-
 - Next
 do move_star(5,0.7,5.0)
 [next=1]
@@ -572,7 +570,6 @@ Sam: You made it back to the Space Station - great job today!
 Sam: Thanks for bringing Lucky the Llama back home from Planet Stardust safely. 
 Sam: You are a great Astronaut! Come back any time!
 
-
-System: 
+System: ...
 - restart => start
 => END

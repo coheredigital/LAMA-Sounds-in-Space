@@ -15,5 +15,5 @@ func _on_session_ended():
 	%MissionControl.visible = false
 
 
-func _on_mission_control_game_window_toggled():
-	self.emit_signal("game_window_toggled")
+func _on_mission_control_game_window_toggled(is_open):
+	self.emit_signal("game_window_toggled", is_open)

@@ -9,8 +9,7 @@ extends Node
 		if player:
 			player.volume_db = lerp(-16.0,0.0,value)
 
-var previous_screen := "idle"
-var previous_analyzer_channel := "Analyze"
+
 var events
 
 
@@ -23,10 +22,9 @@ func play(sentence_id: String) -> void:
 		return
 
 	print('Stimuli: %s' % [filename])
-	previous_screen = Sequencer.screen
-	Sequencer.screen = "playing"
 
-	previous_analyzer_channel = AudioVisualizer.channel
+	Sequencer.screen = "playing"
+	AudioVisualizer.channel = "Stimuli"
 #	wait for screen to change before playing
 	await get_tree().create_timer(1.0).timeout
 	player.stream = wav_file
@@ -35,5 +33,5 @@ func play(sentence_id: String) -> void:
 
 # restore sequence and visualizer state on finish
 func _on_audio_stream_player_finished():
-	Sequencer.screen = previous_screen
-	AudioVisualizer.channel = previous_analyzer_channel
+	Sequencer.screen = "idle"
+	AudioVisualizer.channel = "Analyze"

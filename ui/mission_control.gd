@@ -1,6 +1,6 @@
 extends Panel
 
-signal game_window_toggled
+signal game_window_toggled(is_open: bool)
 
 var sequence : DialogueResource  = load("res://dialogue/sequence.dialogue")
 
@@ -33,5 +33,5 @@ func _on_end_session_cancel_button_pressed():
 	%EndSessionConfirmation.visible = false
 
 
-func _on_toggle_game_window_pressed():
-	self.emit_signal("game_window_toggled")
+func _on_check_button_toggled(button_pressed):
+	self.emit_signal("game_window_toggled", button_pressed)
