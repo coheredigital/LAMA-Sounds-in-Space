@@ -4,6 +4,9 @@ signal action_changed(value: String)
 signal position_changed(value: float, duration: float)
 signal pivot_changed(value: float, duration: float)
 signal tilt_changed(value: float, duration: float)
+signal audio_played(sentence_id: String)
+
+
 
 func action(target_action: String) -> void:
 	action_changed.emit(target_action)
@@ -17,3 +20,7 @@ func pivot(value: float = 0.0, duration: float = 1.0) -> void:
 func tilt(value: float = 0.0, duration: float = 1.0) -> void:
 	tilt_changed.emit(value, duration)
 
+
+func play_audio(sentence_id: String) -> void:
+	audio_played.emit(sentence_id)
+	

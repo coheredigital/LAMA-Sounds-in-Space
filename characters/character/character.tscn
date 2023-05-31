@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://cq3x5n33r2d8c"]
+[gd_scene load_steps=16 format=3 uid="uid://cq3x5n33r2d8c"]
 
 [ext_resource type="PackedScene" uid="uid://whalw4rdvy64" path="res://characters/character/character.gltf" id="1"]
 [ext_resource type="Script" path="res://characters/character/character.gd" id="2_bwdwg"]
+[ext_resource type="AudioStream" uid="uid://bj5b2cihflv6s" path="res://audio/script/introduction_full.wav" id="4_3e3ei"]
 [ext_resource type="AnimationLibrary" uid="uid://c4hslfw7atlus" path="res://characters/character/character_actions.tres" id="4_cmukm"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_q88u6"]
@@ -100,6 +101,7 @@ _data = {
 
 [node name="Character" instance=ExtResource("1")]
 script = ExtResource("2_bwdwg")
+audio_folder = "res://audio/script"
 
 [node name="StateTree" type="AnimationTree" parent="." index="0"]
 unique_name_in_owner = true
@@ -116,12 +118,17 @@ libraries = {
 }
 
 [node name="helmet" parent="character" index="0"]
-transform = Transform3D(0.998924, 0.00708535, 0.0458377, -0.00523043, 0.999167, -0.0404613, -0.0460862, 0.0401779, 0.99813, 0, 0.359375, -0.03125)
+transform = Transform3D(0.997119, 0.0266304, 0.0710277, -0.0258115, 0.999589, -0.012424, -0.0713294, 0.0105549, 0.997398, 0, 0.359375, -0.03125)
 
 [node name="face" parent="character/helmet" index="2"]
-transform = Transform3D(0.999159, 0.00221424, -0.0409281, -9.16699e-10, 0.99854, 0.0540216, 0.040988, -0.0539763, 0.997701, 0, 0.21875, 0.03125)
+transform = Transform3D(0.995076, -0.00158939, -0.0990906, -4.38615e-11, 0.999872, -0.0160377, 0.0991032, 0.0159588, 0.99495, 0, 0.21875, 0.03125)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="character/helmet/face" index="2"]
+[node name="AudioPlayer" type="AudioStreamPlayer3D" parent="character/helmet/face" index="0"]
+unique_name_in_owner = true
+transform = Transform3D(0.997942, -0.0639902, 0.00430975, 0.063585, 0.995928, 0.0639142, -0.00838205, -0.0635085, 0.997945, -0.021741, 0.0576075, -0.0398765)
+stream = ExtResource("4_3e3ei")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="character/helmet/face" index="3"]
 transform = Transform3D(1, -2.79397e-09, 0, 0, 1, -3.72529e-09, 0, 0, 1, -0.00121768, 0.0733966, -0.0618677)
 light_color = Color(0.788235, 0.788235, 0.788235, 1)
 omni_range = 0.257751
