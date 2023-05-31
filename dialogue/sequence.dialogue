@@ -41,18 +41,20 @@ Player: ...
 - Start
 [next=2]
 
-~ welcome
-do Character.play_audio("introduction_full")
+~ intro_welcome
+do Character.play_audio("intro_welcome")
 Sam: Welcome to the Space Station! My name is Sam and I’m an Astronaut. We’re so glad you came to visit us today! Here at the space station, we go on so many fun missions. Come on in so I can show you around!
 
-~ welcome_enter
+~ intro_lucky
 do Player.move_to(0.13,2.5)
 [next=2]
+do Character.play_audio("intro_lucky")
 Sam: First, I want you to meet our very own space llama named Lucky. She’s usually around here somewhere... Let’s look up her location on our astronaut map.
 
 [next=2]
 
-~ welcome_map
+~ intro_map
+
 do Character.move_to(0.17,3)
 do Player.move_to(0.3,2)
 [next=1]
@@ -61,22 +63,30 @@ do Character.pivot(0,0.4)
 [next=3]
 # TODO: set station_screen = (starmap)
 # TODO: set station_screen = (starmap_locate)
+do Character.play_audio("intro_map")
 Sam: Oh no! It looks like Lucky’s spaceship broke down and Lucky is stuck on another planet way out in space!
 do Character.pivot(0.5,0.4)
 [next=2]
 
 ~ question_rescue
+do Character.play_audio("question_rescue")
 Sam: Will you help me rescue Lucky to get her back here to the space station?
 Player: ...
-- Yes!
+- Yes!  
+	do Character.play_audio("phew_thank_you")
 	Sam: Thank you!
 
+~ mission_brief
+do Character.play_audio("mission_brief")
 Sam: We’re definitely going to need your help -- this spaceship works best when I have a co-pilot astronaut like you! Our mission is to travel to Planet Stardust, where Lucky’s spaceship broke down, and bring Lucky the Llama back here safely. Are you ready to start your astronaut training? If you help, you’ll get your very own space cadet prize for your help and your bravery!!   
 
 ~ approach_spaceship
 do Player.pivot(0,3)
 do Player.move_to(0.65,6)
 [next=5.5]
+
+~ press_green_button
+do Character.play_audio("press_green_button")
 Sam: Press the GREEN button to open the spaceship door and start your training! 
 Player: ...
 - Press Green Button
@@ -97,9 +107,12 @@ do Character.move_to(0.9,4.0)
 [next=3.5]
 do Character.pivot(0.6,2.0)
 [next=1.5]
-Sam: Welcome aboard! 
+do Character.play_audio("welcome_aboard")
+Sam: Welcome aboard!
+do Character.play_audio("become_junior_astronaut")
 Sam: To become a Junior Astronaut, you will need to listen closely so we can make it to Planet Stardust, find Lucky the Llama, and bring Lucky back to the Space Station.
 do Character.pivot(0.5)
+do Character.play_audio("our_first_job")
 Sam: Our first job is to make sure we have everything we need before we fly.
 
 ~ computer_intro
