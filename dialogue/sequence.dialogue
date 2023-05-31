@@ -122,17 +122,21 @@ do Character.move_to(0.96,2)
 do Character.pivot(0.4)
 [next=0.5]
 set screen = "computer"
+do Character.play_audio("computer_info")
 Sam: This is our handy dandy computer! The computer will help us travel to Planet Stardust. This computer is voice-activated, which means that we have to say the commands out loud with our voices so the computer can help us activate the spaceship! First, the computer will say the right words for a command and then your job is to repeat the words out loud with your voice.  
 
 ~ computer_greeting
+do Character.play_audio("computer_sounds_like")
 Sam: This is what the computer sounds like. 
 [next=1]
 do Stimuli.play("song_01F")
 Computer: Nice to meet you
 [next=0.5]
+do Character.play_audio("computer_instructions")
 Sam: Ok, now I’ll have the computer say a command and your job is to repeat what the computer just said with your voice. Make sure you say it loud and clear, so the computer can hear you! After you repeat after the computer, I’ll press the red button to send your voice to the spaceship.
 
 ~ activate_spaceship
+do Character.play_audio("ok_here_we_go")
 Sam: Ok here we go!
 
 ~ activate_spaceship_command
@@ -152,6 +156,7 @@ System: ...
 	set screen = "success"
 	do Recorder.stop()
 	do Recorder.save("speech", "PRAC_activate_spaceship")
+	do Character.play_audio("great_job_ready_blast_off")
 	Sam: Great job! Looks like it heard you! We’re ready to start preparing the ship for blast off.
 - Quiet
 	set screen = "failure"
@@ -162,11 +167,13 @@ System: ...
 
 ~ spaceship_activated
 set screen = "idle"
+do Character.play_audio("ill_sit_you_command")
 Sam: I’ll sit here next to you and let you give the computer the voice commands!
 do Character.move_to(1.0,1.0) 
 do Character.pivot(0) 
 do Player.move_to(1.0,1.0)
 do Player.pivot(-0.15)
+do Character.play_audio("when_ready_green_button")
 Sam: When you're ready, press the GREEN button to get started. 
 set screen = "start_button"
 Player: ...
@@ -175,6 +182,7 @@ Player: ...
 ~ buckle_up
 set screen = "buckle_warning"
 do Character.pivot(0.25) 
+do Character.play_audio("buckle_up_intro")
 Sam: OK. First, we need to buckle up! Listen to the command from the computer and then repeat what it says with your voice.
 do Character.pivot(0)
 do Player.pivot(0)
@@ -197,6 +205,7 @@ System: ...
 	set seatbelts_buckled = true
 	do Recorder.stop()
 	do Recorder.save("speech", "PRAC_buckle_up")
+	do Character.play_audio("great_job_heard_you")
 	Sam: Great job! Looks like it heard you!
 - Quiet
 	set screen = "failure"
@@ -205,8 +214,10 @@ System: ...
 	=> buckle_up_command
 
 ~ siren
+do Character.play_audio("test_warning_sirens")
 Sam: Great, now let’s test out our warning sirens! 
 set screen = "alert"
+do Character.play_audio("listen_and_repeat")
 Sam: Listen to the command from the computer and then repeat what it says with your voice.
 
 ~ siren_command
@@ -226,6 +237,7 @@ System: ...
 	set screen = "success"
 	do Recorder.stop()
 	do Recorder.save("song", "PRAC_siren")
+	do Character.play_audio("great_job_heard_you")
 	Sam: Great job! Looks like it heard you!
 - Quiet
 	set screen = "failure"
@@ -234,11 +246,13 @@ System: ...
 	=> siren_command
 
 ~ fuel_up
+do Character.play_audio("fuel_up_intro")
 Sam: Awesome! We are almost ready to blast off, but first we need some fuel. 
 [next=2]
 set screen = "battery"
 
 ~ fuel_up_command
+do Character.play_audio("listen_and_repeat")
 Sam: Listen to the command from the computer and then repeat what it says with your voice:  
 [next=0.5]
 set screen = "computer"
@@ -257,6 +271,7 @@ System: ...
 	set screen = "success"
 	do Recorder.stop()
 	do Recorder.save("speech", "PRAC_fuel_up")
+	do Character.play_audio("great_job_heard_you")
 	Sam: Great job! Looks like it heard you!
 	=>< snippets/fuel_up_animation
 - Quiet
@@ -266,9 +281,11 @@ System: ...
 	=> fuel_up_command
 
 ~ sleep_mode
+do Character.play_audio("sleep_mode_intro")
 Sam: The computer wants us to yawn out loud to tell it to turn down the lights if we want to sleep! Let’s see if it works. 
 
 ~ sleep_mode_command
+do Character.play_audio("listen_and_repeat")
 Sam: Listen to the command from the computer and then repeat what it says with your voice: 
 set screen = "computer"
 [next=1]
@@ -287,6 +304,7 @@ System: ...
 	set screen = "success"
 	do Recorder.stop()
 	do Recorder.save("song", "PRAC_sleep_mode")
+	do Character.play_audio("great_job_heard_you")
 	Sam: Great job! Looks like it heard you! 
 	# maybe adjust lights here ? Might not need last line.
 - Quiet
@@ -296,6 +314,7 @@ System: ...
 	=> sleep_mode_command
 
 ~ blast_off
+do Character.play_audio("blast_off_intro")
 Sam: You did it! You’re working really hard at this – Great Job! Now that our spaceship is full of fuel and the computer knows your voice, it’s time to find Planet Stardust!  Our handy dandy computer will countdown to blast off. Listen closely and then repeat what you hear to send us into space! 
 
 ~ blast_off_command
@@ -316,6 +335,7 @@ System: ...
 	set screen = "success"
 	do Recorder.stop()
 	do Recorder.save("speech", "PRAC_blast_off")
+	do Character.play_audio("great_job_heard_you")
 	Sam: Great job! Looks like it heard you! 
 - Quiet
 	set screen = "failure"
@@ -329,6 +349,7 @@ set steering_motion = 1.0
 set flying_motion = 1.0
 [next=0.5]
 set steering_motion = 0.5
+do Character.play_audio("were_flying")
 Sam: We’re flying![next=5]
 set steering_motion = 0.2
 
