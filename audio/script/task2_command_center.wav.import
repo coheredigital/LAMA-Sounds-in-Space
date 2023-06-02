@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bblthplcpyp6c"
-path="res://.godot/imported/task_2_command_center_picky.wav-07d6ae3f0abe8ddb8352e3011e7d11ee.sample"
+path="res://.godot/imported/task2_command_center.wav-c3f9f994a3deb00d60bcbd50a1d996fd.sample"
 
 [deps]
 
-source_file="res://audio/script/task_2_command_center_picky.wav"
-dest_files=["res://.godot/imported/task_2_command_center_picky.wav-07d6ae3f0abe8ddb8352e3011e7d11ee.sample"]
+source_file="res://audio/script/task2_command_center.wav"
+dest_files=["res://.godot/imported/task2_command_center.wav-c3f9f994a3deb00d60bcbd50a1d996fd.sample"]
 
 [params]
 

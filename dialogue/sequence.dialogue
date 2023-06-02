@@ -54,7 +54,6 @@ Sam: First, I want you to meet our very own space llama named Lucky. She’s usu
 [next=2]
 
 ~ intro_map
-
 do Character.move_to(0.17,3)
 do Player.move_to(0.3,2)
 [next=1]
@@ -69,15 +68,15 @@ do Character.pivot(0.5,0.4)
 [next=2]
 
 ~ question_rescue
-do Character.play_audio("question_rescue")
+do Character.play_audio("intro_question")
 Sam: Will you help me rescue Lucky to get her back here to the space station?
 Player: ...
 - Yes!  
-	do Character.play_audio("phew_thank_you")
+	do Character.play_audio("thank_you")
 	Sam: Thank you!
 
 ~ mission_brief
-do Character.play_audio("mission_brief")
+do Character.play_audio("intro_mission_brief")
 Sam: We’re definitely going to need your help -- this spaceship works best when I have a co-pilot astronaut like you! Our mission is to travel to Planet Stardust, where Lucky’s spaceship broke down, and bring Lucky the Llama back here safely. Are you ready to start your astronaut training? If you help, you’ll get your very own space cadet prize for your help and your bravery!!   
 
 ~ approach_spaceship
@@ -86,7 +85,7 @@ do Player.move_to(0.65,6)
 [next=5.5]
 
 ~ press_green_button
-do Character.play_audio("press_green_button")
+do Character.play_audio("intro_open_spaceship")
 Sam: Press the GREEN button to open the spaceship door and start your training! 
 Player: ...
 - Press Green Button
@@ -107,32 +106,35 @@ do Character.move_to(0.9,4.0)
 [next=3.5]
 do Character.pivot(0.6,2.0)
 [next=1.5]
+
 do Character.play_audio("welcome_aboard")
 Sam: Welcome aboard!
-do Character.play_audio("become_junior_astronaut")
+
+~ task0_practice
+do Character.play_audio("task0_intro")
 Sam: To become a Junior Astronaut, you will need to listen closely so we can make it to Planet Stardust, find Lucky the Llama, and bring Lucky back to the Space Station.
 do Character.pivot(0.5)
-do Character.play_audio("our_first_job")
+do Character.play_audio("task0_job")
 Sam: Our first job is to make sure we have everything we need before we fly.
 
-~ computer_intro
+~ task0_computer_intro
 do Player.move_to(0.93,2)
 do Player.pivot(-0.05,2)
 do Character.move_to(0.96,2)
 do Character.pivot(0.4)
 [next=0.5]
 set screen = "computer"
-do Character.play_audio("computer_info")
+do Character.play_audio("task0_computer_info")
 Sam: This is our handy dandy computer! The computer will help us travel to Planet Stardust. This computer is voice-activated, which means that we have to say the commands out loud with our voices so the computer can help us activate the spaceship! First, the computer will say the right words for a command and then your job is to repeat the words out loud with your voice.  
 
 ~ computer_greeting  
-do Character.play_audio("computer_sounds_like")
+do Character.play_audio("task0_computer_sounds_like")
 Sam: This is what the computer sounds like. 
 [next=1]
 do Stimuli.play("song_01F")
 Computer: Nice to meet you
 [next=0.5]
-do Character.play_audio("computer_instructions")
+do Character.play_audio("task0_computer_instructions")
 Sam: Ok, now I’ll have the computer say a command and your job is to repeat what the computer just said with your voice. Make sure you say it loud and clear, so the computer can hear you! After you repeat after the computer, I’ll press the red button to send your voice to the spaceship.
 
 ~ activate_spaceship
@@ -165,18 +167,15 @@ System: ...
 	=> activate_spaceship_command
 
 
-
-
-
 ~ spaceship_activated
 set screen = "idle"
-do Character.play_audio("ill_sit_you_command")
+do Character.play_audio("task0_you_command")
 Sam: I’ll sit here next to you and let you give the computer the voice commands!
 do Character.move_to(1.0,1.0) 
 do Character.pivot(0) 
 do Player.move_to(1.0,1.0)
 do Player.pivot(-0.15)
-do Character.play_audio("when_ready_green_button")
+do Character.play_audio("task0_ready_green_button")
 Sam: When you're ready, press the GREEN button to get started. 
 set screen = "start_button"
 Player: ...
@@ -185,7 +184,7 @@ Player: ...
 ~ buckle_up
 set screen = "buckle_warning"
 do Character.pivot(0.25) 
-do Character.play_audio("buckle_up_intro")
+do Character.play_audio("task0_buckle_up_intro")
 Sam: OK. First, we need to buckle up! Listen to the command from the computer and then repeat what it says with your voice.
 do Character.pivot(0)
 do Player.pivot(0)
@@ -217,7 +216,7 @@ System: ...
 	=> buckle_up_command
 
 ~ siren
-do Character.play_audio("test_warning_sirens")
+do Character.play_audio("task0_test_warning_sirens")
 Sam: Great, now let’s test out our warning sirens! 
 set screen = "alert"
 do Character.play_audio("listen_and_repeat")
@@ -249,7 +248,7 @@ System: ...
 	=> siren_command
 
 ~ fuel_up
-do Character.play_audio("fuel_up_intro")
+do Character.play_audio("task0_fuel_up_intro")
 Sam: Awesome! We are almost ready to blast off, but first we need some fuel. 
 [next=2]
 set screen = "battery"
@@ -284,7 +283,7 @@ System: ...
 	=> fuel_up_command
 
 ~ sleep_mode
-do Character.play_audio("sleep_mode_intro")
+do Character.play_audio("task0_sleep_mode_intro")
 Sam: The computer wants us to yawn out loud to tell it to turn down the lights if we want to sleep! Let’s see if it works. 
 
 ~ sleep_mode_command
@@ -317,7 +316,7 @@ System: ...
 	=> sleep_mode_command
 
 ~ blast_off
-do Character.play_audio("blast_off_intro")
+do Character.play_audio("task0_blast_off_intro")
 Sam: You did it! You’re working really hard at this – Great Job! Now that our spaceship is full of fuel and the computer knows your voice, it’s time to find Planet Stardust!  Our handy dandy computer will countdown to blast off. Listen closely and then repeat what you hear to send us into space! 
 
 ~ blast_off_command
@@ -363,8 +362,8 @@ set steering_motion = 0.2
 set steering_motion = 0.05
 set flying_motion = 0.1
 
-~ stars_light_intro
-do Character.play_audio("stars_light_intro")
+~ task1_stars_light
+do Character.play_audio("task1_intro")
 Sam: Boy, it’s dark out here! This time, let’s wake up the stars with our voices. Just like we practiced, you will listen to the computer’s commands and repeat them loud and clear! After each voice command, I’ll press the red button to send your voice to the stars.  
 
 # USAGE: move_star(star_number: int [1-5], progress: float [0-1], duration: float [>=0] )
@@ -528,7 +527,7 @@ set stars_brightness = 4.0
 
 # =>< snippets/stars_light_sequence
 ~ stars_light_success
-do Character.play_audio("stars_light_success")
+do Character.play_audio("task1_success")
 Sam: Awesome job, partner! Look at all the bright things you put in space! Now let’s go to Planet Stardust, press the GO button to get closer to finding Lucky!
 set screen = "start_button"
 [next=2]
@@ -538,31 +537,38 @@ set screen = "start_button"
 set screen = "idle"
 ~ task2_intro
 do Character.play_audio("task2_intro")
-Sam: Our next task is to find Planet Stardust! To help us get to Planet Stardust, we’ll need the help of the Command Centre to steer our ship. Like before, you’ll listen to the computer and repeat the directions with your voice loud and clear! The computer will send your voice to the Command Centre to steer our ship. 
+Sam: Our next task is to find Planet Stardust! To help us get to Planet Stardust, we’ll need the help of the Command Centre to steer our ship. Like before, you’ll listen to the computer and repeat the directions with your voice loud and clear! The computer will send your voice to the Command Centre to steer our ship.
+do Character.play_audio("task2_command_center")
 Sam: The Command Centre is very picky and will only follow directions if you repeat the commands in EXACTLY the same way you heard them. Let’s hear an example of a space cadet not repeating the command right. 
+do Character.play_audio("click_the_red_button_to_hear_it")
 Sam: Click the RED button to hear it. 
 
 set screen = "start_button_red"
 [next=2]
 set screen = "failure"
+do Character.play_audio("oh_no_did_you_hear_that")
 Sam: Oh no, did you hear that? 
 set screen = "idle"
 
 ~ task2_bad_example
+do Character.play_audio("task2_bad_example")
 Sam: That space cadet didn’t do the best job of repeating EXACTLY what they heard. Let’s hear it again to see where they went wrong! Press the red button again. 
 set screen = "start_button_red"
 [next=2]
 set screen = "failure"
+do Character.play_audio("task2_bad_example_high_lows")
 Sam: Did you hear that? The space cadet said the right words, but didn’t copy the ^highs^ and ~lows~ of the voice. 
 set screen = "idle"
 
 ~ task2_good_example
+do Character.play_audio("task2_good_example")
 Sam: For the Command Centre to move our ship, we have to repeat the words in the exact same way we hear them.   Let’s make sure we do a better job. Click the green button to hear a space cadet repeating it back exactly right. 
 set screen = "start_button"
 [next=2]
 set screen = "success"
 [next=2]
 set screen = "idle"
+do Character.play_audio("task2_example_again")
 Sam: That time, the space cadet did a great job of repeating the words AND the ^highs^ and ~lows~ of the voice. Click the green button to hear the example again. 
 set screen = "start_button"
 [next=2]
@@ -571,16 +577,19 @@ set screen = "success"
 set screen = "idle"
 
 ~ task2_ready_or_repeat
+do Character.play_audio("task2_ready_or_repeat")
 Sam: Perfect! Are you ready to communicate with the Command Centre to move our ship to Planet Stardust? Remember, we have to move our voice high and low just like the command to steer our ship. Let your Flight Engineer know if you are ready or if you would like to hear the examples again. 
 # experimenter will decide if participant needs to loop back to 1st bad imitation example
 
 ~ task2_ready_to_go
+do Character.play_audio("task2_ready_to_go")
 Sam: OK, here we go! Remember that the Command Centre is very sensitive, so repeat what the computer says exactly. Once you repeat after the computer, I’ll click the GREEN button to send the directions to the Command Centre and we can see if our ship moves! I’ll have a seat and let you take control!
 set level = "warp"
 =>< snippets/stars_warp_sequence
 #12 Phrases – 6 song, 6 speech randomized (see list of sentences on last page)*
 
 ~ task2_arrived
+do Character.play_audio("task2_arrived")
 Sam: Awesome job, partner! Thanks for steering the ship so well! Look, it’s Planet Stardust! To use our spaceship to look around, press the Landing Button.
 set screen = "start_button"
 [next=1]
@@ -588,26 +597,27 @@ set screen = "start_button"
 set level = "landing"
 [next=10]
 ~ task2_landed
+do Character.play_audio("task2_found_planet_stardust")
 Sam: We did it - we found Planet Stardust! 
-
-Sam: I don’t see Lucky, but I do see something else! It looks like there are aliens on Planet Stardust! 
+do Character.play_audio("task2_alien_intro")
+Sam: I don’t see Lucky, but I do see something else! It looks like there are aliens on Planet Stardust!
+do Character.play_audio("task2_aliens_ask_lucky")
 Sam: They look really friendly, I think they are nice! Let’s ask them if they have seen Lucky or know where Lucky the Llama is. 
 ~ task2_alien_language
+do Character.play_audio("task2_alien_language")
 Sam: Aliens on Planet Stardust only speak in beeping sounds so the computer will tell us how to talk to them in their language to find out where Lucky is. Listen to the computer and repeat back the alien beeps as best as you can.
 set screen = "computer"
 [next=2]
 
 # 10 stimuli – 5 pure tones, 5 intervals?*
 ~ task2_success
-Sam: You did a great job! 
-Sam: The aliens said Lucky the Llama is over there – look, they’re bringing Lucky to us! 
-Sam: Now the only thing left to do is take Lucky back to the Space Station.
+do Character.play_audio("task2_success")
+Sam: You did a great job! The aliens said Lucky the Llama is over there – look, they’re bringing Lucky to us! Now the only thing left to do is take Lucky back to the Space Station.
 
 # blast off and fade to intro (station)
 ~ mission_success
-Sam: You made it back to the Space Station - great job today! 
-Sam: Thanks for bringing Lucky the Llama back home from Planet Stardust safely. 
-Sam: You are a great Astronaut! Come back any time!
+do Character.play_audio("mission_success")
+Sam: You made it back to the Space Station - great job today! Thanks for bringing Lucky the Llama back home from Planet Stardust safely. You are a great Astronaut! Come back any time!
 
 ~ complete
 System: ...

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://b6fn7e5xd8lww"
-path="res://.godot/imported/task2_highs_lows.wav-89d676bcfab9dbab29df4297ded12525.sample"
+path="res://.godot/imported/task2_bad_example_high_lows.wav-50a35845943fe058534d24a9e54f2bcf.sample"
 
 [deps]
 
-source_file="res://audio/script/task2_highs_lows.wav"
-dest_files=["res://.godot/imported/task2_highs_lows.wav-89d676bcfab9dbab29df4297ded12525.sample"]
+source_file="res://audio/script/task2_bad_example_high_lows.wav"
+dest_files=["res://.godot/imported/task2_bad_example_high_lows.wav-50a35845943fe058534d24a9e54f2bcf.sample"]
 
 [params]
 
