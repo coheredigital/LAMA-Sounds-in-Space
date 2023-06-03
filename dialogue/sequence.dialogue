@@ -535,6 +535,7 @@ set screen = "start_button"
 # "Navigate the Spaceship (Practice)"
 ~ task2_practice
 set screen = "idle"
+
 ~ task2_intro
 do Character.play_audio("task2_intro")
 Sam: Our next task is to find Planet Stardust! To help us get to Planet Stardust, we’ll need the help of the Command Centre to steer our ship. Like before, you’ll listen to the computer and repeat the directions with your voice loud and clear! The computer will send your voice to the Command Centre to steer our ship.
@@ -593,9 +594,9 @@ do Character.play_audio("task2_arrived")
 Sam: Awesome job, partner! Thanks for steering the ship so well! Look, it’s Planet Stardust! To use our spaceship to look around, press the Landing Button.
 set screen = "start_button"
 [next=1]
-
 set level = "landing"
 [next=10]
+
 ~ task2_landed
 do Character.play_audio("task2_found_planet_stardust")
 Sam: We did it - we found Planet Stardust! 
@@ -603,6 +604,7 @@ do Character.play_audio("task2_alien_intro")
 Sam: I don’t see Lucky, but I do see something else! It looks like there are aliens on Planet Stardust!
 do Character.play_audio("task2_aliens_ask_lucky")
 Sam: They look really friendly, I think they are nice! Let’s ask them if they have seen Lucky or know where Lucky the Llama is. 
+
 ~ task2_alien_language
 do Character.play_audio("task2_alien_language")
 Sam: Aliens on Planet Stardust only speak in beeping sounds so the computer will tell us how to talk to them in their language to find out where Lucky is. Listen to the computer and repeat back the alien beeps as best as you can.

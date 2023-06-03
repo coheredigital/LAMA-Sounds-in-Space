@@ -98,7 +98,7 @@ transform = Transform3D(-0.950352, 0.0061164, -0.311121, -1.62982e-09, 0.999806,
 transform = Transform3D(0.986388, 0.115874, 0.116671, -0.116671, 0.993171, 0, -0.115874, -0.013612, 0.99317, 0, 0, 0)
 
 [node name="beam" parent="ViewportContainer/Viewport/Level/Ground/PlanetStardust/Ufo/ufo" index="13"]
-transform = Transform3D(0.918622, 0.389289, -0.0677508, 0.0802586, -0.0159356, 0.996646, 0.386905, -0.920977, -0.0458824, 0.000788212, -0.626153, -0.0658445)
+transform = Transform3D(0.978993, 0.184589, 0.0866052, -0.112898, 0.137047, 0.98411, 0.169787, -0.973212, 0.155009, 0.000773549, -0.62613, -0.0658131)
 
 [node name="Alien" parent="ViewportContainer/Viewport/Level/Ground/PlanetStardust" index="1"]
 transform = Transform3D(-0.95293, -4.96923e-05, 0.30303, -1.27325e-11, 0.999705, 0.000163969, -0.303079, 0.000156241, -0.952776, 0.779878, 1.01777, -4.00766)
