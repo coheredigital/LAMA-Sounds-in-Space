@@ -620,6 +620,5 @@ do Character.play_audio("mission_success")
 Sam: You made it back to the Space Station - great job today! Thanks for bringing Lucky the Llama back home from Planet Stardust safely. You are a great Astronaut! Come back any time!
 
 ~ complete
-System: ...
-- restart => start
+System: Session Complete. Go ahead and press 'End Session', and then 'Confirm'.
 => END

@@ -1,45 +1,49 @@
-[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://bjft6os8hrr36"]
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://bjft6os8hrr36"]
 
-[ext_resource type="Shader" path="res://shaders/toon.gdshader" id="1"]
-
-[sub_resource type="Gradient" id="Gradient_md7p6"]
-offsets = PackedFloat32Array(0.251121, 0.345291, 0.484305, 0.618834, 0.757848)
-colors = PackedColorArray(0.264853, 0.115738, 0.374003, 1, 0.398074, 0.405165, 0.773843, 1, 0.327519, 0.424305, 0.763903, 1, 0.331718, 0.624834, 0.866443, 1, 0.333333, 0.701961, 0.905882, 1)
+[ext_resource type="Shader" path="res://level/environment/materials/planet_material.gdshader" id="1_o2pcm"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_kuh6x"]
 noise_type = 3
-fractal_octaves = 4
-fractal_lacunarity = 1.98
+frequency = 0.0055
+fractal_octaves = 9
+fractal_lacunarity = 2.592
+fractal_gain = 0.338
+fractal_weighted_strength = 1.0
 domain_warp_enabled = true
 domain_warp_type = 1
-domain_warp_amplitude = 2.239
-domain_warp_frequency = 0.333
-domain_warp_fractal_octaves = 2
-domain_warp_fractal_lacunarity = 2.0
+domain_warp_amplitude = 51.022
+domain_warp_frequency = -0.008
+domain_warp_fractal_lacunarity = 2.973
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_e8406"]
 width = 1024
 height = 1024
+in_3d_space = true
 seamless = true
-seamless_blend_skirt = 0.13
-color_ramp = SubResource("Gradient_md7p6")
+seamless_blend_skirt = 0.582
 noise = SubResource("FastNoiseLite_kuh6x")
+
+[sub_resource type="Gradient" id="Gradient_md7p6"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.246212, 0.405303, 0.575758, 0.643939, 0.693182, 0.852273, 1)
+colors = PackedColorArray(0.241235, 0.181639, 0.637774, 1, 0.265675, 0.328805, 0.670102, 1, 0.358184, 0.457245, 0.795857, 1, 0.685918, 0.555486, 0.906332, 1, 0.623842, 0.427904, 0.857562, 1, 0.6063, 0.464616, 0.864947, 1, 0.751957, 0.737323, 0.96887, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_astb8"]
+gradient = SubResource("Gradient_md7p6")
 
 [resource]
 resource_local_to_scene = true
 render_priority = 0
-shader = ExtResource("1")
-shader_parameter/albedo = Color(1, 1, 1, 1)
+shader = ExtResource("1_o2pcm")
 shader_parameter/specular = 0.5
 shader_parameter/specular_amount = 0.5
 shader_parameter/specular_smoothness = 0.05
-shader_parameter/wrap = 0.227
-shader_parameter/rim = 0.406
-shader_parameter/rim_amount = 0.567
-shader_parameter/rim_smoothness = 0.359
-shader_parameter/metallic = 0.122
-shader_parameter/roughness = 1.0
-shader_parameter/emission = Color(0, 0, 0, 1)
-shader_parameter/emission_energy = 0.0
+shader_parameter/wrap = 0.171
+shader_parameter/rim = 0.727
+shader_parameter/rim_amount = 0.651
+shader_parameter/rim_smoothness = 1.0
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 0.608
+shader_parameter/emission_energy = 0.154
 shader_parameter/albedo_texture = SubResource("NoiseTexture2D_e8406")
-shader_parameter/emission_texture = SubResource("NoiseTexture2D_e8406")
+shader_parameter/color_gradient = SubResource("GradientTexture1D_astb8")
