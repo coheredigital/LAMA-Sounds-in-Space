@@ -3,7 +3,6 @@ extends Node
 var csv_file : FileAccess
 
 func _ready():
-	DialogueManager.title_passed.connect(_on_title_passed)
 	Session.session_started.connect(create_csv)
 
 func create_csv():
