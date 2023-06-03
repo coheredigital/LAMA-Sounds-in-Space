@@ -117,10 +117,10 @@ libraries = {
 }
 
 [node name="helmet" parent="character" index="0"]
-transform = Transform3D(0.99359, -0.0915969, -0.0662635, 0.0951219, 0.994099, 0.0521492, 0.0610958, -0.0581179, 0.996439, 0, 0.359375, -0.03125)
+transform = Transform3D(0.996764, 0.0235419, 0.076871, -0.02804, 0.997924, 0.0579693, -0.0753468, -0.0599371, 0.995355, 0, 0.359375, -0.03125)
 
 [node name="face" parent="character/helmet" index="2"]
-transform = Transform3D(0.999108, -0.00096623, -0.0421865, -2.79869e-11, 0.999738, -0.0228978, 0.0421976, 0.0228774, 0.998848, 0, 0.21875, 0.03125)
+transform = Transform3D(0.995117, -0.00207201, -0.0986689, 5.51271e-11, 0.999779, -0.0209951, 0.0986905, 0.0208926, 0.994899, 0, 0.21875, 0.03125)
 
 [node name="AudioPlayer" type="AudioStreamPlayer3D" parent="character/helmet/face" index="0"]
 unique_name_in_owner = true

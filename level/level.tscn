@@ -350,8 +350,6 @@ shader_parameter/emission_energy = 1.0
 [sub_resource type="SphereMesh" id="3833"]
 radius = 4.0
 height = 8.0
-radial_segments = 32
-rings = 16
 
 [node name="Level" type="Node"]
 script = ExtResource("1_58g46")
@@ -553,7 +551,7 @@ unit_size = 7.04
 pitch_scale = 0.68
 
 [node name="beam" parent="Ground/PlanetStardust/Ufo/ufo" index="13"]
-transform = Transform3D(0.0709643, -0.995735, -0.0589596, -0.0460118, -0.0623133, 0.996996, -0.996419, -0.0680383, -0.0502376, 0.00611877, -0.6818, -0.0668831)
+transform = Transform3D(-0.062747, -0.989573, 0.129684, 0.0955416, 0.123387, 0.987754, -0.993451, 0.0743684, 0.0868029, 0.00638199, -0.681824, -0.0668926)
 
 [node name="Alien" parent="Ground/PlanetStardust" instance=ExtResource("8_bs0lj")]
 transform = Transform3D(-0.951976, 0.000759903, 0.306024, -2.61927e-10, 0.999704, -0.00248287, -0.306077, -0.00236349, -0.95181, 0.78405, 1.01247, -4)
@@ -564,7 +562,7 @@ transform = Transform3D(-0.704574, -7.11733e-06, 0.709631, 0, 1, 1.00296e-05, -0
 [node name="mountains" parent="Ground/PlanetStardust" instance=ExtResource("17_thg0y")]
 
 [node name="Planet" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.249969, 6.51926e-09, -0.00392246, 0.00200871, 0.214731, -0.12801, 0.00336909, -0.128026, -0.214705, 3.72275, 28.7924, -54.9282)
+transform = Transform3D(-0.249969, 7.91624e-09, -0.00392246, 0.00200871, 0.214731, -0.12801, 0.00336909, -0.128026, -0.214704, 3.72275, 28.7924, -54.9282)
 cast_shadow = 0
 mesh = SubResource("3833")
 skeleton = NodePath("")

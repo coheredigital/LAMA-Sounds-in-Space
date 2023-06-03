@@ -25,8 +25,8 @@ noise = SubResource("FastNoiseLite_kuh6x")
 
 [sub_resource type="Gradient" id="Gradient_md7p6"]
 interpolation_mode = 2
-offsets = PackedFloat32Array(0.246212, 0.405303, 0.575758, 0.643939, 0.693182, 0.852273, 1)
-colors = PackedColorArray(0.241235, 0.181639, 0.637774, 1, 0.265675, 0.328805, 0.670102, 1, 0.358184, 0.457245, 0.795857, 1, 0.685918, 0.555486, 0.906332, 1, 0.623842, 0.427904, 0.857562, 1, 0.6063, 0.464616, 0.864947, 1, 0.751957, 0.737323, 0.96887, 1)
+offsets = PackedFloat32Array(0.246212, 0.405303, 0.575758, 0.643939, 0.720779, 0.847403, 0.883117, 0.899351, 0.957792)
+colors = PackedColorArray(0.241235, 0.181639, 0.637774, 1, 0.265675, 0.328805, 0.670102, 1, 0.358184, 0.457245, 0.795857, 1, 0.55206, 0.609156, 0.918864, 1, 0.62316, 0.499455, 0.70292, 1, 0.624484, 0.462869, 0.723787, 1, 0.623842, 0.427904, 0.857562, 1, 0.661754, 0.516994, 0.900451, 1, 0.816009, 0.638485, 0.92737, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_astb8"]
 gradient = SubResource("Gradient_md7p6")
@@ -44,6 +44,6 @@ shader_parameter/rim_amount = 0.651
 shader_parameter/rim_smoothness = 1.0
 shader_parameter/metallic = 0.0
 shader_parameter/roughness = 0.608
-shader_parameter/emission_energy = 0.154
+shader_parameter/emission_energy = 0.265
 shader_parameter/albedo_texture = SubResource("NoiseTexture2D_e8406")
 shader_parameter/color_gradient = SubResource("GradientTexture1D_astb8")
