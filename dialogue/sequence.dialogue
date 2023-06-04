@@ -4,8 +4,11 @@ import "res://dialogue/snippets/snippets.dialogue" as snippets
 # USAGE: Character.move_to(progress_ratio: float [0.0 - 1.0], duration: float [ >= 0.0 ])
 # USAGE: Character.pivot(angle: float [-1.0 - 1.0], duration: float [ >= 0.0 ])
 # USAGE: Character.tilt() Not yet used.
+
+
 ~ start
 System: ...[next]
+
 
 ~ reset
 # it seems the below reset will only run properly
@@ -35,23 +38,26 @@ System: ...[next]
 System: ...[next]
 System: ...[next]
 
+
 ~ ready
 # User must "say" something for the prompt to be connected to them (allowd input from player)
 Player: ...
 - Start
 [next=2]
 
+
 ~ intro_welcome
 do Character.play_audio("intro_welcome")
 Sam: Welcome to the Space Station! My name is Sam and I’m an Astronaut. We’re so glad you came to visit us today! Here at the space station, we go on so many fun missions. Come on in so I can show you around!
+
 
 ~ intro_lucky
 do Player.move_to(0.13,2.5)
 [next=2]
 do Character.play_audio("intro_lucky")
 Sam: First, I want you to meet our very own space llama named Lucky. She’s usually around here somewhere... Let’s look up her location on our astronaut map.
-
 [next=2]
+
 
 ~ intro_map
 do Character.move_to(0.17,3)
@@ -67,6 +73,7 @@ Sam: Oh no! It looks like Lucky’s spaceship broke down and Lucky is stuck on a
 do Character.pivot(0.5,0.4)
 [next=2]
 
+
 ~ question_rescue
 do Character.play_audio("intro_question")
 Sam: Will you help me rescue Lucky to get her back here to the space station?
@@ -75,20 +82,24 @@ Player: ...
 	do Character.play_audio("thank_you")
 	Sam: Thank you!
 
+
 ~ mission_brief
 do Character.play_audio("intro_mission_brief")
 Sam: We’re definitely going to need your help -- this spaceship works best when I have a co-pilot astronaut like you! Our mission is to travel to Planet Stardust, where Lucky’s spaceship broke down, and bring Lucky the Llama back here safely. Are you ready to start your astronaut training? If you help, you’ll get your very own space cadet prize for your help and your bravery!!   
+
 
 ~ approach_spaceship
 do Player.pivot(0,3)
 do Player.move_to(0.65,6)
 [next=5.5]
 
+
 ~ press_green_button
 do Character.play_audio("intro_open_spaceship")
 Sam: Press the GREEN button to open the spaceship door and start your training! 
 Player: ...
 - Press Green Button
+
 
 ~ unlock_door
 set door_open = true
@@ -101,14 +112,15 @@ do Player.move_to(0.85,2.5)
 do Player.pivot(-0.4)
 do Character.move_to(0.6,1.0)
 
+
 ~ spaceship_aboard
 do Character.move_to(0.9,4.0)
 [next=3.5]
 do Character.pivot(0.6,2.0)
 [next=1.5]
-
 do Character.play_audio("welcome_aboard")
 Sam: Welcome aboard!
+
 
 ~ task0_practice
 do Character.play_audio("task0_intro")
@@ -116,6 +128,7 @@ Sam: To become a Junior Astronaut, you will need to listen closely so we can mak
 do Character.pivot(0.5)
 do Character.play_audio("task0_job")
 Sam: Our first job is to make sure we have everything we need before we fly.
+
 
 ~ task0_computer_intro
 do Player.move_to(0.93,2)
@@ -127,6 +140,7 @@ set screen = "computer"
 do Character.play_audio("task0_computer_info")
 Sam: This is our handy dandy computer! The computer will help us travel to Planet Stardust. This computer is voice-activated, which means that we have to say the commands out loud with our voices so the computer can help us activate the spaceship! First, the computer will say the right words for a command and then your job is to repeat the words out loud with your voice.  
 
+
 ~ computer_greeting  
 do Character.play_audio("task0_computer_sounds_like")
 Sam: This is what the computer sounds like. 
@@ -137,13 +151,16 @@ Computer: Nice to meet you
 do Character.play_audio("task0_computer_instructions")
 Sam: Ok, now I’ll have the computer say a command and your job is to repeat what the computer just said with your voice. Make sure you say it loud and clear, so the computer can hear you! After you repeat after the computer, I’ll press the red button to send your voice to the spaceship.
 
+
 ~ activate_spaceship
 do Character.play_audio("ok_here_we_go")
 Sam: Ok here we go!
 
+
 ~ activate_spaceship_command
 set screen = "computer"
 Computer: Activate spaceship!
+
 
 ~ activate_spaceship_recording
 System: ...
@@ -151,6 +168,7 @@ System: ...
 	do Recorder.start()
 	set screen = "recording"
 	[next=2]
+
 
 ~ activate_spaceship_result
 System: ...
@@ -167,6 +185,7 @@ System: ...
 	=> activate_spaceship_command
 
 
+
 ~ spaceship_activated
 set screen = "idle"
 do Character.play_audio("task0_you_command")
@@ -181,6 +200,7 @@ set screen = "start_button"
 Player: ...
 - Green Button
 
+
 ~ buckle_up
 set screen = "buckle_warning"
 do Character.pivot(0.25) 
@@ -189,9 +209,11 @@ Sam: OK. First, we need to buckle up! Listen to the command from the computer an
 do Character.pivot(0)
 do Player.pivot(0)
 
+
 ~ buckle_up_command
 set screen = "computer"
 Computer: Seat belts buckled!
+
 
 ~ buckle_up_recording
 System: ...
@@ -199,6 +221,7 @@ System: ...
 set screen = "recording"
 do Recorder.start()
 [next=2]
+
 
 ~ buckle_up_result
 System: ...
@@ -215,6 +238,7 @@ System: ...
 	Sam: Uh oh! It looks like the spaceship couldn't quite hear what you said. Let's try again a bit louder.
 	=> buckle_up_command
 
+
 ~ siren
 do Character.play_audio("task0_test_warning_sirens")
 Sam: Great, now let’s test out our warning sirens! 
@@ -222,9 +246,11 @@ set screen = "alert"
 do Character.play_audio("listen_and_repeat")
 Sam: Listen to the command from the computer and then repeat what it says with your voice.
 
+
 ~ siren_command
 set screen = "computer"
 Computer: Siren noise (low to high to low to high to low)
+
 
 ~ siren_recording
 System: ...
@@ -232,6 +258,7 @@ System: ...
 set screen = "recording"
 do Recorder.start()
 [next=2]
+
 
 ~ siren_result
 System: ...
@@ -247,11 +274,13 @@ System: ...
 	Sam: Uh oh! It looks like the spaceship couldn't quite hear you. Let's try again a bit louder.
 	=> siren_command
 
+
 ~ fuel_up
 do Character.play_audio("task0_fuel_up_intro")
 Sam: Awesome! We are almost ready to blast off, but first we need some fuel. 
 [next=2]
 set screen = "battery"
+
 
 ~ fuel_up_command
 do Character.play_audio("listen_and_repeat")
@@ -260,12 +289,14 @@ Sam: Listen to the command from the computer and then repeat what it says with y
 set screen = "computer"
 Computer: Let’s fuel up!
 
+
 ~ fuel_up_recording
 System: ...
 - Begin Recording
 set screen = "recording"
 do Recorder.start()
 [next=2]
+
 
 ~ fuel_up_result
 System: ...
@@ -282,9 +313,11 @@ System: ...
 	Sam: Uh oh! It looks like the spaceship couldn't quite hear you. Let's try again a bit louder.
 	=> fuel_up_command
 
+
 ~ sleep_mode
 do Character.play_audio("task0_sleep_mode_intro")
 Sam: The computer wants us to yawn out loud to tell it to turn down the lights if we want to sleep! Let’s see if it works. 
+
 
 ~ sleep_mode_command
 do Character.play_audio("listen_and_repeat")
@@ -293,12 +326,14 @@ set screen = "computer"
 [next=1]
 Computer: *Loud Yawn: from high to low*
 
+
 ~ sleep_mode_recording
 System: ...
 - Begin Recording
 set screen = "recording"
 do Recorder.start()
 [next=2]
+
 
 ~ sleep_mode_result
 System: ...
@@ -315,14 +350,17 @@ System: ...
 	Sam: Uh oh! It looks like the spaceship couldn't quite hear you. Let's try again a bit louder.
 	=> sleep_mode_command
 
+
 ~ blast_off
 do Character.play_audio("task0_blast_off_intro")
 Sam: You did it! You’re working really hard at this – Great Job! Now that our spaceship is full of fuel and the computer knows your voice, it’s time to find Planet Stardust!  Our handy dandy computer will countdown to blast off. Listen closely and then repeat what you hear to send us into space! 
+
 
 ~ blast_off_command
 set screen = "computer"
 [next=1]
 Computer: *Blast Off!* 
+
 
 ~ blast_off_recording
 System: ...
@@ -330,6 +368,7 @@ System: ...
 set screen = "recording"
 do Recorder.start()
 [next=2]
+
 
 ~ blast_off_result
 System: ...
@@ -345,6 +384,7 @@ System: ...
 	Sam: Uh oh! It looks like the spaceship couldn't quite hear you. Let's try again a bit louder.
 	=> blast_off_command
 
+
 ~ launch
 set level = "launch"
 set steering_motion = 1.0
@@ -352,15 +392,17 @@ set flying_motion = 1.0
 [next=0.5]
 set steering_motion = 0.5
 
+
 ~ were_flying
 do Character.play_audio("were_flying")
 Sam: We’re flying![next=5]
-
 set steering_motion = 0.2
+
 
 ~ stars_light_task
 set steering_motion = 0.05
 set flying_motion = 0.1
+
 
 ~ task1_stars_light
 do Character.play_audio("task1_intro")
@@ -369,11 +411,13 @@ Sam: Boy, it’s dark out here! This time, let’s wake up the stars with our vo
 # USAGE: move_star(star_number: int [1-5], progress: float [0-1], duration: float [>=0] )
 # *12 Phrases – 6 song, 6 speech randomized (see list of sentences on last page)* 
 
+
 ~ stars_light_1_command
 set screen = "computer"
 [next=1]
 Computer: Star 1! 
 # TODO: What command do they want for bringing in stars?
+
 
 ~ stars_light_1_recording
 System: ...
@@ -381,6 +425,7 @@ System: ...
 set screen = "recording"
 do Recorder.start()
 [next=2]
+
 
 ~ stars_light_1_result
 System: ...
@@ -400,11 +445,13 @@ do move_star(1,0.7,5.0)
 [next=4]
 set stars_brightness = 0.2
 
+
 ~ stars_light_2_command
 set screen = "computer"
 [next=1]
 Computer: Star 1! 
 # TODO: What command do they want for bringing in stars?
+
 
 ~ stars_light_2_recording
 System: ...
@@ -412,6 +459,7 @@ System: ...
 set screen = "recording"
 do Recorder.start()
 [next=2]
+
 
 ~ stars_light_2_result
 System: ...
@@ -431,11 +479,13 @@ do move_star(2,0.7,5.0)
 [next=4]
 set stars_brightness = 0.6
 
+
 ~ stars_light_3_command
 set screen = "computer"
 [next=1]
 Computer: Star 1! 
 # TODO: What command do they want for bringing in stars?
+
 
 ~ stars_light_3_recording
 System: ...
@@ -443,6 +493,7 @@ System: ...
 set screen = "recording"
 do Recorder.start()
 [next=2]
+
 
 ~ stars_light_3_result
 System: ...
@@ -468,12 +519,14 @@ set screen = "computer"
 Computer: Star 1! 
 # TODO: What command do they want for bringing in stars?
 
+
 ~ stars_light_4_recording
 System: ...
 - Begin Recording
 set screen = "recording"
 do Recorder.start()
 [next=2]
+
 
 ~ stars_light_4_result
 System: ... 
@@ -493,11 +546,13 @@ do move_star(4,0.7,5.0)
 [next=4]
 set stars_brightness = 2.0
 
+
 ~ stars_light_5_command
 set screen = "computer"
 [next=1]
 Computer: Star 1! 
 # TODO: What command do they want for bringing in stars?
+
 
 ~ stars_light_5_recording
 System: ...
@@ -505,6 +560,7 @@ System: ...
 set screen = "recording"
 do Recorder.start()
 [next=2]
+
 
 ~ stars_light_5_result
 System: ... 
@@ -532,15 +588,19 @@ Sam: Awesome job, partner! Look at all the bright things you put in space! Now l
 set screen = "start_button"
 [next=2]
 
+
 # "Navigate the Spaceship (Practice)"
 ~ task2_practice
 set screen = "idle"
 
+
 ~ task2_intro
 do Character.play_audio("task2_intro")
 Sam: Our next task is to find Planet Stardust! To help us get to Planet Stardust, we’ll need the help of the Command Centre to steer our ship. Like before, you’ll listen to the computer and repeat the directions with your voice loud and clear! The computer will send your voice to the Command Centre to steer our ship.
+
 do Character.play_audio("task2_command_center")
 Sam: The Command Centre is very picky and will only follow directions if you repeat the commands in EXACTLY the same way you heard them. Let’s hear an example of a space cadet not repeating the command right. 
+
 do Character.play_audio("click_the_red_button_to_hear_it")
 Sam: Click the RED button to hear it. 
 
@@ -551,6 +611,7 @@ do Character.play_audio("oh_no_did_you_hear_that")
 Sam: Oh no, did you hear that? 
 set screen = "idle"
 
+
 ~ task2_bad_example
 do Character.play_audio("task2_bad_example")
 Sam: That space cadet didn’t do the best job of repeating EXACTLY what they heard. Let’s hear it again to see where they went wrong! Press the red button again. 
@@ -560,6 +621,7 @@ set screen = "failure"
 do Character.play_audio("task2_bad_example_high_lows")
 Sam: Did you hear that? The space cadet said the right words, but didn’t copy the ^highs^ and ~lows~ of the voice. 
 set screen = "idle"
+
 
 ~ task2_good_example
 do Character.play_audio("task2_good_example")
@@ -577,10 +639,12 @@ set screen = "success"
 [next=2]
 set screen = "idle"
 
+
 ~ task2_ready_or_repeat
 do Character.play_audio("task2_ready_or_repeat")
 Sam: Perfect! Are you ready to communicate with the Command Centre to move our ship to Planet Stardust? Remember, we have to move our voice high and low just like the command to steer our ship. Let your Flight Engineer know if you are ready or if you would like to hear the examples again. 
 # experimenter will decide if participant needs to loop back to 1st bad imitation example
+
 
 ~ task2_ready_to_go
 do Character.play_audio("task2_ready_to_go")
@@ -588,6 +652,7 @@ Sam: OK, here we go! Remember that the Command Centre is very sensitive, so repe
 set level = "warp"
 =>< snippets/stars_warp_sequence
 #12 Phrases – 6 song, 6 speech randomized (see list of sentences on last page)*
+
 
 ~ task2_arrived
 do Character.play_audio("task2_arrived")
@@ -597,6 +662,7 @@ set screen = "start_button"
 set level = "landing"
 [next=10]
 
+
 ~ task2_landed
 do Character.play_audio("task2_found_planet_stardust")
 Sam: We did it - we found Planet Stardust! 
@@ -605,21 +671,25 @@ Sam: I don’t see Lucky, but I do see something else! It looks like there are a
 do Character.play_audio("task2_aliens_ask_lucky")
 Sam: They look really friendly, I think they are nice! Let’s ask them if they have seen Lucky or know where Lucky the Llama is. 
 
+
 ~ task2_alien_language
 do Character.play_audio("task2_alien_language")
 Sam: Aliens on Planet Stardust only speak in beeping sounds so the computer will tell us how to talk to them in their language to find out where Lucky is. Listen to the computer and repeat back the alien beeps as best as you can.
 set screen = "computer"
 [next=2]
 
+
 # 10 stimuli – 5 pure tones, 5 intervals?*
 ~ task2_success
 do Character.play_audio("task2_success")
 Sam: You did a great job! The aliens said Lucky the Llama is over there – look, they’re bringing Lucky to us! Now the only thing left to do is take Lucky back to the Space Station.
 
+
 # blast off and fade to intro (station)
 ~ mission_success
 do Character.play_audio("mission_success")
 Sam: You made it back to the Space Station - great job today! Thanks for bringing Lucky the Llama back home from Planet Stardust safely. You are a great Astronaut! Come back any time!
+
 
 ~ complete
 System: Session Complete. Go ahead and press 'End Session', and then 'Confirm'.

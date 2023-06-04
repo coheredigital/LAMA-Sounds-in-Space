@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://uk3s0fjb5pmh"]
+[gd_scene load_steps=40 format=3 uid="uid://uk3s0fjb5pmh"]
 
 [ext_resource type="Script" path="res://level/level.gd" id="1_58g46"]
 [ext_resource type="AnimationLibrary" uid="uid://cjkhuv5cn32yu" path="res://level/environment/environment_animations.tres" id="2_3s2c1"]
@@ -32,24 +32,14 @@ animation = &"environment_animations/landing"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2a4g6"]
 animation = &"environment_animations/launch"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gd7er"]
-animation = &"environment_animations/stars_light"
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_w0kem"]
 animation = &"environment_animations/warp"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7tb2q"]
 switch_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jflk3"]
-switch_mode = 2
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ycoeb"]
 advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_omi45"]
-xfade_time = 1.53
-switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vdkye"]
 xfade_time = 0.98
@@ -58,21 +48,22 @@ switch_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kbvn4"]
 switch_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_54vac"]
+switch_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_xndii"]
-states/End/position = Vector2(1220, 100)
+states/End/position = Vector2(909, 100)
 states/Start/position = Vector2(221, 100)
 states/intro/node = SubResource("AnimationNodeAnimation_8dnu5")
 states/intro/position = Vector2(349, 100)
 states/landing/node = SubResource("AnimationNodeAnimation_e5fql")
-states/landing/position = Vector2(1037, 100)
+states/landing/position = Vector2(766, 100)
 states/launch/node = SubResource("AnimationNodeAnimation_2a4g6")
 states/launch/position = Vector2(498, 100)
-states/stars_light/node = SubResource("AnimationNodeAnimation_gd7er")
-states/stars_light/position = Vector2(654, 100)
 states/warp/node = SubResource("AnimationNodeAnimation_w0kem")
-states/warp/position = Vector2(817, 100)
-transitions = ["intro", "launch", SubResource("AnimationNodeStateMachineTransition_7tb2q"), "launch", "stars_light", SubResource("AnimationNodeStateMachineTransition_jflk3"), "Start", "intro", SubResource("AnimationNodeStateMachineTransition_ycoeb"), "stars_light", "warp", SubResource("AnimationNodeStateMachineTransition_omi45"), "warp", "landing", SubResource("AnimationNodeStateMachineTransition_vdkye"), "landing", "End", SubResource("AnimationNodeStateMachineTransition_kbvn4")]
-graph_offset = Vector2(-38, -60.0651)
+states/warp/position = Vector2(630, 100)
+transitions = ["intro", "launch", SubResource("AnimationNodeStateMachineTransition_7tb2q"), "Start", "intro", SubResource("AnimationNodeStateMachineTransition_ycoeb"), "warp", "landing", SubResource("AnimationNodeStateMachineTransition_vdkye"), "landing", "End", SubResource("AnimationNodeStateMachineTransition_kbvn4"), "launch", "warp", SubResource("AnimationNodeStateMachineTransition_54vac")]
+graph_offset = Vector2(-227, -176.065)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_4dohv"]
 
@@ -141,127 +132,127 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Spaceship/Accent:light_energy")
+tracks/5/path = NodePath("Planet:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.05]
+"values": [true]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Planet:visible")
+tracks/6/path = NodePath("Planet:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [true]
+"values": [Vector3(3.72275, 28.7924, -54.9282)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Planet:position")
+tracks/7/path = NodePath("WorldLight:light_energy")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(3.72275, 28.7924, -54.9282)]
+"values": [0.2]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("WorldLight:light_energy")
+tracks/8/path = NodePath("WorldLight:light_color")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.2]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("WorldLight:light_color")
+tracks/9/path = NodePath("Environment/Sky:surface_material_override/0:shader_parameter/stars_scale")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [2.992]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Environment/Sky:surface_material_override/0:shader_parameter/stars_scale")
+tracks/10/path = NodePath("Environment:environment:volumetric_fog_density")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [2.992]
+"values": [0.01]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("Environment:environment:volumetric_fog_density")
+tracks/11/path = NodePath("Planet:scale")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.01]
+"values": [Vector3(0.25, 0.25, 0.25)]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("Planet:scale")
+tracks/12/path = NodePath("Ground/PlanetStardust:visible")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.25, 0.25, 0.25)]
+"update": 1,
+"values": [false]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("Ground/PlanetStardust:visible")
+tracks/13/path = NodePath("Spaceship:rotation")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Vector3(0, 0, 0)]
 }
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("Spaceship:rotation")
+tracks/14/path = NodePath("RumbleController:strong_magnitude")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0, 0)]
+"values": [0.0]
 }
 tracks/15/type = "value"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("RumbleController:strong_magnitude")
+tracks/15/path = NodePath("RumbleController:weak_magnitude")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
@@ -273,38 +264,38 @@ tracks/15/keys = {
 tracks/16/type = "value"
 tracks/16/imported = false
 tracks/16/enabled = true
-tracks/16/path = NodePath("RumbleController:weak_magnitude")
+tracks/16/path = NodePath("Spaceship/SpaceshipAudio:stream")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
+"update": 1,
+"values": [ExtResource("6_g2vm6")]
 }
 tracks/17/type = "value"
 tracks/17/imported = false
 tracks/17/enabled = true
-tracks/17/path = NodePath("Spaceship/SpaceshipAudio:stream")
+tracks/17/path = NodePath("Spaceship/SpaceshipAudio:playing")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("6_g2vm6")]
+"values": [false]
 }
 tracks/18/type = "value"
 tracks/18/imported = false
 tracks/18/enabled = true
-tracks/18/path = NodePath("Spaceship/SpaceshipAudio:playing")
+tracks/18/path = NodePath("Ground/Station:visible")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oeqp5"]
@@ -459,7 +450,6 @@ transform = Transform3D(-0.707, 0, 0.707, 0, 0.999798, 0, -0.707, 0, -0.707, -14
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.038, 0)
 
 [node name="Station" type="Node3D" parent="Ground"]
-visible = false
 
 [node name="spacestation" parent="Ground/Station" instance=ExtResource("6_7tl8n")]
 
@@ -551,7 +541,7 @@ unit_size = 7.04
 pitch_scale = 0.68
 
 [node name="beam" parent="Ground/PlanetStardust/Ufo/ufo" index="13"]
-transform = Transform3D(-0.062747, -0.989573, 0.129684, 0.0955416, 0.123387, 0.987754, -0.993451, 0.0743684, 0.0868029, 0.00638199, -0.681824, -0.0668926)
+transform = Transform3D(-0.00119336, -0.99907, -0.0431274, -0.0115383, -0.0431108, 0.999005, -0.999935, 0.00168979, -0.0114761, 0.00683594, -0.683478, -0.0670376)
 
 [node name="Alien" parent="Ground/PlanetStardust" instance=ExtResource("8_bs0lj")]
 transform = Transform3D(-0.951976, 0.000759903, 0.306024, -2.61927e-10, 0.999704, -0.00248287, -0.306077, -0.00236349, -0.95181, 0.78405, 1.01247, -4)
@@ -562,7 +552,7 @@ transform = Transform3D(-0.704574, -7.11733e-06, 0.709631, 0, 1, 1.00296e-05, -0
 [node name="mountains" parent="Ground/PlanetStardust" instance=ExtResource("17_thg0y")]
 
 [node name="Planet" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.249969, 7.91624e-09, -0.00392246, 0.00200871, 0.214731, -0.12801, 0.00336909, -0.128026, -0.214704, 3.72275, 28.7924, -54.9282)
+transform = Transform3D(-0.249969, 8.14907e-09, -0.00392246, 0.00200871, 0.214731, -0.12801, 0.00336909, -0.128026, -0.214704, 3.72275, 28.7924, -54.9282)
 cast_shadow = 0
 mesh = SubResource("3833")
 skeleton = NodePath("")

@@ -56,9 +56,9 @@ nodes/steering_speed/node = SubResource("4")
 nodes/steering_speed/position = Vector2(320, 400)
 node_connections = [&"output", 0, &"flying_blend", &"blend_screen", 0, &"steering_blend", &"blend_screen", 1, &"screen_state", &"flying_blend", 0, &"blend_screen", &"flying_blend", 1, &"flying_speed", &"flying_speed", 0, &"flying", &"steering_blend", 0, &"door_state", &"steering_blend", 1, &"steering_speed", &"steering_speed", 0, &"steering"]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_t8kdw"]
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_mtjiy"]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_0avai"]
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_7km6h"]
 
 [sub_resource type="Animation" id="Animation_8lfmj"]
 length = 0.001
@@ -294,8 +294,8 @@ shader = ExtResource("9_qdj4e")
 shader_parameter/emission_energy = 0.5
 shader_parameter/alpha = 1.0
 shader_parameter/waveform_controlled = false
-shader_parameter/screen_number = 6.0
-shader_parameter/frame_number = 8.0
+shader_parameter/screen_number = 12.0
+shader_parameter/frame_number = 1.0
 shader_parameter/emission_texture = ExtResource("10_s46ft")
 shader_parameter/waveform = SubResource("3858")
 
@@ -312,10 +312,10 @@ tree_root = SubResource("5")
 anim_player = NodePath("AnimationPlayer")
 active = true
 parameters/blend_screen/add_amount = 1.0
-parameters/door_state/playback = SubResource("AnimationNodeStateMachinePlayback_t8kdw")
+parameters/door_state/playback = SubResource("AnimationNodeStateMachinePlayback_mtjiy")
 parameters/flying_blend/add_amount = 0.0
 parameters/flying_speed/scale = 0.0
-parameters/screen_state/playback = SubResource("AnimationNodeStateMachinePlayback_0avai")
+parameters/screen_state/playback = SubResource("AnimationNodeStateMachinePlayback_7km6h")
 parameters/steering_blend/add_amount = 0.0
 parameters/steering_speed/scale = 0.0
 
@@ -332,12 +332,16 @@ libraries = {
 [node name="controls" parent="spaceship/cockpit" index="0"]
 transform = Transform3D(0.990622, -0.13259, -0.0329651, 0.136306, 0.942572, 0.304923, -0.00935789, -0.306557, 0.951806, 0.640625, 0.515625, -1.92188)
 
+[node name="seat_left" parent="spaceship/cockpit" index="1"]
+transform = Transform3D(-0.0290878, 0, 0.999577, 0, 1, 0, -0.999577, 0, -0.0290878, -1.17188, 0.046875, -0.75)
+
 [node name="Siren" parent="spaceship/cockpit" index="3" instance=ExtResource("18_e0bdp")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.18216, -1.3804)
 
 [node name="visualizer_screen" type="MeshInstance3D" parent="spaceship/cockpit/monitor" index="0"]
 transform = Transform3D(0.75753, 0, 0, 0, 0.328883, 0.352316, 0, -0.352635, 0.328586, 0, 0.117607, 0.101799)
+visible = false
 material_override = ExtResource("7_1hbaj")
 mesh = SubResource("QuadMesh_dpqp6")
 
@@ -367,7 +371,7 @@ material_override = ExtResource("8_fylk6")
 
 [node name="ComputerAudioPlayer" type="AudioStreamPlayer3D" parent="spaceship/cockpit/monitor" index="6"]
 
-[node name="door" parent="spaceship" index="6"]
+[node name="door" parent="spaceship" index="3"]
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0)
 
 [node name="lock" parent="spaceship/door" index="0"]
