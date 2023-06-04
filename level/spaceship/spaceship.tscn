@@ -294,8 +294,10 @@ shader = ExtResource("9_e3t4i")
 shader_parameter/emission_energy = 0.5
 shader_parameter/alpha = 1.0
 shader_parameter/waveform_controlled = false
+shader_parameter/screen_count = 16.0
+shader_parameter/frame_count = 8.0
 shader_parameter/screen_number = 12.0
-shader_parameter/frame_number = 4.51699
+shader_parameter/frame_number = 0.999937
 shader_parameter/emission_texture = ExtResource("10_s46ft")
 shader_parameter/waveform = SubResource("3858")
 
@@ -333,13 +335,13 @@ libraries = {
 transform = Transform3D(0.990622, -0.13259, -0.0329651, 0.136306, 0.942572, 0.304923, -0.00935789, -0.306557, 0.951806, 0.640625, 0.515625, -1.92188)
 
 [node name="visualizer_screen" type="MeshInstance3D" parent="spaceship/cockpit/monitor" index="0"]
-transform = Transform3D(0.75753, 0, 0, 0, 0.328883, 0.352316, 0, -0.352635, 0.328586, 0, 0.117607, 0.101799)
+transform = Transform3D(0.75753, 0, 0, 0, 0.328883, 0.352316, 0, -0.352635, 0.328586, 0, 0.117607, 0.095799)
 visible = false
 material_override = ExtResource("7_1hbaj")
 mesh = SubResource("QuadMesh_dpqp6")
 
 [node name="screen" parent="spaceship/cockpit/monitor" index="1"]
-transform = Transform3D(1, 0, 0, 0, 0.993768, 0.111469, 0, -0.111469, 0.993768, 0, -0.031449, -0.00549841)
+transform = Transform3D(1, 0, 0, 0, 0.993768, 0.111469, 0, -0.111469, 0.993768, 0, -0.031449, -0.0114985)
 cast_shadow = 0
 mesh = SubResource("ArrayMesh_dya27")
 surface_material_override/0 = SubResource("ShaderMaterial_1cv8v")
