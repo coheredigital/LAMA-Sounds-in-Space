@@ -1,6 +1,5 @@
-[gd_scene load_steps=11 format=3 uid="uid://bw70w15xhifwc"]
+[gd_scene load_steps=10 format=3 uid="uid://bw70w15xhifwc"]
 
-[ext_resource type="Script" path="res://level/spaceship/spaceship.gd" id="2_4ett8"]
 [ext_resource type="Shader" path="res://level/environment/materials/planet_material.gdshader" id="2_gujbd"]
 [ext_resource type="PackedScene" uid="uid://uk3s0fjb5pmh" path="res://level/level.tscn" id="4_7ey7j"]
 [ext_resource type="PackedScene" uid="uid://n088b8ab4tef" path="res://ui/screen_overlay.tscn" id="4_p5m14"]
@@ -91,9 +90,7 @@ transform = Transform3D(0.575427, 0.000869635, -0.817853, -2.91038e-11, 0.999999
 
 [node name="Spaceship" parent="ViewportContainer/Viewport/Level" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.034845, 0)
-script = ExtResource("2_4ett8")
 door_open = false
-seatbelts_buckled = true
 siren_active = true
 
 [node name="CharacterPath" parent="ViewportContainer/Viewport/Level/FollowPaths" index="0"]
@@ -136,7 +133,7 @@ pivot = -0.15
 turn_speed = 2.6
 
 [node name="RemoteTransform" parent="ViewportContainer/Viewport/Level/FollowPaths/PlayerPath" index="0"]
-transform = Transform3D(0.891139, -0.000350747, 0.45373, 1.45519e-11, 1, 0.00077303, -0.45373, -0.000688877, 0.891139, 0.500242, 2.10155, -1.29824)
+transform = Transform3D(0.891139, -0.000351449, 0.45373, 1.30967e-10, 1, 0.000774577, -0.45373, -0.000690256, 0.891139, 0.500242, 2.10155, -1.29824)
 remote_path = NodePath("../../../../PlayerCamera")
 
 [node name="PathFollow" parent="ViewportContainer/Viewport/Level/FollowPaths/PlayerPath" index="1"]
@@ -152,11 +149,8 @@ transform = Transform3D(-0.950352, 0.0061164, -0.311121, -1.62982e-09, 0.999806,
 [node name="ufo" parent="ViewportContainer/Viewport/Level/Ground/PlanetStardust/Ufo" index="4"]
 transform = Transform3D(0.986388, 0.115874, 0.116671, -0.116671, 0.993171, 0, -0.115874, -0.013612, 0.99317, 0, 0, 0)
 
-[node name="ring_light" parent="ViewportContainer/Viewport/Level/Ground/PlanetStardust/Ufo/ufo" index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-
 [node name="beam" parent="ViewportContainer/Viewport/Level/Ground/PlanetStardust/Ufo/ufo" index="5"]
-transform = Transform3D(0.957305, 0.286657, -0.0373117, 0.0289126, 0.0334788, 0.999022, 0.287626, -0.957447, 0.0237617, 0.000889063, -0.621403, -0.0664005)
+transform = Transform3D(0.969889, 0.22373, -0.0962456, 0.0785579, 0.0866804, 0.993133, 0.230537, -0.970789, 0.0664945, 0.000920534, -0.621311, -0.0664968)
 
 [node name="Alien" parent="ViewportContainer/Viewport/Level/Ground/PlanetStardust" index="1"]
 transform = Transform3D(-0.95293, -4.96923e-05, 0.30303, -1.27325e-11, 0.999705, 0.000163969, -0.303079, 0.000156241, -0.952776, 0.779878, 1.01777, -4.00766)
@@ -170,7 +164,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_qfsbg")
 
 [node name="PlayerCamera" type="Camera3D" parent="ViewportContainer/Viewport"]
 unique_name_in_owner = true
-transform = Transform3D(0.891139, -0.000350747, 0.45373, 1.45519e-11, 1, 0.00077303, -0.45373, -0.000688877, 0.891139, 0.500242, 2.10155, -1.29824)
+transform = Transform3D(0.891139, -0.000351449, 0.45373, 1.30967e-10, 1, 0.000774577, -0.45373, -0.000690256, 0.891139, 0.500242, 2.10155, -1.29824)
 fov = 65.0
 
 [node name="ScreenOverlay" parent="." instance=ExtResource("4_p5m14")]
