@@ -8,7 +8,7 @@
 [ext_resource type="AnimationLibrary" uid="uid://cadi70pdgm61" path="res://level/spaceship/animation/spaceship_animations.tres" id="6_ybuh5"]
 [ext_resource type="Material" uid="uid://q6um5lgw4f4k" path="res://audio/visualizer/visualizer_screen_material.tres" id="7_1hbaj"]
 [ext_resource type="Material" uid="uid://iq11l5wetibu" path="res://level/spaceship/materials/fuel_gauge_material.tres" id="8_fylk6"]
-[ext_resource type="Shader" path="res://level/spaceship/materials/dashboard_screens.gdshader" id="9_qdj4e"]
+[ext_resource type="Shader" path="res://shaders/screens.gdshader" id="9_e3t4i"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://cm4elcyqbcvrn" path="res://level/spaceship/animation/spaceship_door_state_tree.tres" id="10_csjlb"]
 [ext_resource type="Texture2D" uid="uid://bnfo0b752cn10" path="res://level/spaceship/materials/dashboard_emission.png" id="10_s46ft"]
 [ext_resource type="Material" uid="uid://dorgvk7napmkt" path="res://level/spaceship/materials/seatbelt_indicator_material.tres" id="11_qd2cb"]
@@ -290,12 +290,12 @@ gradient = ExtResource("11_yx0mv")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1cv8v"]
 render_priority = 1
-shader = ExtResource("9_qdj4e")
+shader = ExtResource("9_e3t4i")
 shader_parameter/emission_energy = 0.5
 shader_parameter/alpha = 1.0
 shader_parameter/waveform_controlled = false
 shader_parameter/screen_number = 12.0
-shader_parameter/frame_number = 1.0
+shader_parameter/frame_number = 4.51699
 shader_parameter/emission_texture = ExtResource("10_s46ft")
 shader_parameter/waveform = SubResource("3858")
 
@@ -332,13 +332,6 @@ libraries = {
 [node name="controls" parent="spaceship/cockpit" index="0"]
 transform = Transform3D(0.990622, -0.13259, -0.0329651, 0.136306, 0.942572, 0.304923, -0.00935789, -0.306557, 0.951806, 0.640625, 0.515625, -1.92188)
 
-[node name="seat_left" parent="spaceship/cockpit" index="1"]
-transform = Transform3D(-0.0290878, 0, 0.999577, 0, 1, 0, -0.999577, 0, -0.0290878, -1.17188, 0.046875, -0.75)
-
-[node name="Siren" parent="spaceship/cockpit" index="3" instance=ExtResource("18_e0bdp")]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.18216, -1.3804)
-
 [node name="visualizer_screen" type="MeshInstance3D" parent="spaceship/cockpit/monitor" index="0"]
 transform = Transform3D(0.75753, 0, 0, 0, 0.328883, 0.352316, 0, -0.352635, 0.328586, 0, 0.117607, 0.101799)
 visible = false
@@ -370,6 +363,13 @@ transform = Transform3D(1, 0, 0, 0, 0.999349, 0.0360664, 0, -0.0360664, 0.999349
 material_override = ExtResource("8_fylk6")
 
 [node name="ComputerAudioPlayer" type="AudioStreamPlayer3D" parent="spaceship/cockpit/monitor" index="6"]
+
+[node name="Siren" parent="spaceship/cockpit" index="3" instance=ExtResource("18_e0bdp")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.18216, -1.3804)
+
+[node name="seat_left" parent="spaceship/cockpit" index="4"]
+transform = Transform3D(-0.0290878, 0, 0.999577, 0, 1, 0, -0.999577, 0, -0.0290878, -1.17188, 0.046875, -0.75)
 
 [node name="door" parent="spaceship" index="3"]
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0)

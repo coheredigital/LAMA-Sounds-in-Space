@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://c2fvp2bpax6er"]
 
-[ext_resource type="Shader" path="res://level/spaceship/materials/dashboard_screens.gdshader" id="3"]
+[ext_resource type="Shader" path="res://shaders/screens.gdshader" id="3"]
 
 [resource]
 render_priority = 1

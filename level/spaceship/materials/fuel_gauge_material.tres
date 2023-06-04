@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://iq11l5wetibu"]
 
-[ext_resource type="Shader" path="res://level/spaceship/materials/dashboard_screens.gdshader" id="1_ue41v"]
+[ext_resource type="Shader" path="res://shaders/screens.gdshader" id="1_ue41v"]
 [ext_resource type="Texture2D" uid="uid://bnfo0b752cn10" path="res://level/spaceship/materials/dashboard_emission.png" id="2_7iqly"]
 
 [resource]

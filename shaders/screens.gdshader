@@ -10,10 +10,10 @@ uniform sampler2D waveform : hint_default_black;
 uniform bool waveform_controlled = false;
 global uniform int fuel_level : hint_range(1, 8) = 1;
 
-const float screen_count = 16.0;
-const float frame_count = 8.0;
-uniform float screen_number : hint_range(1,17.0,1.0) = 1.0;
-uniform float frame_number : hint_range(1.0,8.0,1.0) = 1.0;
+uniform float screen_count : hint_range(1,16.0,1.0) = 16.0;
+uniform float frame_count : hint_range(1,8.0,1.0) = 8.0;
+uniform float screen_number : hint_range(1,32.0,1.0) = 1.0;
+uniform float frame_number : hint_range(1.0,16.0,1.0) = 1.0;
 
 float steppify(float value, int steps){
 	float cuts = float(steps);

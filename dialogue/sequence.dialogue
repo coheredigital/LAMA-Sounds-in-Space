@@ -207,7 +207,7 @@ do Character.pivot(0.25)
 do Character.play_audio("task0_buckle_up_intro")
 Sam: OK. First, we need to buckle up! Listen to the command from the computer and then repeat what it says with your voice.
 do Character.pivot(0)
-do Player.pivot(0)
+do Player.pivot(-0.05)
 
 
 ~ buckle_up_command
@@ -232,6 +232,7 @@ System: ...
 	do Recorder.save("speech", "PRAC_buckle_up")
 	do Character.play_audio("great_job_heard_you")
 	Sam: Great job! Looks like it heard you!
+	do Player.pivot(-0.15)
 - Quiet
 	set screen = "failure"
 	do Recorder.stop()
@@ -241,7 +242,8 @@ System: ...
 
 ~ siren
 do Character.play_audio("task0_test_warning_sirens")
-Sam: Great, now let’s test out our warning sirens! 
+Sam: Great, now let’s test out our warning sirens!
+do Player.pivot(-0.05)
 set screen = "alert"
 do Character.play_audio("listen_and_repeat")
 Sam: Listen to the command from the computer and then repeat what it says with your voice.

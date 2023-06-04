@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://mq6dsx2r524b"]
+
+[ext_resource type="Shader" path="res://shaders/screens.gdshader" id="1_ga8v7"]
+[ext_resource type="Texture2D" uid="uid://d6uo65iuafwb" path="res://level/spacestation/materials/starmap_indicator_emission.png" id="2_e8cwm"]
+
+[resource]
+render_priority = 1
+shader = ExtResource("1_ga8v7")
+shader_parameter/emission_energy = 1.0
+shader_parameter/alpha = 1.0
+shader_parameter/waveform_controlled = false
+shader_parameter/screen_count = 6.0
+shader_parameter/frame_count = 1.0
+shader_parameter/screen_number = 1.0
+shader_parameter/frame_number = 1.0
+shader_parameter/emission_texture = ExtResource("2_e8cwm")
