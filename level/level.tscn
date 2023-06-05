@@ -536,12 +536,15 @@ transform = Transform3D(0.00384301, 0.0556404, 0.998443, -5.40167e-08, 0.99845, 
 transform = Transform3D(0.986388, 0.115874, 0.116671, -0.116671, 0.993171, 0, -0.115874, -0.013612, 0.99317, 0, 0, 0)
 
 [node name="EngineSounds" parent="Ground/PlanetStardust/Ufo/ufo" index="0"]
-volume_db = -32.447
+volume_db = -80.0
 unit_size = 7.04
 pitch_scale = 0.68
 
-[node name="beam" parent="Ground/PlanetStardust/Ufo/ufo" index="13"]
-transform = Transform3D(-0.00119336, -0.99907, -0.0431274, -0.0115383, -0.0431108, 0.999005, -0.999935, 0.00168979, -0.0114761, 0.00683594, -0.683478, -0.0670376)
+[node name="ring_light" parent="Ground/PlanetStardust/Ufo/ufo" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="beam" parent="Ground/PlanetStardust/Ufo/ufo" index="5"]
+transform = Transform3D(0.0745779, -0.995684, -0.0553058, -0.0309971, -0.057748, 0.997854, -0.996738, -0.0727033, -0.0351699, 0.00719833, -0.683615, -0.0672817)
 
 [node name="Alien" parent="Ground/PlanetStardust" instance=ExtResource("8_bs0lj")]
 transform = Transform3D(-0.951976, 0.000759903, 0.306024, -2.61927e-10, 0.999704, -0.00248287, -0.306077, -0.00236349, -0.95181, 0.78405, 1.01247, -4)
@@ -552,7 +555,7 @@ transform = Transform3D(-0.704574, -7.11733e-06, 0.709631, 0, 1, 1.00296e-05, -0
 [node name="mountains" parent="Ground/PlanetStardust" instance=ExtResource("17_thg0y")]
 
 [node name="Planet" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.249969, 8.14907e-09, -0.00392246, 0.00200871, 0.214731, -0.12801, 0.00336909, -0.128026, -0.214704, 3.72275, 28.7924, -54.9282)
+transform = Transform3D(-0.249969, 8.3819e-09, -0.00392246, 0.00200871, 0.214731, -0.12801, 0.00336909, -0.128026, -0.214704, 3.72275, 28.7924, -54.9282)
 cast_shadow = 0
 mesh = SubResource("3833")
 skeleton = NodePath("")
@@ -586,12 +589,8 @@ remote_path = NodePath("../../../Ground")
 [editable path="FollowPaths/UfoPath"]
 [editable path="FollowPaths/PlayerPath"]
 [editable path="Ground/Station/Computers/Computer_01"]
-[editable path="Ground/Station/Computers/Computer_01/starmap"]
 [editable path="Ground/Station/Computers/Computer_03"]
-[editable path="Ground/Station/Computers/Computer_03/starmap"]
 [editable path="Ground/Station/Computers/Computer_04"]
-[editable path="Ground/Station/Computers/Computer_04/starmap"]
 [editable path="Ground/Station/Computers/Computer_05"]
-[editable path="Ground/Station/Computers/Computer_05/starmap"]
 [editable path="Ground/PlanetStardust/Ufo"]
 [editable path="Environment"]

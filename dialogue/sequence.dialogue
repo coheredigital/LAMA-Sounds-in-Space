@@ -63,8 +63,8 @@ Sam: First, I want you to meet our very own space llama named Lucky. She’s usu
 do Character.move_to(0.17,3)
 do Player.move_to(0.3,2)
 [next=1]
-do Player.pivot(-0.25,1)
-do Character.pivot(0,0.4)
+do Player.pivot(-0.33)
+do Character.pivot(0,0.45)
 [next=3]
 # TODO: set station_screen = (starmap)
 # TODO: set station_screen = (starmap_locate)
@@ -131,10 +131,10 @@ Sam: Our first job is to make sure we have everything we need before we fly.
 
 
 ~ task0_computer_intro
-do Player.move_to(0.93,2)
-do Player.pivot(-0.05,2)
-do Character.move_to(0.96,2)
-do Character.pivot(0.4)
+do Player.move_to(0.95,2)
+do Player.pivot(-0.15,2)
+do Character.move_to(0.97,2)
+do Character.pivot(0.6)
 [next=0.5]
 set screen = "computer"
 do Character.play_audio("task0_computer_info")
@@ -193,7 +193,7 @@ Sam: I’ll sit here next to you and let you give the computer the voice command
 do Character.move_to(1.0,1.0) 
 do Character.pivot(0) 
 do Player.move_to(1.0,1.0)
-do Player.pivot(-0.15)
+do Player.pivot(-0.2)
 do Character.play_audio("task0_ready_green_button")
 Sam: When you're ready, press the GREEN button to get started. 
 set screen = "start_button"
@@ -203,10 +203,10 @@ Player: ...
 
 ~ buckle_up
 set screen = "buckle_warning"
-do Character.pivot(0.25) 
+do Character.pivot(0.5) 
 do Character.play_audio("task0_buckle_up_intro")
 Sam: OK. First, we need to buckle up! Listen to the command from the computer and then repeat what it says with your voice.
-do Character.pivot(0)
+do Character.pivot(0.25) 
 do Player.pivot(-0.05)
 
 
@@ -232,11 +232,13 @@ System: ...
 	do Recorder.save("speech", "PRAC_buckle_up")
 	do Character.play_audio("great_job_heard_you")
 	Sam: Great job! Looks like it heard you!
-	do Player.pivot(-0.15)
+	do Player.pivot(-0.2)
 - Quiet
 	set screen = "failure"
 	do Recorder.stop()
+	do Character.pivot(0.5) 
 	Sam: Uh oh! It looks like the spaceship couldn't quite hear what you said. Let's try again a bit louder.
+	do Character.pivot(0.25) 
 	=> buckle_up_command
 
 

@@ -8,7 +8,7 @@ const LOOK_ANGLE_LIMIT = Vector2(20.0,180.0)
 		progress_ratio = value
 		update_progress_ratio(value)
 
-@export_range (-1.0, 1.0, 0.05) var pivot := 0.0:
+@export_range (-1.0, 1.0, 0.01) var pivot := 0.0:
 	set(value):
 		pivot = clamp(value, -1.0, 1.0)
 		update_pivot(pivot * -1.0)

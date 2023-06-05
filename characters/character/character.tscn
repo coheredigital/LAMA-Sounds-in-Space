@@ -1,11 +1,32 @@
-[gd_scene load_steps=15 format=3 uid="uid://cq3x5n33r2d8c"]
+[gd_scene load_steps=22 format=3 uid="uid://cq3x5n33r2d8c"]
 
 [ext_resource type="PackedScene" uid="uid://whalw4rdvy64" path="res://characters/character/character.gltf" id="1"]
 [ext_resource type="Script" path="res://characters/character/character.gd" id="2_bwdwg"]
 [ext_resource type="AnimationLibrary" uid="uid://c4hslfw7atlus" path="res://characters/character/character_actions.tres" id="4_cmukm"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_q88u6"]
-animation = &"RESET"
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_av0hd"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_iih72"]
+animation = &"actions/idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_elc75"]
+animation = &"actions/talk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rj7sh"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0p58a"]
+xfade_time = 1.38
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pfrdg"]
+xfade_time = 0.75
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_x8huw"]
+states/idle/node = SubResource("AnimationNodeAnimation_iih72")
+states/idle/position = Vector2(406, 100)
+states/talk/node = SubResource("AnimationNodeAnimation_elc75")
+states/talk/position = Vector2(620, 100)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_rj7sh"), "idle", "talk", SubResource("AnimationNodeStateMachineTransition_0p58a"), "talk", "idle", SubResource("AnimationNodeStateMachineTransition_pfrdg")]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kjlnr"]
 animation = &"actions/idle"
@@ -18,28 +39,32 @@ switch_mode = 2
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fwopg"]
-xfade_time = 0.46
+xfade_time = 1.38
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_n4doy"]
-xfade_time = 0.89
+xfade_time = 0.75
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_gqfoj"]
 states/idle/node = SubResource("AnimationNodeAnimation_kjlnr")
 states/idle/position = Vector2(354, 100)
 states/talking/node = SubResource("AnimationNodeAnimation_3i75r")
-states/talking/position = Vector2(482, 100)
+states/talking/position = Vector2(508, 100)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_bftsn"), "idle", "talking", SubResource("AnimationNodeStateMachineTransition_fwopg"), "talking", "idle", SubResource("AnimationNodeStateMachineTransition_n4doy")]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_83bbb"]
-graph_offset = Vector2(-158.231, -140)
-nodes/Animation/node = SubResource("AnimationNodeAnimation_q88u6")
-nodes/Animation/position = Vector2(40, -80)
-nodes/action/node = SubResource("AnimationNodeStateMachine_gqfoj")
-nodes/action/position = Vector2(40, 100)
-nodes/output/position = Vector2(440, -20)
-node_connections = [&"output", 0, &"action"]
+graph_offset = Vector2(-427, -68)
+nodes/Add2/node = SubResource("AnimationNodeAdd2_av0hd")
+nodes/Add2/position = Vector2(240, 180)
+nodes/action/node = SubResource("AnimationNodeStateMachine_x8huw")
+nodes/action/position = Vector2(40, 280)
+nodes/idle_state/node = SubResource("AnimationNodeStateMachine_gqfoj")
+nodes/idle_state/position = Vector2(40, 100)
+nodes/output/position = Vector2(420, 100)
+node_connections = [&"output", 0, &"idle_state", &"Add2", 1, &"action"]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_qbmux"]
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_jwvsq"]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_02t8q"]
 
 [sub_resource type="Animation" id="Animation_oa1q3"]
 resource_name = "RESET"
@@ -54,7 +79,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0, 0)]
+"values": [Vector3(0, -0.0176772, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -66,7 +91,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0, -0.349066)]
+"values": [Vector3(-0.25236, 0.178751, -0.440543)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -78,7 +103,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0, 0.349066)]
+"values": [Vector3(0.167946, -0.101036, 0.394689)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -90,7 +115,79 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0.318226, 1.38059e-08, 4.41249e-08)]
+"values": [Vector3(0.0824088, -0.014026, -0.128058)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("character/arm_left/forearm_left:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.362784, 2.08545e-08, -7.77005e-08)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("character/arm_left/forearm_left/hand_left:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("character/helmet/face:rotation_degrees")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(4.26887e-07, 4.26887e-07, -5.33608e-08)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("character/helmet:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(7.4988e-33, 0, 1.22465e-16)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("character/helmet/face:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(8.0214e-09, 7.45058e-09, -9.31322e-10)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("character/arm_right/forarm_right/hand_right:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_twnuj"]
@@ -107,7 +204,9 @@ unique_name_in_owner = true
 tree_root = SubResource("AnimationNodeBlendTree_83bbb")
 anim_player = NodePath("AnimationPlayer")
 active = true
-parameters/action/playback = SubResource("AnimationNodeStateMachinePlayback_qbmux")
+parameters/Add2/add_amount = 0.0
+parameters/action/playback = SubResource("AnimationNodeStateMachinePlayback_jwvsq")
+parameters/idle_state/playback = SubResource("AnimationNodeStateMachinePlayback_02t8q")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="StateTree" index="0"]
 root_node = NodePath("../..")
@@ -116,11 +215,18 @@ libraries = {
 "actions": ExtResource("4_cmukm")
 }
 
-[node name="helmet" parent="character" index="0"]
-transform = Transform3D(0.996764, 0.0235419, 0.076871, -0.02804, 0.997924, 0.0579693, -0.0753468, -0.0599371, 0.995355, 0, 0.359375, -0.03125)
+[node name="character" parent="." index="1"]
+transform = Transform3D(0.999844, 0, -0.0176763, 0, 1, 0, 0.0176763, 0, 0.999844, 0, 1.03125, 0.015625)
+
+[node name="Skeleton3D" parent="character" index="0"]
+bones/1/rotation = Quaternion(0.000474975, 0.000474975, 0.000474975, 1.00048)
+bones/2/rotation = Quaternion(0.000474975, 0.000474975, 0.000474975, 1.00048)
+
+[node name="helmet" parent="character" index="1"]
+transform = Transform3D(1, -1.22465e-16, 0, 1.22465e-16, 0.999999, -7.49881e-33, 0, 7.4988e-33, 1, 0, 0.359375, -0.03125)
 
 [node name="face" parent="character/helmet" index="2"]
-transform = Transform3D(0.995117, -0.00207201, -0.0986689, 5.51271e-11, 0.999779, -0.0209951, 0.0986905, 0.0208926, 0.994899, 0, 0.21875, 0.03125)
+transform = Transform3D(0.999999, 9.31321e-10, 7.45058e-09, -9.31321e-10, 0.999999, -8.0214e-09, -7.45058e-09, 8.02139e-09, 1, 0, 0.21875, 0.03125)
 
 [node name="AudioPlayer" type="AudioStreamPlayer3D" parent="character/helmet/face" index="0"]
 unique_name_in_owner = true
@@ -132,11 +238,22 @@ light_color = Color(0.788235, 0.788235, 0.788235, 1)
 omni_range = 0.257751
 omni_attenuation = 0.420448
 
-[node name="arm_right" parent="character" index="1"]
-transform = Transform3D(0.939692, -0.34202, 0, 0.34202, 0.939693, 0, 0, 0, 1, 0.1875, 0.28125, -0.015625)
+[node name="arm_left" parent="character" index="2"]
+transform = Transform3D(0.909039, 0.379479, 0.172169, -0.412923, 0.87587, 0.24969, -0.0560453, -0.29807, 0.952897, -0.21875, 0.28125, -0.015625)
+
+[node name="forearm_left" parent="character/arm_left" index="0"]
+transform = Transform3D(1, 8.51013e-08, 1.94972e-08, -7.26432e-08, 0.934913, -0.354879, -4.84288e-08, 0.354879, 0.934912, 0, -0.28125, 8.9407e-08)
+
+[node name="hand_left" parent="character/arm_left/forearm_left" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98023e-08, -0.234375, 0)
+
+[node name="arm_right" parent="character" index="3"]
+transform = Transform3D(0.911925, -0.398124, -0.0994448, 0.379111, 0.910128, -0.167157, 0.157057, 0.114734, 0.980902, 0.1875, 0.28125, -0.015625)
 
 [node name="forarm_right" parent="character/arm_right" index="0"]
-transform = Transform3D(1, -3.98053e-08, 1.31127e-08, 4.19095e-08, 0.949792, -0.312882, -7.99361e-15, 0.312882, 0.949792, 5.96046e-08, -0.28125, -1.49012e-08)
+transform = Transform3D(0.991862, 0.12655, -0.013978, -0.127274, 0.988446, -0.0823156, 0.00339941, 0.0834247, 0.996509, 0, -0.28125, -2.98023e-08)
 
-[node name="arm_left" parent="character" index="5"]
-transform = Transform3D(0.939692, 0.34202, 0, -0.34202, 0.939692, 0, 0, 0, 1, -0.21875, 0.28125, -0.015625)
+[node name="hand_right" parent="character/arm_right/forarm_right" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.96046e-08, -0.234375, 0)
+
+[connection signal="finished" from="character/helmet/face/AudioPlayer" to="." method="_on_audio_player_finished"]

@@ -8,6 +8,7 @@ signal audio_played(sentence_id: String)
 
 
 
+
 func action(target_action: String) -> void:
 	action_changed.emit(target_action)
 
