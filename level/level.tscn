@@ -540,9 +540,6 @@ volume_db = -80.0
 unit_size = 7.04
 pitch_scale = 0.68
 
-[node name="ring_light" parent="Ground/PlanetStardust/Ufo/ufo" index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-
 [node name="beam" parent="Ground/PlanetStardust/Ufo/ufo" index="5"]
 transform = Transform3D(0.0745779, -0.995684, -0.0553058, -0.0309971, -0.057748, 0.997854, -0.996738, -0.0727033, -0.0351699, 0.00719833, -0.683615, -0.0672817)
 
@@ -555,7 +552,7 @@ transform = Transform3D(-0.704574, -7.11733e-06, 0.709631, 0, 1, 1.00296e-05, -0
 [node name="mountains" parent="Ground/PlanetStardust" instance=ExtResource("17_thg0y")]
 
 [node name="Planet" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.249969, 8.3819e-09, -0.00392246, 0.00200871, 0.214731, -0.12801, 0.00336909, -0.128026, -0.214704, 3.72275, 28.7924, -54.9282)
+transform = Transform3D(-0.249969, 7.91624e-09, -0.00392246, 0.00200871, 0.214731, -0.12801, 0.00336909, -0.128026, -0.214704, 3.72275, 28.7924, -54.9282)
 cast_shadow = 0
 mesh = SubResource("3833")
 skeleton = NodePath("")
