@@ -1,25 +1,23 @@
-[gd_resource type="ShaderMaterial" load_steps=4 format=3]
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://df6kbkbmgdypv"]
 
-[ext_resource type="Texture2D" uid="uid://ugnutccrndgj" path="res://characters/character/materials/character_alpha.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://bbjs6doao7bk7" path="res://characters/character/materials/character_alpha.png" id="1"]
 [ext_resource type="Shader" path="res://shaders/toon_alpha.gdshader" id="1_vght6"]
-[ext_resource type="Texture2D" uid="uid://cwoinpuvn65ta" path="res://shaders/textures/diffuse_curve_01.png" id="2"]
 
 [resource]
 render_priority = 2
 shader = ExtResource("1_vght6")
-shader_parameter/albedo = Color(0, 0.513726, 0.8, 1)
+shader_parameter/albedo = Color(0.764706, 0.890196, 1, 1)
 shader_parameter/specular = 0.312
 shader_parameter/specular_amount = 0.37
 shader_parameter/specular_smoothness = 0.05
-shader_parameter/rim = 0.617
-shader_parameter/rim_color = Color(0.623529, 0.513726, 1, 1)
-shader_parameter/rim_amount = 0.755
-shader_parameter/rim_smoothness = 0.495
-shader_parameter/metallic = 0.114
-shader_parameter/roughness = 0.245
-shader_parameter/emission = Color(0.00392157, 0.352941, 0.603922, 1)
-shader_parameter/emission_energy = 0.37
-shader_parameter/use_alpha = true
+shader_parameter/alpha_amount = 1.0
+shader_parameter/rim = 0.711
+shader_parameter/rim_amount = 0.744
+shader_parameter/rim_smoothness = 0.716
+shader_parameter/wrap = 0.32
+shader_parameter/metallic = 0.246
+shader_parameter/roughness = 0.217
+shader_parameter/emission = Color(0.180392, 0.360784, 0.819608, 1)
+shader_parameter/emission_energy = 0.116
 shader_parameter/albedo_texture = ExtResource("1")
-shader_parameter/diffuse_curve = ExtResource("2")
 shader_parameter/emission_texture = ExtResource("1")

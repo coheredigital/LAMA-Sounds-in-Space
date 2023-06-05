@@ -56,8 +56,6 @@ do Player.move_to(0.13,2.5)
 [next=2]
 do Character.play_audio("intro_lucky")
 Sam: First, I want you to meet our very own space llama named Lucky. She’s usually around here somewhere... Let’s look up her location on our astronaut map.
-[next=2]
-
 
 ~ intro_map
 do Character.move_to(0.17,3)
@@ -145,7 +143,6 @@ Sam: This is our handy dandy computer! The computer will help us travel to Plane
 do Character.play_audio("task0_computer_sounds_like")
 Sam: This is what the computer sounds like. 
 [next=1]
-do Stimuli.play("song_01F")
 Computer: Nice to meet you
 [next=0.5]
 do Character.play_audio("task0_computer_instructions")
@@ -159,6 +156,7 @@ Sam: Ok here we go!
 
 ~ activate_spaceship_command
 set screen = "computer"
+do Stimuli.play("practice/1_activate")
 Computer: Activate spaceship!
 
 
@@ -212,6 +210,7 @@ do Player.pivot(-0.05)
 
 ~ buckle_up_command
 set screen = "computer"
+do Stimuli.play("practice/2_seatbelts")
 Computer: Seat belts buckled!
 
 
@@ -253,6 +252,7 @@ Sam: Listen to the command from the computer and then repeat what it says with y
 
 ~ siren_command
 set screen = "computer"
+do Stimuli.play("practice/3_siren")
 Computer: Siren noise (low to high to low to high to low)
 
 
@@ -291,6 +291,9 @@ do Character.play_audio("listen_and_repeat")
 Sam: Listen to the command from the computer and then repeat what it says with your voice:  
 [next=0.5]
 set screen = "computer"
+
+~ fuel_up_stimuli
+do Stimuli.play("practice/4_lets")
 Computer: Let’s fuel up!
 
 
@@ -328,6 +331,7 @@ do Character.play_audio("listen_and_repeat")
 Sam: Listen to the command from the computer and then repeat what it says with your voice: 
 set screen = "computer"
 [next=1]
+do Stimuli.play("practice/5_yawn")
 Computer: *Loud Yawn: from high to low*
 
 
@@ -363,6 +367,7 @@ Sam: You did it! You’re working really hard at this – Great Job! Now that ou
 ~ blast_off_command
 set screen = "computer"
 [next=1]
+do Stimuli.play("practice/6_blastoff")
 Computer: *Blast Off!* 
 
 
