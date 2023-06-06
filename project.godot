@@ -108,7 +108,7 @@ wav={
 "edit/loop_end": -1,
 "edit/loop_mode": 0,
 "edit/normalize": true,
-"edit/trim": true,
+"edit/trim": false,
 "force/8_bit": false,
 "force/max_rate": false,
 "force/max_rate_hz": 44100,

@@ -78,3 +78,16 @@ do move_star(4,1.0,4.0)
 do move_star(5,1.0,4.0)
 [next=4]
 => END
+
+
+~ lean_in
+do Character.tilt(-0.35) 
+do Character.pivot(0.45)
+do Player.pivot(-0.17)
+=> END
+
+~ lean_out
+do Character.tilt(0.0) 
+do Character.pivot(0.2)
+do Player.pivot(-0.05)
+=> END

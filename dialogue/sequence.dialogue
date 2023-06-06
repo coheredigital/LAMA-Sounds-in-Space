@@ -130,7 +130,7 @@ Sam: Our first job is to make sure we have everything we need before we fly.
 
 ~ task0_computer_intro
 do Player.move_to(0.95,2)
-do Player.pivot(-0.15,2)
+do Player.pivot(-0.15)
 do Character.move_to(0.97,2)
 do Character.pivot(0.6)
 [next=0.5]
@@ -188,10 +188,10 @@ System: ...
 set screen = "idle"
 do Character.play_audio("task0_you_command")
 Sam: I’ll sit here next to you and let you give the computer the voice commands!
-do Character.move_to(1.0,1.0) 
-do Character.pivot(0) 
+do Character.move_to(1.0) 
+do Character.pivot(0.2) 
 do Player.move_to(1.0,1.0)
-do Player.pivot(-0.2)
+do Player.pivot(-0.17)
 do Character.play_audio("task0_ready_green_button")
 Sam: When you're ready, press the GREEN button to get started. 
 set screen = "start_button"
@@ -361,11 +361,13 @@ System: ...
 
 ~ blast_off
 do Character.play_audio("task0_blast_off_intro")
+=>< snippets/lean_in
 Sam: You did it! You’re working really hard at this – Great Job! Now that our spaceship is full of fuel and the computer knows your voice, it’s time to find Planet Stardust!  Our handy dandy computer will countdown to blast off. Listen closely and then repeat what you hear to send us into space! 
 
 
 ~ blast_off_command
 set screen = "computer"
+=>< snippets/lean_out
 [next=1]
 do Stimuli.play("practice/6_blastoff")
 Computer: *Blast Off!* 
@@ -414,6 +416,7 @@ set flying_motion = 0.1
 
 
 ~ task1_stars_light
+=>< snippets/lean_in
 do Character.play_audio("task1_intro")
 Sam: Boy, it’s dark out here! This time, let’s wake up the stars with our voices. Just like we practiced, you will listen to the computer’s commands and repeat them loud and clear! After each voice command, I’ll press the red button to send your voice to the stars.  
 
@@ -423,6 +426,7 @@ Sam: Boy, it’s dark out here! This time, let’s wake up the stars with our vo
 
 ~ stars_light_1_command
 set screen = "computer"
+=>< snippets/lean_out
 [next=1]
 Computer: Star 1! 
 # TODO: What command do they want for bringing in stars?
