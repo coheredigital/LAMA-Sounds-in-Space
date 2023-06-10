@@ -63,7 +63,7 @@ states/launch/position = Vector2(498, 100)
 states/warp/node = SubResource("AnimationNodeAnimation_w0kem")
 states/warp/position = Vector2(630, 100)
 transitions = ["intro", "launch", SubResource("AnimationNodeStateMachineTransition_7tb2q"), "Start", "intro", SubResource("AnimationNodeStateMachineTransition_ycoeb"), "warp", "landing", SubResource("AnimationNodeStateMachineTransition_vdkye"), "landing", "End", SubResource("AnimationNodeStateMachineTransition_kbvn4"), "launch", "warp", SubResource("AnimationNodeStateMachineTransition_54vac")]
-graph_offset = Vector2(-227, -176.065)
+graph_offset = Vector2(-175, -39.065)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_4dohv"]
 
@@ -363,7 +363,7 @@ libraries = {
 script = ExtResource("2_gas8d")
 
 [node name="Character" parent="." instance=ExtResource("21_35viv")]
-transform = Transform3D(-0.704517, 0, 0.709687, 0, 1, 0, -0.709687, 0, -0.704517, -11.4906, 1, -3.99903)
+transform = Transform3D(-0.990416, 0, -0.138119, 0, 1, 0, 0.138119, 0, -0.990416, -13.2937, 1, -3.2028)
 action = "talking"
 
 [node name="Spaceship" parent="." instance=ExtResource("2_ovpdl")]
@@ -383,11 +383,11 @@ curve = ExtResource("22_lkuf6")
 follow_speed = 4.6
 
 [node name="RemoteTransform" parent="FollowPaths/CharacterPath" index="0"]
-transform = Transform3D(-0.704517, 0, 0.709687, 0, 1, 0, -0.709687, 0, -0.704517, -11.4906, 1, -3.99903)
+transform = Transform3D(-0.990416, 0, -0.138119, 0, 1, 0, 0.138119, 0, -0.990416, -13.2937, 1, -3.2028)
 remote_path = NodePath("../../../Character")
 
 [node name="PathFollow" parent="FollowPaths/CharacterPath" index="1"]
-transform = Transform3D(0.70699, 0, -0.706989, 0, 0.999798, 0, 0.706989, 0, 0.70699, -11.5, 1, -4)
+transform = Transform3D(0.989785, 0, 0.141398, 0, 0.999798, 0, -0.141398, 0, 0.989785, -13.3, 1, -3.2)
 
 [node name="AlienPath" parent="FollowPaths" instance=ExtResource("8_xybyf")]
 unique_name_in_owner = true
@@ -439,12 +439,12 @@ follow_speed = 1.8
 turn_speed = 1.2
 
 [node name="RemoteTransform" parent="FollowPaths/PlayerPath" index="0"]
-transform = Transform3D(0.70396, -5.1848e-44, -0.710239, 9.80909e-45, 0.999999, -6.16571e-44, 0.710239, 3.64338e-44, 0.70396, -14.6095, 2.6, -1.20309)
+transform = Transform3D(0.845522, -4.2039e-44, -0.53394, 2.24208e-44, 0.999999, -4.2039e-44, 0.53394, 2.24208e-44, 0.845522, -13.5089, 2.6, -0.803251)
 remote_path = NodePath("../../PlayerCamera")
 use_global_coordinates = true
 
 [node name="PathFollow" parent="FollowPaths/PlayerPath" index="1"]
-transform = Transform3D(-0.707, 0, 0.707, 0, 0.999798, 0, -0.707, 0, -0.707, -14.6, 2.6, -1.2)
+transform = Transform3D(-0.84787, 0, 0.529919, 0, 0.999798, 0, -0.529919, 0, -0.84787, -13.5, 2.6, -0.8)
 
 [node name="Ground" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.038, 0)
@@ -541,7 +541,7 @@ unit_size = 7.04
 pitch_scale = 0.68
 
 [node name="beam" parent="Ground/PlanetStardust/Ufo/ufo" index="5"]
-transform = Transform3D(0.0745779, -0.995684, -0.0553058, -0.0309971, -0.057748, 0.997854, -0.996738, -0.0727033, -0.0351699, 0.00719833, -0.683615, -0.0672817)
+transform = Transform3D(0.0767273, -0.995301, -0.0591451, -0.0331241, -0.0618318, 0.997541, -0.996507, -0.0745792, -0.0377125, 0.00741577, -0.686466, -0.0670834)
 
 [node name="Alien" parent="Ground/PlanetStardust" instance=ExtResource("8_bs0lj")]
 transform = Transform3D(-0.951976, 0.000759903, 0.306024, -2.61927e-10, 0.999704, -0.00248287, -0.306077, -0.00236349, -0.95181, 0.78405, 1.01247, -4)
@@ -560,12 +560,13 @@ surface_material_override/0 = ExtResource("5_nosaa")
 
 [node name="WorldLight" type="DirectionalLight3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(0.741917, -0.638017, 0.206141, 0.107781, 0.416935, 0.902523, -0.661772, -0.647379, 0.378097, 0, 128, 0)
+transform = Transform3D(-0.535923, 0.810399, 0.236727, -0.085635, -0.331126, 0.939693, 0.839913, 0.483331, 0.246857, 0, 128, 0)
 light_energy = 0.2
 shadow_enabled = true
-shadow_bias = 0.078
-shadow_normal_bias = 1.422
-shadow_opacity = 0.31
+shadow_bias = 0.005
+shadow_normal_bias = 3.891
+shadow_opacity = 0.3
+shadow_blur = 4.886
 directional_shadow_blend_splits = true
 directional_shadow_max_distance = 25.0
 

@@ -180,5 +180,5 @@ rim_color={
 }
 fuel_level={
 "type": "int",
-"value": 0
+"value": 18
 }

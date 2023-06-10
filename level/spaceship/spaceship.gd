@@ -22,15 +22,20 @@ var screen_state: String = "idle":
 		if %Siren:
 			%Siren.active = siren_active
 
-var steering_motion := 0.0 : 
+@export_range(0.0,1.0) var steering_motion := 0.0 : 
 	set(value):
 		steering_motion = value
 		set_steering_motion(value)
 
-var flying_motion := 0.0 : 
+@export_range(0.0,1.0) var flying_motion := 0.0 : 
 	set(value):
 		flying_motion = value
 		set_flying_motion(value)
+
+@export_range(0.0,1.0) var light_level := 0.0 : 
+	set(value):
+		light_level = value
+		set_light_level(value)
 
 var fuel_level := 1: 
 	set(value):
@@ -46,6 +51,7 @@ func _ready():
 	Sequencer.door_open_changed.connect(set_door_open)
 	Sequencer.steering_motion_changed.connect(set_steering_motion)
 	Sequencer.flying_motion_changed.connect(set_flying_motion)
+	Sequencer.stars_brightness_changed.connect(set_light_level)
 	Sequencer.fuel_level_changed.connect(set_fuel_level)
 	Sequencer.seatbelts_buckled_changed.connect(set_seatbelts_buckled)
 
@@ -60,6 +66,17 @@ func set_flying_motion(value: float) -> void:
 		var tween = create_tween()
 		tween.tween_property(animation_tree, "parameters/flying_speed/scale", value, lerp(2.0,1.0,value)).set_trans(Tween.TRANS_SINE)
 		tween.tween_property(animation_tree, "parameters/flying_blend/add_amount", smoothstep(0.0,0.01,value), lerp(2.0,1.0,value) ).set_trans(Tween.TRANS_SINE)
+
+
+func set_light_level(value: float) -> void:
+	if not %Light:
+		return
+		
+	var tween = create_tween()
+	if not tween:
+		return
+		
+	tween.tween_property(%Light, "light_energy", lerp(0.01,0.3,value), 1.0 ).set_trans(Tween.TRANS_SINE)
 
 func set_fuel_level(value: float) -> void:
 	RenderingServer.global_shader_parameter_set("fuel_level", value)

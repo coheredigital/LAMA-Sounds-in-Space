@@ -35,7 +35,7 @@ var character_action: String = "idle":
 
 var stars_brightness: float = 0.0:
 	set(value):
-		stars_brightness = clamp(value, 0.0,4.0)
+		stars_brightness = clamp(value, 0.0,1.0)
 		stars_brightness_changed.emit(stars_brightness)
 
 var player_position: float = 0.0

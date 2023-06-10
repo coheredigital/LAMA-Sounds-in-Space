@@ -80,14 +80,27 @@ do move_star(5,1.0,4.0)
 => END
 
 
-~ lean_in
-do Character.tilt(-0.35) 
+~ focus_conversation
+do Character.tilt(-0.15) 
 do Character.pivot(0.45)
-do Player.pivot(-0.17)
+do Player.pivot(-0.12)
 => END
 
-~ lean_out
+~ focus_screen
+do Character.tilt(-0.2) 
+do Character.pivot(0.3)
+do Player.pivot(-0.05)
+=> END
+
+~ focus_forward
 do Character.tilt(0.0) 
 do Character.pivot(0.2)
-do Player.pivot(-0.05)
+do Player.pivot(0.0)
+=> END
+
+~ prompt_red_button
+set screen = "start_button_red"
+=>< focus_screen
+Player: .
+- Press Red Button
 => END

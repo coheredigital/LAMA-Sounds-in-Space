@@ -33,7 +33,7 @@ func _ready():
 func set_stars_brightness(value):
 	if sky_material:
 		var tween = create_tween()
-		tween.tween_property(sky_material, "shader_parameter/stars_brightness", value, 1.0).set_trans(Tween.TRANS_SINE)
+		tween.tween_property(sky_material, "shader_parameter/stars_brightness", lerp(0.0,4.0,value), 1.0).set_trans(Tween.TRANS_SINE)
 
 func set_ground_color(value):
 	ground_color = value

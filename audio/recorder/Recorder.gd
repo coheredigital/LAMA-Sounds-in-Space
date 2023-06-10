@@ -7,7 +7,7 @@ var recording : AudioStreamWAV
 
 func start():
 	effect.set_recording_active(true)
-	await EventLogger.add('recording','started')
+	EventLogger.add('recording','started')
 
 func stop():
 	recording = effect.get_recording()
