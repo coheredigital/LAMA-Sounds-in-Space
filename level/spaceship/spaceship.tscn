@@ -1,10 +1,11 @@
-[gd_scene load_steps=38 format=3 uid="uid://wa41njrapfpn"]
+[gd_scene load_steps=37 format=3 uid="uid://wa41njrapfpn"]
 
 [ext_resource type="PackedScene" uid="uid://ctjlmbopaw2sa" path="res://level/spaceship/models/spaceship.gltf" id="1_m17hk"]
 [ext_resource type="Script" path="res://level/spaceship/spaceship.gd" id="2_tplkk"]
 [ext_resource type="PackedScene" uid="uid://vain2gp1dm54" path="res://level/spacestation/computer.tscn" id="3_gtlrx"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://bgas77vb0vl6b" path="res://level/spaceship/animation/screen_state_tree.tres" id="5_rc7u6"]
 [ext_resource type="AnimationLibrary" uid="uid://dywe6iokyofm1" path="res://animations/libraries/screen.tres" id="6_i8kbq"]
+[ext_resource type="AnimationLibrary" uid="uid://7xpd5dsxfcqd" path="res://animations/libraries/cockpit.tres" id="6_qi8b3"]
 [ext_resource type="AnimationLibrary" uid="uid://cadi70pdgm61" path="res://level/spaceship/animation/spaceship_animations.tres" id="6_ybuh5"]
 [ext_resource type="Material" uid="uid://q6um5lgw4f4k" path="res://audio/visualizer/visualizer_screen_material.tres" id="7_1hbaj"]
 [ext_resource type="Material" uid="uid://iq11l5wetibu" path="res://level/spaceship/materials/fuel_gauge_material.tres" id="8_fylk6"]
@@ -152,27 +153,6 @@ _data = {
 "RESET": SubResource("Animation_8lfmj")
 }
 
-[sub_resource type="Animation" id="Animation_85mrf"]
-resource_name = "shake"
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("spaceship/cockpit/controls:rotation")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.156081, 0.4, 0.551995, 0.750048, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(-0.261799, -0.0872665, -0.10472), Vector3(-0.174533, -0.0366519, 0.144862), Vector3(-0.256957, -0.0267157, 0.141404), Vector3(-0.288282, -0.0313664, 0.142656), Vector3(-0.309858, -0.0346204, 0.143615), Vector3(-0.328093, -0.0711149, -0.10075)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_0fx6q"]
-_data = {
-"steering_motion": SubResource("Animation_85mrf")
-}
-
 [sub_resource type="Animation" id="Animation_dxke3"]
 resource_name = "door_open"
 length = 6.0
@@ -302,8 +282,11 @@ shader_parameter/emission_texture = ExtResource("10_s46ft")
 shader_parameter/waveform = SubResource("3858")
 
 [node name="Spaceship" instance=ExtResource("1_m17hk")]
+transform = Transform3D(0.999994, -0.00150148, -0.00324661, 0.00149777, 0.999998, -0.00114569, 0.00324832, 0.00114082, 0.999994, 0, 0, 0)
 script = ExtResource("2_tplkk")
 seatbelts_buckled = true
+steering_motion = 0.321
+flying_motion = 0.535
 
 [node name="Computer" parent="." index="0" instance=ExtResource("3_gtlrx")]
 transform = Transform3D(-1, 0, 8.74228e-08, -8.88178e-16, 1, 0, -8.74228e-08, 0, -1, 0, 0.663, 2.5)
@@ -315,17 +298,17 @@ anim_player = NodePath("AnimationPlayer")
 active = true
 parameters/blend_screen/add_amount = 1.0
 parameters/door_state/playback = SubResource("AnimationNodeStateMachinePlayback_ue7bb")
-parameters/flying_blend/add_amount = 0.0
-parameters/flying_speed/scale = 0.0
+parameters/flying_blend/add_amount = 0.379198
+parameters/flying_speed/scale = 0.535
 parameters/screen_state/playback = SubResource("AnimationNodeStateMachinePlayback_3gtjc")
-parameters/steering_blend/add_amount = 0.0
-parameters/steering_speed/scale = 0.0
+parameters/steering_blend/add_amount = 0.4568
+parameters/steering_speed/scale = 0.321
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimationTree" index="0"]
 root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_vyonl"),
-"cockpit": SubResource("AnimationLibrary_0fx6q"),
+"cockpit": ExtResource("6_qi8b3"),
 "door": SubResource("AnimationLibrary_xd8vc"),
 "screen": ExtResource("6_i8kbq"),
 "spaceship": ExtResource("6_ybuh5")
@@ -364,10 +347,10 @@ material_override = ExtResource("8_fylk6")
 [node name="ComputerAudioPlayer" type="AudioStreamPlayer3D" parent="spaceship/cockpit/monitor" index="6"]
 
 [node name="controls" parent="spaceship/cockpit" index="1"]
-transform = Transform3D(0.990622, -0.13259, -0.0329651, 0.136306, 0.942572, 0.304923, -0.00935789, -0.306557, 0.951806, 0.640625, 0.515625, -1.92188)
+transform = Transform3D(0.990622, -0.13259, -0.0329651, 0.136306, 0.942572, 0.304923, -0.00935789, -0.306557, 0.951806, 0.688043, 0.511933, -1.92573)
 
 [node name="controls_left" parent="spaceship/cockpit" index="2"]
-transform = Transform3D(1, 0, 0, 0, 0.979341, 0.202217, 0, -0.202217, 0.979341, -0.6875, 0.400625, -2.07488)
+transform = Transform3D(0.999487, 0.00125967, -0.0320062, 0.000577046, 0.998356, 0.0573123, 0.0320258, -0.0573013, 0.997843, -0.6875, 0.400625, -2.07488)
 
 [node name="Siren" parent="spaceship/cockpit" index="3" instance=ExtResource("18_e0bdp")]
 unique_name_in_owner = true

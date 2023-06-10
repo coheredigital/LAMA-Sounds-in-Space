@@ -9,16 +9,16 @@ radius = 64.0
 height = 128.0
 
 [sub_resource type="FogMaterial" id="FogMaterial_2rfwg"]
-density = 0.1192
+density = 0.0976
 albedo = Color(0.529412, 0.564706, 0.909804, 1)
 emission = Color(0.417038, 0.428295, 0.759765, 1)
 edge_fade = 0.857421
 
 [sub_resource type="FogMaterial" id="FogMaterial_m0jcv"]
-density = 0.0433
-albedo = Color(0.454902, 0.482353, 0.890196, 1)
+density = 0.1
+albedo = Color(0.141176, 0.192157, 0.403922, 1)
 emission = Color(0.417038, 0.428295, 0.759765, 1)
-edge_fade = 0.857421
+edge_fade = 0.951368
 
 [node name="Environment" type="WorldEnvironment"]
 environment = ExtResource("1_bwcs0")
@@ -27,8 +27,7 @@ sky_color = Color(0.164706, 0.172549, 0.301961, 1)
 ground_color = Color(0.623529, 0.721569, 0.596078, 1)
 fog_color = Color(0.466667, 0.584314, 0.796078, 1)
 horizon_color = Color(0.894118, 0.654902, 0.741176, 1)
-horizon_height = -42.427
-stars_brightness = 0.5
+stars_brightness = 0.3
 
 [node name="Sky" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true
@@ -41,17 +40,15 @@ metadata/_edit_lock_ = true
 
 [node name="Ground" type="Node3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -42.427, 0)
 
 [node name="GroundFog" type="FogVolume" parent="Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.07278, -43.6279)
-size = Vector3(109.351, 11.1269, 69.4568)
+size = Vector3(128, 8, 128)
 shape = 0
 material = SubResource("FogMaterial_2rfwg")
 
 [node name="Atmosphere" type="FogVolume" parent="Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.9278, -25.1359)
-size = Vector3(156.062, 47.7636, 75.441)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 48, 0)
+size = Vector3(128, 48, 128)
 shape = 0
 material = SubResource("FogMaterial_m0jcv")
 

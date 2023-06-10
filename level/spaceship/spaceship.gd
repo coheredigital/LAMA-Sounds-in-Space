@@ -22,12 +22,12 @@ var screen_state: String = "idle":
 		if %Siren:
 			%Siren.active = siren_active
 
-@export_range(0.0,1.0) var steering_motion := 0.0 : 
+@export_range(0.0,1.0,0.1) var steering_motion := 0.0 : 
 	set(value):
 		steering_motion = value
 		set_steering_motion(value)
 
-@export_range(0.0,1.0) var flying_motion := 0.0 : 
+@export_range(0.0,1.0,0.1) var flying_motion := 0.0 : 
 	set(value):
 		flying_motion = value
 		set_flying_motion(value)
@@ -42,7 +42,7 @@ var fuel_level := 1:
 		fuel_level = value
 		set_fuel_level(value)
 
-@onready var animation_tree := %AnimationTree
+@onready var animation_tree : AnimationTree = %AnimationTree
 @onready var seatbelt_indicator := %seatbelt_indicator_left
 @onready var seatbelt_indicator_material : ShaderMaterial = %seatbelt_indicator_left.get_active_material(0)
 
@@ -57,15 +57,14 @@ func _ready():
 
 func set_steering_motion(value: float) -> void:
 	if animation_tree:
-		var tween = create_tween()
-		tween.tween_property(animation_tree, "parameters/steering_speed/scale", value, 1.0).set_trans(Tween.TRANS_SINE)
-		tween.tween_property(animation_tree, "parameters/steering_blend/add_amount", smoothstep(0.0,0.01,value), lerp(3.0,0.1,smoothstep(0.0,0.1,value))).set_trans(Tween.TRANS_SINE)
-		
+		animation_tree.set("parameters/steering_speed/scale", lerp(0.0,1.0,value))
+		animation_tree.set("parameters/steering_blend/add_amount", lerp(0.2,1.0,value))
+
+
 func set_flying_motion(value: float) -> void:
 	if animation_tree:
-		var tween = create_tween()
-		tween.tween_property(animation_tree, "parameters/flying_speed/scale", value, lerp(2.0,1.0,value)).set_trans(Tween.TRANS_SINE)
-		tween.tween_property(animation_tree, "parameters/flying_blend/add_amount", smoothstep(0.0,0.01,value), lerp(2.0,1.0,value) ).set_trans(Tween.TRANS_SINE)
+		animation_tree.set("parameters/flying_speed/scale", lerp(0.0,1.0,value))
+		animation_tree.set("parameters/flying_blend/add_amount", smoothstep(0.2,1.0,value))
 
 
 func set_light_level(value: float) -> void:

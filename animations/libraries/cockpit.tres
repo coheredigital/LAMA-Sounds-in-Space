@@ -1,0 +1,34 @@
+[gd_resource type="AnimationLibrary" load_steps=2 format=3 uid="uid://7xpd5dsxfcqd"]
+
+[sub_resource type="Animation" id="Animation_85mrf"]
+resource_name = "shake"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("spaceship/cockpit/controls:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.261799, -0.0872665, -0.10472), Vector3(-0.256957, -0.0267157, 0.141404), Vector3(-0.287979, 0.0244346, 0.143117), Vector3(-0.328093, -0.0711149, -0.10075)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("spaceship/cockpit/controls_left:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.5, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.158825, 0.0750492, -0.0750492), Vector3(-0.113446, -0.0872665, -0.10472), Vector3(-0.146608, -0.0261799, 0.132645)]
+}
+
+[resource]
+_data = {
+"steering_motion": SubResource("Animation_85mrf")
+}

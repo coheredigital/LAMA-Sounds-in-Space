@@ -70,31 +70,33 @@ set stars_brightness = 4.0
 [next=5]
 => END
 
-~ stars_warp_sequence
-do move_star(1,1.0,4.0)
-do move_star(2,1.0,4.0)
-do move_star(3,1.0,4.0)
-do move_star(4,1.0,4.0)
-do move_star(5,1.0,4.0)
-[next=4]
-=> END
+
 
 
 ~ focus_conversation
+do Character.move_to(1.0)
 do Character.tilt(-0.15) 
 do Character.pivot(0.45)
+do Player.move_to(1.0)
+do Player.tilt(0.0) 
 do Player.pivot(-0.12)
 => END
 
 ~ focus_screen
+do Character.move_to(1.0)
 do Character.tilt(-0.2) 
 do Character.pivot(0.3)
+do Player.move_to(1.0)
+do Player.tilt(-0.1) 
 do Player.pivot(-0.05)
 => END
 
 ~ focus_forward
+do Character.move_to(1.0)
 do Character.tilt(0.0) 
 do Character.pivot(0.2)
+do Player.move_to(1.0)
+do Player.tilt(0.1) 
 do Player.pivot(0.0)
 => END
 
