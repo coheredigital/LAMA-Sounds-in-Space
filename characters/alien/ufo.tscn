@@ -138,7 +138,7 @@ transform = Transform3D(0.986388, 0.115874, 0.116671, -0.116671, 0.993171, 0, -0
 
 [node name="BeamTransform3D" type="RemoteTransform3D" parent="ufo" index="0"]
 unique_name_in_owner = true
-transform = Transform3D(0.78694, -0.0187402, 0.00613989, 0.0188965, 0.787185, -0.00171449, -0.0204513, 0.00624141, 0.234671, 0, -0.7, 0)
+transform = Transform3D(0.749531, -0.0178493, 0.00261541, 0.0179982, 0.749764, -0.00073032, -0.0194791, 0.0059447, 0.0999631, 0, -0.7, 0)
 remote_path = NodePath("../beam")
 update_rotation = false
 
@@ -146,7 +146,7 @@ update_rotation = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.140122, -0.184915, 0.0138138)
 
 [node name="beam" parent="ufo" index="13"]
-transform = Transform3D(-0.781074, -0.0561779, -0.0246167, -0.083727, 0.0134704, 0.233392, -0.0544387, 0.785311, -0.00576433, 2.79397e-09, -0.7, -1.04774e-09)
+transform = Transform3D(-0.743591, 0.0809184, 0.00733341, 0.0412615, -0.122933, 0.0984939, 0.0887149, 0.735418, 0.0156574, 1.86265e-09, -0.7, -7.45058e-09)
 surface_material_override/0 = ExtResource("3_ju5pg")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="ufo" index="14"]

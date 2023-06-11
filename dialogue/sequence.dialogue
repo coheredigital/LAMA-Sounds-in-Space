@@ -17,16 +17,23 @@ System: ...[next]
 # Character
 do Character.move_to(0)
 do Character.pivot(0)
-do Character.tilt(0.25)
+do Character.tilt(0)
 # Player
 do Player.move_to(0)
 do Player.pivot(0)
+do Player.tilt(0)
 # Alien
 do Alien.move_to(0)
 do Alien.pivot(0)
+do Alien.tilt(0)
 # Ufo
 do Ufo.move_to(0)
 do Ufo.pivot(0)
+do Ufo.tilt(0)
+# Lama
+do Lama.move_to(0)
+do Lama.pivot(0)
+do Lama.tilt(0)
 # spaceship
 set steering_motion = 0.0
 set flying_motion = 0.0
@@ -702,7 +709,7 @@ do move_star(2,1.0,12.0)
 do move_star(3,1.0,12.0)
 do move_star(4,1.0,12.0)
 do move_star(5,1.0,12.0)
-[next=8.0]
+[next=16.0]
 #12 Phrases – 6 song, 6 speech randomized (see list of sentences on last page)*
 
 
@@ -716,17 +723,18 @@ Player: .
 - Press Green Button
 [next=1] 
 set level = "landing"
-[next=10]
+[next=14]
 
 
 ~ task2_landed
 do Character.play_audio("task2_found_planet_stardust")
 Sam: We did it - we found Planet Stardust! 
 do Character.play_audio("task2_alien_intro")
+do Alien.move_to(1.0,6.0)
 Sam: I don’t see Lucky, but I do see something else! It looks like there are aliens on Planet Stardust!
 do Character.play_audio("task2_aliens_ask_lucky")
 Sam: They look really friendly, I think they are nice! Let’s ask them if they have seen Lucky or know where Lucky the Llama is. 
-
+do Ufo.move_to(0.9,8.0)
 
 ~ task2_alien_language
 do Character.play_audio("task2_alien_language")
@@ -738,6 +746,7 @@ set screen = "computer"
 # 10 stimuli – 5 pure tones, 5 intervals?*
 ~ task2_success
 do Character.play_audio("task2_success")
+do Ufo.move_to(0.0,4.0)
 Sam: You did a great job! The aliens said Lucky the Llama is over there – look, they’re bringing Lucky to us! Now the only thing left to do is take Lucky back to the Space Station.
 
 

@@ -660,10 +660,10 @@ progress_ratio = 0.9
 follow_speed = 8.0
 
 [node name="RemoteTransform" parent="ViewportContainer/Viewport/Level/FollowPaths/UfoPath" index="0"]
-transform = Transform3D(-0.811214, 0.0075197, -0.584701, -3.32948e-08, 0.999916, 0.0128598, 0.58475, 0.010432, -0.811147, -3.04853, 4.54504, -9.01989)
+transform = Transform3D(-0.811222, 0.0076244, -0.584691, 4.65662e-10, 0.999914, 0.013039, 0.584741, 0.0105775, -0.811152, -3.04903, 4.54543, -9.02061)
 
 [node name="PathFollow" parent="ViewportContainer/Viewport/Level/FollowPaths/UfoPath" index="1"]
-transform = Transform3D(0.727797, 0.358085, 0.584633, -0.433108, 0.901073, -0.0127597, -0.531451, -0.243952, 0.811025, -3.04383, 4.54475, -9.01331)
+transform = Transform3D(0.727803, 0.358085, 0.584636, -0.433111, 0.901071, -0.0127597, -0.531455, -0.243951, 0.81103, -3.04383, 4.54475, -9.01331)
 progress = 40.7191
 
 [node name="LookTargetTilt" parent="ViewportContainer/Viewport/Level/FollowPaths/UfoPath/PathFollow/LookTargetPivot" index="0"]
@@ -691,7 +691,7 @@ transform = Transform3D(0.987688, 0, 0.156434, 0, 1, 0, -0.156434, 0, 0.987688, 
 transform = Transform3D(1, 0, 0, 0, 0.999391, -0.0348995, 0, 0.0348995, 0.999391, 0, 0, 0)
 
 [node name="Ufo" parent="ViewportContainer/Viewport/Level/Ground/PlanetStardust" index="0"]
-transform = Transform3D(-0.811214, 0.0075197, -0.584701, -3.32948e-08, 0.999916, 0.0128598, 0.58475, 0.010432, -0.811147, -3.04853, 4.54504, -9.01989)
+transform = Transform3D(-0.811222, 0.0076244, -0.584691, 4.65662e-10, 0.999914, 0.013039, 0.584741, 0.0105775, -0.811152, -3.04903, 4.54543, -9.02061)
 beam_speed = 4.0
 
 [node name="AnimationTree" parent="ViewportContainer/Viewport/Level/Ground/PlanetStardust/Ufo" index="0"]
@@ -703,7 +703,7 @@ libraries = {
 }
 
 [node name="BeamLookTarget" parent="ViewportContainer/Viewport/Level/Ground/PlanetStardust/Ufo" index="2"]
-transform = Transform3D(0.828296, 0.0321521, 0.559671, 0.00668804, 0.997916, -0.0672233, -0.560553, 0.0594155, 0.826189, 1.14332, -3.02136, -4.7772)
+transform = Transform3D(0.828289, 0.0321526, 0.559679, 0.0067886, 0.997906, -0.0673713, -0.560561, 0.059594, 0.826171, 1.14328, -3.02089, -4.77864)
 
 [node name="ufo" parent="ViewportContainer/Viewport/Level/Ground/PlanetStardust/Ufo" index="4"]
 transform = Transform3D(0.986388, 0.115874, 0.116671, -0.116671, 0.99317, 0, -0.115874, -0.013612, 0.99317, 0, 0, 0)
@@ -756,7 +756,7 @@ transform = Transform3D(-0.707107, 0.241845, 0.664463, -2.77556e-16, 0.939693, -
 mesh = SubResource("ArrayMesh_7xsg4")
 
 [node name="beam" parent="ViewportContainer/Viewport/Level/Ground/PlanetStardust/Ufo/ufo" index="13"]
-transform = Transform3D(0.507342, 0.550847, -0.00545048, -0.511017, 0.489149, 0.0332249, 0.20968, -0.140711, 0.0941616, 2.38419e-07, -0.7, 0)
+transform = Transform3D(0.478582, 0.528644, -0.0309823, -0.427274, 0.527194, 0.042584, 0.388455, -0.0714199, 0.08501, -2.38419e-07, -0.7, 0)
 mesh = SubResource("ArrayMesh_x8uja")
 
 [node name="Alien" parent="ViewportContainer/Viewport/Level/Ground/PlanetStardust" index="1"]
