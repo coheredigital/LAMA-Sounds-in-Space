@@ -30,6 +30,7 @@ do Alien.tilt(0)
 do Ufo.move_to(0)
 do Ufo.pivot(0)
 do Ufo.tilt(0)
+do Ufo.deactivate_beam()
 # Lama
 do Lama.move_to(0)
 do Lama.pivot(0)
@@ -748,7 +749,12 @@ set screen = "computer"
 do Character.play_audio("task2_success")
 do Ufo.move_to(0.0,4.0)
 Sam: You did a great job! The aliens said Lucky the Llama is over there – look, they’re bringing Lucky to us! Now the only thing left to do is take Lucky back to the Space Station.
-
+do Ufo.activate_beam()
+do Ufo.move_to(1.0,6.0)
+do Lama.move_to(1.0,6.0)
+[next=6]
+do Ufo.deactivate_beam()
+do Ufo.move_to(0.9,2.0)
 
 # blast off and fade to intro (station)
 ~ mission_success

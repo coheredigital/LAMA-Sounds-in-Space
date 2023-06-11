@@ -10,14 +10,8 @@ extends Node3D
 @export var beam_active := false:
 	set(value):
 		beam_active = value
-		var beam_length = 1.0 if value else 0.0
-		if %BeamTransform3D:
-			var scale_tween = create_tween()
-			var alpha_tween = create_tween()
-			if scale_tween and alpha_tween:
-				scale_tween.tween_property(%BeamTransform3D, "scale", Vector3(lerp(0.75,1.0, beam_length),lerp(0.75,1.0, beam_length),lerp(0.1,1.0, beam_length)), 1.0).set_trans(Tween.TRANS_SINE)
-				alpha_tween.tween_property(beam_material,"shader_parameter/alpha_amount",lerp(0.0,0.2,smoothstep(0.5,1.0,beam_length)), 1.0).set_trans(Tween.TRANS_SINE)
-
+		toggle_beam(value)
+		
 @export_range(0.0,1.0,0.1) var engine_sound := 0.0:
 	set(value):
 		engine_sound = value
@@ -28,6 +22,10 @@ extends Node3D
 		
 @onready var last_position =  self.global_transform.origin
 var current_speed = 0.0
+
+func _ready():
+#	Sequencer.character_action_changed.connect(update_action)
+	Ufo.beam_activated.connect(toggle_beam)
 
 func _process(delta):
 	
@@ -46,6 +44,15 @@ func _process(delta):
 		look_transform = look_transform.looking_at(beam_look_target.global_transform.origin, Vector3( 0,0,1))
 		beam.global_transform = beam.global_transform.interpolate_with(look_transform, delta * beam_speed)
 		
+
+func toggle_beam(state : bool) -> void:
+	var beam_length = 1.0 if state else 0.0
+	if %BeamTransform3D:
+		var scale_tween = create_tween()
+		var alpha_tween = create_tween()
+		if scale_tween and alpha_tween:
+			scale_tween.tween_property(%BeamTransform3D, "scale", Vector3(lerp(0.75,1.0, beam_length),lerp(0.75,1.0, beam_length),lerp(0.1,1.0, beam_length)), 1.0).set_trans(Tween.TRANS_SINE)
+			alpha_tween.tween_property(beam_material,"shader_parameter/alpha_amount",lerp(0.0,0.2,smoothstep(0.5,1.0,beam_length)), 1.0).set_trans(Tween.TRANS_SINE)
 
 
 func _on_visible_on_screen_notifier_3d_screen_entered():

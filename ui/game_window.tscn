@@ -756,7 +756,7 @@ transform = Transform3D(-0.707107, 0.241845, 0.664463, -2.77556e-16, 0.939693, -
 mesh = SubResource("ArrayMesh_7xsg4")
 
 [node name="beam" parent="ViewportContainer/Viewport/Level/Ground/PlanetStardust/Ufo/ufo" index="13"]
-transform = Transform3D(0.478582, 0.528644, -0.0309823, -0.427274, 0.527194, 0.042584, 0.388455, -0.0714199, 0.08501, -2.38419e-07, -0.7, 0)
+transform = Transform3D(0.500274, 0.5574, -0.00521772, -0.518071, 0.482372, 0.033044, 0.209356, -0.138278, 0.0942384, 2.38419e-07, -0.7, 0)
 mesh = SubResource("ArrayMesh_x8uja")
 
 [node name="Alien" parent="ViewportContainer/Viewport/Level/Ground/PlanetStardust" index="1"]
