@@ -33,6 +33,7 @@ Alien="*res://characters/alien/alien_sequencer.gd"
 Ufo="*res://characters/alien/ufo_sequencer.gd"
 Stimuli="*res://audio/stimuli_player.tscn"
 EventLogger="*res://components/event_logger.gd"
+Lama="*res://characters/lama/lama_sequencer.gd"
 
 [dialogue_manager]
 

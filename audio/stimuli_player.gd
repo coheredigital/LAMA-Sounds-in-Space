@@ -10,9 +10,6 @@ extends Node
 			player.volume_db = lerp(-16.0,0.0,value)
 
 
-var events
-
-
 func play(sentence_id: String) -> void:
 #	get the file or cancel operation
 	var filename = "%s/%s.wav" % [folder,sentence_id];

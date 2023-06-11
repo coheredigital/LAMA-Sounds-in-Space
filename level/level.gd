@@ -16,6 +16,7 @@ func _ready():
 #	Global Sequencer
 	Sequencer.level_changed.connect(update_state)
 	
+#	TODO: Simplify pattern
 #	Player
 	Player.position_changed.connect(update_player_position)
 	Player.pivot_changed.connect(update_player_pivot)
@@ -31,6 +32,11 @@ func _ready():
 	Alien.pivot_changed.connect(update_alien_pivot)
 	Alien.tilt_changed.connect(update_alien_tilt)
 	
+#	Lama
+	Lama.position_changed.connect(update_lama_postion)
+	Lama.pivot_changed.connect(update_lama_pivot)
+	Lama.tilt_changed.connect(update_lama_tilt)
+
 #	UFO
 	Ufo.position_changed.connect(update_ufo_postion)
 	Ufo.pivot_changed.connect(update_ufo_pivot)
@@ -88,7 +94,17 @@ func update_alien_pivot(pivot: float, duration: float = 1.0) -> void:
 
 func update_alien_tilt(tilt: float, duration: float = 1.0) -> void: 
 	update_path_tilt(alien_path,tilt,duration)
-	
+
+
+#	Lama
+func update_lama_postion(position: float, duration: float = 1.0) -> void: 
+	update_path_position(lama_path,position,duration)
+
+func update_lama_pivot(pivot: float, duration: float = 1.0) -> void: 
+	update_path_pivot(lama_path,pivot,duration)
+
+func update_lama_tilt(tilt: float, duration: float = 1.0) -> void: 
+	update_path_tilt(lama_path,tilt,duration)
 
 #	UFO
 func update_ufo_postion(position: float, duration: float = 1.0) -> void: 

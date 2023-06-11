@@ -15,6 +15,8 @@ extends Node3D
 func _process(delta):
 
 	if beam:
-		var look_transform = beam.global_transform.looking_at(beam_transform_target.global_transform.origin, Vector3( 0,0,1))
+		var look_transform : Transform3D = beam.global_transform
+		look_transform = look_transform.looking_at(beam_transform_target.global_transform.origin, Vector3( 0,0,1))
+#		look_transform = look_transform.scaled(Vector3(1.0,beam_length,1.0))
 		beam.global_transform = beam.global_transform.interpolate_with(look_transform, delta * turn_speed)
 	

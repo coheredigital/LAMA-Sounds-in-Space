@@ -14,13 +14,19 @@ System: ...[next]
 # it seems the below reset will only run properly
 # if at least one line of dialogue has been shown
 System: ...[next]
-# character
+# Character
 do Character.move_to(0)
 do Character.pivot(0)
 do Character.tilt(0.25)
-# player
+# Player
 do Player.move_to(0)
 do Player.pivot(0)
+# Alien
+do Alien.move_to(0)
+do Alien.pivot(0)
+# Ufo
+do Ufo.move_to(0)
+do Ufo.pivot(0)
 # spaceship
 set steering_motion = 0.0
 set flying_motion = 0.0
@@ -49,6 +55,8 @@ System: .
 	=> blast_off
 - Skip to Warp
 	=> task2_warp
+- Skip to Planet Stardust
+	=> task2_arrived
 [next=2]
 
 
