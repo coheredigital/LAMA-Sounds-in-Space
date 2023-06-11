@@ -40,7 +40,7 @@ System: ...[next]
 
 
 ~ ready
-# User must "say" something for the prompt to be connected to them (allowd input from player)
+# User must "say" something for the prompt to be connected to them (allowed input from player)
 System: .
 - Start
 - Skip to Spaceship enter
@@ -64,7 +64,7 @@ do Character.move_to(0.15,2.5)
 do Character.pivot(0.55,2.5)
 [next=2]
 do Character.play_audio("intro_lucky")
-Sam: First, I want you to meet our very own space llama named Lucky. She’s usually around here somewhere... Let’s look up her location on our astronaut map.
+Sam: First, I want you to meet our very own space llama named Lucky. She’s usually around here somewhere... Let’s look her location up on our astronaut map.
 
 ~ intro_map
 do Character.move_to(0.27,3)
@@ -132,7 +132,7 @@ Sam: Welcome aboard!
 do Character.play_audio("task0_intro")
 Sam: To become a Junior Astronaut, you will need to listen closely so we can make it to Planet Stardust, find Lucky the Llama, and bring Lucky back to the Space Station.
 do Character.pivot(0.5)
-do Character.play_audio("task0_job")
+do Character.play_audio("task0_first_job")
 Sam: Our first job is to make sure we have everything we need before we fly.
 
 
@@ -144,7 +144,7 @@ do Character.pivot(0.6)
 [next=0.5]
 set screen = "computer"
 do Character.play_audio("task0_computer_info")
-Sam: This is our handy dandy computer! The computer will help us travel to Planet Stardust. This computer is voice-activated, which means that we have to say the commands out loud with our voices so the computer can help us activate the spaceship! First, the computer will say the right words for a command and then your job is to repeat the words out loud with your voice.  
+Sam: This is our handy dandy computer! The computer will help us travel to Planet Stardust. This is a super computer – which means it’s the only computer that contains a list of special phrases that we need to complete the mission! First, the computer will say the special phrases and then your job is to repeat the words out loud with your voice.  
 
 
 ~ computer_greeting  
@@ -152,9 +152,10 @@ do Character.play_audio("task0_computer_sounds_like")
 Sam: This is what the computer sounds like. 
 [next=1]
 Computer: Nice to meet you
-[next=0.5]
+do Character.play_audio("computer_nice_to_meet_you")
+[next=2]
 do Character.play_audio("task0_computer_instructions")
-Sam: Ok, now I’ll have the computer say a command and your job is to repeat what the computer just said with your voice. Make sure you say it loud and clear, so the computer can hear you! After you repeat after the computer, I’ll press the red button to send your voice to the spaceship.
+Sam: Ok, now I’ll have the computer say a special phrase and your job is to repeat what the computer just said with your voice when the light turns green. Make sure you say it loud and clear, so the computer can hear you! After you repeat after the computer, I’ll press the red button to send your voice to the spaceship.
 
 
 ~ activate_spaceship
@@ -163,17 +164,16 @@ Sam: Ok here we go!
 
 
 ~ activate_spaceship_command
-set screen = "computer"
-do Stimuli.play("practice/1_activate")
-Computer: Activate spaceship!
-
-
-~ activate_spaceship_recording
 System: ...
 - Begin Recording
 	do Recorder.start()
-	set screen = "recording"
-	[next=2]
+	set screen = "computer"
+do Stimuli.play("practice/1_activate")
+Computer: Activate spaceship!
+[next=2]
+
+~ activate_spaceship_recording
+set screen = "recording"
 
 
 ~ activate_spaceship_result
@@ -182,14 +182,15 @@ System: ...
 	set screen = "success"
 	do Recorder.stop()
 	do Recorder.save("speech", "PRAC_activate_spaceship")
-	do Character.play_audio("great_job_ready_blast_off")
+	do Character.play_audio("great_job_heard_you")
 	Sam: Great job! Looks like it heard you! We’re ready to start preparing the ship for blast off.
 - Quiet
 	set screen = "failure"
 	do Recorder.stop()
 	Sam: Uh oh! It looks like the spaceship couldn't quite hear what you said. Let's try again a bit louder.
+	# TODO: Recording not yet made.
+	# do Character.play_audio("uh_oh")
 	=> activate_spaceship_command
-
 
 
 ~ spaceship_activated
@@ -215,17 +216,17 @@ Sam: OK. First, we need to buckle up! Listen to the command from the computer an
 
 
 ~ buckle_up_command
+System: ...
+- Begin Recording
+do Recorder.start()
 set screen = "computer"
 do Stimuli.play("practice/2_seatbelts")
 Computer: Seat belts buckled!
-
+[next=2]
 
 ~ buckle_up_recording
-System: ...
-- Begin Recording
 set screen = "recording"
-do Recorder.start()
-[next=2]
+
 
 
 ~ buckle_up_result
