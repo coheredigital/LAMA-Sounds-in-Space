@@ -35,7 +35,6 @@ animation = &"cockpit/steering_motion"
 [sub_resource type="AnimationNodeTimeScale" id="4"]
 
 [sub_resource type="AnimationNodeBlendTree" id="5"]
-graph_offset = Vector2(-63.2728, 154.909)
 nodes/blend_screen/node = SubResource("AnimationNodeAdd2_h7dn0")
 nodes/blend_screen/position = Vector2(780, 200)
 nodes/door_state/node = ExtResource("10_csjlb")
@@ -277,16 +276,14 @@ shader_parameter/waveform_controlled = false
 shader_parameter/screen_count = 16.0
 shader_parameter/frame_count = 8.0
 shader_parameter/screen_number = 12.0
-shader_parameter/frame_number = 1.0
+shader_parameter/frame_number = 2.09749
 shader_parameter/emission_texture = ExtResource("10_s46ft")
 shader_parameter/waveform = SubResource("3858")
 
 [node name="Spaceship" instance=ExtResource("1_m17hk")]
-transform = Transform3D(0.999994, -0.00150148, -0.00324661, 0.00149777, 0.999998, -0.00114569, 0.00324832, 0.00114082, 0.999994, 0, 0, 0)
+transform = Transform3D(1, 0.00116351, 0.000228913, -0.00116315, 0.999998, -0.00159366, -0.000230767, 0.00159339, 0.999999, 0, 0, 0)
 script = ExtResource("2_tplkk")
 seatbelts_buckled = true
-steering_motion = 0.321
-flying_motion = 0.535
 
 [node name="Computer" parent="." index="0" instance=ExtResource("3_gtlrx")]
 transform = Transform3D(-1, 0, 8.74228e-08, -8.88178e-16, 1, 0, -8.74228e-08, 0, -1, 0, 0.663, 2.5)
@@ -295,14 +292,13 @@ transform = Transform3D(-1, 0, 8.74228e-08, -8.88178e-16, 1, 0, -8.74228e-08, 0,
 unique_name_in_owner = true
 tree_root = SubResource("5")
 anim_player = NodePath("AnimationPlayer")
-active = true
 parameters/blend_screen/add_amount = 1.0
 parameters/door_state/playback = SubResource("AnimationNodeStateMachinePlayback_ue7bb")
-parameters/flying_blend/add_amount = 0.379198
-parameters/flying_speed/scale = 0.535
+parameters/flying_blend/add_amount = 0.0
+parameters/flying_speed/scale = 0.0
 parameters/screen_state/playback = SubResource("AnimationNodeStateMachinePlayback_3gtjc")
-parameters/steering_blend/add_amount = 0.4568
-parameters/steering_speed/scale = 0.321
+parameters/steering_blend/add_amount = 0.2
+parameters/steering_speed/scale = 0.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimationTree" index="0"]
 root_node = NodePath("../..")
@@ -327,21 +323,21 @@ mesh = SubResource("ArrayMesh_dya27")
 surface_material_override/0 = SubResource("ShaderMaterial_1cv8v")
 
 [node name="seatbelt_indicator_right" parent="spaceship/cockpit/monitor" index="2"]
-transform = Transform3D(1, 0, 0, 0, 0.99954, 0.0303379, 0, -0.0303379, 0.99954, 0.759238, 0.00119805, 0.0104222)
+transform = Transform3D(1, -2.41016e-11, -1.45519e-11, -1.79199e-10, 0.99954, 0.0303379, 0, -0.0303379, 0.99954, 0.778238, 0.00122023, 0.0104265)
 material_override = ExtResource("11_qd2cb")
 
 [node name="seatbelt_indicator_left" parent="spaceship/cockpit/monitor" index="3"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 0.99954, 0.0303379, 0, -0.0303379, 0.99954, -0.807327, 0.00119805, 0.0104222)
+transform = Transform3D(1, -2.41016e-11, -1.45519e-11, -1.79199e-10, 0.99954, 0.0303379, 0, -0.0303379, 0.99954, -0.838327, 0.00116181, 0.0104151)
 material_override = ExtResource("11_qd2cb")
 
 [node name="fuel_gauge_right" parent="spaceship/cockpit/monitor" index="4"]
-transform = Transform3D(1, 0, 0, 0, 0.997877, 0.065117, 0, -0.065117, 0.997877, 0.510031, 0.0323374, 0.0270102)
+transform = Transform3D(0.999954, -0.00873211, -0.00404086, 0.00887536, 0.999279, 0.036903, 0.00371571, -0.0369371, 0.99931, 0.538569, 0.0345298, 0.0285413)
 material_override = ExtResource("8_fylk6")
 cast_shadow = 0
 
 [node name="fuel_gauge_left" parent="spaceship/cockpit/monitor" index="5"]
-transform = Transform3D(1, 0, 0, 0, 0.997877, 0.065117, 0, -0.065117, 0.997877, -0.539221, 0.0323374, 0.0270102)
+transform = Transform3D(1, -4.91127e-11, 4.36557e-11, -1.79199e-10, 0.997877, 0.065117, 0, -0.065117, 0.997877, -0.569221, 0.0323025, 0.0270038)
 material_override = ExtResource("8_fylk6")
 
 [node name="ComputerAudioPlayer" type="AudioStreamPlayer3D" parent="spaceship/cockpit/monitor" index="6"]
@@ -350,7 +346,7 @@ material_override = ExtResource("8_fylk6")
 transform = Transform3D(0.990622, -0.13259, -0.0329651, 0.136306, 0.942572, 0.304923, -0.00935789, -0.306557, 0.951806, 0.688043, 0.511933, -1.92573)
 
 [node name="controls_left" parent="spaceship/cockpit" index="2"]
-transform = Transform3D(0.999487, 0.00125967, -0.0320062, 0.000577046, 0.998356, 0.0573123, 0.0320258, -0.0573013, 0.997843, -0.6875, 0.400625, -2.07488)
+transform = Transform3D(0.998716, 0.0299828, 0.0408441, -0.0329627, 0.996687, 0.0743519, -0.0384795, -0.0756027, 0.996395, -0.6875, 0.400625, -2.07488)
 
 [node name="Siren" parent="spaceship/cockpit" index="3" instance=ExtResource("18_e0bdp")]
 unique_name_in_owner = true
