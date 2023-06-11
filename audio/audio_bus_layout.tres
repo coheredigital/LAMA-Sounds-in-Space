@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=7 format=3 uid="uid://4s3yiw422jjv"]
+[gd_resource type="AudioBusLayout" load_steps=8 format=3 uid="uid://4s3yiw422jjv"]
 
 [sub_resource type="AudioEffectSpectrumAnalyzer" id="3"]
 resource_name = "SpectrumAnalyzer"
@@ -24,14 +24,14 @@ voice/4/level_db = 0.0
 voice/4/cutoff_hz = 16000.0
 voice/4/pan = 0.0
 
-[sub_resource type="AudioEffectStereoEnhance" id="AudioEffectStereoEnhance_h3bxr"]
-resource_name = "StereoEnhance"
-pan_pullout = 1.65
-time_pullout_ms = 7.49
-surround = 0.23
-
 [sub_resource type="AudioEffectStereoEnhance" id="AudioEffectStereoEnhance_4hjmi"]
 resource_name = "StereoEnhance"
+
+[sub_resource type="AudioEffectChorus" id="AudioEffectChorus_mjb4r"]
+resource_name = "Chorus"
+
+[sub_resource type="AudioEffectDelay" id="AudioEffectDelay_0n6g7"]
+resource_name = "Delay"
 
 [sub_resource type="AudioEffectSpectrumAnalyzer" id="AudioEffectSpectrumAnalyzer_2cop6"]
 resource_name = "SpectrumAnalyzer"
@@ -67,8 +67,6 @@ bus/4/volume_db = 0.0
 bus/4/send = &"Master"
 bus/4/effect/0/effect = SubResource("AudioEffectChorus_p0cu1")
 bus/4/effect/0/enabled = true
-bus/4/effect/1/effect = SubResource("AudioEffectStereoEnhance_h3bxr")
-bus/4/effect/1/enabled = true
 bus/5/name = &"Effects"
 bus/5/solo = false
 bus/5/mute = false
@@ -77,6 +75,10 @@ bus/5/volume_db = 1.45601
 bus/5/send = &"Master"
 bus/5/effect/0/effect = SubResource("AudioEffectStereoEnhance_4hjmi")
 bus/5/effect/0/enabled = true
+bus/5/effect/1/effect = SubResource("AudioEffectChorus_mjb4r")
+bus/5/effect/1/enabled = true
+bus/5/effect/2/effect = SubResource("AudioEffectDelay_0n6g7")
+bus/5/effect/2/enabled = true
 bus/6/name = &"Stimuli"
 bus/6/solo = false
 bus/6/mute = false

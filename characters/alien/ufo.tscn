@@ -107,7 +107,7 @@ _data = {
 
 [node name="Ufo" instance=ExtResource("1_1cqd3")]
 script = ExtResource("2_dq5n3")
-beam_length = 1.0
+beam_speed = 4.4
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="0"]
 tree_root = SubResource("AnimationNodeBlendTree_m1lfx")
@@ -120,30 +120,43 @@ libraries = {
 "": SubResource("AnimationLibrary_6s5j1")
 }
 
-[node name="BeamTransformTarget" type="Marker3D" parent="." index="2"]
+[node name="BeamLookTarget" type="Marker3D" parent="." index="2"]
 unique_name_in_owner = true
-transform = Transform3D(0.0159506, 0, -0.0322735, 0, 0.036, 0, 0.0322735, 0, 0.0159506, 0, -4.4208, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, -4.421, 0)
 
-[node name="ufo" parent="." index="3"]
-transform = Transform3D(0.986388, 0.115874, 0.116671, -0.116671, 0.993171, 0, -0.115874, -0.013612, 0.99317, 0, 0, 0)
-
-[node name="EngineSounds" type="AudioStreamPlayer3D" parent="ufo" index="0"]
-transform = Transform3D(1, -7.91624e-09, 0, 8.3819e-09, 1, -7.45058e-09, 0, -7.45058e-09, 1, 0, 0, 0)
+[node name="EngineSounds" type="AudioStreamPlayer3D" parent="." index="3"]
+unique_name_in_owner = true
+transform = Transform3D(0.995161, 0.0293271, -0.0937805, -0.0249109, 0.998541, 0.0479204, 0.095049, -0.0453523, 0.994439, -0.191075, 0.208019, 0.0818393)
 stream = ExtResource("3_yv0qb")
-volume_db = -17.079
+volume_db = -45.0
 unit_size = 16.74
 max_db = -13.18
-pitch_scale = 0.98
-autoplay = true
+pitch_scale = 0.8
+
+[node name="ufo" parent="." index="4"]
+transform = Transform3D(0.986388, 0.115874, 0.116671, -0.116671, 0.993171, 0, -0.115874, -0.013612, 0.99317, 0, 0, 0)
+
+[node name="BeamTransform3D" type="RemoteTransform3D" parent="ufo" index="0"]
+unique_name_in_owner = true
+transform = Transform3D(0.78694, -0.0187402, 0.00613989, 0.0188965, 0.787185, -0.00171449, -0.0204513, 0.00624141, 0.234671, 0, -0.7, 0)
+remote_path = NodePath("../beam")
+update_rotation = false
 
 [node name="Alien" parent="ufo" index="1" instance=ExtResource("2_dwwl8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.140122, -0.184915, 0.0138138)
 
-[node name="beam" parent="ufo" index="5"]
-transform = Transform3D(-0.986861, 0.112458, 0.116043, 0.0958048, -0.171118, 0.980585, 0.130131, 0.978816, 0.158095, -1.08778e-06, -0.800413, 6.32554e-06)
+[node name="beam" parent="ufo" index="13"]
+transform = Transform3D(-0.781074, -0.0561779, -0.0246167, -0.083727, 0.0134704, 0.233392, -0.0544387, 0.785311, -0.00576433, 2.79397e-09, -0.7, -1.04774e-09)
 surface_material_override/0 = ExtResource("3_ju5pg")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="ufo" index="14"]
 transform = Transform3D(0.996755, -0.0776546, -0.0212205, 0.0773998, 0.996921, -0.0125754, 0.0221317, 0.0108922, 0.999696, -0.130048, 1.39157, -0.216589)
 light_energy = 0.102
 omni_range = 1.6
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+aabb = AABB(-1.4, -0.8, -1.4, 2.8, 1.6, 2.8)
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered" flags=18]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited" flags=18]

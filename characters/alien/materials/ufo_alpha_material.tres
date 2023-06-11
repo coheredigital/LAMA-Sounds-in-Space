@@ -10,6 +10,7 @@ shader_parameter/albedo = Color(1, 1, 1, 1)
 shader_parameter/specular = 0.4
 shader_parameter/specular_amount = 1.0
 shader_parameter/specular_smoothness = 0.538
+shader_parameter/alpha_amount = 1.0
 shader_parameter/rim = 0.708
 shader_parameter/rim_amount = 0.737
 shader_parameter/rim_smoothness = 1.0
