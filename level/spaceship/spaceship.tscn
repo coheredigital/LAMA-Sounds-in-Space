@@ -276,12 +276,12 @@ shader_parameter/waveform_controlled = false
 shader_parameter/screen_count = 16.0
 shader_parameter/frame_count = 8.0
 shader_parameter/screen_number = 12.0
-shader_parameter/frame_number = 2.09749
+shader_parameter/frame_number = 7.63034
 shader_parameter/emission_texture = ExtResource("10_s46ft")
 shader_parameter/waveform = SubResource("3858")
 
 [node name="Spaceship" instance=ExtResource("1_m17hk")]
-transform = Transform3D(1, 0.00116351, 0.000228913, -0.00116315, 0.999998, -0.00159366, -0.000230767, 0.00159339, 0.999999, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("2_tplkk")
 seatbelts_buckled = true
 
@@ -292,6 +292,7 @@ transform = Transform3D(-1, 0, 8.74228e-08, -8.88178e-16, 1, 0, -8.74228e-08, 0,
 unique_name_in_owner = true
 tree_root = SubResource("5")
 anim_player = NodePath("AnimationPlayer")
+active = true
 parameters/blend_screen/add_amount = 1.0
 parameters/door_state/playback = SubResource("AnimationNodeStateMachinePlayback_ue7bb")
 parameters/flying_blend/add_amount = 0.0
@@ -346,7 +347,7 @@ material_override = ExtResource("8_fylk6")
 transform = Transform3D(0.990622, -0.13259, -0.0329651, 0.136306, 0.942572, 0.304923, -0.00935789, -0.306557, 0.951806, 0.688043, 0.511933, -1.92573)
 
 [node name="controls_left" parent="spaceship/cockpit" index="2"]
-transform = Transform3D(0.998716, 0.0299828, 0.0408441, -0.0329627, 0.996687, 0.0743519, -0.0384795, -0.0756027, 0.996395, -0.6875, 0.400625, -2.07488)
+transform = Transform3D(0.999689, 0.0131664, 0.0211798, -0.0138713, 0.999343, 0.0334875, -0.020725, -0.0337708, 0.999214, -0.6875, 0.400625, -2.07488)
 
 [node name="Siren" parent="spaceship/cockpit" index="3" instance=ExtResource("18_e0bdp")]
 unique_name_in_owner = true

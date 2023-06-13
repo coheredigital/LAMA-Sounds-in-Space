@@ -57,13 +57,18 @@ System: ...[next]
 # User must "say" something for the prompt to be connected to them (allowed input from player)
 System: .
 - Start
+	do toggle_overlay(false)
 - Skip to Spaceship enter
+	do toggle_overlay(false)
 	=> spaceship_enter
 - Skip to Blastoff
+	do toggle_overlay(false)
 	=> blast_off
 - Skip to Warp
+	do toggle_overlay(false)
 	=> task2_warp
 - Skip to Planet Stardust
+	do toggle_overlay(false)
 	=> task2_arrived
 [next=2]
 
