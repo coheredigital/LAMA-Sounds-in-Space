@@ -4,7 +4,6 @@
 
 [node name="RemoteFollowPath" type="Path3D"]
 script = ExtResource("1_11yyf")
-follow_speed = 2.0
 
 [node name="RemoteTransform" type="RemoteTransform3D" parent="."]
 unique_name_in_owner = true
