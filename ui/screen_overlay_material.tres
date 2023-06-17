@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://b8kagw7q0pfl0"]
+
+[ext_resource type="Shader" path="res://shaders/screen_overlay.gdshader" id="1_ednnv"]
+
+[resource]
+shader = ExtResource("1_ednnv")
+shader_parameter/blur_amount = 3.6
+shader_parameter/mix_amount = 0.7
+shader_parameter/color_over = Color(0.121569, 0.0980392, 0.337255, 1)

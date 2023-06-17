@@ -36,6 +36,7 @@ func _ready():
 	Lama.position_changed.connect(update_lama_postion)
 	Lama.pivot_changed.connect(update_lama_pivot)
 	Lama.tilt_changed.connect(update_lama_tilt)
+	Lama.rescued_state_changed.connect(update_lama_visibility)
 
 #	UFO
 	Ufo.position_changed.connect(update_ufo_postion)
@@ -105,7 +106,16 @@ func update_lama_pivot(pivot: float, duration: float = 1.0) -> void:
 
 func update_lama_tilt(tilt: float, duration: float = 1.0) -> void: 
 	update_path_tilt(lama_path,tilt,duration)
+	
+func update_lama_visibility(state: bool) -> void: 
+	if state:
+		%LamaRescued.visible = true
+		%LamaLost.visible = false
+	else:
+		%LamaRescued.visible = false
+		%LamaLost.visible = true
 
+	
 #	UFO
 func update_ufo_postion(position: float, duration: float = 1.0) -> void: 
 	update_path_position(ufo_path,position,duration)
