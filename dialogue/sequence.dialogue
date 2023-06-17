@@ -14,6 +14,7 @@ System: ...[next]
 # it seems the below reset will only run properly
 # if at least one line of dialogue has been shown
 System: ...[next]
+do overlay_state("logo")
 # Character
 do Character.move_to(0)
 do Character.pivot(0)

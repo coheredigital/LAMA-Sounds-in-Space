@@ -17,7 +17,7 @@ signal seatbelts_buckled_changed(value: bool)
 signal screen_changed(value: String)
 signal fuel_level_changed(value: int)
 
-signal overlay_state_changed(state:bool)
+signal overlay_state_changed(state:String)
 
 var level: String = "intro":
 	set(value):
@@ -77,7 +77,7 @@ var screen: String = "idle":
 		screen = value
 		screen_changed.emit(value)
 
-func overlay_state(state : bool) -> void:
+func overlay_state(state : String) -> void:
 	overlay_state_changed.emit(state)
 
 func move_character(progress: float, duration: float = 1.0) -> void:

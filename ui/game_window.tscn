@@ -743,14 +743,14 @@ transform = Transform3D(-0.707107, 0.241845, 0.664463, -2.77556e-16, 0.939693, -
 mesh = SubResource("ArrayMesh_7xsg4")
 
 [node name="beam" parent="ViewportContainer/Viewport/Level/Ground/PlanetStardust/Ufo/ufo" index="13"]
-transform = Transform3D(0.450689, 0.598182, -0.00526097, -0.55855, 0.436932, 0.0325542, 0.217721, -0.117333, 0.0944061, 0, -0.7, 0)
+transform = Transform3D(0.484383, 0.541532, -0.0248073, -0.440382, 0.508074, 0.0443067, 0.365976, -0.105367, 0.0861479, 0, -0.7, 0)
 mesh = SubResource("ArrayMesh_x8uja")
 
 [node name="Alien" parent="ViewportContainer/Viewport/Level/Ground/PlanetStardust" index="2"]
 transform = Transform3D(-0.865304, 8.85822e-06, 0.501009, -1.3641e-12, 0.999701, -1.76802e-05, -0.50104, -1.52983e-05, -0.865251, 1.29464, 1.24421, -4.86969)
 
 [node name="Planet" parent="ViewportContainer/Viewport/Level" index="6"]
-transform = Transform3D(-0.249969, 6.98492e-09, -0.00392246, 0.0027736, 0.176777, -0.176755, 0.00277359, -0.176777, -0.176755, 3.72275, 28.7924, -54.9282)
+transform = Transform3D(-0.249969, 6.51926e-09, -0.00392246, 0.0027736, 0.176777, -0.176755, 0.00277359, -0.176777, -0.176755, 3.72275, 28.7924, -54.9282)
 surface_material_override/0 = SubResource("ShaderMaterial_qfsbg")
 
 [node name="Atmosphere" parent="ViewportContainer/Viewport/Level/Environment/Ground" index="1"]
@@ -762,7 +762,6 @@ transform = Transform3D(-0.393523, 0.128475, -0.910293, 7.45058e-08, 0.990186, 0
 fov = 65.5
 
 [node name="ScreenOverlay" parent="." instance=ExtResource("4_p5m14")]
-state = "hidden"
 
 [editable path="ViewportContainer/Viewport/Level"]
 [editable path="ViewportContainer/Viewport/Level/FollowPaths/CharacterPath"]
