@@ -107,8 +107,10 @@ func update_lama_pivot(pivot: float, duration: float = 1.0) -> void:
 func update_lama_tilt(tilt: float, duration: float = 1.0) -> void: 
 	update_path_tilt(lama_path,tilt,duration)
 	
-func update_lama_visibility(state: bool) -> void: 
-	if state:
+func update_lama_visibility(value: bool) -> void: 
+	if not %LamaRescued or not %LamaLost:
+		return
+	if value:
 		%LamaRescued.visible = true
 		%LamaLost.visible = false
 	else:

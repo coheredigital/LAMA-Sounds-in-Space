@@ -37,5 +37,5 @@ extends ColorRect
 func _ready():
 	Sequencer.overlay_state_changed.connect(set_state)
 	
-func set_state(state:String) -> void:
-	self.state = state
+func set_state(value:String) -> void:
+	self.state = value

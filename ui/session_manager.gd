@@ -10,7 +10,7 @@ func _on_new_session_button_pressed():
 
 	Session.start()
 	
-	await EventLogger.add('session','started')
+	EventLogger.add('session','started')
 	
 #	store info.json file
 	var info_file_name = "%s%s" % [ Session.save_folder, 'info.json' ]

@@ -25,9 +25,10 @@ func _on_end_session_button_pressed():
 
 func _on_end_session_confirm_button_pressed():
 	%EndSessionConfirmation.visible = false
-	%ControlBalloon.start(sequence, "start")
+	if %ControlBalloon:
+		%ControlBalloon.start(sequence, "start")
 	Session.session_ended.emit()	
-	await EventLogger.add('session','ended')
+	EventLogger.add('session','ended')
 
 func _on_end_session_cancel_button_pressed():
 	%EndSessionConfirmation.visible = false

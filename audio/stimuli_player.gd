@@ -26,7 +26,7 @@ func play(sentence_id: String) -> void:
 	await get_tree().create_timer(1.0).timeout
 	player.stream = wav_file
 	player.playing = true
-	await EventLogger.add('stimuli','played',filename)
+	EventLogger.add('stimuli','played',filename)
 
 # restore sequence and visualizer state on finish
 func _on_audio_stream_player_finished():

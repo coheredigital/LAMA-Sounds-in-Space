@@ -6,6 +6,9 @@ signal pivot_changed(value: float, duration: float)
 signal tilt_changed(value: float, duration: float)
 signal rescued_state_changed(state: bool)
 
+func action(value: String) -> void:
+	action_changed.emit(value)
+
 func move_to(progress: float, duration: float = 1.0) -> void:
 	position_changed.emit(progress, duration)
 

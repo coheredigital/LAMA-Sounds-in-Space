@@ -42,7 +42,7 @@ func play_audio(sentence_id: String) -> void:
 	print('Script: %s' % [filename])
 	player.stream = wav_file
 	player.playing = true
-	await EventLogger.add('script','played',filename)
+	EventLogger.add('script','played',filename)
 
 
 func _on_audio_player_finished():

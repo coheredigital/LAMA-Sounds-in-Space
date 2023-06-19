@@ -257,9 +257,10 @@ System: ...
 	set seatbelts_buckled = true
 	do Recorder.stop()
 	do Recorder.save("speech", "PRAC_buckle_up")
+	=>< snippets/focus_conversation
 	do Character.play_audio("great_job_heard_you")
 	Sam: Great job! Looks like it heard you!
-	do Player.pivot(-0.2)
+	
 - Quiet
 	set screen = "failure"
 	do Recorder.stop()
@@ -740,11 +741,12 @@ set level = "landing"
 do Character.play_audio("task2_found_planet_stardust")
 Sam: We did it - we found Planet Stardust! 
 do Character.play_audio("task2_alien_intro")
-do Alien.move_to(1.0,6.0)
+do Alien.move_to(1.0,4.0)
+do Ufo.move_to(0.9,12.0)
 Sam: I don’t see Lucky, but I do see something else! It looks like there are aliens on Planet Stardust!
 do Character.play_audio("task2_aliens_ask_lucky")
 Sam: They look really friendly, I think they are nice! Let’s ask them if they have seen Lucky or know where Lucky the Llama is. 
-do Ufo.move_to(0.9,8.0)
+
 
 ~ task2_alien_language
 do Character.play_audio("task2_alien_language")
@@ -756,14 +758,14 @@ set screen = "computer"
 # 10 stimuli – 5 pure tones, 5 intervals?*
 ~ task2_success
 do Character.play_audio("task2_success")
-do Ufo.move_to(0.0,4.0)
+do Ufo.move_to(0.0,8.0)
 Sam: You did a great job! The aliens said Lucky the Llama is over there – look, they’re bringing Lucky to us! Now the only thing left to do is take Lucky back to the Space Station.
 do Ufo.activate_beam()
-do Ufo.move_to(1.0,6.0)
-do Lama.move_to(1.0,6.0)
-[next=6]
+do Ufo.move_to(1.0,12.0)
+do Lama.move_to(1.0,12.0)
+[next=12]
 do Ufo.deactivate_beam()
-do Ufo.move_to(0.9,2.0)
+do Ufo.move_to(0.9,6.0)
 
 # blast off and fade to intro (station)
 ~ mission_success

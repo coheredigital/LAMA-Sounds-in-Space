@@ -1,48 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://322sh12iustv"]
+[gd_scene load_steps=20 format=3 uid="uid://322sh12iustv"]
 
 [ext_resource type="PackedScene" uid="uid://cs03x3lgn8m6a" path="res://characters/lama/lama.gltf" id="1_jjqdh"]
 [ext_resource type="Material" uid="uid://cqvlw3i27fqqd" path="res://characters/lama/materials/lama_material.tres" id="2_1i2gr"]
-
-[sub_resource type="Animation" id="Animation_v6qej"]
-resource_name = "idle"
-length = 8.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("lama/neck:rotation")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(1.5, 3.4, 5.2, 6.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(-0.03583, -0.124854, 0.0478499), Vector3(0.0709433, 0.070878, 0.0554209), Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("lama/neck/head:rotation")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 3.2, 4, 6.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(-0.0916905, -0.382685, 0.0300871), Vector3(-0.0488692, 0.143117, 0.015708), Vector3(0, 0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("lama:rotation")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.9, 5.3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, -1.5708, 0), Vector3(0, -1.52193, 0), Vector3(0, -1.60221, 0)]
-}
+[ext_resource type="Script" path="res://characters/lama/lama.gd" id="2_vtxys"]
 
 [sub_resource type="Animation" id="Animation_dulyp"]
 length = 0.001
@@ -273,6 +233,47 @@ tracks/6/keys = {
 "values": [Vector3(0.83913, 2.71538, -0.451457), Vector3(0.553269, 2.8571, 0.345575), Vector3(0.83913, 2.71538, -0.451457)]
 }
 
+[sub_resource type="Animation" id="Animation_v6qej"]
+resource_name = "idle"
+length = 8.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("lama/neck:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.5, 3.4, 5.2, 6.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.03583, -0.124854, 0.0478499), Vector3(0.0709433, 0.070878, 0.0554209), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("lama/neck/head:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3.2, 4, 6.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.0916905, -0.382685, 0.0300871), Vector3(-0.0488692, 0.143117, 0.015708), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("lama:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.9, 5.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -1.5708, 0), Vector3(0, -1.52193, 0), Vector3(0, -1.60221, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fu6b4"]
 _data = {
 "RESET": SubResource("Animation_dulyp"),
@@ -292,8 +293,6 @@ animation = &"flail"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_31gow"]
 animation = &"idle"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1nka6"]
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rf0kf"]
 xfade_time = 1.73
 
@@ -302,27 +301,31 @@ xfade_time = 0.85
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xtay7"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_04cru"]
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_fl5c8"]
 states/End/position = Vector2(510, 100)
 states/flail/node = SubResource("AnimationNodeAnimation_1vdv6")
 states/flail/position = Vector2(352, 202)
 states/idle/node = SubResource("AnimationNodeAnimation_31gow")
 states/idle/position = Vector2(352, 100)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_1nka6"), "idle", "flail", SubResource("AnimationNodeStateMachineTransition_rf0kf"), "flail", "idle", SubResource("AnimationNodeStateMachineTransition_l7d2q"), "idle", "End", SubResource("AnimationNodeStateMachineTransition_xtay7")]
+transitions = ["idle", "flail", SubResource("AnimationNodeStateMachineTransition_rf0kf"), "flail", "idle", SubResource("AnimationNodeStateMachineTransition_l7d2q"), "idle", "End", SubResource("AnimationNodeStateMachineTransition_xtay7"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_04cru")]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_dbl4b"]
-graph_offset = Vector2(-635, 70)
+graph_offset = Vector2(-274, 39)
 nodes/Add2/node = SubResource("AnimationNodeAdd2_4mvet")
 nodes/Add2/position = Vector2(140, 200)
 "nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_l6qxq")
 "nodes/Animation 2/position" = Vector2(-61, 401)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_fl5c8")
-nodes/StateMachine/position = Vector2(-60, 120)
+nodes/StateMachine/position = Vector2(-220, 140)
 node_connections = [&"output", 0, &"Add2", &"Add2", 0, &"StateMachine", &"Add2", 1, &"Animation 2"]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_x0l3s"]
 
 [node name="Lama" instance=ExtResource("1_jjqdh")]
+script = ExtResource("2_vtxys")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
 libraries = {
@@ -337,20 +340,20 @@ parameters/Add2/add_amount = 1.0
 parameters/StateMachine/playback = SubResource("AnimationNodeStateMachinePlayback_x0l3s")
 
 [node name="lama" parent="." index="2"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.1875, -0.359375)
+transform = Transform3D(-0.0133209, 0, -0.999911, 0, 1, 0, 0.999911, 0, -0.0133209, 0, 0.1875, -0.359375)
 surface_material_override/0 = ExtResource("2_1i2gr")
 
 [node name="neck" parent="lama" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0625, 0.375, 0.015625)
+transform = Transform3D(0.997941, -0.0635474, -0.0086763, 0.063216, 0.997412, -0.0342469, 0.0108302, 0.033628, 0.999376, 0.0625, 0.375, 0.015625)
 
 [node name="head" parent="lama/neck" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00781253, 0.601564, -1.49012e-08)
+transform = Transform3D(0.963651, -0.019471, 0.266452, 0.0107785, 0.999362, 0.0340466, -0.266945, -0.0299371, 0.963247, 0.00781253, 0.601564, -1.49012e-08)
 
 [node name="ear_right" parent="lama/neck/head" index="0"]
-transform = Transform3D(0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0, 1, 0.015625, 0.171875, -0.0703125)
+transform = Transform3D(0.879027, -0.476758, -0.00352445, 0.476733, 0.879026, -0.00616788, 0.00603867, 0.00374151, 0.999975, 0.015625, 0.171875, -0.0703125)
 
 [node name="ear_left" parent="lama/neck/head" index="1"]
-transform = Transform3D(0.866026, -0.5, 0, 0.5, 0.866026, 1.22465e-16, 6.12324e-17, 1.06058e-16, -1, 0.015625, 0.171875, 0.0546875)
+transform = Transform3D(0.899149, -0.437496, -0.0113789, 0.436026, 0.897757, -0.0625788, -0.0375935, -0.0513062, -0.997975, 0.015625, 0.171875, 0.0546875)
 
 [node name="leg_front_right" parent="lama" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.171412, 0.25, -0.117865)
@@ -359,10 +362,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.171412, 0.25, -0.117865)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.59375, 0.25, -0.117188)
 
 [node name="leg_front_left" parent="lama" index="3"]
-transform = Transform3D(-1, 1.22465e-16, 8.74228e-08, 1.22465e-16, 1, 1.22465e-16, -8.74228e-08, 1.22465e-16, -1, 0.170001, 0.25, 0.11989)
+transform = Transform3D(-1, 1.22465e-16, -2.53518e-06, 1.22465e-16, 1, 1.22465e-16, 2.53518e-06, 1.22465e-16, -1, 0.170001, 0.25, 0.11989)
 
 [node name="leg_back_left" parent="lama" index="4"]
-transform = Transform3D(-1, 1.22465e-16, 8.74228e-08, 1.22465e-16, 1, 1.22465e-16, -8.74228e-08, 1.22465e-16, -1, 0.59375, 0.25, 0.132813)
+transform = Transform3D(-1, 1.22465e-16, -2.53518e-06, 1.22465e-16, 1, 1.22465e-16, 2.53518e-06, 1.22465e-16, -1, 0.59375, 0.25, 0.132813)
 
 [node name="FaceLight" type="SpotLight3D" parent="." index="3"]
 transform = Transform3D(-0.956768, 0.259055, 0.132234, 0.236398, 0.427757, 0.872434, 0.169444, 0.865976, -0.470504, 0, 1.5114, -0.543106)
