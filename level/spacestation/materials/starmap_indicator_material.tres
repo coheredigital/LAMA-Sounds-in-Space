@@ -11,6 +11,6 @@ shader_parameter/alpha = 1.0
 shader_parameter/waveform_controlled = false
 shader_parameter/screen_count = 6.0
 shader_parameter/frame_count = 1.0
-shader_parameter/screen_number = 1.97711
+shader_parameter/screen_number = 2.34054
 shader_parameter/frame_number = 1.0
 shader_parameter/emission_texture = ExtResource("2_e8cwm")

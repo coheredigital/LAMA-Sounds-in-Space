@@ -421,7 +421,7 @@ curve = ExtResource("6_4mufo")
 progress_ratio = 1.0
 
 [node name="RemoteTransform" parent="FollowPaths/LamaPath" index="0"]
-transform = Transform3D(-0.516591, -2.55671e-05, -0.856231, 9.09494e-12, 1, -2.986e-05, 0.856231, -1.54255e-05, -0.516591, -1.20467, 1.49994, -4.50853)
+transform = Transform3D(-0.516591, -2.55671e-05, -0.856231, 6.36646e-12, 1, -2.986e-05, 0.856231, -1.54255e-05, -0.516591, -1.20467, 1.49994, -4.50853)
 remote_path = NodePath("../../../Ground/PlanetStardust/LamaLost")
 
 [node name="BeamTransform3D" type="RemoteTransform3D" parent="FollowPaths/LamaPath/RemoteTransform/Marker3D" index="0"]
@@ -453,7 +453,7 @@ progress_ratio = 0.2
 tilt = -0.5
 
 [node name="RemoteTransform" parent="FollowPaths/PlayerPath" index="0"]
-transform = Transform3D(-0.393567, 0.15895, -0.905448, -5.2154e-08, 0.984938, 0.172904, 0.919295, 0.0680496, -0.387639, -10.524, 2.58239, -1.26393)
+transform = Transform3D(-0.393567, 0.15895, -0.905448, -5.96046e-08, 0.984938, 0.172904, 0.919294, 0.0680496, -0.387639, -10.524, 2.58239, -1.26393)
 remote_path = NodePath("../../PlayerCamera")
 use_global_coordinates = true
 
@@ -551,7 +551,7 @@ transform = Transform3D(-0.886737, 0, 0.462275, 0, 1, 0, -0.462275, 0, -0.886737
 visible = false
 
 [node name="LamaLost" parent="Ground/PlanetStardust" instance=ExtResource("8_t1ik6")]
-transform = Transform3D(-0.516591, -2.55671e-05, -0.856231, 9.09494e-12, 1, -2.986e-05, 0.856231, -1.54255e-05, -0.516591, -1.20467, 1.49994, -4.50853)
+transform = Transform3D(-0.516591, -2.55671e-05, -0.856231, 6.36646e-12, 1, -2.986e-05, 0.856231, -1.54255e-05, -0.516591, -1.20467, 1.49994, -4.50853)
 
 [node name="Ufo" parent="Ground/PlanetStardust" instance=ExtResource("16_8d17p")]
 transform = Transform3D(-0.821341, 0.0556393, -0.567717, 3.53902e-08, 0.995231, 0.0975379, 0.570437, 0.0801119, -0.817424, -3.6232, 4.60381, -9.8327)
@@ -563,7 +563,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 3.72529e-08, 0, 0, 1, 5.72205e-06, -3.823
 transform = Transform3D(0.986387, 0.115874, 0.11667, -0.116671, 0.99317, 0, -0.115874, -0.013612, 0.993169, 0, 0, 0)
 
 [node name="beam" parent="Ground/PlanetStardust/Ufo/ufo" index="13"]
-transform = Transform3D(0.679034, 0.315435, -0.00583125, -0.0758704, 0.26028, 0.0932376, 0.309282, -0.628692, 0.0356749, -4.76837e-07, -0.7, 9.53674e-07)
+transform = Transform3D(0.629166, 0.391891, 0.015243, -0.235103, 0.176141, 0.0920095, 0.333729, -0.614731, 0.0360812, -2.38419e-07, -0.7, 9.53674e-07)
 
 [node name="Alien" parent="Ground/PlanetStardust" instance=ExtResource("8_bs0lj")]
 transform = Transform3D(-0.963947, 0.000852061, 0.265929, -8.73087e-11, 0.999701, -0.00320373, -0.265976, -0.00308803, -0.963779, 0.995202, 1.29361, -4.19556)
