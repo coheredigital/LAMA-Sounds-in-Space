@@ -343,9 +343,6 @@ parameters/StateMachine/playback = SubResource("AnimationNodeStateMachinePlaybac
 transform = Transform3D(-3.61999e-06, 0, -1, 0, 1, 0, 1, 0, -3.61999e-06, 0, 0.1875, -0.359375)
 surface_material_override/0 = ExtResource("2_1i2gr")
 
-[node name="neck" parent="lama" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0625, 0.375, 0.015625)
-
 [node name="head" parent="lama/neck" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00781253, 0.601564, -1.49012e-08)
 
@@ -353,7 +350,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00781253, 0.601564, -1.4901
 transform = Transform3D(0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0, 1, 0.015625, 0.171875, -0.0703125)
 
 [node name="ear_left" parent="lama/neck/head" index="1"]
-transform = Transform3D(0.866024, -0.500004, 0, 0.500004, 0.866025, 1.22465e-16, 6.12329e-17, 1.06058e-16, -1, 0.015625, 0.171875, 0.0546875)
+transform = Transform3D(0.866024, -0.500004, 0, 0.500004, 0.866025, 1.22465e-16, 6.1233e-17, 1.06058e-16, -1, 0.015625, 0.171875, 0.0546875)
 
 [node name="leg_front_right" parent="lama" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.171412, 0.25, -0.117865)

@@ -12,3 +12,4 @@ dest_files=["res://.godot/imported/orders.dialogue-cf50da1f0ad8a1a759bc69cc696fa
 
 [params]
 
+defaults=true

@@ -1,11 +1,11 @@
 # not fully implemented
 
 # speech ================================================
-~ speech_01F
+~ Sp_01F
 System:
-- Begin speech_01F
+- Begin Sp_01F
 set screen = "computer"
-do Sequencer.play_audio("res://audio/stimuli/speech_01F.wav")
+do Stimuli.play("speech/Sp_01F")
 do Recorder.start()
 [next=2]
 set screen = "recording"
@@ -18,14 +18,14 @@ System:
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
-	=> speech_01F
+	=> Sp_01F
 => END
 
-~ speech_01R
+~ Sp_01R
 System:
-- Begin speech_01R
+- Begin Sp_01R
 set screen = "computer"
-do Sequencer.play_audio("res://audio/stimuli/speech_01R.wav")
+do Stimuli.play("speech/Sp_01R")
 do Recorder.start()
 [next=2]
 set screen = "recording"
@@ -38,14 +38,14 @@ System:
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
-	=> speech_01R
+	=> Sp_01R
 => END
 
-~ speech_02F
+~ Sp_02F
 System:
-- Begin speech_02F
+- Begin Sp_02F
 set screen = "computer"
-do Sequencer.play_audio("res://audio/stimuli/speech_02F.wav")
+do Stimuli.play("speech/Sp_02F")
 do Recorder.start()
 [next=2]
 set screen = "recording"
@@ -58,14 +58,14 @@ System:
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
-	=> speech_02F
+	=> Sp_02F
 => END
 
-~ speech_02R
+~ Sp_02R
 System:
-- Begin speech_02R
+- Begin Sp_02R
 set screen = "computer"
-do Sequencer.play_audio("res://audio/stimuli/speech_02R.wav")
+do Stimuli.play("speech/Sp_02R")
 do Recorder.start()
 [next=2]
 set screen = "recording"
@@ -78,14 +78,14 @@ System:
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
-	=> speech_02R
+	=> Sp_02R
 => END
 
-~ speech_03F
+~ Sp_03F
 System:
-- Begin speech_03F
+- Begin Sp_03F
 set screen = "computer"
-do Sequencer.play_audio("res://audio/stimuli/speech_03F.wav")
+do Stimuli.play("speech/Sp_03F")
 do Recorder.start()
 [next=2]
 set screen = "recording"
@@ -98,14 +98,14 @@ System:
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
-	=> speech_03F
+	=> Sp_03F
 => END
 
-~ speech_03R
+~ Sp_03R
 System:
-- Begin speech_03R
+- Begin Sp_03R
 set screen = "computer"
-do Sequencer.play_audio("res://audio/stimuli/speech_03R.wav")
+do Stimuli.play("speech/Sp_03R")
 do Recorder.start()
 [next=2]
 set screen = "recording"
@@ -118,14 +118,14 @@ System:
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
-	=> speech_03R
+	=> Sp_03R
 => END
 
-~ speech_04F
+~ Sp_04F
 System:
-- Begin speech_04F
+- Begin Sp_04F
 set screen = "computer"
-do Sequencer.play_audio("res://audio/stimuli/speech_04F.wav")
+do Stimuli.play("speech/Sp_04F")
 do Recorder.start()
 [next=2]
 set screen = "recording"
@@ -138,14 +138,14 @@ System:
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
-	=> speech_04F
+	=> Sp_04F
 => END
 
-~ speech_04R
+~ Sp_04R
 System:
-- Begin speech_04R
+- Begin Sp_04R
 set screen = "computer"
-do Sequencer.play_audio("res://audio/stimuli/speech_04R.wav")
+do Stimuli.play("speech/Sp_04R")
 do Recorder.start()
 [next=2]
 set screen = "recording"
@@ -158,14 +158,14 @@ System:
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
-	=> speech_04R
+	=> Sp_04R
 => END
 
-~ speech_05F
+~ Sp_05F
 System:
-- Begin speech_05F
+- Begin Sp_05F
 set screen = "computer"
-do Sequencer.play_audio("res://audio/stimuli/speech_05F.wav")
+do Stimuli.play("speech/Sp_05F")
 do Recorder.start()
 [next=2]
 set screen = "recording"
@@ -178,14 +178,14 @@ System:
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
-	=> speech_05F
+	=> Sp_05F
 => END
 
-~ speech_05R
+~ Sp_05R
 System:
-- Begin speech_05R
+- Begin Sp_05R
 set screen = "computer"
-do Sequencer.play_audio("res://audio/stimuli/speech_05R.wav")
+do Stimuli.play("speech/Sp_05R")
 do Recorder.start()
 [next=2]
 set screen = "recording"
@@ -198,14 +198,14 @@ System:
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
-	=> speech_05R
+	=> Sp_05R
 => END
 
-~ speech_06F
+~ Sp_06F
 System:
-- Begin speech_06F
+- Begin Sp_06F
 set screen = "computer"
-do Sequencer.play_audio("res://audio/stimuli/speech_06F.wav")
+do Stimuli.play("speech/Sp_06F")
 do Recorder.start()
 [next=2]
 set screen = "recording"
@@ -218,14 +218,14 @@ System:
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
-	=> speech_06F
+	=> Sp_06F
 => END
 
-~ speech_06R
+~ Sp_06R
 System:
-- Begin speech_06R
+- Begin Sp_06R
 set screen = "computer"
-do Sequencer.play_audio("res://audio/stimuli/speech_06R.wav")
+do Stimuli.play("speech/Sp_06R")
 do Recorder.start()
 [next=2]
 set screen = "recording"
@@ -238,14 +238,14 @@ System:
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
-	=> speech_06R
+	=> Sp_06R
 => END
 
-~ speech_07F
+~ Sp_07F
 System:
-- Begin speech_07F
+- Begin Sp_07F
 set screen = "computer"
-do Sequencer.play_audio("res://audio/stimuli/speech_07F.wav")
+do Stimuli.play("speech/Sp_07F")
 do Recorder.start()
 [next=2]
 set screen = "recording"
@@ -258,14 +258,14 @@ System:
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
-	=> speech_07F
+	=> Sp_07F
 => END
 
-~ speech_07R
+~ Sp_07R
 System:
-- Begin speech_07R
+- Begin Sp_07R
 set screen = "computer"
-do Sequencer.play_audio("res://audio/stimuli/speech_07R.wav")
+do Stimuli.play("speech/Sp_07R")
 do Recorder.start()
 [next=2]
 set screen = "recording"
@@ -278,14 +278,14 @@ System:
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
-	=> speech_07R
+	=> Sp_07R
 => END
 
-~ speech_08F
+~ Sp_08F
 System:
-- Begin speech_08F
+- Begin Sp_08F
 set screen = "computer"
-do Sequencer.play_audio("res://audio/stimuli/speech_08F.wav")
+do Stimuli.play("speech/Sp_08F")
 do Recorder.start()
 [next=2]
 set screen = "recording"
@@ -298,14 +298,14 @@ System:
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
-	=> speech_08F
+	=> Sp_08F
 => END
 
-~ speech_08R
+~ Sp_08R
 System:
-- Begin speech_08R
+- Begin Sp_08R
 set screen = "computer"
-do Sequencer.play_audio("res://audio/stimuli/speech_08R.wav")
+do Stimuli.play("speech/Sp_08R")
 do Recorder.start()
 [next=2]
 set screen = "recording"
@@ -318,14 +318,14 @@ System:
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
-	=> speech_08R
+	=> Sp_08R
 => END
 
-~ speech_09F
+~ Sp_09F
 System:
-- Begin speech_09F
+- Begin Sp_09F
 set screen = "computer"
-do Sequencer.play_audio("res://audio/stimuli/speech_09F.wav")
+do Stimuli.play("speech/Sp_09F")
 do Recorder.start()
 [next=2]
 set screen = "recording"
@@ -338,14 +338,14 @@ System:
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
-	=> speech_09F
+	=> Sp_09F
 => END
 
-~ speech_09R
+~ Sp_09R
 System:
-- Begin speech_09R
+- Begin Sp_09R
 set screen = "computer"
-do Sequencer.play_audio("res://audio/stimuli/speech_09R.wav")
+do Stimuli.play("speech/Sp_09R")
 do Recorder.start()
 [next=2]
 set screen = "recording"
@@ -358,14 +358,14 @@ System:
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
-	=> speech_09R
+	=> Sp_09R
 => END
 
-~ speech_10F
+~ Sp_10F
 System:
-- Begin speech_10F
+- Begin Sp_10F
 set screen = "computer"
-do Sequencer.play_audio("res://audio/stimuli/speech_10F.wav")
+do Stimuli.play("speech/Sp_10F")
 do Recorder.start()
 [next=2]
 set screen = "recording"
@@ -378,14 +378,14 @@ System:
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
-	=> speech_10F
+	=> Sp_10F
 => END
 
-~ speech_10R
+~ Sp_10R
 System:
-- Begin speech_10R
+- Begin Sp_10R
 set screen = "computer"
-do Sequencer.play_audio("res://audio/stimuli/speech_10R.wav")
+do Stimuli.play("speech/Sp_10R")
 do Recorder.start()
 [next=2]
 set screen = "recording"
@@ -398,14 +398,14 @@ System:
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
-	=> speech_10R
+	=> Sp_10R
 => END
 
-~ speech_11F
+~ Sp_11F
 System:
-- Begin speech_11F
+- Begin Sp_11F
 set screen = "computer"
-do Sequencer.play_audio("res://audio/stimuli/speech_11F.wav")
+do Stimuli.play("speech/Sp_11F")
 do Recorder.start()
 [next=2]
 set screen = "recording"
@@ -418,14 +418,14 @@ System:
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
-	=> speech_11F
+	=> Sp_11F
 => END
 
-~ speech_11R
+~ Sp_11R
 System:
-- Begin speech_11R
+- Begin Sp_11R
 set screen = "computer"
-do Sequencer.play_audio("res://audio/stimuli/speech_11R.wav")
+do Stimuli.play("speech/Sp_11R")
 do Recorder.start()
 [next=2]
 set screen = "recording"
@@ -438,14 +438,14 @@ System:
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
-	=> speech_11R
+	=> Sp_11R
 => END
 
-~ speech_12F
+~ Sp_12F
 System:
-- Begin speech_12F
+- Begin Sp_12F
 set screen = "computer"
-do Sequencer.play_audio("res://audio/stimuli/speech_12F.wav")
+do Stimuli.play("speech/Sp_12F")
 do Recorder.start()
 [next=2]
 set screen = "recording"
@@ -458,14 +458,14 @@ System:
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
-	=> speech_12F
+	=> Sp_12F
 => END
 
-~ speech_12R
+~ Sp_12R
 System:
-- Begin speech_12R
+- Begin Sp_12R
 set screen = "computer"
-do Sequencer.play_audio("res://audio/stimuli/speech_12R.wav")
+do Stimuli.play("speech/Sp_12R")
 do Recorder.start()
 [next=2]
 set screen = "recording"
@@ -478,16 +478,16 @@ System:
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
-	=> speech_12R
+	=> Sp_12R
 => END
 
 
 # song ================================================
-~ song_01F
+~ So_01F
 System:
-- Begin song_01F
+- Begin So_01F
 set screen = "computer"
-do Sequencer.play_audio("res://audio/stimuli/song_01F.wav")
+do Stimuli.play("song/So_01F")
 do Recorder.start()
 [next=2]
 set screen = "recording"
@@ -500,14 +500,14 @@ System:
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
-	=> song_01F
+	=> So_01F
 => END
 
-~ song_01R
+~ So_01R
 System:
-- Begin song_01R
+- Begin So_01R
 set screen = "computer"
-do Sequencer.play_audio("res://audio/stimuli/song_01R.wav")
+do Stimuli.play("song/So_01R")
 do Recorder.start()
 [next=2]
 set screen = "recording"
@@ -520,14 +520,14 @@ System:
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
-	=> song_01R
+	=> So_01R
 => END
 
-~ song_02F
+~ So_02F
 System:
-- Begin song_02F
+- Begin So_02F
 set screen = "computer"
-do Sequencer.play_audio("res://audio/stimuli/song_02F.wav")
+do Stimuli.play("song/So_02F")
 do Recorder.start()
 [next=2]
 set screen = "recording"
@@ -540,14 +540,14 @@ System:
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
-	=> song_02F
+	=> So_02F
 => END
 
-~ song_02R
+~ So_02R
 System:
-- Begin song_02R
+- Begin So_02R
 set screen = "computer"
-do Sequencer.play_audio("res://audio/stimuli/song_02R.wav")
+do Stimuli.play("song/So_02R")
 do Recorder.start()
 [next=2]
 set screen = "recording"
@@ -560,14 +560,14 @@ System:
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
-	=> song_02R
+	=> So_02R
 => END
 
-~ song_03F
+~ So_03F
 System:
-- Begin song_03F
+- Begin So_03F
 set screen = "computer"
-do Sequencer.play_audio("res://audio/stimuli/song_03F.wav")
+do Stimuli.play("song/So_03F")
 do Recorder.start()
 [next=2]
 set screen = "recording"
@@ -580,14 +580,14 @@ System:
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
-	=> song_03F
+	=> So_03F
 => END
 
-~ song_03R
+~ So_03R
 System:
-- Begin song_03R
+- Begin So_03R
 set screen = "computer"
-do Sequencer.play_audio("res://audio/stimuli/song_03R.wav")
+do Stimuli.play("song/So_03R")
 do Recorder.start()
 [next=2]
 set screen = "recording"
@@ -600,14 +600,14 @@ System:
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
-	=> song_03R
+	=> So_03R
 => END
 
-~ song_04F
+~ So_04F
 System:
-- Begin song_04F
+- Begin So_04F
 set screen = "computer"
-do Sequencer.play_audio("res://audio/stimuli/song_04F.wav")
+do Stimuli.play("song/So_04F")
 do Recorder.start()
 [next=2]
 set screen = "recording"
@@ -620,14 +620,14 @@ System:
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
-	=> song_04F
+	=> So_04F
 => END
 
-~ song_04R
+~ So_04R
 System:
-- Begin song_04R
+- Begin So_04R
 set screen = "computer"
-do Sequencer.play_audio("res://audio/stimuli/song_04R.wav")
+do Stimuli.play("song/So_04R")
 do Recorder.start()
 [next=2]
 set screen = "recording"
@@ -640,14 +640,14 @@ System:
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
-	=> song_04R
+	=> So_04R
 => END
 
-~ song_05F
+~ So_05F
 System:
-- Begin song_05F
+- Begin So_05F
 set screen = "computer"
-do Sequencer.play_audio("res://audio/stimuli/song_05F.wav")
+do Stimuli.play("song/So_05F")
 do Recorder.start()
 [next=2]
 set screen = "recording"
@@ -660,14 +660,14 @@ System:
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
-	=> song_05F
+	=> So_05F
 => END
 
-~ song_05R
+~ So_05R
 System:
-- Begin song_05R
+- Begin So_05R
 set screen = "computer"
-do Sequencer.play_audio("res://audio/stimuli/song_05R.wav")
+do Stimuli.play("song/So_05R")
 do Recorder.start()
 [next=2]
 set screen = "recording"
@@ -680,14 +680,14 @@ System:
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
-	=> song_05R
+	=> So_05R
 => END
 
-~ song_06F
+~ So_06F
 System:
-- Begin song_06F
+- Begin So_06F
 set screen = "computer"
-do Sequencer.play_audio("res://audio/stimuli/song_06F.wav")
+do Stimuli.play("song/So_06F")
 do Recorder.start()
 [next=2]
 set screen = "recording"
@@ -700,14 +700,14 @@ System:
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
-	=> song_06F
+	=> So_06F
 => END
 
-~ song_06R
+~ So_06R
 System:
-- Begin song_06R
+- Begin So_06R
 set screen = "computer"
-do Sequencer.play_audio("res://audio/stimuli/song_06R.wav")
+do Stimuli.play("song/So_06R")
 do Recorder.start()
 [next=2]
 set screen = "recording"
@@ -720,14 +720,14 @@ System:
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
-	=> song_06R
+	=> So_06R
 => END
 
-~ song_07F
+~ So_07F
 System:
-- Begin song_07F
+- Begin So_07F
 set screen = "computer"
-do Sequencer.play_audio("res://audio/stimuli/song_07F.wav")
+do Stimuli.play("song/So_07F")
 do Recorder.start()
 [next=2]
 set screen = "recording"
@@ -740,14 +740,14 @@ System:
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
-	=> song_07F
+	=> So_07F
 => END
 
-~ song_07R
+~ So_07R
 System:
-- Begin song_07R
+- Begin So_07R
 set screen = "computer"
-do Sequencer.play_audio("res://audio/stimuli/song_07R.wav")
+do Stimuli.play("song/So_07R")
 do Recorder.start()
 [next=2]
 set screen = "recording"
@@ -760,14 +760,14 @@ System:
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
-	=> song_07R
+	=> So_07R
 => END
 
-~ song_08F
+~ So_08F
 System:
-- Begin song_08F
+- Begin So_08F
 set screen = "computer"
-do Sequencer.play_audio("res://audio/stimuli/song_08F.wav")
+do Stimuli.play("song/So_08F")
 do Recorder.start()
 [next=2]
 set screen = "recording"
@@ -780,14 +780,14 @@ System:
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
-	=> song_08F
+	=> So_08F
 => END
 
-~ song_08R
+~ So_08R
 System:
-- Begin song_08R
+- Begin So_08R
 set screen = "computer"
-do Sequencer.play_audio("res://audio/stimuli/song_08R.wav")
+do Stimuli.play("song/So_08R")
 do Recorder.start()
 [next=2]
 set screen = "recording"
@@ -800,14 +800,14 @@ System:
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
-	=> song_08R
+	=> So_08R
 => END
 
-~ song_09F
+~ So_09F
 System:
-- Begin song_09F
+- Begin So_09F
 set screen = "computer"
-do Sequencer.play_audio("res://audio/stimuli/song_09F.wav")
+do Stimuli.play("song/So_09F")
 do Recorder.start()
 [next=2]
 set screen = "recording"
@@ -820,14 +820,14 @@ System:
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
-	=> song_09F
+	=> So_09F
 => END
 
-~ song_09R
+~ So_09R
 System:
-- Begin song_09R
+- Begin So_09R
 set screen = "computer"
-do Sequencer.play_audio("res://audio/stimuli/song_09R.wav")
+do Stimuli.play("song/So_09R")
 do Recorder.start()
 [next=2]
 set screen = "recording"
@@ -840,14 +840,14 @@ System:
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
-	=> song_09R
+	=> So_09R
 => END
 
-~ song_10F
+~ So_10F
 System:
-- Begin song_10F
+- Begin So_10F
 set screen = "computer"
-do Sequencer.play_audio("res://audio/stimuli/song_10F.wav")
+do Stimuli.play("song/So_10F")
 do Recorder.start()
 [next=2]
 set screen = "recording"
@@ -860,14 +860,14 @@ System:
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
-	=> song_10F
+	=> So_10F
 => END
 
-~ song_10R
+~ So_10R
 System:
-- Begin song_10R
+- Begin So_10R
 set screen = "computer"
-do Sequencer.play_audio("res://audio/stimuli/song_10R.wav")
+do Stimuli.play("song/So_10R")
 do Recorder.start()
 [next=2]
 set screen = "recording"
@@ -880,14 +880,14 @@ System:
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
-	=> song_10R
+	=> So_10R
 => END
 
-~ song_11F
+~ So_11F
 System:
-- Begin song_11F
+- Begin So_11F
 set screen = "computer"
-do Sequencer.play_audio("res://audio/stimuli/song_11F.wav")
+do Stimuli.play("song/So_11F")
 do Recorder.start()
 [next=2]
 set screen = "recording"
@@ -900,14 +900,14 @@ System:
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
-	=> song_11F
+	=> So_11F
 => END
 
-~ song_11R
+~ So_11R
 System:
-- Begin song_11R
+- Begin So_11R
 set screen = "computer"
-do Sequencer.play_audio("res://audio/stimuli/song_11R.wav")
+do Stimuli.play("song/So_11R")
 do Recorder.start()
 [next=2]
 set screen = "recording"
@@ -920,14 +920,14 @@ System:
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
-	=> song_11R
+	=> So_11R
 => END
 
-~ song_12F
+~ So_12F
 System:
-- Begin song_12F
+- Begin So_12F
 set screen = "computer"
-do Sequencer.play_audio("res://audio/stimuli/song_12F.wav")
+do Stimuli.play("song/So_12F")
 do Recorder.start()
 [next=2]
 set screen = "recording"
@@ -940,14 +940,14 @@ System:
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
-	=> song_12F
+	=> So_12F
 => END
 
-~ song_12R
+~ So_12R
 System:
-- Begin song_12R
+- Begin So_12R
 set screen = "computer"
-do Sequencer.play_audio("res://audio/stimuli/song_12R.wav")
+do Stimuli.play("song/So_12R")
 do Recorder.start()
 [next=2]
 set screen = "recording"
@@ -960,5 +960,5 @@ System:
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
-	=> song_12R
+	=> So_12R
 => END

@@ -1,6 +1,7 @@
 
 import "res://dialogue/snippets/snippets.dialogue" as snippets
-
+import "res://dialogue/stimuli/stimuli.dialogue" as stimuli
+import "res://dialogue/stimuli/orders.dialogue" as orders
 # USAGE: Character.move_to(progress_ratio: float [0.0 - 1.0], duration: float [ >= 0.0 ])
 # USAGE: Character.pivot(angle: float [-1.0 - 1.0], duration: float [ >= 0.0 ])
 # USAGE: Character.tilt() Not yet used.
@@ -247,7 +248,6 @@ Computer: Seat belts buckled!
 
 ~ buckle_up_recording
 set screen = "recording"
-
 
 
 ~ buckle_up_result
@@ -722,7 +722,15 @@ do move_star(4,1.0,12.0)
 do move_star(5,1.0,12.0)
 [next=12.0]
 #12 Phrases – 6 song, 6 speech randomized (see list of sentences on last page)*
-
+System: Select stimuli order
+- Order A
+	=>< orders/order_A
+- Order B
+	=>< orders/order_B
+- Order C
+	=>< orders/order_C
+- Order D
+	=>< orders/order_D
 
 ~ task2_arrived
 do Character.play_audio("task2_arrived")
