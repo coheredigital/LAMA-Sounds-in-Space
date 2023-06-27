@@ -144,8 +144,49 @@ tracks/1/keys = {
 "values": [Vector3(0, 0, 0.523599), Vector3(0.0488692, -0.0279253, 0.5044), Vector3(0.0331613, -0.0855211, 0.223402), Vector3(0.0331613, -0.0855211, 0.553269), Vector3(0.0488692, -0.0279253, 0.312414), Vector3(0, 0, 0.523599)]
 }
 
+[sub_resource type="Animation" id="Animation_v6qej"]
+resource_name = "idle"
+length = 8.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("lama/neck:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.5, 3.4, 5.2, 6.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.03583, -0.124854, 0.0478499), Vector3(0.0709433, 0.070878, 0.0554209), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("lama/neck/head:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3.3, 4, 6.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.0366519, -0.20944, 0.0296706), Vector3(-0.0488692, 0.143117, 0.015708), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("lama:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.9, 5.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -1.5708, 0), Vector3(0, -1.52193, 0), Vector3(0, -1.60221, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_4xgnq"]
-resource_name = "flail"
+resource_name = "wiggle"
 length = 4.0
 loop_mode = 1
 tracks/0/type = "value"
@@ -233,53 +274,12 @@ tracks/6/keys = {
 "values": [Vector3(0.83913, 2.71538, -0.451457), Vector3(0.553269, 2.8571, 0.345575), Vector3(0.83913, 2.71538, -0.451457)]
 }
 
-[sub_resource type="Animation" id="Animation_v6qej"]
-resource_name = "idle"
-length = 8.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("lama/neck:rotation")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(1.5, 3.4, 5.2, 6.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(-0.03583, -0.124854, 0.0478499), Vector3(0.0709433, 0.070878, 0.0554209), Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("lama/neck/head:rotation")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 3.3, 4, 6.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(-0.0366519, -0.20944, 0.0296706), Vector3(-0.0488692, 0.143117, 0.015708), Vector3(0, 0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("lama:rotation")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.9, 5.3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, -1.5708, 0), Vector3(0, -1.52193, 0), Vector3(0, -1.60221, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fu6b4"]
 _data = {
 "RESET": SubResource("Animation_dulyp"),
 "ear_twitch": SubResource("Animation_ystgn"),
-"flail": SubResource("Animation_4xgnq"),
-"idle": SubResource("Animation_v6qej")
+"idle": SubResource("Animation_v6qej"),
+"wiggle": SubResource("Animation_4xgnq")
 }
 
 [sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_4mvet"]
@@ -287,11 +287,11 @@ _data = {
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_l6qxq"]
 animation = &"ear_twitch"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1vdv6"]
-animation = &"flail"
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_31gow"]
 animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1vdv6"]
+animation = &"wiggle"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rf0kf"]
 xfade_time = 1.73
@@ -306,20 +306,21 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_fl5c8"]
 states/End/position = Vector2(510, 100)
-states/flail/node = SubResource("AnimationNodeAnimation_1vdv6")
-states/flail/position = Vector2(352, 202)
 states/idle/node = SubResource("AnimationNodeAnimation_31gow")
 states/idle/position = Vector2(352, 100)
-transitions = ["idle", "flail", SubResource("AnimationNodeStateMachineTransition_rf0kf"), "flail", "idle", SubResource("AnimationNodeStateMachineTransition_l7d2q"), "idle", "End", SubResource("AnimationNodeStateMachineTransition_xtay7"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_04cru")]
+states/wiggle/node = SubResource("AnimationNodeAnimation_1vdv6")
+states/wiggle/position = Vector2(352, 202)
+transitions = ["idle", "wiggle", SubResource("AnimationNodeStateMachineTransition_rf0kf"), "wiggle", "idle", SubResource("AnimationNodeStateMachineTransition_l7d2q"), "idle", "End", SubResource("AnimationNodeStateMachineTransition_xtay7"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_04cru")]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_dbl4b"]
+graph_offset = Vector2(-580, 72)
 nodes/Add2/node = SubResource("AnimationNodeAdd2_4mvet")
 nodes/Add2/position = Vector2(140, 200)
 "nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_l6qxq")
 "nodes/Animation 2/position" = Vector2(-61, 401)
-nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_fl5c8")
-nodes/StateMachine/position = Vector2(-220, 140)
-node_connections = [&"output", 0, &"Add2", &"Add2", 0, &"StateMachine", &"Add2", 1, &"Animation 2"]
+nodes/action/node = SubResource("AnimationNodeStateMachine_fl5c8")
+nodes/action/position = Vector2(-220, 140)
+node_connections = [&"output", 0, &"Add2", &"Add2", 0, &"action", &"Add2", 1, &"Animation 2"]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_x0l3s"]
 
@@ -332,11 +333,12 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="1"]
+unique_name_in_owner = true
 tree_root = SubResource("AnimationNodeBlendTree_dbl4b")
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/Add2/add_amount = 1.0
-parameters/StateMachine/playback = SubResource("AnimationNodeStateMachinePlayback_x0l3s")
+parameters/action/playback = SubResource("AnimationNodeStateMachinePlayback_x0l3s")
 
 [node name="lama" parent="." index="2"]
 transform = Transform3D(-3.61999e-06, 0, -1, 0, 1, 0, 1, 0, -3.61999e-06, 0, 0.1875, -0.359375)
