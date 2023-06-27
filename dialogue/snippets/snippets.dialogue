@@ -30,48 +30,6 @@ set fuel_level = 8
 [next=2]
 => END
 
-~ enter_spaceship
-set character_position = 0.4
-set level = "intro"
-set player_position = 0.8
-set player_view = 0.9
-=> END
-
-
-# COMPUTER ===============================================================================
-~ computer_intro
-set player_position = 0.9
-set character_position = 0.9
-=> END
-
-~ stars_light_sequence
-# USAGE: move_star(star_number: int [1-5], progress: float [0-1], duration: float [>=0] )
-# *12 Phrases – 6 song, 6 speech randomized (see list of sentences on last page)* 
-- Next
-do move_star(1,0.7,5.0)
-[next=4]
-set stars_brightness = 0.2
-- Next
-do move_star(2,0.7,5.0)
-[next=4]
-set stars_brightness = 0.6
-- Next
-do move_star(3,0.7,5.0)
-[next=4]
-set stars_brightness = 1.0
-- Next
-do move_star(4,0.7,5.0)
-[next=4]
-set stars_brightness = 2.0
-- Next
-do move_star(5,0.7,5.0)
-[next=1]
-set stars_brightness = 4.0
-[next=5]
-=> END
-
-
-
 
 ~ focus_conversation
 do Character.move_to(1.0)

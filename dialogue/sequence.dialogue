@@ -479,6 +479,7 @@ System: ...
 	set screen = "success"
 	do Recorder.stop()
 	do Recorder.save("speech", "TEST_stars_light_1")
+	do Character.play_audio("great_job_heard_you")	
 	Sam: Great job! Looks like it heard you! 
 - Quiet
 	set screen = "failure"
@@ -513,6 +514,7 @@ System: ...
 	set screen = "success"
 	do Recorder.stop()
 	do Recorder.save("speech", "TEST_stars_light_2")
+	do Character.play_audio("great_job_heard_you")	
 	Sam: Great job! Looks like it heard you! 
 - Quiet
 	set screen = "failure"
@@ -547,6 +549,7 @@ System: ...
 	set screen = "success"
 	do Recorder.stop()
 	do Recorder.save("speech", "TEST_stars_light_3")
+	do Character.play_audio("great_job_heard_you")	
 	Sam: Great job! Looks like it heard you! 
 - Quiet
 	set screen = "failure"
@@ -580,6 +583,7 @@ System: ...
 	set screen = "success"
 	do Recorder.stop()
 	do Recorder.save("speech", "TEST_stars_light_4")
+	do Character.play_audio("great_job_heard_you")	
 	Sam: Great job! Looks like it heard you! 
 - Quiet
 	set screen = "failure"
@@ -614,6 +618,7 @@ System: ...
 	set screen = "success"
 	do Recorder.stop()
 	do Recorder.save("speech", "TEST_stars_light_5")
+	do Character.play_audio("great_job_heard_you")	
 	Sam: Great job! Looks like it heard you! 
 - Quiet
 	set screen = "failure"

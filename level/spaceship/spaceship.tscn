@@ -35,7 +35,7 @@ animation = &"cockpit/steering_motion"
 [sub_resource type="AnimationNodeTimeScale" id="4"]
 
 [sub_resource type="AnimationNodeBlendTree" id="5"]
-graph_offset = Vector2(-10, 79)
+graph_offset = Vector2(7, 155)
 nodes/blend_screen/node = SubResource("AnimationNodeAdd2_h7dn0")
 nodes/blend_screen/position = Vector2(780, 200)
 nodes/door_state/node = ExtResource("10_csjlb")
@@ -45,7 +45,7 @@ nodes/flying/position = Vector2(600, 600)
 nodes/flying_blend/node = SubResource("AnimationNodeAdd2_kw2rb")
 nodes/flying_blend/position = Vector2(1120, 200)
 nodes/flying_speed/node = SubResource("AnimationNodeTimeScale_2wx6b")
-nodes/flying_speed/position = Vector2(880, 600)
+nodes/flying_speed/position = Vector2(820, 600)
 nodes/output/position = Vector2(1300, 200)
 nodes/screen_state/node = ExtResource("5_rc7u6")
 nodes/screen_state/position = Vector2(600, 400)
@@ -276,8 +276,8 @@ shader_parameter/alpha = 1.0
 shader_parameter/waveform_controlled = false
 shader_parameter/screen_count = 16.0
 shader_parameter/frame_count = 8.0
-shader_parameter/screen_number = 12.0
-shader_parameter/frame_number = 4.4714
+shader_parameter/screen_number = 6.0
+shader_parameter/frame_number = 1.0
 shader_parameter/emission_texture = ExtResource("10_s46ft")
 shader_parameter/waveform = SubResource("3858")
 
@@ -347,7 +347,7 @@ material_override = ExtResource("8_fylk6")
 transform = Transform3D(0.990622, -0.13259, -0.0329651, 0.136306, 0.942572, 0.304923, -0.00935789, -0.306557, 0.951806, 0.688043, 0.511933, -1.92573)
 
 [node name="controls_left" parent="spaceship/cockpit" index="2"]
-transform = Transform3D(0.999689, 0.0131664, 0.0211798, -0.0138713, 0.999343, 0.0334874, -0.020725, -0.0337708, 0.999214, -0.6875, 0.400625, -2.07488)
+transform = Transform3D(0.999691, 0.0131932, 0.0210593, -0.0138934, 0.999344, 0.0334537, -0.0206041, -0.033736, 0.999218, -0.6875, 0.400625, -2.07488)
 
 [node name="Siren" parent="spaceship/cockpit" index="3" instance=ExtResource("18_e0bdp")]
 unique_name_in_owner = true
