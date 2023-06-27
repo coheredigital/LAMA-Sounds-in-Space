@@ -2,11 +2,10 @@
 import "res://dialogue/snippets/snippets.dialogue" as snippets
 import "res://dialogue/stimuli/stimuli.dialogue" as stimuli
 import "res://dialogue/stimuli/orders.dialogue" as orders
+
 # USAGE: Character.move_to(progress_ratio: float [0.0 - 1.0], duration: float [ >= 0.0 ])
 # USAGE: Character.pivot(angle: float [-1.0 - 1.0], duration: float [ >= 0.0 ])
 # USAGE: Character.tilt() Not yet used.
-
-
 ~ start
 System: ...[next]
 
@@ -707,6 +706,17 @@ do Character.play_audio("task2_ready_to_go")
 =>< snippets/focus_conversation
 Sam: OK, here we go! Remember that the Command Centre is very sensitive, so repeat what the computer says exactly. Once you repeat after the computer, I’ll click the GREEN button to send the directions to the Command Centre and we can see if our ship moves! I’ll have a seat and let you take control!
 
+#12 Phrases – 6 song, 6 speech randomized (see list of sentences on last page)*
+System: Select stimuli order
+- Order A
+	=>< orders/order_A
+- Order B
+	=>< orders/order_B
+- Order C
+	=>< orders/order_C
+- Order D
+	=>< orders/order_D
+
 
 ~ task2_warp
 set level = "launch"
@@ -721,16 +731,7 @@ do move_star(3,1.0,12.0)
 do move_star(4,1.0,12.0)
 do move_star(5,1.0,12.0)
 [next=12.0]
-#12 Phrases – 6 song, 6 speech randomized (see list of sentences on last page)*
-System: Select stimuli order
-- Order A
-	=>< orders/order_A
-- Order B
-	=>< orders/order_B
-- Order C
-	=>< orders/order_C
-- Order D
-	=>< orders/order_D
+
 
 ~ task2_arrived
 do Character.play_audio("task2_arrived")
