@@ -7,7 +7,7 @@ System:
 set screen = "computer"
 do Stimuli.play("speech/Sp_01F")
 do Recorder.start()
-[next=2]
+[next=1]
 set screen = "recording"
 [next=3]
 System:
@@ -27,7 +27,7 @@ System:
 set screen = "computer"
 do Stimuli.play("speech/Sp_01R")
 do Recorder.start()
-[next=2]
+[next=1]
 set screen = "recording"
 [next=3]
 System:
@@ -47,7 +47,7 @@ System:
 set screen = "computer"
 do Stimuli.play("speech/Sp_02F")
 do Recorder.start()
-[next=2]
+[next=1]
 set screen = "recording"
 [next=3]
 System:
@@ -67,7 +67,7 @@ System:
 set screen = "computer"
 do Stimuli.play("speech/Sp_02R")
 do Recorder.start()
-[next=2]
+[next=1]
 set screen = "recording"
 [next=3]
 System:
@@ -87,7 +87,7 @@ System:
 set screen = "computer"
 do Stimuli.play("speech/Sp_03F")
 do Recorder.start()
-[next=2]
+[next=1]
 set screen = "recording"
 [next=3]
 System:
@@ -107,7 +107,7 @@ System:
 set screen = "computer"
 do Stimuli.play("speech/Sp_03R")
 do Recorder.start()
-[next=2]
+[next=1]
 set screen = "recording"
 [next=3]
 System:
@@ -127,7 +127,7 @@ System:
 set screen = "computer"
 do Stimuli.play("speech/Sp_04F")
 do Recorder.start()
-[next=2]
+[next=1]
 set screen = "recording"
 [next=3]
 System:
@@ -147,7 +147,7 @@ System:
 set screen = "computer"
 do Stimuli.play("speech/Sp_04R")
 do Recorder.start()
-[next=2]
+[next=1]
 set screen = "recording"
 [next=3]
 System:
@@ -167,7 +167,7 @@ System:
 set screen = "computer"
 do Stimuli.play("speech/Sp_05F")
 do Recorder.start()
-[next=2]
+[next=1]
 set screen = "recording"
 [next=3]
 System:
@@ -187,7 +187,7 @@ System:
 set screen = "computer"
 do Stimuli.play("speech/Sp_05R")
 do Recorder.start()
-[next=2]
+[next=1]
 set screen = "recording"
 [next=3]
 System:
@@ -207,7 +207,7 @@ System:
 set screen = "computer"
 do Stimuli.play("speech/Sp_06F")
 do Recorder.start()
-[next=2]
+[next=1]
 set screen = "recording"
 [next=3]
 System:
@@ -227,7 +227,7 @@ System:
 set screen = "computer"
 do Stimuli.play("speech/Sp_06R")
 do Recorder.start()
-[next=2]
+[next=1]
 set screen = "recording"
 [next=3]
 System:
@@ -247,7 +247,7 @@ System:
 set screen = "computer"
 do Stimuli.play("speech/Sp_07F")
 do Recorder.start()
-[next=2]
+[next=1]
 set screen = "recording"
 [next=3]
 System:
@@ -267,7 +267,7 @@ System:
 set screen = "computer"
 do Stimuli.play("speech/Sp_07R")
 do Recorder.start()
-[next=2]
+[next=1]
 set screen = "recording"
 [next=3]
 System:
@@ -287,7 +287,7 @@ System:
 set screen = "computer"
 do Stimuli.play("speech/Sp_08F")
 do Recorder.start()
-[next=2]
+[next=1]
 set screen = "recording"
 [next=3]
 System:
@@ -307,7 +307,7 @@ System:
 set screen = "computer"
 do Stimuli.play("speech/Sp_08R")
 do Recorder.start()
-[next=2]
+[next=1]
 set screen = "recording"
 [next=3]
 System:
@@ -327,7 +327,7 @@ System:
 set screen = "computer"
 do Stimuli.play("speech/Sp_09F")
 do Recorder.start()
-[next=2]
+[next=1]
 set screen = "recording"
 [next=3]
 System:
@@ -347,7 +347,7 @@ System:
 set screen = "computer"
 do Stimuli.play("speech/Sp_09R")
 do Recorder.start()
-[next=2]
+[next=1]
 set screen = "recording"
 [next=3]
 System:
@@ -367,7 +367,7 @@ System:
 set screen = "computer"
 do Stimuli.play("speech/Sp_10F")
 do Recorder.start()
-[next=2]
+[next=1]
 set screen = "recording"
 [next=3]
 System:
@@ -387,7 +387,7 @@ System:
 set screen = "computer"
 do Stimuli.play("speech/Sp_10R")
 do Recorder.start()
-[next=2]
+[next=1]
 set screen = "recording"
 [next=3]
 System:
@@ -407,7 +407,7 @@ System:
 set screen = "computer"
 do Stimuli.play("speech/Sp_11F")
 do Recorder.start()
-[next=2]
+[next=1]
 set screen = "recording"
 [next=3]
 System:
@@ -427,7 +427,7 @@ System:
 set screen = "computer"
 do Stimuli.play("speech/Sp_11R")
 do Recorder.start()
-[next=2]
+[next=1]
 set screen = "recording"
 [next=3]
 System:
@@ -447,7 +447,7 @@ System:
 set screen = "computer"
 do Stimuli.play("speech/Sp_12F")
 do Recorder.start()
-[next=2]
+[next=1]
 set screen = "recording"
 [next=3]
 System:
@@ -467,7 +467,7 @@ System:
 set screen = "computer"
 do Stimuli.play("speech/Sp_12R")
 do Recorder.start()
-[next=2]
+[next=1]
 set screen = "recording"
 [next=3]
 System:
@@ -489,7 +489,7 @@ System:
 set screen = "computer"
 do Stimuli.play("song/So_01F")
 do Recorder.start()
-[next=2]
+[next=1]
 set screen = "recording"
 [next=3]
 System:
@@ -509,7 +509,7 @@ System:
 set screen = "computer"
 do Stimuli.play("song/So_01R")
 do Recorder.start()
-[next=2]
+[next=1]
 set screen = "recording"
 [next=3]
 System:
@@ -529,7 +529,7 @@ System:
 set screen = "computer"
 do Stimuli.play("song/So_02F")
 do Recorder.start()
-[next=2]
+[next=1]
 set screen = "recording"
 [next=3]
 System:
@@ -549,7 +549,7 @@ System:
 set screen = "computer"
 do Stimuli.play("song/So_02R")
 do Recorder.start()
-[next=2]
+[next=1]
 set screen = "recording"
 [next=3]
 System:
@@ -569,7 +569,7 @@ System:
 set screen = "computer"
 do Stimuli.play("song/So_03F")
 do Recorder.start()
-[next=2]
+[next=1]
 set screen = "recording"
 [next=3]
 System:
@@ -589,7 +589,7 @@ System:
 set screen = "computer"
 do Stimuli.play("song/So_03R")
 do Recorder.start()
-[next=2]
+[next=1]
 set screen = "recording"
 [next=3]
 System:
@@ -609,7 +609,7 @@ System:
 set screen = "computer"
 do Stimuli.play("song/So_04F")
 do Recorder.start()
-[next=2]
+[next=1]
 set screen = "recording"
 [next=3]
 System:
@@ -629,7 +629,7 @@ System:
 set screen = "computer"
 do Stimuli.play("song/So_04R")
 do Recorder.start()
-[next=2]
+[next=1]
 set screen = "recording"
 [next=3]
 System:
@@ -649,7 +649,7 @@ System:
 set screen = "computer"
 do Stimuli.play("song/So_05F")
 do Recorder.start()
-[next=2]
+[next=1]
 set screen = "recording"
 [next=3]
 System:
@@ -669,7 +669,7 @@ System:
 set screen = "computer"
 do Stimuli.play("song/So_05R")
 do Recorder.start()
-[next=2]
+[next=1]
 set screen = "recording"
 [next=3]
 System:
@@ -689,7 +689,7 @@ System:
 set screen = "computer"
 do Stimuli.play("song/So_06F")
 do Recorder.start()
-[next=2]
+[next=1]
 set screen = "recording"
 [next=3]
 System:
@@ -709,7 +709,7 @@ System:
 set screen = "computer"
 do Stimuli.play("song/So_06R")
 do Recorder.start()
-[next=2]
+[next=1]
 set screen = "recording"
 [next=3]
 System:
@@ -729,7 +729,7 @@ System:
 set screen = "computer"
 do Stimuli.play("song/So_07F")
 do Recorder.start()
-[next=2]
+[next=1]
 set screen = "recording"
 [next=3]
 System:
@@ -749,7 +749,7 @@ System:
 set screen = "computer"
 do Stimuli.play("song/So_07R")
 do Recorder.start()
-[next=2]
+[next=1]
 set screen = "recording"
 [next=3]
 System:
@@ -769,7 +769,7 @@ System:
 set screen = "computer"
 do Stimuli.play("song/So_08F")
 do Recorder.start()
-[next=2]
+[next=1]
 set screen = "recording"
 [next=3]
 System:
@@ -789,7 +789,7 @@ System:
 set screen = "computer"
 do Stimuli.play("song/So_08R")
 do Recorder.start()
-[next=2]
+[next=1]
 set screen = "recording"
 [next=3]
 System:
@@ -809,7 +809,7 @@ System:
 set screen = "computer"
 do Stimuli.play("song/So_09F")
 do Recorder.start()
-[next=2]
+[next=1]
 set screen = "recording"
 [next=3]
 System:
@@ -829,7 +829,7 @@ System:
 set screen = "computer"
 do Stimuli.play("song/So_09R")
 do Recorder.start()
-[next=2]
+[next=1]
 set screen = "recording"
 [next=3]
 System:
@@ -849,7 +849,7 @@ System:
 set screen = "computer"
 do Stimuli.play("song/So_10F")
 do Recorder.start()
-[next=2]
+[next=1]
 set screen = "recording"
 [next=3]
 System:
@@ -869,7 +869,7 @@ System:
 set screen = "computer"
 do Stimuli.play("song/So_10R")
 do Recorder.start()
-[next=2]
+[next=1]
 set screen = "recording"
 [next=3]
 System:
@@ -889,7 +889,7 @@ System:
 set screen = "computer"
 do Stimuli.play("song/So_11F")
 do Recorder.start()
-[next=2]
+[next=1]
 set screen = "recording"
 [next=3]
 System:
@@ -909,7 +909,7 @@ System:
 set screen = "computer"
 do Stimuli.play("song/So_11R")
 do Recorder.start()
-[next=2]
+[next=1]
 set screen = "recording"
 [next=3]
 System:
@@ -929,7 +929,7 @@ System:
 set screen = "computer"
 do Stimuli.play("song/So_12F")
 do Recorder.start()
-[next=2]
+[next=1]
 set screen = "recording"
 [next=3]
 System:
@@ -949,7 +949,7 @@ System:
 set screen = "computer"
 do Stimuli.play("song/So_12R")
 do Recorder.start()
-[next=2]
+[next=1]
 set screen = "recording"
 [next=3]
 System:
