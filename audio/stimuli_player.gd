@@ -30,5 +30,6 @@ func play(sentence_id: String) -> void:
 
 # restore sequence and visualizer state on finish
 func _on_audio_stream_player_finished():
+	await get_tree().create_timer(1.0).timeout
 	Sequencer.screen = "idle"
 	AudioVisualizer.channel = "Analyze"
