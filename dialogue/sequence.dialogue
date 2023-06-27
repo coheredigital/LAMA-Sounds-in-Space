@@ -436,7 +436,7 @@ set steering_motion = 0.5
 
 
 ~ were_flying
-[next=1.5]
+[next=3.5]
 do Character.play_audio("were_flying")
 Sam: We’re flying![next=5]
 set steering_motion = 0.2
