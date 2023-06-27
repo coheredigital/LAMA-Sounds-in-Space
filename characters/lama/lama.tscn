@@ -256,10 +256,10 @@ tracks/1/path = NodePath("lama/neck/head:rotation")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 3.2, 4, 6.6),
+"times": PackedFloat32Array(0, 3.3, 4, 6.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(-0.0916905, -0.382685, 0.0300871), Vector3(-0.0488692, 0.143117, 0.015708), Vector3(0, 0, 0)]
+"values": [Vector3(0, 0, 0), Vector3(-0.0366519, -0.20944, 0.0296706), Vector3(-0.0488692, 0.143117, 0.015708), Vector3(0, 0, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -313,7 +313,6 @@ states/idle/position = Vector2(352, 100)
 transitions = ["idle", "flail", SubResource("AnimationNodeStateMachineTransition_rf0kf"), "flail", "idle", SubResource("AnimationNodeStateMachineTransition_l7d2q"), "idle", "End", SubResource("AnimationNodeStateMachineTransition_xtay7"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_04cru")]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_dbl4b"]
-graph_offset = Vector2(-274, 39)
 nodes/Add2/node = SubResource("AnimationNodeAdd2_4mvet")
 nodes/Add2/position = Vector2(140, 200)
 "nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_l6qxq")
