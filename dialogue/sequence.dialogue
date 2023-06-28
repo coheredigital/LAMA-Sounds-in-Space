@@ -99,7 +99,7 @@ do Character.pivot(0,0.45)
 [next=3]
 do Character.play_audio("intro_map")
 Sam: Oh no! It looks like Lucky’s spaceship broke down and Lucky is stuck on another planet way out in space!
-do Character.pivot(0.44,0.4)
+do Character.pivot(0.44,0.1)
 [next=2]
 
 
@@ -175,13 +175,11 @@ Sam: This is what the computer sounds like.
 Computer: Nice to meet you
 do Character.play_audio("computer_nice_to_meet_you")
 [next=2]
-do Character.play_audio("task0_computer_instructions")
-Sam: Ok, now I’ll have the computer say a special phrase and your job is to repeat what the computer just said with your voice when the light turns green. Make sure you say it loud and clear, so the computer can hear you! After you repeat after the computer, I’ll press the red button to send your voice to the spaceship.
 
 
 ~ activate_spaceship
-do Character.play_audio("ok_here_we_go")
-Sam: Ok here we go!
+do Character.play_audio("task0_computer_instructions")
+Sam: Ok, now I’ll have the computer say a special phrase and your job is to repeat what the computer just said with your voice when the light turns green. Make sure you say it loud and clear, so the computer can hear you! After you repeat after the computer, I’ll press the red button to tell the computer to send your voice to the spaceship. Ok here we go!
 
 
 ~ activate_spaceship_command
@@ -191,10 +189,9 @@ System: ...
 	set screen = "computer"
 do Stimuli.play("practice/1_activate")
 Computer: Activate spaceship!
-[next=2]
-
-~ activate_spaceship_recording
+[next=1]
 set screen = "recording"
+# ~ activate_spaceship_recording
 
 
 ~ activate_spaceship_result
@@ -244,9 +241,8 @@ set screen = "computer"
 do Stimuli.play("practice/2_seatbelts")
 Computer: Seat belts buckled!
 [next=2]
-
-~ buckle_up_recording
 set screen = "recording"
+# ~ buckle_up_recording
 
 
 ~ buckle_up_result
@@ -486,8 +482,6 @@ System: ...
 	do Recorder.stop()
 	Sam: Uh oh! It looks like the spaceship couldn't quite hear you. Let's try again a bit louder.
 	=> stars_light_1_command
-
-- Next
 do move_star(1,0.7,5.0)
 [next=4]
 set stars_brightness = 0.2
@@ -496,7 +490,7 @@ set stars_brightness = 0.2
 ~ stars_light_2_command
 set screen = "computer"
 [next=1]
-Computer: Star 1! 
+Computer: Star 2! 
 # TODO: What command do they want for bringing in stars?
 
 
@@ -521,8 +515,6 @@ System: ...
 	do Recorder.stop()
 	Sam: Uh oh! It looks like the spaceship couldn't quite hear you. Let's try again a bit louder.
 	=> stars_light_2_command
-
-- Next
 do move_star(2,0.7,5.0)
 [next=4]
 set stars_brightness = 0.4
@@ -531,7 +523,7 @@ set stars_brightness = 0.4
 ~ stars_light_3_command
 set screen = "computer"
 [next=1]
-Computer: Star 1! 
+Computer: Star 3! 
 # TODO: What command do they want for bringing in stars?
 
 
@@ -556,8 +548,6 @@ System: ...
 	do Recorder.stop()
 	Sam: Uh oh! It looks like the spaceship couldn't quite hear you. Let's try again a bit louder.
 	=> stars_light_3_command
-
-- Next
 do move_star(3,0.7,5.0)
 [next=4]
 set stars_brightness = 0.6
@@ -565,7 +555,7 @@ set stars_brightness = 0.6
 ~ stars_light_4_command
 set screen = "computer"
 [next=1]
-Computer: Star 1! 
+Computer: Star 4! 
 # TODO: What command do they want for bringing in stars?
 
 
@@ -590,8 +580,6 @@ System: ...
 	do Recorder.stop()
 	Sam: Uh oh! It looks like the spaceship couldn't quite hear you. Let's try again a bit louder.
 	=> stars_light_4_command
-
-- Next
 do move_star(4,0.7,5.0)
 [next=4]
 set stars_brightness = 0.8
@@ -600,7 +588,7 @@ set stars_brightness = 0.8
 ~ stars_light_5_command
 set screen = "computer"
 [next=1]
-Computer: Star 1! 
+Computer: Star 5! 
 # TODO: What command do they want for bringing in stars?
 
 
@@ -625,7 +613,6 @@ System: ...
 	do Recorder.stop()
 	Sam: Uh oh! It looks like the spaceship couldn't quite hear you. Let's try again a bit louder.
 	=> stars_light_5_command
-- Next
 do move_star(5,0.7,5.0)
 [next=1]
 set stars_brightness = 1.0
