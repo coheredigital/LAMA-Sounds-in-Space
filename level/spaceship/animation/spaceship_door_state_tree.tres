@@ -1,11 +1,17 @@
-[gd_resource type="AnimationNodeStateMachine" load_steps=7 format=3 uid="uid://cm4elcyqbcvrn"]
+[gd_resource type="AnimationNodeStateMachine" load_steps=12 format=3 uid="uid://cm4elcyqbcvrn"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4p22n"]
 animation = &"door/open"
 play_mode = 1
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_k6tri"]
+animation = &"door/idle"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_58mat"]
 animation = &"door/open"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_61vxe"]
+animation = &"door/ready"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lpynv"]
 xfade_time = 1.0
@@ -15,18 +21,32 @@ switch_mode = 2
 xfade_time = 1.0
 switch_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jxfj5"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6b2h1"]
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_m0xa2"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qtjak"]
+xfade_time = 0.99
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_32did"]
+xfade_time = 0.66
 switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_q7jlv"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_e304h"]
+xfade_time = 0.22
 
 [resource]
-states/End/position = Vector2(-614, 259)
-states/Start/position = Vector2(-640, 167)
+states/End/position = Vector2(-516, 297)
+states/Start/position = Vector2(-689, 174)
 states/close/node = SubResource("AnimationNodeAnimation_4p22n")
-states/close/position = Vector2(-472, 167)
+states/close/position = Vector2(-348, 174)
+states/idle/node = SubResource("AnimationNodeAnimation_k6tri")
+states/idle/position = Vector2(-516, 174)
 states/open/node = SubResource("AnimationNodeAnimation_58mat")
-states/open/position = Vector2(-339, 167)
-transitions = ["open", "close", SubResource("AnimationNodeStateMachineTransition_lpynv"), "close", "open", SubResource("AnimationNodeStateMachineTransition_kde5u"), "Start", "close", SubResource("AnimationNodeStateMachineTransition_jxfj5"), "close", "End", SubResource("AnimationNodeStateMachineTransition_m0xa2")]
-graph_offset = Vector2(-978, -6)
+states/open/position = Vector2(-348, 72)
+states/ready/node = SubResource("AnimationNodeAnimation_61vxe")
+states/ready/position = Vector2(-516, 72)
+transitions = ["open", "close", SubResource("AnimationNodeStateMachineTransition_lpynv"), "close", "open", SubResource("AnimationNodeStateMachineTransition_kde5u"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_6b2h1"), "idle", "ready", SubResource("AnimationNodeStateMachineTransition_qtjak"), "close", "idle", SubResource("AnimationNodeStateMachineTransition_32did"), "idle", "End", SubResource("AnimationNodeStateMachineTransition_q7jlv"), "ready", "open", SubResource("AnimationNodeStateMachineTransition_e304h")]
+graph_offset = Vector2(-910, 11)

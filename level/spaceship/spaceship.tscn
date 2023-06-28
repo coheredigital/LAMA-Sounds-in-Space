@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://wa41njrapfpn"]
+[gd_scene load_steps=42 format=3 uid="uid://wa41njrapfpn"]
 
 [ext_resource type="PackedScene" uid="uid://ctjlmbopaw2sa" path="res://level/spaceship/models/spaceship.gltf" id="1_m17hk"]
 [ext_resource type="Script" path="res://level/spaceship/spaceship.gd" id="2_tplkk"]
@@ -37,7 +37,7 @@ animation = &"cockpit/steering_motion"
 [sub_resource type="AnimationNodeTimeScale" id="4"]
 
 [sub_resource type="AnimationNodeBlendTree" id="5"]
-graph_offset = Vector2(-216.86, 228.319)
+graph_offset = Vector2(-126.546, 48.5507)
 nodes/blend_screen/node = SubResource("AnimationNodeAdd2_h7dn0")
 nodes/blend_screen/position = Vector2(780, 200)
 nodes/door_state/node = ExtResource("10_csjlb")
@@ -149,6 +149,18 @@ tracks/6/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("spaceship/door/lock:material_override:shader_parameter/emission_tint")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.529412, 1, 0.533333, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vyonl"]
 _data = {
@@ -213,15 +225,183 @@ tracks/4/path = NodePath("spaceship/door/lock:material_override:shader_parameter
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 2.5, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [1.0, 1.2, 0.0, 1.2, 0.0, 1.2, 0.0, 0.0]
+"values": [1.0, 1.2, 0.2, 1.2, 0.2, 1.2, 0.5, 0.5, 0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("spaceship/door/lock:material_override:shader_parameter/emission_tint")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.529412, 1, 0.533333, 1), Color(0.529412, 1, 0.533333, 1), Color(0.333333, 0.701961, 0.905882, 1), Color(0.333333, 0.701961, 0.905882, 1), Color(0.956863, 0.34902, 0.470588, 1), Color(0.956863, 0.34902, 0.470588, 1), Color(0.623529, 0.513726, 1, 1), Color(0.623529, 0.513726, 1, 1), Color(0.333333, 0.701961, 0.905882, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bqdxs"]
+resource_name = "ready"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("spaceship/door:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("spaceship/door:rotation_degrees")
+tracks/1/interp = 2
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("spaceship/door/lock/bar:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("spaceship/door/lock/bar:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("spaceship/door/lock:material_override:shader_parameter/emission_energy")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.653, 0.361]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("spaceship/door/lock:material_override:shader_parameter/emission_tint")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.529412, 1, 0.533333, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_gmtr6"]
+resource_name = "idle"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("spaceship/door:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("spaceship/door:rotation_degrees")
+tracks/1/interp = 2
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("spaceship/door/lock/bar:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("spaceship/door/lock/bar:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("spaceship/door/lock:material_override:shader_parameter/emission_energy")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.653, 0.361]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("spaceship/door/lock:material_override:shader_parameter/emission_tint")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.333333, 0.701961, 0.905882, 1), Color(0.623529, 0.513726, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xd8vc"]
 _data = {
-"open": SubResource("Animation_dxke3")
+"idle": SubResource("Animation_gmtr6"),
+"open": SubResource("Animation_dxke3"),
+"ready": SubResource("Animation_bqdxs")
 }
 
 [sub_resource type="QuadMesh" id="QuadMesh_dpqp6"]
@@ -279,7 +459,7 @@ shader_parameter/waveform_controlled = false
 shader_parameter/screen_count = 16.0
 shader_parameter/frame_count = 8.0
 shader_parameter/screen_number = 12.0
-shader_parameter/frame_number = 3.34434
+shader_parameter/frame_number = 6.89483
 shader_parameter/emission_texture = ExtResource("10_s46ft")
 shader_parameter/waveform = SubResource("3858")
 
@@ -303,6 +483,8 @@ shader_parameter/emission_texture = ExtResource("18_nolgf")
 
 [node name="Spaceship" instance=ExtResource("1_m17hk")]
 script = ExtResource("2_tplkk")
+door_open = true
+door_state = "ready"
 seatbelts_buckled = true
 
 [node name="Computer" parent="." index="0" instance=ExtResource("3_gtlrx")]

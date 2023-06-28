@@ -10,7 +10,12 @@ var screen_state: String = "idle":
 	set(value):
 		door_open = value
 		set_door_open(value)
-
+		
+@export_enum("idle","ready","open","close") var door_state := "idle": 
+	set(value):
+		door_state = value
+		set_door_state(value)
+		
 @export var seatbelts_buckled := false : 
 	set(value):
 		seatbelts_buckled = value
@@ -84,6 +89,11 @@ func set_door_open(value: bool) -> void:
 	if animation_tree:
 		var state_machine : AnimationNodeStateMachinePlayback = animation_tree.get("parameters/door_state/playback")
 		state_machine.travel( 'open' if value else 'close' ) 
+		
+func set_door_state(value: String) -> void:
+	if animation_tree:
+		var state_machine : AnimationNodeStateMachinePlayback = animation_tree.get("parameters/door_state/playback")
+		state_machine.travel( value ) 
 
 func set_seatbelts_buckled(value: bool) -> void:
 	if seatbelt_indicator_material:

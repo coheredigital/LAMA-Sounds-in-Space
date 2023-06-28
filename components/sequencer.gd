@@ -10,6 +10,7 @@ signal character_action_changed(value: String)
 
 signal spaceship_motion_changed(value: float)
 signal door_open_changed(value: bool)
+signal door_state_changed(value: String)
 signal steering_motion_changed(value: float)
 signal flying_motion_changed(value: float)
 
@@ -66,6 +67,11 @@ var door_open: bool = false:
 	set(value):
 		door_open = value
 		door_open_changed.emit(value)
+		
+var door_state: String = "idle":
+	set(value):
+		door_state = value
+		door_state_changed.emit(value)
 		
 var seatbelts_buckled: bool = false:
 	set(value):
