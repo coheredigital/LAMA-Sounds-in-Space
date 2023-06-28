@@ -3,11 +3,12 @@ extends Node3D
 
 @export var color := Color.KHAKI :
 	set(value):
+		
 		color = value
 		if star_light:
 			star_light.light_color = color
 
-@export_range(0.0, 1.0) var rotation_speed := 0.0 : 
+@export_range(0.0, 1.0, 0.01) var rotation_speed := 0.0 : 
 	set(value):
 		rotation_speed = value
 		if animation_player:
@@ -16,3 +17,9 @@ extends Node3D
 @onready var star_light := %StarLight
 @onready var particles := %Particles
 @onready var animation_player := %IdleAnimationPlayer
+
+func _ready():
+	
+#	fix for values not being set on load
+	self.color = color
+	self.rotation_speed = rotation_speed

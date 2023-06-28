@@ -309,6 +309,30 @@ tracks/19/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Stars:position")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Stars:scale")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.999999, 1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oeqp5"]
 _data = {
@@ -361,7 +385,6 @@ script = ExtResource("1_58g46")
 unique_name_in_owner = true
 tree_root = SubResource("AnimationNodeStateMachine_xndii")
 anim_player = NodePath("AnimationPlayer")
-active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_4dohv")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="StateTree"]
@@ -375,7 +398,7 @@ libraries = {
 script = ExtResource("2_gas8d")
 
 [node name="Character" parent="." instance=ExtResource("21_35viv")]
-transform = Transform3D(-0.990357, 1.04315e-05, -0.138532, 7.7307e-12, 0.999999, 7.53002e-05, 0.138532, 7.45741e-05, -0.990357, -13.2931, 1.00015, -3.19279)
+transform = Transform3D(-0.990357, 1.04315e-05, -0.138532, 1.63709e-11, 0.999999, 7.53002e-05, 0.138532, 7.45741e-05, -0.990357, -13.2931, 1.00015, -3.19279)
 action = "talking"
 
 [node name="Spaceship" parent="." instance=ExtResource("2_ovpdl")]
@@ -394,11 +417,11 @@ visible = false
 curve = ExtResource("22_lkuf6")
 
 [node name="RemoteTransform" parent="FollowPaths/CharacterPath" index="0"]
-transform = Transform3D(-0.990357, 1.04315e-05, -0.138532, 7.7307e-12, 0.999999, 7.53002e-05, 0.138532, 7.45741e-05, -0.990357, -13.2931, 1.00015, -3.19279)
+transform = Transform3D(-0.990357, 1.04315e-05, -0.138532, 1.63709e-11, 0.999999, 7.53002e-05, 0.138532, 7.45741e-05, -0.990357, -13.2931, 1.00015, -3.19279)
 remote_path = NodePath("../../../Character")
 
 [node name="PathFollow" parent="FollowPaths/CharacterPath" index="1"]
-transform = Transform3D(0.989783, 0, 0.141398, 0, 0.999798, 0, -0.141398, 0, 0.989783, -13.3, 1, -3.2)
+transform = Transform3D(0.989782, 0, 0.141398, 0, 0.999798, 0, -0.141398, 0, 0.989782, -13.3, 1, -3.2)
 
 [node name="AlienPath" parent="FollowPaths" instance=ExtResource("8_xybyf")]
 unique_name_in_owner = true
@@ -421,7 +444,7 @@ curve = ExtResource("6_4mufo")
 progress_ratio = 1.0
 
 [node name="RemoteTransform" parent="FollowPaths/LamaPath" index="0"]
-transform = Transform3D(-0.516591, -2.55671e-05, -0.856231, 6.36646e-12, 1, -2.986e-05, 0.856231, -1.54255e-05, -0.516591, -1.20467, 1.49994, -4.50853)
+transform = Transform3D(-0.516591, -2.55671e-05, -0.856231, -9.09494e-13, 1, -2.986e-05, 0.856231, -1.54255e-05, -0.516591, -1.20467, 1.49994, -4.50853)
 remote_path = NodePath("../../../Ground/PlanetStardust/LamaLost")
 
 [node name="BeamTransform3D" type="RemoteTransform3D" parent="FollowPaths/LamaPath/RemoteTransform/Marker3D" index="0"]
@@ -438,11 +461,11 @@ curve = ExtResource("7_a8kou")
 progress_ratio = 0.87
 
 [node name="RemoteTransform" parent="FollowPaths/UfoPath" index="0"]
-transform = Transform3D(-0.821341, 0.0556393, -0.567717, 3.53902e-08, 0.995231, 0.0975379, 0.570437, 0.0801119, -0.817424, -3.6232, 4.60381, -9.8327)
+transform = Transform3D(-0.821341, 0.0556393, -0.567717, 3.35276e-08, 0.995231, 0.0975379, 0.570437, 0.0801119, -0.817424, -3.6232, 4.60381, -9.8327)
 remote_path = NodePath("../../../Ground/PlanetStardust/Ufo")
 
 [node name="PathFollow" parent="FollowPaths/UfoPath" index="1"]
-transform = Transform3D(0.715748, 0.406692, 0.567485, -0.431969, 0.896418, -0.0976357, -0.548498, -0.17527, 0.817418, -3.6277, 4.60486, -9.83984)
+transform = Transform3D(0.715748, 0.406692, 0.567486, -0.431969, 0.896418, -0.0976358, -0.548498, -0.17527, 0.817419, -3.6277, 4.60486, -9.83984)
 progress = 39.705
 rotation_mode = 3
 
@@ -453,7 +476,7 @@ progress_ratio = 0.2
 tilt = -0.5
 
 [node name="RemoteTransform" parent="FollowPaths/PlayerPath" index="0"]
-transform = Transform3D(-0.393568, 0.15895, -0.905448, 7.45058e-09, 0.984938, 0.172904, 0.919295, 0.0680497, -0.38764, -10.524, 2.58239, -1.26393)
+transform = Transform3D(-0.393568, 0.15895, -0.905447, 1.04308e-07, 0.984938, 0.172904, 0.919294, 0.0680496, -0.38764, -10.524, 2.58239, -1.26393)
 remote_path = NodePath("../../PlayerCamera")
 use_global_coordinates = true
 
@@ -465,7 +488,7 @@ progress = 3.33849
 transform = Transform3D(1, 0, 0, 0, 0.984807, -0.173648, 0, 0.173648, 0.984807, 0, 0, 0)
 
 [node name="Ground" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.038, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -64, 0)
 
 [node name="Station" type="Node3D" parent="Ground"]
 
@@ -551,10 +574,10 @@ transform = Transform3D(-0.886737, 0, 0.462275, 0, 1, 0, -0.462275, 0, -0.886737
 visible = false
 
 [node name="LamaLost" parent="Ground/PlanetStardust" instance=ExtResource("8_t1ik6")]
-transform = Transform3D(-0.516591, -2.55671e-05, -0.856231, 6.36646e-12, 1, -2.986e-05, 0.856231, -1.54255e-05, -0.516591, -1.20467, 1.49994, -4.50853)
+transform = Transform3D(-0.516591, -2.55671e-05, -0.856231, -9.09494e-13, 1, -2.986e-05, 0.856231, -1.54255e-05, -0.516591, -1.20467, 1.49994, -4.50853)
 
 [node name="Ufo" parent="Ground/PlanetStardust" instance=ExtResource("16_8d17p")]
-transform = Transform3D(-0.821341, 0.0556393, -0.567717, 3.53902e-08, 0.995231, 0.0975379, 0.570437, 0.0801119, -0.817424, -3.6232, 4.60381, -9.8327)
+transform = Transform3D(-0.821341, 0.0556393, -0.567717, 3.35276e-08, 0.995231, 0.0975379, 0.570437, 0.0801119, -0.817424, -3.6232, 4.60381, -9.8327)
 
 [node name="BeamLookTarget" parent="Ground/PlanetStardust/Ufo" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 3.72529e-08, 0, 0, 1, 5.72205e-06, -3.8232, -0.748672)
@@ -562,8 +585,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 3.72529e-08, 0, 0, 1, 5.72205e-06, -3.823
 [node name="ufo" parent="Ground/PlanetStardust/Ufo" index="4"]
 transform = Transform3D(0.986387, 0.115874, 0.11667, -0.116671, 0.99317, 0, -0.115874, -0.013612, 0.993169, 0, 0, 0)
 
+[node name="ring_light" parent="Ground/PlanetStardust/Ufo/ufo" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
 [node name="beam" parent="Ground/PlanetStardust/Ufo/ufo" index="13"]
-transform = Transform3D(0.63619, 0.380782, 0.0150647, -0.235255, 0.18935, 0.0915349, 0.320025, -0.617778, 0.0373411, 2.38419e-07, -0.7, -1.90735e-06)
+transform = Transform3D(0.617217, 0.425303, -0.00342032, -0.0818705, 0.162696, 0.0970062, 0.418136, -0.595941, 0.0240425, 0, -0.700001, 4.76837e-07)
 
 [node name="Alien" parent="Ground/PlanetStardust" instance=ExtResource("8_bs0lj")]
 transform = Transform3D(-0.963947, 0.000852061, 0.265929, -8.73087e-11, 0.999701, -0.00320373, -0.265976, -0.00308803, -0.963779, 0.995202, 1.29361, -4.19556)
@@ -571,7 +597,7 @@ transform = Transform3D(-0.963947, 0.000852061, 0.265929, -8.73087e-11, 0.999701
 [node name="mountains" parent="Ground/PlanetStardust" instance=ExtResource("17_thg0y")]
 
 [node name="Planet" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.249969, 7.91624e-09, -0.00392246, 0.00200871, 0.214731, -0.12801, 0.00336909, -0.128026, -0.214704, 3.72275, 28.7924, -54.9282)
+transform = Transform3D(-0.249969, 7.68341e-09, -0.00392246, 0.00200871, 0.214731, -0.12801, 0.00336909, -0.128026, -0.214704, 3.72275, 28.7924, -54.9282)
 cast_shadow = 0
 mesh = SubResource("3833")
 skeleton = NodePath("")
@@ -599,10 +625,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.038, 0)
 remote_path = NodePath("../../../Ground")
 
 [node name="Stars" parent="." instance=ExtResource("19_4v3co")]
-star2_progress = 0.7
-star3_progress = 0.7
-star4_progress = 0.7
-star5_progress = 0.7
+transform = Transform3D(0.853862, 0.519278, -0.0356163, -0.51218, 0.826062, -0.235142, -0.0926831, 0.219021, 0.971308, 0, 0, 0)
 
 [editable path="FollowPaths/CharacterPath"]
 [editable path="FollowPaths/AlienPath"]

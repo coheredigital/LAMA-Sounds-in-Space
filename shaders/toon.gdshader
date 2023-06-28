@@ -22,14 +22,15 @@ uniform float metallic : hint_range(0.0,1.0) = 0.0;
 uniform float roughness : hint_range(0.0,1.0) = 1.0;
 
 // Emission from base code.
-uniform vec4 emission : source_color = vec4(0.0, 0.0, 0.0, 1.0);
+uniform vec4 emission_tint : source_color = vec4(0.0, 0.0, 0.0, 1.0);
 uniform float emission_energy : hint_range(0.0, 8.0) = 1.0;
 uniform sampler2D emission_texture : hint_default_black, filter_nearest;
 
 void fragment() {
+	vec4 emission_rgba = texture(emission_texture, UV);
 	ROUGHNESS = roughness;
 	METALLIC = metallic;
-	EMISSION = (emission.rgb + texture(emission_texture, UV).rgb) * emission_energy * COLOR.rgb;
+	EMISSION = (emission_tint.rgb + (emission_rgba.rgb * emission_tint.a)) * emission_energy * COLOR.rgb * emission_rgba.a;
 	ALBEDO = albedo.rgb * COLOR.rgb * texture(albedo_texture, UV).rgb;
 	float alpha = texture(albedo_texture, UV).a;
 	ALPHA = alpha;

@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://wa41njrapfpn"]
+[gd_scene load_steps=40 format=3 uid="uid://wa41njrapfpn"]
 
 [ext_resource type="PackedScene" uid="uid://ctjlmbopaw2sa" path="res://level/spaceship/models/spaceship.gltf" id="1_m17hk"]
 [ext_resource type="Script" path="res://level/spaceship/spaceship.gd" id="2_tplkk"]
@@ -14,8 +14,10 @@
 [ext_resource type="Texture2D" uid="uid://bnfo0b752cn10" path="res://level/spaceship/materials/dashboard_emission.png" id="10_s46ft"]
 [ext_resource type="Material" uid="uid://dorgvk7napmkt" path="res://level/spaceship/materials/seatbelt_indicator_material.tres" id="11_qd2cb"]
 [ext_resource type="Gradient" uid="uid://b71jutk4qdqv3" path="res://audio/visualizer/visualizer_gradient.tres" id="11_yx0mv"]
-[ext_resource type="Material" uid="uid://b1y76t4c1qs7n" path="res://level/spaceship/materials/door_lock_material.tres" id="16_eoffn"]
+[ext_resource type="Shader" path="res://shaders/toon.gdshader" id="16_v4d5b"]
+[ext_resource type="Texture2D" uid="uid://dmjxjcsy4p226" path="res://level/spaceship/materials/spaceship_albedo.png" id="17_dm8ld"]
 [ext_resource type="PackedScene" uid="uid://j5n0jb2vhvf6" path="res://level/spaceship/scenes/siren.tscn" id="18_e0bdp"]
+[ext_resource type="Texture2D" uid="uid://nlpie5uq8lof" path="res://level/spaceship/materials/spaceship_emission.png" id="18_nolgf"]
 
 [sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_h7dn0"]
 filters = ["spaceship/cockpit/monitor/screen:surface_material_override/0:shader_parameter/alpha", "spaceship/cockpit/monitor/screen:surface_material_override/0:shader_parameter/frame_number", "spaceship/cockpit/monitor/screen:surface_material_override/0:shader_parameter/screen_number", "spaceship/cockpit/monitor/screen:surface_material_override/0:shader_parameter/waveform_controlled", "spaceship/cockpit/monitor/screen:visible", "spaceship/cockpit/monitor/visualizer_screen:visible"]
@@ -35,7 +37,7 @@ animation = &"cockpit/steering_motion"
 [sub_resource type="AnimationNodeTimeScale" id="4"]
 
 [sub_resource type="AnimationNodeBlendTree" id="5"]
-graph_offset = Vector2(7, 155)
+graph_offset = Vector2(-216.86, 228.319)
 nodes/blend_screen/node = SubResource("AnimationNodeAdd2_h7dn0")
 nodes/blend_screen/position = Vector2(780, 200)
 nodes/door_state/node = ExtResource("10_csjlb")
@@ -276,10 +278,28 @@ shader_parameter/alpha = 1.0
 shader_parameter/waveform_controlled = false
 shader_parameter/screen_count = 16.0
 shader_parameter/frame_count = 8.0
-shader_parameter/screen_number = 3.0
-shader_parameter/frame_number = 2.44528
+shader_parameter/screen_number = 12.0
+shader_parameter/frame_number = 3.34434
 shader_parameter/emission_texture = ExtResource("10_s46ft")
 shader_parameter/waveform = SubResource("3858")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0238j"]
+render_priority = 4
+shader = ExtResource("16_v4d5b")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/specular = 0.5
+shader_parameter/specular_amount = 0.5
+shader_parameter/specular_smoothness = 0.05
+shader_parameter/wrap = 1.076
+shader_parameter/rim = 0.476
+shader_parameter/rim_amount = 0.447
+shader_parameter/rim_smoothness = 1.0
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 1.0
+shader_parameter/emission_tint = Color(0.529412, 1, 0.533333, 1)
+shader_parameter/emission_energy = 1.0
+shader_parameter/albedo_texture = ExtResource("17_dm8ld")
+shader_parameter/emission_texture = ExtResource("18_nolgf")
 
 [node name="Spaceship" instance=ExtResource("1_m17hk")]
 script = ExtResource("2_tplkk")
@@ -357,10 +377,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.18216, -1.3804)
 transform = Transform3D(-0.0290878, 0, 0.999577, 0, 1, 0, -0.999577, 0, -0.0290878, -1.17188, 0.046875, -0.75)
 
 [node name="door" parent="spaceship" index="3"]
-transform = Transform3D(0.976221, 0, 0.216771, 0, 1, 0, -0.216771, 0, 0.976221, 0.0324974, 0.0498384, 0.605263)
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0)
 
 [node name="lock" parent="spaceship/door" index="0"]
-material_override = ExtResource("16_eoffn")
+material_override = SubResource("ShaderMaterial_0238j")
 
 [node name="Light" type="OmniLight3D" parent="." index="3"]
 unique_name_in_owner = true
