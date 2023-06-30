@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://bw70w15xhifwc"]
+[gd_scene load_steps=45 format=3 uid="uid://bw70w15xhifwc"]
 
 [ext_resource type="Shader" path="res://level/environment/materials/planet_material.gdshader" id="2_gujbd"]
 [ext_resource type="PackedScene" uid="uid://uk3s0fjb5pmh" path="res://level/level.tscn" id="4_7ey7j"]
@@ -564,8 +564,6 @@ shader_parameter/emission_energy = 0.265
 shader_parameter/albedo_texture = SubResource("NoiseTexture2D_e8406")
 shader_parameter/color_gradient = SubResource("GradientTexture1D_astb8")
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_180ie"]
-
 [node name="GameWindow" type="Window"]
 initial_position = 1
 title = "Adventure"
@@ -743,21 +741,21 @@ transform = Transform3D(-0.707107, 0.241845, 0.664463, -2.77556e-16, 0.939693, -
 mesh = SubResource("ArrayMesh_7xsg4")
 
 [node name="beam" parent="ViewportContainer/Viewport/Level/Ground/PlanetStardust/Ufo/ufo" index="13"]
-transform = Transform3D(0.478635, 0.528777, -0.030927, -0.427545, 0.527046, 0.0425678, 0.388091, -0.0715174, 0.0850379, -4.76837e-07, -0.7, 0)
+transform = Transform3D(0.478314, 0.529812, -0.0306996, -0.436401, 0.527257, 0.0408907, 0.378512, -0.0616126, 0.0859386, 4.76837e-07, -0.7, 0)
 mesh = SubResource("ArrayMesh_x8uja")
 
 [node name="Alien" parent="ViewportContainer/Viewport/Level/Ground/PlanetStardust" index="2"]
 transform = Transform3D(-0.865304, 8.85823e-06, 0.501009, -2.7282e-12, 0.999701, -1.76802e-05, -0.50104, -1.52983e-05, -0.865251, 1.29464, 1.24421, -4.86969)
 
 [node name="Planet" parent="ViewportContainer/Viewport/Level" index="6"]
-transform = Transform3D(-0.249969, 9.31323e-09, -0.00392246, 0.0027736, 0.176777, -0.176755, 0.0027736, -0.176776, -0.176755, 3.72275, 28.7924, -54.9282)
+transform = Transform3D(-0.249969, 6.0536e-09, -0.00392247, 0.0027736, 0.176777, -0.176754, 0.00277361, -0.176776, -0.176755, 3.72275, 28.7924, -54.9282)
 surface_material_override/0 = SubResource("ShaderMaterial_qfsbg")
 
 [node name="Atmosphere" parent="ViewportContainer/Viewport/Level/Environment/Ground" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 30.0278, 0.164101)
 
 [node name="Stars" parent="ViewportContainer/Viewport/Level" index="9"]
-transform = Transform3D(0.853862, 0.519279, -0.0356162, -0.51218, 0.826063, -0.235142, -0.0926831, 0.219021, 0.971308, 0, 0, 0)
+transform = Transform3D(0.853862, 0.519279, -0.0356162, -0.51218, 0.826063, -0.235142, -0.092683, 0.219021, 0.971308, 0, 0, 0)
 
 [node name="PlayerCamera" type="Camera3D" parent="ViewportContainer/Viewport"]
 unique_name_in_owner = true
@@ -765,9 +763,6 @@ transform = Transform3D(-0.393523, 0.128475, -0.910293, 7.45057e-08, 0.990186, 0
 fov = 65.5
 
 [node name="ScreenOverlay" parent="." instance=ExtResource("4_p5m14")]
-
-[node name="AnimationTree" parent="ScreenOverlay" index="2"]
-parameters/state/playback = SubResource("AnimationNodeStateMachinePlayback_180ie")
 
 [editable path="ViewportContainer/Viewport/Level"]
 [editable path="ViewportContainer/Viewport/Level/FollowPaths/CharacterPath"]
@@ -781,4 +776,3 @@ parameters/state/playback = SubResource("AnimationNodeStateMachinePlayback_180ie
 [editable path="ViewportContainer/Viewport/Level/Ground/Station/Computers/Computer_05"]
 [editable path="ViewportContainer/Viewport/Level/Ground/PlanetStardust/Ufo"]
 [editable path="ViewportContainer/Viewport/Level/Environment"]
-[editable path="ScreenOverlay"]

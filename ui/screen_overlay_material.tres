@@ -1,9 +1,17 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://b8kagw7q0pfl0"]
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://b8kagw7q0pfl0"]
 
 [ext_resource type="Shader" path="res://shaders/screen_overlay.gdshader" id="1_ednnv"]
+[ext_resource type="Texture2D" uid="uid://dw8qudh3n7am5" path="res://ui/loading-screens.png" id="2_rraox"]
+[ext_resource type="Texture2D" uid="uid://bljb5r85vmwtc" path="res://ui/logo.png" id="3_jgewb"]
 
 [resource]
 shader = ExtResource("1_ednnv")
-shader_parameter/blur_amount = 0.0
+shader_parameter/screen_blur_amount = 0.0
+shader_parameter/logo_blur_amount = 0.0
+shader_parameter/logo_alpha = 0.0
+shader_parameter/loading_blur_amount = 0.0
+shader_parameter/loading_alpha = 0.0
 shader_parameter/mix_amount = 0.0
 shader_parameter/color_over = Color(0.121569, 0.0980392, 0.337255, 1)
+shader_parameter/logo_texture = ExtResource("3_jgewb")
+shader_parameter/loading_texture = ExtResource("2_rraox")

@@ -1,18 +1,8 @@
-[gd_scene load_steps=37 format=3 uid="uid://n088b8ab4tef"]
+[gd_scene load_steps=28 format=3 uid="uid://n088b8ab4tef"]
 
 [ext_resource type="Material" uid="uid://b8kagw7q0pfl0" path="res://ui/screen_overlay_material.tres" id="1_2fo8v"]
 [ext_resource type="Script" path="res://ui/screen_overlay.gd" id="2_wsev3"]
-[ext_resource type="Texture2D" uid="uid://bljb5r85vmwtc" path="res://ui/logo.png" id="3_70xkx"]
-[ext_resource type="Shader" path="res://ui/screen_overlay_image.gdshader" id="3_ypyjc"]
-[ext_resource type="Texture2D" uid="uid://dw8qudh3n7am5" path="res://ui/loading-screens.png" id="4_x4swf"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_sla0a"]
-shader = ExtResource("3_ypyjc")
-shader_parameter/image_texture = ExtResource("3_70xkx")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_lygsv"]
-shader = ExtResource("3_ypyjc")
-shader_parameter/image_texture = ExtResource("4_x4swf")
+[ext_resource type="AnimationNodeStateMachinePlayback" uid="uid://cls78jxnapw0j" path="res://ui/screen_overlay_states.tres" id="3_oyj5o"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_v16wh"]
 animation = &"hidden"
@@ -31,50 +21,42 @@ animation = &"loading"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xw4pm"]
 animation = &"logo"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gx3yl"]
-animation = &"overlay"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gk1mg"]
-animation = &"overlay_heavy"
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wh7lk"]
+xfade_time = 0.54
 switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_55ho1"]
-xfade_time = 0.28
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_f3f5b"]
-xfade_time = 1.0
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5tg6t"]
-xfade_time = 1.0
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_v432r"]
-xfade_time = 0.45
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_s6bbl"]
+xfade_time = 0.24
 switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vii2c"]
-xfade_time = 0.25
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_02nn7"]
-xfade_time = 0.62
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3i5ob"]
-xfade_time = 1.52
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lxy4m"]
-xfade_time = 1.07
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_s0s1n"]
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8y0vc"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ki8cq"]
+xfade_time = 1.17
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_oll13"]
+xfade_time = 2.13
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ylmoa"]
+xfade_time = 1.35
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_duy7y"]
+xfade_time = 1.68
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5cd0x"]
+xfade_time = 1.28
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_h52qh"]
+xfade_time = 1.3
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_btxjf"]
 states/End/position = Vector2(204, 225)
@@ -86,41 +68,37 @@ states/hide_loading/position = Vector2(485, 382)
 states/hide_logo/node = SubResource("AnimationNodeAnimation_7bagf")
 states/hide_logo/position = Vector2(561, 172)
 states/loading/node = SubResource("AnimationNodeAnimation_m61mq")
-states/loading/position = Vector2(300, 382)
+states/loading/position = Vector2(320, 382)
 states/logo/node = SubResource("AnimationNodeAnimation_xw4pm")
 states/logo/position = Vector2(561, 51)
-states/overlay/node = SubResource("AnimationNodeAnimation_gx3yl")
-states/overlay/position = Vector2(382, 138)
-states/overlay_heavy/node = SubResource("AnimationNodeAnimation_gk1mg")
-states/overlay_heavy/position = Vector2(382, 266)
-transitions = ["logo", "hide_logo", SubResource("AnimationNodeStateMachineTransition_wh7lk"), "hide_logo", "overlay", SubResource("AnimationNodeStateMachineTransition_55ho1"), "overlay", "overlay_heavy", SubResource("AnimationNodeStateMachineTransition_f3f5b"), "overlay_heavy", "overlay", SubResource("AnimationNodeStateMachineTransition_5tg6t"), "overlay_heavy", "loading", SubResource("AnimationNodeStateMachineTransition_v432r"), "loading", "hide_loading", SubResource("AnimationNodeStateMachineTransition_s6bbl"), "hide_loading", "overlay_heavy", SubResource("AnimationNodeStateMachineTransition_vii2c"), "overlay", "logo", SubResource("AnimationNodeStateMachineTransition_02nn7"), "hidden", "overlay", SubResource("AnimationNodeStateMachineTransition_3i5ob"), "overlay", "hidden", SubResource("AnimationNodeStateMachineTransition_lxy4m"), "Start", "hidden", SubResource("AnimationNodeStateMachineTransition_s0s1n"), "hidden", "End", SubResource("AnimationNodeStateMachineTransition_8y0vc")]
+transitions = ["logo", "hide_logo", SubResource("AnimationNodeStateMachineTransition_wh7lk"), "loading", "hide_loading", SubResource("AnimationNodeStateMachineTransition_s6bbl"), "Start", "hidden", SubResource("AnimationNodeStateMachineTransition_s0s1n"), "hidden", "End", SubResource("AnimationNodeStateMachineTransition_8y0vc"), "hidden", "logo", SubResource("AnimationNodeStateMachineTransition_ki8cq"), "hide_logo", "hidden", SubResource("AnimationNodeStateMachineTransition_oll13"), "hidden", "loading", SubResource("AnimationNodeStateMachineTransition_ylmoa"), "hide_loading", "hidden", SubResource("AnimationNodeStateMachineTransition_duy7y"), "hide_loading", "logo", SubResource("AnimationNodeStateMachineTransition_5cd0x"), "hide_logo", "loading", SubResource("AnimationNodeStateMachineTransition_h52qh")]
+graph_offset = Vector2(-253, -74)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_g0ex2"]
+graph_offset = Vector2(-79.8347, -150.901)
 nodes/output/position = Vector2(560, 160)
 nodes/state/node = SubResource("AnimationNodeStateMachine_btxjf")
 nodes/state/position = Vector2(340, 160)
 node_connections = [&"output", 0, &"state"]
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_rgq3d"]
 
 [sub_resource type="Animation" id="Animation_m42yy"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("%Logo:modulate")
+tracks/0/path = NodePath("%AnimationTree/..:material:shader_parameter/screen_blur_amount")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0)]
+"values": [0.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("%AnimationTree/..:material:shader_parameter/blur_amount")
+tracks/1/path = NodePath("%AnimationTree/..:material:shader_parameter/mix_amount")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -132,7 +110,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("%AnimationTree/..:material:shader_parameter/mix_amount")
+tracks/2/path = NodePath("%AnimationTree/..:material:shader_parameter/loading_alpha")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -144,39 +122,38 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("%LoadingScreen:modulate")
+tracks/3/path = NodePath("%AnimationTree/..:material:shader_parameter/logo_alpha")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0)]
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_8gpki"]
 resource_name = "hidden"
-length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("%Logo:modulate")
+tracks/0/path = NodePath("%AnimationTree/..:material:shader_parameter/screen_blur_amount")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(3),
+"times": PackedFloat32Array(0.5),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0)]
+"values": [0.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("%AnimationTree/..:material:shader_parameter/blur_amount")
+tracks/1/path = NodePath("%AnimationTree/..:material:shader_parameter/mix_amount")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(3),
+"times": PackedFloat32Array(0.5),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
@@ -184,11 +161,11 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("%AnimationTree/..:material:shader_parameter/mix_amount")
-tracks/2/interp = 2
+tracks/2/path = NodePath("%AnimationTree/..:material:shader_parameter/loading_alpha")
+tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(3),
+"times": PackedFloat32Array(0.5),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
@@ -196,14 +173,14 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("%LoadingScreen:modulate")
-tracks/3/interp = 2
+tracks/3/path = NodePath("%AnimationTree/..:material:shader_parameter/logo_alpha")
+tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(3),
+"times": PackedFloat32Array(0.5),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0)]
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_ap4ca"]
@@ -212,38 +189,38 @@ length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("%LoadingScreen:modulate")
+tracks/0/path = NodePath("%AnimationTree/..:material:shader_parameter/screen_blur_amount")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.9),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [6.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("%AnimationTree/..:material:shader_parameter/blur_amount")
+tracks/1/path = NodePath("%AnimationTree/..:material:shader_parameter/mix_amount")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [6.0]
+"values": [0.8]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("%AnimationTree/..:material:shader_parameter/mix_amount")
-tracks/2/interp = 1
+tracks/2/path = NodePath("%AnimationTree/..:material:shader_parameter/loading_alpha")
+tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.8]
+"values": [0.0, 1.0]
 }
 
 [sub_resource type="Animation" id="Animation_ejslo"]
@@ -252,38 +229,38 @@ length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("%Logo:modulate")
+tracks/0/path = NodePath("%AnimationTree/..:material:shader_parameter/screen_blur_amount")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [4.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("%AnimationTree/..:material:shader_parameter/blur_amount")
+tracks/1/path = NodePath("%AnimationTree/..:material:shader_parameter/mix_amount")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [4.0]
+"values": [0.7]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("%AnimationTree/..:material:shader_parameter/mix_amount")
-tracks/2/interp = 1
+tracks/2/path = NodePath("%AnimationTree/..:material:shader_parameter/logo_alpha")
+tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.7]
+"values": [0.0, 1.0]
 }
 
 [sub_resource type="Animation" id="Animation_1jonc"]
@@ -291,7 +268,7 @@ resource_name = "overlay"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("%AnimationTree/..:material:shader_parameter/blur_amount")
+tracks/0/path = NodePath("%AnimationTree/..:material:shader_parameter/screen_blur_amount")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -312,37 +289,13 @@ tracks/1/keys = {
 "update": 0,
 "values": [0.7]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("%LoadingScreen:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("%Logo:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_feodk"]
 resource_name = "blur_heavy"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("%AnimationTree/..:material:shader_parameter/blur_amount")
+tracks/0/path = NodePath("%AnimationTree/..:material:shader_parameter/screen_blur_amount")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -363,30 +316,6 @@ tracks/1/keys = {
 "update": 0,
 "values": [0.817]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("%Logo:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("%LoadingScreen:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_eumqm"]
 _data = {
@@ -406,58 +335,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_wsev3")
-state = "loading"
-
-[node name="LogoContainer" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -640.0
-offset_bottom = -360.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(2, 2)
-
-[node name="CenteredContainer" type="CenterContainer" parent="LogoContainer"]
-layout_mode = 2
-
-[node name="Logo" type="TextureRect" parent="LogoContainer/CenteredContainer"]
-unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0)
-material = SubResource("ShaderMaterial_sla0a")
-layout_mode = 2
-size_flags_vertical = 4
-texture = ExtResource("3_70xkx")
-
-[node name="LoadingScreenContainer" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -960.0
-offset_bottom = -540.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(4, 4)
-
-[node name="CenteredContainer" type="CenterContainer" parent="LoadingScreenContainer"]
-layout_mode = 2
-
-[node name="LoadingScreen" type="TextureRect" parent="LoadingScreenContainer/CenteredContainer"]
-unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0)
-material = SubResource("ShaderMaterial_lygsv")
-layout_mode = 2
-size_flags_vertical = 4
-texture = ExtResource("4_x4swf")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 unique_name_in_owner = true
 tree_root = SubResource("AnimationNodeBlendTree_g0ex2")
 anim_player = NodePath("AnimationPlayer")
 active = true
-parameters/state/playback = SubResource("AnimationNodeStateMachinePlayback_rgq3d")
+parameters/state/playback = ExtResource("3_oyj5o")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimationTree"]
 libraries = {
