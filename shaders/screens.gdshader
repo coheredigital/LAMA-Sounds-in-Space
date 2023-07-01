@@ -38,7 +38,7 @@ void fragment() {
 		float waveform_y = texture(waveform, vec2(0.4)).y;
 		
 //		special case for "talking head" screen
-		if(screen_number == 6.0)  {
+		if(screen_number == 2.0)  {
 			
 			float waveform_left = texture(waveform, vec2(0.3)).x;
 			waveform_left = steppify(waveform_left, 8);

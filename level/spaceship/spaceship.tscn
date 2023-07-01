@@ -456,11 +456,11 @@ render_priority = 1
 shader = ExtResource("9_e3t4i")
 shader_parameter/emission_energy = 0.5
 shader_parameter/alpha = 1.0
-shader_parameter/waveform_controlled = false
-shader_parameter/screen_count = 16.0
+shader_parameter/waveform_controlled = true
+shader_parameter/screen_count = 15.0
 shader_parameter/frame_count = 8.0
-shader_parameter/screen_number = 12.0
-shader_parameter/frame_number = 6.11558
+shader_parameter/screen_number = 2.0
+shader_parameter/frame_number = 1.0
 shader_parameter/emission_texture = ExtResource("10_s46ft")
 shader_parameter/waveform = SubResource("3858")
 
@@ -477,14 +477,14 @@ shader_parameter/rim_amount = 0.447
 shader_parameter/rim_smoothness = 1.0
 shader_parameter/metallic = 0.0
 shader_parameter/roughness = 1.0
-shader_parameter/emission_tint = Color(0.529412, 1, 0.533333, 1)
-shader_parameter/emission_energy = 1.0
+shader_parameter/emission_tint = Color(0.552498, 0.5598, 0.976963, 1)
+shader_parameter/emission_energy = 0.391141
 shader_parameter/albedo_texture = ExtResource("17_dm8ld")
 shader_parameter/emission_texture = ExtResource("18_nolgf")
 
 [node name="Spaceship" instance=ExtResource("1_m17hk")]
 script = ExtResource("2_tplkk")
-screen_state = "restart_button"
+screen_state = "computer"
 door_open = true
 seatbelts_buckled = true
 
@@ -549,7 +549,7 @@ material_override = ExtResource("8_fylk6")
 [node name="ComputerAudioPlayer" type="AudioStreamPlayer3D" parent="spaceship/cockpit/monitor" index="6"]
 
 [node name="controls" parent="spaceship/cockpit" index="1"]
-transform = Transform3D(0.990622, -0.13259, -0.0329651, 0.136306, 0.942572, 0.304923, -0.00935789, -0.306557, 0.951806, 0.688043, 0.511933, -1.92573)
+transform = Transform3D(0.996917, -0.0628557, -0.0469623, 0.0739892, 0.952298, 0.296064, 0.0261128, -0.298626, 0.954013, 0.688043, 0.511933, -1.92573)
 
 [node name="controls_left" parent="spaceship/cockpit" index="2"]
 transform = Transform3D(0.999689, 0.0131664, 0.0211798, -0.0138713, 0.999343, 0.0334874, -0.020725, -0.0337708, 0.999214, -0.6875, 0.400625, -2.07488)

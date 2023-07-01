@@ -30,4 +30,5 @@ a_curve = ExtResource("7_1a83d")
 unique_name_in_owner = true
 stream = SubResource("AudioStreamMicrophone_2n73o")
 volume_db = 5.267
+stream_paused = true
 bus = &"Record"
