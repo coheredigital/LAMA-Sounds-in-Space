@@ -64,7 +64,7 @@ set screen = "start_button"
 =>< focus_screen
 Player: .
 - Press Green Button
-	set screen = "idle"
+	set screen = "start_button_pressed"
 => END
 
 ~ prompt_red_button

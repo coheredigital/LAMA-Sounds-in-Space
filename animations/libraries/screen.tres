@@ -1,4 +1,4 @@
-[gd_resource type="AnimationLibrary" load_steps=15 format=3 uid="uid://dywe6iokyofm1"]
+[gd_resource type="AnimationLibrary" load_steps=17 format=3 uid="uid://dywe6iokyofm1"]
 
 [sub_resource type="Animation" id="Animation_8q5bf"]
 resource_name = "screen_failure"
@@ -319,7 +319,7 @@ tracks/0/path = NodePath("spaceship/cockpit/monitor/screen:surface_material_over
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.0820574, 0.878708),
+"times": PackedFloat32Array(0.25, 1.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [5.0, 8.0]
@@ -339,8 +339,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_wg55r"]
 resource_name = "screen_start"
-loop_mode = 1
-step = 0.25
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -348,10 +347,10 @@ tracks/0/path = NodePath("spaceship/cockpit/monitor/screen:surface_material_over
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"times": PackedFloat32Array(0, 0.6, 0.8, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [1.0, 2.0, 3.0, 4.0]
+"values": [1.0, 1.0, 2.0, 1.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -380,8 +379,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_fuvui"]
 resource_name = "start_button_red"
-loop_mode = 1
-step = 0.25
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -389,10 +387,10 @@ tracks/0/path = NodePath("spaceship/cockpit/monitor/screen:surface_material_over
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"times": PackedFloat32Array(0, 0.6, 0.8, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [5.0, 6.0, 7.0, 8.0]
+"values": [5.0, 5.0, 6.0, 5.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -578,6 +576,87 @@ tracks/5/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_hjpcg"]
+resource_name = "start_button_pressed"
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("spaceship/cockpit/monitor/screen:surface_material_override/0:shader_parameter/frame_number")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 2.0, 3.0, 4.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("spaceship/cockpit/monitor/screen:surface_material_override/0:shader_parameter/screen_number")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [4.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("spaceship/cockpit/monitor/screen:surface_material_override/0:shader_parameter/waveform_controlled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ebop7"]
+resource_name = "start_button_red_pressed"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("spaceship/cockpit/monitor/screen:surface_material_override/0:shader_parameter/frame_number")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [5.0, 6.0, 7.0, 8.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("spaceship/cockpit/monitor/screen:surface_material_override/0:shader_parameter/screen_number")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [4.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("spaceship/cockpit/monitor/screen:surface_material_override/0:shader_parameter/waveform_controlled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+
 [resource]
 _data = {
 "alert": SubResource("Animation_8q5bf"),
@@ -590,7 +669,9 @@ _data = {
 "restart": SubResource("Animation_ukuei"),
 "sleep": SubResource("Animation_eu2nh"),
 "start_button": SubResource("Animation_wg55r"),
+"start_button_pressed": SubResource("Animation_hjpcg"),
 "start_button_red": SubResource("Animation_fuvui"),
+"start_button_red_pressed": SubResource("Animation_ebop7"),
 "success": SubResource("Animation_3f0s6"),
 "talking": SubResource("Animation_66wja"),
 "wipe": SubResource("Animation_8f7r0")

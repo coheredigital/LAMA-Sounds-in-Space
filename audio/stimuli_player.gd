@@ -1,4 +1,4 @@
-@tool
+#@tool
 extends Node
 
 signal stimuli_player_started

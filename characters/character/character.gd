@@ -1,4 +1,4 @@
-@tool
+#@tool
 extends Node3D
 
 
@@ -24,7 +24,8 @@ extends Node3D
 func _ready():
 #	for now only talking is available so I am controlling it in play_audio() automatically
 #	Sequencer.character_action_changed.connect(update_action)
-	Character.audio_played.connect(play_audio)
+	if Character.audio_played:
+		Character.audio_played.connect(play_audio)
 
 func update_action(value: String) -> void:
 	if state_tree:

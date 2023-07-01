@@ -2,7 +2,7 @@
 extends Node3D
 
 
-@export_enum("idle","playing","recording","alert","buckle_warning","battery","start_button","start_button_red","restart_button","computer","sleep","success","failure") var screen_state: String = "idle":
+@export_enum("idle","playing","recording","alert","buckle_warning","battery","start_button","start_button_pressed","start_button_red","start_button_red_pressed","restart_button","computer","sleep","success","failure") var screen_state: String = "idle":
 	set(value):
 		screen_state = value
 		update_screen(value)
@@ -55,7 +55,6 @@ var fuel_level := 1:
 
 func _ready():
 	Sequencer.screen_changed.connect(update_screen)
-	Sequencer.door_open_changed.connect(set_door_open)
 	Sequencer.steering_motion_changed.connect(set_steering_motion)
 	Sequencer.flying_motion_changed.connect(set_flying_motion)
 	Sequencer.stars_brightness_changed.connect(set_light_level)

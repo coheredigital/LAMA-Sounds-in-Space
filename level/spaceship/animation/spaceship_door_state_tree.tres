@@ -1,4 +1,4 @@
-[gd_resource type="AnimationNodeStateMachine" load_steps=12 format=3 uid="uid://cm4elcyqbcvrn"]
+[gd_resource type="AnimationNodeStateMachine" load_steps=13 format=3 uid="uid://cm4elcyqbcvrn"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4p22n"]
 animation = &"door/open"
@@ -37,6 +37,8 @@ advance_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_e304h"]
 xfade_time = 0.22
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5gq1k"]
+
 [resource]
 states/End/position = Vector2(-516, 297)
 states/Start/position = Vector2(-689, 174)
@@ -48,5 +50,5 @@ states/open/node = SubResource("AnimationNodeAnimation_58mat")
 states/open/position = Vector2(-348, 72)
 states/ready/node = SubResource("AnimationNodeAnimation_61vxe")
 states/ready/position = Vector2(-516, 72)
-transitions = ["open", "close", SubResource("AnimationNodeStateMachineTransition_lpynv"), "close", "open", SubResource("AnimationNodeStateMachineTransition_kde5u"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_6b2h1"), "idle", "ready", SubResource("AnimationNodeStateMachineTransition_qtjak"), "close", "idle", SubResource("AnimationNodeStateMachineTransition_32did"), "idle", "End", SubResource("AnimationNodeStateMachineTransition_q7jlv"), "ready", "open", SubResource("AnimationNodeStateMachineTransition_e304h")]
-graph_offset = Vector2(-910, 11)
+transitions = ["open", "close", SubResource("AnimationNodeStateMachineTransition_lpynv"), "close", "open", SubResource("AnimationNodeStateMachineTransition_kde5u"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_6b2h1"), "idle", "ready", SubResource("AnimationNodeStateMachineTransition_qtjak"), "close", "idle", SubResource("AnimationNodeStateMachineTransition_32did"), "idle", "End", SubResource("AnimationNodeStateMachineTransition_q7jlv"), "ready", "open", SubResource("AnimationNodeStateMachineTransition_e304h"), "ready", "idle", SubResource("AnimationNodeStateMachineTransition_5gq1k")]
+graph_offset = Vector2(-1087, -90)
