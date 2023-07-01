@@ -93,7 +93,7 @@ parameters/playback = SubResource("AnimationNodeStateMachinePlayback_q1qc6")
 [node name="Character" parent="ViewportContainer/Viewport/Level" index="2"]
 transform = Transform3D(-0.990357, 1.04315e-05, -0.138532, 1.63709e-11, 0.999999, 7.53002e-05, 0.138532, 7.45741e-05, -0.990357, -13.2931, 1.00015, -3.19279)
 
-[node name="AnimationTree" parent="ViewportContainer/Viewport/Level/Spaceship" index="2"]
+[node name="AnimationTree" parent="ViewportContainer/Viewport/Level/Spaceship" index="1"]
 parameters/door_state/playback = SubResource("AnimationNodeStateMachinePlayback_n4tfc")
 parameters/screen_state/playback = SubResource("AnimationNodeStateMachinePlayback_o3pib")
 
@@ -125,7 +125,7 @@ transform = Transform3D(0.514422, 0, 0.857369, 0, 0.999818, 0, -0.857369, 0, 0.5
 transform = Transform3D(-0.821341, 0.0556393, -0.567717, 2.79397e-08, 0.995231, 0.0975379, 0.570437, 0.0801119, -0.817424, -3.6232, 4.60381, -9.8327)
 
 [node name="PathFollow" parent="ViewportContainer/Viewport/Level/FollowPaths/UfoPath" index="1"]
-transform = Transform3D(0.715748, 0.406692, 0.567486, -0.431969, 0.896418, -0.0976358, -0.548498, -0.17527, 0.817419, -3.6277, 4.60486, -9.83984)
+transform = Transform3D(0.715748, 0.406692, 0.567486, -0.431969, 0.896418, -0.0976359, -0.548498, -0.17527, 0.817419, -3.6277, 4.60486, -9.83984)
 
 [node name="PlayerPath" parent="ViewportContainer/Viewport/Level/FollowPaths" index="4"]
 progress_ratio = 0.0
@@ -159,7 +159,7 @@ transform = Transform3D(0.986386, 0.115874, 0.11667, -0.11667, 0.99317, 0, -0.11
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="beam" parent="ViewportContainer/Viewport/Level/Ground/PlanetStardust/Ufo/ufo" index="13"]
-transform = Transform3D(0.588536, 0.462542, -0.00622279, -0.0620968, 0.152834, 0.0975507, 0.460724, -0.570259, 0.021097, -2.38419e-07, -0.7, -9.53674e-07)
+transform = Transform3D(0.588531, 0.462548, -0.00622298, -0.0620966, 0.152834, 0.0975507, 0.46073, -0.570254, 0.0210969, 4.76837e-07, -0.7, 0)
 
 [node name="Alien" parent="ViewportContainer/Viewport/Level/Ground/PlanetStardust" index="2"]
 transform = Transform3D(-0.963947, 0.000852061, 0.265929, -8.73087e-11, 0.999701, -0.00320373, -0.265976, -0.00308803, -0.963779, 0.995202, 1.29361, -4.19556)
@@ -170,6 +170,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_xgacv")
 
 [node name="Stars" parent="ViewportContainer/Viewport/Level" index="9"]
 transform = Transform3D(0.853862, 0.519279, -0.0356162, -0.51218, 0.826063, -0.235142, -0.092683, 0.219021, 0.971308, 0, 0, 0)
+visible = false
 
 [node name="PlayerCamera" type="Camera3D" parent="ViewportContainer/Viewport"]
 unique_name_in_owner = true

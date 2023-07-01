@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://wa41njrapfpn"]
+[gd_scene load_steps=38 format=3 uid="uid://wa41njrapfpn"]
 
 [ext_resource type="PackedScene" uid="uid://ctjlmbopaw2sa" path="res://level/spaceship/models/spaceship.gltf" id="1_m17hk"]
 [ext_resource type="Script" path="res://level/spaceship/spaceship.gd" id="2_tplkk"]
@@ -16,7 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://dmjxjcsy4p226" path="res://level/spaceship/materials/spaceship_albedo.png" id="17_dm8ld"]
 [ext_resource type="PackedScene" uid="uid://j5n0jb2vhvf6" path="res://level/spaceship/scenes/siren.tscn" id="18_e0bdp"]
 [ext_resource type="Texture2D" uid="uid://nlpie5uq8lof" path="res://level/spaceship/materials/spaceship_emission.png" id="18_nolgf"]
-[ext_resource type="PackedScene" uid="uid://c01v71n4objej" path="res://audio/visualizer/audio_visualizer.tscn" id="19_m45uu"]
 
 [sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_h7dn0"]
 filters = ["spaceship/cockpit/monitor/screen:surface_material_override/0:shader_parameter/alpha", "spaceship/cockpit/monitor/screen:surface_material_override/0:shader_parameter/frame_number", "spaceship/cockpit/monitor/screen:surface_material_override/0:shader_parameter/screen_number", "spaceship/cockpit/monitor/screen:surface_material_override/0:shader_parameter/waveform_controlled", "spaceship/cockpit/monitor/screen:visible", "spaceship/cockpit/monitor/visualizer_screen:visible"]
@@ -36,7 +35,7 @@ animation = &"cockpit/steering_motion"
 [sub_resource type="AnimationNodeTimeScale" id="4"]
 
 [sub_resource type="AnimationNodeBlendTree" id="5"]
-graph_offset = Vector2(-76.2878, 170.483)
+graph_offset = Vector2(-24.6356, 172.457)
 nodes/blend_screen/node = SubResource("AnimationNodeAdd2_h7dn0")
 nodes/blend_screen/position = Vector2(780, 200)
 nodes/door_state/node = ExtResource("10_csjlb")
@@ -228,7 +227,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0, 1.8),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.653, 0.361]
+"values": [0.294, 0.281]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -466,19 +465,18 @@ shader_parameter/emission_texture = ExtResource("18_nolgf")
 
 [node name="Spaceship" instance=ExtResource("1_m17hk")]
 script = ExtResource("2_tplkk")
-screen_state = "success"
+screen_state = "start_button"
 door_open = true
 seatbelts_buckled = true
 
-[node name="AudioVisualizer" parent="." index="0" instance=ExtResource("19_m45uu")]
-
-[node name="Computer" parent="." index="1" instance=ExtResource("3_gtlrx")]
+[node name="Computer" parent="." index="0" instance=ExtResource("3_gtlrx")]
 transform = Transform3D(-1, 0, 8.74228e-08, -8.88178e-16, 1, 0, -8.74228e-08, 0, -1, 0, 0.663, 2.5)
 
-[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+[node name="AnimationTree" type="AnimationTree" parent="." index="1"]
 unique_name_in_owner = true
 tree_root = SubResource("5")
 anim_player = NodePath("AnimationPlayer")
+active = true
 parameters/blend_screen/add_amount = 1.0
 parameters/door_state/playback = SubResource("AnimationNodeStateMachinePlayback_ue7bb")
 parameters/flying_blend/add_amount = 0.0
@@ -528,6 +526,7 @@ transform = Transform3D(1, -4.91127e-11, 4.36557e-11, -1.79199e-10, 0.997877, 0.
 material_override = ExtResource("8_fylk6")
 
 [node name="ComputerAudioPlayer" type="AudioStreamPlayer3D" parent="spaceship/cockpit/monitor" index="6"]
+volume_db = -5.228
 
 [node name="controls" parent="spaceship/cockpit" index="1"]
 transform = Transform3D(0.990622, -0.13259, -0.0329651, 0.136306, 0.942572, 0.304923, -0.0093579, -0.306557, 0.951806, 0.688043, 0.511933, -1.92573)
@@ -549,7 +548,7 @@ transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0)
 [node name="lock" parent="spaceship/door" index="0"]
 material_override = SubResource("ShaderMaterial_0238j")
 
-[node name="Light" type="OmniLight3D" parent="." index="4"]
+[node name="Light" type="OmniLight3D" parent="." index="3"]
 unique_name_in_owner = true
 transform = Transform3D(0.999718, 0.0139388, -0.0192017, -0.0132201, 0.999225, 0.0370623, 0.0197034, -0.036798, 0.999128, 0.42955, 1.75121, 0.0486488)
 light_color = Color(0.352941, 0.368627, 0.521569, 1)

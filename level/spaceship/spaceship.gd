@@ -55,6 +55,7 @@ var fuel_level := 1:
 
 func _ready():
 	Sequencer.screen_changed.connect(update_screen)
+	Sequencer.door_state_changed.connect(set_door_state)
 	Sequencer.steering_motion_changed.connect(set_steering_motion)
 	Sequencer.flying_motion_changed.connect(set_flying_motion)
 	Sequencer.stars_brightness_changed.connect(set_light_level)

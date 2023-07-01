@@ -635,7 +635,6 @@ set stars_brightness = 1.0
 do Character.play_audio("task1_success")
 =>< snippets/focus_conversation
 Sam: Awesome job, partner! Look at all the bright things you put in space! Now let’s go to Planet Stardust, press the GO button to get closer to finding Lucky!
-set screen = "start_button"
 =>< snippets/prompt_green_button
 
 [next=2]
@@ -727,16 +726,8 @@ System: Select stimuli order
 ~ task2_warp
 set level = "launch"
 =>< snippets/focus_forward
-set screen = "start_button"
-Player: .
-- Press Green Button
-set screen = "idle"
+=>< snippets/prompt_green_button
 set level = "warp"
-#do move_star(1,1.0,12.0)
-#do move_star(2,1.0,12.0)
-#do move_star(3,1.0,12.0)
-#do move_star(4,1.0,12.0)
-#do move_star(5,1.0,12.0)
 [next=12.0]
 
 
@@ -783,10 +774,10 @@ do Ufo.move_to(0.9,6.0)
 
 # blast off and fade to intro (station)
 ~ mission_success
-System: .
+=>< snippets/prompt_green_button
 - Return to Space Station
 	do overlay_state("loading")
-	[next=2]
+	[next=3]
 set level = "intro"
 do Lama.toggle_rescued(true)
 do Player.tilt(-0.5,0.0)

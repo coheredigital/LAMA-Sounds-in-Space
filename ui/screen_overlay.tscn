@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://n088b8ab4tef"]
+[gd_scene load_steps=26 format=3 uid="uid://n088b8ab4tef"]
 
 [ext_resource type="Material" uid="uid://b8kagw7q0pfl0" path="res://ui/screen_overlay_material.tres" id="1_2fo8v"]
 [ext_resource type="Script" path="res://ui/screen_overlay.gd" id="2_wsev3"]
@@ -72,7 +72,7 @@ states/loading/position = Vector2(354, 327)
 states/logo/node = SubResource("AnimationNodeAnimation_xw4pm")
 states/logo/position = Vector2(354, 66)
 transitions = ["logo", "hide_logo", SubResource("AnimationNodeStateMachineTransition_wh7lk"), "loading", "hide_loading", SubResource("AnimationNodeStateMachineTransition_s6bbl"), "Start", "hidden", SubResource("AnimationNodeStateMachineTransition_s0s1n"), "hidden", "End", SubResource("AnimationNodeStateMachineTransition_8y0vc"), "hidden", "logo", SubResource("AnimationNodeStateMachineTransition_ki8cq"), "hide_logo", "hidden", SubResource("AnimationNodeStateMachineTransition_oll13"), "hidden", "loading", SubResource("AnimationNodeStateMachineTransition_ylmoa"), "hide_loading", "hidden", SubResource("AnimationNodeStateMachineTransition_duy7y"), "hide_loading", "logo", SubResource("AnimationNodeStateMachineTransition_5cd0x"), "hide_logo", "loading", SubResource("AnimationNodeStateMachineTransition_h52qh")]
-graph_offset = Vector2(-253, -74)
+graph_offset = Vector2(-236, -58)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_g0ex2"]
 graph_offset = Vector2(-79.8347, -247)
@@ -196,7 +196,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [6.0]
+"values": [4.299]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -208,7 +208,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.8]
+"values": [1.0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -236,7 +236,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [4.0]
+"values": [3.939]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -248,7 +248,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.7]
+"values": [0.772]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -263,68 +263,12 @@ tracks/2/keys = {
 "values": [0.0, 1.0]
 }
 
-[sub_resource type="Animation" id="Animation_1jonc"]
-resource_name = "overlay"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("%AnimationTree/..:material:shader_parameter/screen_blur_amount")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [4.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("%AnimationTree/..:material:shader_parameter/mix_amount")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.7]
-}
-
-[sub_resource type="Animation" id="Animation_feodk"]
-resource_name = "blur_heavy"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("%AnimationTree/..:material:shader_parameter/screen_blur_amount")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [8.057]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("%AnimationTree/..:material:shader_parameter/mix_amount")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.817]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_eumqm"]
 _data = {
 "RESET": SubResource("Animation_m42yy"),
 "hidden": SubResource("Animation_8gpki"),
 "loading": SubResource("Animation_ap4ca"),
-"logo": SubResource("Animation_ejslo"),
-"overlay": SubResource("Animation_1jonc"),
-"overlay_heavy": SubResource("Animation_feodk")
+"logo": SubResource("Animation_ejslo")
 }
 
 [node name="ScreenOverlay" type="ColorRect"]

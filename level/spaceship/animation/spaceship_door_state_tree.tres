@@ -25,7 +25,7 @@ switch_mode = 2
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qtjak"]
-xfade_time = 0.99
+xfade_time = 0.5
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_32did"]
 xfade_time = 0.66
@@ -38,6 +38,7 @@ advance_mode = 2
 xfade_time = 0.22
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5gq1k"]
+xfade_time = 0.5
 
 [resource]
 states/End/position = Vector2(-516, 297)
