@@ -29,6 +29,8 @@ const max_distance := 1.0
 @onready var path_follow : PathFollow3D = %PathFollow
 @onready var look_target : Node3D = %LookTarget
 @onready var remote_transform : Node3D = %RemoteTransform
+@onready var look_target_pivot : Node3D = %LookTargetPivot
+@onready var look_target_tilt : Node3D = %LookTargetTilt
 
 
 func _physics_process(delta):
@@ -51,18 +53,18 @@ func update_progress_ratio(value: float, duration: float = 1.0) -> void:
 		tween.tween_property(path_follow, "progress_ratio", value, duration).set_trans(Tween.TRANS_LINEAR)
 
 func update_pivot(value: float, duration: float = 1.0) -> void:
-	if %LookTargetPivot:
+	if look_target_pivot:
 		var tween = create_tween()
 		var traget_rotation = clamp(value,-1.0,1.0) * LOOK_ANGLE_LIMIT.y
 		var target_angle = Vector3(0.0,traget_rotation,0.0)
 		if tween:
-			tween.tween_property(%LookTargetPivot, "rotation_degrees", target_angle, duration).set_trans(Tween.TRANS_LINEAR)
+			tween.tween_property(look_target_pivot, "rotation_degrees", target_angle, duration).set_trans(Tween.TRANS_LINEAR)
 
 func update_tilt(value: float, duration: float = 1.0) -> void:
-	if %LookTargetTilt:
+	if look_target_tilt:
 		var tween = create_tween()
 		var traget_rotation = clamp(value,-1.0,1.0) * LOOK_ANGLE_LIMIT.x
 		var target_angle = Vector3(traget_rotation,0.0,0.0)
 		if tween:
-			tween.tween_property(%LookTargetTilt, "rotation_degrees", target_angle, duration).set_trans(Tween.TRANS_LINEAR)
+			tween.tween_property(look_target_tilt, "rotation_degrees", target_angle, duration).set_trans(Tween.TRANS_LINEAR)
 

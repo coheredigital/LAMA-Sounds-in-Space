@@ -37,6 +37,10 @@ _subresources={
 "material_1": {
 "use_external/enabled": true,
 "use_external/path": "res://characters/character/materials/character_alpha_material.tres"
+},
+"material_2": {
+"use_external/enabled": true,
+"use_external/path": "res://characters/character/materials/character_face_material.tres"
 }
 }
 }

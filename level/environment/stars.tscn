@@ -27,7 +27,7 @@ transform = Transform3D(-0.996116, 0.0877407, 0.00736374, -0.087794, -0.996112, 
 curve = SubResource("Curve3D_w65o5")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Paths/StarPath3D1"]
-transform = Transform3D(0.205762, 0.803045, 0.559061, -0.290857, 0.595667, -0.748563, -0.934253, -0.00858142, 0.356176, 6.45852, 4.12031, -26.8454)
+transform = Transform3D(0.205761, 0.803052, 0.559051, -0.290855, 0.595657, -0.748572, -0.934254, -0.00857646, 0.356174, 6.4587, 4.12006, -26.8453)
 progress = 131.233
 loop = false
 
@@ -40,7 +40,7 @@ visible = false
 curve = SubResource("Curve3D_w65o5")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Paths/StarPath3D2"]
-transform = Transform3D(0.205769, 0.803063, 0.559083, -0.290866, 0.595681, -0.748593, -0.934283, -0.00858161, 0.35619, 6.45852, 4.12031, -26.8454)
+transform = Transform3D(0.205768, 0.803071, 0.559073, -0.290864, 0.595671, -0.748602, -0.934284, -0.00857667, 0.356188, 6.4587, 4.12006, -26.8453)
 progress = 131.233
 loop = false
 
@@ -53,7 +53,7 @@ visible = false
 curve = SubResource("Curve3D_w65o5")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Paths/StarPath3D3"]
-transform = Transform3D(0.205769, 0.80308, 0.559079, -0.290865, 0.595693, -0.748587, -0.934281, -0.00858179, 0.356187, 6.45852, 4.12031, -26.8454)
+transform = Transform3D(0.205767, 0.803087, 0.559068, -0.290863, 0.595683, -0.748596, -0.934282, -0.00857684, 0.356185, 6.4587, 4.12006, -26.8453)
 progress = 131.233
 loop = false
 
@@ -66,7 +66,7 @@ visible = false
 curve = SubResource("Curve3D_w65o5")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Paths/StarPath3D4"]
-transform = Transform3D(0.205769, 0.803076, 0.559078, -0.290866, 0.59569, -0.748586, -0.934284, -0.00858174, 0.356187, 6.45852, 4.12031, -26.8454)
+transform = Transform3D(0.205768, 0.803083, 0.559068, -0.290864, 0.59568, -0.748595, -0.934285, -0.0085768, 0.356185, 6.4587, 4.12006, -26.8453)
 progress = 131.233
 loop = false
 
@@ -79,7 +79,7 @@ visible = false
 curve = SubResource("Curve3D_w65o5")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Paths/StarPath3D5"]
-transform = Transform3D(0.205754, 0.803, 0.559044, -0.290845, 0.595634, -0.74854, -0.934215, -0.00858094, 0.356165, 6.45852, 4.12031, -26.8454)
+transform = Transform3D(0.205753, 0.803007, 0.559033, -0.290843, 0.595624, -0.748549, -0.934216, -0.00857599, 0.356163, 6.4587, 4.12006, -26.8453)
 progress = 131.233
 loop = false
 

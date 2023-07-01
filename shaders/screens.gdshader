@@ -50,7 +50,7 @@ void fragment() {
 			waveform_top = max(waveform_right, waveform_top);
 			
 			float waveform_bottom = waveform_y; 
-			float mouth_mask = step(frame_size.y * 0.57, UV.y);
+			float mouth_mask = step(frame_size.y, UV.y);
 			offset.y = mix(
 				frame_size.y * round(mix(0.0,3.0,waveform_bottom)),
 				frame_size.y * round(mix(0.0,3.0,waveform_top)),

@@ -12,7 +12,6 @@ metadata/_edit_lock_ = true
 
 [node name="GameWindow" parent="." instance=ExtResource("3_ljibd")]
 unique_name_in_owner = true
-visible = false
 always_on_top = true
 
 [connection signal="game_window_toggled" from="ControlPanel" to="." method="_on_control_panel_game_window_toggled"]

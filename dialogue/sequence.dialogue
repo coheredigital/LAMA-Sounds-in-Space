@@ -272,10 +272,10 @@ System: ...
 
 
 ~ siren
+set screen = "alert"
 do Character.play_audio("task0_test_warning_sirens")
 Sam: Great, now let’s test out our warning sirens!
 =>< snippets/focus_screen
-set screen = "alert"
 do Character.play_audio("listen_and_repeat")
 Sam: Listen to the command from the computer and then repeat what it says with your voice.
 
@@ -320,9 +320,9 @@ set screen = "battery"
 do Character.play_audio("listen_and_repeat")
 Sam: Listen to the command from the computer and then repeat what it says with your voice:  
 [next=0.5]
-set screen = "computer"
 
 ~ fuel_up_stimuli
+set screen = "computer"
 do Stimuli.play("practice/4_lets")
 Computer: Let’s fuel up!
 
@@ -352,6 +352,7 @@ System: ...
 
 
 ~ sleep_mode
+set screen = "sleep"
 do Character.play_audio("task0_sleep_mode_intro")
 Sam: The computer wants us to yawn out loud to tell it to turn down the lights if we want to sleep! Let’s see if it works. 
 
@@ -360,7 +361,6 @@ Sam: The computer wants us to yawn out loud to tell it to turn down the lights i
 do Character.play_audio("listen_and_repeat")
 Sam: Listen to the command from the computer and then repeat what it says with your voice: 
 set screen = "computer"
-[next=1]
 do Stimuli.play("practice/5_yawn")
 Computer: *Loud Yawn: from high to low*
 
@@ -390,6 +390,7 @@ System: ...
 
 
 ~ blast_off
+set screen = "idle"
 do Player.move_to(1)
 do Character.move_to(1)
 do Character.play_audio("task0_blast_off_intro")
@@ -398,9 +399,8 @@ Sam: You did it! You’re working really hard at this – Great Job! Now that ou
 
 
 ~ blast_off_command
-set screen = "computer"
 =>< snippets/focus_screen
-[next=1]
+set screen = "computer"
 do Stimuli.play("practice/6_blastoff")
 Computer: *Blast Off!* 
 
@@ -656,30 +656,28 @@ Sam: Our next task is to find Planet Stardust! To help us get to Planet Stardust
 do Character.play_audio("task2_command_center")
 Sam: The Command Centre is very picky and will only follow directions if you repeat the commands in EXACTLY the same way you heard them. Let’s hear an example of a space cadet not repeating the command right. 
 
-
+~ task2_bad_example
 do Character.play_audio("click_the_red_button_to_hear_it")
 Sam: Click the RED button to hear it. 
 =>< snippets/prompt_red_button
-
-
-[next=2]
-set screen = "failure"
+do Stimuli.play("example/bad")
+[next=4]
 do Character.play_audio("oh_no_did_you_hear_that")
+set screen = "failure"
 Sam: Oh no, did you hear that?
 =>< snippets/focus_conversation
-set screen = "idle"
 
 
-~ task2_bad_example
+~ task2_bad_example_repeat
 do Character.play_audio("task2_bad_example")
-Sam: That space cadet didn’t do the best job of repeating EXACTLY what they heard. Let’s hear it again to see where they went wrong! Press the red button again. 
+Sam: That space cadet didn’t do the best job of repeating EXACTLY what they heard. Let’s hear it again to see where they went wrong! Press the red button again.
 =>< snippets/prompt_red_button
-
-[next=2]
-set screen = "failure"
+do Stimuli.play("example/bad")
+[next=4]
 do Character.play_audio("task2_bad_example_high_lows")
+set screen = "failure"
 Sam: Did you hear that? The space cadet said the right words, but didn’t copy the ^highs^ and ~lows~ of the voice. 
-set screen = "idle"
+
 
 
 ~ task2_good_example
@@ -689,6 +687,10 @@ Sam: For the Command Centre to move our ship, we have to repeat the words in the
 =>< snippets/focus_screen
 set screen = "start_button"
 [next=2]
+
+do Stimuli.play("example/bad")
+[next=4]
+
 set screen = "success"
 [next=2]
 set screen = "idle"

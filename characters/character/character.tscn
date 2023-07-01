@@ -197,6 +197,7 @@ _data = {
 
 [node name="Character" instance=ExtResource("1")]
 script = ExtResource("2_bwdwg")
+action = "talking"
 audio_folder = "res://audio/script"
 
 [node name="StateTree" type="AnimationTree" parent="." index="0"]

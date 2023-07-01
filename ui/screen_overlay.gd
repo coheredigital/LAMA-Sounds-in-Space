@@ -9,38 +9,9 @@ extends ColorRect
 @export_enum("hidden","logo","loading") var state : String = "hidden":
 	set(value):
 		state = value
-		
-		var tween = create_tween()
-		var tween_logo = create_tween()
-		var tween_loading = create_tween()
-		
-		if not tween:
-			return
-			
 		if %AnimationTree:
 			var state_machine : AnimationNodeStateMachinePlayback = %AnimationTree.get("parameters/state/playback")
 			state_machine.travel( value ) 
-#		match value:
-#			"hidden":
-#				tween_logo.tween_property(%Logo, "modulate:a", 0.0, 2.0).set_trans(Tween.TRANS_SINE)
-#				tween.parallel().tween_property(overlay_material, "shader_parameter/blur_amount", 0.0, 2.0).set_trans(Tween.TRANS_SINE)
-#				tween.parallel().tween_property(overlay_material, "shader_parameter/mix_amount", 0.0, 2.0).set_trans(Tween.TRANS_SINE)
-#			"logo":
-#				tween.parallel().tween_property(overlay_material, "shader_parameter/blur_amount", 3.6, 2.0).set_trans(Tween.TRANS_SINE)
-#				tween.parallel().tween_property(overlay_material, "shader_parameter/mix_amount", 0.7, 2.0).set_trans(Tween.TRANS_SINE)
-#				tween_logo.tween_interval(1.5)
-#				tween_logo.tween_property(%Logo, "modulate:a",  1.0, 1.0).set_trans(Tween.TRANS_SINE)			
-#			"loading":
-#				tween.parallel().tween_property(overlay_material, "shader_parameter/blur_amount", 3.6, 2.0).set_trans(Tween.TRANS_SINE)
-#				tween.parallel().tween_property(overlay_material, "shader_parameter/mix_amount", 0.7, 2.0).set_trans(Tween.TRANS_SINE)
-#				tween_loading.tween_interval(1.5)
-#				tween_loading.tween_property(%LoadingScreen, "modulate:a",  1.0, 1.0).set_trans(Tween.TRANS_SINE)
-#			"blackout":
-#				tween.parallel().tween_property(overlay_material, "shader_parameter/blur_amount", 6.0, 2.0).set_trans(Tween.TRANS_SINE)
-#				tween.parallel().tween_property(overlay_material, "shader_parameter/mix_amount", 1.0, 2.0).set_trans(Tween.TRANS_SINE)
-#				tween_logo.tween_interval(1.5)
-#				tween_logo.tween_property(%Logo, "modulate:a",  0.0, 1.0).set_trans(Tween.TRANS_SINE)
-				
 
 
 func _ready():

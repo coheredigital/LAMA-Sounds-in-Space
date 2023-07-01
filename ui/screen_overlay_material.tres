@@ -12,6 +12,6 @@ shader_parameter/logo_alpha = 0.0
 shader_parameter/loading_blur_amount = 0.0
 shader_parameter/loading_alpha = 0.0
 shader_parameter/mix_amount = 0.0
-shader_parameter/color_over = Color(0.121569, 0.0980392, 0.337255, 1)
+shader_parameter/color_over = Color(0.0705882, 0.027451, 0.176471, 1)
 shader_parameter/logo_texture = ExtResource("3_jgewb")
 shader_parameter/loading_texture = ExtResource("2_rraox")

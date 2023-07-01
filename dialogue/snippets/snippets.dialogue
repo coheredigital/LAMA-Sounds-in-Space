@@ -58,9 +58,19 @@ do Player.tilt(0.1)
 do Player.pivot(0.0)
 => END
 
+
+~ prompt_green_button
+set screen = "start_button"
+=>< focus_screen
+Player: .
+- Press Green Button
+	set screen = "idle"
+=> END
+
 ~ prompt_red_button
 set screen = "start_button_red"
 =>< focus_screen
 Player: .
 - Press Red Button
+	set screen = "idle"
 => END

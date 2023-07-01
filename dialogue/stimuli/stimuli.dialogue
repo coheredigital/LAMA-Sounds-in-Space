@@ -1,12 +1,11 @@
-# not fully implemented
-
 # speech ================================================
 ~ Sp_01F
 System:
 - Begin Sp_01F
+set screen = "playing"
 do Stimuli.play("speech/Sp_01F")
 do Recorder.start()
-[next=1]
+[next=4]
 set screen = "recording"
 [next=3]
 System:
@@ -23,9 +22,10 @@ System:
 ~ Sp_01R
 System:
 - Begin Sp_01R
+set screen = "playing"
 do Stimuli.play("speech/Sp_01R")
 do Recorder.start()
-[next=1]
+[next=4]
 set screen = "recording"
 [next=3]
 System:
@@ -42,9 +42,10 @@ System:
 ~ Sp_02F
 System:
 - Begin Sp_02F
+set screen = "playing"
 do Stimuli.play("speech/Sp_02F")
 do Recorder.start()
-[next=1]
+[next=4]
 set screen = "recording"
 [next=3]
 System:
@@ -61,9 +62,10 @@ System:
 ~ Sp_02R
 System:
 - Begin Sp_02R
+set screen = "playing"
 do Stimuli.play("speech/Sp_02R")
 do Recorder.start()
-[next=1]
+[next=4]
 set screen = "recording"
 [next=3]
 System:
@@ -80,9 +82,10 @@ System:
 ~ Sp_03F
 System:
 - Begin Sp_03F
+set screen = "playing"
 do Stimuli.play("speech/Sp_03F")
 do Recorder.start()
-[next=1]
+[next=4]
 set screen = "recording"
 [next=3]
 System:
@@ -99,9 +102,10 @@ System:
 ~ Sp_03R
 System:
 - Begin Sp_03R
+set screen = "playing"
 do Stimuli.play("speech/Sp_03R")
 do Recorder.start()
-[next=1]
+[next=4]
 set screen = "recording"
 [next=3]
 System:
@@ -118,9 +122,10 @@ System:
 ~ Sp_04F
 System:
 - Begin Sp_04F
+set screen = "playing"
 do Stimuli.play("speech/Sp_04F")
 do Recorder.start()
-[next=1]
+[next=4]
 set screen = "recording"
 [next=3]
 System:
@@ -137,9 +142,10 @@ System:
 ~ Sp_04R
 System:
 - Begin Sp_04R
+set screen = "playing"
 do Stimuli.play("speech/Sp_04R")
 do Recorder.start()
-[next=1]
+[next=4]
 set screen = "recording"
 [next=3]
 System:
@@ -156,9 +162,10 @@ System:
 ~ Sp_05F
 System:
 - Begin Sp_05F
+set screen = "playing"
 do Stimuli.play("speech/Sp_05F")
 do Recorder.start()
-[next=1]
+[next=4]
 set screen = "recording"
 [next=3]
 System:
@@ -175,9 +182,10 @@ System:
 ~ Sp_05R
 System:
 - Begin Sp_05R
+set screen = "playing"
 do Stimuli.play("speech/Sp_05R")
 do Recorder.start()
-[next=1]
+[next=4]
 set screen = "recording"
 [next=3]
 System:
@@ -194,9 +202,10 @@ System:
 ~ Sp_06F
 System:
 - Begin Sp_06F
+set screen = "playing"
 do Stimuli.play("speech/Sp_06F")
 do Recorder.start()
-[next=1]
+[next=4]
 set screen = "recording"
 [next=3]
 System:
@@ -213,9 +222,10 @@ System:
 ~ Sp_06R
 System:
 - Begin Sp_06R
+set screen = "playing"
 do Stimuli.play("speech/Sp_06R")
 do Recorder.start()
-[next=1]
+[next=4]
 set screen = "recording"
 [next=3]
 System:
@@ -232,9 +242,10 @@ System:
 ~ Sp_07F
 System:
 - Begin Sp_07F
+set screen = "playing"
 do Stimuli.play("speech/Sp_07F")
 do Recorder.start()
-[next=1]
+[next=4]
 set screen = "recording"
 [next=3]
 System:
@@ -251,9 +262,10 @@ System:
 ~ Sp_07R
 System:
 - Begin Sp_07R
+set screen = "playing"
 do Stimuli.play("speech/Sp_07R")
 do Recorder.start()
-[next=1]
+[next=4]
 set screen = "recording"
 [next=3]
 System:
@@ -270,9 +282,10 @@ System:
 ~ Sp_08F
 System:
 - Begin Sp_08F
+set screen = "playing"
 do Stimuli.play("speech/Sp_08F")
 do Recorder.start()
-[next=1]
+[next=4]
 set screen = "recording"
 [next=3]
 System:
@@ -289,9 +302,10 @@ System:
 ~ Sp_08R
 System:
 - Begin Sp_08R
+set screen = "playing"
 do Stimuli.play("speech/Sp_08R")
 do Recorder.start()
-[next=1]
+[next=4]
 set screen = "recording"
 [next=3]
 System:
@@ -308,9 +322,10 @@ System:
 ~ Sp_09F
 System:
 - Begin Sp_09F
+set screen = "playing"
 do Stimuli.play("speech/Sp_09F")
 do Recorder.start()
-[next=1]
+[next=4]
 set screen = "recording"
 [next=3]
 System:
@@ -327,9 +342,10 @@ System:
 ~ Sp_09R
 System:
 - Begin Sp_09R
+set screen = "playing"
 do Stimuli.play("speech/Sp_09R")
 do Recorder.start()
-[next=1]
+[next=4]
 set screen = "recording"
 [next=3]
 System:
@@ -346,9 +362,10 @@ System:
 ~ Sp_10F
 System:
 - Begin Sp_10F
+set screen = "playing"
 do Stimuli.play("speech/Sp_10F")
 do Recorder.start()
-[next=1]
+[next=4]
 set screen = "recording"
 [next=3]
 System:
@@ -365,9 +382,10 @@ System:
 ~ Sp_10R
 System:
 - Begin Sp_10R
+set screen = "playing"
 do Stimuli.play("speech/Sp_10R")
 do Recorder.start()
-[next=1]
+[next=4]
 set screen = "recording"
 [next=3]
 System:
@@ -384,9 +402,10 @@ System:
 ~ Sp_11F
 System:
 - Begin Sp_11F
+set screen = "playing"
 do Stimuli.play("speech/Sp_11F")
 do Recorder.start()
-[next=1]
+[next=4]
 set screen = "recording"
 [next=3]
 System:
@@ -403,9 +422,10 @@ System:
 ~ Sp_11R
 System:
 - Begin Sp_11R
+set screen = "playing"
 do Stimuli.play("speech/Sp_11R")
 do Recorder.start()
-[next=1]
+[next=4]
 set screen = "recording"
 [next=3]
 System:
@@ -422,9 +442,10 @@ System:
 ~ Sp_12F
 System:
 - Begin Sp_12F
+set screen = "playing"
 do Stimuli.play("speech/Sp_12F")
 do Recorder.start()
-[next=1]
+[next=4]
 set screen = "recording"
 [next=3]
 System:
@@ -441,9 +462,10 @@ System:
 ~ Sp_12R
 System:
 - Begin Sp_12R
+set screen = "playing"
 do Stimuli.play("speech/Sp_12R")
 do Recorder.start()
-[next=1]
+[next=4]
 set screen = "recording"
 [next=3]
 System:
@@ -462,9 +484,10 @@ System:
 ~ So_01F
 System:
 - Begin So_01F
+set screen = "playing"
 do Stimuli.play("song/So_01F")
 do Recorder.start()
-[next=1]
+[next=4]
 set screen = "recording"
 [next=3]
 System:
@@ -481,9 +504,10 @@ System:
 ~ So_01R
 System:
 - Begin So_01R
+set screen = "playing"
 do Stimuli.play("song/So_01R")
 do Recorder.start()
-[next=1]
+[next=4]
 set screen = "recording"
 [next=3]
 System:
@@ -500,9 +524,10 @@ System:
 ~ So_02F
 System:
 - Begin So_02F
+set screen = "playing"
 do Stimuli.play("song/So_02F")
 do Recorder.start()
-[next=1]
+[next=4]
 set screen = "recording"
 [next=3]
 System:
@@ -519,9 +544,10 @@ System:
 ~ So_02R
 System:
 - Begin So_02R
+set screen = "playing"
 do Stimuli.play("song/So_02R")
 do Recorder.start()
-[next=1]
+[next=4]
 set screen = "recording"
 [next=3]
 System:
@@ -538,9 +564,10 @@ System:
 ~ So_03F
 System:
 - Begin So_03F
+set screen = "playing"
 do Stimuli.play("song/So_03F")
 do Recorder.start()
-[next=1]
+[next=4]
 set screen = "recording"
 [next=3]
 System:
@@ -557,9 +584,10 @@ System:
 ~ So_03R
 System:
 - Begin So_03R
+set screen = "playing"
 do Stimuli.play("song/So_03R")
 do Recorder.start()
-[next=1]
+[next=4]
 set screen = "recording"
 [next=3]
 System:
@@ -576,9 +604,10 @@ System:
 ~ So_04F
 System:
 - Begin So_04F
+set screen = "playing"
 do Stimuli.play("song/So_04F")
 do Recorder.start()
-[next=1]
+[next=4]
 set screen = "recording"
 [next=3]
 System:
@@ -595,9 +624,10 @@ System:
 ~ So_04R
 System:
 - Begin So_04R
+set screen = "playing"
 do Stimuli.play("song/So_04R")
 do Recorder.start()
-[next=1]
+[next=4]
 set screen = "recording"
 [next=3]
 System:
@@ -614,9 +644,10 @@ System:
 ~ So_05F
 System:
 - Begin So_05F
+set screen = "playing"
 do Stimuli.play("song/So_05F")
 do Recorder.start()
-[next=1]
+[next=4]
 set screen = "recording"
 [next=3]
 System:
@@ -633,9 +664,10 @@ System:
 ~ So_05R
 System:
 - Begin So_05R
+set screen = "playing"
 do Stimuli.play("song/So_05R")
 do Recorder.start()
-[next=1]
+[next=4]
 set screen = "recording"
 [next=3]
 System:
@@ -652,9 +684,10 @@ System:
 ~ So_06F
 System:
 - Begin So_06F
+set screen = "playing"
 do Stimuli.play("song/So_06F")
 do Recorder.start()
-[next=1]
+[next=4]
 set screen = "recording"
 [next=3]
 System:
@@ -671,9 +704,10 @@ System:
 ~ So_06R
 System:
 - Begin So_06R
+set screen = "playing"
 do Stimuli.play("song/So_06R")
 do Recorder.start()
-[next=1]
+[next=4]
 set screen = "recording"
 [next=3]
 System:
@@ -690,9 +724,10 @@ System:
 ~ So_07F
 System:
 - Begin So_07F
+set screen = "playing"
 do Stimuli.play("song/So_07F")
 do Recorder.start()
-[next=1]
+[next=4]
 set screen = "recording"
 [next=3]
 System:
@@ -709,9 +744,10 @@ System:
 ~ So_07R
 System:
 - Begin So_07R
+set screen = "playing"
 do Stimuli.play("song/So_07R")
 do Recorder.start()
-[next=1]
+[next=4]
 set screen = "recording"
 [next=3]
 System:
@@ -728,9 +764,10 @@ System:
 ~ So_08F
 System:
 - Begin So_08F
+set screen = "playing"
 do Stimuli.play("song/So_08F")
 do Recorder.start()
-[next=1]
+[next=4]
 set screen = "recording"
 [next=3]
 System:
@@ -747,9 +784,10 @@ System:
 ~ So_08R
 System:
 - Begin So_08R
+set screen = "playing"
 do Stimuli.play("song/So_08R")
 do Recorder.start()
-[next=1]
+[next=4]
 set screen = "recording"
 [next=3]
 System:
@@ -766,9 +804,10 @@ System:
 ~ So_09F
 System:
 - Begin So_09F
+set screen = "playing"
 do Stimuli.play("song/So_09F")
 do Recorder.start()
-[next=1]
+[next=4]
 set screen = "recording"
 [next=3]
 System:
@@ -785,9 +824,10 @@ System:
 ~ So_09R
 System:
 - Begin So_09R
+set screen = "playing"
 do Stimuli.play("song/So_09R")
 do Recorder.start()
-[next=1]
+[next=4]
 set screen = "recording"
 [next=3]
 System:
@@ -804,9 +844,10 @@ System:
 ~ So_10F
 System:
 - Begin So_10F
+set screen = "playing"
 do Stimuli.play("song/So_10F")
 do Recorder.start()
-[next=1]
+[next=4]
 set screen = "recording"
 [next=3]
 System:
@@ -823,9 +864,10 @@ System:
 ~ So_10R
 System:
 - Begin So_10R
+set screen = "playing"
 do Stimuli.play("song/So_10R")
 do Recorder.start()
-[next=1]
+[next=4]
 set screen = "recording"
 [next=3]
 System:
@@ -842,9 +884,10 @@ System:
 ~ So_11F
 System:
 - Begin So_11F
+set screen = "playing"
 do Stimuli.play("song/So_11F")
 do Recorder.start()
-[next=1]
+[next=4]
 set screen = "recording"
 [next=3]
 System:
@@ -861,9 +904,10 @@ System:
 ~ So_11R
 System:
 - Begin So_11R
+set screen = "playing"
 do Stimuli.play("song/So_11R")
 do Recorder.start()
-[next=1]
+[next=4]
 set screen = "recording"
 [next=3]
 System:
@@ -880,9 +924,10 @@ System:
 ~ So_12F
 System:
 - Begin So_12F
+set screen = "playing"
 do Stimuli.play("song/So_12F")
 do Recorder.start()
-[next=1]
+[next=4]
 set screen = "recording"
 [next=3]
 System:
@@ -899,9 +944,10 @@ System:
 ~ So_12R
 System:
 - Begin So_12R
+set screen = "playing"
 do Stimuli.play("song/So_12R")
 do Recorder.start()
-[next=1]
+[next=4]
 set screen = "recording"
 [next=3]
 System:

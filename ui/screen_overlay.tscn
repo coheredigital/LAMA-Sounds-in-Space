@@ -43,7 +43,7 @@ switch_mode = 2
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ylmoa"]
-xfade_time = 1.35
+xfade_time = 2.69
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_duy7y"]
 xfade_time = 1.68
@@ -59,23 +59,23 @@ xfade_time = 1.3
 switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_btxjf"]
-states/End/position = Vector2(204, 225)
-states/Start/position = Vector2(83, 138)
+states/End/position = Vector2(193, 327)
+states/Start/position = Vector2(32, 190)
 states/hidden/node = SubResource("AnimationNodeAnimation_v16wh")
-states/hidden/position = Vector2(204, 138)
+states/hidden/position = Vector2(193, 190)
 states/hide_loading/node = SubResource("AnimationNodeAnimation_v4cip")
-states/hide_loading/position = Vector2(485, 382)
+states/hide_loading/position = Vector2(549, 327)
 states/hide_logo/node = SubResource("AnimationNodeAnimation_7bagf")
-states/hide_logo/position = Vector2(561, 172)
+states/hide_logo/position = Vector2(549, 66)
 states/loading/node = SubResource("AnimationNodeAnimation_m61mq")
-states/loading/position = Vector2(320, 382)
+states/loading/position = Vector2(354, 327)
 states/logo/node = SubResource("AnimationNodeAnimation_xw4pm")
-states/logo/position = Vector2(561, 51)
+states/logo/position = Vector2(354, 66)
 transitions = ["logo", "hide_logo", SubResource("AnimationNodeStateMachineTransition_wh7lk"), "loading", "hide_loading", SubResource("AnimationNodeStateMachineTransition_s6bbl"), "Start", "hidden", SubResource("AnimationNodeStateMachineTransition_s0s1n"), "hidden", "End", SubResource("AnimationNodeStateMachineTransition_8y0vc"), "hidden", "logo", SubResource("AnimationNodeStateMachineTransition_ki8cq"), "hide_logo", "hidden", SubResource("AnimationNodeStateMachineTransition_oll13"), "hidden", "loading", SubResource("AnimationNodeStateMachineTransition_ylmoa"), "hide_loading", "hidden", SubResource("AnimationNodeStateMachineTransition_duy7y"), "hide_loading", "logo", SubResource("AnimationNodeStateMachineTransition_5cd0x"), "hide_logo", "loading", SubResource("AnimationNodeStateMachineTransition_h52qh")]
 graph_offset = Vector2(-253, -74)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_g0ex2"]
-graph_offset = Vector2(-79.8347, -150.901)
+graph_offset = Vector2(-79.8347, -247)
 nodes/output/position = Vector2(560, 160)
 nodes/state/node = SubResource("AnimationNodeStateMachine_btxjf")
 nodes/state/position = Vector2(340, 160)
@@ -217,7 +217,7 @@ tracks/2/path = NodePath("%AnimationTree/..:material:shader_parameter/loading_al
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 3),
+"times": PackedFloat32Array(0.5, 3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]

@@ -1,7 +1,8 @@
 @tool
 extends Node3D
 
-var screen_state: String = "idle":
+
+@export_enum("idle","playing","recording","alert","buckle_warning","battery","start_button","start_button_red","restart_button","computer","sleep","success","failure") var screen_state: String = "idle":
 	set(value):
 		screen_state = value
 		update_screen(value)
@@ -50,6 +51,7 @@ var fuel_level := 1:
 @onready var animation_tree : AnimationTree = %AnimationTree
 @onready var seatbelt_indicator := %seatbelt_indicator_left
 @onready var seatbelt_indicator_material : ShaderMaterial = %seatbelt_indicator_left.get_active_material(0)
+@onready var light := %Light 
 
 func _ready():
 	Sequencer.screen_changed.connect(update_screen)
@@ -73,14 +75,14 @@ func set_flying_motion(value: float) -> void:
 
 
 func set_light_level(value: float) -> void:
-	if not %Light:
+	if not light:
 		return
 		
 	var tween = create_tween()
 	if not tween:
 		return
 		
-	tween.tween_property(%Light, "light_energy", lerp(0.01,0.3,value), 1.0 ).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(light, "light_energy", lerp(0.01,0.3,value), 1.0 ).set_trans(Tween.TRANS_SINE)
 
 func set_fuel_level(value: float) -> void:
 	RenderingServer.global_shader_parameter_set("fuel_level", value)

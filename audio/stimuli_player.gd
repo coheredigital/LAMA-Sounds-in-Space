@@ -1,6 +1,9 @@
 @tool
 extends Node
 
+signal stimuli_player_started
+signal stimuli_player_finished
+
 @onready var player = $AudioStreamPlayer
 @export_dir var folder
 @export_range(0.0,1.0) var volume := 1.0:
@@ -19,10 +22,8 @@ func play(sentence_id: String) -> void:
 		return
 
 	print('Stimuli: %s' % [filename])
-
-	Sequencer.screen = "playing"
 	AudioVisualizer.channel = "Stimuli"
-#	wait for screen to change before playing
+#	delay for screen to change before playing
 	await get_tree().create_timer(1.0).timeout
 	player.stream = wav_file
 	player.playing = true
@@ -31,5 +32,5 @@ func play(sentence_id: String) -> void:
 # restore sequence and visualizer state on finish
 func _on_audio_stream_player_finished():
 	await get_tree().create_timer(1.0).timeout
-	Sequencer.screen = "idle"
 	AudioVisualizer.channel = "Analyze"
+	stimuli_player_finished.emit()

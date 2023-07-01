@@ -13,9 +13,9 @@
 
 [node name="AudioVisualizer" type="Node"]
 script = ExtResource("2")
-channel = null
 waveform = ExtResource("2_bx51b")
 gradient = ExtResource("1")
+definition = 14
 min_frequency = 100.0
 max_frequency = 1440.0
 max_db = -6.1

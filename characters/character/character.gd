@@ -22,6 +22,7 @@ extends Node3D
 @onready var player = %AudioPlayer
 
 func _ready():
+#	for now only talking is available so I am controlling it in play_audio() automatically
 #	Sequencer.character_action_changed.connect(update_action)
 	Character.audio_played.connect(play_audio)
 
