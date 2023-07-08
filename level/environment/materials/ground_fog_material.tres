@@ -1,0 +1,16 @@
+[gd_resource type="FogMaterial" load_steps=4 format=3 uid="uid://5ylfbcwxjnj8"]
+
+[sub_resource type="Gradient" id="Gradient_1xl1f"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kufau"]
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_oj66y"]
+color_ramp = SubResource("Gradient_1xl1f")
+noise = SubResource("FastNoiseLite_kufau")
+
+[resource]
+density = 0.0976
+albedo = Color(0.529412, 0.564706, 0.909804, 1)
+emission = Color(0.417038, 0.428295, 0.759765, 1)
+edge_fade = 0.857421
+density_texture = SubResource("NoiseTexture3D_oj66y")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ce5kwqern427b"]
+[gd_scene load_steps=10 format=3 uid="uid://ce5kwqern427b"]
 
 [ext_resource type="Environment" uid="uid://e82nx1vn6g3m" path="res://level/environment/environment.tres" id="1_bwcs0"]
 [ext_resource type="Script" path="res://level/environment/environment.gd" id="2_bieme"]
@@ -8,11 +8,20 @@
 radius = 64.0
 height = 128.0
 
+[sub_resource type="Gradient" id="Gradient_1xl1f"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kufau"]
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_oj66y"]
+color_ramp = SubResource("Gradient_1xl1f")
+noise = SubResource("FastNoiseLite_kufau")
+
 [sub_resource type="FogMaterial" id="FogMaterial_2rfwg"]
 density = 0.0976
 albedo = Color(0.529412, 0.564706, 0.909804, 1)
 emission = Color(0.417038, 0.428295, 0.759765, 1)
 edge_fade = 0.857421
+density_texture = SubResource("NoiseTexture3D_oj66y")
 
 [sub_resource type="FogMaterial" id="FogMaterial_m0jcv"]
 density = 0.1
