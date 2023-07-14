@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/mission_success.wav-f1050599a8b511b8efa3ed73e
 [params]
 
 force/8_bit=false
-force/mono=false
+force/mono=true
 force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false

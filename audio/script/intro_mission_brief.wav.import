@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/intro_mission_brief.wav-9ded942d60c03cea9228f
 [params]
 
 force/8_bit=false
-force/mono=false
+force/mono=true
 force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false

@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/task0_you_command.wav-ae84b5c714028daf0935d0b
 [params]
 
 force/8_bit=false
-force/mono=false
+force/mono=true
 force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false

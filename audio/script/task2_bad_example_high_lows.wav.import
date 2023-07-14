@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/task2_bad_example_high_lows.wav-50a35845943fe
 [params]
 
 force/8_bit=false
-force/mono=false
+force/mono=true
 force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false

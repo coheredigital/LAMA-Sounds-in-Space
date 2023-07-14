@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/intro_lucky.wav-085b7c9f72b7396b69dbdd86c7cba
 [params]
 
 force/8_bit=false
-force/mono=false
+force/mono=true
 force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false

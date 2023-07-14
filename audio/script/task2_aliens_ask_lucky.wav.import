@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/task2_aliens_ask_lucky.wav-e013e44c172decc97c
 [params]
 
 force/8_bit=false
-force/mono=false
+force/mono=true
 force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false

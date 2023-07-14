@@ -411,17 +411,19 @@ script = ExtResource("2_gas8d")
 transform = Transform3D(-0.989533, -1.0777e-05, -0.144286, 1.36424e-12, 0.999999, -7.46916e-05, 0.144286, -7.39102e-05, -0.989533, -13.2931, 1.00015, -3.19279)
 
 [node name="Spaceship" parent="." instance=ExtResource("2_ovpdl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00968003, 0)
+transform = Transform3D(1, -4.18348e-05, -7.55948e-05, 4.18338e-05, 1, -1.3194e-05, 7.55954e-05, 1.31909e-05, 1, 0, 0.00968003, 0)
 screen_state = "playing"
 
 [node name="controls" parent="Spaceship/spaceship/cockpit" index="1"]
 transform = Transform3D(0.990622, -0.13259, -0.0329651, 0.136306, 0.942572, 0.304923, -0.00935789, -0.306557, 0.951806, 0.688043, 0.511933, -1.92573)
 
 [node name="controls_left" parent="Spaceship/spaceship/cockpit" index="2"]
-transform = Transform3D(0.999689, 0.0131664, 0.0211798, -0.0138713, 0.999343, 0.0334874, -0.020725, -0.0337708, 0.999214, -0.6875, 0.400625, -2.07488)
+transform = Transform3D(0.998996, 0.0270761, 0.0356914, -0.0293853, 0.997397, 0.0658467, -0.0338156, -0.0668294, 0.99719, -0.6875, 0.400625, -2.07488)
 
 [node name="SpaceshipAudio" type="AudioStreamPlayer3D" parent="Spaceship"]
 stream = ExtResource("6_g2vm6")
+volume_db = -30.554
+max_db = 1.73
 bus = &"Effects"
 
 [node name="FollowPaths" type="Node3D" parent="."]
@@ -501,7 +503,7 @@ progress = 3.33849
 transform = Transform3D(1, 0, 0, 0, 0.998016, -0.0629465, 0, 0.0629465, 0.998016, 0, 0, 0)
 
 [node name="Ground" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.038, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -64, 0)
 
 [node name="Station" type="Node3D" parent="Ground"]
 
@@ -617,10 +619,7 @@ remote_path = NodePath("../../Ufo/BeamLookTarget")
 transform = Transform3D(-0.809609, 0.108326, -0.576885, -1.11759e-08, 0.982822, 0.184552, 0.586967, 0.149415, -0.795702, -4.70804, 4.8628, -10.8321)
 
 [node name="BeamLookTarget" parent="Ground/PlanetStardust/Ufo" index="2"]
-transform = Transform3D(0.999399, -5.79518e-06, -0.0346826, -0.00640075, 0.982792, -0.184605, 0.0340869, 0.184716, 0.982202, 0.289184, -3.02873, -1.00001)
-
-[node name="ufo" parent="Ground/PlanetStardust/Ufo" index="4"]
-transform = Transform3D(0.986388, 0.115874, 0.116671, -0.116671, 0.993171, 0, -0.115874, -0.013612, 0.99317, 0, 0, 0)
+transform = Transform3D(0.999399, -5.79518e-06, -0.0346826, -0.00640075, 0.982792, -0.184605, 0.0340869, 0.184716, 0.982202, 0.289184, -3.02872, -1.00001)
 
 [node name="BeamTransform3D" parent="Ground/PlanetStardust/Ufo/ufo" index="0"]
 transform = Transform3D(0.999375, -0.0237991, 0.0261541, 0.0239976, 0.999685, -0.0073032, -0.0259721, 0.00792627, 0.999631, 0, -0.7, 0)
@@ -629,7 +628,7 @@ transform = Transform3D(0.999375, -0.0237991, 0.0261541, 0.0239976, 0.999685, -0
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0)
 
 [node name="beam" parent="Ground/PlanetStardust/Ufo/ufo" index="5"]
-transform = Transform3D(0.816907, 0.556726, -0.15072, -0.111748, 0.409143, 0.9056, 0.565838, -0.72295, 0.396445, 0, -0.7, 9.53674e-07)
+transform = Transform3D(0.851565, 0.523124, 0.0342977, -0.307733, 0.445833, 0.840553, 0.424423, -0.726342, 0.540638, 0, -0.699997, 1.90735e-06)
 
 [node name="speaker_right" parent="Ground/PlanetStardust/Ufo/ufo" index="15"]
 transform = Transform3D(0.906308, 0.335286, -0.257274, 0, 0.608762, 0.793353, 0.422618, -0.719023, 0.551725, 0.390625, 0.5, -0.96875)

@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/warp_02.wav-e84d2b0a1c0e173e632d19535a1f1630.
 [params]
 
 force/8_bit=false
-force/mono=false
+force/mono=true
 force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false

@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/task3_go_home.wav-572b09bd5c3918f40c4a709e3b8
 [params]
 
 force/8_bit=false
-force/mono=false
+force/mono=true
 force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false

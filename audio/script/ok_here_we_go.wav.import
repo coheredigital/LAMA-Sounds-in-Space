@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/ok_here_we_go.wav-5a01af3a93364bbec50c488aadd
 [params]
 
 force/8_bit=false
-force/mono=false
+force/mono=true
 force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false

@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/task2_alien_language.wav-6186f5c2ba8cafd6821e
 [params]
 
 force/8_bit=false
-force/mono=false
+force/mono=true
 force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false

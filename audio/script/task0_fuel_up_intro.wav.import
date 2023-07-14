@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/task0_fuel_up_intro.wav-e36f9a9c4bdbb5f2c2edd
 [params]
 
 force/8_bit=false
-force/mono=false
+force/mono=true
 force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false

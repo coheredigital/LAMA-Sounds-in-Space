@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/wahwah_01.wav-79e7e75e997f98c842379432e94888b
 [params]
 
 force/8_bit=false
-force/mono=false
+force/mono=true
 force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false

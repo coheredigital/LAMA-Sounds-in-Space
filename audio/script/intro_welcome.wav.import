@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/intro_welcome.wav-1ceaf7db0dee24f40b9fa62c793
 [params]
 
 force/8_bit=false
-force/mono=false
+force/mono=true
 force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
