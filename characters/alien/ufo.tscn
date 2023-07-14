@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bbugqyxo4xw7n"]
+[gd_scene load_steps=14 format=3 uid="uid://bbugqyxo4xw7n"]
 
 [ext_resource type="PackedScene" uid="uid://d0f416j3xmved" path="res://characters/alien/ufo.gltf" id="1_1cqd3"]
 [ext_resource type="Script" path="res://characters/alien/ufo.gd" id="2_dq5n3"]
@@ -12,11 +12,12 @@ animation = &"idle"
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_yse6w"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_m1lfx"]
+graph_offset = Vector2(60, 10)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_bbquf")
-nodes/Animation/position = Vector2(380, 120)
+nodes/Animation/position = Vector2(380, 140)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_yse6w")
-nodes/TimeScale/position = Vector2(600, 120)
-nodes/output/position = Vector2(960, 140)
+nodes/TimeScale/position = Vector2(580, 140)
+nodes/output/position = Vector2(740, 140)
 node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Animation"]
 
 [sub_resource type="Animation" id="Animation_bgnuo"]
@@ -105,9 +106,18 @@ _data = {
 "idle": SubResource("Animation_f1na4")
 }
 
+[sub_resource type="Animation" id="Animation_ci2oy"]
+resource_name = "open"
+length = 0.5
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ixaje"]
+_data = {
+"open": SubResource("Animation_ci2oy")
+}
+
 [node name="Ufo" instance=ExtResource("1_1cqd3")]
 script = ExtResource("2_dq5n3")
-beam_speed = 4.4
+beam_active = true
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="0"]
 tree_root = SubResource("AnimationNodeBlendTree_m1lfx")
@@ -117,7 +127,8 @@ parameters/TimeScale/scale = 0.52
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
 libraries = {
-"": SubResource("AnimationLibrary_6s5j1")
+"": SubResource("AnimationLibrary_6s5j1"),
+"speakers": SubResource("AnimationLibrary_ixaje")
 }
 
 [node name="BeamLookTarget" type="Marker3D" parent="." index="2"]
@@ -134,25 +145,34 @@ max_db = -13.18
 pitch_scale = 0.8
 
 [node name="ufo" parent="." index="4"]
-transform = Transform3D(0.986388, 0.115874, 0.116671, -0.116671, 0.993171, 0, -0.115874, -0.013612, 0.99317, 0, 0, 0)
+transform = Transform3D(0.986388, 0.115874, 0.116671, -0.116671, 0.993171, 0, -0.115874, -0.0136121, 0.99317, 0, 0, 0)
 
 [node name="BeamTransform3D" type="RemoteTransform3D" parent="ufo" index="0"]
 unique_name_in_owner = true
-transform = Transform3D(0.749531, -0.0178493, 0.00261541, 0.0179982, 0.749764, -0.00073032, -0.0194791, 0.0059447, 0.0999631, 0, -0.7, 0)
+transform = Transform3D(0.999375, -0.0237991, 0.0261542, 0.0239976, 0.999685, -0.0073032, -0.0259721, 0.00792627, 0.999631, 0, -0.7, 0)
 remote_path = NodePath("../beam")
 update_rotation = false
 
 [node name="Alien" parent="ufo" index="1" instance=ExtResource("2_dwwl8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.140122, -0.184915, 0.0138138)
 
-[node name="beam" parent="ufo" index="13"]
-transform = Transform3D(-0.743591, 0.0809184, 0.00733341, 0.0412615, -0.122933, 0.0984939, 0.0887149, 0.735418, 0.0156574, 1.86265e-09, -0.7, -7.45058e-09)
+[node name="ring_light" parent="ufo" index="4"]
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0)
+
+[node name="beam" parent="ufo" index="5"]
+transform = Transform3D(-0.996644, -0.00686688, -0.0815694, -0.0815201, -0.00719214, 0.996645, -0.0074305, 0.999951, 0.00660821, -7.45058e-09, -0.7, -1.86265e-09)
 surface_material_override/0 = ExtResource("3_ju5pg")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="ufo" index="14"]
 transform = Transform3D(0.996755, -0.0776546, -0.0212205, 0.0773998, 0.996921, -0.0125754, 0.0221317, 0.0108922, 0.999696, -0.130048, 1.39157, -0.216589)
 light_energy = 0.102
 omni_range = 1.6
+
+[node name="speaker_right" parent="ufo" index="15"]
+transform = Transform3D(0.906308, 0.330745, -0.263086, 0, 0.622515, 0.782608, 0.422618, -0.709284, 0.56419, 0.390625, 0.5, -0.96875)
+
+[node name="speaker_left" parent="ufo" index="16"]
+transform = Transform3D(0.906308, -0.330744, 0.263086, 0, 0.622515, 0.782608, -0.422618, -0.709284, 0.56419, -0.390625, 0.5, -0.96875)
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)

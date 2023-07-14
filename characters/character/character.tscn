@@ -28,7 +28,6 @@ states/talking/position = Vector2(508, 100)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_bftsn"), "idle", "talking", SubResource("AnimationNodeStateMachineTransition_fwopg"), "talking", "idle", SubResource("AnimationNodeStateMachineTransition_n4doy")]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_83bbb"]
-graph_offset = Vector2(-221, 2)
 nodes/idle_state/node = SubResource("AnimationNodeStateMachine_gqfoj")
 nodes/idle_state/position = Vector2(20, 100)
 nodes/output/position = Vector2(420, 100)
@@ -179,7 +178,7 @@ bones/2/rotation = Quaternion(0.000474975, 0.000474975, 0.000474975, 1.00048)
 transform = Transform3D(1, -1.22465e-16, 0, 1.22465e-16, 0.999999, -7.4988e-33, 0, 7.49879e-33, 1, 0, 0.359375, -0.03125)
 
 [node name="face" parent="character/helmet" index="2"]
-transform = Transform3D(0.999999, 9.31322e-10, 7.45058e-09, -9.31321e-10, 0.999999, -8.0214e-09, -7.45057e-09, 8.0214e-09, 1, 0, 0.21875, 0.03125)
+transform = Transform3D(0.999999, 9.31321e-10, 7.45058e-09, -9.31321e-10, 0.999999, -8.0214e-09, -7.45057e-09, 8.02139e-09, 1, 0, 0.21875, 0.03125)
 
 [node name="AudioPlayer" type="AudioStreamPlayer3D" parent="character/helmet/face" index="0"]
 unique_name_in_owner = true
@@ -201,10 +200,10 @@ transform = Transform3D(1, 8.51014e-08, 1.94971e-08, -7.26432e-08, 0.934913, -0.
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98023e-08, -0.234375, 0)
 
 [node name="arm_right" parent="character" index="3"]
-transform = Transform3D(0.911925, -0.398124, -0.0994451, 0.379111, 0.910128, -0.167158, 0.157057, 0.114735, 0.980902, 0.1875, 0.28125, -0.015625)
+transform = Transform3D(0.911925, -0.398124, -0.099445, 0.379111, 0.910128, -0.167158, 0.157057, 0.114735, 0.980902, 0.1875, 0.28125, -0.015625)
 
 [node name="forarm_right" parent="character/arm_right" index="0"]
-transform = Transform3D(0.991862, 0.126551, -0.0139779, -0.127275, 0.988446, -0.0823156, 0.00339935, 0.0834247, 0.996509, 0, -0.28125, -2.98023e-08)
+transform = Transform3D(0.991862, 0.126551, -0.013978, -0.127275, 0.988446, -0.0823156, 0.00339935, 0.0834247, 0.996509, 0, -0.28125, -2.98023e-08)
 
 [node name="hand_right" parent="character/arm_right/forarm_right" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.96046e-08, -0.234375, 0)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://wa41njrapfpn"]
+[gd_scene load_steps=36 format=3 uid="uid://wa41njrapfpn"]
 
 [ext_resource type="PackedScene" uid="uid://ctjlmbopaw2sa" path="res://level/spaceship/models/spaceship.gltf" id="1_m17hk"]
 [ext_resource type="Script" path="res://level/spaceship/spaceship.gd" id="2_tplkk"]
@@ -35,7 +35,7 @@ animation = &"cockpit/steering_motion"
 [sub_resource type="AnimationNodeTimeScale" id="4"]
 
 [sub_resource type="AnimationNodeBlendTree" id="5"]
-graph_offset = Vector2(-24.6356, 172.457)
+graph_offset = Vector2(-169.006, -1.81519)
 nodes/blend_screen/node = SubResource("AnimationNodeAdd2_h7dn0")
 nodes/blend_screen/position = Vector2(780, 200)
 nodes/door_state/node = ExtResource("10_csjlb")
@@ -56,10 +56,6 @@ nodes/steering_blend/position = Vector2(600, 200)
 nodes/steering_speed/node = SubResource("4")
 nodes/steering_speed/position = Vector2(320, 400)
 node_connections = [&"output", 0, &"flying_blend", &"blend_screen", 0, &"steering_blend", &"blend_screen", 1, &"screen_state", &"flying_blend", 0, &"blend_screen", &"flying_blend", 1, &"flying_speed", &"flying_speed", 0, &"flying", &"steering_blend", 0, &"door_state", &"steering_blend", 1, &"steering_speed", &"steering_speed", 0, &"steering"]
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_ue7bb"]
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_3gtjc"]
 
 [sub_resource type="Animation" id="Animation_8lfmj"]
 length = 0.001
@@ -465,9 +461,7 @@ shader_parameter/emission_texture = ExtResource("18_nolgf")
 
 [node name="Spaceship" instance=ExtResource("1_m17hk")]
 script = ExtResource("2_tplkk")
-screen_state = "start_button"
-door_open = true
-seatbelts_buckled = true
+screen_state = "computer"
 
 [node name="Computer" parent="." index="0" instance=ExtResource("3_gtlrx")]
 transform = Transform3D(-1, 0, 8.74228e-08, -8.88178e-16, 1, 0, -8.74228e-08, 0, -1, 0, 0.663, 2.5)
@@ -478,10 +472,8 @@ tree_root = SubResource("5")
 anim_player = NodePath("AnimationPlayer")
 active = true
 parameters/blend_screen/add_amount = 1.0
-parameters/door_state/playback = SubResource("AnimationNodeStateMachinePlayback_ue7bb")
 parameters/flying_blend/add_amount = 0.0
 parameters/flying_speed/scale = 0.0
-parameters/screen_state/playback = SubResource("AnimationNodeStateMachinePlayback_3gtjc")
 parameters/steering_blend/add_amount = 0.2
 parameters/steering_speed/scale = 0.0
 
@@ -529,7 +521,7 @@ material_override = ExtResource("8_fylk6")
 volume_db = -5.228
 
 [node name="controls" parent="spaceship/cockpit" index="1"]
-transform = Transform3D(0.990622, -0.13259, -0.0329651, 0.136306, 0.942572, 0.304923, -0.0093579, -0.306557, 0.951806, 0.688043, 0.511933, -1.92573)
+transform = Transform3D(0.990622, -0.13259, -0.0329651, 0.136306, 0.942572, 0.304923, -0.00935789, -0.306557, 0.951806, 0.688043, 0.511933, -1.92573)
 
 [node name="controls_left" parent="spaceship/cockpit" index="2"]
 transform = Transform3D(0.999689, 0.0131664, 0.0211798, -0.0138713, 0.999343, 0.0334874, -0.020725, -0.0337708, 0.999214, -0.6875, 0.400625, -2.07488)

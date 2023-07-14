@@ -13,11 +13,11 @@ dest_files=["res://.godot/imported/task3_found_planet.wav-7088f3185c5cef9d911fc4
 [params]
 
 force/8_bit=false
-force/mono=true
+force/mono=false
 force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
-edit/normalize=true
+edit/normalize=false
 edit/loop_mode=0
 edit/loop_begin=0
 edit/loop_end=-1

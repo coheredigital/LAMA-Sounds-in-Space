@@ -4,6 +4,7 @@ signal position_changed(value: float, duration: float)
 signal pivot_changed(value: float, duration: float)
 signal tilt_changed(value: float, duration: float)
 signal beam_activated(value: bool)
+signal speakers_toggled(value: bool)
 
 
 func move_to(progress: float, duration: float = 1.0) -> void:
@@ -20,3 +21,7 @@ func activate_beam() -> void:
 
 func deactivate_beam() -> void:
 	beam_activated.emit(false)
+
+
+func toggle_speakers(state: bool) -> void:
+	speakers_toggled.emit(state)

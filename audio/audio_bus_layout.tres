@@ -37,6 +37,7 @@ resource_name = "Delay"
 resource_name = "SpectrumAnalyzer"
 
 [resource]
+bus/0/volume_db = 0.662756
 bus/1/name = &"Void"
 bus/1/solo = false
 bus/1/mute = true
