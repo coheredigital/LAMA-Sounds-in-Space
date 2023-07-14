@@ -1,6 +1,7 @@
 @tool
 extends Node3D
 
+const BEAM_SPEED := 2.0
 
 @onready var beam = $ufo/beam
 @onready var beam_material : ShaderMaterial = beam.get_active_material(0)
@@ -9,7 +10,7 @@ extends Node3D
 @onready var speaker_left = $ufo/speaker_left
 @onready var speaker_right = $ufo/speaker_right
 @onready var animation_tree := $AnimationTree
-@export_range(1.0,8.0,0.1) var beam_speed := 2.0
+
 @export var beam_active := false:
 	set(value):
 		beam_active = value
@@ -53,7 +54,7 @@ func _process(delta):
 	if beam:
 		var look_transform : Transform3D = beam.global_transform
 		look_transform = look_transform.looking_at(beam_look_target.global_transform.origin, Vector3( 0,0,1))
-		beam.global_transform = beam.global_transform.interpolate_with(look_transform, delta * beam_speed)
+		beam.global_transform = beam.global_transform.interpolate_with(look_transform, delta * BEAM_SPEED)
 		
 
 func toggle_beam(state : bool) -> void:
@@ -68,7 +69,7 @@ func toggle_beam(state : bool) -> void:
 
 func toggle_speakers(state : bool) -> void:
 	
-	var target_angle := 0.0 if state else -51.5
+	var target_angle := 0.0 if state else -52.5
 	
 	if speaker_left and speaker_right:
 		var tween = create_tween()

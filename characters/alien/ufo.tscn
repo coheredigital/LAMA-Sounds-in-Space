@@ -12,7 +12,6 @@ animation = &"idle"
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_yse6w"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_m1lfx"]
-graph_offset = Vector2(60, 10)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_bbquf")
 nodes/Animation/position = Vector2(380, 140)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_yse6w")
@@ -145,11 +144,11 @@ max_db = -13.18
 pitch_scale = 0.8
 
 [node name="ufo" parent="." index="4"]
-transform = Transform3D(0.986388, 0.115874, 0.116671, -0.116671, 0.993171, 0, -0.115874, -0.0136121, 0.99317, 0, 0, 0)
+transform = Transform3D(0.986388, 0.115874, 0.116671, -0.116671, 0.993171, 0, -0.115874, -0.013612, 0.99317, 0, 0, 0)
 
 [node name="BeamTransform3D" type="RemoteTransform3D" parent="ufo" index="0"]
 unique_name_in_owner = true
-transform = Transform3D(0.999375, -0.0237991, 0.0261542, 0.0239976, 0.999685, -0.0073032, -0.0259721, 0.00792627, 0.999631, 0, -0.7, 0)
+transform = Transform3D(0.999375, -0.0237991, 0.0261541, 0.0239976, 0.999685, -0.0073032, -0.0259721, 0.00792627, 0.999631, 0, -0.7, 0)
 remote_path = NodePath("../beam")
 update_rotation = false
 
@@ -160,7 +159,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.140122, -0.184915, 0.013813
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0)
 
 [node name="beam" parent="ufo" index="5"]
-transform = Transform3D(-0.996644, -0.00686688, -0.0815694, -0.0815201, -0.00719214, 0.996645, -0.0074305, 0.999951, 0.00660821, -7.45058e-09, -0.7, -1.86265e-09)
+transform = Transform3D(-0.994241, -0.0540746, -0.0925315, -0.0934125, 0.0139913, 0.995529, -0.0525382, 0.998439, -0.0189619, -1.86265e-09, -0.7, -6.98492e-10)
 surface_material_override/0 = ExtResource("3_ju5pg")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="ufo" index="14"]
@@ -169,10 +168,10 @@ light_energy = 0.102
 omni_range = 1.6
 
 [node name="speaker_right" parent="ufo" index="15"]
-transform = Transform3D(0.906308, 0.330745, -0.263086, 0, 0.622515, 0.782608, 0.422618, -0.709284, 0.56419, 0.390625, 0.5, -0.96875)
+transform = Transform3D(0.906308, 0.328436, -0.265962, 0, 0.629321, 0.777146, 0.422618, -0.704334, 0.570358, 0.390625, 0.5, -0.96875)
 
 [node name="speaker_left" parent="ufo" index="16"]
-transform = Transform3D(0.906308, -0.330744, 0.263086, 0, 0.622515, 0.782608, -0.422618, -0.709284, 0.56419, -0.390625, 0.5, -0.96875)
+transform = Transform3D(0.906308, -0.328436, 0.265962, 0, 0.629321, 0.777146, -0.422618, -0.704334, 0.570358, -0.390625, 0.5, -0.96875)
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
