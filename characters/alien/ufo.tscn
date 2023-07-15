@@ -159,7 +159,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.140122, -0.184915, 0.013813
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0)
 
 [node name="beam" parent="ufo" index="5"]
-transform = Transform3D(-0.994241, -0.0540746, -0.0925315, -0.0934125, 0.0139913, 0.995529, -0.0525382, 0.998439, -0.0189619, -1.86265e-09, -0.7, -6.98492e-10)
+transform = Transform3D(-0.999835, 0.0166015, 0.00751073, 0.00628092, -0.072928, 0.997317, 0.0171047, 0.997199, 0.0728116, 1.49012e-08, -0.7, 5.58794e-09)
 surface_material_override/0 = ExtResource("3_ju5pg")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="ufo" index="14"]
