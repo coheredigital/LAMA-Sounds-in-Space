@@ -4,10 +4,10 @@
 [ext_resource type="Script" path="res://audio/visualizer/audio_visualizer.gd" id="2"]
 [ext_resource type="Curve" uid="uid://dymfoswhbthj1" path="res://audio/visualizer/curves/waveform_curve.tres" id="2_bx51b"]
 [ext_resource type="Curve" uid="uid://djq65vh7dm2ol" path="res://audio/visualizer/curves/response_curve.tres" id="3_syknx"]
-[ext_resource type="Curve" uid="uid://vnofp0kutp4i" path="res://audio/visualizer/curves/x_acceleration_curve.tres" id="4_mgpj0"]
-[ext_resource type="Curve" uid="uid://t7kqhabg0q1l" path="res://audio/visualizer/curves/y_acceleration_curve.tres" id="5_k8vkg"]
-[ext_resource type="Curve" uid="uid://dxn1rtet5pm80" path="res://audio/visualizer/curves/z_acceleration_curve.tres" id="6_i86oe"]
-[ext_resource type="Curve" uid="uid://d1nfw1ns152lp" path="res://audio/visualizer/curves/a_acceleration_curve.tres" id="7_1a83d"]
+[ext_resource type="Curve" uid="uid://vnofp0kutp4i" path="res://audio/visualizer/curves/acceleration_x_curve.tres" id="4_mgpj0"]
+[ext_resource type="Curve" uid="uid://t7kqhabg0q1l" path="res://audio/visualizer/curves/acceleration_y_curve.tres" id="5_k8vkg"]
+[ext_resource type="Curve" uid="uid://dxn1rtet5pm80" path="res://audio/visualizer/curves/acceleration_z_curve.tres" id="6_i86oe"]
+[ext_resource type="Curve" uid="uid://d1nfw1ns152lp" path="res://audio/visualizer/curves/acceleration_a_curve.tres" id="7_1a83d"]
 
 [sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_2n73o"]
 

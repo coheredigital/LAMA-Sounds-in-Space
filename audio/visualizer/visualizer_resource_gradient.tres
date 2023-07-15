@@ -1,0 +1,12 @@
+[gd_resource type="Gradient" script_class="VisualizerGradient" load_steps=2 format=3 uid="uid://vqcvomntfpu8"]
+
+[ext_resource type="Script" path="res://audio/visualizer/visualizer_gradient_resource.gd" id="1_tylb8"]
+
+[resource]
+script = ExtResource("1_tylb8")
+channel = "Analyze"
+definition = 16
+min_frequency = 20.0
+max_frequency = 20000.0
+max_db = 0.0
+min_db = -40.0

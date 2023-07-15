@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cilpc0up6367s"]
+
+[ext_resource type="PackedScene" uid="uid://c01v71n4objej" path="res://audio/visualizer/audio_visualizer.tscn" id="1_oxp4m"]
+[ext_resource type="Material" uid="uid://xsadexiscljr" path="res://audio/visualizer/visualizer_canvas_material.tres" id="2_v8riy"]
+
+[node name="AudioVisualizerTest" type="Node2D"]
+
+[node name="AudioVisualizer" parent="." instance=ExtResource("1_oxp4m")]
+
+[node name="TextureRect" type="ColorRect" parent="."]
+material = ExtResource("2_v8riy")
+offset_right = 1215.0
+offset_bottom = 655.0
