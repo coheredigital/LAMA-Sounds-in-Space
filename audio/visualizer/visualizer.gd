@@ -39,8 +39,6 @@ var interval := 0.0
 @export var z_curve : Curve
 @export var a_curve : Curve
 
-@onready var audio_stream := %AudioStreamRecord
-
 func set_min_frequency(value):
 #	prevents min being set larger than max
 	if value < max_frequency:

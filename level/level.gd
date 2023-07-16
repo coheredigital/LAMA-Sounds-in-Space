@@ -11,6 +11,8 @@ var state: String = "intro":
 @onready var alien_path := %AlienPath
 @onready var ufo_path := %UfoPath
 @onready var lama_path := %LamaPath
+@onready var lama_rescued := %LamaRescued
+@onready var lama_lost := %LamaLost
 
 func _ready():
 #	Global Sequencer
@@ -108,14 +110,14 @@ func update_lama_tilt(tilt: float, duration: float = 1.0) -> void:
 	update_path_tilt(lama_path,tilt,duration)
 	
 func update_lama_visibility(value: bool) -> void: 
-	if not %LamaRescued or not %LamaLost:
+	if not lama_rescued or not lama_lost:
 		return
 	if value:
-		%LamaRescued.visible = true
-		%LamaLost.visible = false
+		lama_rescued.visible = true
+		lama_lost.visible = false
 	else:
-		%LamaRescued.visible = false
-		%LamaLost.visible = true
+		lama_rescued.visible = false
+		lama_lost.visible = true
 
 	
 #	UFO

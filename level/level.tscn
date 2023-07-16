@@ -395,6 +395,7 @@ script = ExtResource("1_58g46")
 unique_name_in_owner = true
 tree_root = SubResource("AnimationNodeStateMachine_xndii")
 anim_player = NodePath("AnimationPlayer")
+active = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="StateTree"]
 root_node = NodePath("../..")
@@ -496,6 +497,7 @@ progress = 3.33849
 transform = Transform3D(1, 0, 0, 0, 0.998016, -0.0629465, 0, 0.0629465, 0.998016, 0, 0, 0)
 
 [node name="Ground" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.038, 0)
 
 [node name="Station" type="Node3D" parent="Ground"]
 
@@ -611,7 +613,7 @@ transform = Transform3D(0.999399, -5.54615e-06, -0.034675, -0.00639971, 0.982791
 transform = Transform3D(0.986388, 0.115874, 0.116671, -0.116671, 0.993171, 0, -0.115874, -0.013612, 0.99317, 0, 0, 0)
 
 [node name="beam" parent="Ground/PlanetStardust/Ufo/ufo" index="5"]
-transform = Transform3D(0.831323, 0.553141, 0.0541751, -0.330944, 0.414345, 0.847816, 0.446516, -0.722739, 0.527513, 0, -0.700001, 0)
+transform = Transform3D(0.831924, 0.552197, 0.0545941, -0.330637, 0.414293, 0.84796, 0.445624, -0.72349, 0.527237, 0, -0.7, 9.53674e-07)
 
 [node name="speaker_right" parent="Ground/PlanetStardust/Ufo/ufo" index="15"]
 transform = Transform3D(0.906308, 0.335286, -0.257274, 0, 0.608762, 0.793353, 0.422618, -0.719023, 0.551725, 0.390625, 0.5, -0.96875)

@@ -174,7 +174,6 @@ Sam: This is what the computer sounds like.
 [next=1]
 do Stimuli.play("practice/0_greeting")
 Computer: Nice to meet you
-do Character.play_audio("computer_nice_to_meet_you")
 [next=2]
 do Character.play_audio("task0_computer_instructions")
 Sam: Ok, now I’ll have the computer say a special phrase and your job is to repeat what the computer just said with your voice when the light turns green. Make sure you say it loud and clear, so the computer can hear you! After you repeat after the computer, I’ll press the red button to send your voice to the spaceship.
@@ -754,7 +753,7 @@ set level = "landing"
 do Character.play_audio("task2_found_planet_stardust")
 =>< snippets/focus_conversation
 Sam: We did it - we found Planet Stardust! 
-do Character.play_audio("task2_alien_intro")
+do Character.play_audio("task2_aliens_intro")
 do Alien.move_to(1.0,4.0)
 do Ufo.move_to(0.9,12.0)
 Sam: I don’t see Lucky, but I do see something else! It looks like there are aliens on Planet Stardust!

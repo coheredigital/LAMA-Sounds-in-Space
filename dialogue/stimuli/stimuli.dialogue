@@ -12,7 +12,7 @@ System:
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save()
+	do Recorder.save("speech", "Sp_01F")
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
@@ -32,7 +32,7 @@ System:
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save()
+	do Recorder.save("speech", "Sp_01R")
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
@@ -52,7 +52,7 @@ System:
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save()
+	do Recorder.save("speech", "Sp_02F")
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
@@ -72,7 +72,7 @@ System:
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save()
+	do Recorder.save("speech", "Sp_02R")
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
@@ -92,7 +92,7 @@ System:
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save()
+	do Recorder.save("speech", "Sp_03F")
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
@@ -112,7 +112,7 @@ System:
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save()
+	do Recorder.save("speech", "Sp_03R")
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
@@ -132,7 +132,7 @@ System:
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save()
+	do Recorder.save("speech", "Sp_04F")
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
@@ -152,7 +152,7 @@ System:
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save()
+	do Recorder.save("speech", "Sp_04R")
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
@@ -172,7 +172,7 @@ System:
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save()
+	do Recorder.save("speech", "Sp_05F")
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
@@ -192,7 +192,7 @@ System:
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save()
+	do Recorder.save("speech", "Sp_05R")
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
@@ -212,7 +212,7 @@ System:
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save()
+	do Recorder.save("speech", "Sp_06F")
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
@@ -232,7 +232,7 @@ System:
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save()
+	do Recorder.save("speech", "Sp_06R")
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
@@ -252,7 +252,7 @@ System:
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save()
+	do Recorder.save("speech", "Sp_07F")
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
@@ -272,7 +272,7 @@ System:
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save()
+	do Recorder.save("speech", "Sp_07R")
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
@@ -292,7 +292,7 @@ System:
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save()
+	do Recorder.save("speech", "Sp_08F")
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
@@ -312,7 +312,7 @@ System:
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save()
+	do Recorder.save("speech", "Sp_08R")
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
@@ -332,7 +332,7 @@ System:
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save()
+	do Recorder.save("speech", "Sp_09F")
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
@@ -352,7 +352,7 @@ System:
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save()
+	do Recorder.save("speech", "Sp_09R")
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
@@ -372,7 +372,7 @@ System:
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save()
+	do Recorder.save("speech", "Sp_10F")
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
@@ -392,7 +392,7 @@ System:
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save()
+	do Recorder.save("speech", "Sp_10R")
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
@@ -412,7 +412,7 @@ System:
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save()
+	do Recorder.save("speech", "Sp_11F")
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
@@ -432,7 +432,7 @@ System:
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save()
+	do Recorder.save("speech", "Sp_11R")
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
@@ -452,7 +452,7 @@ System:
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save()
+	do Recorder.save("speech", "Sp_12F")
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
@@ -472,7 +472,7 @@ System:
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save()
+	do Recorder.save("speech", "Sp_12R")
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
@@ -494,7 +494,7 @@ System:
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save()
+	do Recorder.save("song", "So_01F")
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
@@ -514,7 +514,7 @@ System:
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save()
+	do Recorder.save("song", "So_01R")
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
@@ -534,7 +534,7 @@ System:
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save()
+	do Recorder.save("song", "So_02F")
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
@@ -554,7 +554,7 @@ System:
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save()
+	do Recorder.save("song", "So_02R")
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
@@ -574,7 +574,7 @@ System:
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save()
+	do Recorder.save("song", "So_03F")
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
@@ -594,7 +594,7 @@ System:
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save()
+	do Recorder.save("song", "So_03R")
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
@@ -614,7 +614,7 @@ System:
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save()
+	do Recorder.save("song", "So_04F")
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
@@ -634,7 +634,7 @@ System:
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save()
+	do Recorder.save("song", "So_04R")
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
@@ -654,7 +654,7 @@ System:
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save()
+	do Recorder.save("song", "So_05F")
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
@@ -674,7 +674,7 @@ System:
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save()
+	do Recorder.save("song", "So_05R")
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
@@ -694,7 +694,7 @@ System:
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save()
+	do Recorder.save("song", "So_06F")
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
@@ -714,7 +714,7 @@ System:
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save()
+	do Recorder.save("song", "So_06R")
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
@@ -734,7 +734,7 @@ System:
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save()
+	do Recorder.save("song", "So_07F")
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
@@ -754,7 +754,7 @@ System:
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save()
+	do Recorder.save("song", "So_07R")
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
@@ -774,7 +774,7 @@ System:
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save()
+	do Recorder.save("song", "So_08F")
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
@@ -794,7 +794,7 @@ System:
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save()
+	do Recorder.save("song", "So_08R")
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
@@ -814,7 +814,7 @@ System:
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save()
+	do Recorder.save("song", "So_09F")
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
@@ -834,7 +834,7 @@ System:
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save()
+	do Recorder.save("song", "So_09R")
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
@@ -854,7 +854,7 @@ System:
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save()
+	do Recorder.save("song", "So_10F")
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
@@ -874,7 +874,7 @@ System:
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save()
+	do Recorder.save("song", "So_10R")
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
@@ -894,7 +894,7 @@ System:
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save()
+	do Recorder.save("song", "So_11F")
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
@@ -914,7 +914,7 @@ System:
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save()
+	do Recorder.save("song", "So_11R")
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
@@ -934,7 +934,7 @@ System:
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save()
+	do Recorder.save("song", "So_12F")
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
@@ -954,7 +954,7 @@ System:
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save()
+	do Recorder.save("song", "So_12R")
 - Failure
 	set screen = "failure"
 	do Recorder.stop()
