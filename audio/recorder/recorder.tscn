@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvcinxne6bj5m"]
+[gd_scene load_steps=3 format=3 uid="uid://bm85hnfl51cac"]
 
 [ext_resource type="Script" path="res://audio/recorder/recorder.gd" id="1_lpfm2"]
 
@@ -12,5 +12,4 @@ unique_name_in_owner = true
 stream = SubResource("AudioStreamMicrophone_gays0")
 volume_db = 5.267
 autoplay = true
-stream_paused = true
 bus = &"Record"

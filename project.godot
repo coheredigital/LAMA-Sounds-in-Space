@@ -22,12 +22,11 @@ driver/enable_input=true
 
 [autoload]
 
-Recorder="*res://audio/recorder/recorder.tscn"
+Recorder="*res://audio/recorder/recorder.gd"
 Visualizer="*res://audio/visualizer/visualizer.tscn"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 Sequencer="*res://components/sequencer.gd"
 Session="*res://components/session.gd"
-Recorder="*res://audio/recorder/recorder.gd"
 Character="*res://characters/character/character_sequencer.gd"
 Player="*res://characters/player/player_sequencer.gd"
 Alien="*res://characters/alien/alien_sequencer.gd"
