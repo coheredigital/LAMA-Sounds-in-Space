@@ -22,7 +22,7 @@ func play(sentence_id: String) -> void:
 		return
 
 	print('Stimuli: %s' % [filename])
-#	AudioVisualizer.channel = "Stimuli"
+	Visualizer.channel = "Stimuli"
 #	delay for screen to change before playing
 	await get_tree().create_timer(1.0).timeout
 	player.stream = wav_file
@@ -32,5 +32,5 @@ func play(sentence_id: String) -> void:
 # restore sequence and visualizer state on finish
 func _on_audio_stream_player_finished():
 	await get_tree().create_timer(1.0).timeout
-#	AudioVisualizer.channel = "Analyze"
+	Visualizer.channel = "Analyze"
 	stimuli_player_finished.emit()

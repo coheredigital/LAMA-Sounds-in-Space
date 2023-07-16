@@ -1,0 +1,33 @@
+[gd_scene load_steps=10 format=3 uid="uid://c01v71n4objej"]
+
+[ext_resource type="Script" path="res://audio/visualizer/visualizer.gd" id="1_x1m8v"]
+[ext_resource type="Curve" uid="uid://dymfoswhbthj1" path="res://audio/visualizer/curves/waveform_curve.tres" id="2_cm6th"]
+[ext_resource type="Gradient" uid="uid://b71jutk4qdqv3" path="res://audio/visualizer/visualizer_gradient.tres" id="3_rqlfc"]
+[ext_resource type="Curve" uid="uid://djq65vh7dm2ol" path="res://audio/visualizer/curves/response_curve.tres" id="4_5qc28"]
+[ext_resource type="Curve" path="res://audio/visualizer/curves/x_acceleration_curve.tres" id="5_0gl3a"]
+[ext_resource type="Curve" path="res://audio/visualizer/curves/y_acceleration_curve.tres" id="6_p5v4i"]
+[ext_resource type="Curve" path="res://audio/visualizer/curves/z_acceleration_curve.tres" id="7_x6jeh"]
+[ext_resource type="Curve" path="res://audio/visualizer/curves/a_acceleration_curve.tres" id="8_8jqi5"]
+
+[sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_2n73o"]
+
+[node name="Visualizer" type="Node"]
+script = ExtResource("1_x1m8v")
+waveform = ExtResource("2_cm6th")
+gradient = ExtResource("3_rqlfc")
+definition = 14
+min_frequency = 100.0
+max_frequency = 1210.0
+max_db = -9.7
+min_db = -76.0
+response_curve = ExtResource("4_5qc28")
+x_curve = ExtResource("5_0gl3a")
+y_curve = ExtResource("6_p5v4i")
+z_curve = ExtResource("7_x6jeh")
+a_curve = ExtResource("8_8jqi5")
+
+[node name="AudioStreamRecord" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamMicrophone_2n73o")
+volume_db = 5.267
+bus = &"Record"
