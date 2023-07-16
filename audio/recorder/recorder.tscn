@@ -11,5 +11,5 @@ script = ExtResource("1_lpfm2")
 unique_name_in_owner = true
 stream = SubResource("AudioStreamMicrophone_gays0")
 volume_db = 5.267
-autoplay = true
+stream_paused = true
 bus = &"Record"

@@ -1,6 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://dr07jewoygl0q"]
+[gd_scene load_steps=9 format=3 uid="uid://cwm7qx08toq5m"]
 
 [ext_resource type="Script" path="res://audio/visualizer/visualizer.gd" id="1_mle3v"]
+[ext_resource type="Curve" uid="uid://dymfoswhbthj1" path="res://audio/visualizer/curves/waveform_curve.tres" id="2_cm6th"]
+[ext_resource type="Gradient" uid="uid://b71jutk4qdqv3" path="res://audio/visualizer/visualizer_gradient.tres" id="3_rqlfc"]
+[ext_resource type="Curve" uid="uid://djq65vh7dm2ol" path="res://audio/visualizer/curves/response_curve.tres" id="4_5qc28"]
+[ext_resource type="Curve" uid="uid://vso0bo53k8ra" path="res://audio/visualizer/curves/acceleration_x_curve.tres" id="5_eq00a"]
+[ext_resource type="Curve" uid="uid://cr62ss6qxmpde" path="res://audio/visualizer/curves/acceleration_y_curve.tres" id="6_icdxr"]
+[ext_resource type="Curve" uid="uid://bh3jvakjcow55" path="res://audio/visualizer/curves/acceleration_z_curve.tres" id="7_27agj"]
+[ext_resource type="Curve" uid="uid://deuhwsfp8mjpp" path="res://audio/visualizer/curves/acceleration_a_curve.tres" id="8_smi7q"]
 
 [node name="Visualizer" type="Node"]
 script = ExtResource("1_mle3v")
+waveform = ExtResource("2_cm6th")
+gradient = ExtResource("3_rqlfc")
+min_frequency = 130.0
+max_frequency = 1050.0
+max_db = -5.5
+min_db = -68.0
+response_curve = ExtResource("4_5qc28")
+x_curve = ExtResource("5_eq00a")
+y_curve = ExtResource("6_icdxr")
+z_curve = ExtResource("7_27agj")
+a_curve = ExtResource("8_smi7q")
