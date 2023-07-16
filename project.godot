@@ -22,9 +22,9 @@ driver/enable_input=true
 
 [autoload]
 
+Sequencer="*res://components/sequencer.gd"
 Recorder="*res://audio/recorder/recorder.tscn"
 Visualizer="*res://audio/visualizer/visualizer.tscn"
-Sequencer="*res://components/sequencer.gd"
 Session="*res://components/session.gd"
 Character="*res://characters/character/character_sequencer.gd"
 Player="*res://characters/player/player_sequencer.gd"
