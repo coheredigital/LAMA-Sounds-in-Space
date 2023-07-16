@@ -150,6 +150,30 @@ tracks/11/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Spaceship:steering_motion")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 3.5, 14.5, 15.25, 16),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.1, 0.5, 0.3, 0.8, 0.0]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Spaceship:flying_motion")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 3.5, 14.5, 15.25, 16),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.4, 1.0, 0.5, 1.0, 0.0]
+}
 
 [sub_resource type="Animation" id="Animation_eh3qq"]
 resource_name = "launch"
@@ -446,7 +470,7 @@ tracks/10/keys = {
 "times": PackedFloat32Array(0, 2, 12),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.139, 0.4, 0.139]
+"values": [0.139, 0.7, 0.4]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
@@ -458,7 +482,7 @@ tracks/11/keys = {
 "times": PackedFloat32Array(0, 2, 12),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.1, 0.5, 0.1]
+"values": [0.1, 0.6, 0.1]
 }
 tracks/12/type = "value"
 tracks/12/imported = false

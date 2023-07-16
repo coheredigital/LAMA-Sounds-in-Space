@@ -14,11 +14,9 @@ animation = &"door/open"
 animation = &"door/ready"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lpynv"]
-xfade_time = 1.0
 switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kde5u"]
-xfade_time = 1.0
 switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6b2h1"]
@@ -28,14 +26,13 @@ advance_mode = 2
 xfade_time = 0.5
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_32did"]
-xfade_time = 0.66
+xfade_time = 1.0
 switch_mode = 2
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_q7jlv"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_e304h"]
-xfade_time = 0.22
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5gq1k"]
 xfade_time = 0.5

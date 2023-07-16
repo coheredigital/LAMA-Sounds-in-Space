@@ -172,6 +172,7 @@ Sam: This is our handy dandy computer! The computer will help us travel to Plane
 do Character.play_audio("task0_computer_sounds_like")
 Sam: This is what the computer sounds like. 
 [next=1]
+do Stimuli.play("practice/0_greeting")
 Computer: Nice to meet you
 do Character.play_audio("computer_nice_to_meet_you")
 [next=2]
@@ -309,6 +310,7 @@ System: ...
 
 ~ fuel_up
 do Character.play_audio("task0_fuel_up_intro")
+=>< snippets/focus_conversation
 Sam: Awesome! We are almost ready to blast off, but first we need some fuel. 
 [next=2]
 set screen = "battery"
@@ -320,6 +322,7 @@ Sam: Listen to the command from the computer and then repeat what it says with y
 [next=0.5]
 
 ~ fuel_up_stimuli
+=>< snippets/focus_screen
 set screen = "computer"
 do Stimuli.play("practice/4_lets")
 Computer: Let’s fuel up!
@@ -352,6 +355,7 @@ System: ...
 
 ~ sleep_mode
 set screen = "sleep"
+=>< snippets/focus_conversation
 do Character.play_audio("task0_sleep_mode_intro")
 Sam: The computer wants us to yawn out loud to tell it to turn down the lights if we want to sleep! Let’s see if it works. 
 
@@ -359,6 +363,7 @@ Sam: The computer wants us to yawn out loud to tell it to turn down the lights i
 ~ sleep_mode_command
 do Character.play_audio("listen_and_repeat")
 Sam: Listen to the command from the computer and then repeat what it says with your voice: 
+=>< snippets/focus_screen
 set screen = "computer"
 do Stimuli.play("practice/5_yawn")
 Computer: *Loud Yawn: from high to low*
@@ -747,6 +752,7 @@ set level = "landing"
 
 ~ task2_landed
 do Character.play_audio("task2_found_planet_stardust")
+=>< snippets/focus_conversation
 Sam: We did it - we found Planet Stardust! 
 do Character.play_audio("task2_alien_intro")
 do Alien.move_to(1.0,4.0)
@@ -759,6 +765,7 @@ Sam: They look really friendly, I think they are nice! Let’s ask them if they 
 ~ task2_alien_language
 do Character.play_audio("task2_alien_language")
 Sam: Aliens on Planet Stardust only speak in beeping sounds so the computer will tell us how to talk to them in their language to find out where Lucky is. Listen to the computer and repeat back the alien beeps as best as you can.
+=>< snippets/focus_forward
 set screen = "computer"
 [next=2]
 
