@@ -13,10 +13,10 @@
 script = ExtResource("1_mle3v")
 waveform = ExtResource("2_cm6th")
 gradient = ExtResource("3_rqlfc")
-min_frequency = 130.0
-max_frequency = 1050.0
-max_db = -5.5
-min_db = -68.0
+min_frequency = 120.0
+max_frequency = 800.0
+max_db = -30.8
+min_db = -80.0
 response_curve = ExtResource("4_5qc28")
 x_curve = ExtResource("5_eq00a")
 y_curve = ExtResource("6_icdxr")
