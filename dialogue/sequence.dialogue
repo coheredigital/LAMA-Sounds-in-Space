@@ -61,18 +61,18 @@ System: ...[next]
 System: .
 - Start
 	do overlay_state("hidden")
-#- Skip to Spaceship enter
-#	do overlay_state("hidden")
-#	=> spaceship_enter
-#- Skip to Blastoff
-#	do overlay_state("hidden")
-#	=> blast_off
-#- Skip to Warp
-#	do overlay_state("hidden")
-#	=> task2_warp
-#- Skip to Planet Stardust
-#	do overlay_state("hidden")
-#	=> task2_arrived
+- Skip to Spaceship enter
+	do overlay_state("hidden")
+	=> spaceship_enter
+- Skip to Blastoff
+	do overlay_state("hidden")
+	=> blast_off
+- Skip to Warp
+	do overlay_state("hidden")
+	=> task2_warp
+- Skip to Planet Stardust
+	do overlay_state("hidden")
+	=> task2_arrived
 [next=2]
 
 
