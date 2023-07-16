@@ -24,7 +24,6 @@ driver/enable_input=true
 
 Recorder="*res://audio/recorder/recorder.tscn"
 Visualizer="*res://audio/visualizer/visualizer.tscn"
-DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 Sequencer="*res://components/sequencer.gd"
 Session="*res://components/session.gd"
 Character="*res://characters/character/character_sequencer.gd"
@@ -34,6 +33,7 @@ Ufo="*res://characters/alien/ufo_sequencer.gd"
 Stimuli="*res://audio/stimuli_player.tscn"
 EventLogger="*res://components/event_logger.gd"
 Lama="*res://characters/lama/lama_sequencer.gd"
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 
 [dialogue_manager]
 
@@ -47,12 +47,6 @@ window/size/viewport_width=1280
 window/size/viewport_height=720
 window/subwindows/embed_subwindows=false
 window/vsync/vsync_mode=false
-
-[editor]
-
-movie_writer/movie_file="C:/Users/adams/iCloudDrive/Documents/Work/Clients/LAMA Labs/export.avi"
-version_control/plugin_name="GitPlugin"
-version_control/autoload_on_startup=true
 
 [editor_plugins]
 
