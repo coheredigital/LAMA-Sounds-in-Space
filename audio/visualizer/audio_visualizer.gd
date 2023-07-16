@@ -1,3 +1,4 @@
+@tool
 extends Node
 
 var spectrum : AudioEffectSpectrumAnalyzerInstance
@@ -81,7 +82,7 @@ func _ready():
 	self.min_frequency = min_frequency
 	self.max_frequency = max_frequency
 	
-	%AudioStreamRecord.playing = true
+#	%AudioStreamRecord.playing = true
 	set_definition(definition)
 
 func _process(delta):

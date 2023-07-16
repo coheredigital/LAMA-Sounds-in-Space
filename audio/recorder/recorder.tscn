@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvcinxne6bj5m"]
+
+[ext_resource type="Script" path="res://audio/recorder/recorder.gd" id="1_lpfm2"]
+
+[sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_x1232"]
+
+[node name="Recorder" type="Node"]
+script = ExtResource("1_lpfm2")
+
+[node name="AudioStreamRecord" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamMicrophone_x1232")
+volume_db = 5.267
+stream_paused = true
+bus = &"Record"

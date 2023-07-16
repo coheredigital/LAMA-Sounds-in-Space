@@ -5,6 +5,10 @@ var recording : AudioStreamWAV
 @onready var record_bus_index := AudioServer.get_bus_index("Record")
 @onready var effect : AudioEffectRecord = AudioServer.get_bus_effect(record_bus_index, 0)
 
+func _ready():
+	%AudioStreamRecord.playing = true
+
+
 func start():
 	effect.set_recording_active(true)
 	EventLogger.add('recording','started')

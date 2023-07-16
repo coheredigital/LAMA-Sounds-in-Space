@@ -10,6 +10,7 @@ const BEAM_SPEED := 2.0
 @onready var speaker_left = $ufo/speaker_left
 @onready var speaker_right = $ufo/speaker_right
 @onready var animation_tree := $AnimationTree
+@onready var beam_transform := %BeamTransform3D
 
 @export var beam_active := false:
 	set(value):
@@ -59,11 +60,11 @@ func _process(delta):
 
 func toggle_beam(state : bool) -> void:
 	var beam_length = 1.0 if state else 0.0
-	if %BeamTransform3D:
+	if beam_transform:
 		var scale_tween = create_tween()
 		var alpha_tween = create_tween()
 		if scale_tween and alpha_tween:
-			scale_tween.tween_property(%BeamTransform3D, "scale", Vector3(lerp(0.75,1.0, beam_length),lerp(0.75,1.0, beam_length),lerp(0.1,1.0, beam_length)), 1.0).set_trans(Tween.TRANS_SINE)
+			scale_tween.tween_property(beam_transform, "scale", Vector3(lerp(0.75,1.0, beam_length),lerp(0.75,1.0, beam_length),lerp(0.1,1.0, beam_length)), 1.0).set_trans(Tween.TRANS_SINE)
 			alpha_tween.tween_property(beam_material,"shader_parameter/alpha_amount",lerp(0.0,0.2,smoothstep(0.5,1.0,beam_length)), 1.0).set_trans(Tween.TRANS_SINE)
 
 
