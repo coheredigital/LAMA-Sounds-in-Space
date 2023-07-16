@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" path="res://audio/recorder/recorder.gd" id="1_lpfm2"]
 
-[sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_x1232"]
+[sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_gays0"]
 
 [node name="Recorder" type="Node"]
 script = ExtResource("1_lpfm2")
 
 [node name="AudioStreamRecord" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-stream = SubResource("AudioStreamMicrophone_x1232")
+stream = SubResource("AudioStreamMicrophone_gays0")
 volume_db = 5.267
-stream_paused = true
+autoplay = true
 bus = &"Record"

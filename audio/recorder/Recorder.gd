@@ -8,7 +8,6 @@ var recording : AudioStreamWAV
 func _ready():
 	%AudioStreamRecord.playing = true
 
-
 func start():
 	effect.set_recording_active(true)
 	EventLogger.add('recording','started')

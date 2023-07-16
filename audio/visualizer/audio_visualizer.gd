@@ -1,4 +1,3 @@
-@tool
 extends Node
 
 var spectrum : AudioEffectSpectrumAnalyzerInstance
@@ -40,6 +39,7 @@ var interval := 0.0
 @export var z_curve : Curve
 @export var a_curve : Curve
 
+@onready var audio_stream := %AudioStreamRecord
 
 func set_min_frequency(value):
 #	prevents min being set larger than max
@@ -81,8 +81,6 @@ func _ready():
 #	ensure the audio analyzer is always running
 	self.min_frequency = min_frequency
 	self.max_frequency = max_frequency
-	
-#	%AudioStreamRecord.playing = true
 	set_definition(definition)
 
 func _process(delta):
@@ -91,7 +89,6 @@ func _process(delta):
 		return
 
 	var segment = 1.0 / float(definition)
-#	var prev_hz = 0
 	
 	for i in range(definition):
 

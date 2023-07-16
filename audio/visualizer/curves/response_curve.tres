@@ -2,6 +2,6 @@
 
 [resource]
 min_value = 100.0
-max_value = 1210.0
-_data = [Vector2(0, 100), 0.0, 1416.43, 0, 0, Vector2(1, 1210), 1467.01, 0.0, 0, 0]
+max_value = 530.0
+_data = [Vector2(0, 100), 0.0, 1117.76, 0, 0, Vector2(1, 525.474), 1161.42, 0.0, 0, 0]
 point_count = 2

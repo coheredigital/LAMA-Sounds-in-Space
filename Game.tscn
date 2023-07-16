@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqdal17eldmvk"]
+[gd_scene load_steps=4 format=3 uid="uid://dqdal17eldmvk"]
 
 [ext_resource type="PackedScene" uid="uid://bw70w15xhifwc" path="res://ui/game_window.tscn" id="3_ljibd"]
-[ext_resource type="Script" path="res://audio/visualizer/audio_visualizer.gd" id="4_k8dmn"]
 [ext_resource type="PackedScene" uid="uid://cd2cy5xbal8wf" path="res://ui/control_panel.tscn" id="10_ep7ri"]
 [ext_resource type="Script" path="res://game.gd" id="12"]
 
@@ -16,9 +15,6 @@ unique_name_in_owner = true
 initial_position = 3
 current_screen = 0
 always_on_top = true
-
-[node name="AudioVisualizer" type="Node" parent="."]
-script = ExtResource("4_k8dmn")
 
 [connection signal="game_window_toggled" from="ControlPanel" to="." method="_on_control_panel_game_window_toggled"]
 [connection signal="window_input" from="GameWindow" to="." method="_on_game_window_window_input"]
