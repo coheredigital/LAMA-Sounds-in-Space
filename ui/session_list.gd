@@ -1,6 +1,5 @@
 extends ItemList
 
-var list : Array
 var items : Array
 
 func _ready():
@@ -10,9 +9,12 @@ func _ready():
 func update_list() -> void:
 	clear()
 	items = DirAccess.get_directories_at(Session.root_directory)
+#	reverse sort (recent first)
+	items.reverse()
 	for item in items:
 		add(item)
 
+	
 
 func add(item: String):
 	
@@ -23,7 +25,7 @@ func add(item: String):
 	
 	if session_directory.file_exists(info_file):
 		info_file = FileAccess.open(info_file, FileAccess.READ)
-		var info_json = JSON.parse_string(info_file.get_as_text())#
+		var info_json = JSON.parse_string(info_file.get_as_text())
 		add_item("Datetime: %s   Study ID: %s   Age Group: %s   Run ID: %s" % [
 			info_json.get("create_datetime"),
 			info_json.get("study_id"),
@@ -33,7 +35,6 @@ func add(item: String):
 
 
 func _on_item_activated(index):
-#	var list_item = list.index(index)
 	var item = items[index]
 	var folder = "%s%s" % [Session.root_directory,item]
 	folder = ProjectSettings.globalize_path(folder)
