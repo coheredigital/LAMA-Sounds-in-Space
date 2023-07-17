@@ -116,10 +116,12 @@ Sam: Thank you! We’re definitely going to need your help -- this spaceship wor
 
 
 ~ approach_spaceship
-do Player.pivot(0,4)
 do Player.move_to(0.65,6)
-[next=5.5]
-
+do Player.pivot(0,4)
+[next=4]
+do Player.pivot(-0.05,2)
+do Player.tilt(0.35,2)
+[next=1.5]
 
 ~ press_green_button
 do Character.play_audio("intro_open_spaceship")
@@ -131,7 +133,8 @@ Player: .
 ~ unlock_door
 set door_state = "open"
 [next=5]
-
+do Player.pivot(0)
+do Player.tilt(0,2)
 
 ~ spaceship_enter
 do Player.move_to(0.85,2.5)
@@ -453,7 +456,7 @@ set flying_motion = 0.1
 
 
 ~ task1_stars_light
-[next=6]
+[next=4]
 =>< snippets/focus_conversation
 do Character.play_audio("task1_intro")
 Sam: Boy, it’s dark out here! This time, let’s wake up the stars with our voices. Just like we practiced, you will listen to the computer’s commands and repeat them loud and clear! After each voice command, I’ll press the red button to send your voice to the stars.  
@@ -784,9 +787,8 @@ do Ufo.move_to(0.9,6.0)
 # blast off and fade to intro (station)
 ~ mission_success
 =>< snippets/prompt_green_button
-- Return to Space Station
-	do overlay_state("loading")
-	[next=3]
+do overlay_state("loading")
+[next=3]
 set level = "intro"
 do Lama.toggle_rescued(true)
 do Player.tilt(0.5,0.0)

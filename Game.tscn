@@ -14,6 +14,7 @@ metadata/_edit_lock_ = true
 unique_name_in_owner = true
 initial_position = 3
 current_screen = 0
+visible = false
 always_on_top = true
 
 [connection signal="game_window_toggled" from="ControlPanel" to="." method="_on_control_panel_game_window_toggled"]
