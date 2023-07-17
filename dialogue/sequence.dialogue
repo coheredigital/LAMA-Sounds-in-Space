@@ -1,5 +1,5 @@
 
-import "res://dialogue/snippets/snippets.dialogue" as snippets
+import "res://dialogue/snippets.dialogue" as snippets
 import "res://dialogue/stimuli/stimuli.dialogue" as stimuli
 import "res://dialogue/stimuli/orders.dialogue" as orders
 
@@ -38,8 +38,6 @@ do Lama.pivot(0)
 do Lama.tilt(0)
 do Lama.toggle_rescued(false)
 # spaceship
-set steering_motion = 0.0
-set flying_motion = 0.0
 set fuel_level = 1
 set door_state = "idle"
 # stars
@@ -259,7 +257,7 @@ System: ...
 	do Recorder.save("speech", "PRAC_buckle_up")
 	=>< snippets/focus_conversation
 	do Character.play_audio("great_job_heard_you")
-	Sam: Great job! Looks like it heard you!
+	Sam: Great job! Looks like it heard you! [next=1]
 	
 - Quiet
 	set screen = "failure"
@@ -301,7 +299,7 @@ System: ...
 	do Recorder.stop()
 	do Recorder.save("song", "PRAC_siren")
 	do Character.play_audio("great_job_heard_you")
-	Sam: Great job! Looks like it heard you!
+	Sam: Great job! Looks like it heard you![next=2]
 - Quiet
 	set screen = "failure"
 	do Recorder.stop()
@@ -345,7 +343,7 @@ System: ...
 	do Recorder.stop()
 	do Recorder.save("speech", "PRAC_fuel_up")
 	do Character.play_audio("great_job_heard_you")
-	Sam: Great job! Looks like it heard you!
+	Sam: Great job! Looks like it heard you! [next=2]
 	=>< snippets/fuel_up_animation
 - Fail
 	set screen = "failure"
@@ -386,7 +384,7 @@ System: ...
 	do Recorder.stop()
 	do Recorder.save("song", "PRAC_sleep_mode")
 	do Character.play_audio("great_job_heard_you")
-	Sam: Great job! Looks like it heard you! 
+	Sam: Great job! Looks like it heard you! [next=2]
 	# maybe adjust lights here ? Might not need last line.
 - Quiet
 	set screen = "failure"
@@ -437,23 +435,11 @@ System: ...
 ~ launch
 =>< snippets/focus_forward
 set level = "launch"
-set steering_motion = 1.0
-set flying_motion = 1.0
-[next=0.5]
-set steering_motion = 0.5
-
 
 ~ were_flying
 [next=3.5]
 do Character.play_audio("were_flying")
 Sam: We’re flying![next=5]
-set steering_motion = 0.2
-
-
-~ stars_light_task
-set steering_motion = 0.05
-set flying_motion = 0.1
-
 
 ~ task1_stars_light
 [next=4]
@@ -463,7 +449,6 @@ Sam: Boy, it’s dark out here! This time, let’s wake up the stars with our vo
 
 # USAGE: move_star(star_number: int [1-5], progress: float [0-1], duration: float [>=0] )
 # *12 Phrases – 6 song, 6 speech randomized (see list of sentences on last page)* 
-
 
 ~ stars_light_1_command
 set screen = "computer"
@@ -762,13 +747,13 @@ do Ufo.move_to(0.9,12.0)
 Sam: I don’t see Lucky, but I do see something else! It looks like there are aliens on Planet Stardust!
 do Character.play_audio("task2_aliens_ask_lucky")
 Sam: They look really friendly, I think they are nice! Let’s ask them if they have seen Lucky or know where Lucky the Llama is. 
-
+=>< snippets/focus_screen
 
 ~ task2_alien_language
 do Character.play_audio("task2_alien_language")
 Sam: Aliens on Planet Stardust only speak in beeping sounds so the computer will tell us how to talk to them in their language to find out where Lucky is. Listen to the computer and repeat back the alien beeps as best as you can.
-=>< snippets/focus_forward
 set screen = "computer"
+=>< snippets/focus_forward
 [next=2]
 
 
