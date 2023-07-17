@@ -7,8 +7,9 @@ signal session_ended
 signal session_id_changed(value: String)
 signal age_group_changed(value: String)
 signal run_id_changed(value: String)
-signal type_changed(value: String)
+signal stimuli_type_changed(value: String)
 signal study_id_changed(value: String)
+signal sentence_id_changed(value: String)
 signal player_control_enabled(value: bool)
 signal user_clicked
 
@@ -70,6 +71,16 @@ var run_id: String:
 	set(value):
 		run_id = value
 		run_id_changed.emit(value)
+
+var stimuli_type: String:
+	set(value):
+		stimuli_type = value
+		stimuli_type_changed.emit(value)
+
+var sentence_id: String:
+	set(value):
+		sentence_id = value
+		sentence_id_changed.emit(value)
 
 func _ready():
 	unix_time = Time.get_unix_time_from_system()
