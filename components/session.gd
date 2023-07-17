@@ -72,11 +72,6 @@ var run_id: String:
 		run_id = value
 		run_id_changed.emit(value)
 
-var stimuli_type: String:
-	set(value):
-		stimuli_type = value
-		stimuli_type_changed.emit(value)
-
 var sentence_id: String:
 	set(value):
 		sentence_id = value

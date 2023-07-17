@@ -17,14 +17,13 @@ func stop():
 	effect.set_recording_active(false)
 	EventLogger.add('recording','stopped')
 
-func save(stimuli_type: String, sentence_id: String):
+func save():
 
-	var file_name := "%s_%s_%s_%s_%s.wav" % [
+	var file_name := "%s_%s_%s_%s.wav" % [
 		Session.study_id,
 		Session.age_group,
 		Session.run_id,
-		stimuli_type,
-		sentence_id
+		Session.sentence_id
 	]
 
 	var save_file = "%s%s" % [Session.save_folder, file_name]
