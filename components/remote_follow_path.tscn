@@ -7,7 +7,7 @@ script = ExtResource("1_11yyf")
 
 [node name="RemoteTransform" type="RemoteTransform3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(-0.999996, -7.74384e-08, 0.00190692, 1.63424e-13, 1, 4.06091e-05, -0.00190692, 4.06091e-05, -0.999996, 0.00379668, 8.08532e-05, 0.00869471)
+transform = Transform3D(0.999512, 1.25743e-06, -0.0312038, -1.11589e-09, 1, 4.02614e-05, 0.0312038, -4.02418e-05, 0.999512, 0.00379668, 8.08532e-05, 0.00869471)
 use_global_coordinates = false
 
 [node name="Marker3D" type="Marker3D" parent="RemoteTransform"]
@@ -33,7 +33,7 @@ unique_name_in_owner = true
 
 [node name="LookTarget" type="Node3D" parent="PathFollow/LookTargetPivot/LookTargetTilt"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 
 [node name="Marker3D" type="Marker3D" parent="PathFollow/LookTargetPivot/LookTargetTilt/LookTarget"]
 transform = Transform3D(1, 0, 3.72529e-09, 0, 1, 0, -3.72529e-09, 0, 1, 0, 0, 0)

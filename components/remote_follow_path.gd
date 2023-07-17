@@ -44,7 +44,7 @@ func _physics_process(delta):
 	if distance > 0.01:
 		var follow_distance_speed = lerp(0.1, follow_speed, distance_ratio);
 		remote_transform.position = remote_transform.position.move_toward(path_follow.global_transform.origin, delta * follow_distance_speed)
-	var look_transform = remote_transform.global_transform.looking_at(look_target.global_transform.origin, Vector3.UP, true)
+	var look_transform = remote_transform.global_transform.looking_at(look_target.global_transform.origin, Vector3.UP)
 	remote_transform.global_transform = remote_transform.global_transform.interpolate_with(look_transform, delta * turn_speed)
 
 func update_progress_ratio(value: float, duration: float = 1.0) -> void:
