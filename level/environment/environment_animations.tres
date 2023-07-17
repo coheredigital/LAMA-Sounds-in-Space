@@ -160,7 +160,7 @@ tracks/12/keys = {
 "times": PackedFloat32Array(0, 3.5, 14.5, 15.25, 16),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.1, 0.5, 0.3, 0.8, 0.0]
+"values": [0.1, 0.9, 0.4, 0.8, 0.0]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
@@ -172,7 +172,7 @@ tracks/13/keys = {
 "times": PackedFloat32Array(0, 3.5, 14.5, 15.25, 16),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.4, 1.0, 0.5, 1.0, 0.0]
+"values": [0.4, 0.8, 0.4, 0.9, 0.0]
 }
 
 [sub_resource type="Animation" id="Animation_eh3qq"]
@@ -338,7 +338,7 @@ tracks/12/keys = {
 
 [sub_resource type="Animation" id="Animation_1pnna"]
 resource_name = "warp"
-length = 12.0
+length = 10.0
 step = 1.0
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -347,7 +347,7 @@ tracks/0/path = NodePath("Planet:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 6, 12),
+"times": PackedFloat32Array(0, 6, 10),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector3(3.72275, 12.4627, -60.6043), Vector3(3.19093, 11.0395, -56.518), Vector3(0, 2.5, -32)]
@@ -371,7 +371,7 @@ tracks/2/path = NodePath("Planet:scale")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 6, 12),
+"times": PackedFloat32Array(0, 6, 10),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector3(0.5, 0.5, 0.5), Vector3(1.35714, 1.35714, 1.35714), Vector3(5, 5, 5)]
@@ -431,7 +431,7 @@ tracks/7/path = NodePath("Environment/Sky:surface_material_override/0:shader_par
 tracks/7/interp = 2
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 11),
+"times": PackedFloat32Array(0, 10),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [2.992, 2.496]
@@ -467,7 +467,7 @@ tracks/10/path = NodePath("Spaceship:flying_motion")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(0, 2, 12),
+"times": PackedFloat32Array(0, 2, 10),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [0.139, 0.7, 0.4]
@@ -479,7 +479,7 @@ tracks/11/path = NodePath("Spaceship:steering_motion")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(0, 2, 12),
+"times": PackedFloat32Array(0, 2, 10),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [0.1, 0.6, 0.1]
@@ -491,10 +491,10 @@ tracks/12/path = NodePath("Stars:position")
 tracks/12/interp = 2
 tracks/12/loop_wrap = true
 tracks/12/keys = {
-"times": PackedFloat32Array(0, 5, 12),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, -2.32237, 9.02899), Vector3(0, -15.227, 59.2)]
+"values": [Vector3(0, 0, 0), Vector3(0, -3.877, 23.081)]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
@@ -503,10 +503,10 @@ tracks/13/path = NodePath("Stars:scale")
 tracks/13/interp = 2
 tracks/13/loop_wrap = true
 tracks/13/keys = {
-"times": PackedFloat32Array(0, 5, 12),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0.999999, 1, 1), Vector3(0.911997, 0.911997, 0.911998), Vector3(0.423, 0.423, 0.423)]
+"values": [Vector3(0.999999, 1, 1), Vector3(0.738, 0.738, 0.738)]
 }
 
 [resource]
