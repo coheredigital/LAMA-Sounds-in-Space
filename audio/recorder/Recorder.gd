@@ -17,13 +17,14 @@ func stop():
 	effect.set_recording_active(false)
 	EventLogger.add('recording','stopped')
 
-func save():
+func save(suffix: String = ''):
 
 	var file_name := "%s_%s_%s_%s.wav" % [
 		Session.study_id,
 		Session.age_group,
 		Session.run_id,
-		Session.sentence_id
+# 		TODO: not working
+		Session.sentence_id if suffix.length() == 0 else "%s_%s" % [Session.sentence_id,suffix]
 	]
 
 	var save_file = "%s%s" % [Session.save_folder, file_name]

@@ -173,7 +173,7 @@ Sam: This is our handy dandy computer! The computer will help us travel to Plane
 do Character.play_audio("task0_computer_sounds_like")
 Sam: This is what the computer sounds like. 
 [next=1]
-do Stimuli.play("practice/0_greeting")
+do Stimuli.play("practice_0_greeting")
 Computer: Nice to meet you
 [next=2]
 do Character.play_audio("task0_computer_instructions")
@@ -190,7 +190,7 @@ System: ...
 - Begin Recording
 	do Recorder.start()
 	set screen = "computer"
-do Stimuli.play("practice/1_activate")
+do Stimuli.play("practice_1_activate")
 Computer: Activate spaceship!
 [next=2]
 
@@ -203,12 +203,12 @@ System: ...
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save("speech", "PRAC_activate_spaceship")
+	do Recorder.save()
 	do Character.play_audio("great_job_heard_you")
 	Sam: Great job! Looks like it heard you! We’re ready to start preparing the ship for blast off.
 - Fail
 	set screen = "failure"
-	do Recorder.save("speech", "PRAC_activate_spaceship_FAILED")
+	do Recorder.save()
 	do Recorder.stop()
 	Sam: Uh oh! It looks like the spaceship couldn't quite hear what you said. Let's try again a bit louder.
 	# TODO: Recording not yet made.
@@ -240,7 +240,7 @@ System: ...
 - Begin Recording
 do Recorder.start()
 set screen = "computer"
-do Stimuli.play("practice/2_seatbelts")
+do Stimuli.play("practice_2_seatbelts")
 Computer: Seat belts buckled!
 [next=2]
 
@@ -254,7 +254,7 @@ System: ...
 	set screen = "success"
 	set seatbelts_buckled = true
 	do Recorder.stop()
-	do Recorder.save("speech", "PRAC_buckle_up")
+	do Recorder.save()
 	=>< snippets/focus_conversation
 	do Character.play_audio("great_job_heard_you")
 	Sam: Great job! Looks like it heard you! [next=1]
@@ -262,7 +262,7 @@ System: ...
 - Quiet
 	set screen = "failure"
 	do Recorder.stop()
-	do Recorder.save("speech", "PRAC_buckle_up_FAILED")
+	do Recorder.save()
 	=>< snippets/focus_conversation
 	Sam: Uh oh! It looks like the spaceship couldn't quite hear what you said. Let's try again a bit louder.
 	=>< snippets/focus_screen
@@ -280,7 +280,7 @@ Sam: Listen to the command from the computer and then repeat what it says with y
 
 ~ siren_command
 set screen = "computer"
-do Stimuli.play("practice/3_siren")
+do Stimuli.play("practice_3_siren")
 Computer: Siren noise (low to high to low to high to low)
 
 
@@ -293,17 +293,17 @@ do Recorder.start()
 
 
 ~ siren_result
-System: ...
+System: .
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save("song", "PRAC_siren")
+	do Recorder.save()
 	do Character.play_audio("great_job_heard_you")
-	Sam: Great job! Looks like it heard you![next=2]
+	Sam: Great job! Looks like it heard you! [next=1]
 - Quiet
 	set screen = "failure"
 	do Recorder.stop()
-	do Recorder.save("song", "PRAC_siren_FAILED")
+	do Recorder.save()
 	Sam: Uh oh! It looks like the spaceship couldn't quite hear you. Let's try again a bit louder.
 	=> siren_command
 
@@ -324,7 +324,7 @@ Sam: Listen to the command from the computer and then repeat what it says with y
 ~ fuel_up_stimuli
 =>< snippets/focus_screen
 set screen = "computer"
-do Stimuli.play("practice/4_lets")
+do Stimuli.play("practice_4_lets")
 Computer: Let’s fuel up!
 
 
@@ -341,14 +341,14 @@ System: ...
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save("speech", "PRAC_fuel_up")
+	do Recorder.save()
 	do Character.play_audio("great_job_heard_you")
 	Sam: Great job! Looks like it heard you! [next=2]
 	=>< snippets/fuel_up_animation
 - Fail
 	set screen = "failure"
 	do Recorder.stop()
-	do Recorder.save("speech", "PRAC_fuel_up_FAILED")
+	do Recorder.save()
 	Sam: Uh oh! It looks like the spaceship couldn't quite hear you. Let's try again a bit louder.
 	=> fuel_up_command
 
@@ -365,7 +365,7 @@ do Character.play_audio("listen_and_repeat")
 Sam: Listen to the command from the computer and then repeat what it says with your voice: 
 =>< snippets/focus_screen
 set screen = "computer"
-do Stimuli.play("practice/5_yawn")
+do Stimuli.play("practice_5_yawn")
 Computer: *Loud Yawn: from high to low*
 
 
@@ -382,7 +382,7 @@ System: ...
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save("song", "PRAC_sleep_mode")
+	do Recorder.save()
 	do Character.play_audio("great_job_heard_you")
 	Sam: Great job! Looks like it heard you! [next=2]
 	# maybe adjust lights here ? Might not need last line.
@@ -405,7 +405,7 @@ Sam: You did it! You’re working really hard at this – Great Job! Now that ou
 ~ blast_off_command
 =>< snippets/focus_screen
 set screen = "computer"
-do Stimuli.play("practice/6_blastoff")
+do Stimuli.play("practice_6_blastoff")
 Computer: *Blast Off!* 
 
 
@@ -422,7 +422,7 @@ System: ...
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save("speech", "PRAC_blast_off")
+	do Recorder.save()
 	do Character.play_audio("great_job_heard_you")
 	Sam: Great job! Looks like it heard you! 
 - Quiet
@@ -471,7 +471,7 @@ System: ...
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save("speech", "TEST_stars_light_1")
+	do Recorder.save()
 	do Character.play_audio("great_job_heard_you")	
 	Sam: Great job! Looks like it heard you! 
 - Quiet
@@ -506,7 +506,7 @@ System: ...
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save("speech", "TEST_stars_light_2")
+	do Recorder.save()
 	do Character.play_audio("great_job_heard_you")	
 	Sam: Great job! Looks like it heard you! 
 - Quiet
@@ -541,7 +541,7 @@ System: ...
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save("speech", "TEST_stars_light_3")
+	do Recorder.save()
 	do Character.play_audio("great_job_heard_you")	
 	Sam: Great job! Looks like it heard you! 
 - Quiet
@@ -575,7 +575,7 @@ System: ...
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save("speech", "TEST_stars_light_4")
+	do Recorder.save()
 	do Character.play_audio("great_job_heard_you")	
 	Sam: Great job! Looks like it heard you! 
 - Quiet
@@ -610,7 +610,7 @@ System: ...
 - Success
 	set screen = "success"
 	do Recorder.stop()
-	do Recorder.save("speech", "TEST_stars_light_5")
+	do Recorder.save()
 	do Character.play_audio("great_job_heard_you")	
 	Sam: Great job! Looks like it heard you! 
 - Quiet
