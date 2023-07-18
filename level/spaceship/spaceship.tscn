@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://wa41njrapfpn"]
+[gd_scene load_steps=38 format=3 uid="uid://wa41njrapfpn"]
 
 [ext_resource type="PackedScene" uid="uid://ctjlmbopaw2sa" path="res://level/spaceship/models/spaceship.gltf" id="1_m17hk"]
 [ext_resource type="Script" path="res://level/spaceship/spaceship.gd" id="2_tplkk"]
@@ -12,6 +12,8 @@
 [ext_resource type="AnimationNodeStateMachine" uid="uid://cm4elcyqbcvrn" path="res://level/spaceship/animation/spaceship_door_state_tree.tres" id="10_csjlb"]
 [ext_resource type="Material" uid="uid://goanujt7bwh1" path="res://level/spaceship/materials/screen_material.tres" id="11_8wdik"]
 [ext_resource type="Material" uid="uid://dorgvk7napmkt" path="res://level/spaceship/materials/seatbelt_indicator_material.tres" id="11_qd2cb"]
+[ext_resource type="AudioStream" uid="uid://4ng47kkkmp81" path="res://audio/effects/door_open.wav" id="14_5elkx"]
+[ext_resource type="AudioStream" uid="uid://bxtrgdejvlare" path="res://audio/effects/door_unlock.wav" id="15_tjywe"]
 [ext_resource type="Shader" path="res://shaders/toon.gdshader" id="16_v4d5b"]
 [ext_resource type="Texture2D" uid="uid://dmjxjcsy4p226" path="res://level/spaceship/materials/spaceship_albedo.png" id="17_dm8ld"]
 [ext_resource type="PackedScene" uid="uid://j5n0jb2vhvf6" path="res://level/spaceship/scenes/siren.tscn" id="18_e0bdp"]
@@ -35,7 +37,7 @@ animation = &"cockpit/steering_motion"
 [sub_resource type="AnimationNodeTimeScale" id="4"]
 
 [sub_resource type="AnimationNodeBlendTree" id="5"]
-graph_offset = Vector2(14, 81)
+graph_offset = Vector2(24, 130)
 nodes/blend_screen/node = SubResource("AnimationNodeAdd2_h7dn0")
 nodes/blend_screen/position = Vector2(780, 200)
 nodes/door_state/node = ExtResource("10_csjlb")
@@ -178,6 +180,30 @@ tracks/9/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0, 0, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("spaceship/door/DoorAudio:playing")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("spaceship/door/DoorLightAudio:playing")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vyonl"]
@@ -337,6 +363,30 @@ tracks/5/keys = {
 "update": 0,
 "values": [Color(0.529412, 1, 0.533333, 1), Color(0.529412, 1, 0.533333, 1), Color(0.333333, 0.701961, 0.905882, 1), Color(0.333333, 0.701961, 0.905882, 1), Color(0.956863, 0.34902, 0.470588, 1), Color(0.956863, 0.34902, 0.470588, 1), Color(0.623529, 0.513726, 1, 1), Color(0.623529, 0.513726, 1, 1), Color(0.333333, 0.701961, 0.905882, 1)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("spaceship/door/DoorAudio:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("spaceship/door/DoorLightAudio:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(2.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_bqdxs"]
 resource_name = "ready"
@@ -494,7 +544,6 @@ transform = Transform3D(-1, 0, 8.74228e-08, -8.88178e-16, 1, 0, -8.74228e-08, 0,
 unique_name_in_owner = true
 tree_root = SubResource("5")
 anim_player = NodePath("AnimationPlayer")
-active = true
 parameters/blend_screen/add_amount = 1.0
 parameters/flying_blend/add_amount = 0.0
 parameters/flying_speed/scale = 0.0
@@ -561,7 +610,15 @@ transform = Transform3D(-0.0290878, 0, 0.999577, 0, 1, 0, -0.999577, 0, -0.02908
 [node name="door" parent="spaceship" index="3"]
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0)
 
-[node name="lock" parent="spaceship/door" index="0"]
+[node name="DoorAudio" type="AudioStreamPlayer3D" parent="spaceship/door" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.15107, 1.13329, 0.749372)
+stream = ExtResource("14_5elkx")
+
+[node name="DoorLightAudio" type="AudioStreamPlayer3D" parent="spaceship/door" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.15107, 1.13329, 0.749372)
+stream = ExtResource("15_tjywe")
+
+[node name="lock" parent="spaceship/door" index="2"]
 material_override = SubResource("ShaderMaterial_0238j")
 
 [node name="Light" type="OmniLight3D" parent="." index="3"]
