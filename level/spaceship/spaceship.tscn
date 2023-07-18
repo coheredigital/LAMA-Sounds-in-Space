@@ -196,7 +196,7 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("spaceship/door/DoorLightAudio:playing")
+tracks/11/path = NodePath("spaceship/door/DoorLockAudio:playing")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
@@ -378,7 +378,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("spaceship/door/DoorLightAudio:playing")
+tracks/7/path = NodePath("spaceship/door/DoorLockAudio:playing")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -614,7 +614,7 @@ transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.15107, 1.13329, 0.749372)
 stream = ExtResource("14_5elkx")
 
-[node name="DoorLightAudio" type="AudioStreamPlayer3D" parent="spaceship/door" index="1"]
+[node name="DoorLockAudio" type="AudioStreamPlayer3D" parent="spaceship/door" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.15107, 1.13329, 0.749372)
 stream = ExtResource("15_tjywe")
 
