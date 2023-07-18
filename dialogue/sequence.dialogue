@@ -76,7 +76,7 @@ System: .
 
 ~ intro_welcome
 do Character.play_audio("intro_welcome")
-Sam: Welcome to the Space Station! My name is Sam and I’m an Astronaut. We’re so glad you came to visit us today! Here at the space station, we go on so many fun missions. Come on in so I can show you around!
+Sam: Welcome to the Space Station! My name is Sam and I’m an Astronaut. We’re so glad you came to visit us today! Here at the space station, we go on so many fun missions. Come on in so I can show you around! [next=5]
 
 
 ~ intro_lucky
@@ -86,7 +86,7 @@ do Character.move_to(0.15,2.5)
 do Character.pivot(0.55,2.5)
 [next=2]
 do Character.play_audio("intro_lucky")
-Sam: First, I want you to meet our very own space llama named Lucky. She’s usually around here somewhere... Let’s look her location up on our astronaut map.
+Sam: First, I want you to meet our very own space llama named Lucky. She’s usually around here somewhere... Let’s look her location up on our astronaut map. [next=3]
 
 ~ intro_map
 do Character.move_to(0.27,3)
@@ -97,7 +97,7 @@ do Player.pivot(-0.35)
 do Character.pivot(0,0.45)
 [next=3]
 do Character.play_audio("intro_map")
-Sam: Oh no! It looks like Lucky’s spaceship broke down and Lucky is stuck on another planet way out in space!
+Sam: Oh no! It looks like Lucky’s spaceship broke down and Lucky is stuck on another planet way out in space! [next=.1]
 do Character.pivot(0.44,0.4)
 [next=2]
 
@@ -166,7 +166,7 @@ do Character.pivot(0.6)
 [next=0.5]
 set screen = "computer"
 do Character.play_audio("task0_computer_info")
-Sam: This is our handy dandy computer! The computer will help us travel to Planet Stardust. This is a super computer – which means it’s the only computer that contains a list of special phrases that we need to complete the mission! First, the computer will say the special phrases and then your job is to repeat the words out loud with your voice.  
+Sam: This is our handy dandy computer! The computer will help us travel to Planet Stardust. This is a super computer – which means it’s the only computer that contains a list of special phrases that we need to complete the mission! First, the computer will say the special phrases and then your job is to repeat the words out loud with your voice.  [next=15]
 
 
 ~ computer_greeting  
@@ -177,12 +177,7 @@ do Stimuli.play("practice_0_greeting")
 Computer: Nice to meet you
 [next=2]
 do Character.play_audio("task0_computer_instructions")
-Sam: Ok, now I’ll have the computer say a special phrase and your job is to repeat what the computer just said with your voice when the light turns green. Make sure you say it loud and clear, so the computer can hear you! After you repeat after the computer, I’ll press the red button to send your voice to the spaceship.
-
-
-~ activate_spaceship
-do Character.play_audio("ok_here_we_go")
-Sam: Ok here we go!
+Sam: Ok, now I’ll have the computer say a special phrase and your job is to repeat what the computer just said with your voice when the light turns green. Make sure you say it loud and clear, so the computer can hear you! After you repeat after the computer, I’ll press the red button to send your voice to the spaceship. Ok here we go! [next=15]
 
 
 ~ activate_spaceship_command
@@ -312,7 +307,6 @@ System: .
 do Character.play_audio("task0_fuel_up_intro")
 =>< snippets/focus_conversation
 Sam: Awesome! We are almost ready to blast off, but first we need some fuel. 
-[next=2]
 set screen = "battery"
 
 
