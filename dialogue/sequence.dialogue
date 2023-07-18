@@ -629,7 +629,7 @@ Sam: The Command Centre is very picky and will only follow directions if you rep
 do Character.play_audio("click_the_red_button_to_hear_it")
 Sam: Click the RED button to hear it. 
 =>< snippets/prompt_red_button
-do Stimuli.play("examples/bad")
+do Stimuli.play("examples_bad")
 [next=4]
 do Character.play_audio("oh_no_did_you_hear_that")
 set screen = "failure"
@@ -642,7 +642,7 @@ do Character.play_audio("task2_bad_example")
 Sam: That space cadet didn’t do the best job of repeating EXACTLY what they heard. Let’s hear it again to see where they went wrong! Press the red button again.
 =>< snippets/focus_screen
 =>< snippets/prompt_red_button
-do Stimuli.play("examples/bad")
+do Stimuli.play("examples_bad")
 [next=4]
 do Character.play_audio("task2_bad_example_high_lows")
 set screen = "failure"
@@ -656,7 +656,7 @@ do Character.play_audio("task2_good_example")
 Sam: For the Command Centre to move our ship, we have to repeat the words in the exact same way we hear them.   Let’s make sure we do a better job. Click the green button to hear a space cadet repeating it back exactly right. 
 =>< snippets/focus_screen
 =>< snippets/prompt_green_button
-do Stimuli.play("examples/good")
+do Stimuli.play("examples_good")
 [next=4]
 
 set screen = "success"
@@ -665,6 +665,8 @@ set screen = "idle"
 do Character.play_audio("task2_example_again")
 =>< snippets/focus_conversation
 Sam: That time, the space cadet did a great job of repeating the words AND the ^highs^ and ~lows~ of the voice. Click the green button to hear the example again. 
+do Stimuli.play("examples_good")
+[next=4]
 =>< snippets/focus_screen
 =>< snippets/prompt_green_button
 [next=2]
