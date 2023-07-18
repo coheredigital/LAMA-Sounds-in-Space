@@ -76,7 +76,7 @@ System: .
 
 ~ intro_welcome
 do Character.play_audio("intro_welcome")
-Sam: Welcome to the Space Station! My name is Sam and I’m an Astronaut. We’re so glad you came to visit us today! Here at the space station, we go on so many fun missions. Come on in so I can show you around! [next=5]
+Sam: Welcome to the Space Station! My name is Sam and I’m an Astronaut. We’re so glad you came to visit us today! Here at the space station, we go on so many fun missions. Come on in so I can show you around! [next=7.5]
 
 
 ~ intro_lucky
@@ -86,7 +86,7 @@ do Character.move_to(0.15,2.5)
 do Character.pivot(0.55,2.5)
 [next=2]
 do Character.play_audio("intro_lucky")
-Sam: First, I want you to meet our very own space llama named Lucky. She’s usually around here somewhere... Let’s look her location up on our astronaut map. [next=3]
+Sam: First, I want you to meet our very own space llama named Lucky. She’s usually around here somewhere... Let’s look her location up on our astronaut map. [next=5]
 
 ~ intro_map
 do Character.move_to(0.27,3)
@@ -97,7 +97,7 @@ do Player.pivot(-0.35)
 do Character.pivot(0,0.45)
 [next=3]
 do Character.play_audio("intro_map")
-Sam: Oh no! It looks like Lucky’s spaceship broke down and Lucky is stuck on another planet way out in space! [next=.1]
+Sam: Oh no! It looks like Lucky’s spaceship broke down and Lucky is stuck on another planet way out in space! [next=3.5]
 do Character.pivot(0.44,0.4)
 [next=2]
 
@@ -110,7 +110,7 @@ Sam: Will you help me rescue Lucky to get her back here to the space station?
 
 ~ mission_brief
 do Character.play_audio("intro_mission_brief")
-Sam: Thank you! We’re definitely going to need your help -- this spaceship works best when I have a co-pilot astronaut like you! Our mission is to travel to Planet Stardust, where Lucky’s spaceship broke down, and bring Lucky the Llama back here safely. Are you ready to start your astronaut training? If you help, you’ll get your very own space cadet prize for your help and your bravery!!   
+Sam: Thank you! We’re definitely going to need your help -- this spaceship works best when I have a co-pilot astronaut like you! Our mission is to travel to Planet Stardust, where Lucky’s spaceship broke down, and bring Lucky the Llama back here safely. Are you ready to start your astronaut training? If you help, you’ll get your very own space cadet prize for your help and your bravery!!   [next=9]
 
 
 ~ approach_spaceship
