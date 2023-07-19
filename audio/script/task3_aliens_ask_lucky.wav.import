@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cuk61j3g4tuur"
-path="res://.godot/imported/task2_aliens_ask_lucky.wav-e013e44c172decc97c86c94fd6e1f921.sample"
+path="res://.godot/imported/task3_aliens_ask_lucky.wav-68365c5e6ffb2bb921246b172df48728.sample"
 
 [deps]
 
-source_file="res://audio/script/task2_aliens_ask_lucky.wav"
-dest_files=["res://.godot/imported/task2_aliens_ask_lucky.wav-e013e44c172decc97c86c94fd6e1f921.sample"]
+source_file="res://audio/script/task3_aliens_ask_lucky.wav"
+dest_files=["res://.godot/imported/task3_aliens_ask_lucky.wav-68365c5e6ffb2bb921246b172df48728.sample"]
 
 [params]
 

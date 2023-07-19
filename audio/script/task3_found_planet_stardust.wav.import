@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bou03nmtymld1"
-path="res://.godot/imported/task2_found_planet_stardust.wav-1620b01fb0b3abcb72432c8812be2b69.sample"
+path="res://.godot/imported/task3_found_planet_stardust.wav-210224e08fb0bd5661fa5ab1f889038b.sample"
 
 [deps]
 
-source_file="res://audio/script/task2_found_planet_stardust.wav"
-dest_files=["res://.godot/imported/task2_found_planet_stardust.wav-1620b01fb0b3abcb72432c8812be2b69.sample"]
+source_file="res://audio/script/task3_found_planet_stardust.wav"
+dest_files=["res://.godot/imported/task3_found_planet_stardust.wav-210224e08fb0bd5661fa5ab1f889038b.sample"]
 
 [params]
 

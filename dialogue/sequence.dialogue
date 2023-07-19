@@ -70,7 +70,7 @@ System: .
 	=> task2_warp
 - Skip to Planet Stardust
 	do overlay_state("hidden")
-	=> task2_arrived
+	=> task2_success
 [next=2]
 
 
@@ -551,7 +551,7 @@ set level = "warp"
 [next=12.0]
 
 
-~ task2_arrived
+~ task2_success
 do Character.play_audio("task2_arrived")
 =>< snippets/focus_conversation
 Sam: Awesome job, partner! Thanks for steering the ship so well! Look, it’s Planet Stardust! To use our spaceship to look around, press the Landing Button. [next=9]
@@ -562,20 +562,20 @@ set level = "landing"
 [next=14]
 
 
-~ task2_landed
-do Character.play_audio("task2_found_planet_stardust")
+~ task3_landed
+do Character.play_audio("task3_found_planet_stardust")
 =>< snippets/focus_conversation
 Sam: We did it - we found Planet Stardust! [next=4]
-do Character.play_audio("task2_aliens_intro")
+do Character.play_audio("task3_aliens_intro")
 do Alien.move_to(1.0,4.0)
 do Ufo.move_to(0.9,12.0)
 Sam: I don’t see Lucky, but I do see something else! It looks like there are aliens on Planet Stardust! [next=7]
-do Character.play_audio("task2_aliens_ask_lucky")
+do Character.play_audio("task3_aliens_ask_lucky")
 Sam: They look really friendly, I think they are nice! Let’s ask them if they have seen Lucky or know where Lucky the Llama is. [next=9]
 =>< snippets/focus_screen
 
-~ task2_alien_language
-do Character.play_audio("task2_alien_language")
+~ task3_alien_language
+do Character.play_audio("task3_alien_language")
 Sam: Aliens on Planet Stardust only speak in special sounds so the computer will tell us how to talk to them in their language to find out where Lucky is. Listen to the computer and repeat back the alien sounds as best as you can. [next=12]
 set screen = "computer"
 =>< snippets/focus_forward
@@ -595,9 +595,9 @@ System: Select stimuli order (PLACEHOLDER for tones)
 - Skip to success. 
 	# moves to next line
 
-# 10 stimuli – 5 pure tones, 5 intervals?*
-~ task2_success
-do Character.play_audio("task2_success")
+# 10 stimuli – 5 pure tones, 5 intervals? *
+~ task3_success
+do Character.play_audio("task3_success")
 do Ufo.move_to(0.0,8.0)
 Sam: You did a great job! The aliens said Lucky the Llama is over there – look, they’re bringing Lucky to us! Now the only thing left to do is take Lucky back to the Space Station. [next=1]
 do Ufo.activate_beam()

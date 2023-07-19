@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://c3q7ku5sl25do"
-path="res://.godot/imported/task2_alien_language.wav-6186f5c2ba8cafd6821e04e90a9e4840.sample"
+path="res://.godot/imported/task3_alien_language.wav-f3e30e744e7058e0ed745616a579583d.sample"
 
 [deps]
 
-source_file="res://audio/script/task2_alien_language.wav"
-dest_files=["res://.godot/imported/task2_alien_language.wav-6186f5c2ba8cafd6821e04e90a9e4840.sample"]
+source_file="res://audio/script/task3_alien_language.wav"
+dest_files=["res://.godot/imported/task3_alien_language.wav-f3e30e744e7058e0ed745616a579583d.sample"]
 
 [params]
 

@@ -102,6 +102,14 @@ func set_seatbelts_buckled(value: bool) -> void:
 		seatbelt_indicator_material.set_shader_parameter("frame_number", 2 if value else 1)
 
 func update_screen(value: String)-> void:
+	
+#	TODO: improve this
+	if value == "playing":
+		Visualizer.channel = "Stimuli"
+	elif value == "recording":
+		Visualizer.channel = "Analyze"
+		
 	if animation_tree:
+
 		var state_machine : AnimationNodeStateMachinePlayback = animation_tree.get("parameters/screen_state/playback")
 		state_machine.travel(value)
