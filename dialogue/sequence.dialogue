@@ -196,12 +196,12 @@ System: ...
 	do Recorder.save()
 	do Character.play_audio("task0_ready_blast_off")
 	Sam: Great job! Looks like it heard you! We’re ready to start preparing the ship for blast off. [next=4.5]
-- Fail
+- Fail / Repeat
 	set screen = "failure"
 	do Recorder.stop()
 	do Recorder.save("FAILURE")
 	do Character.play_audio("listen_and_repeat")
-	Sam: Uh oh! It looks like the spaceship couldn't quite hear what you said. Let's try again a bit louder. [next=3]
+	Sam: Listen to the command from the computer and then repeat what it says with your voice.  [next=3]
 	# TODO: Recording not yet made.
 	# do Character.play_audio("uh_oh")
 	=> activate_spaceship_recording
@@ -248,13 +248,13 @@ System: ...
 	do Character.play_audio("great_job_heard_you")
 	Sam: Great job! Looks like it heard you! [next=1.5]
 	
-- Quiet
+- Fail / Repeat
 	set screen = "failure"
 	do Recorder.stop()
 	do Recorder.save("FAILURE")
 	=>< snippets/focus_conversation
 	do Character.play_audio("listen_and_repeat")
-	Sam: Uh oh! It looks like the spaceship couldn't quite hear what you said. Let's try again a bit louder. [next=3]
+	Sam: Listen to the command from the computer and then repeat what it says with your voice.  [next=3]
 	=>< snippets/focus_screen
 	=> buckle_up_recording
 
@@ -287,12 +287,12 @@ System: .
 	do Recorder.save()
 	do Character.play_audio("great_job_heard_you")
 	Sam: Great job! Looks like it heard you! [next=1.5]
-- Quiet
+- Fail / Repeat
 	set screen = "failure"
 	do Recorder.stop()
 	do Recorder.save("FAILURE")
 	do Character.play_audio("listen_and_repeat")
-	Sam: Uh oh! It looks like the spaceship couldn't quite hear you. Let's try again a bit louder. [next=3]
+	Sam: Listen to the command from the computer and then repeat what it says with your voice. [next=3]
 	=> siren_recording
 
 
@@ -302,7 +302,7 @@ do Character.play_audio("task0_fuel_up_intro")
 Sam: Awesome! We are almost ready to blast off, but first we need some fuel. [next=4]
 set screen = "battery"
 do Character.play_audio("listen_and_repeat")
-Sam: Listen to the command from the computer and then repeat what it says with your voice:  [next=4]
+Sam: Listen to the command from the computer and then repeat what it says with your voice.  [next=4]
 
 ~ fuel_up_recording
 =>< snippets/focus_screen
@@ -610,6 +610,7 @@ do Ufo.move_to(0.9,6.0)
 # blast off and fade to intro (station)
 ~ mission_success
 # TODO: insert clip for Sam audio
+do Character.play_audio("task3_go_home")
 Sam: Press the Green button to blast off back home! [next=2]
 =>< snippets/prompt_green_button
 do overlay_state("loading")
