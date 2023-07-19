@@ -52,12 +52,12 @@ func update_channel_from_screen(value : String) -> void:
 	#	TODO: improve this
 	if value == "computer":
 		self.channel = "Stimuli"
-		self.max_db = -36.0
-		self.min_db = -72.0
+		self.max_db = -30.0
+		self.min_db = -80.0
 	elif value == "playing":
 		self.channel = "Stimuli"
-		self.max_db = -32.0
-		self.min_db = -64.0
+		self.max_db = -30.0
+		self.min_db = -80.0
 	elif value == "recording":
 		self.channel = "Analyze"
 		self.max_db = -16.0
