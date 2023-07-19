@@ -33,7 +33,7 @@ const max_distance := 1.0
 @onready var look_target_tilt : Node3D = %LookTargetTilt
 
 
-func _physics_process(delta):
+func _process(delta):
 #	prevent global offset
 	self.position = Vector3(0.0,0.0,0.0)
 	self.rotation = Vector3(0.0,0.0,0.0)
