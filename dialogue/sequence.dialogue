@@ -216,7 +216,7 @@ do Player.move_to(1,2)
 do Character.move_to(1,2)
 =>< snippets/focus_conversation
 do Character.play_audio("task0_ready_green_button")
-Sam: When you're ready, press the GREEN button to get started. next[3]
+Sam: When you're ready, press the GREEN button to get started. [next=3]
 =>< snippets/focus_screen
 =>< snippets/prompt_green_button
 
@@ -275,7 +275,7 @@ System: ...
 set screen = "computer"
 do Recorder.start()
 do Stimuli.play("practice_3_siren")
-Computer: Siren noise (low to high to low to high to low) [next=3]
+Computer: Siren noise (low to high to low to high to low) [next=5]
 set screen = "recording"
 [next=1]
 
@@ -351,10 +351,13 @@ System: ...
 do Recorder.start()
 =>< snippets/focus_screen
 set screen = "computer"
+
+Computer: *Loud Yawn: from high to low* 
 do Stimuli.play("practice_5_yawn")
-Computer: *Loud Yawn: from high to low*
+[next=4]
+
 set screen = "recording"
-[next=2]
+
 
 
 ~ sleep_mode_result
@@ -428,7 +431,7 @@ Sam: We’re flying![next=5]
 do Character.play_audio("task1_intro")
 Sam: Boy, it’s dark out here! This time, let’s wake up the stars with our voices. Just like we practiced, you will listen to the computer’s commands and repeat them loud and clear! After each voice command, I’ll press the red button to send your voice to the stars.  
 
-
+~ task1_stimuli
 System: Select stimuli order
 - Order A
 	=>< orders/order_A
@@ -438,16 +441,16 @@ System: Select stimuli order
 	=>< orders/order_C
 - Order D
 	=>< orders/order_D
-
+- Skip to success. 
+	# moves to next line
 
 ~ stars_light_success
+=>< snippets/focus_screen
 =>< snippets/stars_light_sequence
-[next=5]
 do Character.play_audio("task1_success")
 =>< snippets/focus_conversation
 Sam: Awesome job, partner! Look at all the bright things you put in space! Now let’s go to Planet Stardust, press the GO button to get closer to finding Lucky!
 =>< snippets/prompt_green_button
-
 [next=2]
 
 
@@ -468,7 +471,7 @@ Sam: The Command Centre is very picky and will only follow directions if you rep
 do Character.play_audio("click_the_red_button_to_hear_it")
 Sam: Click the RED button to hear it. 
 =>< snippets/prompt_red_button
-do Stimuli.play("examples_bad")
+do Stimuli.play("example_bad")
 [next=4]
 do Character.play_audio("oh_no_did_you_hear_that")
 set screen = "failure"
@@ -481,7 +484,7 @@ do Character.play_audio("task2_bad_example")
 Sam: That space cadet didn’t do the best job of repeating EXACTLY what they heard. Let’s hear it again to see where they went wrong! Press the red button again.
 =>< snippets/focus_screen
 =>< snippets/prompt_red_button
-do Stimuli.play("examples_bad")
+do Stimuli.play("example_bad")
 [next=4]
 do Character.play_audio("task2_bad_example_high_lows")
 set screen = "failure"
@@ -495,7 +498,7 @@ do Character.play_audio("task2_good_example")
 Sam: For the Command Centre to move our ship, we have to repeat the words in the exact same way we hear them.   Let’s make sure we do a better job. Click the green button to hear a space cadet repeating it back exactly right. 
 =>< snippets/focus_screen
 =>< snippets/prompt_green_button
-do Stimuli.play("examples_good")
+do Stimuli.play("example_good")
 [next=4]
 
 set screen = "success"
@@ -504,11 +507,11 @@ set screen = "idle"
 do Character.play_audio("task2_example_again")
 =>< snippets/focus_conversation
 Sam: That time, the space cadet did a great job of repeating the words AND the ^highs^ and ~lows~ of the voice. Click the green button to hear the example again. 
-do Stimuli.play("examples_good")
-[next=4]
 =>< snippets/focus_screen
 =>< snippets/prompt_green_button
-[next=2]
+do Stimuli.play("example_good")
+set screen = "playing"
+[next=4]
 set screen = "idle"
 
 
@@ -524,6 +527,7 @@ do Character.play_audio("task2_ready_to_go")
 =>< snippets/focus_conversation
 Sam: OK, here we go! Remember that the Command Centre is very sensitive, so repeat what the computer says exactly. Once you repeat after the computer, I’ll click the GREEN button to send the directions to the Command Centre and we can see if our ship moves! I’ll have a seat and let you take control!
 
+~ task2_stimuli
 #12 Phrases – 6 song, 6 speech randomized (see list of sentences on last page)*
 System: Select stimuli order
 - Order A
@@ -534,7 +538,8 @@ System: Select stimuli order
 	=>< orders/order_C
 - Order D
 	=>< orders/order_D
-
+- Skip to success. 
+	# moves to next line
 
 ~ task2_warp
 set level = "launch"
@@ -574,6 +579,19 @@ set screen = "computer"
 =>< snippets/focus_forward
 [next=2]
 
+~ task2_tones
+#12 Phrases – 6 song, 6 speech randomized (see list of sentences on last page)*
+System: Select stimuli order (PLACEHOLDER for tones)
+- Order A
+	=>< orders/order_A
+- Order B
+	=>< orders/order_B
+- Order C
+	=>< orders/order_C
+- Order D
+	=>< orders/order_D
+- Skip to success. 
+	# moves to next line
 
 # 10 stimuli – 5 pure tones, 5 intervals?*
 ~ task2_success

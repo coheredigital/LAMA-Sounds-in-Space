@@ -90,6 +90,7 @@ set screen = "start_button"
 Player: .
 - Press Green Button
 	set screen = "start_button_pressed"
+	[next=1]
 => END
 
 ~ prompt_red_button
@@ -98,4 +99,5 @@ set screen = "start_button_red"
 Player: .
 - Press Red Button
 	set screen = "start_button_red_pressed"
+	[next=1]
 => END
