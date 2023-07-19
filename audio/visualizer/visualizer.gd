@@ -39,6 +39,31 @@ var interval := 0.0
 @export var z_curve : Curve
 @export var a_curve : Curve
 
+func _ready():
+	Sequencer.screen_changed.connect(update_channel_from_screen)
+	
+#	ensure the audio analyzer is always running
+	self.channel = channel
+	self.min_frequency = min_frequency
+	self.max_frequency = max_frequency
+	set_definition(definition)
+
+func update_channel_from_screen(value : String) -> void:
+	#	TODO: improve this
+	if value == "computer":
+		self.channel = "Stimuli"
+		self.max_db = -36.0
+		self.min_db = -72.0
+	elif value == "playing":
+		self.channel = "Stimuli"
+		self.max_db = -32.0
+		self.min_db = -64.0
+	elif value == "recording":
+		self.channel = "Analyze"
+		self.max_db = -16.0
+		self.min_db = -80.0
+		
+		
 func set_min_frequency(value):
 #	prevents min being set larger than max
 	if value < max_frequency:
@@ -75,11 +100,7 @@ func set_definition(value):
 		gradient.offsets = gradient_offsets
 
 
-func _ready():
-#	ensure the audio analyzer is always running
-	self.min_frequency = min_frequency
-	self.max_frequency = max_frequency
-	set_definition(definition)
+
 
 func _physics_process(delta):
 

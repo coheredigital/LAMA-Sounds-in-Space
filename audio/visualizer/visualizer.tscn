@@ -11,11 +11,12 @@
 
 [node name="Visualizer" type="Node"]
 script = ExtResource("1_mle3v")
+channel = "Stimuli"
 waveform = ExtResource("2_cm6th")
 gradient = ExtResource("3_rqlfc")
 min_frequency = 120.0
-max_frequency = 800.0
-max_db = -30.8
+max_frequency = 900.0
+max_db = -38.7
 min_db = -80.0
 response_curve = ExtResource("4_5qc28")
 x_curve = ExtResource("5_eq00a")
