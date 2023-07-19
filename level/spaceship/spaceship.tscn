@@ -303,6 +303,7 @@ tracks/5/keys = {
 [sub_resource type="Animation" id="Animation_dxke3"]
 resource_name = "door_open"
 length = 6.0
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -310,7 +311,7 @@ tracks/0/path = NodePath("spaceship/door:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(2.3, 3.8, 4.4, 5.2, 6),
+"times": PackedFloat32Array(2.6, 3.65, 4.4, 5.2, 6),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0.175377, 0.0413296, 0), Vector3(0.175377, 0.0413296, 0.094659), Vector3(0.0553532, 0.0494276, 0.450806), Vector3(0.021, 0.049, 0.763)]
@@ -322,7 +323,7 @@ tracks/1/path = NodePath("spaceship/door:rotation_degrees")
 tracks/1/interp = 2
 tracks/1/loop_wrap = false
 tracks/1/keys = {
-"times": PackedFloat32Array(2.3, 3.8, 6),
+"times": PackedFloat32Array(2.6, 3.65, 6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 14.0639, 0)]
@@ -334,7 +335,7 @@ tracks/2/path = NodePath("spaceship/door/lock/bar:rotation")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(1.4, 2.3),
+"times": PackedFloat32Array(1.35, 1.95),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(1.5708, 0, 0)]
@@ -346,7 +347,7 @@ tracks/3/path = NodePath("spaceship/door/lock/bar:position")
 tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(2.3, 3.1),
+"times": PackedFloat32Array(1.95, 2.45),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0.015625, 0.03125, 0), Vector3(0.016, -0.508, 0)]
@@ -358,10 +359,10 @@ tracks/4/path = NodePath("spaceship/door/lock:material_override:shader_parameter
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 2.5, 6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.8, 2.5, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [1.0, 1.2, 0.2, 1.2, 0.2, 1.2, 0.5, 0.5, 0.0]
+"values": [1.0, 0.2, 1.2, 0.2, 1.2, 0.5, 0.5, 0.0]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -370,10 +371,10 @@ tracks/5/path = NodePath("spaceship/door/lock:material_override:shader_parameter
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.8, 0.9, 1, 1.1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Color(0.529412, 1, 0.533333, 1), Color(0.529412, 1, 0.533333, 1), Color(0.333333, 0.701961, 0.905882, 1), Color(0.333333, 0.701961, 0.905882, 1), Color(0.956863, 0.34902, 0.470588, 1), Color(0.956863, 0.34902, 0.470588, 1), Color(0.623529, 0.513726, 1, 1), Color(0.623529, 0.513726, 1, 1), Color(0.333333, 0.701961, 0.905882, 1)]
+"values": [Color(0.529412, 1, 0.533333, 1), Color(0.333333, 0.701961, 0.905882, 1), Color(0.333333, 0.701961, 0.905882, 1), Color(0.956863, 0.34902, 0.470588, 1), Color(0.956863, 0.34902, 0.470588, 1), Color(0.623529, 0.513726, 1, 1), Color(0.956863, 0.34902, 0.470588, 1), Color(0.623529, 0.513726, 1, 1), Color(0.529412, 1, 0.533333, 1), Color(0.333333, 0.701961, 0.905882, 1)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -382,7 +383,7 @@ tracks/6/path = NodePath("spaceship/door/DoorAudio:playing")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(2.6),
+"times": PackedFloat32Array(2.55),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -406,7 +407,7 @@ tracks/8/path = NodePath("spaceship/door/DoorChime:playing")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(1.4),
+"times": PackedFloat32Array(1.05),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -637,7 +638,9 @@ transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0)
 [node name="DoorAudio" type="AudioStreamPlayer3D" parent="spaceship/door" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.15107, 1.13329, 0.749372)
 stream = ExtResource("14_5elkx")
-unit_size = 7.2
+volume_db = -1.71
+unit_size = 5.9
+max_db = 2.245
 
 [node name="DoorLockAudio" type="AudioStreamPlayer3D" parent="spaceship/door" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.15107, 1.13329, 0.749372)
