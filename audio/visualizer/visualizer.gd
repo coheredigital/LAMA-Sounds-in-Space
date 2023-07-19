@@ -81,7 +81,7 @@ func _ready():
 	self.max_frequency = max_frequency
 	set_definition(definition)
 
-func _process(delta):
+func _physics_process(delta):
 
 	if not(spectrum):
 		return
