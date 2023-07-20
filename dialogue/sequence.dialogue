@@ -172,8 +172,10 @@ Sam: This is our handy dandy computer! The computer will help us travel to Plane
 ~ computer_greeting  
 do Character.play_audio("task0_computer_sounds_like")
 Sam: This is what the computer sounds like. [next=1]
+set screen = "talking"
 do Stimuli.play("practice_0_greeting")
 Computer: Nice to meet you [next=2]
+set screen = "computer"
 do Character.play_audio("task0_computer_instructions")
 Sam: Ok, now I’ll have the computer say a special phrase and your job is to repeat what the computer just said with your voice when the light turns green. Make sure you say it loud and clear, so the computer can hear you! After you repeat after the computer, I’ll press the red button to tell the computer to send your voice to the spaceship. Ok here we go! [next=16]
 
@@ -182,7 +184,7 @@ Sam: Ok, now I’ll have the computer say a special phrase and your job is to re
 System: .
 - Begin Recording
 do Recorder.start()
-set screen = "computer"
+set screen = "talking"
 do Stimuli.play("practice_1_activate")
 Computer: Activate spaceship! [next=2]
 set screen = "recording"
@@ -230,9 +232,9 @@ Sam: OK. First, we need to buckle up! Listen to the command from the computer an
 System: ...
 - Begin Recording
 do Recorder.start()
-set screen = "computer"
+set screen = "talking"
 do Stimuli.play("practice_2_seatbelts")
-Computer: Seat belts buckled! [next=1]
+Computer: Seat belts buckled! [next=2]
 set screen = "recording"
 [next=2]
 
@@ -271,7 +273,7 @@ Sam: Listen to the command from the computer and then repeat what it says with y
 ~ siren_recording
 System: ...
 - Begin Recording
-set screen = "computer"
+set screen = "talking"
 do Recorder.start()
 do Stimuli.play("practice_3_siren")
 Computer: Siren noise (low to high to low to high to low) [next=5]
@@ -286,7 +288,7 @@ System: .
 	do Recorder.stop()
 	do Recorder.save()
 	do Character.play_audio("great_job_heard_you")
-	Sam: Great job! Looks like it heard you! [next=1.5]
+	Sam: Great job! Looks like it heard you! [next=2]
 - Fail / Repeat
 	set screen = "failure"
 	do Recorder.stop()
@@ -309,7 +311,7 @@ Sam: Listen to the command from the computer and then repeat what it says with y
 System: ...
 - Begin Recording
 do Recorder.start()
-set screen = "computer"
+set screen = "talking"
 do Stimuli.play("practice_4_lets")
 Computer: Let’s fuel up! [next=1]
 set screen = "recording"
@@ -347,7 +349,7 @@ System: ...
 - Begin Recording
 do Recorder.start()
 =>< snippets/focus_screen
-set screen = "computer"
+set screen = "talking"
 do Stimuli.play("practice_5_yawn")
 Computer: *Loud Yawn: from high to low* [next=3]
 set screen = "recording"
@@ -385,7 +387,7 @@ Sam: You did it! You’re working really hard at this – Great Job! Now that ou
 System: ...
 - Begin Recording
 do Recorder.start()
-set screen = "computer"
+set screen = "talking"
 do Stimuli.play("practice_6_blastoff")
 Computer: *Blast Off!* [next=1]
 set screen = "recording"

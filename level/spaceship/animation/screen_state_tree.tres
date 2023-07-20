@@ -1,4 +1,4 @@
-[gd_resource type="AnimationNodeStateMachine" load_steps=48 format=3 uid="uid://bgas77vb0vl6b"]
+[gd_resource type="AnimationNodeStateMachine" load_steps=51 format=3 uid="uid://bgas77vb0vl6b"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gwnk7"]
 animation = &"screen/alert"
@@ -9,8 +9,8 @@ animation = &"screen/battery"
 [sub_resource type="AnimationNodeAnimation" id="3919"]
 animation = &"screen/buckle_warning"
 
-[sub_resource type="AnimationNodeAnimation" id="3893"]
-animation = &"screen/talking"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_au5rj"]
+animation = &"screen/computer"
 
 [sub_resource type="AnimationNodeAnimation" id="3910"]
 animation = &"screen/failure"
@@ -45,13 +45,11 @@ animation = &"screen/start_button_red_pressed"
 [sub_resource type="AnimationNodeAnimation" id="3902"]
 animation = &"screen/success"
 
+[sub_resource type="AnimationNodeAnimation" id="3893"]
+animation = &"screen/talking"
+
 [sub_resource type="AnimationNodeAnimation" id="3892"]
 animation = &"screen/wipe"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="3896"]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="3897"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="3905"]
 switch_mode = 2
@@ -127,6 +125,15 @@ advance_mode = 2
 switch_mode = 2
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4uckm"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cl7qo"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hn2c3"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kgu5k"]
+
 [resource]
 states/End/position = Vector2(152, 2)
 states/Start/position = Vector2(152, -76)
@@ -136,10 +143,10 @@ states/battery/node = SubResource("AnimationNodeAnimation_exug4")
 states/battery/position = Vector2(485, 142)
 states/buckle_warning/node = SubResource("3919")
 states/buckle_warning/position = Vector2(485, 70)
-states/computer/node = SubResource("3893")
-states/computer/position = Vector2(728, 340)
+states/computer/node = SubResource("AnimationNodeAnimation_au5rj")
+states/computer/position = Vector2(727, 159)
 states/failure/node = SubResource("3910")
-states/failure/position = Vector2(579, 340)
+states/failure/position = Vector2(948, 383)
 states/idle/node = SubResource("3891")
 states/idle/position = Vector2(305, -76)
 states/playing/node = SubResource("AnimationNodeAnimation_abt57")
@@ -149,7 +156,7 @@ states/recording/position = Vector2(485, -171)
 states/restart_button/node = SubResource("3900")
 states/restart_button/position = Vector2(1361, 125)
 states/sleep/node = SubResource("AnimationNodeAnimation_2jb08")
-states/sleep/position = Vector2(728, 434)
+states/sleep/position = Vector2(540, 340)
 states/start_button/node = SubResource("3901")
 states/start_button/position = Vector2(1361, -258)
 states/start_button_pressed/node = SubResource("AnimationNodeAnimation_w4suo")
@@ -159,8 +166,10 @@ states/start_button_red/position = Vector2(1361, -76)
 states/start_button_red_pressed/node = SubResource("AnimationNodeAnimation_nmq2t")
 states/start_button_red_pressed/position = Vector2(1361, 17)
 states/success/node = SubResource("3902")
-states/success/position = Vector2(887, 340)
+states/success/position = Vector2(948, 298)
+states/talking/node = SubResource("3893")
+states/talking/position = Vector2(727, 340)
 states/wipe/node = SubResource("3892")
 states/wipe/position = Vector2(727, -76)
-transitions = ["wipe", "computer", SubResource("3896"), "computer", "wipe", SubResource("3897"), "wipe", "restart_button", SubResource("3905"), "restart_button", "wipe", SubResource("3906"), "wipe", "start_button", SubResource("3907"), "start_button", "wipe", SubResource("3908"), "wipe", "idle", SubResource("3917"), "idle", "wipe", SubResource("3918"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_i0aqs"), "wipe", "buckle_warning", SubResource("AnimationNodeStateMachineTransition_giys6"), "buckle_warning", "wipe", SubResource("AnimationNodeStateMachineTransition_bkdda"), "wipe", "alert", SubResource("AnimationNodeStateMachineTransition_0xeay"), "alert", "wipe", SubResource("AnimationNodeStateMachineTransition_snt8f"), "wipe", "start_button_red", SubResource("AnimationNodeStateMachineTransition_l4s66"), "start_button_red", "wipe", SubResource("AnimationNodeStateMachineTransition_q7aom"), "wipe", "recording", SubResource("AnimationNodeStateMachineTransition_7wsjn"), "recording", "wipe", SubResource("AnimationNodeStateMachineTransition_v8rjx"), "wipe", "battery", SubResource("AnimationNodeStateMachineTransition_ifcln"), "battery", "wipe", SubResource("AnimationNodeStateMachineTransition_8yx0x"), "playing", "wipe", SubResource("AnimationNodeStateMachineTransition_i03dq"), "wipe", "playing", SubResource("AnimationNodeStateMachineTransition_lcycs"), "success", "computer", SubResource("AnimationNodeStateMachineTransition_ugfba"), "computer", "success", SubResource("AnimationNodeStateMachineTransition_tmaeq"), "computer", "sleep", SubResource("AnimationNodeStateMachineTransition_vue8d"), "sleep", "computer", SubResource("AnimationNodeStateMachineTransition_cae6a"), "failure", "computer", SubResource("AnimationNodeStateMachineTransition_p275i"), "computer", "failure", SubResource("AnimationNodeStateMachineTransition_bgbhl"), "start_button_red_pressed", "wipe", SubResource("AnimationNodeStateMachineTransition_de2gg"), "start_button_red", "start_button_red_pressed", SubResource("AnimationNodeStateMachineTransition_q72h6"), "start_button", "start_button_pressed", SubResource("AnimationNodeStateMachineTransition_11lso"), "start_button_pressed", "wipe", SubResource("AnimationNodeStateMachineTransition_fjj5v")]
-graph_offset = Vector2(160, -48)
+transitions = ["wipe", "restart_button", SubResource("3905"), "restart_button", "wipe", SubResource("3906"), "wipe", "start_button", SubResource("3907"), "start_button", "wipe", SubResource("3908"), "wipe", "idle", SubResource("3917"), "idle", "wipe", SubResource("3918"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_i0aqs"), "wipe", "buckle_warning", SubResource("AnimationNodeStateMachineTransition_giys6"), "buckle_warning", "wipe", SubResource("AnimationNodeStateMachineTransition_bkdda"), "wipe", "alert", SubResource("AnimationNodeStateMachineTransition_0xeay"), "alert", "wipe", SubResource("AnimationNodeStateMachineTransition_snt8f"), "wipe", "start_button_red", SubResource("AnimationNodeStateMachineTransition_l4s66"), "start_button_red", "wipe", SubResource("AnimationNodeStateMachineTransition_q7aom"), "wipe", "recording", SubResource("AnimationNodeStateMachineTransition_7wsjn"), "recording", "wipe", SubResource("AnimationNodeStateMachineTransition_v8rjx"), "wipe", "battery", SubResource("AnimationNodeStateMachineTransition_ifcln"), "battery", "wipe", SubResource("AnimationNodeStateMachineTransition_8yx0x"), "playing", "wipe", SubResource("AnimationNodeStateMachineTransition_i03dq"), "wipe", "playing", SubResource("AnimationNodeStateMachineTransition_lcycs"), "success", "talking", SubResource("AnimationNodeStateMachineTransition_ugfba"), "talking", "success", SubResource("AnimationNodeStateMachineTransition_tmaeq"), "talking", "sleep", SubResource("AnimationNodeStateMachineTransition_vue8d"), "sleep", "talking", SubResource("AnimationNodeStateMachineTransition_cae6a"), "failure", "talking", SubResource("AnimationNodeStateMachineTransition_p275i"), "talking", "failure", SubResource("AnimationNodeStateMachineTransition_bgbhl"), "start_button_red_pressed", "wipe", SubResource("AnimationNodeStateMachineTransition_de2gg"), "start_button_red", "start_button_red_pressed", SubResource("AnimationNodeStateMachineTransition_q72h6"), "start_button", "start_button_pressed", SubResource("AnimationNodeStateMachineTransition_11lso"), "start_button_pressed", "wipe", SubResource("AnimationNodeStateMachineTransition_fjj5v"), "wipe", "computer", SubResource("AnimationNodeStateMachineTransition_4uckm"), "computer", "talking", SubResource("AnimationNodeStateMachineTransition_cl7qo"), "talking", "computer", SubResource("AnimationNodeStateMachineTransition_hn2c3"), "computer", "wipe", SubResource("AnimationNodeStateMachineTransition_kgu5k")]
+graph_offset = Vector2(54, 96)
