@@ -231,8 +231,8 @@ Sam: OK. First, we need to buckle up! Listen to the command from the computer an
 ~ buckle_up_recording
 System: ...
 - Begin Recording
-do Recorder.start()
 set screen = "talking"
+do Recorder.start()
 do Stimuli.play("practice_2_seatbelts")
 Computer: Seat belts buckled! [next=2]
 set screen = "recording"
@@ -351,7 +351,7 @@ do Recorder.start()
 =>< snippets/focus_screen
 set screen = "talking"
 do Stimuli.play("practice_5_yawn")
-Computer: *Loud Yawn: from high to low* [next=3]
+Computer: *Loud Yawn: from high to low* [next=4]
 set screen = "recording"
 
 
@@ -554,7 +554,7 @@ set level = "warp"
 
 
 ~ task2_success
-do Character.play_audio("task2_arrived")
+do Character.play_audio("task2_success")
 =>< snippets/focus_conversation
 Sam: Awesome job, partner! Thanks for steering the ship so well! Look, it’s Planet Stardust! To use our spaceship to look around, press the Landing Button. [next=9]
 =>< snippets/focus_forward
@@ -584,10 +584,9 @@ set screen = "computer"
 [next=2]
 
 
-	
-
 ~ task3_tones
 #12 Phrases – 6 song, 6 speech randomized (see list of sentences on last page)*
+set screen = "playing"
 System: Select a tone
 - tone_double_D3F_female.F3.2note.4
 	do Stimuli.play("tone_double_D3F_female.F3.2note.4")
