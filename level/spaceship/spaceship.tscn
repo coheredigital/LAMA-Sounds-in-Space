@@ -567,8 +567,8 @@ shader_parameter/rim_amount = 0.447
 shader_parameter/rim_smoothness = 1.0
 shader_parameter/metallic = 0.0
 shader_parameter/roughness = 1.0
-shader_parameter/emission_tint = Color(0.529412, 1, 0.533333, 1)
-shader_parameter/emission_energy = 1.0
+shader_parameter/emission_tint = Color(0.576381, 0.544308, 0.984709, 1)
+shader_parameter/emission_energy = 0.281321
 shader_parameter/albedo_texture = ExtResource("17_dm8ld")
 shader_parameter/emission_texture = ExtResource("18_nolgf")
 
@@ -637,7 +637,7 @@ volume_db = -5.228
 stream = ExtResource("13_4lkru")
 
 [node name="controls" parent="spaceship/cockpit" index="1"]
-transform = Transform3D(0.990622, -0.13259, -0.0329651, 0.136306, 0.942572, 0.304923, -0.00935789, -0.306557, 0.951806, 0.688043, 0.511933, -1.92573)
+transform = Transform3D(0.996917, -0.0628557, -0.0469623, 0.0739892, 0.952298, 0.296064, 0.0261128, -0.298626, 0.954013, 0.688043, 0.511933, -1.92573)
 
 [node name="controls_left" parent="spaceship/cockpit" index="2"]
 transform = Transform3D(0.999689, 0.0131664, 0.0211798, -0.0138713, 0.999343, 0.0334874, -0.020725, -0.0337708, 0.999214, -0.6875, 0.400625, -2.07488)

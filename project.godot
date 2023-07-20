@@ -48,6 +48,10 @@ window/size/viewport_height=720
 window/subwindows/embed_subwindows=false
 window/vsync/vsync_mode=false
 
+[editor]
+
+movie_writer/movie_file="C:/Users/adams/Desktop/space-port-adventure-capture.avi"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg")
