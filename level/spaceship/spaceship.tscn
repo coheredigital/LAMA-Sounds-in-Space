@@ -583,6 +583,7 @@ transform = Transform3D(-1, 0, 8.74228e-08, -8.88178e-16, 1, 0, -8.74228e-08, 0,
 unique_name_in_owner = true
 tree_root = SubResource("5")
 anim_player = NodePath("AnimationPlayer")
+active = true
 parameters/blend_screen/add_amount = 1.0
 parameters/flying_blend/add_amount = 0.0
 parameters/flying_speed/scale = 0.0

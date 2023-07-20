@@ -581,19 +581,53 @@ set screen = "computer"
 =>< snippets/focus_forward
 [next=2]
 
-~ task2_tones
+
+	
+
+~ task3_tones
 #12 Phrases – 6 song, 6 speech randomized (see list of sentences on last page)*
-System: Select stimuli order (PLACEHOLDER for tones)
-- Order A
-	=>< orders/order_A
-- Order B
-	=>< orders/order_B
-- Order C
-	=>< orders/order_C
-- Order D
-	=>< orders/order_D
-- Skip to success. 
-	# moves to next line
+System: Select a tone
+- tone_double_D3F_female.F3.2note.4
+	do Stimuli.play("tone_double_D3F_female.F3.2note.4")
+	[next=2.0]
+	=> task3_tones
+- tone_double_M2F_female.A3.2note.4
+	do Stimuli.play("tone_double_M2F_female.A3.2note.4")
+	[next=2.0]
+	=> task3_tones
+- tone_double_M3R_female.C4.2note.1
+	do Stimuli.play("tone_double_M3R_female.C4.2note.1")
+	[next=2.0]
+	=> task3_tones
+- tone_double_P5F_female.A3.4note.0
+	do Stimuli.play("tone_double_P5F_female.A3.4note.0")
+	[next=2.0]
+	=> task3_tones
+- tone_double_P5R_female.A3.2note.2
+	do Stimuli.play("tone_double_P5R_female.A3.2note.2")
+	[next=2.0]
+	=> task3_tones
+- tone_single_A3_female.A3.1note.2
+	do Stimuli.play("tone_single_A3_female.A3.1note.2")
+	[next=2.0]
+	=> task3_tones
+- tone_single_B3_female.A3.1note.3
+	do Stimuli.play("tone_single_B3_female.A3.1note.3")
+	[next=2.0]
+	=> task3_tones
+- tone_single_C4_female.A3.1note.5
+	do Stimuli.play("tone_single_C4_female.A3.1note.5")
+	[next=2.0]
+	=> task3_tones
+- tone_single_D4_female.A3.1note.6
+	do Stimuli.play("tone_single_D4_female.A3.1note.6")
+	[next=2.0]
+	=> task3_tones
+- tone_single_E4_female.C4.1note.5
+	do Stimuli.play("tone_single_E4_female.C4.1note.5")
+	[next=2.0]
+	=> task3_tones
+- Skip
 
 # 10 stimuli – 5 pure tones, 5 intervals? *
 ~ task3_success

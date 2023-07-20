@@ -44,6 +44,6 @@ shader_parameter/rim_amount = 0.651
 shader_parameter/rim_smoothness = 1.0
 shader_parameter/metallic = 0.0
 shader_parameter/roughness = 0.608
-shader_parameter/emission_energy = 0.265
+shader_parameter/emission_energy = 0.302
 shader_parameter/albedo_texture = SubResource("NoiseTexture2D_e8406")
 shader_parameter/color_gradient = SubResource("GradientTexture1D_astb8")
