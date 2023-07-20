@@ -39,6 +39,7 @@ animation = &"cockpit/steering_motion"
 [sub_resource type="AnimationNodeTimeScale" id="4"]
 
 [sub_resource type="AnimationNodeBlendTree" id="5"]
+graph_offset = Vector2(15, 168)
 nodes/blend_screen/node = SubResource("AnimationNodeAdd2_h7dn0")
 nodes/blend_screen/position = Vector2(780, 200)
 nodes/door_state/node = ExtResource("10_csjlb")

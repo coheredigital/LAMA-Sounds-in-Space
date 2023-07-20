@@ -45,12 +45,10 @@ void fragment() {
 			float waveform_right = texture(waveform, vec2(0.7)).x;
 			waveform_right = steppify(waveform_right, 8);
 			
-			float waveform_top;
-			waveform_top = max(waveform_left, waveform_top);
-			waveform_top = max(waveform_right, waveform_top);
-			
+			float waveform_top = max(waveform_left, waveform_right);			
 			float waveform_bottom = waveform_y; 
 			float mouth_mask = step(frame_size.y * 0.57, UV.y);
+			
 			offset.y = mix(
 				frame_size.y * round(mix(0.0,3.0,waveform_bottom)),
 				frame_size.y * round(mix(0.0,3.0,waveform_top)),
