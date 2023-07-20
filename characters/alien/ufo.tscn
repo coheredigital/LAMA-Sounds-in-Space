@@ -138,7 +138,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, -4.421, 0)
 unique_name_in_owner = true
 transform = Transform3D(0.995161, 0.0293271, -0.0937805, -0.0249109, 0.998541, 0.0479204, 0.095049, -0.0453523, 0.994439, -0.191075, 0.208019, 0.0818393)
 stream = ExtResource("3_yv0qb")
-volume_db = -45.0
+volume_db = -65.105
 unit_size = 16.74
 max_db = -13.18
 pitch_scale = 0.8
@@ -159,7 +159,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.140122, -0.184915, 0.013813
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0)
 
 [node name="beam" parent="ufo" index="5"]
-transform = Transform3D(-0.992361, -0.0677892, -0.103082, -0.104384, 0.015949, 0.994408, -0.0657662, 0.997572, -0.0229032, -4.65661e-10, -0.7, -8.14907e-10)
+transform = Transform3D(-0.992361, -0.0677928, -0.103081, -0.104384, 0.0159487, 0.994408, -0.0657698, 0.997572, -0.0229033, 7.45058e-09, -0.7, -7.45058e-09)
 surface_material_override/0 = ExtResource("3_ju5pg")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="ufo" index="14"]

@@ -629,6 +629,7 @@ System: Select a tone
 	[next=2.0]
 	=> task3_tones
 - Skip
+set screen = "idle"
 
 # 10 stimuli – 5 pure tones, 5 intervals? *
 ~ task3_success
