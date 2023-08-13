@@ -1,8 +1,7 @@
 
 import "res://dialogue/snippets.dialogue" as snippets
 import "res://dialogue/stimuli/stimuli.dialogue" as stimuli
-import "res://dialogue/stimuli/orders.dialogue" as orders
-
+import "res://dialogue/stimuli/orders_random.dialogue" as orders_random
 # USAGE: Character.move_to(progress_ratio: float [0.0 - 1.0], duration: float [ >= 0.0 ])
 # USAGE: Character.pivot(angle: float [-1.0 - 1.0], duration: float [ >= 0.0 ])
 # USAGE: Character.tilt() Not yet used.
@@ -431,13 +430,13 @@ Sam: Boy, it’s dark out here! This time, let’s wake up the stars with our vo
 ~ task1_stimuli
 System: Select stimuli order
 - Order A
-	=>< orders/order_A
+	=>< orders_random/order_A
 - Order B
-	=>< orders/order_B
+	=>< orders_random/order_B
 - Order C
-	=>< orders/order_C
+	=>< orders_random/order_C
 - Order D
-	=>< orders/order_D
+	=>< orders_random/order_D
 - Skip to success. 
 	# moves to next line
 
@@ -535,13 +534,13 @@ Sam: OK, here we go! Remember that the Command Centre is very sensitive, so repe
 #12 Phrases – 6 song, 6 speech randomized (see list of sentences on last page)*
 System: Select stimuli order
 - Order A
-	=>< orders/order_A
+	=>< orders_random/order_A
 - Order B
-	=>< orders/order_B
+	=>< orders_random/order_B
 - Order C
-	=>< orders/order_C
+	=>< orders_random/order_C
 - Order D
-	=>< orders/order_D
+	=>< orders_random/order_D
 - Skip to success. 
 	# moves to next line
 

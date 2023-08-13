@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_8"
+type="Resource"
+uid="uid://dxmkm5p0s17vw"
+path="res://.godot/imported/orders_random.dialogue-ea33b9efab339d0674400dfa98ec6780.tres"
+
+[deps]
+
+source_file="res://dialogue/stimuli/orders_random.dialogue"
+dest_files=["res://.godot/imported/orders_random.dialogue-ea33b9efab339d0674400dfa98ec6780.tres"]
+
+[params]
+
+defaults=true

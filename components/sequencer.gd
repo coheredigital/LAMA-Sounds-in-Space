@@ -19,6 +19,8 @@ signal fuel_level_changed(value: int)
 
 signal overlay_state_changed(state:String)
 
+signal stimuli_set_changed(stimuli_set:Array)
+
 var level: String = "intro":
 	set(value):
 		level = value
@@ -77,6 +79,14 @@ var screen: String = "idle":
 		screen = value
 		screen_changed.emit(value)
 
+var stimuli_set: Array = []:
+	set(value):
+		stimuli_set = value
+		stimuli_set.shuffle()
+		print(stimuli_set)
+		stimuli_set_changed.emit(value)
+		
+		
 func overlay_state(state : String) -> void:
 	overlay_state_changed.emit(state)
 
@@ -91,4 +101,5 @@ func move_star(star_number: int, progress: float, duration: float = 1.0) -> void
 
 func play_audio(file: String) -> void:
 	print('Playing audio file: %s' % file)
+
 
