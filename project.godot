@@ -56,6 +56,10 @@ movie_writer/movie_file="C:/Users/adams/Desktop/space-port-adventure-capture.avi
 
 enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg")
 
+[filesystem]
+
+import/blender/enabled=false
+
 [gui]
 
 theme/custom="res://ui/theme/simple_ui_theme.tres"
