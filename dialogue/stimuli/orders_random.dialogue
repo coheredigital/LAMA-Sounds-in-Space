@@ -3,6 +3,28 @@ import "res://dialogue/stimuli/stimuli.dialogue" as stimuli
 
 ~ order_A
 set stimuli_set = ["stimuli/Sp_01F","stimuli/Sp_02R","stimuli/So_03F","stimuli/So_04R","stimuli/Sp_05F","stimuli/Sp_06R","stimuli/So_07F","stimuli/So_08R","stimuli/Sp_09F","stimuli/Sp_10R","stimuli/So_11F","stimuli/So_12R"]
+
+do get_next_stimuli()
+[next=1]
+do get_next_stimuli()
+[next=1]
+do get_next_stimuli()
+[next=1]
+do get_next_stimuli()
+[next=1]
+do get_next_stimuli()
+[next=1]
+do get_next_stimuli()
+[next=1]
+do get_next_stimuli()
+[next=1]
+do get_next_stimuli()
+[next=1]
+do get_next_stimuli()
+[next=1]
+do get_next_stimuli()
+[next=1]
+
 => END
 
 ~ order_B

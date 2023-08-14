@@ -86,7 +86,12 @@ var stimuli_set: Array = []:
 		print(stimuli_set)
 		stimuli_set_changed.emit(value)
 		
-		
+func get_next_stimuli() -> String:
+	var next_stimuli: String = stimuli_set.pop_front()
+	print(next_stimuli)
+	return next_stimuli
+
+
 func overlay_state(state : String) -> void:
 	overlay_state_changed.emit(state)
 

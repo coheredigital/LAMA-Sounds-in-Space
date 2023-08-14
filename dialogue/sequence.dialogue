@@ -61,9 +61,9 @@ System: .
 - Skip to Spaceship enter
 	do overlay_state("hidden")
 	=> spaceship_enter
-- Skip to Blastoff
+- Skip to Launch
 	do overlay_state("hidden")
-	=> blast_off
+	=> launch
 - Skip to Warp
 	do overlay_state("hidden")
 	=> task2_warp
