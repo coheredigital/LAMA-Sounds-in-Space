@@ -83,13 +83,18 @@ var stimuli_set: Array = []:
 	set(value):
 		stimuli_set = value
 		stimuli_set.shuffle()
-		print(stimuli_set)
+		print("Stimuli set: %s" % [stimuli_set])
 		stimuli_set_changed.emit(value)
-		
+
+var next_stimuli:
+	set(value):
+		next_stimuli = value
+		print("Next stimuli: %s" % [next_stimuli])
+
 func get_next_stimuli() -> String:
-	var next_stimuli: String = stimuli_set.pop_front()
-	print(next_stimuli)
-	return next_stimuli
+	next_stimuli = stimuli_set.pop_front()
+
+	return next_stimuli if next_stimuli else ''
 
 
 func overlay_state(state : String) -> void:

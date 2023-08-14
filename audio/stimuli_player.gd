@@ -16,12 +16,13 @@ signal stimuli_player_finished
 func play(sentence_id: String) -> void:
 #	get the file or cancel operation
 	var filename = "%s/%s.wav" % [folder,sentence_id];
+	print('Play stimuli: %s' % [filename])
+	
 	var wav_file = load(filename);
 	if not wav_file:
-		push_warning('Stilumi not found: %s' % [filename])
+		push_warning('Stilumi file not found: %s' % [filename])
 		return
 
-	print('Stimuli: %s' % [filename])
 #	Visualizer.channel = "Stimuli"
 #	delay for screen to change before playing
 	await get_tree().create_timer(1.0).timeout
