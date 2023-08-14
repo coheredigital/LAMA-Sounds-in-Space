@@ -1,7 +1,7 @@
 
 import "res://dialogue/snippets.dialogue" as snippets
 import "res://dialogue/stimuli/stimuli.dialogue" as stimuli
-import "res://dialogue/stimuli/orders_random.dialogue" as orders_random
+import "res://dialogue/stimuli/orders.dialogue" as orders
 # USAGE: Character.move_to(progress_ratio: float [0.0 - 1.0], duration: float [ >= 0.0 ])
 # USAGE: Character.pivot(angle: float [-1.0 - 1.0], duration: float [ >= 0.0 ])
 # USAGE: Character.tilt() Not yet used.
@@ -430,13 +430,13 @@ Sam: Boy, it’s dark out here! This time, let’s wake up the stars with our vo
 ~ task1_stimuli_order
 System: Select stimuli order
 - Order A
-	=>< orders_random/order_A
+	=>< orders/A
 - Order B
-	=>< orders_random/order_B
+	=>< orders/B
 - Order C
-	=>< orders_random/order_C
+	=>< orders/C
 - Order D
-	=>< orders_random/order_D
+	=>< orders/D
 - Skip to success. 
 	=> task1_success
 
@@ -557,15 +557,39 @@ Sam: OK, here we go! Remember that the Command Centre is very sensitive, so repe
 #12 Phrases – 6 song, 6 speech randomized (see list of sentences on last page)*
 System: Select stimuli order
 - Order A
-	=>< orders_random/order_A
+	=>< orders/A
 - Order B
-	=>< orders_random/order_B
+	=>< orders/B
 - Order C
-	=>< orders_random/order_C
+	=>< orders/C
 - Order D
-	=>< orders_random/order_D
+	=>< orders/D
 - Skip to success. 
-	# moves to next line
+	=> task2_success
+
+~ task2_stimuli_trial
+# loop through stimuli
+while stimuli_set.size() > 0
+	do get_next_stimuli()
+	System:
+	- Begin {{next_stimuli}}
+	set screen = "computer"
+	do Stimuli.play(next_stimuli)
+	do Recorder.start()
+	[next=2]
+	set screen = "recording"
+	[next=3]
+	System:
+	- Success
+		set screen = "success"
+		do Recorder.stop()
+		do Recorder.save()
+	- Failure
+		set screen = "failure"
+		do Recorder.stop()
+#		add the stimuli back into the front of the set so it can be repeated
+		do stimuli_set.push_front(next_stimuli)
+	[next=1]
 
 ~ task2_warp
 set level = "launch"

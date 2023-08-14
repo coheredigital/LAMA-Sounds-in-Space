@@ -1,62 +1,18 @@
 # example only, not implemented
 import "res://dialogue/stimuli/stimuli.dialogue" as stimuli
 
-~ order_A
-=>< stimuli/Sp_01F
-=>< stimuli/Sp_02R
-=>< stimuli/So_03F
-=>< stimuli/So_04R
-=>< stimuli/Sp_05F
-=>< stimuli/Sp_06R
-=>< stimuli/So_07F
-=>< stimuli/So_08R
-=>< stimuli/Sp_09F
-=>< stimuli/Sp_10R
-=>< stimuli/So_11F
-=>< stimuli/So_12R
+~ A
+set stimuli_set = ["Sp_01F","Sp_02R","So_03F","So_04R","Sp_05F","Sp_06R","So_07F","So_08R","Sp_09F","Sp_10R","So_11F","So_12R"]
 => END
 
-~ order_B
-=>< stimuli/Sp_01R
-=>< stimuli/Sp_02F
-=>< stimuli/So_03R
-=>< stimuli/So_04F
-=>< stimuli/Sp_05R
-=>< stimuli/Sp_06F
-=>< stimuli/So_07R
-=>< stimuli/So_08F
-=>< stimuli/Sp_09R
-=>< stimuli/Sp_10F
-=>< stimuli/So_11R
-=>< stimuli/So_12F
+~ B
+set stimuli_set = ["Sp_01R","Sp_02F","So_03R","So_04F","Sp_05R","Sp_06F","So_07R","So_08F","Sp_09R","Sp_10F","So_11R","So_12F"]
 => END
 
-~ order_C
-=>< stimuli/So_01F
-=>< stimuli/So_02R
-=>< stimuli/Sp_03F
-=>< stimuli/Sp_04R
-=>< stimuli/So_05F
-=>< stimuli/So_06R
-=>< stimuli/Sp_07F
-=>< stimuli/Sp_08R
-=>< stimuli/So_09F
-=>< stimuli/So_10R
-=>< stimuli/Sp_11F
-=>< stimuli/Sp_12R
+~ C
+set stimuli_set = ["So_01F","So_02R","Sp_03F","Sp_04R","So_05F","So_06R","Sp_07F","Sp_08R","So_09F","So_10R","Sp_11F","Sp_12R"]
 => END
 
-~ order_D
-=>< stimuli/So_01R
-=>< stimuli/So_02F
-=>< stimuli/Sp_03R
-=>< stimuli/Sp_04F
-=>< stimuli/So_05R
-=>< stimuli/So_06F
-=>< stimuli/Sp_07R
-=>< stimuli/Sp_08F
-=>< stimuli/So_09R
-=>< stimuli/So_10F
-=>< stimuli/Sp_11R
-=>< stimuli/Sp_12F
+~ D
+set stimuli_set = ["So_01R","So_02F","Sp_03R","Sp_04F","So_05R","So_06F","Sp_07R","Sp_08F","So_09R","So_10F","Sp_11R","Sp_12F"]
 => END
