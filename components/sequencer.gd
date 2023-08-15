@@ -36,10 +36,7 @@ var character_action: String = "idle":
 		character_action = value
 		character_action_changed.emit(value)
 
-var stars_brightness: float = 0.0:
-	set(value):
-		stars_brightness = clamp(value, 0.0,1.0)
-		stars_brightness_changed.emit(stars_brightness)
+
 
 var player_position: float = 0.0
 var player_view: float = 0.0
@@ -86,15 +83,20 @@ var stimuli_set: Array = []:
 		print("Stimuli set: %s" % [stimuli_set])
 		stimuli_set_changed.emit(value)
 
-var next_stimuli:
+var next_stimuli = '':
 	set(value):
 		next_stimuli = value
 		print("Next stimuli: %s" % [next_stimuli])
 
 func get_next_stimuli() -> String:
 	next_stimuli = stimuli_set.pop_front()
-
 	return next_stimuli if next_stimuli else ''
+
+func set_stars_brightness(step: float, max: float) -> void:
+	var brightness = step / max
+	brightness = float(brightness)
+	brightness = clamp(brightness,0.0,1.0)
+	stars_brightness_changed.emit(brightness)
 
 
 func overlay_state(state : String) -> void:
@@ -106,10 +108,13 @@ func move_character(progress: float, duration: float = 1.0) -> void:
 func character_view_angle(angle: Vector2, duration: float = 1.0) -> void:
 	character_position_changed.emit(angle, duration)
 
-func move_star(star_number: int, progress: float, duration: float = 1.0) -> void:
-	star_moved.emit(star_number, progress, duration)
+func move_star(star_number: float, progress: float, duration: float = 1.0) -> void:
+#	round star down to allow fractions used in sequence
+	star_number = floor(star_number)
+	if star_number != 0:
+		star_moved.emit(star_number, progress, duration)
 
-func play_audio(file: String) -> void:
-	print('Playing audio file: %s' % file)
+func print_message(text: String) -> void:
+	print('Message: %s' % text)
 
 

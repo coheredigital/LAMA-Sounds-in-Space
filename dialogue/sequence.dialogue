@@ -39,7 +39,7 @@ do Lama.toggle_rescued(false)
 set fuel_level = 1
 set door_state = "idle"
 # stars
-set stars_brightness = 0.0
+do set_stars_brightness(0.0)
 do move_star(1,0.0,0.0)
 do move_star(2,0.0,0.0)
 do move_star(3,0.0,0.0)
@@ -57,16 +57,19 @@ System: ...[next]
 System: .
 - Start
 	do overlay_state("hidden")
-- Skip to Spaceship enter
+- Skip to spaceship_enter
 	do overlay_state("hidden")
 	=> spaceship_enter
-- Skip to Launch
+- Skip to launch
 	do overlay_state("hidden")
 	=> launch
-- Skip to Warp
+- Skip to task1_stimuli_order
+	do overlay_state("hidden")
+	=> task1_stimuli_order
+- Skip to task2_warp
 	do overlay_state("hidden")
 	=> task2_warp
-- Skip to Planet Stardust
+- Skip to task2_success
 	do overlay_state("hidden")
 	=> task2_success
 [next=2]
@@ -441,10 +444,13 @@ System: Select stimuli order
 
 ~ task1_stimuli_trial
 # loop through stimuli
+
 while stimuli_set.size() > 0
 	do get_next_stimuli()
 	System:
 	- Begin {{next_stimuli}}
+	do print_message("Step: %s" % (12 - stimuli_set.size()))
+
 	set screen = "computer"
 	do Stimuli.play(next_stimuli)
 	do Recorder.start()
@@ -456,6 +462,9 @@ while stimuli_set.size() > 0
 		set screen = "success"
 		do Recorder.stop()
 		do Recorder.save()
+		do move_star((12 - stimuli_set.size()) * 0.5, 0.7, 5.0)
+		do set_stars_brightness(12 - stimuli_set.size(), 12)
+		[next=4]
 	- Failure
 		set screen = "failure"
 		do Recorder.stop()
@@ -465,7 +474,6 @@ while stimuli_set.size() > 0
 
 ~ task1_success
 =>< snippets/focus_screen
-=>< snippets/stars_light_sequence
 do Character.play_audio("task1_success")
 =>< snippets/focus_conversation
 Sam: Awesome job, partner! Look at all the bright things you put in space! Now let’s go to Planet Stardust, press the GO button to get closer to finding Lucky! [next=8]
