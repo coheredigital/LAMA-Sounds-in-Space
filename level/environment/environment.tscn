@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://ce5kwqern427b"]
+[gd_scene load_steps=11 format=3 uid="uid://ce5kwqern427b"]
 
 [ext_resource type="Environment" uid="uid://e82nx1vn6g3m" path="res://level/environment/environment.tres" id="1_bwcs0"]
 [ext_resource type="Script" path="res://level/environment/environment.gd" id="2_bieme"]
 [ext_resource type="Material" uid="uid://b2vt57g8dosf0" path="res://level/environment/materials/sky_material.tres" id="3_8675s"]
+[ext_resource type="Gradient" uid="uid://ded64lmdul7uo" path="res://level/environment/gradients/sky_color_gradient.tres" id="3_oan2w"]
 
 [sub_resource type="SphereMesh" id="3821"]
 radius = 64.0
@@ -32,11 +33,10 @@ edge_fade = 0.951368
 [node name="Environment" type="WorldEnvironment"]
 environment = ExtResource("1_bwcs0")
 script = ExtResource("2_bieme")
-sky_color = Color(0.164706, 0.172549, 0.301961, 1)
+sky_gradient = ExtResource("3_oan2w")
 ground_color = Color(0.623529, 0.721569, 0.596078, 1)
 fog_color = Color(0.466667, 0.584314, 0.796078, 1)
 horizon_color = Color(0.894118, 0.654902, 0.741176, 1)
-stars_brightness = 0.3
 
 [node name="Sky" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true

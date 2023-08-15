@@ -16,7 +16,7 @@ uniform vec4 sky_color : source_color = vec4(1.0, 0.7, 0.55, 1.0);
 uniform float stars_scale : hint_range(0.1,8.0) = 2.0;
 
 uniform float stars_brightness : hint_range(0.0,8.0) = 2.0;
-uniform float horizon_height : hint_range(-0.5,0.5) = 0.0;
+uniform float horizon_height : hint_range(-1.0,1.0) = 0.0;
 
 
 vec3 get_sphere_uv(vec2 uv){
