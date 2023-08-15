@@ -16,6 +16,6 @@ shader_parameter/waveform_controlled = false
 shader_parameter/screen_count = 16.0
 shader_parameter/frame_count = 8.0
 shader_parameter/screen_number = 12.0
-shader_parameter/frame_number = 1.15784
+shader_parameter/frame_number = 0.83183
 shader_parameter/emission_texture = ExtResource("2_n2nho")
 shader_parameter/waveform = SubResource("3858")
