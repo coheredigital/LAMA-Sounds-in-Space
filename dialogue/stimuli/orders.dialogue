@@ -1,5 +1,3 @@
-# example only, not implemented
-import "res://dialogue/stimuli/stimuli.dialogue" as stimuli
 
 ~ A
 set stimuli_set = ["Sp_01F","Sp_02R","So_03F","So_04R","Sp_05F","Sp_06R","So_07F","So_08R","Sp_09F","Sp_10R","So_11F","So_12R"]

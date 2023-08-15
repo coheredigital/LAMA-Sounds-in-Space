@@ -1,6 +1,5 @@
 
 import "res://dialogue/snippets.dialogue" as snippets
-import "res://dialogue/stimuli/stimuli.dialogue" as stimuli
 import "res://dialogue/stimuli/orders.dialogue" as orders
 # USAGE: Character.move_to(progress_ratio: float [0.0 - 1.0], duration: float [ >= 0.0 ])
 # USAGE: Character.pivot(angle: float [-1.0 - 1.0], duration: float [ >= 0.0 ])
