@@ -181,7 +181,7 @@ length = 16.0
 step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Environment:altitude")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
@@ -253,7 +253,7 @@ tracks/5/keys = {
 }
 tracks/6/type = "value"
 tracks/6/imported = false
-tracks/6/enabled = false
+tracks/6/enabled = true
 tracks/6/path = NodePath("Environment:environment:volumetric_fog_density")
 tracks/6/interp = 2
 tracks/6/loop_wrap = true

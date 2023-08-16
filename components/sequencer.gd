@@ -4,6 +4,10 @@ extends Node
 signal level_changed(value: String)
 signal stars_brightness_changed(value: float)
 signal star_moved(star_number: int, progress: float)
+signal altitude_changed(value: float, duration: float)
+signal planet_scale_changed(value: float, duration: float)
+signal planet_distance_changed(value: float, duration: float)
+signal planet_height_changed(value: float, duration: float)
 
 signal character_position_changed(value: float, duration: float)
 signal character_action_changed(value: String)
@@ -113,6 +117,18 @@ func move_star(star_number: float, progress: float, duration: float = 1.0) -> vo
 	star_number = floor(star_number)
 	if star_number != 0:
 		star_moved.emit(star_number, progress, duration)
+
+func update_altitude(height: float, duration: float = 1.0) -> void:
+	altitude_changed.emit(height,duration)
+
+func update_planet_scale(scale: float, duration: float = 1.0) -> void:
+	planet_scale_changed.emit(scale,duration)
+
+func update_planet_distance(distance: float, duration: float = 1.0) -> void:
+	planet_distance_changed.emit(distance,duration)
+
+func update_planet_height(height: float, duration: float = 1.0) -> void:
+	planet_height_changed.emit(height,duration)
 
 func print_message(text: String) -> void:
 	print('Message: %s' % text)

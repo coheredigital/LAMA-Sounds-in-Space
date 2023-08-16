@@ -38,6 +38,11 @@ do Lama.toggle_rescued(false)
 # spaceship
 set fuel_level = 1
 set door_state = "idle"
+# environment
+do update_altitude(0.0,0.0)
+do update_planet_height(1.0,0.0)
+do update_planet_scale(1.0,0.0)
+do update_planet_distance(1.0,0.0)
 # stars
 do set_stars_brightness(0.0)
 do move_star(1,0.0,0.0)
@@ -414,7 +419,9 @@ System: ...
 ~ launch
 =>< snippets/focus_forward
 set level = "launch"
-
+[next=3.5]
+do update_planet_scale(0.345,12.0)
+do update_planet_height(0.753,14.0)
 
 ~ were_flying
 [next=3.5]
@@ -603,6 +610,9 @@ set level = "launch"
 =>< snippets/focus_forward
 =>< snippets/prompt_green_button
 set level = "warp"
+do update_planet_scale(1.0,12.0)
+do update_planet_height(1.0,12.0)
+do update_planet_distance(0.5,12.0)
 [next=12.0]
 
 

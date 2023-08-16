@@ -32,6 +32,8 @@ const FOG_DENSITY_FACTOR = 0.25
 	set(value):
 		planet_scale = clamp(value, 0.0,1.0)
 #		use linear value adjusted by curve to get more natural result
+		if not planet_scale_curve:
+			return
 		var planet_scale_adjusted := planet_scale_curve.sample_baked(planet_scale)
 		if planet:
 			planet.scale = Vector3(planet_scale_adjusted,planet_scale_adjusted,planet_scale_adjusted)
@@ -42,30 +44,26 @@ const FOG_DENSITY_FACTOR = 0.25
 	set(value):
 		planet_distance = clamp(value, 0.0,1.0)
 #		use linear value adjusted by curve to get more natural result
+		if not planet_distance_curve:
+			return
 		var planet_distance_adjusted := planet_distance_curve.sample_baked(planet_distance)
 		if planet:
 			planet.position.z = -(SKY_SIZE * 0.5) * planet_distance_adjusted
+			
 @export var planet_distance_curve : Curve
 
 @export_range(0.0,1.0) var planet_height := 0.0 : 
 	set(value):
 		planet_height = clamp(value, 0.0,1.0)
 #		use linear value adjusted by curve to get more natural result
+		if not planet_height_curve:
+			return
 		var planet_height_adjusted := planet_height_curve.sample_baked(planet_height)
 		if planet_pivot:
-			planet_pivot.rotation_degrees.x = lerp(0.0,-90.0,planet_height_adjusted)
+			planet_pivot.rotation_degrees.x = lerp(-90.0,30.0,planet_height_adjusted)
 		if planet:
-			planet.rotation_degrees.x = lerp(0.0,-90.0,planet_height_adjusted)
+			planet.rotation_degrees.x = lerp(-90.0,30.0,planet_height_adjusted)
 @export var planet_height_curve : Curve
-
-@export_range(0.0,1.0) var planet_rotation := 0.0 : 
-	set(value):
-		planet_rotation = clamp(value, 0.0,1.0)
-#		use linear value adjusted by curve to get more natural result
-		var planet_rotation_adjusted := planet_rotation_curve.sample_baked(planet_rotation)
-		if planet:
-			planet.position.z = -(SKY_SIZE * 0.5) * planet_rotation_adjusted
-@export var planet_rotation_curve : Curve
 
 
 @export_range(0.0, 4.0, 0.1) var stars_brightness := 0.0 : 
@@ -78,8 +76,6 @@ const FOG_DENSITY_FACTOR = 0.25
 @onready var planet_pivot := %PlanetPivot
 
 
-
-
 var sky_color := Color.DARK_BLUE :
 	set(value):
 		sky_color = value
@@ -88,7 +84,27 @@ var sky_color := Color.DARK_BLUE :
 			sky_material.set_shader_parameter("sky_color", value)
 
 func _ready():
+	Sequencer.altitude_changed.connect(set_altitude)
+	Sequencer.planet_distance_changed.connect(set_planet_distance)
+	Sequencer.planet_height_changed.connect(set_planet_height)
+	Sequencer.planet_distance_changed.connect(set_planet_distance)
 	Sequencer.stars_brightness_changed.connect(set_stars_brightness)
+
+func set_altitude(value,duration):
+	var tween = create_tween()
+	tween.tween_property(self, "altitude", value, duration).set_trans(Tween.TRANS_SINE)
+	
+func set_planet_distance(value,duration):
+	var tween = create_tween()
+	tween.tween_property(self, "planet_distance", value, duration).set_trans(Tween.TRANS_SINE)
+	
+func set_planet_height(value,duration):
+	var tween = create_tween()
+	tween.tween_property(self, "planet_height", value, duration).set_trans(Tween.TRANS_SINE)
+	
+func set_planet_scale(value,duration):
+	var tween = create_tween()
+	tween.tween_property(self, "planet_scale", value, duration).set_trans(Tween.TRANS_SINE)
 
 func set_stars_brightness(value):
 	if sky_material:
