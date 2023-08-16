@@ -7,7 +7,6 @@ import "res://dialogue/stimuli/orders.dialogue" as orders
 ~ start
 System: ...[next]
 
-
 ~ reset
 # it seems the below reset will only run properly
 # if at least one line of dialogue has been shown
@@ -39,10 +38,10 @@ do Lama.toggle_rescued(false)
 set fuel_level = 1
 set door_state = "idle"
 # environment
-do update_altitude(0.0,0.0)
-do update_planet_height(1.0,0.0)
-do update_planet_scale(1.0,0.0)
-do update_planet_distance(1.0,0.0)
+do update_altitude(0.0,1.0)
+do update_planet_height(1.0,1.0)
+do update_planet_scale(0.0,1.0)
+do update_planet_distance(1.0,1.0)
 # stars
 do set_stars_brightness(0.0)
 do move_star(1,0.0,0.0)
@@ -64,16 +63,12 @@ System: .
 	do overlay_state("hidden")
 - Skip to spaceship_enter
 	do overlay_state("hidden")
-	=> spaceship_enter
-- Skip to launch
-	do overlay_state("hidden")
-	=> launch
+	=> approach_spaceship
+
 - Skip to task1_stimuli_order
 	do overlay_state("hidden")
 	=> task1_stimuli_order
-- Skip to task2_warp
-	do overlay_state("hidden")
-	=> task2_warp
+
 - Skip to task2_success
 	do overlay_state("hidden")
 	=> task2_success
@@ -155,6 +150,12 @@ do Character.pivot(0.6,2.0)
 do Character.play_audio("welcome_aboard")
 Sam: Welcome aboard! [next=1.5]
 
+~ skip_to_launch
+System: Debug Selection.
+- Continue
+- Skip to launch
+	do overlay_state("hidden")
+	=> launch
 
 ~ task0_practice
 do Character.play_audio("task0_intro")
@@ -419,15 +420,23 @@ System: ...
 ~ launch
 =>< snippets/focus_forward
 set level = "launch"
+do update_altitude(0.1,2.0)
 [next=3.5]
-do update_planet_scale(0.345,12.0)
-do update_planet_height(0.753,14.0)
+do update_altitude(1.0,10.0)
+do update_planet_scale(0.345,8.0)
+do update_planet_height(0.753,10.0)
 
 ~ were_flying
 [next=3.5]
 do Character.play_audio("were_flying")
 Sam: We’re flying![next=5]
 
+~ skip_to_warp
+System: Debug Selection.
+- Continue
+- Skip to task2_warp
+	do overlay_state("hidden")
+	=> task2_warp
 
 ~ task1_intro
 [next=4]
@@ -611,7 +620,7 @@ set level = "launch"
 =>< snippets/prompt_green_button
 set level = "warp"
 do update_planet_scale(1.0,12.0)
-do update_planet_height(1.0,12.0)
+do update_planet_height(0.621,12.0)
 do update_planet_distance(0.5,12.0)
 [next=12.0]
 
@@ -624,7 +633,13 @@ Sam: Awesome job, partner! Thanks for steering the ship so well! Look, it’s Pl
 =>< snippets/prompt_green_button
 [next=1] 
 set level = "landing"
-[next=14]
+do update_planet_height(0.3,10.0)
+do update_planet_distance(0.0,6.0)
+do update_altitude(1.0,14.0)
+[next=10]
+do update_planet_height(0.0,2.0)
+do update_planet_scale(0.0,1.0)
+[next=2]
 
 
 ~ task3_landed

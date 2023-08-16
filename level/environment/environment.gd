@@ -16,7 +16,10 @@ const FOG_DENSITY_FACTOR = 0.25
 	set(value):
 		altitude = clamp(value, 0.0,1.0)
 #		use linear value adjusted by curve to get more natural result
+		if not altitude_curve:
+			return
 		var altitude_adjusted := altitude * altitude_curve.sample_baked(altitude)
+		
 		var horizon_height_meters := altitude_adjusted * -SKY_SIZE
 		
 		if ground:
@@ -25,8 +28,10 @@ const FOG_DENSITY_FACTOR = 0.25
 			var sky_gradient_color : Color = sky_gradient.sample(altitude_adjusted)
 			sky_material.set_shader_parameter("horizon_height", -altitude_adjusted)
 			self.sky_color = sky_gradient_color
-			
+		if world_light:
+			world_light.light_energy = world_light_curve.sample_baked(altitude_adjusted)
 @export var altitude_curve : Curve
+@export var world_light_curve : Curve
 
 @export_range(0.0,1.0) var planet_scale := 0.0 : 
 	set(value):
@@ -74,6 +79,7 @@ const FOG_DENSITY_FACTOR = 0.25
 @onready var ground := %Ground
 @onready var planet := %Planet
 @onready var planet_pivot := %PlanetPivot
+@onready var world_light := %WorldLight
 
 
 var sky_color := Color.DARK_BLUE :
@@ -87,7 +93,7 @@ func _ready():
 	Sequencer.altitude_changed.connect(set_altitude)
 	Sequencer.planet_distance_changed.connect(set_planet_distance)
 	Sequencer.planet_height_changed.connect(set_planet_height)
-	Sequencer.planet_distance_changed.connect(set_planet_distance)
+	Sequencer.planet_scale_changed.connect(set_planet_scale)
 	Sequencer.stars_brightness_changed.connect(set_stars_brightness)
 
 func set_altitude(value,duration):

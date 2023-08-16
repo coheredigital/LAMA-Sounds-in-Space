@@ -6,12 +6,12 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_u5r7i")
-shader_parameter/ground_color = Color(0.617568, 0.716353, 0.603678, 1)
-shader_parameter/horizon_color = Color(0.877875, 0.65222, 0.743262, 1)
-shader_parameter/fog_color = Color(0.466667, 0.584314, 0.796078, 1)
+shader_parameter/ground_color = Color(0, 0, 0, 1)
+shader_parameter/horizon_color = Color(0, 0, 0, 1)
+shader_parameter/fog_color = Color(0, 0, 0, 1)
 shader_parameter/fog_strength = 1.0
 shader_parameter/sky_color = Color(0.466667, 0.584314, 0.796078, 1)
 shader_parameter/stars_scale = 2.992
 shader_parameter/stars_brightness = 0.0
-shader_parameter/horizon_height = -0.000119435
+shader_parameter/horizon_height = 0.0
 shader_parameter/stars_texture = ExtResource("2_mbfif")

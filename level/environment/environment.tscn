@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://ce5kwqern427b"]
+[gd_scene load_steps=19 format=3 uid="uid://ce5kwqern427b"]
 
 [ext_resource type="Environment" uid="uid://e82nx1vn6g3m" path="res://level/environment/environment.tres" id="1_bwcs0"]
 [ext_resource type="Script" path="res://level/environment/environment.gd" id="2_bieme"]
 [ext_resource type="Material" uid="uid://b2vt57g8dosf0" path="res://level/environment/materials/sky_material.tres" id="3_8675s"]
 [ext_resource type="Gradient" uid="uid://ded64lmdul7uo" path="res://level/environment/gradients/sky_color_gradient.tres" id="3_oan2w"]
 [ext_resource type="Curve" uid="uid://c4b4ausch17jo" path="res://level/environment/curves/planet_scale_curve.tres" id="4_6ktbq"]
+[ext_resource type="Curve" uid="uid://cnm6rp2wueh3d" path="res://level/environment/curves/world_light_curve.tres" id="4_ojgnu"]
 [ext_resource type="Curve" uid="uid://dcqgq6bqt0qf5" path="res://level/environment/curves/planet_distance_curve.tres" id="5_gifns"]
 [ext_resource type="Curve" uid="uid://ds4r1eqog03bi" path="res://level/environment/curves/planet_height_curve.tres" id="5_tl2tc"]
 [ext_resource type="Material" uid="uid://bjft6os8hrr36" path="res://level/environment/materials/planet_material.tres" id="5_tse6n"]
@@ -55,8 +56,9 @@ fog_color = Color(0.466667, 0.584314, 0.796078, 1)
 fog_density_curve = SubResource("Curve_mrt1a")
 horizon_color = Color(0.894118, 0.654902, 0.741176, 1)
 altitude_curve = SubResource("Curve_m8owd")
+world_light_curve = ExtResource("4_ojgnu")
+planet_scale = 1.0
 planet_scale_curve = ExtResource("4_6ktbq")
-planet_distance = 1.0
 planet_distance_curve = ExtResource("5_gifns")
 planet_height = 1.0
 planet_height_curve = ExtResource("5_tl2tc")
@@ -92,8 +94,20 @@ transform = Transform3D(1, 0, 0, 0, 0.965473, -0.260505, 0, 0.260505, 0.965473, 
 
 [node name="Planet" type="MeshInstance3D" parent="PlanetPivot"]
 unique_name_in_owner = true
-transform = Transform3D(-0.349947, 0.00147292, -0.00590022, 0.00295021, 0.338061, -0.0905867, 0.00531774, -0.0906227, -0.338023, 0, 0, -64)
+transform = Transform3D(-5.74913, 0.0241979, -0.0969322, 0.0484678, 5.55386, -1.48821, 0.0873629, -1.4888, -5.55323, 0, 0, -26.9474)
 cast_shadow = 0
 mesh = SubResource("SphereMesh_oomka")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("5_tse6n")
+
+[node name="WorldLight" type="DirectionalLight3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(-0.535923, 0.810399, 0.236727, -0.085635, -0.331126, 0.939693, 0.839913, 0.483331, 0.246857, 0, 128, 0)
+light_energy = 0.2
+shadow_enabled = true
+shadow_bias = 0.005
+shadow_normal_bias = 3.891
+shadow_opacity = 0.3
+shadow_blur = 4.886
+directional_shadow_blend_splits = true
+directional_shadow_max_distance = 25.0
