@@ -5,11 +5,10 @@
 
 [node name="GameWindow" type="Window"]
 title = "Adventure"
-position = Vector2i(377, 120)
+position = Vector2i(375, 36)
 size = Vector2i(1280, 720)
 extend_to_title = true
 content_scale_size = Vector2i(1280, 720)
-content_scale_mode = 2
 content_scale_aspect = 1
 
 [node name="ViewportContainer" type="SubViewportContainer" parent="."]

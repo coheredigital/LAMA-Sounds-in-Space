@@ -6,7 +6,7 @@ const FOG_DENSITY_FACTOR = 0.25
 
 
 
-@export var sky_gradient : Gradient 
+@export var sky_gradient : Gradient = preload("res://level/environment/gradients/sky_color_gradient.tres")
 @export var ground_color := Color.DARK_SLATE_GRAY : set = set_ground_color
 @export var fog_color := Color.CADET_BLUE : set = set_fog_color
 @export var fog_density_curve : Curve
@@ -30,8 +30,8 @@ const FOG_DENSITY_FACTOR = 0.25
 			self.sky_color = sky_gradient_color
 		if world_light:
 			world_light.light_energy = world_light_curve.sample_baked(altitude_adjusted)
-@export var altitude_curve : Curve
-@export var world_light_curve : Curve
+@export var altitude_curve : Curve = preload("res://level/environment/curves/altitude_curve.tres")
+@export var world_light_curve : Curve = preload("res://level/environment/curves/world_light_curve.tres")
 
 @export_range(0.0,1.0) var planet_scale := 0.0 : 
 	set(value):
@@ -43,7 +43,7 @@ const FOG_DENSITY_FACTOR = 0.25
 		if planet:
 			planet.scale = Vector3(planet_scale_adjusted,planet_scale_adjusted,planet_scale_adjusted)
 			
-@export var planet_scale_curve : Curve
+@export var planet_scale_curve : Curve = preload("res://level/environment/curves/planet_scale_curve.tres")
 
 @export_range(0.0,1.0) var planet_distance := 0.0 : 
 	set(value):
@@ -55,9 +55,9 @@ const FOG_DENSITY_FACTOR = 0.25
 		if planet:
 			planet.position.z = -(SKY_SIZE * 0.5) * planet_distance_adjusted
 			
-@export var planet_distance_curve : Curve
+@export var planet_distance_curve : Curve = preload("res://level/environment/curves/planet_distance_curve.tres")
 
-@export_range(0.0,1.0) var planet_height := 0.0 : 
+@export_range(0.0,1.0) var planet_height := 1.0 : 
 	set(value):
 		planet_height = clamp(value, 0.0,1.0)
 #		use linear value adjusted by curve to get more natural result
@@ -68,7 +68,7 @@ const FOG_DENSITY_FACTOR = 0.25
 			planet_pivot.rotation_degrees.x = lerp(-90.0,30.0,planet_height_adjusted)
 		if planet:
 			planet.rotation_degrees.x = lerp(-90.0,30.0,planet_height_adjusted)
-@export var planet_height_curve : Curve
+@export var planet_height_curve : Curve = preload("res://level/environment/curves/planet_height_curve.tres")
 
 
 @export_range(0.0, 4.0, 0.1) var stars_brightness := 0.0 : 
@@ -119,15 +119,15 @@ func set_stars_brightness(value):
 
 func set_ground_color(value):
 	ground_color = value
-	if sky_material:
-		sky_material.set_shader_parameter("ground_color", lerp(ground_color, sky_color, altitude))
+#	if sky_material:
+#		sky_material.set_shader_parameter("ground_color", lerp(ground_color, sky_color, altitude))
 #
 func set_fog_color(value):
 	fog_color = value
-	environment.volumetric_fog_albedo = value
-	environment.volumetric_fog_emission = value
-	if sky_material:
-		sky_material.set_shader_parameter("fog_color", lerp(fog_color, sky_color, altitude))
+#	environment.volumetric_fog_albedo = value
+#	environment.volumetric_fog_emission = value
+#	if sky_material:
+#		sky_material.set_shader_parameter("fog_color", lerp(fog_color, sky_color, altitude))
 #
 func set_horizon_color(value):
 	horizon_color = value

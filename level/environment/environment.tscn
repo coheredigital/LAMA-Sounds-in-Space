@@ -1,21 +1,12 @@
-[gd_scene load_steps=19 format=3 uid="uid://ce5kwqern427b"]
+[gd_scene load_steps=13 format=3 uid="uid://ce5kwqern427b"]
 
 [ext_resource type="Environment" uid="uid://e82nx1vn6g3m" path="res://level/environment/environment.tres" id="1_bwcs0"]
 [ext_resource type="Script" path="res://level/environment/environment.gd" id="2_bieme"]
 [ext_resource type="Material" uid="uid://b2vt57g8dosf0" path="res://level/environment/materials/sky_material.tres" id="3_8675s"]
-[ext_resource type="Gradient" uid="uid://ded64lmdul7uo" path="res://level/environment/gradients/sky_color_gradient.tres" id="3_oan2w"]
-[ext_resource type="Curve" uid="uid://c4b4ausch17jo" path="res://level/environment/curves/planet_scale_curve.tres" id="4_6ktbq"]
-[ext_resource type="Curve" uid="uid://cnm6rp2wueh3d" path="res://level/environment/curves/world_light_curve.tres" id="4_ojgnu"]
-[ext_resource type="Curve" uid="uid://dcqgq6bqt0qf5" path="res://level/environment/curves/planet_distance_curve.tres" id="5_gifns"]
-[ext_resource type="Curve" uid="uid://ds4r1eqog03bi" path="res://level/environment/curves/planet_height_curve.tres" id="5_tl2tc"]
 [ext_resource type="Material" uid="uid://bjft6os8hrr36" path="res://level/environment/materials/planet_material.tres" id="5_tse6n"]
 
 [sub_resource type="Curve" id="Curve_mrt1a"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="Curve" id="Curve_m8owd"]
-_data = [Vector2(0, 0), 0.0, 0.0920202, 0, 0, Vector2(1, 1), 3.10437, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="SphereMesh" id="3821"]
@@ -50,18 +41,10 @@ height = 8.0
 [node name="Environment" type="WorldEnvironment"]
 environment = ExtResource("1_bwcs0")
 script = ExtResource("2_bieme")
-sky_gradient = ExtResource("3_oan2w")
 ground_color = Color(0.623529, 0.721569, 0.596078, 1)
 fog_color = Color(0.466667, 0.584314, 0.796078, 1)
 fog_density_curve = SubResource("Curve_mrt1a")
 horizon_color = Color(0.894118, 0.654902, 0.741176, 1)
-altitude_curve = SubResource("Curve_m8owd")
-world_light_curve = ExtResource("4_ojgnu")
-planet_scale = 1.0
-planet_scale_curve = ExtResource("4_6ktbq")
-planet_distance_curve = ExtResource("5_gifns")
-planet_height = 1.0
-planet_height_curve = ExtResource("5_tl2tc")
 
 [node name="Sky" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true
@@ -90,11 +73,11 @@ material = SubResource("FogMaterial_m0jcv")
 
 [node name="PlanetPivot" type="Node3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 0.965473, -0.260505, 0, 0.260505, 0.965473, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.866026, -0.5, 0, 0.5, 0.866026, 0, 0, 0)
 
 [node name="Planet" type="MeshInstance3D" parent="PlanetPivot"]
 unique_name_in_owner = true
-transform = Transform3D(-5.74913, 0.0241979, -0.0969322, 0.0484678, 5.55386, -1.48821, 0.0873629, -1.4888, -5.55323, 0, 0, -26.9474)
+transform = Transform3D(-0.34988, -0.00458097, -0.00793447, 0, 0.303109, -0.175, 0.00916193, -0.17494, -0.303005, 0, 0, -26.9474)
 cast_shadow = 0
 mesh = SubResource("SphereMesh_oomka")
 skeleton = NodePath("")

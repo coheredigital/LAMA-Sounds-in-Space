@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://d0f416j3xmved" path="res://characters/alien/ufo.gltf" id="1_1cqd3"]
 [ext_resource type="Script" path="res://characters/alien/ufo.gd" id="2_dq5n3"]
-[ext_resource type="PackedScene" uid="uid://bq23ckwovuhf4" path="res://characters/alien/alien.tscn" id="2_dwwl8"]
 [ext_resource type="Material" uid="uid://eivgxthmke74" path="res://characters/alien/materials/ufo_beam_material.tres" id="3_ju5pg"]
 [ext_resource type="AudioStream" uid="uid://o3h7jy5iix8l" path="res://audio/effects/warble_loop_01.wav" id="3_yv0qb"]
+[ext_resource type="PackedScene" uid="uid://bq23ckwovuhf4" path="res://characters/alien/alien.tscn" id="4_sh10s"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bbquf"]
 animation = &"idle"
@@ -152,14 +152,31 @@ transform = Transform3D(0.999375, -0.0237991, 0.0261541, 0.0239976, 0.999685, -0
 remote_path = NodePath("../beam")
 update_rotation = false
 
-[node name="Alien" parent="ufo" index="1" instance=ExtResource("2_dwwl8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.140122, -0.184915, 0.0138138)
+[node name="Alien" parent="ufo" index="2" instance=ExtResource("4_sh10s")]
+
+[node name="alien" parent="ufo/Alien" index="1"]
+transform = Transform3D(-1, 0, -2.53518e-06, 0, 1, 0, 2.53518e-06, 0, -1, 0, 0, 0)
+
+[node name="head" parent="ufo/Alien/alien" index="0"]
+transform = Transform3D(0.993508, -0.0920664, -0.0668483, 0.0956239, 0.994053, 0.0521189, 0.0616524, -0.0581729, 0.9964, 0, 1.34375, -5.75928e-16)
+
+[node name="helmet" parent="ufo/Alien/alien/head" index="0"]
+visible = false
+
+[node name="OmniLight3D" parent="ufo/Alien/alien/head" index="1"]
+light_energy = 0.295
+
+[node name="arm_left" parent="ufo/Alien/alien" index="1"]
+transform = Transform3D(0.487942, 0.872875, -0.00174278, -0.871645, 0.487146, -0.0540789, -0.0463551, 0.0279064, 0.998536, 0.15625, 1.26563, 5.58794e-09)
+
+[node name="arm_right" parent="ufo/Alien/alien" index="3"]
+transform = Transform3D(-0.40558, 0.902028, -0.147815, -0.913387, -0.393748, 0.103375, 0.0350452, 0.176939, 0.983598, -0.15625, 1.26563, 9.31322e-10)
 
 [node name="ring_light" parent="ufo" index="4"]
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0)
 
 [node name="beam" parent="ufo" index="5"]
-transform = Transform3D(-0.992361, -0.0677928, -0.103081, -0.104384, 0.0159487, 0.994408, -0.0657698, 0.997572, -0.0229033, 7.45058e-09, -0.7, -7.45058e-09)
+transform = Transform3D(-0.99236, -0.0678017, -0.103081, -0.104384, 0.015948, 0.994408, -0.0657788, 0.997571, -0.0229036, -7.45058e-09, -0.7, -1.11759e-08)
 surface_material_override/0 = ExtResource("3_ju5pg")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="ufo" index="14"]
@@ -179,3 +196,5 @@ aabb = AABB(-1.4, -0.8, -1.4, 2.8, 1.6, 2.8)
 
 [connection signal="screen_entered" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered" flags=18]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited" flags=18]
+
+[editable path="ufo/Alien"]

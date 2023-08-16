@@ -38,10 +38,10 @@ do Lama.toggle_rescued(false)
 set fuel_level = 1
 set door_state = "idle"
 # environment
-do update_altitude(0.0,1.0)
-do update_planet_height(1.0,1.0)
-do update_planet_scale(0.0,1.0)
-do update_planet_distance(1.0,1.0)
+do update_altitude(0.0,0.0)
+do update_planet_height(1.0,0.0)
+do update_planet_scale(0.0,0.0)
+do update_planet_distance(1.0,0.0)
 # stars
 do set_stars_brightness(0.0)
 do move_star(1,0.0,0.0)
@@ -635,7 +635,7 @@ Sam: Awesome job, partner! Thanks for steering the ship so well! Look, it’s Pl
 set level = "landing"
 do update_planet_height(0.3,10.0)
 do update_planet_distance(0.0,6.0)
-do update_altitude(1.0,14.0)
+do update_altitude(0.0,14.0)
 [next=10]
 do update_planet_height(0.0,2.0)
 do update_planet_scale(0.0,1.0)
