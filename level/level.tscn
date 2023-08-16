@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://uk3s0fjb5pmh"]
+[gd_scene load_steps=48 format=3 uid="uid://uk3s0fjb5pmh"]
 
 [ext_resource type="Script" path="res://level/level.gd" id="1_58g46"]
 [ext_resource type="AnimationLibrary" uid="uid://cjkhuv5cn32yu" path="res://level/environment/environment_animations.tres" id="2_3s2c1"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://vxidh3w2f2yq" path="res://level/environment/stars.tscn" id="19_4v3co"]
 [ext_resource type="PackedScene" uid="uid://cq3x5n33r2d8c" path="res://characters/character/character.tscn" id="21_35viv"]
 [ext_resource type="Curve3D" uid="uid://h5hat0hxq5pn" path="res://characters/character/character_path.tres" id="22_lkuf6"]
+[ext_resource type="Shader" path="res://level/environment/materials/planet_material.gdshader" id="22_tcbgy"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8dnu5"]
 animation = &"RESET"
@@ -82,7 +83,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Environment:horizon_height")
+tracks/1/path = NodePath("Environment:altitude")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -392,6 +393,60 @@ height = 8.0
 offsets = PackedFloat32Array(0.0753968, 0.361111, 0.623016, 1)
 colors = PackedColorArray(0.466667, 0.584314, 0.796078, 1, 0.290196, 0.168627, 0.403922, 1, 0.164706, 0.172549, 0.301961, 1, 0.113725, 0.113725, 0.266667, 1)
 
+[sub_resource type="Curve" id="Curve_5lvc0"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_510cw"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kuh6x"]
+noise_type = 3
+frequency = 0.0055
+fractal_octaves = 9
+fractal_lacunarity = 2.592
+fractal_gain = 0.338
+fractal_weighted_strength = 1.0
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 51.022
+domain_warp_frequency = -0.008
+domain_warp_fractal_lacunarity = 2.973
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_e8406"]
+width = 1024
+height = 1024
+in_3d_space = true
+seamless = true
+seamless_blend_skirt = 0.582
+noise = SubResource("FastNoiseLite_kuh6x")
+
+[sub_resource type="Gradient" id="Gradient_md7p6"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.246212, 0.405303, 0.575758, 0.643939, 0.720779, 0.847403, 0.883117, 0.899351, 0.957792)
+colors = PackedColorArray(0.241235, 0.181639, 0.637774, 1, 0.265675, 0.328805, 0.670102, 1, 0.358184, 0.457245, 0.795857, 1, 0.55206, 0.609156, 0.918864, 1, 0.62316, 0.499455, 0.70292, 1, 0.624484, 0.462869, 0.723787, 1, 0.623842, 0.427904, 0.857562, 1, 0.661754, 0.516994, 0.900451, 1, 0.816009, 0.638485, 0.92737, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_astb8"]
+gradient = SubResource("Gradient_md7p6")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1u3eq"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("22_tcbgy")
+shader_parameter/specular = 0.5
+shader_parameter/specular_amount = 0.5
+shader_parameter/specular_smoothness = 0.05
+shader_parameter/wrap = 0.171
+shader_parameter/rim = 0.727
+shader_parameter/rim_amount = 0.651
+shader_parameter/rim_smoothness = 1.0
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 0.608
+shader_parameter/emission_energy = 0.302
+shader_parameter/albedo_texture = SubResource("NoiseTexture2D_e8406")
+shader_parameter/color_gradient = SubResource("GradientTexture1D_astb8")
+
 [node name="Level" type="Node"]
 script = ExtResource("1_58g46")
 
@@ -411,7 +466,7 @@ libraries = {
 script = ExtResource("2_gas8d")
 
 [node name="Character" parent="." instance=ExtResource("21_35viv")]
-transform = Transform3D(-0.990349, 1.04315e-05, -0.138532, 8.82202e-11, 1, 7.52993e-05, 0.138531, 7.45737e-05, -0.990353, -13.2931, 1.00015, -3.19279)
+transform = Transform3D(-0.990353, 1.04314e-05, -0.138531, -2.54657e-11, 1, 7.52993e-05, 0.138531, 7.45736e-05, -0.990353, -13.2931, 1.00015, -3.19279)
 
 [node name="Spaceship" parent="." instance=ExtResource("2_ovpdl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00968003, 0)
@@ -431,7 +486,7 @@ visible = false
 curve = ExtResource("22_lkuf6")
 
 [node name="RemoteTransform" parent="FollowPaths/CharacterPath" index="0"]
-transform = Transform3D(-0.990349, 1.04315e-05, -0.138532, 8.82202e-11, 1, 7.52993e-05, 0.138531, 7.45737e-05, -0.990353, -13.2931, 1.00015, -3.19279)
+transform = Transform3D(-0.990353, 1.04314e-05, -0.138531, -2.54657e-11, 1, 7.52993e-05, 0.138531, 7.45736e-05, -0.990353, -13.2931, 1.00015, -3.19279)
 remote_path = NodePath("../../../Character")
 
 [node name="PathFollow" parent="FollowPaths/CharacterPath" index="1"]
@@ -443,7 +498,7 @@ curve = ExtResource("5_8sic0")
 progress_ratio = 1.0
 
 [node name="RemoteTransform" parent="FollowPaths/AlienPath" index="0"]
-transform = Transform3D(-0.963975, 0.000852326, 0.265985, 2.27009e-09, 0.999995, -0.0032044, -0.265985, -0.00308897, -0.963974, 0.995202, 1.29361, -4.19556)
+transform = Transform3D(-0.963971, 0.000852324, 0.265985, 0, 0.999995, -0.00320439, -0.265985, -0.00308896, -0.963973, 0.995202, 1.29361, -4.19556)
 remote_path = NodePath("../../../Ground/PlanetStardust/Alien")
 update_scale = false
 
@@ -457,7 +512,7 @@ curve = ExtResource("6_4mufo")
 progress_ratio = 0.85
 
 [node name="RemoteTransform" parent="FollowPaths/LamaPath" index="0"]
-transform = Transform3D(-0.829456, 9.35152e-05, -0.558571, -2.874e-10, 1, 0.000167419, 0.558571, 0.000138867, -0.829457, -4.69336, 1.70155, -10.3192)
+transform = Transform3D(-0.829456, 9.35151e-05, -0.558572, -2.80124e-10, 1, 0.000167419, 0.558571, 0.000138867, -0.829457, -4.69336, 1.70155, -10.3192)
 remote_path = NodePath("../../../Ground/PlanetStardust/LamaLost")
 
 [node name="BeamTransform3D" type="RemoteTransform3D" parent="FollowPaths/LamaPath/RemoteTransform/Marker3D" index="0"]
@@ -474,7 +529,7 @@ curve = ExtResource("7_a8kou")
 progress_ratio = 0.85
 
 [node name="RemoteTransform" parent="FollowPaths/UfoPath" index="0"]
-transform = Transform3D(-0.813829, 0.107236, -0.571118, 1.86264e-08, 0.982823, 0.184539, 0.581097, 0.150184, -0.799852, -4.70804, 4.8628, -10.8321)
+transform = Transform3D(-0.813828, 0.107236, -0.571117, 4.24681e-07, 0.982823, 0.184539, 0.581098, 0.150184, -0.799851, -4.70804, 4.8628, -10.8321)
 remote_path = NodePath("../../../Ground/PlanetStardust/Ufo")
 
 [node name="PathFollow" parent="FollowPaths/UfoPath" index="1"]
@@ -490,7 +545,7 @@ pivot = -0.05
 tilt = 0.35
 
 [node name="RemoteTransform" parent="FollowPaths/PlayerPath" index="0"]
-transform = Transform3D(0.129965, 0.121242, -0.984076, -1.04308e-07, 0.992492, 0.12228, 0.991515, -0.015892, 0.12899, -3.55796, 2.53982, 0.881772)
+transform = Transform3D(0.129964, 0.121242, -0.984076, 7.07808e-08, 0.992492, 0.122279, 0.991523, -0.0158919, 0.128988, -3.55796, 2.53982, 0.881772)
 remote_path = NodePath("../../../PlayerCamera")
 use_global_coordinates = true
 
@@ -505,7 +560,7 @@ transform = Transform3D(0.987688, 0, 0.156434, 0, 1, 0, -0.156434, 0, 0.987688, 
 transform = Transform3D(1, 0, 0, 0, 0.992545, 0.121869, 0, -0.121869, 0.992545, 0, 0, 0)
 
 [node name="Ground" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.038, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -128, 0)
 
 [node name="Station" type="Node3D" parent="Ground"]
 
@@ -593,16 +648,22 @@ visible = false
 
 [node name="LamaLost" parent="Ground/PlanetStardust" instance=ExtResource("8_t1ik6")]
 unique_name_in_owner = true
-transform = Transform3D(-0.829456, 9.35152e-05, -0.558571, -2.874e-10, 1, 0.000167419, 0.558571, 0.000138867, -0.829457, -4.69336, 1.70155, -10.3192)
+transform = Transform3D(-0.829456, 9.35151e-05, -0.558572, -2.80124e-10, 1, 0.000167419, 0.558571, 0.000138867, -0.829457, -4.69336, 1.70155, -10.3192)
 
 [node name="lama" parent="Ground/PlanetStardust/LamaLost" index="2"]
 transform = Transform3D(-3.61999e-06, 0, -1, 0, 1, 0, 1, 0, -3.61999e-06, 0, 0.1875, -0.359375)
+
+[node name="neck" parent="Ground/PlanetStardust/LamaLost/lama" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0625, 0.375, 0.015625)
+
+[node name="head" parent="Ground/PlanetStardust/LamaLost/lama/neck" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00781253, 0.601564, -1.49012e-08)
 
 [node name="ear_right" parent="Ground/PlanetStardust/LamaLost/lama/neck/head" index="0"]
 transform = Transform3D(0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0, 1, 0.015625, 0.171875, -0.0703125)
 
 [node name="ear_left" parent="Ground/PlanetStardust/LamaLost/lama/neck/head" index="1"]
-transform = Transform3D(0.866024, -0.500004, 0, 0.500004, 0.866025, 1.22465e-16, 6.1233e-17, 1.06058e-16, -1, 0.015625, 0.171875, 0.0546875)
+transform = Transform3D(0.866024, -0.500004, 0, 0.500004, 0.866024, 1.22465e-16, 6.12329e-17, 1.06058e-16, -1, 0.015625, 0.171875, 0.0546875)
 
 [node name="leg_front_left" parent="Ground/PlanetStardust/LamaLost/lama" index="3"]
 transform = Transform3D(-1, 1.22465e-16, -2.53518e-06, 1.22465e-16, 1, 1.22465e-16, 2.53518e-06, 1.22465e-16, -1, 0.170001, 0.25, 0.11989)
@@ -614,16 +675,16 @@ transform = Transform3D(-1, 1.22465e-16, -2.53518e-06, 1.22465e-16, 1, 1.22465e-
 remote_path = NodePath("../../Ufo/BeamLookTarget")
 
 [node name="Ufo" parent="Ground/PlanetStardust" instance=ExtResource("16_8d17p")]
-transform = Transform3D(-0.813829, 0.107236, -0.571118, 1.86264e-08, 0.982823, 0.184539, 0.581097, 0.150184, -0.799852, -4.70804, 4.8628, -10.8321)
+transform = Transform3D(-0.813828, 0.107236, -0.571117, 4.24681e-07, 0.982823, 0.184539, 0.581098, 0.150184, -0.799851, -4.70804, 4.8628, -10.8321)
 
 [node name="BeamLookTarget" parent="Ground/PlanetStardust/Ufo" index="2"]
-transform = Transform3D(0.999628, 4.60481e-06, -0.027414, -0.00505897, 0.982858, -0.184306, 0.026943, 0.184376, 0.98249, 0.286101, -3.02836, -1.00201)
+transform = Transform3D(0.999628, 5.00722e-06, -0.0274145, -0.00505947, 0.982858, -0.184307, 0.0269435, 0.184376, 0.982491, 0.286099, -3.02836, -1.00201)
 
 [node name="ufo" parent="Ground/PlanetStardust/Ufo" index="4"]
 transform = Transform3D(0.986388, 0.115874, 0.116671, -0.116671, 0.993171, 0, -0.115874, -0.013612, 0.99317, 0, 0, 0)
 
 [node name="beam" parent="Ground/PlanetStardust/Ufo/ufo" index="5"]
-transform = Transform3D(0.82863, 0.556593, 0.0597486, -0.333685, 0.40542, 0.851047, 0.449464, -0.725145, 0.521671, 0, -0.7, 9.53674e-07)
+transform = Transform3D(0.82813, 0.557237, 0.0606668, -0.333992, 0.403627, 0.851778, 0.450156, -0.725651, 0.520369, 0, -0.699989, 0)
 
 [node name="speaker_right" parent="Ground/PlanetStardust/Ufo/ufo" index="15"]
 transform = Transform3D(0.906308, 0.335286, -0.257274, 0, 0.608762, 0.793353, 0.422618, -0.719023, 0.551725, 0.390625, 0.5, -0.96875)
@@ -632,12 +693,12 @@ transform = Transform3D(0.906308, 0.335286, -0.257274, 0, 0.608762, 0.793353, 0.
 transform = Transform3D(0.906308, -0.335286, 0.257273, 0, 0.608762, 0.793353, -0.422618, -0.719023, 0.551725, -0.390625, 0.5, -0.96875)
 
 [node name="Alien" parent="Ground/PlanetStardust" instance=ExtResource("8_bs0lj")]
-transform = Transform3D(-0.963946, 0.000852076, 0.265931, 2.27003e-09, 0.999701, -0.00320376, -0.265977, -0.00308806, -0.96378, 0.995202, 1.29361, -4.19556)
+transform = Transform3D(-0.963946, 0.000852073, 0.265932, 0, 0.999701, -0.00320375, -0.265978, -0.00308805, -0.96378, 0.995202, 1.29361, -4.19556)
 
 [node name="mountains" parent="Ground/PlanetStardust" instance=ExtResource("17_thg0y")]
 
 [node name="Planet" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.249969, 7.91624e-09, -0.00392246, 0.00200871, 0.214731, -0.12801, 0.00336909, -0.128026, -0.214704, 3.72275, 28.7924, -54.9282)
+transform = Transform3D(-0.249969, 8.3819e-09, -0.00392246, 0.00200871, 0.214731, -0.12801, 0.00336909, -0.128026, -0.214704, 3.72275, 28.7924, -54.9282)
 cast_shadow = 0
 mesh = SubResource("3833")
 skeleton = NodePath("")
@@ -657,21 +718,31 @@ directional_shadow_max_distance = 25.0
 
 [node name="Environment" parent="." instance=ExtResource("18_bvh68")]
 sky_gradient = SubResource("Gradient_l168m")
-horizon_height = 0.038
+altitude = 0.038
+planet_height = 0.0
+planet_height_curve = SubResource("Curve_5lvc0")
+planet_rotation_curve = SubResource("Curve_510cw")
 
 [node name="Ground" parent="Environment" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.038, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0152877, 0)
 
 [node name="RemoteTransform" parent="Environment/Ground" index="2"]
 remote_path = NodePath("../../../Ground")
 
+[node name="PlanetPivot" parent="Environment" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Planet" parent="Environment/PlanetPivot" index="0"]
+transform = Transform3D(-5.74879, 0.0537774, -0.10503, 0.0537863, 5.74975, 0, 0.105025, -0.000982464, -5.74904, 0, 0, -26.9474)
+surface_material_override/0 = SubResource("ShaderMaterial_1u3eq")
+
 [node name="Stars" parent="." instance=ExtResource("19_4v3co")]
-transform = Transform3D(0.853862, 0.519279, -0.0356162, -0.51218, 0.826063, -0.235142, -0.092683, 0.219021, 0.971308, 0, 0, 0)
+transform = Transform3D(0.853862, 0.519279, -0.0356162, -0.51218, 0.826063, -0.235142, -0.0926829, 0.219021, 0.971308, 0, 0, 0)
 visible = false
 
 [node name="PlayerCamera" type="Camera3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(0.129965, 0.121242, -0.984076, -1.04308e-07, 0.992492, 0.12228, 0.991515, -0.015892, 0.12899, -3.55796, 2.53982, 0.881772)
+transform = Transform3D(0.129964, 0.121242, -0.984076, 7.07808e-08, 0.992492, 0.122279, 0.991523, -0.0158919, 0.128988, -3.55796, 2.53982, 0.881772)
 fov = 65.5
 
 [editable path="FollowPaths/CharacterPath"]
