@@ -2,12 +2,12 @@ shader_type spatial;
 render_mode cull_front, shadows_disabled, diffuse_lambert_wrap;
 
 const float STEPS_FACTOR = 8.0;
-const float HORIZON_OFFSET = 0.05;
+const float HORIZON_OFFSET = 0.01;
 const vec2 NOISE_Z_OFFSET = vec2(0.317, 0.123);
 const vec3 UP = vec3(0.0,1.0,0.0);
 
 uniform sampler2D stars_texture : hint_default_black;
-uniform vec4 ground_color : source_color = vec4(1.0, 0.7, 0.55, 1.0);
+
 uniform vec4 horizon_color : source_color = vec4(1.0, 0.7, 0.55, 1.0);
 uniform vec4 fog_color : source_color = vec4(0.3, 0.0, 0.3, 1.0);
 uniform float fog_strength : hint_range(0.0,1.0) = 1.0;
@@ -105,7 +105,7 @@ void fragment() {
 	vec3 albedo = sky_color.rgb;	
 	albedo = mix(albedo,horizon_color.rgb,horizon_mask);
 	albedo = mix(albedo,fog_color.rgb,fog_mask);
-	albedo = mix(albedo,ground_color.rgb,ground_mask);
+	albedo = mix(albedo,fog_color.rgb,ground_mask);
 	
 	vec3 emission = vec3(0.0);
 	emission = mix(albedo * 0.5, albedo, 1.0 - ground_mask);

@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dn4hhy54yg5ai"]
+
+[ext_resource type="Shader" path="res://shaders/toon.gdshader" id="1_l1sqe"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_l1sqe")
+shader_parameter/albedo = Color(0.4, 0.733333, 0.521569, 1)
+shader_parameter/specular = 0.5
+shader_parameter/specular_amount = 0.5
+shader_parameter/specular_smoothness = 0.05
+shader_parameter/wrap = 0.25
+shader_parameter/rim = 0.0
+shader_parameter/rim_amount = 0.436
+shader_parameter/rim_smoothness = 0.619
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 1.0
+shader_parameter/emission_tint = Color(0, 0, 0, 1)
+shader_parameter/emission_energy = 1.0
