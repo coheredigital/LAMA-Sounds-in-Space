@@ -103,6 +103,7 @@ func set_stars_brightness(step: float, max: float) -> void:
 	stars_brightness_changed.emit(brightness)
 
 
+
 func overlay_state(state : String) -> void:
 	overlay_state_changed.emit(state)
 
@@ -126,6 +127,13 @@ func update_planet_scale(scale: float, duration: float = 1.0) -> void:
 
 func update_planet_distance(distance: float, duration: float = 1.0) -> void:
 	planet_distance_changed.emit(distance,duration)
+
+func update_planet_progress(step: float, max: float, duration: float = 1.0) -> void:
+	var progress = step / max
+	var distance = lerp(0.9,0.15,progress)
+	planet_distance_changed.emit(distance,duration)
+	var height = lerp(0.75,0.65,progress)
+	planet_height_changed.emit(height,duration)
 
 func update_planet_height(height: float, duration: float = 1.0) -> void:
 	planet_height_changed.emit(height,duration)

@@ -118,7 +118,6 @@ omni_range = 6.795
 omni_attenuation = 1.74111
 
 [node name="MeshGroup" type="Node3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="Particles" type="GPUParticles3D" parent="MeshGroup"]
 unique_name_in_owner = true

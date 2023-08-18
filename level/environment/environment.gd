@@ -48,7 +48,7 @@ var planet_scale := 0.0 :
 			
 @export var planet_scale_curve : Curve = preload("res://level/environment/curves/planet_scale_curve.tres")
 
-@export_range(0.0,1.0) var planet_distance := 0.0 : 
+@export_range(0.0,1.0, 0.01) var planet_distance := 0.0 : 
 	set(value):
 		planet_distance = clamp(value, 0.0,1.0)
 		self.planet_scale = 1.0 - planet_distance
@@ -61,7 +61,7 @@ var planet_scale := 0.0 :
 			
 @export var planet_distance_curve : Curve = preload("res://level/environment/curves/planet_distance_curve.tres")
 
-@export_range(0.0,1.0) var planet_height := 1.0 : 
+@export_range(0.0,1.0, 0.01) var planet_height := 1.0 : 
 	set(value):
 		planet_height = clamp(value, 0.0,1.0)
 #		use linear value adjusted by curve to get more natural result
@@ -74,12 +74,24 @@ var planet_scale := 0.0 :
 			planet.rotation_degrees.x = lerp(-90.0,30.0,planet_height_adjusted)
 @export var planet_height_curve : Curve = preload("res://level/environment/curves/planet_height_curve.tres")
 
+@export_range(0.0,1.0, 0.01) var stars_progress := 1.0 : 
+	set(value):
+		stars_progress = clamp(value, 0.0,1.0)
+#		use linear value adjusted by curve to get more natural result
+		if not stars_progress_curve:
+			return
+		var stars_progress_adjusted := stars_progress_curve.sample_baked(stars_progress)
+		if stars:
+			stars.rotation_degrees.x = lerp(90.0,30.0,stars_progress_adjusted)
+@export var stars_progress_curve : Curve = preload("res://level/environment/curves/stars_progress_curve.tres")
+
 @export_range(0.0, 4.0, 0.1) var stars_brightness := 0.0 : 
 	set(value):
 		stars_brightness = value
 		set_stars_brightness(value)
 @onready var sky_material : ShaderMaterial  = %Sky.get_active_material(0)
 @onready var ground := %Ground
+@onready var stars := %Stars
 @onready var planet := %Planet
 @onready var planet_pivot := %PlanetPivot
 @onready var world_light := %WorldLight

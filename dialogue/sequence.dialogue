@@ -420,10 +420,10 @@ System: ...
 ~ launch
 =>< snippets/focus_forward
 set level = "launch"
-do update_altitude(0.1,2.0)
+do update_altitude(0.2,2.0)
 [next=3.5]
 do update_altitude(1.0,10.0)
-do update_planet_scale(0.345,8.0)
+do update_planet_distance(0.9,8.0)
 do update_planet_height(0.753,10.0)
 
 ~ were_flying
@@ -460,7 +460,6 @@ System: Select stimuli order
 
 ~ task1_stimuli_trial
 # loop through stimuli
-
 while stimuli_set.size() > 0
 	do get_next_stimuli()
 	System:
@@ -478,7 +477,7 @@ while stimuli_set.size() > 0
 		set screen = "success"
 		do Recorder.stop()
 		do Recorder.save()
-		do move_star((12 - stimuli_set.size()) * 0.5, 0.7, 5.0)
+		do move_star(stimuli_set.size(), 1, 5.0)
 		do set_stars_brightness(12 - stimuli_set.size(), 12)
 		[next=4]
 	- Failure
@@ -607,6 +606,9 @@ while stimuli_set.size() > 0
 		set screen = "success"
 		do Recorder.stop()
 		do Recorder.save()
+#		make progress
+		do update_planet_progress(12 - stimuli_set.size(), 12, 3.0)
+		[next=4]
 	- Failure
 		set screen = "failure"
 		do Recorder.stop()
@@ -614,13 +616,14 @@ while stimuli_set.size() > 0
 		do stimuli_set.push_front(next_stimuli)
 	[next=1]
 
+
 ~ task2_warp
+# planet distance should be at 0.2 after success trial
+do update_planet_distance(0.15,1.0)
 set level = "launch"
 =>< snippets/focus_forward
 =>< snippets/prompt_green_button
-set level = "warp"
-do update_planet_scale(1.0,12.0)
-do update_planet_height(0.621,12.0)
+
 do update_planet_distance(0.5,12.0)
 [next=12.0]
 
