@@ -70,22 +70,6 @@ func _ready():
 	Sequencer.fuel_level_changed.connect(set_fuel_level)
 	Sequencer.seatbelts_buckled_changed.connect(set_seatbelts_buckled)
 
-
-#func _physics_process(_delta):
-	#	TODO: improve this
-#	if screen_state == "computer":
-#		Visualizer.channel = "Stimuli"
-#		Visualizer.max_db = -36.0
-#		Visualizer.min_db = -72.0
-#	elif screen_state == "playing":
-#		Visualizer.channel = "Stimuli"
-#		Visualizer.max_db = -32.0
-#		Visualizer.min_db = -64.0
-#	elif screen_state == "recording":
-#		Visualizer.channel = "Analyze"
-#		Visualizer.max_db = -16.0
-#		Visualizer.min_db = -80.0
-
 func set_steering_motion(value: float) -> void:
 	if animation_tree:
 		animation_tree.set("parameters/steering_speed/scale", lerp(0.0,1.0,value))
