@@ -5,6 +5,7 @@ signal level_changed(value: String)
 signal stars_brightness_changed(value: float)
 signal star_moved(star_number: int, progress: float)
 signal altitude_changed(value: float, duration: float)
+signal visible_planet_changed(value: String)
 signal planet_scale_changed(value: float, duration: float)
 signal planet_distance_changed(value: float, duration: float)
 signal planet_height_changed(value: float, duration: float)
@@ -24,11 +25,6 @@ signal fuel_level_changed(value: int)
 signal overlay_state_changed(state:String)
 
 signal stimuli_set_changed(stimuli_set:Array)
-
-var level: String = "intro":
-	set(value):
-		level = value
-		level_changed.emit(value)
 
 var character_position: float = 0.0:
 	set(value):
@@ -125,6 +121,9 @@ func update_altitude(height: float, duration: float = 1.0) -> void:
 func update_planet_scale(scale: float, duration: float = 1.0) -> void:
 	planet_scale_changed.emit(scale,duration)
 
+func set_visible_planet(value: String):
+	visible_planet_changed.emit(value)
+
 func update_planet_distance(distance: float, duration: float = 1.0) -> void:
 	planet_distance_changed.emit(distance,duration)
 
@@ -134,6 +133,8 @@ func update_planet_progress(step: float, max: float, duration: float = 1.0) -> v
 	planet_distance_changed.emit(distance,duration)
 	var height = lerp(0.75,0.65,progress)
 	planet_height_changed.emit(height,duration)
+
+
 
 func update_planet_height(height: float, duration: float = 1.0) -> void:
 	planet_height_changed.emit(height,duration)

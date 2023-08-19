@@ -419,7 +419,6 @@ System: ...
 
 ~ launch
 =>< snippets/focus_forward
-set level = "launch"
 do update_altitude(0.2,2.0)
 [next=3.5]
 do update_altitude(1.0,10.0)
@@ -434,9 +433,9 @@ Sam: We’re flying![next=5]
 ~ skip_to_warp
 System: Debug Selection.
 - Continue
-- Skip to task2_warp
+- Skip to Warp 'task2_stimuli'
 	do overlay_state("hidden")
-	=> task2_warp
+	=> task2_stimuli
 
 ~ task1_intro
 [next=4]
@@ -617,16 +616,6 @@ while stimuli_set.size() > 0
 	[next=1]
 
 
-~ task2_warp
-# planet distance should be at 0.2 after success trial
-do update_planet_distance(0.15,1.0)
-set level = "launch"
-=>< snippets/focus_forward
-=>< snippets/prompt_green_button
-
-do update_planet_distance(0.5,12.0)
-[next=12.0]
-
 
 ~ task2_success
 do Character.play_audio("task2_success")
@@ -635,7 +624,6 @@ Sam: Awesome job, partner! Thanks for steering the ship so well! Look, it’s Pl
 =>< snippets/focus_forward
 =>< snippets/prompt_green_button
 [next=1] 
-set level = "landing"
 do update_planet_height(0.3,10.0)
 do update_planet_distance(0.0,6.0)
 do update_altitude(0.0,14.0)
@@ -732,7 +720,6 @@ Sam: Press the Green button to blast off back home! [next=2]
 =>< snippets/prompt_green_button
 do overlay_state("loading")
 [next=3]
-set level = "intro"
 do Lama.toggle_rescued(true)
 do Player.tilt(0.5,0.0)
 do Player.move_to(0.2,0.0)

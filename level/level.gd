@@ -1,11 +1,5 @@
 extends Node
 
-var state: String = "intro":
-	set(value):
-		state = value
-		update_state(value)
-
-@onready var state_tree := %StateTree
 @onready var character_path := %CharacterPath
 @onready var player_path := %PlayerPath
 @onready var alien_path := %AlienPath
@@ -16,7 +10,7 @@ var state: String = "intro":
 
 func _ready():
 #	Global Sequencer
-	Sequencer.level_changed.connect(update_state)
+	Sequencer.visible_planet_changed.connect(set_visible_planet)
 	
 #	TODO: Simplify pattern
 #	Player
@@ -45,12 +39,16 @@ func _ready():
 	Ufo.pivot_changed.connect(update_ufo_pivot)
 	Ufo.tilt_changed.connect(update_ufo_tilt)	
 
-# Control the over "level" state (home, launch, warp, landing)
-func update_state(value: String) -> void: 
-	if state_tree:
-		var state_machine : AnimationNodeStateMachinePlayback = state_tree.get("parameters/playback")
-		state_machine.travel(value)
-
+		
+# controls which planet is visble when altitude is low (<0.25)
+func set_visible_planet(name: String) -> void:
+	if name == "stardust":
+		%PlanetStardust.visible = true
+		%Station.visible = false
+	else:
+		%Station.visible = true
+		%PlanetStardust.visible = false
+		
 # Generic Path update functions
 func update_path_position(path: Path3D, position: float, duration: float = 1.0) -> void: 
 	if path:

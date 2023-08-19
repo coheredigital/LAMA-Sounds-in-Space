@@ -46,6 +46,7 @@ ground_color = Color(0.623529, 0.721569, 0.596078, 1)
 fog_color = Color(0.466667, 0.584314, 0.796078, 1)
 fog_density_curve = SubResource("Curve_mrt1a")
 horizon_color = Color(0.894118, 0.654902, 0.741176, 1)
+altitude = 1.0
 planet_distance = 1.0
 planet_height = 0.65
 
@@ -60,7 +61,7 @@ metadata/_edit_lock_ = true
 
 [node name="Ground" type="Node3D" parent="."]
 unique_name_in_owner = true
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -128, 0)
 
 [node name="GroundFog" type="FogVolume" parent="Ground"]
 size = Vector3(128, 16, 128)
@@ -90,7 +91,7 @@ surface_material_override/0 = ExtResource("5_tse6n")
 [node name="WorldLight" type="DirectionalLight3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(-0.535923, 0.810399, 0.236727, -0.085635, -0.331126, 0.939693, 0.839913, 0.483331, 0.246857, 0, 128, 0)
-light_energy = 0.2
+light_energy = 0.01
 shadow_enabled = true
 shadow_bias = 0.005
 shadow_normal_bias = 3.891
@@ -102,77 +103,3 @@ directional_shadow_max_distance = 25.0
 [node name="Stars" parent="." instance=ExtResource("5_m4eb7")]
 unique_name_in_owner = true
 transform = Transform3D(0.858976, 0.51103, -0.031735, -0.456357, 0.736029, -0.5, -0.232157, 0.443971, 0.865444, 0, 0, 0)
-
-[node name="PathFollow3D" parent="Stars/Paths/StarPath3D1" index="0"]
-transform = Transform3D(0.76646, 0.131578, 0.628443, 0, 0.978646, -0.204898, -0.642065, 0.15707, 0.750199, -19.4514, -57.0789, -55.4323)
-
-[node name="PathFollow3D" parent="Stars/Paths/StarPath3D2" index="0"]
-transform = Transform3D(0.766482, 0.131581, 0.628465, 0, 0.978667, -0.204905, -0.642083, 0.157073, 0.750225, -19.4514, -57.0789, -55.4323)
-
-[node name="PathFollow3D" parent="Stars/Paths/StarPath3D3" index="0"]
-transform = Transform3D(0.766485, 0.131583, 0.628462, 0, 0.978685, -0.204904, -0.642086, 0.157076, 0.750222, -19.4514, -57.0789, -55.4323)
-
-[node name="PathFollow3D" parent="Stars/Paths/StarPath3D4" index="0"]
-transform = Transform3D(0.766492, 0.131583, 0.628465, 0, 0.978686, -0.204905, -0.642092, 0.157076, 0.750225, -19.4514, -57.0789, -55.4323)
-
-[node name="PathFollow3D" parent="Stars/Paths/StarPath3D5" index="0"]
-transform = Transform3D(0.766453, 0.131574, 0.628437, 0, 0.978621, -0.204896, -0.642059, 0.157066, 0.750192, -19.4514, -57.0789, -55.4323)
-
-[node name="PathFollow3D" parent="Stars/Paths/StarPath3D6" index="0"]
-transform = Transform3D(0.766474, 0.131579, 0.62845, 0, 0.978657, -0.2049, -0.642077, 0.157072, 0.750207, -19.4514, -57.0789, -55.4323)
-
-[node name="PathFollow3D" parent="Stars/Paths/StarPath3D7" index="0"]
-transform = Transform3D(0.766491, 0.131582, 0.628468, 0, 0.978674, -0.204906, -0.64209, 0.157074, 0.750229, -19.4514, -57.0789, -55.4323)
-
-[node name="PathFollow3D" parent="Stars/Paths/StarPath3D8" index="0"]
-transform = Transform3D(0.766488, 0.131584, 0.628463, 0, 0.97869, -0.204905, -0.642089, 0.157077, 0.750223, -19.4514, -57.0789, -55.4323)
-
-[node name="PathFollow3D" parent="Stars/Paths/StarPath3D9" index="0"]
-transform = Transform3D(0.76649, 0.131583, 0.628463, 0, 0.978685, -0.204905, -0.64209, 0.157076, 0.750223, -19.4514, -57.0789, -55.4323)
-
-[node name="PathFollow3D" parent="Stars/Paths/StarPath3D10" index="0"]
-transform = Transform3D(0.766453, 0.131574, 0.628437, 0, 0.978622, -0.204896, -0.642059, 0.157066, 0.750192, -19.4514, -57.0789, -55.4323)
-
-[node name="PathFollow3D" parent="Stars/Paths/StarPath3D11" index="0"]
-transform = Transform3D(0.766491, 0.131583, 0.628465, 0, 0.978688, -0.204905, -0.64209, 0.157077, 0.750225, -19.4514, -57.0789, -55.4323)
-
-[node name="PathFollow3D" parent="Stars/Paths/StarPath3D12" index="0"]
-transform = Transform3D(0.00652186, -0.402138, 0.915394, -0.323473, 0.865322, 0.382455, -0.946054, -0.298642, -0.124458, 6.96424, 3.03061, -0.483773)
-
-[node name="Star1" parent="Stars" index="1"]
-transform = Transform3D(0.460176, 0.721405, 0.517412, -0.0158747, 0.589383, -0.80765, -0.887604, 0.36347, 0.282696, -49.0153, -66.149, -61.8288)
-
-[node name="Star2" parent="Stars" index="2"]
-transform = Transform3D(0.460203, 0.721418, 0.517411, -0.0158751, 0.589392, -0.80765, -0.887657, 0.363476, 0.282695, -40.1989, -64.3098, -63.8006)
-
-[node name="Star3" parent="Stars" index="3"]
-transform = Transform3D(0.460198, 0.721422, 0.517415, -0.0158742, 0.589397, -0.807653, -0.887648, 0.363479, 0.282695, -35.5597, -60.77, -65.7548)
-
-[node name="Star4" parent="Stars" index="4"]
-transform = Transform3D(0.460203, 0.721427, 0.517422, -0.0158755, 0.5894, -0.807667, -0.887656, 0.363481, 0.282701, -29.7596, -59.3882, -67.1131)
-
-[node name="Star5" parent="Stars" index="5"]
-transform = Transform3D(0.460202, 0.721415, 0.517421, -0.0158744, 0.589391, -0.807663, -0.887656, 0.363475, 0.282699, -52.4475, -71.9434, -59.251)
-
-[node name="Star6" parent="Stars" index="6"]
-transform = Transform3D(0.460198, 0.721425, 0.51742, -0.0158746, 0.589399, -0.807661, -0.887648, 0.363479, 0.282698, -42.3342, -68.4584, -62.003)
-
-[node name="Star7" parent="Stars" index="7"]
-transform = Transform3D(0.460205, 0.721422, 0.517418, -0.0158748, 0.589396, -0.807659, -0.88766, 0.363478, 0.282698, -31.8016, -63.7218, -65.2636)
-
-[node name="Star8" parent="Stars" index="8"]
-transform = Transform3D(0.460203, 0.721426, 0.517416, -0.015875, 0.589399, -0.807657, -0.887657, 0.363481, 0.282697, -25.6576, -60.9589, -67.1656)
-
-[node name="Star9" parent="Stars" index="9"]
-transform = Transform3D(0.460199, 0.721425, 0.517421, -0.0158748, 0.589398, -0.807665, -0.887651, 0.363479, 0.2827, -44.8887, -73.8579, -59.6969)
-
-[node name="Star10" parent="Stars" index="10"]
-transform = Transform3D(0.460204, 0.721408, 0.517416, -0.0158753, 0.589385, -0.807656, -0.887658, 0.363471, 0.282697, -37.4478, -69.449, -62.3791)
-
-[node name="Star11" parent="Stars" index="11"]
-transform = Transform3D(0.460203, 0.721428, 0.517417, -0.0158756, 0.589401, -0.807659, -0.887656, 0.363481, 0.282699, -29.9676, -67.1479, -64.3159)
-
-[node name="Star12" parent="Stars" index="12"]
-transform = Transform3D(-0.384045, 0.146933, 0.911525, 0.233069, 0.970688, -0.058276, -0.893402, 0.19007, -0.407038, 20.9606, -4.40187, -25.5425)
-
-[editable path="Stars"]
