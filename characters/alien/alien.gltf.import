@@ -36,11 +36,11 @@ _subresources={
 },
 "material_1": {
 "use_external/enabled": true,
-"use_external/path": "res://characters/lama/materials/lama_alpha_material.tres"
+"use_external/path": "res://characters/lama/materials/lama_material.tres"
 },
 "material_2": {
 "use_external/enabled": true,
-"use_external/path": "res://characters/lama/materials/lama_material.tres"
+"use_external/path": "res://characters/lama/materials/lama_alpha_material.tres"
 }
 }
 }
