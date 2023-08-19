@@ -6,5 +6,5 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_t1ps7")
-shader_parameter/albedo = Color(0.584314, 0.584314, 0.584314, 1)
+shader_parameter/albedo = Color(0.615686, 0.615686, 0.615686, 1)
 shader_parameter/albedo_texture = ExtResource("2_7qe84")

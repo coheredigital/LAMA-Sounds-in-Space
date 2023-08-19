@@ -3,6 +3,7 @@
 [ext_resource type="Environment" uid="uid://e82nx1vn6g3m" path="res://level/environment/environment.tres" id="1_bwcs0"]
 [ext_resource type="Script" path="res://level/environment/environment.gd" id="2_bieme"]
 [ext_resource type="Material" uid="uid://b2vt57g8dosf0" path="res://level/environment/materials/sky_material.tres" id="3_8675s"]
+[ext_resource type="Material" uid="uid://ch4rsft0nrbhg" path="res://level/environment/materials/atmosphere_fog_material.tres" id="4_a20jw"]
 [ext_resource type="PackedScene" uid="uid://vxidh3w2f2yq" path="res://level/environment/stars.tscn" id="5_m4eb7"]
 [ext_resource type="Material" uid="uid://bjft6os8hrr36" path="res://level/environment/materials/planet_material.tres" id="5_tse6n"]
 
@@ -29,12 +30,6 @@ emission = Color(0.417038, 0.428295, 0.759765, 1)
 edge_fade = 0.857421
 density_texture = SubResource("NoiseTexture3D_oj66y")
 
-[sub_resource type="FogMaterial" id="FogMaterial_m0jcv"]
-density = 0.1
-albedo = Color(0.141176, 0.192157, 0.403922, 1)
-emission = Color(0.417038, 0.428295, 0.759765, 1)
-edge_fade = 0.951368
-
 [sub_resource type="SphereMesh" id="SphereMesh_oomka"]
 radius = 4.0
 height = 8.0
@@ -46,7 +41,7 @@ ground_color = Color(0.623529, 0.721569, 0.596078, 1)
 fog_color = Color(0.466667, 0.584314, 0.796078, 1)
 fog_density_curve = SubResource("Curve_mrt1a")
 horizon_color = Color(0.894118, 0.654902, 0.741176, 1)
-altitude = 1.0
+altitude = 0.891
 planet_distance = 1.0
 stars_height = 0.0
 
@@ -61,7 +56,7 @@ metadata/_edit_lock_ = true
 
 [node name="Ground" type="Node3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -128, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -77.6868, 0)
 
 [node name="GroundFog" type="FogVolume" parent="Ground"]
 size = Vector3(128, 16, 128)
@@ -70,9 +65,9 @@ material = SubResource("FogMaterial_2rfwg")
 
 [node name="Atmosphere" type="FogVolume" parent="Ground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 48, 0)
-size = Vector3(128, 48, 128)
+size = Vector3(200, 48, 128)
 shape = 0
-material = SubResource("FogMaterial_m0jcv")
+material = ExtResource("4_a20jw")
 
 [node name="RemoteTransform" type="RemoteTransform3D" parent="Ground"]
 

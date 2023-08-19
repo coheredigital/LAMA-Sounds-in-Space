@@ -1,7 +1,7 @@
 extends Node
 
 
-signal mission_progress_changed(value: float)
+signal journey_progress_changed(value: float)
 signal stars_brightness_changed(value: float)
 signal star_moved(star_number: int, progress: float)
 signal altitude_changed(value: float, duration: float)
@@ -35,12 +35,17 @@ var character_action: String = "idle":
 	set(value):
 		character_action = value
 		character_action_changed.emit(value)
-
-
-var mission_progress: float = 0.0:
+		
+var stars_brightness: float = 0.0:
 	set(value):
-		mission_progress = clamp(value,0.0,1.0)
-		mission_progress_changed.emit(value)
+		stars_brightness = clamp(value,0.0,1.0)
+		stars_brightness_changed.emit(stars_brightness)
+
+var journey_progress: float = 0.0:
+	set(value):
+		journey_progress = clamp(value,0.0,1.0)
+		journey_progress_changed.emit(value)
+		print("journey_progress_changed")
 		
 var player_position: float = 0.0
 var player_view: float = 0.0
@@ -96,13 +101,12 @@ func get_next_stimuli() -> String:
 	next_stimuli = stimuli_set.pop_front()
 	return next_stimuli if next_stimuli else ''
 
+
 func set_stars_brightness(step: float, max: float) -> void:
 	var brightness = step / max
 	brightness = float(brightness)
 	brightness = clamp(brightness,0.0,1.0)
 	stars_brightness_changed.emit(brightness)
-
-
 
 func overlay_state(state : String) -> void:
 	overlay_state_changed.emit(state)
@@ -119,29 +123,23 @@ func move_star(star_number: float, progress: float, duration: float = 1.0) -> vo
 	if star_number != 0:
 		star_moved.emit(star_number, progress, duration)
 
-func update_altitude(height: float, duration: float = 1.0) -> void:
+func set_altitude(height: float, duration: float = 1.0) -> void:
 	altitude_changed.emit(height,duration)
 
-func update_planet_scale(scale: float, duration: float = 1.0) -> void:
+func set_planet_scale(scale: float, duration: float = 1.0) -> void:
 	planet_scale_changed.emit(scale,duration)
 
 func set_visible_planet(value: String):
 	visible_planet_changed.emit(value)
 
-func update_planet_distance(distance: float, duration: float = 1.0) -> void:
+func set_planet_distance(distance: float, duration: float = 1.0) -> void:
 	planet_distance_changed.emit(distance,duration)
 
-func update_planet_progress(step: float, max: float, duration: float = 1.0) -> void:
+func set_planet_progress(step: float, max: float, duration: float = 1.0) -> void:
 	var progress = step / max
-	var distance = lerp(0.9,0.15,progress)
+	var distance = lerp(0.8,0.1,progress)
 	planet_distance_changed.emit(distance,duration)
-	var height = lerp(0.75,0.65,progress)
-	planet_height_changed.emit(height,duration)
 
-
-
-func update_planet_height(height: float, duration: float = 1.0) -> void:
-	planet_height_changed.emit(height,duration)
 
 func print_message(text: String) -> void:
 	print('Message: %s' % text)

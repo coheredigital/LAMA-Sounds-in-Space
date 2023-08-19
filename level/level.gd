@@ -9,16 +9,15 @@ extends Node
 @onready var lama_rescued := %LamaRescued
 @onready var lama_lost := %LamaLost
 @onready var spaceship := %Spaceship
+@onready var station := %Station
+@onready var planet_stardust := %PlanetStardust
 
 
-@export_range(0.0,1.0, 0.01) var journey_progress := 1.0 : 
-	set(value):
-		journey_progress = clamp(value, 0.0,1.0)
-		set_journey_progress(value)
+@export_range(0.0,1.0,0.01) var journey_progress : float = 0.0 : set = set_journey_progress
 
 func _ready():
 #	Global Sequencer
-	Sequencer.mission_progress_changed.connect(set_journey_progress)
+	Sequencer.journey_progress_changed.connect(set_journey_progress)
 	
 #	TODO: Simplify pattern
 #	Player
@@ -50,14 +49,19 @@ func _ready():
 		
 # Mission
 func set_journey_progress(value: float):
+	print("set_journey_progress: %s" % [value])
+	
 	if spaceship:
 		spaceship.progress_bar = value
-	if value > 0.5:
-		%PlanetStardust.visible = true
-		%Station.visible = false
+		
+	if not planet_stardust or not station:
+		return
+	if value > 0.5 :
+		planet_stardust.visible = true
+		station.visible = false
 	else:
-		%Station.visible = true
-		%PlanetStardust.visible = false
+		station.visible = true
+		planet_stardust.visible = false
 
 
 # Generic Path update functions

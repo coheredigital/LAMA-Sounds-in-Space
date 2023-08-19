@@ -1,0 +1,40 @@
+~ reset
+do overlay_state("logo")
+# Mission
+set journey_progress = 0.0
+# Character
+do Character.move_to(0)
+do Character.pivot(0)
+do Character.tilt(0)
+# Player
+do Player.move_to(0)
+do Player.pivot(0)
+do Player.tilt(0)
+# Alien
+do Alien.move_to(0)
+do Alien.pivot(0)
+do Alien.tilt(0)
+# Ufo
+do Ufo.move_to(0)
+do Ufo.pivot(0)
+do Ufo.tilt(0)
+do Ufo.deactivate_beam()
+# Lama
+do Lama.move_to(0)
+do Lama.pivot(0)
+do Lama.tilt(0)
+do Lama.toggle_rescued(false)
+# spaceship
+set fuel_level = 1
+set door_state = "idle"
+# environment
+do set_altitude(0.0,0.0)
+do set_planet_distance(1.0,0.0)
+# stars
+set stars_brightness = 0.0
+do move_star(1,0.0,0.0)
+do move_star(2,0.0,0.0)
+do move_star(3,0.0,0.0)
+do move_star(4,0.0,0.0)
+do move_star(5,0.0,0.0)
+=> END
