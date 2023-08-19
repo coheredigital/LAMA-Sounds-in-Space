@@ -84,6 +84,22 @@ var planet_scale := 0.0 :
 		if stars:
 			stars.rotation_degrees.x = lerp(90.0,30.0,stars_progress_adjusted)
 @export var stars_progress_curve : Curve = preload("res://level/environment/curves/stars_progress_curve.tres")
+@export_range(0.0,1.0, 0.01) var stars_angle := 1.0 : 
+	set(value):
+		stars_angle = clamp(value, 0.0,1.0)
+		if stars:
+			stars.rotation_degrees.x = lerp(90.0,0.0,stars_angle)
+@export_range(0.0,1.0, 0.01) var stars_height := 1.0 : 
+	set(value):
+		stars_height = clamp(value, -1.0,1.0)
+		if stars:
+			stars.position.y = stars_height * SKY_SIZE
+@export_range(-1.0,1.0,0.01) var stars_distance := 0.0 : 
+	set(value):
+		stars_distance = clamp(value, -1.0,1.0)
+		if stars:
+			stars.position.z = stars_distance * -SKY_SIZE
+
 
 @export_range(0.0, 4.0, 0.1) var stars_brightness := 0.0 : 
 	set(value):

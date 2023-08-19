@@ -7,7 +7,6 @@
 [node name="Stars" type="Node3D"]
 transform = Transform3D(0.853862, 0.519279, -0.0356162, -0.51218, 0.826062, -0.235142, -0.092683, 0.219021, 0.971308, 0, 0, 0)
 script = ExtResource("1_4po5l")
-star12_progress = 1.0
 
 [node name="Paths" type="Node3D" parent="."]
 unique_name_in_owner = true
@@ -30,7 +29,7 @@ transform = Transform3D(0.969213, 0.244397, -0.0299951, -0.24603, 0.96613, -0.07
 curve = ExtResource("2_7h3xx")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Paths/StarPath3D2"]
-transform = Transform3D(0.987466, -0.0422913, -0.151288, 1.86243e-09, 0.962969, -0.269195, 0.157086, 0.265849, 0.951019, -22.4046, -36.8055, 3.40631)
+transform = Transform3D(0.987466, -0.0422913, -0.151288, 1.86243e-09, 0.962969, -0.269194, 0.157086, 0.265849, 0.951019, -22.4046, -36.8055, 3.40631)
 loop = false
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="Paths/StarPath3D2/PathFollow3D"]
@@ -42,7 +41,7 @@ transform = Transform3D(0.969211, -0.24603, 0.00994566, 0.244396, 0.96613, 0.082
 curve = ExtResource("2_7h3xx")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Paths/StarPath3D3"]
-transform = Transform3D(0.98747, -0.042292, -0.151287, 1.86243e-09, 0.962987, -0.269193, 0.157086, 0.265854, 0.951015, -22.4046, -36.8055, 3.40631)
+transform = Transform3D(0.98747, -0.042292, -0.151287, 1.86243e-09, 0.962987, -0.269193, 0.157087, 0.265854, 0.951015, -22.4046, -36.8055, 3.40631)
 loop = false
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="Paths/StarPath3D3/PathFollow3D"]
@@ -66,7 +65,7 @@ transform = Transform3D(0.878943, 0.470505, -0.0779945, -0.476925, 0.866824, -0.
 curve = ExtResource("2_7h3xx")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Paths/StarPath3D5"]
-transform = Transform3D(0.987428, -0.0422893, -0.151281, 1.86236e-09, 0.962924, -0.269183, 0.15708, 0.265837, 0.950978, -22.4046, -36.8055, 3.40631)
+transform = Transform3D(0.987428, -0.0422893, -0.151281, 1.86235e-09, 0.962924, -0.269183, 0.15708, 0.265837, 0.950978, -22.4046, -36.8055, 3.40631)
 loop = false
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="Paths/StarPath3D5/PathFollow3D"]
@@ -127,7 +126,7 @@ transform = Transform3D(0.878945, 0.470506, -0.0779946, -0.476926, 0.866824, -0.
 curve = ExtResource("2_7h3xx")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Paths/StarPath3D10"]
-transform = Transform3D(0.987428, -0.0422893, -0.151281, 1.86236e-09, 0.962925, -0.269183, 0.15708, 0.265837, 0.950978, -22.4046, -36.8055, 3.40631)
+transform = Transform3D(0.987428, -0.0422893, -0.151281, 1.86235e-09, 0.962925, -0.269183, 0.15708, 0.265837, 0.950978, -22.4046, -36.8055, 3.40631)
 loop = false
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="Paths/StarPath3D10/PathFollow3D"]
@@ -151,8 +150,7 @@ transform = Transform3D(0.969212, 0.244397, -0.029995, -0.24603, 0.96613, -0.077
 curve = ExtResource("2_7h3xx")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Paths/StarPath3D12"]
-transform = Transform3D(-0.275636, -0.458074, 0.844923, -0.010067, 0.880301, 0.473981, -0.961051, 0.122158, -0.247294, -7.45058e-09, -7.45058e-09, 3.72529e-09)
-progress = 128.875
+transform = Transform3D(0.987432, -0.0422894, -0.151282, 1.86236e-09, 0.962926, -0.269183, 0.15708, 0.265838, 0.950979, -22.4046, -36.8055, 3.40631)
 loop = false
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="Paths/StarPath3D12/PathFollow3D"]
@@ -160,59 +158,59 @@ remote_path = NodePath("../../../../Star12")
 update_scale = false
 
 [node name="Star1" parent="." instance=ExtResource("2_hsnls")]
-transform = Transform3D(0.916264, 0.400294, 0.00945775, -0.367986, 0.851192, -0.374116, -0.157808, 0.339329, 0.927295, -27.4213, -44.2617, -4.75701)
+transform = Transform3D(0.916264, 0.400294, 0.00945739, -0.367985, 0.851192, -0.374115, -0.157808, 0.339329, 0.927295, -27.4213, -44.2617, -4.75698)
 color = Color(0.894118, 0.215686, 0.388235, 1)
 
 [node name="Star2" parent="." instance=ExtResource("2_hsnls")]
-transform = Transform3D(0.609551, 0.772271, -0.178867, -0.776862, 0.537013, -0.328721, -0.157818, 0.339334, 0.92729, -36.2201, -31.3338, -15.028)
+transform = Transform3D(0.609551, 0.77227, -0.178867, -0.776862, 0.537014, -0.328721, -0.157817, 0.339335, 0.92729, -36.2202, -31.3339, -15.028)
 color = Color(0.917647, 0.835294, 0.203922, 1)
 rotation_speed = 0.341
 
 [node name="Star3" parent="." instance=ExtResource("2_hsnls")]
-transform = Transform3D(0.916309, 0.400303, 0.0094577, -0.368003, 0.851212, -0.374117, -0.157816, 0.339337, 0.927299, -13.9657, -38.8826, -8.68296)
+transform = Transform3D(0.916309, 0.400303, 0.00945711, -0.368003, 0.851212, -0.374117, -0.157815, 0.339338, 0.927299, -13.9657, -38.8827, -8.68292)
 color = Color(0, 0.976471, 0.211765, 1)
 rotation_speed = 0.366
 
 [node name="Star4" parent="." instance=ExtResource("2_hsnls")]
-transform = Transform3D(0.789847, 0.606977, -0.0876942, -0.592628, 0.718605, -0.363823, -0.157818, 0.339339, 0.927313, -17.6165, -33.5715, -15.9473)
+transform = Transform3D(0.789848, 0.606976, -0.0876952, -0.592627, 0.718605, -0.363823, -0.157817, 0.33934, 0.927313, -17.6165, -33.5715, -15.9472)
 color = Color(0.215686, 0.592157, 0.792157, 1)
 rotation_speed = 0.37
 
 [node name="Star5" parent="." instance=ExtResource("2_hsnls")]
-transform = Transform3D(0.387714, 0.884946, -0.257856, -0.908154, 0.318838, -0.271231, -0.157817, 0.339334, 0.927309, -54.7902, -29.0662, -9.19623)
+transform = Transform3D(0.387715, 0.884946, -0.257857, -0.908154, 0.318838, -0.271231, -0.157817, 0.339335, 0.927309, -54.7903, -29.0663, -9.1962)
 color = Color(0.572549, 0.419608, 1, 1)
 rotation_speed = 0.285
 
 [node name="Star6" parent="." instance=ExtResource("2_hsnls")]
-transform = Transform3D(0.38771, 0.884959, -0.257855, -0.908145, 0.318842, -0.27123, -0.157816, 0.339338, 0.927307, -44.3062, -26.4572, -15.8334)
+transform = Transform3D(0.38771, 0.884959, -0.257856, -0.908145, 0.318842, -0.27123, -0.157815, 0.339339, 0.927307, -44.3063, -26.4572, -15.8334)
 color = Color(0.529412, 1, 0.533333, 1)
 
 [node name="Star7" parent="." instance=ExtResource("2_hsnls")]
-transform = Transform3D(0.139457, 0.93732, -0.319269, -0.977561, 0.0789333, -0.195251, -0.157818, 0.339337, 0.927305, -37.4759, -10.5686, -17.8438)
+transform = Transform3D(0.139456, 0.93732, -0.319269, -0.977561, 0.0789329, -0.19525, -0.157818, 0.339337, 0.927305, -37.4759, -10.5686, -17.8438)
 color = Color(0.956863, 0.34902, 0.470588, 1)
 rotation_speed = 0.341
 
 [node name="Star8" parent="." instance=ExtResource("2_hsnls")]
-transform = Transform3D(0.789848, 0.606977, -0.0876935, -0.592628, 0.718606, -0.363819, -0.157818, 0.33934, 0.927301, -13.5145, -35.1422, -15.9997)
+transform = Transform3D(0.789848, 0.606977, -0.087694, -0.592628, 0.718606, -0.363819, -0.157817, 0.33934, 0.927301, -13.5145, -35.1422, -15.9996)
 color = Color(0, 0.976471, 0.211765, 1)
 rotation_speed = 0.366
 
 [node name="Star9" parent="." instance=ExtResource("2_hsnls")]
-transform = Transform3D(0.609546, 0.772281, -0.178871, -0.776857, 0.53702, -0.328728, -0.157816, 0.339338, 0.927311, -41.2807, -40.0059, -7.03912)
+transform = Transform3D(0.609547, 0.77228, -0.178871, -0.776856, 0.537021, -0.328728, -0.157816, 0.339339, 0.927311, -41.2807, -40.006, -7.03908)
 color = Color(0.215686, 0.592157, 0.792157, 1)
 rotation_speed = 0.37
 
 [node name="Star10" parent="." instance=ExtResource("2_hsnls")]
-transform = Transform3D(0.387715, 0.884938, -0.257853, -0.908156, 0.318834, -0.271228, -0.157818, 0.339331, 0.927297, -39.4198, -27.4479, -16.2096)
+transform = Transform3D(0.387715, 0.884937, -0.257854, -0.908156, 0.318834, -0.271228, -0.157818, 0.339332, 0.927297, -39.4199, -27.4479, -16.2096)
 color = Color(0.572549, 0.419608, 1, 1)
 rotation_speed = 0.285
 
 [node name="Star11" parent="." instance=ExtResource("2_hsnls")]
-transform = Transform3D(0.609551, 0.772285, -0.178869, -0.776862, 0.537023, -0.328726, -0.157818, 0.33934, 0.927305, -26.3596, -33.2959, -11.6582)
+transform = Transform3D(0.609551, 0.772284, -0.17887, -0.776862, 0.537024, -0.328726, -0.157817, 0.339341, 0.927305, -26.3596, -33.296, -11.6582)
 color = Color(0.215686, 0.592157, 0.792157, 1)
 rotation_speed = 0.37
 
 [node name="Star12" parent="." instance=ExtResource("2_hsnls")]
-transform = Transform3D(-0.298271, 0.440011, 0.846982, 0.478555, 0.83672, -0.266159, -0.825831, 0.325943, -0.460145, 14.343, -7.28938, -27.1835)
+transform = Transform3D(0.609551, 0.772275, -0.17887, -0.776861, 0.537017, -0.328726, -0.157817, 0.339337, 0.927304, -18.8205, -33.0613, -16.9752)
 color = Color(0.572549, 0.419608, 1, 1)
 rotation_speed = 0.285

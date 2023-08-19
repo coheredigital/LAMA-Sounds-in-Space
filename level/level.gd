@@ -1,3 +1,4 @@
+@tool
 extends Node
 
 @onready var character_path := %CharacterPath
@@ -7,6 +8,11 @@ extends Node
 @onready var lama_path := %LamaPath
 @onready var lama_rescued := %LamaRescued
 @onready var lama_lost := %LamaLost
+
+@export_enum("home","stardust") var visible_planet: String :
+	set(value):
+		visible_planet = value
+		set_visible_planet(visible_planet)
 
 func _ready():
 #	Global Sequencer
@@ -41,8 +47,8 @@ func _ready():
 
 		
 # controls which planet is visble when altitude is low (<0.25)
-func set_visible_planet(name: String) -> void:
-	if name == "stardust":
+func set_visible_planet(value: String) -> void:
+	if value == "stardust":
 		%PlanetStardust.visible = true
 		%Station.visible = false
 	else:
