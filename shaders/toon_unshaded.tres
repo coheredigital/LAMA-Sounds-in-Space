@@ -1,0 +1,17 @@
+[gd_resource type="Shader" format=3 uid="uid://baxscgs42kdic"]
+
+[resource]
+code = "shader_type spatial;
+render_mode cull_disabled, specular_disabled, ambient_light_disabled, unshaded;
+
+
+uniform vec4 albedo : source_color = vec4(1.0);
+uniform sampler2D albedo_texture : source_color, filter_nearest;
+
+void fragment() {
+	ALBEDO = albedo.rgb * COLOR.rgb * texture(albedo_texture, UV).rgb;
+	float alpha = texture(albedo_texture, UV).a;
+	ALPHA = alpha;
+	ALPHA_SCISSOR_THRESHOLD = 0.1;
+}
+"

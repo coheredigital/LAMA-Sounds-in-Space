@@ -43,6 +43,12 @@ extends Node3D
 		light_level = value
 		set_light_level(value)
 
+@export_range(0.0,1.0,0.1) var progress_bar := 0.0 : 
+	set(value):
+		progress_bar = value
+		set_progress_bar(value)
+
+
 var fuel_level := 1: 
 	set(value):
 		fuel_level = value
@@ -52,8 +58,10 @@ var fuel_level := 1:
 @onready var seatbelt_indicator := %seatbelt_indicator_left
 @onready var seatbelt_indicator_material : ShaderMaterial = %seatbelt_indicator_left.get_active_material(0)
 @onready var light := %Light 
+@onready var progress_indicator := %ProgressPathFollow
 
 func _ready():
+	Sequencer.mission_progress_changed.connect(set_progress_bar)
 	Sequencer.screen_changed.connect(update_screen)
 	Sequencer.door_state_changed.connect(set_door_state)
 	Sequencer.steering_motion_changed.connect(set_steering_motion)
@@ -117,10 +125,17 @@ func set_seatbelts_buckled(value: bool) -> void:
 	if seatbelt_indicator_material:
 		seatbelt_indicator_material.set_shader_parameter("frame_number", 2 if value else 1)
 
-func update_screen(value: String)-> void:
-		
-	if animation_tree:
+func set_progress_bar(value: float, duration: float = 1.0) -> void:
 
+	
+	if progress_indicator:
+		var tween = create_tween()
+		tween.tween_property(progress_indicator, "progress_ratio", value, duration).set_trans(Tween.TRANS_SINE)
+#		progress_indicator.position.x = 
+
+
+func update_screen(value: String)-> void:
+	if animation_tree:
 		var state_machine : AnimationNodeStateMachinePlayback = animation_tree.get("parameters/screen_state/playback")
 		state_machine.travel(value)
 

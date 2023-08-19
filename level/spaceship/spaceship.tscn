@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://wa41njrapfpn"]
+[gd_scene load_steps=42 format=3 uid="uid://wa41njrapfpn"]
 
 [ext_resource type="PackedScene" uid="uid://ctjlmbopaw2sa" path="res://level/spaceship/models/spaceship.gltf" id="1_m17hk"]
 [ext_resource type="Script" path="res://level/spaceship/spaceship.gd" id="2_tplkk"]
@@ -14,6 +14,7 @@
 [ext_resource type="Material" uid="uid://dorgvk7napmkt" path="res://level/spaceship/materials/seatbelt_indicator_material.tres" id="11_qd2cb"]
 [ext_resource type="AudioStream" uid="uid://bbeqr4gkafvpx" path="res://audio/effects/blip_01.wav" id="13_4lkru"]
 [ext_resource type="AudioStream" uid="uid://4ng47kkkmp81" path="res://audio/effects/door_open.wav" id="14_5elkx"]
+[ext_resource type="Material" uid="uid://c3g6ab7tvqcpc" path="res://level/spaceship/materials/progress_bar_material.tres" id="15_ljimn"]
 [ext_resource type="AudioStream" uid="uid://bxtrgdejvlare" path="res://audio/effects/door_unlock.wav" id="15_tjywe"]
 [ext_resource type="AudioStream" uid="uid://du7rkjnj0nl4h" path="res://audio/effects/wahwah_02.wav" id="16_i0nua"]
 [ext_resource type="Shader" path="res://shaders/toon.gdshader" id="16_v4d5b"]
@@ -554,6 +555,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ru32i")
 
+[sub_resource type="Curve3D" id="Curve3D_o4hrm"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0238j"]
 render_priority = 4
 shader = ExtResource("16_v4d5b")
@@ -576,6 +584,10 @@ shader_parameter/emission_texture = ExtResource("18_nolgf")
 script = ExtResource("2_tplkk")
 screen_state = "computer"
 door_state = "ready"
+steering_motion = 0.1
+flying_motion = 0.2
+light_level = 0.613
+progress_bar = 0.2
 
 [node name="Computer" parent="." index="0" instance=ExtResource("3_gtlrx")]
 transform = Transform3D(-1, 0, 8.74228e-08, -8.88178e-16, 1, 0, -8.74228e-08, 0, -1, 0, 0.663, 2.5)
@@ -587,9 +599,9 @@ anim_player = NodePath("AnimationPlayer")
 active = true
 parameters/blend_screen/add_amount = 1.0
 parameters/flying_blend/add_amount = 0.0
-parameters/flying_speed/scale = 0.0
-parameters/steering_blend/add_amount = 0.2
-parameters/steering_speed/scale = 0.0
+parameters/flying_speed/scale = 0.2
+parameters/steering_blend/add_amount = 0.28
+parameters/steering_speed/scale = 0.1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimationTree" index="0"]
 root_node = NodePath("../..")
@@ -638,10 +650,10 @@ volume_db = -5.228
 stream = ExtResource("13_4lkru")
 
 [node name="controls" parent="spaceship/cockpit" index="1"]
-transform = Transform3D(0.990622, -0.13259, -0.0329651, 0.136306, 0.942572, 0.304923, -0.0093579, -0.306557, 0.951806, 0.688043, 0.511933, -1.92573)
+transform = Transform3D(0.990622, -0.13259, -0.0329651, 0.136306, 0.942572, 0.304923, -0.00935789, -0.306557, 0.951806, 0.688043, 0.511933, -1.92573)
 
 [node name="controls_left" parent="spaceship/cockpit" index="2"]
-transform = Transform3D(0.999689, 0.0131664, 0.0211798, -0.0138713, 0.999343, 0.0334874, -0.020725, -0.0337708, 0.999214, -0.6875, 0.400625, -2.07488)
+transform = Transform3D(0.998792, -0.0489371, -0.00423883, 0.0490737, 0.997881, 0.0427134, 0.00213959, -0.0428699, 0.999077, -0.6875, 0.400625, -2.07488)
 
 [node name="Siren" parent="spaceship/cockpit" index="3" instance=ExtResource("18_e0bdp")]
 unique_name_in_owner = true
@@ -650,6 +662,27 @@ active = false
 
 [node name="seat_left" parent="spaceship/cockpit" index="4"]
 transform = Transform3D(-0.0290878, 0, 0.999577, 0, 1, 0, -0.999577, 0, -0.0290878, -1.17188, 0.046875, -0.75)
+
+[node name="progress_bar" parent="spaceship/cockpit" index="6"]
+material_override = ExtResource("15_ljimn")
+
+[node name="indicator" parent="spaceship/cockpit/progress_bar" index="0"]
+transform = Transform3D(0.995948, 0, 0, 0, 0.916666, 0, 0, 0, 0.91933, -0.602445, 0.359037, 0)
+surface_material_override/0 = ExtResource("15_ljimn")
+
+[node name="ProgressPath" type="Path3D" parent="spaceship/cockpit/progress_bar" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.359037, 0)
+curve = SubResource("Curve3D_o4hrm")
+
+[node name="ProgressPathFollow" type="PathFollow3D" parent="spaceship/cockpit/progress_bar/ProgressPath" index="0"]
+unique_name_in_owner = true
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.602445, 0, 0)
+progress = 0.4
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="spaceship/cockpit/progress_bar/ProgressPath/ProgressPathFollow" index="0"]
+remote_path = NodePath("../../../indicator")
+update_rotation = false
+update_scale = false
 
 [node name="door" parent="spaceship" index="3"]
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, -0.01, 0, 0)
@@ -679,7 +712,7 @@ material_override = SubResource("ShaderMaterial_0238j")
 unique_name_in_owner = true
 transform = Transform3D(0.999718, 0.0139388, -0.0192017, -0.0132201, 0.999225, 0.0370623, 0.0197034, -0.036798, 0.999128, 0.42955, 1.75121, 0.0486488)
 light_color = Color(0.352941, 0.368627, 0.521569, 1)
-light_energy = 0.01
+light_energy = 0.18777
 light_indirect_energy = 0.0
 omni_range = 6.0
 omni_attenuation = 0.203064

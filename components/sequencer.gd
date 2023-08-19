@@ -1,7 +1,7 @@
 extends Node
 
 
-signal level_changed(value: String)
+signal mission_progress_changed(value: float)
 signal stars_brightness_changed(value: float)
 signal star_moved(star_number: int, progress: float)
 signal altitude_changed(value: float, duration: float)
@@ -37,7 +37,11 @@ var character_action: String = "idle":
 		character_action_changed.emit(value)
 
 
-
+var mission_progress: float = 0.0:
+	set(value):
+		mission_progress = clamp(value,0.0,1.0)
+		mission_progress_changed.emit(value)
+		
 var player_position: float = 0.0
 var player_view: float = 0.0
 		

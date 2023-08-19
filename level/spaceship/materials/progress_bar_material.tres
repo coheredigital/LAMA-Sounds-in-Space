@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://c3g6ab7tvqcpc"]
+
+[ext_resource type="Shader" uid="uid://baxscgs42kdic" path="res://shaders/toon_unshaded.tres" id="1_t1ps7"]
+[ext_resource type="Texture2D" uid="uid://c8hu4x1mk70pm" path="res://level/spaceship/materials/cockpit_albedo.png" id="2_7qe84"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_t1ps7")
+shader_parameter/albedo = Color(0.584314, 0.584314, 0.584314, 1)
+shader_parameter/albedo_texture = ExtResource("2_7qe84")

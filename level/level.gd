@@ -48,6 +48,9 @@ func _ready():
 		
 # controls which planet is visble when altitude is low (<0.25)
 func set_visible_planet(value: String) -> void:
+	if not %PlanetStardust or not %Station:
+		return
+	
 	if value == "stardust":
 		%PlanetStardust.visible = true
 		%Station.visible = false
