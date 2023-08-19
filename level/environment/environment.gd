@@ -5,7 +5,7 @@ const SKY_SIZE = 128.0
 const FOG_DENSITY_FACTOR = 0.25
 const WORLD_LIGHT_MAX = 0.2
 const WORLD_LIGHT_MIN = 0.01
-
+const PLANET_DISTANCE_MIN := 0.23
 
 
 @export var sky_gradient : Gradient = preload("res://level/environment/gradients/sky_color_gradient.tres")
@@ -48,7 +48,7 @@ var planet_scale := 0.0 :
 			
 @export var planet_scale_curve : Curve = preload("res://level/environment/curves/planet_scale_curve.tres")
 
-@export_range(0.0,1.0, 0.01) var planet_distance := 0.0 : 
+@export_range(0.0,1.0) var planet_distance := 0.0 : 
 	set(value):
 		planet_distance = clamp(value, 0.0,1.0)
 		self.planet_scale = 1.0 - planet_distance
@@ -56,22 +56,23 @@ var planet_scale := 0.0 :
 		if not planet_distance_curve:
 			return
 		var planet_distance_adjusted := planet_distance_curve.sample_baked(planet_distance)
+		if planet_height_curve:
+			var planet_height := planet_height_curve.sample_baked(planet_distance)
+			self.planet_height = planet_height
 		if planet:
 			planet.position.z = -(SKY_SIZE * 0.5) * planet_distance_adjusted
 			
 @export var planet_distance_curve : Curve = preload("res://level/environment/curves/planet_distance_curve.tres")
 
-@export_range(0.0,1.0, 0.01) var planet_height := 1.0 : 
+var planet_height := 1.0 : 
 	set(value):
 		planet_height = clamp(value, 0.0,1.0)
 #		use linear value adjusted by curve to get more natural result
-		if not planet_height_curve:
-			return
-		var planet_height_adjusted := planet_height_curve.sample_baked(planet_height)
 		if planet_pivot:
-			planet_pivot.rotation_degrees.x = lerp(-90.0,30.0,planet_height_adjusted)
+			planet_pivot.rotation_degrees.x = lerp(-90.0,30.0,planet_height)
 		if planet:
-			planet.rotation_degrees.x = lerp(-90.0,30.0,planet_height_adjusted)
+			planet.rotation_degrees.x = lerp(-90.0,30.0,planet_height)
+			
 @export var planet_height_curve : Curve = preload("res://level/environment/curves/planet_height_curve.tres")
 
 @export_range(0.0,1.0, 0.01) var stars_progress := 1.0 : 

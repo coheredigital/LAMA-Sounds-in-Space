@@ -61,7 +61,6 @@ var fuel_level := 1:
 @onready var progress_indicator := %ProgressPathFollow
 
 func _ready():
-	Sequencer.mission_progress_changed.connect(set_progress_bar)
 	Sequencer.screen_changed.connect(update_screen)
 	Sequencer.door_state_changed.connect(set_door_state)
 	Sequencer.steering_motion_changed.connect(set_steering_motion)
@@ -82,7 +81,7 @@ func set_flying_motion(value: float) -> void:
 		animation_tree.set("parameters/flying_blend/add_amount", smoothstep(0.2,1.0,value))
 
 
-func set_light_level(value: float) -> void:
+func set_light_level(value: float, duration: float = 1.0) -> void:
 	if not light:
 		return
 		
@@ -90,7 +89,7 @@ func set_light_level(value: float) -> void:
 	if not tween:
 		return
 		
-	tween.tween_property(light, "light_energy", lerp(0.01,0.3,value), 1.0 ).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(light, "light_energy", lerp(0.01,0.3,value), duration ).set_trans(Tween.TRANS_SINE)
 
 func set_fuel_level(value: float) -> void:
 	RenderingServer.global_shader_parameter_set("fuel_level", value)
@@ -110,8 +109,6 @@ func set_seatbelts_buckled(value: bool) -> void:
 		seatbelt_indicator_material.set_shader_parameter("frame_number", 2 if value else 1)
 
 func set_progress_bar(value: float, duration: float = 1.0) -> void:
-
-	
 	if progress_indicator:
 		var tween = create_tween()
 		tween.tween_property(progress_indicator, "progress_ratio", value, duration).set_trans(Tween.TRANS_SINE)

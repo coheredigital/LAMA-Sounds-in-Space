@@ -652,7 +652,7 @@ stream = ExtResource("13_4lkru")
 transform = Transform3D(0.990622, -0.13259, -0.0329651, 0.136306, 0.942572, 0.304923, -0.00935789, -0.306557, 0.951806, 0.688043, 0.511933, -1.92573)
 
 [node name="controls_left" parent="spaceship/cockpit" index="2"]
-transform = Transform3D(0.998856, -0.0475995, -0.00457964, 0.0477515, 0.997953, 0.0425284, 0.00254594, -0.0426985, 0.999084, -0.6875, 0.400625, -2.07488)
+transform = Transform3D(0.999655, 0.0241804, 0.010212, -0.0245829, 0.998843, 0.0413266, -0.00920087, -0.0415635, 0.999093, -0.6875, 0.400625, -2.07488)
 
 [node name="Siren" parent="spaceship/cockpit" index="3" instance=ExtResource("18_e0bdp")]
 unique_name_in_owner = true
@@ -666,7 +666,7 @@ transform = Transform3D(-0.0290878, 0, 0.999577, 0, 1, 0, -0.999577, 0, -0.02908
 material_override = ExtResource("15_ljimn")
 
 [node name="indicator" parent="spaceship/cockpit/progress_bar" index="0"]
-transform = Transform3D(0.995132, 0, 0, 0, 0.916666, 0, 0, 0, 0.918578, -1, 0.359037, 0)
+transform = Transform3D(0.994261, 0, 0, 0, 0.916666, 0, 0, 0, 0.917773, -1, 0.359037, 0)
 surface_material_override/0 = ExtResource("15_ljimn")
 
 [node name="ProgressPath" type="Path3D" parent="spaceship/cockpit/progress_bar" index="1"]

@@ -8,15 +8,17 @@ extends Node
 @onready var lama_path := %LamaPath
 @onready var lama_rescued := %LamaRescued
 @onready var lama_lost := %LamaLost
+@onready var spaceship := %Spaceship
 
-@export_enum("home","stardust") var visible_planet: String :
+
+@export_range(0.0,1.0, 0.01) var journey_progress := 1.0 : 
 	set(value):
-		visible_planet = value
-		set_visible_planet(visible_planet)
+		journey_progress = clamp(value, 0.0,1.0)
+		set_journey_progress(value)
 
 func _ready():
 #	Global Sequencer
-	Sequencer.visible_planet_changed.connect(set_visible_planet)
+	Sequencer.mission_progress_changed.connect(set_journey_progress)
 	
 #	TODO: Simplify pattern
 #	Player
@@ -46,18 +48,18 @@ func _ready():
 	Ufo.tilt_changed.connect(update_ufo_tilt)	
 
 		
-# controls which planet is visble when altitude is low (<0.25)
-func set_visible_planet(value: String) -> void:
-	if not %PlanetStardust or not %Station:
-		return
-	
-	if value == "stardust":
+# Mission
+func set_journey_progress(value: float):
+	if spaceship:
+		spaceship.progress_bar = value
+	if value > 0.5:
 		%PlanetStardust.visible = true
 		%Station.visible = false
 	else:
 		%Station.visible = true
 		%PlanetStardust.visible = false
-		
+
+
 # Generic Path update functions
 func update_path_position(path: Path3D, position: float, duration: float = 1.0) -> void: 
 	if path:
