@@ -1,5 +1,5 @@
 shader_type spatial;
-render_mode depth_draw_opaque, diffuse_toon, cull_disabled, unshaded;
+render_mode depth_draw_opaque, diffuse_toon, cull_disabled;
 
 uniform vec4 albedo : source_color = vec4(1.0);
 uniform float emission_energy : hint_range(0.0, 2.0, 0.1) = 1.0;
@@ -76,7 +76,7 @@ void fragment() {
 	
 	ROUGHNESS = 1.0;
 	AO = 0.0;
-	ALBEDO = texture(emission_texture, uv).rgb;
+	ALBEDO = texture(emission_texture, uv).rgb * albedo.rgb;
 	EMISSION = texture(emission_texture, uv).rgb * emission_energy;
 	ALPHA = texture(emission_texture, uv).a * alpha;
 }
