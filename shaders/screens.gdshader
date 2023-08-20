@@ -1,6 +1,7 @@
 shader_type spatial;
-render_mode depth_draw_opaque, diffuse_toon, cull_disabled;
+render_mode depth_draw_opaque, diffuse_toon, cull_disabled, unshaded;
 
+uniform vec4 albedo : source_color = vec4(1.0);
 uniform float emission_energy : hint_range(0.0, 2.0, 0.1) = 1.0;
 uniform float alpha : hint_range(0.0, 1.0) = 1.0;
 uniform sampler2D emission_texture : hint_default_black, filter_nearest;

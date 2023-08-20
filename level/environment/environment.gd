@@ -7,6 +7,7 @@ const WORLD_LIGHT_MAX = 0.2
 const WORLD_LIGHT_MIN = 0.01
 const PLANET_DISTANCE_MIN := 0.23
 
+signal star_distance_changed(value:float)
 
 @export var sky_gradient : Gradient = preload("res://level/environment/gradients/sky_color_gradient.tres")
 @export var ground_color := Color.DARK_SLATE_GRAY : set = set_ground_color
@@ -99,16 +100,16 @@ var planet_height := 1.0 :
 		stars_distance = clamp(value, -1.0,1.0)
 		if stars:
 			stars.position.z = stars_distance * -SKY_SIZE
-
-
 @export_range(0.0, 4.0, 0.1) var stars_brightness := 0.0 : 
 	set(value):
 		stars_brightness = value
 		set_stars_brightness(value)
+		
 @onready var sky_material : ShaderMaterial  = %Sky.get_active_material(0)
 @onready var ground := %Ground
 @onready var stars := %Stars
 @onready var planet := %Planet
+@onready var planet_material := preload("res://level/environment/materials/planet_material.tres")
 @onready var planet_pivot := %PlanetPivot
 @onready var world_light := %WorldLight
 

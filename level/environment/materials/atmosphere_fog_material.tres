@@ -11,6 +11,7 @@ seamless_blend_skirt = 0.449
 noise = SubResource("FastNoiseLite_t1ecl")
 
 [resource]
+density = 0.183
 albedo = Color(0.243137, 0.321569, 0.623529, 1)
 emission = Color(0.329412, 0.333333, 0.65098, 1)
 edge_fade = 0.772745

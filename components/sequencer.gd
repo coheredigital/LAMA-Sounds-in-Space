@@ -1,7 +1,7 @@
 extends Node
 
 
-signal journey_progress_changed(value: float)
+signal journey_progress_changed(value: float, duration: float)
 signal stars_brightness_changed(value: float)
 signal star_moved(star_number: int, progress: float)
 signal altitude_changed(value: float, duration: float)
@@ -44,8 +44,9 @@ var stars_brightness: float = 0.0:
 var journey_progress: float = 0.0:
 	set(value):
 		journey_progress = clamp(value,0.0,1.0)
-		journey_progress_changed.emit(value)
-		print("journey_progress_changed")
+		journey_progress_changed.emit(value, 1.0)
+func set_journey_progress(value: float, duration: float) -> void:
+	journey_progress_changed.emit(value, duration)
 		
 var player_position: float = 0.0
 var player_view: float = 0.0
@@ -135,7 +136,7 @@ func set_visible_planet(value: String):
 func set_planet_distance(distance: float, duration: float = 1.0) -> void:
 	planet_distance_changed.emit(distance,duration)
 
-func set_planet_progress(step: float, step_max: float, duration: float = 1.0) -> void:
+func set_journey_progress_step(step: float, step_max: float, duration: float = 1.0) -> void:
 	var progress = step / step_max
 	var distance = lerp(0.8,0.1,progress)
 	planet_distance_changed.emit(distance,duration)

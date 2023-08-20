@@ -46,7 +46,7 @@ extends Node3D
 @export_range(0.0,1.0,0.1) var progress_bar := 0.0 : 
 	set(value):
 		progress_bar = value
-		set_progress_bar(value)
+		progress_indicator.progress_ratio = value
 
 
 var fuel_level := 1: 
@@ -108,11 +108,7 @@ func set_seatbelts_buckled(value: bool) -> void:
 	if seatbelt_indicator_material:
 		seatbelt_indicator_material.set_shader_parameter("frame_number", 2 if value else 1)
 
-func set_progress_bar(value: float, duration: float = 1.0) -> void:
-	if progress_indicator:
-		var tween = create_tween()
-		tween.tween_property(progress_indicator, "progress_ratio", value, duration).set_trans(Tween.TRANS_SINE)
-#		progress_indicator.position.x = 
+
 
 
 func update_screen(value: String)-> void:

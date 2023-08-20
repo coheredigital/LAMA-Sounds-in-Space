@@ -372,12 +372,12 @@ System: ...
 
 
 ~ launch
-set journey_progress = 0.0
+do set_journey_progress(0.0,0.0)
 =>< snippets/focus_forward
 do set_altitude(0.2,2.0)
 [next=2]
 do set_altitude(1.0,16.0)
-do set_planet_distance(0.8,8.0)
+do set_journey_progress(0.2,8.0)
 set journey_progress = 0.1
 [next=3]
 
@@ -564,7 +564,7 @@ while stimuli_set.size() > 0
 		do Recorder.stop()
 		do Recorder.save()
 #		make progress
-		do set_planet_progress(12 - stimuli_set.size(), 12, 3.0)
+		do set_journey_progress_step(12 - stimuli_set.size(), 12, 3.0)
 		[next=4]
 	- Failure
 		set screen = "failure"
@@ -583,11 +583,11 @@ Sam: Awesome job, partner! Thanks for steering the ship so well! Look, it’s Pl
 =>< snippets/focus_forward
 =>< snippets/prompt_green_button
 [next=1] 
-do set_planet_distance(0.05,6.0)
+do set_journey_progress(0.95,6.0)
 do set_altitude(0.8,6.0)
 set journey_progress = 0.9
 [next=5]
-do set_planet_distance(0.0,4.0)
+do set_journey_progress(1.0,4.0)
 [next=4]
 
 

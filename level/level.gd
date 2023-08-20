@@ -11,9 +11,29 @@ extends Node
 @onready var spaceship := %Spaceship
 @onready var station := %Station
 @onready var planet_stardust := %PlanetStardust
+@onready var environment := %Environment
 
 
-@export_range(0.0,1.0,0.01) var journey_progress : float = 0.0 : set = set_journey_progress
+@export_range(0.0,1.0) var journey_progress : float = 0.0 : 
+	set(value):
+		journey_progress = value
+		
+		if spaceship:
+			spaceship.progress_bar = journey_progress
+		if environment:
+			var altitude = journey_altitude_curve.sample_baked(journey_progress)
+			environment.planet_distance = 1.0 - journey_progress
+			environment.altitude = altitude
+		if not planet_stardust or not station:
+			return
+		if journey_progress > 0.5 :
+			planet_stardust.visible = true
+			station.visible = false
+		else:
+			station.visible = true
+			planet_stardust.visible = false
+
+@export var journey_altitude_curve : Curve = preload("res://level/environment/curves/journey_altitude_curve.tres")
 
 func _ready():
 #	Global Sequencer
@@ -48,21 +68,11 @@ func _ready():
 
 		
 # Mission
-func set_journey_progress(value: float):
-	print("set_journey_progress: %s" % [value])
-	
-	if spaceship:
-		spaceship.progress_bar = value
-		
-	if not planet_stardust or not station:
-		return
-	if value > 0.5 :
-		planet_stardust.visible = true
-		station.visible = false
-	else:
-		station.visible = true
-		planet_stardust.visible = false
+func set_journey_progress(value: float, duration: float = 1.0):
+	var tween = create_tween()
+	tween.tween_property(self, "journey_progress", value, duration).set_trans(Tween.TRANS_SINE)
 
+	
 
 # Generic Path update functions
 func update_path_position(path: Path3D, position: float, duration: float = 1.0) -> void: 

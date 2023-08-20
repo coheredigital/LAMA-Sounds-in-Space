@@ -1,7 +1,7 @@
 ~ reset
 do overlay_state("logo")
 # Mission
-set journey_progress = 0.0
+do set_journey_progress(0.0,0.0)
 # Character
 do Character.move_to(0)
 do Character.pivot(0)
@@ -29,7 +29,7 @@ set fuel_level = 1
 set door_state = "idle"
 # environment
 do set_altitude(0.0,0.0)
-do set_planet_distance(1.0,0.0)
+
 # stars
 set stars_brightness = 0.0
 do move_star(1,0.0,0.0)
