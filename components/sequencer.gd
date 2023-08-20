@@ -45,9 +45,17 @@ var journey_progress: float = 0.0:
 	set(value):
 		journey_progress = clamp(value,0.0,1.0)
 		journey_progress_changed.emit(value, 1.0)
+		
 func set_journey_progress(value: float, duration: float) -> void:
 	journey_progress_changed.emit(value, duration)
-		
+	
+func set_journey_progress_step(step: float, step_max: float, duration: float = 1.0) -> void:
+	var progress = step / step_max
+	print("set_journey_progress_step: %s / %s = %s" % [step,step_max,progress])
+	var distance = lerp(0.3,0.85,progress)
+	journey_progress_changed.emit(distance,duration)
+	
+	
 var player_position: float = 0.0
 var player_view: float = 0.0
 		
@@ -134,11 +142,6 @@ func set_visible_planet(value: String):
 	visible_planet_changed.emit(value)
 
 func set_planet_distance(distance: float, duration: float = 1.0) -> void:
-	planet_distance_changed.emit(distance,duration)
-
-func set_journey_progress_step(step: float, step_max: float, duration: float = 1.0) -> void:
-	var progress = step / step_max
-	var distance = lerp(0.3,0.85,progress)
 	planet_distance_changed.emit(distance,duration)
 
 
