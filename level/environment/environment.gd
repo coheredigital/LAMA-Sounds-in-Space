@@ -57,8 +57,7 @@ var planet_scale := 0.0 :
 			return
 		var planet_distance_adjusted := planet_distance_curve.sample_baked(planet_distance)
 		if planet_height_curve:
-			var planet_height := planet_height_curve.sample_baked(planet_distance)
-			self.planet_height = planet_height
+			self.planet_height = planet_height_curve.sample_baked(planet_distance)
 		if planet:
 			planet.position.z = -(SKY_SIZE * 0.5) * planet_distance_adjusted
 			

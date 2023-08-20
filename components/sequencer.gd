@@ -102,8 +102,8 @@ func get_next_stimuli() -> String:
 	return next_stimuli if next_stimuli else ''
 
 
-func set_stars_brightness(step: float, max: float) -> void:
-	var brightness = step / max
+func set_stars_brightness(step: float, step_max: float) -> void:
+	var brightness = step / step_max
 	brightness = float(brightness)
 	brightness = clamp(brightness,0.0,1.0)
 	stars_brightness_changed.emit(brightness)
@@ -135,8 +135,8 @@ func set_visible_planet(value: String):
 func set_planet_distance(distance: float, duration: float = 1.0) -> void:
 	planet_distance_changed.emit(distance,duration)
 
-func set_planet_progress(step: float, max: float, duration: float = 1.0) -> void:
-	var progress = step / max
+func set_planet_progress(step: float, step_max: float, duration: float = 1.0) -> void:
+	var progress = step / step_max
 	var distance = lerp(0.8,0.1,progress)
 	planet_distance_changed.emit(distance,duration)
 
