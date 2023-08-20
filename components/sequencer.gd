@@ -138,7 +138,7 @@ func set_planet_distance(distance: float, duration: float = 1.0) -> void:
 
 func set_journey_progress_step(step: float, step_max: float, duration: float = 1.0) -> void:
 	var progress = step / step_max
-	var distance = lerp(0.8,0.1,progress)
+	var distance = lerp(0.3,0.85,progress)
 	planet_distance_changed.emit(distance,duration)
 
 

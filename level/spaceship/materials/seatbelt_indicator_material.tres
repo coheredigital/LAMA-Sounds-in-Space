@@ -10,7 +10,7 @@ gradient = ExtResource("3_ku8an")
 [resource]
 render_priority = 1
 shader = ExtResource("1_x50ff")
-shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/albedo = Color(0.717647, 0.717647, 0.717647, 1)
 shader_parameter/emission_energy = 1.0
 shader_parameter/alpha = 1.0
 shader_parameter/waveform_controlled = false

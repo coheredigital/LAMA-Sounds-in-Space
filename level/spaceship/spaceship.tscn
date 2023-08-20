@@ -582,7 +582,7 @@ shader_parameter/emission_texture = ExtResource("18_nolgf")
 
 [node name="Spaceship" instance=ExtResource("1_m17hk")]
 script = ExtResource("2_tplkk")
-screen_state = "battery"
+screen_state = "computer"
 door_state = "ready"
 steering_motion = 0.1
 flying_motion = 0.2
@@ -652,7 +652,7 @@ stream = ExtResource("13_4lkru")
 transform = Transform3D(0.990622, -0.13259, -0.0329651, 0.136306, 0.942572, 0.304923, -0.00935789, -0.306557, 0.951806, 0.688043, 0.511933, -1.92573)
 
 [node name="controls_left" parent="spaceship/cockpit" index="2"]
-transform = Transform3D(0.999417, 0.01822, 0.0288425, -0.0195537, 0.99872, 0.0466526, -0.0279555, -0.0471895, 0.998494, -0.6875, 0.400625, -2.07488)
+transform = Transform3D(0.998997, -0.0444419, -0.00538425, 0.0446295, 0.998117, 0.0420917, 0.00350348, -0.0422898, 0.999099, -0.6875, 0.400625, -2.07488)
 
 [node name="Siren" parent="spaceship/cockpit" index="3" instance=ExtResource("18_e0bdp")]
 unique_name_in_owner = true
@@ -666,7 +666,7 @@ transform = Transform3D(-0.0290878, 0, 0.999577, 0, 1, 0, -0.999577, 0, -0.02908
 material_override = ExtResource("15_ljimn")
 
 [node name="indicator" parent="spaceship/cockpit/progress_bar" index="0"]
-transform = Transform3D(0.994082, 0, 0, 0, 0.916666, 0, 0, 0, 0.917608, -1, 0.359037, 0)
+transform = Transform3D(0.990902, 0, 0, 0, 0.916666, 0, 0, 0, 0.914673, -1, 0.359037, 0)
 surface_material_override/0 = ExtResource("15_ljimn")
 
 [node name="ProgressPath" type="Path3D" parent="spaceship/cockpit/progress_bar" index="1"]

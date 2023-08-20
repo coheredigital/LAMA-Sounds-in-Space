@@ -46,7 +46,8 @@ extends Node3D
 @export_range(0.0,1.0,0.1) var progress_bar := 0.0 : 
 	set(value):
 		progress_bar = value
-		progress_indicator.progress_ratio = value
+		if progress_indicator:
+			progress_indicator.progress_ratio = value
 
 
 var fuel_level := 1: 
