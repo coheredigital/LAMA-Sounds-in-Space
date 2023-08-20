@@ -146,13 +146,7 @@ pitch_scale = 0.8
 [node name="ufo" parent="." index="4"]
 transform = Transform3D(0.986388, 0.115874, 0.116671, -0.116671, 0.993171, 0, -0.115874, -0.013612, 0.99317, 0, 0, 0)
 
-[node name="BeamTransform3D" type="RemoteTransform3D" parent="ufo" index="0"]
-unique_name_in_owner = true
-transform = Transform3D(0.999375, -0.0237991, 0.0261541, 0.0239976, 0.999685, -0.0073032, -0.0259721, 0.00792627, 0.999631, 0, -0.7, 0)
-remote_path = NodePath("../beam")
-update_rotation = false
-
-[node name="Alien" parent="ufo" index="2" instance=ExtResource("4_sh10s")]
+[node name="Alien" parent="ufo" index="0" instance=ExtResource("4_sh10s")]
 
 [node name="alien" parent="ufo/Alien" index="1"]
 transform = Transform3D(-1, 0, -2.53518e-06, 0, 1, 0, 2.53518e-06, 0, -1, 0, 0, 0)
@@ -163,20 +157,23 @@ transform = Transform3D(0.993508, -0.0920664, -0.0668483, 0.0956239, 0.994053, 0
 [node name="helmet" parent="ufo/Alien/alien/head" index="0"]
 visible = false
 
-[node name="OmniLight3D" parent="ufo/Alien/alien/head" index="1"]
-light_energy = 0.295
-
 [node name="arm_left" parent="ufo/Alien/alien" index="1"]
 transform = Transform3D(0.487942, 0.872875, -0.00174278, -0.871645, 0.487146, -0.0540789, -0.0463551, 0.0279064, 0.998536, 0.15625, 1.26563, 5.58794e-09)
 
 [node name="arm_right" parent="ufo/Alien/alien" index="3"]
 transform = Transform3D(-0.40558, 0.902028, -0.147815, -0.913387, -0.393748, 0.103375, 0.0350452, 0.176939, 0.983598, -0.15625, 1.26563, 9.31322e-10)
 
+[node name="BeamTransform3D" type="RemoteTransform3D" parent="ufo" index="1"]
+unique_name_in_owner = true
+transform = Transform3D(0.999375, -0.0237991, 0.0261541, 0.0239976, 0.999685, -0.0073032, -0.0259721, 0.00792627, 0.999631, 0, -0.7, 0)
+remote_path = NodePath("../beam")
+update_rotation = false
+
 [node name="ring_light" parent="ufo" index="4"]
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0)
 
 [node name="beam" parent="ufo" index="5"]
-transform = Transform3D(-0.99236, -0.0678017, -0.103081, -0.104384, 0.015948, 0.994408, -0.0657788, 0.997571, -0.0229036, -7.45058e-09, -0.7, -1.11759e-08)
+transform = Transform3D(-0.992359, -0.0678096, -0.103081, -0.104384, 0.0159487, 0.994408, -0.0657865, 0.997571, -0.0229051, -2.32831e-10, -0.7, -9.31323e-10)
 surface_material_override/0 = ExtResource("3_ju5pg")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="ufo" index="14"]

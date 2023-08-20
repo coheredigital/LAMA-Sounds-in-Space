@@ -10,7 +10,7 @@ fill_to = Vector2(1, 0.0128205)
 
 [resource]
 background_mode = 1
-background_color = Color(0.084332, 0.0918675, 0.250536, 1)
+background_color = Color(0.414336, 0.554537, 0.918469, 1)
 background_energy_multiplier = 0.13
 ambient_light_color = Color(0.113725, 0.113725, 0.266667, 1)
 ambient_light_sky_contribution = 0.28
