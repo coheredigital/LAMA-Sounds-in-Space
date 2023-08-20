@@ -58,6 +58,14 @@ do Player.tilt(0.1)
 do Player.pivot(0.0)
 => END
 
+~ focus_window
+do Character.move_to(1.0)
+do Character.tilt(0.0) 
+do Character.pivot(0.2)
+do Player.move_to(1.0)
+do Player.tilt(-0.2) 
+do Player.pivot(0.0)
+=> END
 
 ~ prompt_green_button
 set screen = "start_button"
