@@ -22,8 +22,10 @@ extends Node
 			spaceship.progress_bar = journey_progress
 		if environment:
 			var altitude = journey_altitude_curve.sample_baked(journey_progress)
+			var stars_progress = journey_stars_progress_curve.sample_baked(journey_progress)
 			environment.planet_distance = 1.0 - journey_progress
 			environment.altitude = altitude
+			environment.stars_progress = stars_progress
 		if not planet_stardust or not station:
 			return
 		if journey_progress > 0.5 :
@@ -34,6 +36,7 @@ extends Node
 			planet_stardust.visible = false
 
 @export var journey_altitude_curve : Curve = preload("res://level/environment/curves/journey_altitude_curve.tres")
+@export var journey_stars_progress_curve : Curve = preload("res://level/environment/curves/journey_stars_progress_curve.tres")
 
 func _ready():
 #	Global Sequencer

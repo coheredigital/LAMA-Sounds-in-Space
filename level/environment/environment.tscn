@@ -27,9 +27,9 @@ ground_color = Color(0.623529, 0.721569, 0.596078, 1)
 fog_color = Color(0.466667, 0.584314, 0.796078, 1)
 fog_density_curve = SubResource("Curve_mrt1a")
 horizon_color = Color(0.894118, 0.654902, 0.741176, 1)
-altitude = 0.891
+altitude = 1.0
 planet_distance = 1.0
-stars_height = 0.0
+stars_progress = 0.29
 
 [node name="Sky" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true
@@ -42,7 +42,7 @@ metadata/_edit_lock_ = true
 
 [node name="Ground" type="Node3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -77.6868, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -128, 0)
 
 [node name="GroundFog" type="FogVolume" parent="Ground"]
 size = Vector3(128, 16, 128)
@@ -59,11 +59,11 @@ material = ExtResource("4_a20jw")
 
 [node name="PlanetPivot" type="Node3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 0.997787, 0.0664921, 0, -0.0664921, 0.997787, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.947593, -0.319481, 0, 0.319481, 0.947593, 0, 0, 0)
 
 [node name="Planet" type="MeshInstance3D" parent="PlanetPivot"]
 unique_name_in_owner = true
-transform = Transform3D(-0.34988, 0.000609198, -0.00914166, 0, 0.349225, 0.0232723, 0.00916193, 0.0232643, -0.349106, 0, 0, -64)
+transform = Transform3D(-0.34988, -0.00292707, -0.00868178, 0, 0.331657, -0.111818, 0.00916193, -0.11178, -0.331544, 0, 0, -64)
 cast_shadow = 0
 mesh = SubResource("SphereMesh_oomka")
 skeleton = NodePath("")
@@ -83,4 +83,4 @@ directional_shadow_max_distance = 25.0
 
 [node name="Stars" parent="." instance=ExtResource("5_m4eb7")]
 unique_name_in_owner = true
-transform = Transform3D(0.84932, 0.526603, -0.0366447, -0.526956, 0.849893, 0, 0.031144, 0.0193102, 0.999329, 0, 0, 0)
+transform = Transform3D(0.860671, 0.508297, -0.029647, -0.426317, 0.687578, -0.587786, -0.278384, 0.51853, 0.808474, 0, 0, 0.639776)

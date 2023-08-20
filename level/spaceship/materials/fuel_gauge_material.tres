@@ -6,9 +6,12 @@
 [resource]
 render_priority = 1
 shader = ExtResource("1_ue41v")
+shader_parameter/albedo = Color(0.713726, 0.713726, 0.713726, 1)
 shader_parameter/emission_energy = 1.0
 shader_parameter/alpha = 1.0
 shader_parameter/waveform_controlled = false
+shader_parameter/screen_count = 16.0
+shader_parameter/frame_count = 8.0
 shader_parameter/screen_number = 7.0
 shader_parameter/frame_number = 1.0
 shader_parameter/emission_texture = ExtResource("2_7iqly")

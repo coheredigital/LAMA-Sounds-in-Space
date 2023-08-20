@@ -78,28 +78,32 @@ var planet_height := 1.0 :
 @export_range(0.0,1.0, 0.01) var stars_progress := 1.0 : 
 	set(value):
 		stars_progress = clamp(value, 0.0,1.0)
-#		use linear value adjusted by curve to get more natural result
-		if not stars_progress_curve:
-			return
-		var stars_progress_adjusted := stars_progress_curve.sample_baked(stars_progress)
-		if stars:
-			stars.rotation_degrees.x = lerp(90.0,30.0,stars_progress_adjusted)
-@export var stars_progress_curve : Curve = preload("res://level/environment/curves/stars_progress_curve.tres")
-@export_range(0.0,1.0, 0.01) var stars_angle := 1.0 : 
-	set(value):
-		stars_angle = clamp(value, 0.0,1.0)
-		if stars:
-			stars.rotation_degrees.x = lerp(90.0,0.0,stars_angle)
-@export_range(0.0,1.0, 0.01) var stars_height := 1.0 : 
+#		if stars_angle_curve:
+#			self.stars_angle = stars_angle_curve.sample_baked(stars_progress)
+		if stars_distance_curve:
+			self.stars_distance = stars_distance_curve.sample_baked(stars_progress)
+		if stars_height_curve:
+			self.stars_height = stars_height_curve.sample_baked(stars_progress)
+
+#var stars_angle := 1.0 : 
+#	set(value):
+#		stars_angle = clamp(value, 0.0,1.0)
+#		if stars:
+#			stars.rotation_degrees.x = lerp(90.0,0.0,stars_angle)
+#@export var stars_angle_curve : Curve = preload("res://level/environment/curves/stars_angle_curve.tres")
+
+var stars_height := 1.0 : 
 	set(value):
 		stars_height = clamp(value, -1.0,1.0)
 		if stars:
 			stars.position.y = stars_height * SKY_SIZE
-@export_range(-1.0,1.0,0.01) var stars_distance := 0.0 : 
+@export var stars_height_curve : Curve = preload("res://level/environment/curves/stars_height_curve.tres")
+var stars_distance := 0.0 : 
 	set(value):
 		stars_distance = clamp(value, -1.0,1.0)
 		if stars:
 			stars.position.z = stars_distance * -SKY_SIZE
+@export var stars_distance_curve : Curve = preload("res://level/environment/curves/stars_distance_curve.tres")
 @export_range(0.0, 4.0, 0.1) var stars_brightness := 0.0 : 
 	set(value):
 		stars_brightness = value
