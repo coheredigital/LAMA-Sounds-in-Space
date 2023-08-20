@@ -1,297 +1,81 @@
-[gd_scene load_steps=13 format=3 uid="uid://bq23ckwovuhf4"]
+[gd_scene load_steps=14 format=3 uid="uid://bq23ckwovuhf4"]
 
 [ext_resource type="PackedScene" uid="uid://dybngyd2g0glm" path="res://characters/alien/alien.gltf" id="1_wlnkb"]
+[ext_resource type="AnimationLibrary" uid="uid://cacrhs4lw763j" path="res://animations/libraries/alien.tres" id="2_l61tj"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8trpp"]
-animation = &"idle"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0t6yo"]
+animation = &"alien/idle"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sd4v2"]
-animation = &"wave"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dwm4p"]
+animation = &"alien/wave"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_o57gm"]
 switch_mode = 2
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1gi66"]
-xfade_time = 0.37
+[sub_resource type="Curve" id="Curve_gwjwl"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4tiy7"]
-xfade_time = 0.66
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_33qmq"]
+xfade_time = 1.2
+xfade_curve = SubResource("Curve_gwjwl")
+
+[sub_resource type="Curve" id="Curve_vkfel"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vv2hk"]
+xfade_time = 0.9
+xfade_curve = SubResource("Curve_vkfel")
 switch_mode = 2
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_v8u0p"]
-states/End/position = Vector2(641, 100)
-states/idle/node = SubResource("AnimationNodeAnimation_8trpp")
-states/idle/position = Vector2(313, 100)
-states/wave/node = SubResource("AnimationNodeAnimation_sd4v2")
-states/wave/position = Vector2(469, 100)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_o57gm"), "idle", "wave", SubResource("AnimationNodeStateMachineTransition_1gi66"), "wave", "idle", SubResource("AnimationNodeStateMachineTransition_4tiy7")]
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_boscb"]
+states/End/position = Vector2(743, 100)
+states/idle/node = SubResource("AnimationNodeAnimation_0t6yo")
+states/idle/position = Vector2(360, 100)
+states/wave/node = SubResource("AnimationNodeAnimation_dwm4p")
+states/wave/position = Vector2(520, 100)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_o57gm"), "idle", "wave", SubResource("AnimationNodeStateMachineTransition_33qmq"), "wave", "idle", SubResource("AnimationNodeStateMachineTransition_vv2hk")]
+graph_offset = Vector2(-89, -58)
 
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_8jqnp"]
-nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_v8u0p")
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_w6ns1"]
+nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_boscb")
 nodes/StateMachine/position = Vector2(148, 64)
 nodes/output/position = Vector2(640, 60)
 node_connections = [&"output", 0, &"StateMachine"]
 
-[sub_resource type="Animation" id="Animation_xxhm2"]
+[sub_resource type="Animation" id="Animation_q5d2i"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("alien/arm_right:rotation")
+tracks/0/path = NodePath("alien/arm_left:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-0.10356, -0.149164, -1.97781)]
+"values": [Vector3(0.141554, -0.0855483, 0.764737)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("alien/arm_left:rotation")
+tracks/1/path = NodePath("alien/arm_left/hand_left:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0.0541052, -0.00174533, -1.06116)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("alien/head:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.0521426, -0.0669894, 0.0959008)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("alien:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, -3.14159, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("alien:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
 "values": [Vector3(0, 0, 0)]
 }
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("alien/leg_left:rotation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-6.12323e-17, 6.12323e-17, -1.5708)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("alien/leg_right:rotation")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-6.12323e-17, 6.12323e-17, -1.5708)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("alien/jetpack/flames:scale")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(1, 1, 1)]
-}
 
-[sub_resource type="Animation" id="Animation_1i5k6"]
-resource_name = "idle"
-length = 5.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("alien/arm_right:rotation")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(1.1, 4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-0.10356, -0.149164, -1.97781), Vector3(0.1309, 0.0401426, -1.76453)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("alien/arm_left:rotation")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.6, 1.18303, 3.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0.193732, -0.00174533, -1.06116), Vector3(0.251327, 0.0907571, -1.18159), Vector3(0.193732, -0.00174533, -1.06116), Vector3(0.251327, 0.0907571, -1.18159)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("alien/head:rotation")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.5, 1.5, 2, 3.1, 3.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(-0.0521426, -0.0669894, 0.0959008), Vector3(0.0468237, 0.0440381, -0.00389557), Vector3(-0.112791, 0.0892144, -0.0355799), Vector3(0.108246, 0.100719, -0.0518328), Vector3(-0.0590836, 0.074901, -0.0261703)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("alien:rotation")
-tracks/3/interp = 2
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.4, 2.65104),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0.0575959, -3.09796, 0.0994838), Vector3(0.00523599, -3.14159, 0.0418879)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("alien:position")
-tracks/4/interp = 2
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.6, 2.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-0.01, -0.028, 0.014), Vector3(0.12, 0.032, -0.066)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("alien/leg_left:rotation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(1.3, 4.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0.0436332, -1.55334), Vector3(0.191986, 0.191986, -1.64934)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("alien/leg_right:rotation")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0.2, 3.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-0.0523599, -0.0872665, -1.77151), Vector3(-6.12323e-17, 6.12323e-17, -1.5708)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("alien/jetpack/flames:scale")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4, 4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(1, 0.75, 1), Vector3(1, 0.5, 1), Vector3(1, 0.75, 1), Vector3(1, 0.5, 1), Vector3(1, 0.75, 1), Vector3(1, 0.5, 1), Vector3(1, 0.75, 1), Vector3(1, 0.5, 1), Vector3(1, 0.75, 1), Vector3(1, 0.5, 1), Vector3(1, 0.75, 1), Vector3(1, 0.5, 1), Vector3(1, 0.75, 1), Vector3(1, 0.5, 1), Vector3(1, 0.75, 1), Vector3(1, 0.5, 1), Vector3(1, 0.75, 1), Vector3(1, 0.5, 1), Vector3(1, 0.75, 1), Vector3(1, 0.5, 1), Vector3(1, 0.75, 1), Vector3(1, 0.5, 1), Vector3(1, 0.75, 1), Vector3(1, 0.5, 1), Vector3(1, 0.75, 1), Vector3(1, 0.5, 1), Vector3(1, 0.75, 1), Vector3(1, 0.5, 1), Vector3(1, 0.75, 1), Vector3(1, 0.5, 1), Vector3(1, 0.75, 1), Vector3(1, 0.5, 1), Vector3(1, 0.75, 1), Vector3(1, 0.5, 1), Vector3(1, 0.75, 1), Vector3(1, 0.5, 1), Vector3(1, 0.75, 1), Vector3(1, 0.5, 1), Vector3(1, 0.75, 1), Vector3(1, 0.5, 1), Vector3(1, 0.75, 1), Vector3(1, 0.5, 1), Vector3(1, 0.75, 1), Vector3(1, 0.5, 1), Vector3(1, 0.75, 1), Vector3(1, 0.5, 1), Vector3(1, 0.75, 1), Vector3(1, 0.5, 1), Vector3(1, 0.75, 1), Vector3(1, 0.5, 1), Vector3(1, 0.75, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_13j0a"]
-resource_name = "wave"
-length = 5.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("alien/arm_right:rotation")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(1.1, 4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-0.10356, -0.149164, -1.97781), Vector3(0.1309, 0.0401426, -1.76453)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("alien/head:rotation")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.5, 1.1, 1.9, 2.1, 2.3, 2.6, 2.8, 3.1, 3.6, 4.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(-0.0521426, -0.0669894, 0.0959008), Vector3(-0.0546673, 0.0801915, -0.0309134), Vector3(0.018737, 0.0522493, -0.00983992), Vector3(-0.0797492, 0.0794834, -0.0292215), Vector3(-0.118747, 0.088294, -0.0346715), Vector3(0.0992808, 0.10034, -0.051242), Vector3(-0.107828, 0.0897181, -0.0361364), Vector3(-0.0590835, 0.074901, -0.0261703), Vector3(0.110661, 0.127628, -0.0673844), Vector3(-0.0681083, 0.0686175, -0.0209891)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("alien/arm_left:rotation")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.4, 0.8, 1.6, 2.8, 3.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0.0542989, -0.00133875, 0.426208), Vector3(0.251546, 0.0907648, 0.440315), Vector3(0.251546, 0.0907648, 0.440315), Vector3(0.0542989, -0.00133875, 0.426208), Vector3(0.251546, 0.0907648, 0.440315)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("alien:rotation")
-tracks/3/interp = 2
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.7, 2.1, 4.1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(-0.00349066, -3.14159, 0.0244346), Vector3(0.0349066, -3.14159, -0.015708), Vector3(0, -3.14159, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_xq8q3"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1rc8d"]
 _data = {
-"RESET": SubResource("Animation_xxhm2"),
-"idle": SubResource("Animation_1i5k6"),
-"wave": SubResource("Animation_13j0a")
+"RESET": SubResource("Animation_q5d2i")
 }
 
 [node name="Alien" instance=ExtResource("1_wlnkb")]
@@ -299,21 +83,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.278491, 0)
 
 [node name="ActionTree" type="AnimationTree" parent="." index="0"]
 unique_name_in_owner = true
-tree_root = SubResource("AnimationNodeBlendTree_8jqnp")
+tree_root = SubResource("AnimationNodeBlendTree_w6ns1")
 anim_player = NodePath("ActionPlayer")
 active = true
 
 [node name="ActionPlayer" type="AnimationPlayer" parent="ActionTree" index="0"]
 root_node = NodePath("../..")
 libraries = {
-"": SubResource("AnimationLibrary_xq8q3")
+"": SubResource("AnimationLibrary_1rc8d"),
+"alien": ExtResource("2_l61tj")
 }
 
 [node name="alien" parent="." index="1"]
-transform = Transform3D(-1, 0, -2.53518e-06, 0, 1, 0, 2.53518e-06, 0, -1, 0, 0, 0)
+transform = Transform3D(-0.994367, 0.0966555, -0.0434879, 0.0990775, 0.993417, -0.0574928, 0.0376447, -0.0614777, -0.997398, -0.0223534, -0.0337015, 0.0216021)
 
 [node name="head" parent="alien" index="0"]
-transform = Transform3D(0.993508, -0.0920664, -0.0668483, 0.0956239, 0.994053, 0.0521189, 0.0616524, -0.0581729, 0.9964, 0, 1.34375, -5.75928e-16)
+transform = Transform3D(0.992623, -0.0962883, -0.073691, 0.102375, 0.991207, 0.0838386, 0.0649705, -0.0907643, 0.99375, 0, 1.34375, -5.75928e-16)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="alien/head" index="1"]
 transform = Transform3D(0.999998, 1.1269e-07, 2.98023e-08, -1.13621e-07, 0.999999, 2.45869e-07, -5.96046e-08, -2.30968e-07, 1, -2.23517e-08, 0.187001, 0.323)
@@ -325,13 +110,19 @@ omni_range = 0.345
 omni_attenuation = 0.353553
 
 [node name="arm_left" parent="alien" index="1"]
-transform = Transform3D(0.487942, 0.872875, -0.00174278, -0.871645, 0.487146, -0.0540789, -0.0463551, 0.0279064, 0.998536, 0.15625, 1.26563, 5.58794e-09)
+transform = Transform3D(0.71058, -0.698514, -0.0845895, 0.685423, 0.714348, -0.141081, 0.158973, 0.04227, 0.986379, 0.15625, 1.26563, 5.58794e-09)
+
+[node name="hand_left" parent="alien/arm_left" index="0"]
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 1, 0.21875, -1.78814e-07, 0.0156251)
 
 [node name="leg_left" parent="alien" index="2"]
-transform = Transform3D(-4.37114e-08, 1, 6.12323e-17, -1, -4.37114e-08, 6.12323e-17, 6.12323e-17, -6.12323e-17, 1, 0.109375, 0.8125, -6.8121e-16)
+transform = Transform3D(-0.0475134, 0.991213, 0.12345, -0.993932, -0.0346419, -0.104395, -0.0992009, -0.127661, 0.986844, 0.109375, 0.8125, -6.8121e-16)
 
 [node name="arm_right" parent="alien" index="3"]
-transform = Transform3D(-0.40558, 0.902028, -0.147815, -0.913387, -0.393748, 0.103375, 0.0350452, 0.176939, 0.983598, -0.15625, 1.26563, 9.31322e-10)
+transform = Transform3D(-0.316753, 0.945615, -0.0740224, -0.948412, -0.316861, 0.0105844, -0.013446, 0.0735563, 0.997201, -0.15625, 1.26563, 9.31322e-10)
 
 [node name="leg_right" parent="alien" index="4"]
-transform = Transform3D(-4.37114e-08, 1, 6.12323e-17, -1, -4.37114e-08, 6.12323e-17, 6.12323e-17, -6.12323e-17, 1, -0.125, 0.8125, -3.72529e-09)
+transform = Transform3D(-0.202344, 0.975467, -0.0867231, -0.978736, -0.198386, 0.0521468, 0.0336628, 0.0954306, 0.994867, -0.125, 0.8125, -3.72529e-09)
+
+[node name="flames" parent="alien/jetpack" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.588174, 0, 0, 0, 1, -4.69871e-18, -0.130996, 0.126662)
