@@ -374,8 +374,8 @@ System: ...
 ~ launch
 =>< snippets/focus_forward
 [next=2]
-do set_journey_progress(0.2,8.0)
-[next=6]
+do set_journey_progress(0.2,16.0)
+[next=12]
 
 ~ were_flying
 do Character.play_audio("were_flying")
@@ -439,7 +439,7 @@ while stimuli_set.size() > 0
 	[next=1]
 
 ~ task1_success
-do set_journey_progress(0.3,4.0)
+do set_journey_progress(0.35,4.0)
 =>< snippets/focus_screen
 do Character.play_audio("task1_success")
 =>< snippets/focus_conversation
@@ -577,12 +577,10 @@ do Character.play_audio("task2_success")
 Sam: Awesome job, partner! Thanks for steering the ship so well! Look, it’s Planet Stardust! To use our spaceship to look around, press the Landing Button. [next=9]
 =>< snippets/focus_forward
 =>< snippets/prompt_green_button
-[next=1] 
-do set_journey_progress(0.95,6.0)
-[next=5]
-do set_journey_progress(1.0,4.0)
-[next=4]
-
+do set_journey_progress(0.925,8.0)
+[next=8]
+do set_journey_progress(1.0,12.0)
+[next=12]
 
 ~ task3_landed
 set journey_progress = 1.0
@@ -679,6 +677,7 @@ do Player.pivot(0.0,0.0)
 do Character.tilt(0.0,0.0)
 do Character.move_to(0.39,0.0)
 do Character.pivot(0.36,0.0)
+set journey_progress = 0.0
 [next=6]
 do overlay_state("hidden")
 [next=2]

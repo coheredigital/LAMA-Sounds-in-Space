@@ -78,19 +78,19 @@ var planet_height := 1.0 :
 @export_range(0.0,1.0, 0.01) var stars_progress := 1.0 : 
 	set(value):
 		stars_progress = clamp(value, 0.0,1.0)
-#		if stars_angle_curve:
-#			self.stars_angle = stars_angle_curve.sample_baked(stars_progress)
+		if stars_angle_curve:
+			self.stars_angle = stars_angle_curve.sample_baked(stars_progress)
 		if stars_distance_curve:
 			self.stars_distance = stars_distance_curve.sample_baked(stars_progress)
 		if stars_height_curve:
 			self.stars_height = stars_height_curve.sample_baked(stars_progress)
 
-#var stars_angle := 1.0 : 
-#	set(value):
-#		stars_angle = clamp(value, 0.0,1.0)
-#		if stars:
-#			stars.rotation_degrees.x = lerp(90.0,0.0,stars_angle)
-#@export var stars_angle_curve : Curve = preload("res://level/environment/curves/stars_angle_curve.tres")
+var stars_angle := 1.0 : 
+	set(value):
+		stars_angle = clamp(value, 0.0,1.0)
+		if stars:
+			stars.rotation_degrees.x = lerp(90.0,0.0,stars_angle)
+@export var stars_angle_curve : Curve = preload("res://level/environment/curves/stars_angle_curve.tres")
 
 var stars_height := 1.0 : 
 	set(value):

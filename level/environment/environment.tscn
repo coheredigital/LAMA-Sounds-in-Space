@@ -29,7 +29,8 @@ fog_density_curve = SubResource("Curve_mrt1a")
 horizon_color = Color(0.894118, 0.654902, 0.741176, 1)
 altitude = 1.0
 planet_distance = 1.0
-stars_progress = 0.29
+stars_progress = 0.25
+stars_angle_curve = null
 
 [node name="Sky" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true
@@ -83,4 +84,4 @@ directional_shadow_max_distance = 25.0
 
 [node name="Stars" parent="." instance=ExtResource("5_m4eb7")]
 unique_name_in_owner = true
-transform = Transform3D(0.860671, 0.508297, -0.029647, -0.426317, 0.687578, -0.587786, -0.278384, 0.51853, 0.808474, 0, 0, 0.639776)
+transform = Transform3D(0.860671, 0.508297, -0.029647, -0.426317, 0.687578, -0.587786, -0.278384, 0.51853, 0.808474, 0, -2.50677, 2.67884)
