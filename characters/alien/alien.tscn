@@ -72,6 +72,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("alien/jetpack/flames:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1rc8d"]
 _data = {
@@ -95,10 +107,10 @@ libraries = {
 }
 
 [node name="alien" parent="." index="1"]
-transform = Transform3D(-0.994367, 0.0966555, -0.0434879, 0.0990775, 0.993417, -0.0574928, 0.0376447, -0.0614777, -0.997398, -0.0223534, -0.0337015, 0.0216021)
+transform = Transform3D(-0.999081, 0.0428477, -0.000743049, 0.0428515, 0.999062, -0.00612461, 0.000479927, -0.00615082, -0.999981, 0.0665186, 0.00731627, -0.0330884)
 
 [node name="head" parent="alien" index="0"]
-transform = Transform3D(0.992623, -0.0962883, -0.073691, 0.102375, 0.991207, 0.0838386, 0.0649705, -0.0907643, 0.99375, 0, 1.34375, -5.75928e-16)
+transform = Transform3D(0.99153, 0.0733861, 0.10717, -0.0582743, 0.988731, -0.137898, -0.116082, 0.130485, 0.98463, 0, 1.34375, -5.75928e-16)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="alien/head" index="1"]
 transform = Transform3D(0.999998, 1.1269e-07, 2.98023e-08, -1.13621e-07, 0.999999, 2.45869e-07, -5.96046e-08, -2.30968e-07, 1, -2.23517e-08, 0.187001, 0.323)
@@ -116,13 +128,13 @@ transform = Transform3D(0.71058, -0.698514, -0.0845895, 0.685423, 0.714348, -0.1
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 1, 0.21875, -1.78814e-07, 0.0156251)
 
 [node name="leg_left" parent="alien" index="2"]
-transform = Transform3D(-0.0475134, 0.991213, 0.12345, -0.993932, -0.0346419, -0.104395, -0.0992009, -0.127661, 0.986844, 0.109375, 0.8125, -6.8121e-16)
+transform = Transform3D(-0.0484237, 0.991046, 0.124428, -0.993772, -0.0352869, -0.105693, -0.100356, -0.128772, 0.986583, 0.109375, 0.8125, -6.8121e-16)
 
 [node name="arm_right" parent="alien" index="3"]
-transform = Transform3D(-0.316753, 0.945615, -0.0740224, -0.948412, -0.316861, 0.0105844, -0.013446, 0.0735563, 0.997201, -0.15625, 1.26563, 9.31322e-10)
+transform = Transform3D(-0.248266, 0.968626, -0.0112499, -0.966312, -0.248453, -0.067167, -0.0678547, -0.00580433, 0.997679, -0.15625, 1.26563, 9.31322e-10)
 
 [node name="leg_right" parent="alien" index="4"]
-transform = Transform3D(-0.202344, 0.975467, -0.0867231, -0.978736, -0.198386, 0.0521468, 0.0336628, 0.0954306, 0.994867, -0.125, 0.8125, -3.72529e-09)
+transform = Transform3D(-0.0100732, 0.99994, -0.00437324, -0.999946, -0.0100618, 0.00262396, 0.0025798, 0.00439943, 0.999987, -0.125, 0.8125, -3.72529e-09)
 
 [node name="flames" parent="alien/jetpack" index="0"]
-transform = Transform3D(1, 0, 0, 0, 0.588174, 0, 0, 0, 1, -4.69871e-18, -0.130996, 0.126662)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.69871e-18, -0.130996, 0.126662)

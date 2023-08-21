@@ -195,9 +195,6 @@ use_global_coordinates = true
 [node name="PathFollow" parent="FollowPaths/PlayerPath" index="1"]
 transform = Transform3D(0.847863, 0, -0.529914, 0, 0.999798, 0, 0.529914, 0, 0.847863, -13.5, 2.6, -0.8)
 
-[node name="LookTargetPivot" parent="FollowPaths/PlayerPath/PathFollow" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-
 [node name="LookTargetTilt" parent="FollowPaths/PlayerPath/PathFollow/LookTargetPivot" index="0"]
 transform = Transform3D(1, 0, 0, 0, 0.999847, -0.0174524, 0, 0.0174524, 0.999847, 0, 0, 0)
 
