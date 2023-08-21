@@ -14,7 +14,7 @@ extends Node
 @onready var environment := %Environment
 
 
-@export_range(0.0,1.0) var journey_progress : float = 0.0 : 
+@export_range(0.0,1.0,0.00001) var journey_progress : float = 0.0 : 
 	set(value):
 		journey_progress = value
 		

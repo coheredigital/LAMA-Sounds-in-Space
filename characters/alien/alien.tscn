@@ -110,7 +110,7 @@ omni_range = 0.345
 omni_attenuation = 0.353553
 
 [node name="arm_left" parent="alien" index="1"]
-transform = Transform3D(0.71058, -0.698514, -0.0845895, 0.685423, 0.714348, -0.141081, 0.158973, 0.04227, 0.986379, 0.15625, 1.26563, 5.58794e-09)
+transform = Transform3D(0.71058, -0.698514, -0.0845895, 0.685423, 0.714348, -0.141082, 0.158974, 0.0422704, 0.986379, 0.15625, 1.26563, 5.58794e-09)
 
 [node name="hand_left" parent="alien/arm_left" index="0"]
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 1, 0.21875, -1.78814e-07, 0.0156251)

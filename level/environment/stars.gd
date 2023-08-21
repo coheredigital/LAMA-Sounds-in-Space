@@ -53,6 +53,11 @@ extends Node3D
 @onready var paths := %Paths
 
 func _ready():
+	for i in range(12):
+		var current_star = "star%s_progress" % i
+		var current_star_position = self.get(current_star)
+		if current_star_position:
+			set_star_progess(i, self.get(current_star))
 	Sequencer.star_moved.connect(set_star_progess)
 
 
