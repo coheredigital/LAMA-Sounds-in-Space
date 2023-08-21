@@ -2,7 +2,7 @@
 
 [resource]
 min_value = -1.0
-_data = [Vector2(0, 0.6), 0.0, 0.0, 0, 0, Vector2(0.2, 1.49012e-08), -0.501268, -0.501268, 0, 0, Vector2(0.45, -0.1), -0.686487, -0.686487, 0, 0, Vector2(1, -0.6), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0.4), 0.0, 0.0, 0, 0, Vector2(0.2, 1.49012e-08), -0.501268, -0.501268, 0, 0, Vector2(0.45, -0.1), -0.686487, -0.686487, 0, 0, Vector2(0.95, -1), 0.0, 0.0, 0, 0]
 point_count = 4
 metadata/_snap_enabled = true
 metadata/_snap_count = 20

@@ -30,7 +30,6 @@ horizon_color = Color(0.894118, 0.654902, 0.741176, 1)
 altitude = 1.0
 planet_distance = 1.0
 stars_progress = 0.25
-stars_angle_curve = null
 
 [node name="Sky" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true

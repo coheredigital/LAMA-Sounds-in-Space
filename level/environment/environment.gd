@@ -49,7 +49,7 @@ var planet_scale := 0.0 :
 			
 @export var planet_scale_curve : Curve = preload("res://level/environment/curves/planet_scale_curve.tres")
 
-@export_range(0.0,1.0) var planet_distance := 0.0 : 
+@export_range(0.0,1.0, 0.000001) var planet_distance := 0.0 : 
 	set(value):
 		planet_distance = clamp(value, 0.0,1.0)
 		self.planet_scale = 1.0 - planet_distance

@@ -393,7 +393,7 @@ System: Debug Selection.
 =>< snippets/focus_conversation
 do Character.play_audio("task1_intro")
 Sam: Boy, it’s dark out here! This time, let’s wake up the stars with our voices. Our super computer has a list of all the stars’ favourite phrases to hear! If we listen to the computer and repeat the special phrases loud and clear, the stars will wake up. After each phrase, I’ll press the red button to tell the computer to send your voice to the stars.  
-
+=>< snippets/focus_forward
 
 ~ task1_stimuli_order
 System: Select stimuli order
@@ -445,12 +445,10 @@ do Character.play_audio("task1_success")
 =>< snippets/focus_conversation
 Sam: Awesome job, partner! Look at all the bright things you put in space! Now let’s go to Planet Stardust, press the GO button to get closer to finding Lucky! [next=8]
 =>< snippets/prompt_green_button
+do set_journey_progress(0.5,4.0)
+set screen = "idle"
 [next=2]
 
-
-# "Navigate the Spaceship (Practice)"
-~ task2_practice
-set screen = "idle"
 
 
 ~ task2_intro
