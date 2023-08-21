@@ -14,3 +14,7 @@ set stimuli_set = ["So_01F","So_02R","Sp_03F","Sp_04R","So_05F","So_06R","Sp_07F
 ~ D
 set stimuli_set = ["So_01R","So_02F","Sp_03R","Sp_04F","So_05R","So_06F","Sp_07R","Sp_08F","So_09R","So_10F","Sp_11R","Sp_12F"]
 => END
+
+~ tones
+set stimuli_set = ["tone_double_D3F","tone_double_M2F","tone_double_M3R","tone_double_P5F","tone_double_P5R","tone_single_A3","tone_single_B3","tone_single_C4","tone_single_D4","tone_single_E4"]
+=> END
