@@ -18,14 +18,6 @@ System: .
 - Skip to spaceship_enter
 	do overlay_state("hidden")
 	=> approach_spaceship
-
-- Skip to task1_stimuli_order
-	do overlay_state("hidden")
-	=> task1_stimuli_order
-
-- Skip to task2_success
-	do overlay_state("hidden")
-	=> task2_success
 [next=2]
 
 
@@ -110,6 +102,8 @@ System: Debug Selection.
 - Skip to launch
 	do overlay_state("hidden")
 	=> launch
+- Screen Test
+	=>< snippets/focus_conversation
 
 ~ task0_practice
 do Character.play_audio("task0_intro")
@@ -372,9 +366,11 @@ System: ...
 
 
 ~ launch
+set fuel_level = 8
 =>< snippets/focus_forward
 [next=2]
 do set_journey_progress(0.2,16.0)
+set fuel_level = 7
 [next=12]
 
 ~ were_flying
@@ -387,7 +383,9 @@ System: Debug Selection.
 - Skip to Warp 'task2_stimuli'
 	do overlay_state("hidden")
 	=> task2_stimuli
-
+- Screen Test
+	=>< snippets/focus_conversation
+	
 ~ task1_intro
 [next=4]
 =>< snippets/focus_conversation
@@ -460,6 +458,16 @@ Sam: Our next task is to find Planet Stardust! To help us get to Planet Stardust
 ~ task2_bad_example
 do Character.play_audio("task2_command_center")
 Sam: The Command Centre is very picky and will only guide us if you repeat the computer’s special phrases in EXACTLY the same way you heard them. Let’s hear an example of a space cadet not repeating the command right. [next=12]
+
+
+~ skip_examples
+System: Debug Selection.
+- Continue
+- Skip Examples
+	do overlay_state("hidden")
+	=> task2_ready_or_repeat
+
+
 do Character.play_audio("click_the_red_button_to_hear_it")
 Sam: Click the RED button to hear it. [next=2]
 =>< snippets/prompt_red_button
@@ -569,6 +577,7 @@ while stimuli_set.size() > 0
 
 
 ~ task2_success
+set fuel_level = 6
 do set_journey_progress(0.85,4.0)
 do Character.play_audio("task2_success")
 =>< snippets/focus_conversation
@@ -581,6 +590,7 @@ do set_journey_progress(1.0,12.0)
 [next=12]
 
 ~ task3_landed
+set fuel_level = 5
 set journey_progress = 1.0
 do Character.play_audio("task3_found_planet_stardust")
 =>< snippets/focus_conversation
