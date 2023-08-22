@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://wa41njrapfpn"]
+[gd_scene load_steps=43 format=3 uid="uid://wa41njrapfpn"]
 
 [ext_resource type="PackedScene" uid="uid://ctjlmbopaw2sa" path="res://level/spaceship/models/spaceship.gltf" id="1_m17hk"]
 [ext_resource type="Script" path="res://level/spaceship/spaceship.gd" id="2_tplkk"]
@@ -13,6 +13,7 @@
 [ext_resource type="Material" uid="uid://goanujt7bwh1" path="res://level/spaceship/materials/screen_material.tres" id="11_8wdik"]
 [ext_resource type="Material" uid="uid://dorgvk7napmkt" path="res://level/spaceship/materials/seatbelt_indicator_material.tres" id="11_qd2cb"]
 [ext_resource type="AudioStream" uid="uid://bbeqr4gkafvpx" path="res://audio/effects/blip_01.wav" id="13_4lkru"]
+[ext_resource type="AudioStream" uid="uid://hsj3q8rlss22" path="res://audio/effects/chime_01.wav" id="13_me6fn"]
 [ext_resource type="AudioStream" uid="uid://4ng47kkkmp81" path="res://audio/effects/door_open.wav" id="14_5elkx"]
 [ext_resource type="Material" uid="uid://c3g6ab7tvqcpc" path="res://level/spaceship/materials/progress_bar_material.tres" id="15_ljimn"]
 [ext_resource type="AudioStream" uid="uid://bxtrgdejvlare" path="res://audio/effects/door_unlock.wav" id="15_tjywe"]
@@ -575,8 +576,8 @@ shader_parameter/rim_amount = 0.447
 shader_parameter/rim_smoothness = 1.0
 shader_parameter/metallic = 0.0
 shader_parameter/roughness = 1.0
-shader_parameter/emission_tint = Color(0.529412, 1, 0.533333, 1)
-shader_parameter/emission_energy = 1.0
+shader_parameter/emission_tint = Color(0.521073, 0.580184, 0.966771, 1)
+shader_parameter/emission_energy = 0.284281
 shader_parameter/albedo_texture = ExtResource("17_dm8ld")
 shader_parameter/emission_texture = ExtResource("18_nolgf")
 
@@ -646,16 +647,18 @@ transform = Transform3D(1, -4.91127e-11, 4.36557e-11, -1.79199e-10, 0.997877, 0.
 material_override = ExtResource("8_fylk6")
 
 [node name="ComputerAudioPlayer" type="AudioStreamPlayer3D" parent="spaceship/cockpit/monitor" index="6"]
+unique_name_in_owner = true
+stream = ExtResource("13_me6fn")
 volume_db = -5.228
 
 [node name="ButtonPressAudio" type="AudioStreamPlayer3D" parent="spaceship/cockpit/monitor" index="7"]
 stream = ExtResource("13_4lkru")
 
 [node name="controls" parent="spaceship/cockpit" index="1"]
-transform = Transform3D(0.990622, -0.13259, -0.0329651, 0.136306, 0.942572, 0.304923, -0.00935789, -0.306557, 0.951806, 0.688043, 0.511933, -1.92573)
+transform = Transform3D(0.989973, -0.140226, -0.0170193, 0.138887, 0.944317, 0.298288, -0.0257562, -0.29766, 0.954324, 0.688043, 0.511933, -1.92573)
 
 [node name="controls_left" parent="spaceship/cockpit" index="2"]
-transform = Transform3D(0.999532, 0.0194734, 0.0235509, -0.0205228, 0.998769, 0.0451723, -0.0226422, -0.0456345, 0.998701, -0.6875, 0.400625, -2.07488)
+transform = Transform3D(0.999597, 0.0154175, -0.02378, -0.0146292, 0.99935, 0.0329734, 0.0242729, -0.0326123, 0.999173, -0.6875, 0.400625, -2.07488)
 
 [node name="Siren" parent="spaceship/cockpit" index="3" instance=ExtResource("18_e0bdp")]
 unique_name_in_owner = true
@@ -669,7 +672,7 @@ transform = Transform3D(-0.0290878, 0, 0.999577, 0, 1, 0, -0.999577, 0, -0.02908
 material_override = ExtResource("15_ljimn")
 
 [node name="indicator" parent="spaceship/cockpit/progress_bar" index="0"]
-transform = Transform3D(0.990011, 0, 0, 0, 0.916666, 0, 0, 0, 0.913851, -1, 0.359037, 0)
+transform = Transform3D(0.990011, 0, 0, 0, 0.916666, -2.08616e-07, 0, -3.12924e-07, 0.913852, -1, 0.359037, 2.38419e-07)
 surface_material_override/0 = ExtResource("15_ljimn")
 
 [node name="ProgressPath" type="Path3D" parent="spaceship/cockpit/progress_bar" index="1"]

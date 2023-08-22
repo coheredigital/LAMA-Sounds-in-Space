@@ -84,3 +84,16 @@ Player: .
 	set screen = "start_button_red_pressed"
 	[next=1]
 => END
+
+~ screen_test
+System: .
+- Success
+	set screen = "success"
+	play_computer_sound("chime_01")
+	=> screen_test
+- Success2
+	set screen = "success"
+	play_computer_sound("chime_01")
+	=> screen_test
+- Done
+=> END

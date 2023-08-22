@@ -443,7 +443,6 @@ shadow_mesh = SubResource("ArrayMesh_omrgd")
 [node name="Ufo" instance=ExtResource("1_1cqd3")]
 script = ExtResource("2_dq5n3")
 beam_active = true
-speakers_open = true
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="0"]
 tree_root = SubResource("AnimationNodeBlendTree_m1lfx")
@@ -465,7 +464,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, -4.421, 0)
 unique_name_in_owner = true
 transform = Transform3D(0.995161, 0.0293271, -0.0937805, -0.0249109, 0.998541, 0.0479204, 0.095049, -0.0453523, 0.994439, -0.191075, 0.208019, 0.0818393)
 stream = ExtResource("3_yv0qb")
-volume_db = -65.105
+volume_db = -45.0
 unit_size = 16.74
 max_db = -13.18
 pitch_scale = 0.8
@@ -495,17 +494,17 @@ libraries = {
 }
 
 [node name="alien" type="MeshInstance3D" parent="ufo/Alien" index="1"]
-transform = Transform3D(-1, 0, -2.53518e-06, 0, 1, 0, 2.53518e-06, 0, -1, -0.00261206, 0.00147759, -0.000738794)
+transform = Transform3D(-1, 0, -2.53518e-06, 0, 1, 0, 2.53518e-06, 0, -1, -0.0096567, 6.86593e-05, -3.43296e-05)
 mesh = SubResource("ArrayMesh_nq5s4")
 skeleton = NodePath("")
 
 [node name="head" type="MeshInstance3D" parent="ufo/Alien/alien" index="0"]
-transform = Transform3D(0.991159, 0.068971, 0.113358, -0.0609983, 0.995512, -0.0723596, -0.11784, 0.0648052, 0.990915, 0, 1.34375, -5.75928e-16)
+transform = Transform3D(0.999661, -0.0117449, 0.0233169, 0.0131683, 0.997998, -0.0618612, -0.0225437, 0.0621472, 0.997812, 0, 1.34375, -5.75928e-16)
 mesh = SubResource("ArrayMesh_quua8")
 skeleton = NodePath("")
 
 [node name="arm_left" type="MeshInstance3D" parent="ufo/Alien/alien" index="1"]
-transform = Transform3D(0.38968, 0.918509, 0.0670161, -0.888377, 0.394083, -0.235553, -0.242767, 0.0322547, 0.969549, 0.15625, 1.26563, 5.58794e-09)
+transform = Transform3D(0.50265, 0.864395, -0.0127783, -0.85063, 0.491902, -0.185639, -0.154179, 0.104181, 0.982536, 0.15625, 1.26563, 5.58794e-09)
 mesh = SubResource("ArrayMesh_fwyk3")
 skeleton = NodePath("")
 
@@ -515,7 +514,7 @@ mesh = SubResource("ArrayMesh_gdk4s")
 skeleton = NodePath("")
 
 [node name="leg_left" type="MeshInstance3D" parent="ufo/Alien/alien" index="2"]
-transform = Transform3D(-0.035069, 0.993341, 0.109737, -0.995943, -0.0256316, -0.0862595, -0.0828725, -0.112317, 0.99021, 0.109375, 0.8125, -6.8121e-16)
+transform = Transform3D(0.0169797, 0.998875, 0.0442705, -0.999855, 0.0170338, -0.000843567, -0.00159671, -0.0442498, 0.999019, 0.109375, 0.8125, -6.8121e-16)
 mesh = SubResource("ArrayMesh_7jh5m")
 skeleton = NodePath("")
 
@@ -525,7 +524,7 @@ mesh = SubResource("ArrayMesh_2vng7")
 skeleton = NodePath("")
 
 [node name="arm_right" type="MeshInstance3D" parent="ufo/Alien/alien" index="3"]
-transform = Transform3D(-0.282645, 0.958237, -0.0435131, -0.958452, -0.283946, -0.0272503, -0.0384676, 0.034003, 0.998681, -0.15625, 1.26563, 9.31322e-10)
+transform = Transform3D(-0.407131, 0.901128, -0.149041, -0.912671, -0.39499, 0.104941, 0.0356952, 0.17875, 0.983247, -0.15625, 1.26563, 9.31322e-10)
 mesh = SubResource("ArrayMesh_2co3l")
 skeleton = NodePath("")
 
@@ -535,7 +534,7 @@ mesh = SubResource("ArrayMesh_bfmpj")
 skeleton = NodePath("")
 
 [node name="leg_right" type="MeshInstance3D" parent="ufo/Alien/alien" index="4"]
-transform = Transform3D(-0.0312795, 0.999419, -0.0135531, -0.999481, -0.0311711, 0.00813229, 0.00770509, 0.0138004, 0.999876, -0.125, 0.8125, -3.72529e-09)
+transform = Transform3D(-0.124897, 0.990715, -0.0537149, -0.991846, -0.123291, 0.0322557, 0.0253336, 0.0573055, 0.998036, -0.125, 0.8125, -3.72529e-09)
 mesh = SubResource("ArrayMesh_kqrsa")
 skeleton = NodePath("")
 
@@ -548,7 +547,7 @@ skeleton = NodePath("")
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0)
 
 [node name="beam" parent="ufo" index="5"]
-transform = Transform3D(-0.992359, -0.0678423, -0.103065, -0.104369, 0.0159567, 0.99441, -0.0658185, 0.997568, -0.0229154, 1.49012e-08, -0.7, 0)
+transform = Transform3D(-0.994473, -0.0582191, -0.0873798, -0.0866962, -0.0141725, 0.996133, -0.0592325, 0.998203, 0.00904683, 0, -0.7, -3.72529e-09)
 surface_material_override/0 = ExtResource("3_ju5pg")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="ufo" index="14"]
@@ -557,10 +556,10 @@ light_energy = 0.102
 omni_range = 1.6
 
 [node name="speaker_right" parent="ufo" index="15"]
-transform = Transform3D(0.906308, 0.328436, -0.265962, 0, 0.629321, 0.777146, 0.422618, -0.704334, 0.570358, 0.390625, 0.5, -0.96875)
+transform = Transform3D(0.906308, 0.335286, -0.257273, 0, 0.608762, 0.793353, 0.422618, -0.719023, 0.551725, 0.390625, 0.5, -0.96875)
 
 [node name="speaker_left" parent="ufo" index="16"]
-transform = Transform3D(0.906308, -0.328436, 0.265962, 0, 0.629321, 0.777146, -0.422618, -0.704334, 0.570358, -0.390625, 0.5, -0.96875)
+transform = Transform3D(0.906308, -0.335286, 0.257273, 0, 0.608762, 0.793353, -0.422618, -0.719023, 0.551725, -0.390625, 0.5, -0.96875)
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)

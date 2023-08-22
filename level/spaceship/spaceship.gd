@@ -60,9 +60,12 @@ var fuel_level := 1:
 @onready var seatbelt_indicator_material : ShaderMaterial = %seatbelt_indicator_left.get_active_material(0)
 @onready var light := %Light 
 @onready var progress_indicator := %ProgressPathFollow
+@onready var computer_audio_player := %ComputerAudioPlayer
+
 
 func _ready():
 	Sequencer.screen_changed.connect(update_screen)
+	Sequencer.played_computer_sound.connect(play_sound)
 	Sequencer.door_state_changed.connect(set_door_state)
 	Sequencer.steering_motion_changed.connect(set_steering_motion)
 	Sequencer.flying_motion_changed.connect(set_flying_motion)
@@ -109,12 +112,23 @@ func set_seatbelts_buckled(value: bool) -> void:
 	if seatbelt_indicator_material:
 		seatbelt_indicator_material.set_shader_parameter("frame_number", 2 if value else 1)
 
-
-
-
 func update_screen(value: String)-> void:
 	if animation_tree:
 		var state_machine : AnimationNodeStateMachinePlayback = animation_tree.get("parameters/screen_state/playback")
 		state_machine.travel(value)
 
 
+func play_sound(value: String) -> void:
+#	get the file or cancel operation
+	var folder = "res://audio/effects/"
+	var filename = "%s/%s.wav" % [folder,value];
+	
+	var wav_file = load(filename);
+	if not wav_file:
+		push_warning('Computer sound not found: %s' % [filename])
+		return
+
+#	Visualizer.channel = "Stimuli"
+	computer_audio_player.stream = wav_file
+	computer_audio_player.playing = true
+	EventLogger.add('stimuli','played',filename)
