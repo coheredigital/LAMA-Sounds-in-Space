@@ -1,4 +1,4 @@
-#@tool
+@tool
 extends Node3D
 
 const BEAM_SPEED := 2.0
@@ -7,8 +7,8 @@ const BEAM_SPEED := 2.0
 @onready var beam_material : ShaderMaterial = beam.get_active_material(0)
 #@onready var beam_position_target = %BeamPostionTarget
 @onready var beam_look_target := %BeamLookTarget
-@onready var speaker_left = $ufo/speaker_left
 @onready var speaker_right = $ufo/speaker_right
+@onready var speaker_left = $ufo/speaker_left
 @onready var animation_tree := $AnimationTree
 @onready var beam_transform := %BeamTransform3D
 
