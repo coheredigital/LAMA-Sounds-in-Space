@@ -22,7 +22,7 @@ const LOOK_ANGLE_LIMIT = Vector2(20.0,180.0)
 #@export_range (1.0, 8.0, 0.1) var follow_speed := 4.0
 const follow_speed := 4.0
 #@export_range (1.0, 8.0, 0.1) var turn_speed := 4.0
-const turn_speed := 1.0
+const turn_speed := 2.0
 #@export_range (1.0, 4.0, 0.1) var max_distance := 2.0
 const max_distance := 1.0
 
