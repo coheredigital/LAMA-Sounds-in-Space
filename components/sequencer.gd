@@ -5,7 +5,7 @@ signal journey_progress_changed(value: float, duration: float)
 signal stars_brightness_changed(value: float)
 signal star_moved(star_number: int, progress: float)
 signal altitude_changed(value: float, duration: float)
-signal visible_planet_changed(value: String)
+signal played_computer_sound(value: String)
 signal planet_scale_changed(value: float, duration: float)
 signal planet_distance_changed(value: float, duration: float)
 signal planet_height_changed(value: float, duration: float)
@@ -138,12 +138,11 @@ func set_altitude(height: float, duration: float = 1.0) -> void:
 func set_planet_scale(scale: float, duration: float = 1.0) -> void:
 	planet_scale_changed.emit(scale,duration)
 
-func set_visible_planet(value: String):
-	visible_planet_changed.emit(value)
-
 func set_planet_distance(distance: float, duration: float = 1.0) -> void:
 	planet_distance_changed.emit(distance,duration)
 
+func play_computer_sound(value: String) -> void:
+	played_computer_sound.emit(value)
 
 func print_message(text: String) -> void:
 	print('Message: %s' % text)
