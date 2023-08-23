@@ -549,7 +549,7 @@ System: Select stimuli order
 ~ task2_stimuli_trial
 # loop through stimuli
 while stimuli_set.size() > 0
-	do get_next_stimuli()
+	set next_stimuli = stimuli_set.pop_front()
 	System:
 	- Begin {{next_stimuli}}
 	set screen = "computer"
@@ -616,7 +616,7 @@ set screen = "computer"
 ~ task3_stimuli_trial
 # loop through stimuli
 while stimuli_set.size() > 0
-	do get_next_stimuli()
+	set next_stimuli = stimuli_set.pop_front()
 	System:
 	- Begin {{next_stimuli}}
 	set screen = "computer"
