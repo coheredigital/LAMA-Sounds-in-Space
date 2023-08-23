@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://wa41njrapfpn"]
+[gd_scene load_steps=46 format=3 uid="uid://wa41njrapfpn"]
 
 [ext_resource type="PackedScene" uid="uid://ctjlmbopaw2sa" path="res://level/spaceship/models/spaceship.gltf" id="1_m17hk"]
 [ext_resource type="Script" path="res://level/spaceship/spaceship.gd" id="2_tplkk"]
@@ -23,7 +23,6 @@
 [ext_resource type="AudioStream" uid="uid://b7e4vg2vr8b5w" path="res://audio/effects/warp_01.wav" id="17_erjnb"]
 [ext_resource type="PackedScene" uid="uid://j5n0jb2vhvf6" path="res://level/spaceship/scenes/siren.tscn" id="18_e0bdp"]
 [ext_resource type="Texture2D" uid="uid://nlpie5uq8lof" path="res://level/spaceship/materials/spaceship_emission.png" id="18_nolgf"]
-[ext_resource type="AudioStream" uid="uid://c08o70kmx6f6s" path="res://audio/effects/warp_03.wav" id="18_y40i5"]
 
 [sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_h7dn0"]
 filters = ["spaceship/cockpit/monitor/screen:surface_material_override/0:shader_parameter/alpha", "spaceship/cockpit/monitor/screen:surface_material_override/0:shader_parameter/frame_number", "spaceship/cockpit/monitor/screen:surface_material_override/0:shader_parameter/screen_number", "spaceship/cockpit/monitor/screen:surface_material_override/0:shader_parameter/waveform_controlled", "spaceship/cockpit/monitor/screen:visible", "spaceship/cockpit/monitor/visualizer_screen:visible"]
@@ -238,22 +237,10 @@ tracks/13/keys = {
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("spaceship/EngineAudio1:playing")
+tracks/14/path = NodePath("spaceship/EngineAudio:playing")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/15/type = "value"
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/path = NodePath("spaceship/EngineAudio2:playing")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -544,23 +531,11 @@ length = 10.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("spaceship/EngineAudio1:playing")
+tracks/0/path = NodePath("spaceship/EngineAudio:playing")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0.9),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("spaceship/EngineAudio2:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -717,7 +692,7 @@ stream = ExtResource("13_4lkru")
 transform = Transform3D(0.990622, -0.13259, -0.0329651, 0.136306, 0.942572, 0.304923, -0.00935789, -0.306557, 0.951806, 0.688043, 0.511933, -1.92573)
 
 [node name="controls_left" parent="spaceship/cockpit" index="2"]
-transform = Transform3D(0.999568, -0.0275137, -0.0102439, 0.0278991, 0.998826, 0.0396057, 0.00914215, -0.0398745, 0.999162, -0.6875, 0.400625, -2.07488)
+transform = Transform3D(0.999237, 0.0324027, -0.0217307, -0.0316915, 0.998976, 0.0323065, 0.0227552, -0.0315933, 0.999241, -0.6875, 0.400625, -2.07488)
 
 [node name="Siren" parent="spaceship/cockpit" index="3" instance=ExtResource("18_e0bdp")]
 unique_name_in_owner = true
@@ -747,19 +722,14 @@ remote_path = NodePath("../../../indicator")
 update_rotation = false
 update_scale = false
 
-[node name="EngineAudio1" type="AudioStreamPlayer3D" parent="spaceship" index="2"]
+[node name="EngineAudio" type="AudioStreamPlayer3D" parent="spaceship" index="2"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.24688, 3.01522)
 stream = ExtResource("17_erjnb")
 volume_db = -21.701
 unit_size = 12.42
 
-[node name="EngineAudio2" type="AudioStreamPlayer3D" parent="spaceship" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.24688, 3.01522)
-stream = ExtResource("18_y40i5")
-volume_db = -21.701
-unit_size = 12.42
-
-[node name="door" parent="spaceship" index="5"]
+[node name="door" parent="spaceship" index="4"]
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, -0.01, 0, 0)
 
 [node name="DoorAudio" type="AudioStreamPlayer3D" parent="spaceship/door" index="0"]

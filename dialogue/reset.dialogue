@@ -1,5 +1,5 @@
 ~ reset
-do overlay_state("logo")
+do set_overlay_state("logo")
 # Mission
 do set_journey_progress(0.0,0.0)
 # Character

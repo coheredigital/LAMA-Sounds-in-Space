@@ -12,6 +12,7 @@ extends Node
 @onready var station := %Station
 @onready var planet_stardust := %PlanetStardust
 @onready var environment := %Environment
+@onready var spaceship_audio = %SpaceshipAudio
 
 
 @export_range(0.0,1.0,0.00001) var journey_progress : float = 0.0 : 
@@ -41,6 +42,7 @@ extends Node
 func _ready():
 #	Global Sequencer
 	Sequencer.journey_progress_changed.connect(set_journey_progress)
+	Sequencer.spaceship_audio_played.connect(play_spaceship_audio)
 	
 #	TODO: Simplify pattern
 #	Player
@@ -145,6 +147,20 @@ func set_lama_visibility(value: bool) -> void:
 		lama_rescued.visible = false
 		lama_lost.visible = true
 
+# Spaceship
+func play_spaceship_audio(value: String) -> void:
+#	get the file or cancel operation
+	var folder = "res://audio/"
+	var filename = "%s/%s.wav" % [folder,value];
+	
+	var wav_file = load(filename);
+	if not wav_file:
+		push_warning('Sound not found: %s' % [filename])
+		return
+
+	spaceship_audio.stream = wav_file
+	spaceship_audio.playing = true
+	EventLogger.add('stimuli','played',filename)
 	
 #	UFO
 func set_ufo_postion(position: float, duration: float = 1.0) -> void: 

@@ -2,7 +2,23 @@
 extends Node3D
 
 
-@export_enum("idle","playing","recording","alert","buckle_warning","battery","start_button","start_button_pressed","start_button_red","start_button_red_pressed","restart_button","computer","sleep","success","failure") var screen_state: String = "idle":
+@export_enum(
+	"idle",
+	"playing",
+	"recording",
+	"alert",
+	"buckle_warning",
+	"battery",
+	"start_button",
+	"start_button_pressed",
+	"start_button_red",
+	"start_button_red_pressed",
+	"restart_button",
+	"computer",
+	"sleep",
+	"success",
+	"failure"
+) var screen_state: String = "idle":
 	set(value):
 		screen_state = value
 		update_screen(value)
