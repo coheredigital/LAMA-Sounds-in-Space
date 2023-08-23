@@ -89,11 +89,11 @@ Player: .
 System: .
 - Success
 	set screen = "success"
-	play_computer_sound("chime_01")
+	do play_computer_sound("chime_01")
 	=> screen_test
 - Success2
 	set screen = "success"
-	play_computer_sound("chime_01")
+	do play_computer_sound("chime_01")
 	=> screen_test
 - Done
 => END

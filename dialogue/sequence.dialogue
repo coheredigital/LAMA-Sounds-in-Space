@@ -103,7 +103,7 @@ System: Debug Selection.
 	do overlay_state("hidden")
 	=> launch
 - Screen Test
-	=>< snippets/focus_conversation
+	=>< snippets/screen_test
 
 ~ task0_practice
 do Character.play_audio("task0_intro")
@@ -384,7 +384,7 @@ System: Debug Selection.
 	do overlay_state("hidden")
 	=> task2_stimuli
 - Screen Test
-	=>< snippets/focus_conversation
+	=>< snippets/screen_test
 	
 ~ task1_intro
 [next=4]
@@ -410,7 +410,6 @@ System: Select stimuli order
 # loop through stimuli
 while stimuli_set.size() > 0
 	set next_stimuli = stimuli_set.pop_front()
-#	do get_next_stimuli()
 	System:
 	- Begin {{next_stimuli}}
 	do print_message("Step: %s" % (12 - stimuli_set.size()))
@@ -631,8 +630,6 @@ while stimuli_set.size() > 0
 		set screen = "success"
 		do Recorder.stop()
 		do Recorder.save()
-#		make progress
-		do set_journey_progress_step(12 - stimuli_set.size(), 12, 3.0)
 		[next=4]
 	- Failure
 		set screen = "failure"

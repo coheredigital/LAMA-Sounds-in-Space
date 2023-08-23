@@ -106,10 +106,6 @@ var next_stimuli = '':
 		next_stimuli = value
 		print("Next stimuli: %s" % [next_stimuli])
 
-func get_next_stimuli() -> String:
-	next_stimuli = stimuli_set.pop_front()
-	return next_stimuli if next_stimuli else ''
-
 
 func set_stars_brightness(step: float, step_max: float) -> void:
 	var brightness = step / step_max
@@ -119,12 +115,6 @@ func set_stars_brightness(step: float, step_max: float) -> void:
 
 func overlay_state(state : String) -> void:
 	overlay_state_changed.emit(state)
-
-func move_character(progress: float, duration: float = 1.0) -> void:
-	character_position_changed.emit(progress, duration)
-
-func character_view_angle(angle: Vector2, duration: float = 1.0) -> void:
-	character_position_changed.emit(angle, duration)
 
 func move_star(star_number: float, progress: float, duration: float = 1.0) -> void:
 #	round star down to allow fractions used in sequence
