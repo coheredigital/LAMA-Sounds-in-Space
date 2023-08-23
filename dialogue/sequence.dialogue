@@ -367,13 +367,17 @@ System: ...
 
 ~ launch
 set fuel_level = 8
-set steering_motion = 0.5
-do play_spaceship_audio("effects/engine_launch")
+set steering_motion = 0.0
+set flying_motion = 0.0
 
 =>< snippets/focus_forward
 [next=2]
-do set_journey_progress(0.2,16.0)
-set steering_motion = 1.0
+do play_spaceship_audio("effects/engine_launch")
+do set_journey_progress(0.2,24.0)
+set flying_motion = 0.2
+[next=2]
+set flying_motion = 0.6
+set steering_motion = 0.3
 set fuel_level = 7
 [next=12]
 set steering_motion = 0.5
@@ -382,6 +386,7 @@ set steering_motion = 0.5
 do Character.play_audio("were_flying")
 Sam: We’re flying![next=5]
 set steering_motion = 0.2
+set flying_motion = 0.2
 
 ~ skip_to_warp
 System: Debug Selection.

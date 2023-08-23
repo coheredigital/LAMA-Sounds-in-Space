@@ -86,14 +86,25 @@ Player: .
 => END
 
 ~ screen_test
+set screen = "idle"
 System: .
-- Success
+- chime_01
 	set screen = "success"
+	[next=1]
 	do play_computer_sound("chime_01")
+	[next=4]
 	=> screen_test
-- Success2
+- chime_02
 	set screen = "success"
-	do play_computer_sound("chime_01")
+	[next=1]
+	do play_computer_sound("chime_02")
+	[next=4]
+	=> screen_test
+- chime_03
+	set screen = "success"
+	[next=1]
+	do play_computer_sound("chime_03")
+	[next=4]
 	=> screen_test
 - Done
 => END
