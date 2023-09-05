@@ -4,3 +4,6 @@
 # audacity temp files
 *.aup3-shm
 *.aup3-wal
+
+# Windows folder config
+*.ini
