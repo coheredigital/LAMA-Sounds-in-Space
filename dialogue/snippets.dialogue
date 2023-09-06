@@ -67,6 +67,16 @@ do Player.tilt(-0.2)
 do Player.pivot(0.0)
 => END
 
+~ alien_focus_forward
+do Alien.tilt(0.25) 
+do Alien.pivot(0.1)
+=> END
+
+~ alien_focus_ufo
+do Alien.tilt(-0.5) 
+do Alien.pivot(0.5)
+=> END
+
 ~ prompt_green_button
 set screen = "start_button"
 =>< focus_screen
