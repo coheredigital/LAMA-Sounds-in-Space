@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://uk3s0fjb5pmh"]
+[gd_scene load_steps=30 format=3 uid="uid://uk3s0fjb5pmh"]
 
 [ext_resource type="Script" path="res://level/level.gd" id="1_58g46"]
 [ext_resource type="Script" path="res://level/rumble_controller.gd" id="2_gas8d"]
@@ -8,12 +8,12 @@
 [ext_resource type="Curve3D" uid="uid://2tegcoe2filo" path="res://characters/lama/lama_path.tres" id="6_4mufo"]
 [ext_resource type="PackedScene" uid="uid://dt1vpkmuodkmu" path="res://level/spacestation/spacestation.gltf" id="6_7tl8n"]
 [ext_resource type="Curve3D" uid="uid://u7jxw4tklqvw" path="res://characters/alien/ufo_path.tres" id="7_a8kou"]
-[ext_resource type="Shader" path="res://shaders/toon.gdshader" id="7_c46vp"]
 [ext_resource type="PackedScene" uid="uid://bq23ckwovuhf4" path="res://characters/alien/alien.tscn" id="8_bs0lj"]
 [ext_resource type="PackedScene" uid="uid://322sh12iustv" path="res://characters/lama/lama.tscn" id="8_t1ik6"]
 [ext_resource type="PackedScene" uid="uid://bi2ttsoa7h87g" path="res://components/remote_follow_path.tscn" id="8_xybyf"]
 [ext_resource type="Curve3D" uid="uid://bnnm33024rtvp" path="res://characters/player/player_position_path.tres" id="11_wq0yi"]
 [ext_resource type="PackedScene" uid="uid://vain2gp1dm54" path="res://level/spacestation/computer.tscn" id="14_34eti"]
+[ext_resource type="Material" uid="uid://dg6yoxk3agom" path="res://level/environment/materials/skybox_buildings_material.tres" id="14_pvrip"]
 [ext_resource type="PackedScene" uid="uid://bbugqyxo4xw7n" path="res://characters/alien/ufo.tscn" id="16_8d17p"]
 [ext_resource type="Material" uid="uid://dn4hhy54yg5ai" path="res://level/environment/materials/ground_material.tres" id="17_lp2h6"]
 [ext_resource type="PackedScene" uid="uid://bshyrsivebdd0" path="res://level/environment/mountains.tscn" id="17_thg0y"]
@@ -24,22 +24,6 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_fo1lf"]
 size = Vector3(16, 16, 16)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_85duv"]
-render_priority = 0
-shader = ExtResource("7_c46vp")
-shader_parameter/albedo = Color(0.466667, 0.584314, 0.796078, 1)
-shader_parameter/specular = 0.5
-shader_parameter/specular_amount = 0.5
-shader_parameter/specular_smoothness = 0.05
-shader_parameter/wrap = 0.25
-shader_parameter/rim = 0.5
-shader_parameter/rim_amount = 0.2
-shader_parameter/rim_smoothness = 0.05
-shader_parameter/metallic = 0.0
-shader_parameter/roughness = 1.0
-shader_parameter/emission_tint = Color(0, 0, 0, 1)
-shader_parameter/emission_energy = 1.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_rna5n"]
 size = Vector3(16, 16, 16)
@@ -96,12 +80,13 @@ shader_parameter/color_gradient = SubResource("GradientTexture1D_astb8")
 
 [node name="Level" type="Node"]
 script = ExtResource("1_58g46")
+journey_progress = 1.0
 
 [node name="RumbleController" type="Node" parent="."]
 script = ExtResource("2_gas8d")
 
 [node name="Character" parent="." instance=ExtResource("21_35viv")]
-transform = Transform3D(-0.464153, -6.63366e-05, 0.885755, -7.27596e-11, 1, 7.48926e-05, -0.885755, 3.47616e-05, -0.464153, -13.2931, 1.00015, -3.19279)
+transform = Transform3D(-0.464153, -6.63365e-05, 0.885754, 0, 1, 7.48926e-05, -0.885754, 3.47617e-05, -0.464153, -13.2931, 1.00015, -3.19279)
 
 [node name="Spaceship" parent="." instance=ExtResource("2_ovpdl")]
 unique_name_in_owner = true
@@ -109,6 +94,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00968003, 0)
 screen_state = "playing"
 door_state = "open"
 seatbelts_buckled = true
+progress_bar = 1.0
 
 [node name="SpaceshipAudio" type="AudioStreamPlayer3D" parent="Spaceship"]
 unique_name_in_owner = true
@@ -127,7 +113,7 @@ curve = ExtResource("22_lkuf6")
 pivot = 0.39
 
 [node name="RemoteTransform" parent="FollowPaths/CharacterPath" index="0"]
-transform = Transform3D(-0.464153, -6.63366e-05, 0.885755, -7.27596e-11, 1, 7.48926e-05, -0.885755, 3.47616e-05, -0.464153, -13.2931, 1.00015, -3.19279)
+transform = Transform3D(-0.464153, -6.63365e-05, 0.885754, 0, 1, 7.48926e-05, -0.885754, 3.47617e-05, -0.464153, -13.2931, 1.00015, -3.19279)
 remote_path = NodePath("../../../Character")
 
 [node name="PathFollow" parent="FollowPaths/CharacterPath" index="1"]
@@ -140,21 +126,25 @@ transform = Transform3D(0.338738, 0, -0.940881, 0, 1, 0, 0.940881, 0, 0.338738, 
 unique_name_in_owner = true
 curve = ExtResource("5_8sic0")
 progress_ratio = 1.0
-pivot = 0.11
+pivot = 0.12
+tilt = 0.35
 
 [node name="RemoteTransform" parent="FollowPaths/AlienPath" index="0"]
-transform = Transform3D(-0.854581, -0.0187554, 0.518977, -1.95578e-08, 0.999348, 0.0361154, -0.519316, 0.0308636, -0.854023, 0.929916, 1.74427, -4.22078)
+transform = Transform3D(-0.83724, -0.0858044, 0.540059, 2.23517e-08, 0.987611, 0.15691, -0.546836, 0.131372, -0.826864, 0.92899, 1.7448, -4.22118)
 remote_path = NodePath("../../../Ground/PlanetStardust/Alien")
 update_scale = false
 
 [node name="PathFollow" parent="FollowPaths/AlienPath" index="1"]
-transform = Transform3D(-0.979675, -0.00775571, 0.199664, 0, 0.999086, 0.0388096, -0.199812, 0.0380261, -0.978948, 0.926652, 1.74474, -4.21172)
+transform = Transform3D(-0.979678, -0.00775564, 0.199664, 0, 0.999078, 0.0388096, -0.199813, 0.0380258, -0.978948, 0.926652, 1.74474, -4.21172)
 progress = 16.8932
 rotation_mode = 2
 tilt_enabled = true
 
 [node name="LookTargetPivot" parent="FollowPaths/AlienPath/PathFollow" index="1"]
-transform = Transform3D(0.940881, 0, -0.338738, 0, 1, 0, 0.338738, 0, 0.940881, 0, 0, 0)
+transform = Transform3D(0.929777, 0, -0.368125, 0, 1, 0, 0.368125, 0, 0.929777, 0, 0, 0)
+
+[node name="LookTargetTilt" parent="FollowPaths/AlienPath/PathFollow/LookTargetPivot" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.992546, 0.121869, 0, -0.121869, 0.992546, 0, 0, 0)
 
 [node name="LamaPath" parent="FollowPaths" instance=ExtResource("8_xybyf")]
 unique_name_in_owner = true
@@ -162,7 +152,7 @@ curve = ExtResource("6_4mufo")
 progress_ratio = 0.85
 
 [node name="RemoteTransform" parent="FollowPaths/LamaPath" index="0"]
-transform = Transform3D(-0.829456, 9.35151e-05, -0.558572, -4.00178e-11, 1, 0.000167419, 0.558571, 0.000138866, -0.829457, -4.69336, 1.70155, -10.3192)
+transform = Transform3D(-0.829456, 9.35151e-05, -0.558573, -1.09139e-10, 1, 0.000167419, 0.558571, 0.000138866, -0.829458, -4.69336, 1.70155, -10.3192)
 remote_path = NodePath("../../../Ground/PlanetStardust/LamaLost")
 
 [node name="BeamTransform3D" type="RemoteTransform3D" parent="FollowPaths/LamaPath/RemoteTransform/Marker3D" index="0"]
@@ -176,15 +166,15 @@ progress = 38.9669
 [node name="UfoPath" parent="FollowPaths" instance=ExtResource("8_xybyf")]
 unique_name_in_owner = true
 curve = ExtResource("7_a8kou")
-progress_ratio = 0.85
+progress_ratio = 0.84
 
 [node name="RemoteTransform" parent="FollowPaths/UfoPath" index="0"]
-transform = Transform3D(-0.813832, 0.107236, -0.571118, -6.33299e-08, 0.982825, 0.184539, 0.581098, 0.150184, -0.799855, -4.70804, 4.8628, -10.8321)
+transform = Transform3D(-0.810637, 0.11094, -0.574941, -2.23517e-08, 0.981886, 0.189465, 0.585547, 0.153587, -0.795955, -4.89234, 4.92099, -11.0756)
 remote_path = NodePath("../../../Ground/PlanetStardust/Ufo")
 
 [node name="PathFollow" parent="FollowPaths/UfoPath" index="1"]
-transform = Transform3D(-0.81839, 0.024033, -0.573938, -0.100701, 0.977489, 0.184525, 0.565547, 0.208829, -0.797676, -4.71558, 4.86339, -10.8304)
-progress = 38.6353
+transform = Transform3D(-0.817651, 0.0269802, -0.574864, -0.100943, 0.976533, 0.189409, 0.566576, 0.212918, -0.795865, -4.89786, 4.92275, -11.0832)
+progress = 38.318
 rotation_mode = 3
 
 [node name="PlayerPath" parent="FollowPaths" instance=ExtResource("8_xybyf")]
@@ -193,7 +183,7 @@ curve = ExtResource("11_wq0yi")
 tilt = -0.05
 
 [node name="RemoteTransform" parent="FollowPaths/PlayerPath" index="0"]
-transform = Transform3D(0.850303, -0.00923375, -0.526213, -9.31322e-10, 0.999846, -0.0175448, 0.526294, 0.0149184, 0.850172, -13.4903, 2.59989, -0.799095)
+transform = Transform3D(0.850302, -0.00923377, -0.526213, 5.58794e-09, 0.999846, -0.0175449, 0.526294, 0.0149184, 0.850171, -13.4903, 2.59989, -0.799095)
 remote_path = NodePath("../../../PlayerCamera")
 use_global_coordinates = true
 
@@ -207,6 +197,7 @@ transform = Transform3D(1, 0, 0, 0, 0.999847, -0.0174524, 0, 0.0174524, 0.999847
 
 [node name="Station" type="Node3D" parent="Ground"]
 unique_name_in_owner = true
+visible = false
 
 [node name="LamaRescued" parent="Ground/Station" instance=ExtResource("8_t1ik6")]
 unique_name_in_owner = true
@@ -220,37 +211,37 @@ transform = Transform3D(0.970733, 7.67017e-06, 0.24016, 9.28026e-12, 1, -3.19377
 transform = Transform3D(1, 0, 0, 0, 2.32323, 0, 0, 0, 1, 26.6242, 0, 21.5771)
 mesh = SubResource("BoxMesh_fo1lf")
 skeleton = NodePath("")
-surface_material_override/0 = SubResource("ShaderMaterial_85duv")
+surface_material_override/0 = ExtResource("14_pvrip")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Ground/Station/Buildings"]
 transform = Transform3D(1, 0, 0, 0, 1.51698, 0, 0, 0, 3.56057, 26.6242, -10.8923, 21.5771)
 mesh = SubResource("BoxMesh_fo1lf")
 skeleton = NodePath("")
-surface_material_override/0 = SubResource("ShaderMaterial_85duv")
+surface_material_override/0 = ExtResource("14_pvrip")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="Ground/Station/Buildings"]
 transform = Transform3D(0.115715, 0, 1.27663, 0, 1.91438, 0, -0.911629, 0, 0.162046, 19.2072, -4.95456, -51.6809)
 mesh = SubResource("BoxMesh_fo1lf")
 skeleton = NodePath("")
-surface_material_override/0 = SubResource("ShaderMaterial_85duv")
+surface_material_override/0 = ExtResource("14_pvrip")
 
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="Ground/Station/Buildings"]
 transform = Transform3D(-0.116136, 0, 1.26849, 0, 1.67592, 0, -0.819915, 0, -0.179675, -14.6257, -6.17549, -39.8133)
 mesh = SubResource("BoxMesh_fo1lf")
 skeleton = NodePath("")
-surface_material_override/0 = SubResource("ShaderMaterial_85duv")
+surface_material_override/0 = ExtResource("14_pvrip")
 
 [node name="MeshInstance3D7" type="MeshInstance3D" parent="Ground/Station/Buildings"]
 transform = Transform3D(-0.123483, 0, 0.70199, 0, 2.54568, 0, -0.87178, 0, -0.099433, 25.5903, 7.19297, -28.9712)
 mesh = SubResource("BoxMesh_fo1lf")
 skeleton = NodePath("")
-surface_material_override/0 = SubResource("ShaderMaterial_85duv")
+surface_material_override/0 = ExtResource("14_pvrip")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Ground/Station/Buildings"]
 transform = Transform3D(1, 0, 0, 0, 2.32323, 0, 0, 0, 1.55228, 47.1145, 0, -15.575)
 mesh = SubResource("BoxMesh_fo1lf")
 skeleton = NodePath("")
-surface_material_override/0 = SubResource("ShaderMaterial_85duv")
+surface_material_override/0 = ExtResource("14_pvrip")
 
 [node name="Computers" type="Node3D" parent="Ground/Station"]
 
@@ -290,20 +281,19 @@ surface_material_override/0 = ExtResource("17_lp2h6")
 
 [node name="PlanetStardust" type="Node3D" parent="Ground"]
 unique_name_in_owner = true
-visible = false
 
 [node name="Alien" parent="Ground/PlanetStardust" instance=ExtResource("8_bs0lj")]
-transform = Transform3D(-0.854453, -0.0187528, 0.518905, -1.95548e-08, 0.999209, 0.0361103, -0.519239, 0.0308593, -0.853903, 0.929916, 1.74427, -4.22078)
+transform = Transform3D(-0.837114, -0.0857879, 0.539979, 2.23484e-08, 0.98742, 0.156887, -0.546754, 0.131347, -0.826741, 0.92899, 1.7448, -4.22118)
 
 [node name="LamaLost" parent="Ground/PlanetStardust" instance=ExtResource("8_t1ik6")]
 unique_name_in_owner = true
-transform = Transform3D(-0.829456, 9.35151e-05, -0.558572, -4.00178e-11, 1, 0.000167419, 0.558571, 0.000138866, -0.829457, -4.69336, 1.70155, -10.3192)
+transform = Transform3D(-0.829456, 9.35151e-05, -0.558573, -1.09139e-10, 1, 0.000167419, 0.558571, 0.000138866, -0.829458, -4.69336, 1.70155, -10.3192)
 
 [node name="BeamTargetTransform" type="RemoteTransform3D" parent="Ground/PlanetStardust/LamaLost"]
 remote_path = NodePath("../../Ufo/BeamLookTarget")
 
 [node name="Ufo" parent="Ground/PlanetStardust" instance=ExtResource("16_8d17p")]
-transform = Transform3D(-0.813832, 0.107236, -0.571118, -6.33299e-08, 0.982825, 0.184539, 0.581098, 0.150184, -0.799855, -4.70804, 4.8628, -10.8321)
+transform = Transform3D(-0.810637, 0.11094, -0.574941, -2.23517e-08, 0.981886, 0.189465, 0.585547, 0.153587, -0.795955, -4.89234, 4.92099, -11.0756)
 
 [node name="mountains" parent="Ground/PlanetStardust" instance=ExtResource("17_thg0y")]
 
@@ -314,7 +304,8 @@ ground_color = Color(0.207843, 0.596078, 0.615686, 1)
 fog_color = Color(0.478431, 0.545098, 0.807843, 1)
 horizon_color = Color(0, 0, 0, 1)
 altitude = 0.0
-stars_progress = 0.0
+planet_distance = 0.0
+stars_progress = 1.0
 
 [node name="Ground" parent="Environment" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
@@ -323,21 +314,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 remote_path = NodePath("../../../Ground")
 
 [node name="PlanetPivot" parent="Environment" index="2"]
-transform = Transform3D(1, 0, 0, 0, 0.904827, -0.425779, 0, 0.425779, 0.904827, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 
 [node name="Planet" parent="Environment/PlanetPivot" index="0"]
-transform = Transform3D(-0.0499829, -0.00055728, -0.00118428, 0, 0.0452414, -0.021289, 0.00130885, -0.0212817, -0.0452259, 0, 0, -64)
+transform = Transform3D(-5.74803, 0.150517, 6.57933e-09, 0, -2.5134e-07, 5.75, 0.150517, 5.74803, 2.51254e-07, 0, 0, -22.9053)
 surface_material_override/0 = SubResource("ShaderMaterial_8836i")
 
 [node name="WorldLight" parent="Environment" index="3"]
-light_energy = 0.2
+light_energy = 0.17
 
 [node name="Stars" parent="Environment" index="4"]
-transform = Transform3D(0.864943, 0.501407, -0.0215388, -0.309736, 0.499555, -0.809017, -0.394886, 0.706427, 0.587391, 0, 75.4527, -51.2)
+transform = Transform3D(0.849321, 0.526602, -0.0366437, -0.526955, 0.849894, 0, 0.0311432, 0.0193096, 0.999329, 0, 96, 128)
 
 [node name="PlayerCamera" type="Camera3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(0.850303, -0.00923375, -0.526213, -9.31322e-10, 0.999846, -0.0175448, 0.526294, 0.0149184, 0.850172, -13.4903, 2.59989, -0.799095)
+transform = Transform3D(0.850302, -0.00923377, -0.526213, 5.58794e-09, 0.999846, -0.0175449, 0.526294, 0.0149184, 0.850171, -13.4903, 2.59989, -0.799095)
 current = true
 fov = 65.5
 
