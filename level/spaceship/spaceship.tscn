@@ -692,7 +692,7 @@ stream = ExtResource("13_4lkru")
 transform = Transform3D(0.990622, -0.13259, -0.0329651, 0.136306, 0.942572, 0.304923, -0.00935789, -0.306557, 0.951806, 0.688043, 0.511933, -1.92573)
 
 [node name="controls_left" parent="spaceship/cockpit" index="2"]
-transform = Transform3D(0.999624, 0.0213547, 0.0171111, -0.0220793, 0.998817, 0.0433442, -0.0161652, -0.0437058, 0.998913, -0.6875, 0.400625, -2.07488)
+transform = Transform3D(0.999231, 0.0313253, -0.0235096, -0.0305678, 0.999024, 0.0319122, 0.0244863, -0.0311691, 0.999213, -0.6875, 0.400625, -2.07488)
 
 [node name="Siren" parent="spaceship/cockpit" index="3" instance=ExtResource("18_e0bdp")]
 unique_name_in_owner = true
