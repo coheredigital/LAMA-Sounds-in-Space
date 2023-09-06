@@ -31,7 +31,7 @@ do Character.move_to(0.15,2.5)
 do Character.pivot(0.55,2.5)
 [next=2]
 do Character.play_audio("intro_lucky")
-Sam: First, I want you to meet our very own space llama named Lucky. She’s usually around here somewhere... Let’s look her location up on our astronaut map. [next=5]
+Sam: First, I want you to meet our space llama named Lucky. She’s usually around here somewhere... Hmm, I can’t find her, but we can always look up her blinking red dot on our astronaut map.  [next=5]
 
 ~ intro_map
 do Character.move_to(0.27,3)
@@ -42,20 +42,21 @@ do Player.pivot(-0.35)
 do Character.pivot(0,0.45)
 [next=3]
 do Character.play_audio("intro_map")
-Sam: Oh no! It looks like Lucky’s spaceship broke down and Lucky is stuck on another planet way out in space! [next=3.5]
+Sam: Oh no, look! Her red dot isn’t even on our planet! It looks like her spaceship broke down and she got stuck way out in space! [next=3.5]
 do Character.pivot(0.44,0.4)
 [next=2]
 
 
 ~ question_rescue
 do Character.play_audio("intro_question")
-Sam: Will you help me rescue Lucky to get her back here to the space station?
+Sam: Will you help me rescue Lucky? 
 - Yes. Continue.  
 
 
 ~ mission_brief
 do Character.play_audio("intro_mission_brief")
-Sam: Thank you! We’re definitely going to need your help -- this spaceship works best when I have a co-pilot astronaut like you! Our mission is to travel to Planet Stardust, where Lucky’s spaceship broke down, and bring Lucky the Llama back here safely. Are you ready to start your astronaut training? If you help, you’ll get your very own space cadet prize for your help and your bravery!!   [next=14]
+Sam: Thank you! We definitely need your help -- this spaceship works best when I have a co-pilot astronaut like you! Our mission is to travel to Planet Stardust, where Lucky’s spaceship broke down, and bring her back here safely. 
+Are you ready to start your astronaut training? You’ll get your very own space cadet prize for your help and bravery!!    [next=14]
 
 
 ~ approach_spaceship
@@ -401,7 +402,8 @@ System: Debug Selection.
 [next=4]
 =>< snippets/focus_conversation
 do Character.play_audio("task1_intro")
-Sam: Boy, it’s dark out here! This time, let’s wake up the stars with our voices. Our super computer has a list of all the stars’ favourite phrases to hear! If we listen to the computer and repeat the special phrases loud and clear, the stars will wake up. After each phrase, I’ll press the red button to tell the computer to send your voice to the stars.  
+Sam: We’re flying! Boy, it’s dark out here! This time, let’s wake up the stars with our voices. Our super computer has a list of all the stars’ favourite phrases to hear! 
+If we listen to the computer and repeat the special commands again, the stars will light up. After each command, I’ll press the red button to send your voice to the stars.  
 =>< snippets/focus_forward
 
 ~ task1_stimuli_order
@@ -451,7 +453,7 @@ do set_journey_progress(0.35,4.0)
 =>< snippets/focus_screen
 do Character.play_audio("task1_success")
 =>< snippets/focus_conversation
-Sam: Awesome job, partner! Look at all the bright things you put in space! Now let’s go to Planet Stardust, press the GO button to get closer to finding Lucky! [next=8]
+Sam: Awesome job, partner! Look at all the bright things you put into space! Now let’s go to Planet Stardust. Press the GO button to get closer to finding Lucky! [next=8]
 =>< snippets/prompt_green_button
 do set_journey_progress(0.5,4.0)
 set screen = "idle"
