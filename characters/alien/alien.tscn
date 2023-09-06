@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://bq23ckwovuhf4"]
+[gd_scene load_steps=15 format=3 uid="uid://bq23ckwovuhf4"]
 
 [ext_resource type="PackedScene" uid="uid://dybngyd2g0glm" path="res://characters/alien/alien.gltf" id="1_wlnkb"]
+[ext_resource type="Script" path="res://characters/alien/alien.gd" id="2_c37m7"]
 [ext_resource type="AnimationLibrary" uid="uid://cacrhs4lw763j" path="res://animations/libraries/alien.tres" id="2_l61tj"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0t6yo"]
@@ -41,10 +42,11 @@ transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition
 graph_offset = Vector2(-89, -58)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_w6ns1"]
-nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_boscb")
-nodes/StateMachine/position = Vector2(148, 64)
-nodes/output/position = Vector2(640, 60)
-node_connections = [&"output", 0, &"StateMachine"]
+graph_offset = Vector2(-185, -183)
+nodes/actions/node = SubResource("AnimationNodeStateMachine_boscb")
+nodes/actions/position = Vector2(200, 60)
+nodes/output/position = Vector2(600, 60)
+node_connections = [&"output", 0, &"actions"]
 
 [sub_resource type="Animation" id="Animation_q5d2i"]
 length = 0.001
@@ -92,6 +94,7 @@ _data = {
 
 [node name="Alien" instance=ExtResource("1_wlnkb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.278491, 0)
+script = ExtResource("2_c37m7")
 
 [node name="ActionTree" type="AnimationTree" parent="." index="0"]
 unique_name_in_owner = true
@@ -107,10 +110,10 @@ libraries = {
 }
 
 [node name="alien" parent="." index="1"]
-transform = Transform3D(-0.998621, -0.0210193, -0.0481034, -0.0216183, 0.999694, 0.0119659, 0.0478372, 0.0129893, -0.99877, 0.0450545, 0.0176711, -0.0468948)
+transform = Transform3D(-0.999563, 0.0289066, -0.00616894, 0.028918, 0.99958, -0.00176967, 0.0061152, -0.00194729, -0.999979, -0.00222994, -0.0168527, -0.000863061)
 
 [node name="head" parent="alien" index="0"]
-transform = Transform3D(0.993151, -0.0940011, -0.0694133, 0.0979789, 0.993594, 0.0563092, 0.0636757, -0.0627245, 0.995997, 0, 1.34375, -5.75928e-16)
+transform = Transform3D(0.998972, -0.00221602, 0.04531, -0.000638189, 0.998021, 0.0628815, -0.0453598, -0.0628457, 0.996991, 0, 1.34375, -5.75928e-16)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="alien/head" index="1"]
 transform = Transform3D(0.999998, 1.1269e-07, 2.98023e-08, -1.13621e-07, 0.999999, 2.45869e-07, -5.96046e-08, -2.30968e-07, 1, -2.23517e-08, 0.187001, 0.323)
@@ -128,13 +131,13 @@ transform = Transform3D(0.71058, -0.698514, -0.0845895, 0.685423, 0.714348, -0.1
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 1, 0.21875, -1.78814e-07, 0.0156251)
 
 [node name="leg_left" parent="alien" index="2"]
-transform = Transform3D(-0.0291486, 0.994255, 0.102989, -0.996776, -0.0212077, -0.0773756, -0.0747469, -0.104912, 0.991668, 0.109375, 0.8125, -6.8121e-16)
+transform = Transform3D(-0.0991891, 0.97962, 0.174656, -0.982466, -0.0685666, -0.173374, -0.157865, -0.18879, 0.969245, 0.109375, 0.8125, -6.8121e-16)
 
 [node name="arm_right" parent="alien" index="3"]
-transform = Transform3D(-0.348171, 0.931976, -0.100983, -0.937409, -0.345411, 0.0442087, 0.00632088, 0.110054, 0.993906, -0.15625, 1.26563, 9.31322e-10)
+transform = Transform3D(-0.220103, 0.975337, 0.0165065, -0.970794, -0.217359, -0.101558, -0.0954654, -0.0383776, 0.994693, -0.15625, 1.26563, 9.31322e-10)
 
 [node name="leg_right" parent="alien" index="4"]
-transform = Transform3D(-0.203938, 0.975074, -0.0874021, -0.978401, -0.199923, 0.0525569, 0.0337732, 0.0962325, 0.994786, -0.125, 0.8125, -3.72529e-09)
+transform = Transform3D(-0.0401248, 0.999043, -0.017371, -0.999148, -0.0399477, 0.0104235, 0.0097196, 0.0177744, 0.999795, -0.125, 0.8125, -3.72529e-09)
 
 [node name="flames" parent="alien/jetpack" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.69871e-18, -0.130996, 0.126662)

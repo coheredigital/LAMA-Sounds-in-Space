@@ -3,6 +3,7 @@ extends Node
 
 @onready var character_path := %CharacterPath
 @onready var player_path := %PlayerPath
+@onready var alien := %Alien
 @onready var alien_path := %AlienPath
 @onready var ufo_path := %UfoPath
 @onready var lama_path := %LamaPath

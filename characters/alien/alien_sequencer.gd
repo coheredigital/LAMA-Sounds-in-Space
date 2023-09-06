@@ -15,3 +15,5 @@ func pivot(value: float = 0.0, duration: float = 1.0) -> void:
 func tilt(value: float = 0.0, duration: float = 1.0) -> void:
 	tilt_changed.emit(value, duration)
 
+func action(value: String) -> void:
+	action_changed.emit(value)
