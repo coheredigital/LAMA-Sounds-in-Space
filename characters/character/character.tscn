@@ -26,6 +26,7 @@ states/idle/position = Vector2(354, 100)
 states/talking/node = SubResource("AnimationNodeAnimation_3i75r")
 states/talking/position = Vector2(508, 100)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_bftsn"), "idle", "talking", SubResource("AnimationNodeStateMachineTransition_fwopg"), "talking", "idle", SubResource("AnimationNodeStateMachineTransition_n4doy")]
+graph_offset = Vector2(-149, -237)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_83bbb"]
 nodes/idle_state/node = SubResource("AnimationNodeStateMachine_gqfoj")
