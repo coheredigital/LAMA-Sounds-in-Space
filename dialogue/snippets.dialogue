@@ -10,6 +10,29 @@ set door_open = true
 [next=5]
 => END
 
+
+~ success
+set screen = "success"
+[next=0.5]
+do play_computer_sound("chime_03")
+do Recorder.stop()
+do Recorder.save()
+do Character.play_audio("great_job_heard_you")
+Sam: Great job! Looks like it heard you! [next=2]
+=> END
+
+~ failure
+set screen = "failure"
+[next=0.5]
+do Recorder.stop()
+do Recorder.save("FAILURE")
+=>< focus_conversation
+do Character.play_audio("listen_and_repeat")
+Sam: Listen to the command from the computer and then repeat what it says with your voice.  [next=3]
+=>< focus_screen
+=> END
+
+
 ~ fuel_up_animation
 # auto fuel up temp
 set screen = "battery"
@@ -118,3 +141,4 @@ System: .
 	=> screen_test
 - Done
 => END
+

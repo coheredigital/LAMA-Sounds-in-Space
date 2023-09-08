@@ -120,14 +120,14 @@ do Character.pivot(0.6)
 [next=0.5]
 set screen = "computer"
 do Character.play_audio("task0_computer_info")
-Sam: This is our handy dandy computer! The computer will help us travel to Planet Stardust. This is a super computer – which means it’s the only computer that contains a list of special phrases that we need to complete the mission! First, the computer will say the special phrases and then your job is to repeat the words out loud with your voice. [next=15]
+Sam: This is our handy dandy computer! The computer will help us travel to Planet Stardust. This is a supercomputer – which means it’s the only computer with a list of special commands to complete our mission! First, the computer will tell you a special command and your job is to repeat the command out loud with your voice. You will need to listen closely so we can make it to Planet Stardust, find Lucky the Llama, and bring her back to the Space Station. [next=15]
 
 
 ~ computer_greeting  
 do Character.play_audio("task0_computer_sounds_like")
 Sam: This is what the computer sounds like. [next=1]
 set screen = "talking"
-do Stimuli.play("practice_0_greeting")
+do Stimuli.play("task0_greeting")
 Computer: Nice to meet you [next=2]
 set screen = "computer"
 do Character.play_audio("task0_computer_instructions")
@@ -147,19 +147,11 @@ set screen = "recording"
 ~ activate_spaceship_result
 System: ...
 - Success
-	set screen = "success"
-	do Recorder.stop()
-	do Recorder.save()
-	do Character.play_audio("task0_ready_blast_off")
-	Sam: Great job! Looks like it heard you! We’re ready to start preparing the ship for blast off. [next=4.5]
+	=>< snippets/success
+#	FIXME: This line does not seem to be recorded?
+#	Sam: We’re ready to start preparing the ship for blast off. [next=4.5]
 - Fail / Repeat
-	set screen = "failure"
-	do Recorder.stop()
-	do Recorder.save("FAILURE")
-	do Character.play_audio("listen_and_repeat")
-	Sam: Listen to the command from the computer and then repeat what it says with your voice.  [next=3]
-	# TODO: Recording not yet made.
-	# do Character.play_audio("uh_oh")
+	=>< snippets/failure
 	=> activate_spaceship_recording
 
 
@@ -196,22 +188,10 @@ set screen = "recording"
 ~ buckle_up_result
 System: ...
 - Success
-	set screen = "success"
+	=>< snippets/success
 	set seatbelts_buckled = true
-	do Recorder.stop()
-	do Recorder.save()
-	=>< snippets/focus_conversation
-	do Character.play_audio("great_job_heard_you")
-	Sam: Great job! Looks like it heard you! [next=1.5]
-	
 - Fail / Repeat
-	set screen = "failure"
-	do Recorder.stop()
-	do Recorder.save("FAILURE")
-	=>< snippets/focus_conversation
-	do Character.play_audio("listen_and_repeat")
-	Sam: Listen to the command from the computer and then repeat what it says with your voice.  [next=3]
-	=>< snippets/focus_screen
+	=>< snippets/failure
 	=> buckle_up_recording
 
 
@@ -238,17 +218,9 @@ set screen = "recording"
 ~ siren_result
 System: .
 - Success
-	set screen = "success"
-	do Recorder.stop()
-	do Recorder.save()
-	do Character.play_audio("great_job_heard_you")
-	Sam: Great job! Looks like it heard you! [next=2]
+	=>< snippets/success
 - Fail / Repeat
-	set screen = "failure"
-	do Recorder.stop()
-	do Recorder.save("FAILURE")
-	do Character.play_audio("listen_and_repeat")
-	Sam: Listen to the command from the computer and then repeat what it says with your voice. [next=3]
+	=>< snippets/failure
 	=> siren_recording
 
 
@@ -266,7 +238,7 @@ System: ...
 - Begin Recording
 do Recorder.start()
 set screen = "talking"
-do Stimuli.play("practice_4_lets")
+do Stimuli.play("practice_4_fuel")
 Computer: Let’s fuel up! [next=1]
 set screen = "recording"
 [next=1]
@@ -275,18 +247,10 @@ set screen = "recording"
 ~ fuel_up_result
 System: ...
 - Success
-	set screen = "success"
-	do Recorder.stop()
-	do Recorder.save()
-	do Character.play_audio("great_job_heard_you")
-	Sam: Great job! Looks like it heard you! [next=2]
+	=>< snippets/success
 	=>< snippets/fuel_up_animation
 - Fail
-	set screen = "failure"
-	do Recorder.stop()
-	do Recorder.save("FAILURE")
-	do Character.play_audio("listen_and_repeat")
-	Sam: Uh oh! It looks like the spaceship couldn't quite hear you. Let's try again a bit louder. [next=3]
+	=>< snippets/failure
 	=> fuel_up_recording
 
 
@@ -312,18 +276,10 @@ set screen = "recording"
 ~ sleep_mode_result
 System: ...
 - Success
-	set screen = "success"
-	do Recorder.stop()
-	do Recorder.save()
-	do Character.play_audio("great_job_heard_you")
-	Sam: Great job! Looks like it heard you! [next=2]
+	=>< snippets/success
 	# maybe adjust lights here ? Might not need last line.
 - Quiet
-	set screen = "failure"
-	do Recorder.stop()
-	do Recorder.save("FAILURE")
-	do Character.play_audio("listen_and_repeat")
-	Sam: Uh oh! It looks like the spaceship couldn't quite hear you. Let's try again a bit louder. [next=3]
+	=>< snippets/failure
 	=> sleep_mode_recording
 
 
@@ -350,17 +306,9 @@ set screen = "recording"
 ~ blast_off_result
 System: ...
 - Success
-	set screen = "success"
-	do Recorder.stop()
-	do Recorder.save()
-	do Character.play_audio("great_job_heard_you")
-	Sam: Great job! Looks like it heard you! [next=2]
+	=>< snippets/success
 - Quiet
-	set screen = "failure"
-	do Recorder.stop()
-	do Recorder.save("FAILURE")
-	do Character.play_audio("listen_and_repeat")
-	Sam: Uh oh! It looks like the spaceship couldn't quite hear you. Let's try again a bit louder. [next=3]
+	=>< snippets/failure
 	=> blast_off_recording
 
 
