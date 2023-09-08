@@ -543,8 +543,11 @@ do Character.play_audio("task2_success")
 Sam: Awesome job, partner! Thanks for steering the ship so well! Look, it’s Planet Stardust! To use our spaceship to look around, press the Landing Button. [next=9]
 =>< snippets/focus_forward
 =>< snippets/prompt_green_button
+
 do set_journey_progress(0.925,8.0)
-[next=8]
+[next=2]
+do play_spaceship_audio("effects/engine_landing")
+[next=6]
 do set_journey_progress(1.0,12.0)
 [next=12]
 
