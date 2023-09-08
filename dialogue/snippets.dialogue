@@ -19,9 +19,8 @@ do play_computer_sound("chime_04")
 do Recorder.stop()
 do Recorder.save()
 => encouraging_phrase
-Sam: <encouraging_phrase> [next=2]
 => END
-s
+
 
 ~ encouraging_phrase
 # NOTE: The [do play_audio()] portions below must be between dialog text in order to trigger. I put punction at the end to fix this.

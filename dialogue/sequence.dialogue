@@ -37,16 +37,16 @@ do Character.play_audio("intro_lucky")
 Sam: First, I want you to meet our space llama named Lucky. She’s usually around here somewhere... Hmm, I can’t find her, but we can always look up her blinking red dot on our astronaut map.  [next=5]
 
 ~ intro_map
-do Character.move_to(0.27,3)
+do Character.move_to(0.28,3)
 do Player.move_to(0.25,2.5)
 [next=1.5]
 do Character.pivot(0.0,1.5)
-do Player.pivot(-0.35)
-do Character.pivot(0,0.45)
+do Player.pivot(-0.32)
+do Character.pivot(-1,0.45)
 [next=3]
 do Character.play_audio("intro_map")
 Sam: Oh no, look! Her red dot isn’t even on our planet! It looks like her spaceship broke down and she got stuck way out in space! [next=3.5]
-do Character.pivot(0.44,0.4)
+do Character.pivot(0.3,0.4)
 [next=2]
 
 
