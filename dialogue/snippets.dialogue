@@ -26,10 +26,8 @@ set screen = "failure"
 [next=0.5]
 do Recorder.stop()
 do Recorder.save("FAILURE")
-=>< focus_conversation
 do Character.play_audio("listen_and_repeat")
 Sam: Listen to the command from the computer and then repeat what it says with your voice.  [next=3]
-=>< focus_screen
 => END
 
 
