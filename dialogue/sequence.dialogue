@@ -140,12 +140,14 @@ Sam: Ok, now I’ll have the computer say a special phrase and your job is to re
 ~ activate_spaceship_recording
 System: .
 - Begin Recording
-do Recorder.start()
-set screen = "talking"
-do Stimuli.play("practice_1_activate")
-Computer: Activate spaceship! [next=2]
-set screen = "recording"
-
+	
+	do Recorder.start()
+	set screen = "talking"
+	do Stimuli.play("practice_1_activate")
+	Computer: Activate spaceship! [next=2]
+	set screen = "recording"
+	[next=0.25]
+	do play_computer_sound("beep_04")
 
 ~ activate_spaceship_result
 System: ...

@@ -14,7 +14,7 @@ set door_open = true
 ~ success
 set screen = "success"
 [next=0.5]
-do play_computer_sound("chime_03")
+do play_computer_sound("chime_04")
 [next=0.5]
 do Recorder.stop()
 do Recorder.save()
