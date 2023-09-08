@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://vain2gp1dm54"]
+[gd_scene load_steps=10 format=3 uid="uid://vain2gp1dm54"]
 
 [ext_resource type="PackedScene" uid="uid://go82v4orb8dc" path="res://level/spacestation/computer.gltf" id="1_djmjm"]
+[ext_resource type="Material" uid="uid://mq6dsx2r524b" path="res://level/spacestation/materials/starmap_indicator_material.tres" id="2_sysvc"]
 [ext_resource type="PackedScene" uid="uid://d05u8r18emnr6" path="res://level/spacestation/seat.gltf" id="3_k43ag"]
+[ext_resource type="Material" uid="uid://bl85mqwtar1hg" path="res://level/spacestation/materials/spacestation_material.tres" id="3_s6meq"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_s1t2y"]
 animation = &"indicator_pulse"
@@ -69,6 +71,8 @@ unique_name_in_owner = true
 [node name="starmap" parent="computer" index="0"]
 unique_name_in_owner = true
 cast_shadow = 0
+surface_material_override/0 = ExtResource("2_sysvc")
+surface_material_override/1 = ExtResource("3_s6meq")
 
 [node name="seat" parent="." index="2" instance=ExtResource("3_k43ag")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.76837e-07, -3.72529e-08, 0.600002)
