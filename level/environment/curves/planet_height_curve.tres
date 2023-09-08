@@ -2,7 +2,7 @@
 
 [resource]
 bake_resolution = 256
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.08, 0.48), 5.18989, 5.18989, 0, 0, Vector2(0.25, 0.91), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.11, 0.62), 5.18989, 5.18989, 0, 0, Vector2(0.25, 0.91), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 4
 metadata/_snap_enabled = true
 metadata/_snap_count = 100
