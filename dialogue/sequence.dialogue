@@ -14,6 +14,9 @@ System: ...[next]
 System: .
 - Start
 	do set_overlay_state("hidden")
+- Phrase Test
+	=>< snippets/encouraging_phrase
+	=> ready
 - Skip to spaceship_enter
 	=> approach_spaceship
 [next=2]
@@ -348,8 +351,7 @@ System: Debug Selection.
 [next=4]
 =>< snippets/focus_conversation
 do Character.play_audio("task1_intro")
-Sam: We’re flying! Boy, it’s dark out here! This time, let’s wake up the stars with our voices. Our super computer has a list of all the stars’ favourite phrases to hear! 
-If we listen to the computer and repeat the special commands again, the stars will light up. After each command, I’ll press the red button to send your voice to the stars.  
+Sam: We’re flying! Boy, it’s dark out here! This time, let’s wake up the stars with our voices. Our super computer has a list of all the stars’ favourite phrases to hear! If we listen to the computer and repeat the special commands again, the stars will light up. After each command, I’ll press the red button to send your voice to the stars.  
 =>< snippets/focus_forward
 
 ~ task1_stimuli_order
@@ -381,15 +383,12 @@ while stimuli_set.size() > 0
 	[next=3]
 	System:
 	- Success
-		set screen = "success"
-		do Recorder.stop()
-		do Recorder.save()
+		=>< snippets/success
 		do move_star(stimuli_set.size(), 1, 5.0)
 		do set_stars_brightness(12 - stimuli_set.size(), 12)
 		[next=4]
 	- Failure
-		set screen = "failure"
-		do Recorder.stop()
+		=>< snippets/failure
 #		add the stimuli back into the front of the set so it can be repeated
 		do stimuli_set.push_front(next_stimuli)
 	[next=1]
