@@ -394,13 +394,12 @@ while stimuli_set.size() > 0
 	[next=1]
 
 ~ task1_success
-do set_journey_progress(0.35,4.0)
 =>< snippets/focus_screen
 do Character.play_audio("task1_success")
 =>< snippets/focus_conversation
 Sam: Awesome job, partner! Look at all the bright things you put into space! Now let’s go to Planet Stardust. Press the GO button to get closer to finding Lucky! [next=8]
 =>< snippets/prompt_green_button
-do set_journey_progress(0.5,4.0)
+do set_journey_progress(0.4,4.0)
 set screen = "idle"
 [next=2]
 
