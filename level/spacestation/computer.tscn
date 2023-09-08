@@ -9,7 +9,6 @@
 animation = &"indicator_pulse"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_no1wu"]
-graph_offset = Vector2(-300, 84)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_s1t2y")
 nodes/Animation/position = Vector2(20, 160)
 node_connections = [&"output", 0, &"Animation"]
@@ -35,7 +34,7 @@ loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("computer/starmap:mesh:surface_1/material:shader_parameter/screen_number")
+tracks/0/path = NodePath("computer/starmap:surface_material_override/0:shader_parameter/screen_number")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -56,7 +55,6 @@ _data = {
 [node name="AnimationTree" type="AnimationTree" parent="." index="0"]
 tree_root = SubResource("AnimationNodeBlendTree_no1wu")
 anim_player = NodePath("AnimationPlayer")
-active = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimationTree" index="0"]
 root_node = NodePath("../..")
