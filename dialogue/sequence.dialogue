@@ -55,8 +55,7 @@ Sam: Will you help me rescue Lucky?
 
 ~ mission_brief
 do Character.play_audio("intro_mission_brief")
-Sam: Thank you! We definitely need your help -- this spaceship works best when I have a co-pilot astronaut like you! Our mission is to travel to Planet Stardust, where Lucky’s spaceship broke down, and bring her back here safely. 
-Are you ready to start your astronaut training? You’ll get your very own space cadet prize for your help and bravery!!    [next=14]
+Sam: Thank you! We definitely need your help, this spaceship works best when I have a co-pilot astronaut like you! Our mission is to travel to Planet Stardust, where Lucky’s spaceship broke down, and bring her back here safely. Are you ready to start your astronaut training? You’ll get your very own space cadet prize for your help and bravery!! [next=14]
 
 
 ~ approach_spaceship
@@ -107,8 +106,7 @@ System: Debug Selection.
 	=>< snippets/screen_test
 
 ~ task0_practice
-do Character.play_audio("task0_intro")
-Sam: To become a Junior Astronaut, you will need to listen closely so we can make it to Planet Stardust, find Lucky the Llama, and bring Lucky back to the Space Station. [next=6]
+[next=2]
 do Character.pivot(0.5)
 do Character.play_audio("task0_first_job")
 Sam: Our first job is to make sure we have everything we need before we fly. [next=3]
