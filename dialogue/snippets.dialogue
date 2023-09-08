@@ -49,6 +49,11 @@ do Character.play_audio("listen_and_repeat")
 Sam: Listen to the command from the computer and then repeat what it says with your voice.  [next=3]
 => END
 
+~ recording_prompt
+set screen = "recording"
+[next=0.25]
+do play_computer_sound("beep_04")
+=> END
 
 ~ fuel_up_animation
 # auto fuel up temp

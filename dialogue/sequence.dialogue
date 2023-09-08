@@ -140,15 +140,13 @@ Sam: Ok, now I’ll have the computer say a special phrase and your job is to re
 ~ activate_spaceship_recording
 System: .
 - Begin Recording
-	
 	do Recorder.start()
 	set screen = "talking"
 	do Stimuli.play("practice_1_activate")
 	Computer: Activate spaceship! [next=2]
-	set screen = "recording"
-	[next=0.25]
-	do play_computer_sound("beep_04")
-
+	=>< snippets/recording_prompt
+	
+	
 ~ activate_spaceship_result
 System: ...
 - Success
@@ -182,12 +180,12 @@ Sam: OK. First, we need to buckle up! Listen to the command from the computer an
 ~ buckle_up_recording
 System: ...
 - Begin Recording
-set screen = "talking"
-do Recorder.start()
-do Stimuli.play("practice_2_seatbelts")
-Computer: Seat belts buckled! [next=2]
-set screen = "recording"
-[next=2]
+	set screen = "talking"
+	do Recorder.start()
+	do Stimuli.play("practice_2_seatbelts")
+	Computer: Seat belts buckled! [next=2]
+	=>< snippets/recording_prompt
+	[next=2]
 
 
 ~ buckle_up_result
@@ -212,12 +210,12 @@ Sam: Listen to the command from the computer and then repeat what it says with y
 ~ siren_recording
 System: ...
 - Begin Recording
-set screen = "talking"
-do Recorder.start()
-do Stimuli.play("practice_3_siren")
-Computer: Siren noise (low to high to low to high to low) [next=5]
-set screen = "recording"
-[next=1]
+	set screen = "talking"
+	do Recorder.start()
+	do Stimuli.play("practice_3_siren")
+	Computer: Siren noise (low to high to low to high to low) [next=5]
+	=>< snippets/recording_prompt
+	[next=1]
 
 
 ~ siren_result
@@ -241,12 +239,12 @@ Sam: Listen to the command from the computer and then repeat what it says with y
 =>< snippets/focus_screen
 System: ...
 - Begin Recording
-do Recorder.start()
-set screen = "talking"
-do Stimuli.play("practice_4_fuel")
-Computer: Let’s fuel up! [next=1]
-set screen = "recording"
-[next=1]
+	do Recorder.start()
+	set screen = "talking"
+	do Stimuli.play("practice_4_fuel")
+	Computer: Let’s fuel up! [next=1]
+	=>< snippets/recording_prompt
+	[next=1]
 
 
 ~ fuel_up_result
@@ -270,12 +268,12 @@ Sam: Listen to the command from the computer and then repeat what it says with y
 ~ sleep_mode_recording
 System: ...
 - Begin Recording
-do Recorder.start()
-=>< snippets/focus_screen
-set screen = "talking"
-do Stimuli.play("practice_5_yawn")
-Computer: *Loud Yawn: from high to low* [next=4]
-set screen = "recording"
+	do Recorder.start()
+	=>< snippets/focus_screen
+	set screen = "talking"
+	do Stimuli.play("practice_5_yawn")
+	Computer: *Loud Yawn: from high to low* [next=4]
+	=>< snippets/recording_prompt
 
 
 ~ sleep_mode_result
@@ -301,11 +299,11 @@ Sam: You did it! You’re working really hard at this – Great Job! Now that ou
 =>< snippets/focus_screen
 System: ...
 - Begin Recording
-do Recorder.start()
-set screen = "talking"
-do Stimuli.play("practice_6_blastoff")
-Computer: *Blast Off!* [next=1]
-set screen = "recording"
+	do Recorder.start()
+	set screen = "talking"
+	do Stimuli.play("practice_6_blastoff")
+	Computer: *Blast Off!* [next=1]
+	=>< snippets/recording_prompt
 
 
 ~ blast_off_result
@@ -380,9 +378,9 @@ while stimuli_set.size() > 0
 	set screen = "computer"
 	do Stimuli.play(next_stimuli)
 	do Recorder.start()
+	[next=1.5]
+	=>< snippets/recording_prompt
 	[next=2]
-	set screen = "recording"
-	[next=3]
 	System:
 	- Success
 		=>< snippets/success
@@ -411,8 +409,7 @@ set screen = "idle"
 ~ task2_intro
 =>< snippets/focus_conversation
 do Character.play_audio("task2_intro")
-Sam: Our next task is to get to Planet Stardust! To get to Planet Stardust, we’ll need the help of the Command Centre to steer our ship. 
-Just like before, you’ll listen to the computer and repeat each command loud and clear! The computer will send your voice to the Command Centre to steer our ship. [next=15]
+Sam: Our next task is to get to Planet Stardust! To get to Planet Stardust, we’ll need the help of the Command Centre to steer our ship. Just like before, you’ll listen to the computer and repeat each command loud and clear! The computer will send your voice to the Command Centre to steer our ship. [next=15]
 
 
 ~ skip_examples
@@ -432,14 +429,17 @@ Sam: Click the RED button to hear it. [next=2]
 =>< snippets/prompt_red_button
 do Stimuli.play("example_bad")
 [next=4]
-do Character.play_audio("hmm_do_you_think_maya")
+do Character.play_audio("task2_maya_result")
 set screen = "failure"
 Sam: Hmm, do you think Maya did a good job or a bad job repeating the command exactly? [next=4]
 =>< snippets/focus_conversation
 
+# NOTE: I figured breaking these parts up might make managing this section easier, feel free to change
 do Character.play_audio("task2_maya_bad")
-Sam: Maya did a bad job repeating EXACTLY what she heard. She got the words right, but instead of moving her voice lower, <insert target> she moved her voice higher, < insert Maya’s version>. [next=6]
-
+Sam: Maya did a bad job repeating EXACTLY what she heard. She got the words right, but instead of moving her voice lower [next=5]
+# <insert target> 
+Sam: she moved her voice higher [next=2]
+# <insert Maya’s version>
 
 ~ task2_maya_good_example
 do Character.play_audio("task2_maya_good")
@@ -517,7 +517,7 @@ while stimuli_set.size() > 0
 	do Stimuli.play(next_stimuli)
 	do Recorder.start()
 	[next=2]
-	set screen = "recording"
+	=>< snippets/recording_prompt
 	[next=3]
 	System:
 	- Success
@@ -587,7 +587,7 @@ while stimuli_set.size() > 0
 	do Stimuli.play(next_stimuli)
 	do Recorder.start()
 	[next=2]
-	set screen = "recording"
+	=>< snippets/recording_prompt
 	[next=3]
 	System:
 	- Success
