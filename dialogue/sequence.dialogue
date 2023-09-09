@@ -433,7 +433,7 @@ set screen = "talking"
 do Stimuli.play("target_song")
 [next=3]
 # Play Maya's bad imitation
-set screen = "computer"
+set screen = "playing"
 do Stimuli.play("example_song_bad")
 [next=2]
 set screen = "failure"
@@ -443,12 +443,13 @@ Sam: Hmm, do you think Maya did a good job or a bad job repeating the command ex
 
 # NOTE: I figured breaking these parts up might make managing this section easier, feel free to change
 do Character.play_audio("task2_maya_bad")
-Sam: Maya did a bad job repeating EXACTLY what she heard. She got the words right, but instead of moving her voice lower [next=5] 
+Sam: Maya did a bad job repeating EXACTLY what she heard. She got the words right, but instead of moving her voice lower, [next=5] 
 do Stimuli.play("target_song")
 [next=2]
 do Character.play_audio("task2_maya_voice_higher")
-Sam: she moved her voice higher [next=2]
+Sam: she moved her voice higher. [next=2]
 do Stimuli.play("example_song_bad")
+
 
 ~ task2_maya_good_example
 do Character.play_audio("task2_maya_good")
@@ -462,7 +463,7 @@ set screen = "talking"
 do Stimuli.play("target_song")
 [next=3]
 # Play Maya's good imitation.
-set screen = "computer"
+set screen = "playing"
 do Stimuli.play("example_song_good")
 [next=2]
 set screen = "success"
@@ -472,7 +473,6 @@ do Character.play_audio("task2_maya_conclusion")
 =>< snippets/focus_conversation
 Sam: That time, Maya did a great job repeating the words AND following the ^highs^ and ~lows~ of the computer. [next=5]
 
-# Put in the Riley/Timmy example
 
 ~ task2_riley_bad_example
 do Character.play_audio("task2_riley_intro")
@@ -484,54 +484,44 @@ Sam: Now let's listen to how my friend Riley does! Click the RED button to liste
 # Play the target song. 
 set screen = "talking"
 do Stimuli.play("target_speech")
-[next=4]
+[next=3]
 # Play Riley's bad imitation
-set screen = "computer"
+set screen = "playing"
 do Stimuli.play("example_speech_bad")
-[next=4]
+[next=3]
 set screen = "failure"
 do Character.play_audio("task2_riley_instead")
 =>< snippets/focus_conversation
 Sam: Hmm, Riley got the words right, but instead of moving his voice higher, [next=5]
 do Stimuli.play("target_speech")
-[next=4]
+[next=3]
 do Character.play_audio("task2_riley_lower")
-Sam: he moved his voice lower.  [next=4]
-do Stimuli.play("example_speech_bad")
+Sam: he moved his voice lower.  [next=3]
+do Stimuli.play("example_speech_bad") [next=3]
+
 
 ~ task2_riley_good_example
-do Character.play_audio("task2_maya_good")
-=>< snippets/focus_conversation
-Sam: To move our ship, we have to repeat the words exactly the way we hear them.  Click the green button to hear Maya doing a good job repeating what she heard. [next=9]
+do Character.play_audio("task2_riley_example_good")
+Sam: Click the green button to hear Riley repeat it back exactly right. [next=9]
 =>< snippets/focus_screen
 =>< snippets/prompt_green_button
-
 # Play the target song. 
 set screen = "talking"
-do Stimuli.play("target_song")
+do Stimuli.play("target_speech")
 [next=3]
-# Play Maya's good imitation.
-set screen = "computer"
-do Stimuli.play("example_song_good")
-[next=2]
+# Play Riley's good imitation.
+set screen = "playing"
+do Stimuli.play("example_speech_good")
+[next=3]
 set screen = "success"
 [next=2]
 set screen = "idle"
-do Character.play_audio("task2_maya_conclusion")
-=>< snippets/focus_conversation
-Sam: That time, Maya did a great job repeating the words AND following the ^highs^ and ~lows~ of the computer. [next=5]
-
-
-
-
-
-
 
 
 ~ task2_ready_or_repeat
-do Character.play_audio("task2_ready_or_repeat")
+do Character.play_audio("task2_ready")
 =>< snippets/focus_conversation
-Sam: Perfect! Are you ready to communicate with the Command Centre to move our ship to Planet Stardust? Remember, we have to move our voice high and low just like the special phrase to steer our ship. Let your Flight Engineer know if you are ready or if you would like to hear the examples again. [next=10]
+Sam: Are you ready to move our ship to Planet Stardust? Remember, we have to copy the words AND match the highs and lows of the special phrase to steer our ship. Let your Captain know if you are ready or if you would like to hear the examples again. [next=10]
 # experimenter will decide if participant needs to loop back to 1st bad imitation example
 
 System: ...
@@ -544,7 +534,8 @@ System: ...
 ~ task2_ready_to_go
 do Character.play_audio("task2_ready_to_go")
 =>< snippets/focus_conversation
-Sam: OK, here we go! Remember that the Command Centre is very sensitive, so repeat what the computer says exactly. Once you repeat after the computer, I’ll click the GREEN button to send the directions to the Command Centre and we can see if our ship moves! I’ll have a seat and let you take control! [next=12]
+Sam: OK, here we go! Once you repeat after the computer, I’ll click the RED button to send the directions to the Command Centre and we can see if our ship moves!  [next=12]
+
 
 ~ task2_stimuli
 #12 Phrases – 6 song, 6 speech randomized (see list of sentences on last page)*
@@ -559,6 +550,7 @@ System: Select stimuli order
 	=>< orders/D
 - Skip to success. 
 	=> task2_success
+
 
 ~ task2_stimuli_trial
 # loop through stimuli
@@ -588,7 +580,6 @@ while stimuli_set.size() > 0
 	[next=1]
 
 
-
 ~ task2_success
 set fuel_level = 6
 do set_journey_progress(0.85,4.0)
@@ -605,6 +596,7 @@ do play_spaceship_audio("effects/engine_landing")
 do set_journey_progress(1.0,12.0)
 [next=12]
 
+
 ~ task3_landed
 set fuel_level = 5
 set journey_progress = 1.0
@@ -612,7 +604,6 @@ do Character.play_audio("task3_found_planet_stardust")
 =>< snippets/focus_conversation
 Sam: We did it - we found Planet Stardust! [next=4]
 do Character.play_audio("task3_aliens_intro")
-
 Sam: I don’t see Lucky, but I do see something else! It looks like there are aliens on Planet Stardust! [next=4]
 do Alien.move_to(1.0,12.0)
 do Ufo.move_to(0.9,12.0)
