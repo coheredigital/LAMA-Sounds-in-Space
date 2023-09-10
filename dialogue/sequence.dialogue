@@ -154,8 +154,6 @@ System: .
 System: ...
 - Success
 	=>< snippets/success
-#	FIXME: This line does not seem to be recorded?
-#	Sam: We’re ready to start preparing the ship for blast off. [next=4.5]
 - Fail / Repeat
 	=>< snippets/failure
 	=> activate_spaceship_recording
@@ -284,7 +282,6 @@ System: ...
 System: ...
 - Success
 	=>< snippets/success
-	# maybe adjust lights here ? Might not need last line.
 - Quiet
 	=>< snippets/failure
 	=> sleep_mode_recording
@@ -378,6 +375,7 @@ System: Select stimuli order
 ~ task1_stimuli_trial
 # loop through stimuli
 while stimuli_set.size() > 0
+#	pop_front will retrieve and remove the next stimuli from the set.
 	set next_stimuli = stimuli_set.pop_front()
 	System:
 	- Begin {{next_stimuli}}
@@ -393,14 +391,12 @@ while stimuli_set.size() > 0
 	- Success
 		=>< snippets/success
 		do move_star(stimuli_set.size(), 1, 5.0)
-		do set_stars_brightness(12 - stimuli_set.size(), 12)
 		[next=4]
-		set screen = "talking"
+		do set_stars_brightness(12 - stimuli_set.size(), 12)
 	- Failure
 		=>< snippets/failure
 #		add the stimuli back into the front of the set so it can be repeated
 		do stimuli_set.push_front(next_stimuli)
-		set screen = "talking"
 	[next=1]
 
 ~ task1_success
@@ -511,7 +507,7 @@ Sam: Hmm, Riley got the words right, but instead of moving his voice higher, [ne
 do Stimuli.play("target_speech")
 [next=3]
 do Character.play_audio("task2_riley_lower")
-Sam: he moved his voice lower.  [next=2.5]
+Sam: he moved his voice lower.  [next=1.5]
 do Stimuli.play("example_speech_bad") 
 [next=3]
 set screen = "idle"
@@ -519,7 +515,7 @@ set screen = "idle"
 
 ~ task2_riley_good_example
 do Character.play_audio("task2_riley_example_good")
-Sam: Click the green button to hear Riley repeat it back exactly right. [next=9]
+Sam: Click the green button to hear Riley repeat it back exactly right. [next=5]
 =>< snippets/focus_screen
 =>< snippets/prompt_green_button
 # Play the target song. 
@@ -589,13 +585,12 @@ while stimuli_set.size() > 0
 		=>< snippets/success
 		# make progress
 		do set_journey_progress_step(12 - stimuli_set.size(), 12, 3.0)
+		do play_spaceship_audio("effects/engine_boost")
 		[next=3]
-		set screen = "talking"
 	- Failure
 		=>< snippets/failure
 #		add the stimuli back into the front of the set so it can be repeated
 		do stimuli_set.push_front(next_stimuli)
-		set screen = "talking"
 	[next=1]
 
 
@@ -634,7 +629,7 @@ Sam: They look really friendly, I think they are nice! Let’s ask them if they 
 
 ~ task3_alien_language
 do Character.play_audio("task3_alien_language")
-Sam: Aliens on Planet Stardust only speak in special sounds so the computer will tell us how to talk to them in their language to find out where Lucky is. Listen to the computer and repeat back the alien sounds as best as you can. [next=10.5]
+Sam: Aliens on Planet Stardust only speak in beeps so the computer will tell us how to talk to them in their language to find out where Lucky is. Listen to the computer and repeat back the beeps as best as you can. [next=10.5]
 set screen = "computer"
 =>< snippets/focus_forward
 [next=2]
@@ -660,12 +655,10 @@ while stimuli_set.size() > 0
 	- Success
 		=>< snippets/success
 		[next=1]
-		set screen = "talking"
 	- Failure
 		=>< snippets/failure
 #		add the stimuli back into the front of the set so it can be repeated
 		do stimuli_set.push_front(next_stimuli)
-		set screen = "talking"
 	[next=1]
 
 # 10 stimuli – 5 pure tones, 5 intervals? *
@@ -686,8 +679,8 @@ do Character.play_audio("task3_go_home")
 Sam: Press the Green button to blast off back home! [next=2]
 =>< snippets/prompt_green_button
 do set_overlay_state("loading")
-do play_spaceship_audio("effects/engine_launch")
-[next=5]
+do play_spaceship_audio("effects/engine_boost")
+[next=3]
 do Lama.toggle_rescued(true)
 do Player.tilt(0.5,0.0)
 do Player.move_to(0.2,0.0)

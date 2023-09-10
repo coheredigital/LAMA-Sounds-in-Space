@@ -19,7 +19,7 @@ do play_computer_sound("chime_success")
 do Recorder.stop()
 do Recorder.save()
 => encouraging_phrase
-set screen = "idle"
+set screen = "computer"
 => END
 
 
@@ -47,7 +47,7 @@ do Recorder.stop()
 do Recorder.save("FAILURE")
 do Character.play_audio("listen_and_repeat")
 Sam: Listen to the command from the computer and then repeat what it says with your voice.  [next=3]
-set screen = "idle"
+set screen = "computer"
 => END
 
 ~ recording_prompt
@@ -60,6 +60,7 @@ do play_computer_sound("beep_04")
 # auto fuel up temp
 set screen = "battery"
 [next=0.5]
+do play_spaceship_audio("effects/battery_charge")
 set fuel_level = 2
 [next=0.5]
 set fuel_level = 3
