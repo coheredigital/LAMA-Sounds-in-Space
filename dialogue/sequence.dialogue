@@ -170,6 +170,7 @@ Sam: When you're ready, press the GREEN button to get started. [next=3]
 =>< snippets/focus_screen
 =>< snippets/prompt_green_button
 
+
 ~ buckle_up
 set screen = "buckle_warning"
 do Character.play_audio("task0_buckle_up_intro")
@@ -319,6 +320,7 @@ System: ...
 set fuel_level = 8
 set steering_motion = 0.0
 set flying_motion = 0.0
+set screen = "idle"
 
 =>< snippets/focus_forward
 [next=2]
@@ -448,7 +450,8 @@ do Stimuli.play("target_song")
 [next=2]
 do Character.play_audio("task2_maya_voice_higher")
 Sam: she moved her voice higher. [next=2]
-do Stimuli.play("example_song_bad")
+do Stimuli.play("example_song_bad") [next=2]
+set screen = idle
 
 
 ~ task2_maya_good_example
@@ -471,7 +474,7 @@ set screen = "success"
 set screen = "idle"
 do Character.play_audio("task2_maya_conclusion")
 =>< snippets/focus_conversation
-Sam: That time, Maya did a great job repeating the words AND following the ^highs^ and ~lows~ of the computer. [next=5]
+Sam: That time, Maya did a great job repeating the words AND following the ^highs^ and ~lows~ of the computer. [next=8]
 
 
 ~ task2_riley_bad_example
@@ -498,6 +501,7 @@ do Stimuli.play("target_speech")
 do Character.play_audio("task2_riley_lower")
 Sam: he moved his voice lower.  [next=3]
 do Stimuli.play("example_speech_bad") [next=3]
+set screen = idle
 
 
 ~ task2_riley_good_example
@@ -558,7 +562,7 @@ while stimuli_set.size() > 0
 	set next_stimuli = stimuli_set.pop_front()
 	System:
 	- Begin {{next_stimuli}}
-	set screen = "computer"
+	set screen = "talking"
 	do Stimuli.play(next_stimuli)
 	do Recorder.start()
 	[next=2]
@@ -602,15 +606,15 @@ set fuel_level = 5
 set journey_progress = 1.0
 do Character.play_audio("task3_found_planet_stardust")
 =>< snippets/focus_conversation
-Sam: We did it - we found Planet Stardust! [next=4]
+Sam: We did it - we found Planet Stardust! [next=3]
 do Character.play_audio("task3_aliens_intro")
 Sam: I don’t see Lucky, but I do see something else! It looks like there are aliens on Planet Stardust! [next=4]
 do Alien.move_to(1.0,12.0)
 do Ufo.move_to(0.9,12.0)
 =>< snippets/focus_screen
-[next=6]
+[next=4]
 do Character.play_audio("task3_aliens_ask_lucky")
-Sam: They look really friendly, I think they are nice! Let’s ask them if they have seen Lucky or know where Lucky the Llama is. [next=9]
+Sam: They look really friendly, I think they are nice! Let’s ask them if they have seen Lucky. [next=7]
 
 
 ~ task3_alien_language
@@ -635,13 +639,13 @@ while stimuli_set.size() > 0
 	do Recorder.start()
 	[next=2]
 	=>< snippets/recording_prompt
-	[next=3]
+	[next=2]
 	System:
 	- Success
 		set screen = "success"
 		do Recorder.stop()
 		do Recorder.save()
-		[next=4]
+		[next=3]
 	- Failure
 		set screen = "failure"
 		do Recorder.stop()
@@ -663,7 +667,6 @@ do Ufo.move_to(0.9,6.0)
 
 # blast off and fade to intro (station)
 ~ mission_success
-# TODO: insert clip for Sam audio
 do Character.play_audio("task3_go_home")
 Sam: Press the Green button to blast off back home! [next=2]
 =>< snippets/prompt_green_button
