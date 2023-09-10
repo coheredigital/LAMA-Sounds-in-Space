@@ -1,0 +1,5 @@
+# NOTE: Be carefule not to use "=> END!" on snippets. This variant of the "END" title will force end the entire sequence
+
+# USAGE: Character.move_to(progress_ratio: float [0.0 - 1.0], duration: float [ >= 0.0 ])
+# USAGE: Character.pivot(angle: float [-1.0 - 1.0], duration: float [ >= 0.0 ])
+# USAGE: Character.tilt() Not yet used.
