@@ -518,6 +518,7 @@ set screen = "playing"
 do Stimuli.play("example_speech_good")
 [next=3]
 set screen = "success"
+do play_computer_sound("chime_success")
 [next=2]
 set screen = "idle"
 
