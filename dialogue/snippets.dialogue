@@ -28,7 +28,7 @@ do Recorder.save()
 % Sam: Excellent [do Character.play_audio("phrases/excellent")] ! [next=auto]
 % Sam: Fantastic [do Character.play_audio("phrases/fantastic")] ! [next=auto]
 % Sam: Good job space cadet [do Character.play_audio("phrases/good_job")] ! [next=auto]
-% Sam: You're a great parnter [do Character.play_audio("phrases/great_partner")] ! [next=auto]
+% Sam: You're a great partner [do Character.play_audio("phrases/great_partner")] ! [next=auto]
 % Sam: Keep up the good work [do Character.play_audio("phrases/keep_up")] ! [next=auto]
 % Sam: You nailed it [do Character.play_audio("phrases/nailed_it")] ! [next=auto]
 % Sam: You're doing so well [do Character.play_audio("phrases/so_well")] ! [next=auto]

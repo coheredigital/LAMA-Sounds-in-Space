@@ -589,18 +589,20 @@ while stimuli_set.size() > 0
 		=>< snippets/success
 		# make progress
 		do set_journey_progress_step(12 - stimuli_set.size(), 12, 3.0)
-		[next=4]
+		[next=3]
+		set screen = "talking"
 	- Failure
 		=>< snippets/failure
 #		add the stimuli back into the front of the set so it can be repeated
 		do stimuli_set.push_front(next_stimuli)
+		set screen = "talking"
 	[next=1]
 
 
 ~ task2_success
 set fuel_level = 6
 do set_journey_progress(0.85,4.0)
-do Character.play_audio("task2_success")
+do Character.play_audio("task2_arrived")
 =>< snippets/focus_conversation
 Sam: Awesome job, partner! Thanks for steering the ship so well! Look, it’s Planet Stardust! To use our spaceship to look around, press the Landing Button. [next=9]
 =>< snippets/focus_forward
@@ -619,20 +621,20 @@ set fuel_level = 5
 set journey_progress = 1.0
 do Character.play_audio("task3_found_planet_stardust")
 =>< snippets/focus_conversation
-Sam: We did it - we found Planet Stardust! [next=3]
+Sam: We did it - we found Planet Stardust! [next=2.5]
 do Character.play_audio("task3_aliens_intro")
 Sam: I don’t see Lucky, but I do see something else! It looks like there are aliens on Planet Stardust! [next=4]
 do Alien.move_to(1.0,12.0)
 do Ufo.move_to(0.9,12.0)
 =>< snippets/focus_screen
-[next=4]
+[next=3]
 do Character.play_audio("task3_aliens_ask_lucky")
-Sam: They look really friendly, I think they are nice! Let’s ask them if they have seen Lucky. [next=7]
+Sam: They look really friendly, I think they are nice! Let’s ask them if they have seen Lucky. [next=6]
 
 
 ~ task3_alien_language
 do Character.play_audio("task3_alien_language")
-Sam: Aliens on Planet Stardust only speak in special sounds so the computer will tell us how to talk to them in their language to find out where Lucky is. Listen to the computer and repeat back the alien sounds as best as you can. [next=12]
+Sam: Aliens on Planet Stardust only speak in special sounds so the computer will tell us how to talk to them in their language to find out where Lucky is. Listen to the computer and repeat back the alien sounds as best as you can. [next=10.5]
 set screen = "computer"
 =>< snippets/focus_forward
 [next=2]
@@ -640,6 +642,7 @@ set screen = "computer"
 
 ~ task3_tones
 =>< orders/tones
+
 
 ~ task3_stimuli_trial
 # loop through stimuli
@@ -656,11 +659,13 @@ while stimuli_set.size() > 0
 	System:
 	- Success
 		=>< snippets/success
-		[next=3]
+		[next=1]
+		set screen = "talking"
 	- Failure
 		=>< snippets/failure
 #		add the stimuli back into the front of the set so it can be repeated
 		do stimuli_set.push_front(next_stimuli)
+		set screen = "talking"
 	[next=1]
 
 # 10 stimuli – 5 pure tones, 5 intervals? *
@@ -694,7 +699,7 @@ set journey_progress = 0.0
 do set_overlay_state("hidden")
 [next=2]
 do Character.play_audio("mission_success")
-Sam: You made it back to the Space Station - great job today! Thanks for bringing Lucky the Llama back home from Planet Stardust safely. You are a great Astronaut! Come back any time!
+Sam: You made it back to the Space Station - great job today! Thanks for bringing Lucky the Llama back home from Planet Stardust safely. You are a great Astronaut! Come back any time! [next=12]
 
 
 ~ complete
