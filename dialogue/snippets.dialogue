@@ -19,6 +19,7 @@ do play_computer_sound("chime_success")
 do Recorder.stop()
 do Recorder.save()
 => encouraging_phrase
+set screen = "idle"
 => END
 
 
@@ -46,6 +47,7 @@ do Recorder.stop()
 do Recorder.save("FAILURE")
 do Character.play_audio("listen_and_repeat")
 Sam: Listen to the command from the computer and then repeat what it says with your voice.  [next=3]
+set screen = "idle"
 => END
 
 ~ recording_prompt
