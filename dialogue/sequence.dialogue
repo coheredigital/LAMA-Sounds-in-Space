@@ -45,9 +45,9 @@ do Player.pivot(-0.32)
 do Character.pivot(-1,0.45)
 [next=3]
 do Character.play_audio("intro_map")
-Sam: Oh no, look! Her red dot isn’t even on our planet! It looks like her spaceship broke down and she got stuck way out in space! [next=8.5]
+Sam: Oh no, look! Her red dot isn’t even on our planet! It looks like her spaceship broke down and she got stuck way out in space! [next=6.5]
 do Character.pivot(0.3,0.4)
-[next=2]
+[next=3]
 
 
 ~ question_rescue
@@ -130,7 +130,7 @@ Sam: This is our handy dandy computer! The computer will help us travel to Plane
 do Character.play_audio("task0_computer_sounds_like")
 Sam: This is what the computer sounds like. [next=1]
 set screen = "talking"
-do Stimuli.play("task0_greeting")
+do Stimuli.play("practice_0_greeting")
 Computer: Nice to meet you [next=2]
 set screen = "computer"
 do Character.play_audio("task0_computer_instructions")
@@ -273,7 +273,7 @@ System: ...
 	=>< snippets/focus_screen
 	set screen = "talking"
 	do Stimuli.play("practice_5_yawn")
-	Computer: *Loud Yawn: from high to low* [next=4]
+	Computer: *Loud Yawn: from high to low* [next=5]
 	=>< snippets/recording_prompt
 
 
