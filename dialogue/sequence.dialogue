@@ -617,12 +617,12 @@ set journey_progress = 1.0
 do Character.play_audio("task3_found_planet_stardust")
 =>< snippets/focus_conversation
 Sam: We did it - we found Planet Stardust! [next=2.5]
-do Character.play_audio("task3_aliens_intro")
-Sam: I don’t see Lucky, but I do see something else! It looks like there are aliens on Planet Stardust! [next=4]
 do Alien.move_to(1.0,12.0)
 do Ufo.move_to(0.9,12.0)
+do Character.play_audio("task3_aliens_intro")
 =>< snippets/focus_screen
-[next=3]
+Sam: I don’t see Lucky, but I do see something else! It looks like there are aliens on Planet Stardust! [next=6]
+do Alien.action("wave")
 do Character.play_audio("task3_aliens_ask_lucky")
 Sam: They look really friendly, I think they are nice! Let’s ask them if they have seen Lucky. [next=6]
 
@@ -668,8 +668,10 @@ do Ufo.move_to(0.0,8.0)
 Sam: You did a great job! The aliens said Lucky the Llama is over there – look, they’re bringing Lucky to us! Now the only thing left to do is take Lucky back to the Space Station. [next=1]
 do Ufo.activate_beam()
 do Ufo.move_to(1.0,12.0)
+do Lama.action("wiggle")
 do Lama.move_to(1.0,12.0)
 [next=12]
+do Lama.action("idle")
 do Ufo.deactivate_beam()
 do Ufo.move_to(0.9,6.0)
 
