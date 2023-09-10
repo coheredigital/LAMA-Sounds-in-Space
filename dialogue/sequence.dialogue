@@ -47,7 +47,7 @@ do Character.pivot(-1,0.45)
 do Character.play_audio("intro_map")
 Sam: Oh no, look! Her red dot isn’t even on our planet! It looks like her spaceship broke down and she got stuck way out in space! [next=6.5]
 do Character.pivot(0.3,0.4)
-[next=3]
+[next=2]
 
 
 ~ question_rescue
@@ -296,7 +296,7 @@ do Player.move_to(1)
 do Character.move_to(1)
 do Character.play_audio("task0_blast_off_intro")
 =>< snippets/focus_conversation
-Sam: You did it! You’re working really hard at this – Great Job! Now that our spaceship is full of fuel and the computer knows your voice, it’s time to find Planet Stardust!  Our handy dandy computer will countdown to blast off. Listen closely and then repeat what you hear to send us into space! [next=12]
+Sam: You did it! You’re working really hard at this – Great Job! Now that our spaceship is full of fuel and the computer knows your voice, it’s time to find Planet Stardust!  Our handy dandy computer will countdown to blast off. Listen closely and then repeat what you hear to send us into space! [next=13]
 
 
 ~ blast_off_recording
@@ -337,11 +337,13 @@ set fuel_level = 7
 [next=12]
 set steering_motion = 0.5
 
+
 ~ were_flying
 do Character.play_audio("were_flying")
-Sam: We’re flying![next=5]
+Sam: We’re flying![next=4]
 set steering_motion = 0.2
 set flying_motion = 0.2
+
 
 ~ skip_to_warp
 System: Debug Selection.
@@ -352,8 +354,8 @@ System: Debug Selection.
 - Screen Test
 	=>< snippets/screen_test
 	
-~ task1_intro
 
+~ task1_intro
 =>< snippets/focus_conversation
 [next=1]
 do Character.play_audio("task1_intro")
@@ -381,7 +383,7 @@ while stimuli_set.size() > 0
 	- Begin {{next_stimuli}}
 	do print_message("Step: %s" % (12 - stimuli_set.size()))
 
-	set screen = "computer"
+	set screen = "talking"
 	do Stimuli.play(next_stimuli)
 	do Recorder.start()
 	[next=1.5]
@@ -393,10 +395,12 @@ while stimuli_set.size() > 0
 		do move_star(stimuli_set.size(), 1, 5.0)
 		do set_stars_brightness(12 - stimuli_set.size(), 12)
 		[next=4]
+		set screen = "talking"
 	- Failure
 		=>< snippets/failure
 #		add the stimuli back into the front of the set so it can be repeated
 		do stimuli_set.push_front(next_stimuli)
+		set screen = "talking"
 	[next=1]
 
 ~ task1_success
@@ -457,13 +461,13 @@ do Character.play_audio("task2_maya_voice_higher")
 Sam: she moved her voice higher. [next=2]
 do Stimuli.play("example_song_bad") 
 [next=2]
-set screen = idle
+set screen = "idle"
 
 
 ~ task2_maya_good_example
 do Character.play_audio("task2_maya_good")
 =>< snippets/focus_conversation
-Sam: To move our ship, we have to repeat the words exactly the way we hear them.  Click the green button to hear Maya doing a good job repeating what she heard. [next=9]
+Sam: To move our ship, we have to repeat the words exactly the way we hear them.  Click the green button to hear Maya doing a good job repeating what she heard. [next=7.5]
 =>< snippets/focus_screen
 =>< snippets/prompt_green_button
 
@@ -503,14 +507,14 @@ do play_computer_sound("chime_failure")
 [next=1]
 do Character.play_audio("task2_riley_instead")
 =>< snippets/focus_conversation
-Sam: Hmm, Riley got the words right, but instead of moving his voice higher, [next=5]
+Sam: Hmm, Riley got the words right, but instead of moving his voice higher, [next=4]
 do Stimuli.play("target_speech")
 [next=3]
 do Character.play_audio("task2_riley_lower")
-Sam: he moved his voice lower.  [next=3]
+Sam: he moved his voice lower.  [next=2.5]
 do Stimuli.play("example_speech_bad") 
 [next=3]
-set screen = idle
+set screen = "idle"
 
 
 ~ task2_riley_good_example
@@ -542,7 +546,7 @@ System: ...
 - Ready
 	set screen = "success"
 	do play_computer_sound("chime_success")
-[next=1]
+	[next=1]
 - Repeat
 	=> task2_maya_bad_example
 
