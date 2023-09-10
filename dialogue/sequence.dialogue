@@ -439,6 +439,8 @@ set screen = "playing"
 do Stimuli.play("example_song_bad")
 [next=2]
 set screen = "failure"
+do play_computer_sound("chime_failure")
+[next=1]
 do Character.play_audio("task2_maya_result")
 Sam: Hmm, do you think Maya did a good job or a bad job repeating the command exactly? [next=5]
 =>< snippets/focus_conversation
@@ -450,7 +452,8 @@ do Stimuli.play("target_song")
 [next=2]
 do Character.play_audio("task2_maya_voice_higher")
 Sam: she moved her voice higher. [next=2]
-do Stimuli.play("example_song_bad") [next=2]
+do Stimuli.play("example_song_bad") 
+[next=2]
 set screen = idle
 
 
@@ -470,12 +473,12 @@ set screen = "playing"
 do Stimuli.play("example_song_good")
 [next=2]
 set screen = "success"
-[next=2]
-set screen = "idle"
+do play_computer_sound("chime_success")
+[next=1]
 do Character.play_audio("task2_maya_conclusion")
 =>< snippets/focus_conversation
 Sam: That time, Maya did a great job repeating the words AND following the ^highs^ and ~lows~ of the computer. [next=8]
-
+set screen = "idle"
 
 ~ task2_riley_bad_example
 do Character.play_audio("task2_riley_intro")
@@ -493,6 +496,8 @@ set screen = "playing"
 do Stimuli.play("example_speech_bad")
 [next=3]
 set screen = "failure"
+do play_computer_sound("chime_failure")
+[next=1]
 do Character.play_audio("task2_riley_instead")
 =>< snippets/focus_conversation
 Sam: Hmm, Riley got the words right, but instead of moving his voice higher, [next=5]
@@ -500,7 +505,8 @@ do Stimuli.play("target_speech")
 [next=3]
 do Character.play_audio("task2_riley_lower")
 Sam: he moved his voice lower.  [next=3]
-do Stimuli.play("example_speech_bad") [next=3]
+do Stimuli.play("example_speech_bad") 
+[next=3]
 set screen = idle
 
 
@@ -532,6 +538,8 @@ Sam: Are you ready to move our ship to Planet Stardust? Remember, we have to cop
 System: ...
 - Ready
 	set screen = "success"
+	do play_computer_sound("chime_success")
+[next=1]
 - Repeat
 	=> task2_maya_bad_example
 
@@ -571,15 +579,12 @@ while stimuli_set.size() > 0
 	[next=3]
 	System:
 	- Success
-		set screen = "success"
-		do Recorder.stop()
-		do Recorder.save()
-#		make progress
+		=>< snippets/success
+		make progress
 		do set_journey_progress_step(12 - stimuli_set.size(), 12, 3.0)
 		[next=4]
 	- Failure
-		set screen = "failure"
-		do Recorder.stop()
+		=>< snippets/failure
 #		add the stimuli back into the front of the set so it can be repeated
 		do stimuli_set.push_front(next_stimuli)
 	[next=1]
