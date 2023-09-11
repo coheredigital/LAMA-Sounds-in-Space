@@ -36,5 +36,5 @@ func set_search_progress(step: float, step_max: float, duration: float = 1.0) ->
 #	pivot changes
 	var pivot_start = 0.0
 	var pivot_end = -1.0
-	var pivot = lerp(pivot_start,pivot_end, position)
-	pivot_changed.emit(pivot, duration)
+	var pivot_amount = lerp(pivot_start,pivot_end, position)
+	pivot_changed.emit(pivot_amount, duration)

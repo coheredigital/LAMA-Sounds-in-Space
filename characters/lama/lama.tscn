@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://322sh12iustv"]
+[gd_scene load_steps=19 format=3 uid="uid://322sh12iustv"]
 
 [ext_resource type="PackedScene" uid="uid://cs03x3lgn8m6a" path="res://characters/lama/lama.gltf" id="1_jjqdh"]
 [ext_resource type="Material" uid="uid://cqvlw3i27fqqd" path="res://characters/lama/materials/lama_material.tres" id="2_1i2gr"]
@@ -294,10 +294,10 @@ animation = &"idle"
 animation = &"wiggle"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rf0kf"]
-xfade_time = 1.73
+xfade_time = 2.98
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l7d2q"]
-xfade_time = 0.85
+xfade_time = 3.55
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xtay7"]
 
@@ -309,11 +309,11 @@ states/End/position = Vector2(510, 100)
 states/idle/node = SubResource("AnimationNodeAnimation_31gow")
 states/idle/position = Vector2(352, 100)
 states/wiggle/node = SubResource("AnimationNodeAnimation_1vdv6")
-states/wiggle/position = Vector2(352, 202)
+states/wiggle/position = Vector2(352, 200)
 transitions = ["idle", "wiggle", SubResource("AnimationNodeStateMachineTransition_rf0kf"), "wiggle", "idle", SubResource("AnimationNodeStateMachineTransition_l7d2q"), "idle", "End", SubResource("AnimationNodeStateMachineTransition_xtay7"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_04cru")]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_dbl4b"]
-graph_offset = Vector2(-580, 72)
+graph_offset = Vector2(-715, 15)
 nodes/Add2/node = SubResource("AnimationNodeAdd2_4mvet")
 nodes/Add2/position = Vector2(140, 200)
 "nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_l6qxq")
@@ -321,8 +321,6 @@ nodes/Add2/position = Vector2(140, 200)
 nodes/action/node = SubResource("AnimationNodeStateMachine_fl5c8")
 nodes/action/position = Vector2(-220, 140)
 node_connections = [&"output", 0, &"Add2", &"Add2", 0, &"action", &"Add2", 1, &"Animation 2"]
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_x0l3s"]
 
 [node name="Lama" instance=ExtResource("1_jjqdh")]
 script = ExtResource("2_vtxys")
@@ -338,7 +336,6 @@ tree_root = SubResource("AnimationNodeBlendTree_dbl4b")
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/Add2/add_amount = 1.0
-parameters/action/playback = SubResource("AnimationNodeStateMachinePlayback_x0l3s")
 
 [node name="lama" parent="." index="2"]
 transform = Transform3D(-3.61999e-06, 0, -1, 0, 1, 0, 1, 0, -3.61999e-06, 0, 0.1875, -0.359375)

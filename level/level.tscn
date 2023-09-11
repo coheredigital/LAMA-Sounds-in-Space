@@ -132,7 +132,7 @@ pivot = 0.12
 tilt = 0.35
 
 [node name="RemoteTransform" parent="FollowPaths/AlienPath" index="0"]
-transform = Transform3D(-0.864075, -0.125873, 0.487369, 2.98023e-08, 0.968229, 0.250064, -0.503361, 0.216074, -0.836623, 0.928705, 1.74729, -4.22049)
+transform = Transform3D(-0.864075, -0.125873, 0.48737, 1.49012e-08, 0.968229, 0.250064, -0.503362, 0.216074, -0.836623, 0.928705, 1.74729, -4.22049)
 remote_path = NodePath("../../../Ground/PlanetStardust/Alien")
 update_scale = false
 
@@ -154,7 +154,7 @@ curve = ExtResource("6_4mufo")
 progress_ratio = 0.85
 
 [node name="RemoteTransform" parent="FollowPaths/LamaPath" index="0"]
-transform = Transform3D(-0.829457, 9.35151e-05, -0.558571, -2.18279e-11, 1, 0.000167418, 0.558571, 0.000138866, -0.829457, -4.69336, 1.70155, -10.3192)
+transform = Transform3D(-0.829457, 9.35151e-05, -0.558572, -1.45519e-11, 1, 0.000167418, 0.558571, 0.000138866, -0.829457, -4.69336, 1.70155, -10.3192)
 remote_path = NodePath("../../../Ground/PlanetStardust/LamaLost")
 
 [node name="BeamTransform3D" type="RemoteTransform3D" parent="FollowPaths/LamaPath/RemoteTransform/Marker3D" index="0"]
@@ -172,7 +172,7 @@ progress_ratio = 0.17747
 pivot = -1.0
 
 [node name="RemoteTransform" parent="FollowPaths/UfoPath" index="0"]
-transform = Transform3D(0.951665, -0.0803492, 0.296441, -1.86264e-08, 0.965174, 0.261607, -0.307137, -0.248962, 0.918523, -21.8472, 4.57584, -35.4474)
+transform = Transform3D(0.951665, -0.0803492, 0.296441, -7.45058e-09, 0.965174, 0.261607, -0.307137, -0.248962, 0.918523, -21.8472, 4.57584, -35.4474)
 remote_path = NodePath("../../../Ground/PlanetStardust/Ufo")
 
 [node name="PathFollow" parent="FollowPaths/UfoPath" index="1"]
@@ -189,7 +189,7 @@ curve = ExtResource("11_wq0yi")
 tilt = -0.05
 
 [node name="RemoteTransform" parent="FollowPaths/PlayerPath" index="0"]
-transform = Transform3D(0.815354, -0.0100643, -0.578875, 2.32831e-09, 0.999848, -0.0173834, 0.578962, 0.0141736, 0.815231, -13.5, 2.6, -1.69035)
+transform = Transform3D(0.815354, -0.0100643, -0.578875, 0, 0.999848, -0.0173834, 0.578962, 0.0141736, 0.815231, -13.5, 2.6, -1.69035)
 remote_path = NodePath("../../../PlayerCamera")
 use_global_coordinates = true
 
@@ -290,17 +290,17 @@ unique_name_in_owner = true
 
 [node name="Alien" parent="Ground/PlanetStardust" instance=ExtResource("8_bs0lj")]
 unique_name_in_owner = true
-transform = Transform3D(-0.863951, -0.125851, 0.487295, 2.9798e-08, 0.968059, 0.250026, -0.503289, 0.216036, -0.836496, 0.928705, 1.74729, -4.22049)
+transform = Transform3D(-0.863951, -0.125851, 0.487293, 1.4899e-08, 0.968059, 0.250025, -0.503289, 0.216037, -0.836491, 0.928705, 1.74729, -4.22049)
 
 [node name="LamaLost" parent="Ground/PlanetStardust" instance=ExtResource("8_t1ik6")]
 unique_name_in_owner = true
-transform = Transform3D(-0.829457, 9.35151e-05, -0.558571, -2.18279e-11, 1, 0.000167418, 0.558571, 0.000138866, -0.829457, -4.69336, 1.70155, -10.3192)
+transform = Transform3D(-0.829457, 9.35151e-05, -0.558572, -1.45519e-11, 1, 0.000167418, 0.558571, 0.000138866, -0.829457, -4.69336, 1.70155, -10.3192)
 
 [node name="BeamTargetTransform" type="RemoteTransform3D" parent="Ground/PlanetStardust/LamaLost"]
 remote_path = NodePath("../../Ufo/BeamLookTarget")
 
 [node name="Ufo" parent="Ground/PlanetStardust" instance=ExtResource("16_8d17p")]
-transform = Transform3D(0.951665, -0.0803492, 0.296441, -1.86264e-08, 0.965174, 0.261607, -0.307137, -0.248962, 0.918523, -21.8472, 4.57584, -35.4474)
+transform = Transform3D(0.951665, -0.0803492, 0.296441, -7.45058e-09, 0.965174, 0.261607, -0.307137, -0.248962, 0.918523, -21.8472, 4.57584, -35.4474)
 
 [node name="mountains" parent="Ground/PlanetStardust" instance=ExtResource("17_thg0y")]
 
@@ -335,7 +335,7 @@ transform = Transform3D(0.849321, 0.526602, -0.0366432, -0.526954, 0.849894, 0, 
 
 [node name="PlayerCamera" type="Camera3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(0.815354, -0.0100643, -0.578875, 2.32831e-09, 0.999848, -0.0173834, 0.578962, 0.0141736, 0.815231, -13.5, 2.6, -1.69035)
+transform = Transform3D(0.815354, -0.0100643, -0.578875, 0, 0.999848, -0.0173834, 0.578962, 0.0141736, 0.815231, -13.5, 2.6, -1.69035)
 current = true
 fov = 65.5
 
