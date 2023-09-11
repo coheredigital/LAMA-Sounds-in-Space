@@ -651,7 +651,8 @@ set screen = "computer"
 ~ task3_stimuli_trial
 # loop through stimuli
 while stimuli_set.size() > 0
-	do Alien.pivot(0.15)
+	
+	do Ufo.pivot(-0.1, 1.0)
 	set next_stimuli = stimuli_set.pop_front()
 	System:
 	- Begin {{next_stimuli}}
@@ -664,9 +665,17 @@ while stimuli_set.size() > 0
 	System:
 	- Success
 		do Alien.pivot(0.62)
+		do Alien.action("wave")
 		=>< snippets/success
-		do Ufo.set_search_progress(10 - stimuli_set.size(), 10, 1.0)
+		
+		do Ufo.pivot(-0.5, 2.0)
 		[next=1]
+		do Ufo.activate_beam()
+		do Ufo.set_search_progress(10 - stimuli_set.size(), 10, 3.0)
+		[next=2]
+		do Alien.pivot(0.15)
+		[next=1]
+		do Ufo.deactivate_beam()
 	- Failure
 		=>< snippets/failure
 #		add the stimuli back into the front of the set so it can be repeated
@@ -681,13 +690,13 @@ do Ufo.activate_beam()
 
 do Ufo.pivot(0,4.0)
 do Lama.action("wiggle")
-do Lama.move_to(1.0,12.0)
+do Lama.move_to(1.0,14.0)
 [next=2]
-do Ufo.move_to(1.0,12.0)
-[next=8]
+do Ufo.move_to(0.975,12.0)
+[next=12]
 do Lama.action("idle")
 do Ufo.deactivate_beam()
-do Ufo.move_to(0.9,6.0)
+do Ufo.move_to(0.9,4.0)
 
 # blast off and fade to intro (station)
 ~ mission_success
