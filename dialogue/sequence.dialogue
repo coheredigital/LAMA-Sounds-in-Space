@@ -244,7 +244,7 @@ System: ...
 	do Recorder.start()
 	set screen = "talking"
 	do Stimuli.play("practice_4_fuel")
-	Computer: Let’s fuel up! [next=1]
+	Computer: Let’s fuel up! [next=1.5]
 	=>< snippets/recording_prompt
 	[next=1]
 
@@ -384,7 +384,7 @@ while stimuli_set.size() > 0
 	set screen = "talking"
 	do Stimuli.play(next_stimuli)
 	do Recorder.start()
-	[next=1.5]
+	[next=2]
 	=>< snippets/recording_prompt
 	[next=2]
 	System:
@@ -584,7 +584,7 @@ while stimuli_set.size() > 0
 	- Success
 		=>< snippets/success
 		# make progress
-		do set_journey_progress_step(12 - stimuli_set.size(), 12, 3.0)
+		do set_journey_progress_step(12 - stimuli_set.size(), 12, 3.5)
 		do play_spaceship_audio("effects/engine_boost")
 		[next=3]
 	- Failure

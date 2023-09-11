@@ -36,6 +36,7 @@ set screen = "computer"
 % Sam: Stellar [do Character.play_audio("phrases/stellar")] ! [next=auto]
 % Sam: Terrific [do Character.play_audio("phrases/terrific")] ! [next=auto]
 % Sam: You got this [do Character.play_audio("phrases/you_got_this")] ! [next=auto]
+[next=0.5]
 => END
 
 
