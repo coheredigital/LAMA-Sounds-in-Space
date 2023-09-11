@@ -683,15 +683,16 @@ do Character.play_audio("task3_go_home")
 Sam: Press the Green button to blast off back home! [next=2]
 =>< snippets/prompt_green_button
 do set_overlay_state("loading")
+[next=1]
 do play_spaceship_audio("effects/engine_boost")
-[next=3]
+[next=2]
 do Lama.toggle_rescued(true)
-do Player.tilt(0.5,0.0)
-do Player.move_to(0.2,0.0)
-do Player.pivot(0.0,0.0)
-do Character.tilt(0.0,0.0)
-do Character.move_to(0.39,0.0)
-do Character.pivot(0.36,0.0)
+do Player.tilt(0.45,0.0)
+do Player.move_to(0.21,0.0)
+do Player.pivot(-0.43,0.0)
+do Character.tilt(0.4,0.0)
+do Character.move_to(0.32,0.0)
+do Character.pivot(0.54,0.0)
 set journey_progress = 0.0
 [next=6]
 do set_overlay_state("hidden")
