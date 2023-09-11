@@ -621,16 +621,17 @@ set steering_motion = 0
 set flying_motion = 0
 do Player.move_to(1,0)
 do Character.move_to(1,0)
-=>< snippets/focus_forward
 =>< snippets/focus_conversation
 do Character.play_audio("task3_found_planet_stardust")
 Sam: We did it - we found Planet Stardust! [next=2.5]
 do Alien.move_to(1,12)
 do Ufo.move_to(0.9,12)
 do Character.play_audio("task3_aliens_intro")
-=>< snippets/focus_screen
+
 [next=3]
-Sam: I don’t see Lucky, but I do see something else! It looks like there are aliens on Planet Stardust! [next=6]
+Sam: I don’t see Lucky, but I do see something else! It looks like there are aliens on Planet Stardust! [next=4]
+=>< snippets/focus_screen
+[next=2]
 do Alien.action("wave")
 do Character.play_audio("task3_aliens_ask_lucky")
 Sam: They look really friendly, I think they are nice! Let’s ask them if they have seen Lucky. [next=6]
@@ -650,6 +651,7 @@ set screen = "computer"
 ~ task3_stimuli_trial
 # loop through stimuli
 while stimuli_set.size() > 0
+	do Alien.pivot(0.15)
 	set next_stimuli = stimuli_set.pop_front()
 	System:
 	- Begin {{next_stimuli}}
@@ -661,6 +663,7 @@ while stimuli_set.size() > 0
 	[next=2]
 	System:
 	- Success
+		do Alien.pivot(0.62)
 		=>< snippets/success
 		do Ufo.set_search_progress(10 - stimuli_set.size(), 10, 1.0)
 		[next=1]
