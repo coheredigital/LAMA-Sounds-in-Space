@@ -327,11 +327,11 @@ set screen = "idle"
 do play_spaceship_audio("effects/engine_launch")
 do set_journey_progress(0.2,24.0)
 set flying_motion = 0.2
-[next=2]
+[next=6]
 set flying_motion = 0.6
 set steering_motion = 0.3
 set fuel_level = 7
-[next=12]
+[next=8]
 set steering_motion = 0.5
 
 
@@ -602,18 +602,19 @@ do Character.play_audio("task2_arrived")
 Sam: Awesome job, partner! Thanks for steering the ship so well! Look, it’s Planet Stardust! To use our spaceship to look around, press the Landing Button. [next=9]
 =>< snippets/focus_forward
 =>< snippets/prompt_green_button
-
-do set_journey_progress(0.925,8.0)
-[next=2]
+set flying_motion = 0.65
+do set_journey_progress(1.0,20.0)
 do play_spaceship_audio("effects/engine_landing")
 [next=6]
-do set_journey_progress(1.0,12.0)
-[next=12]
+set flying_motion = 1.0
+[next=14]
 
 
 ~ task3_landed
 set fuel_level = 5
 set journey_progress = 1.0
+set steering_motion = 0
+set flying_motion = 0
 do Character.play_audio("task3_found_planet_stardust")
 =>< snippets/focus_conversation
 Sam: We did it - we found Planet Stardust! [next=2.5]
