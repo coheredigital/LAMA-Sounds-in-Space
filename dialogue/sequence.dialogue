@@ -675,11 +675,13 @@ while stimuli_set.size() > 0
 do Character.play_audio("task3_success")
 Sam: You did a great job! The aliens said Lucky the Llama is over there – look, they’re bringing Lucky to us! Now the only thing left to do is take Lucky back to the Space Station. [next=1]
 do Ufo.activate_beam()
-do Ufo.move_to(1.0,12.0)
+
 do Ufo.pivot(0,4.0)
 do Lama.action("wiggle")
 do Lama.move_to(1.0,12.0)
-[next=12]
+[next=2]
+do Ufo.move_to(1.0,12.0)
+[next=8]
 do Lama.action("idle")
 do Ufo.deactivate_beam()
 do Ufo.move_to(0.9,6.0)
