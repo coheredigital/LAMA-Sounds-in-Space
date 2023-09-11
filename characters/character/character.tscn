@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://cq3x5n33r2d8c"]
+[gd_scene load_steps=14 format=3 uid="uid://cq3x5n33r2d8c"]
 
 [ext_resource type="PackedScene" uid="uid://whalw4rdvy64" path="res://characters/character/character.gltf" id="1"]
 [ext_resource type="Script" path="res://characters/character/character.gd" id="2_bwdwg"]
 [ext_resource type="AnimationLibrary" uid="uid://c4hslfw7atlus" path="res://characters/character/character_actions.tres" id="4_cmukm"]
+[ext_resource type="AudioStream" uid="uid://bugxflshvqn1w" path="res://audio/script/task2_ready_to_go.wav" id="4_jr4dp"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kjlnr"]
 animation = &"actions/idle"
@@ -184,8 +185,10 @@ transform = Transform3D(0.999999, 9.31321e-10, 7.45058e-09, -9.31321e-10, 0.9999
 [node name="AudioPlayer" type="AudioStreamPlayer3D" parent="character/helmet/face" index="0"]
 unique_name_in_owner = true
 transform = Transform3D(0.997942, -0.0639901, 0.00430973, 0.063585, 0.99593, 0.0639144, -0.00838205, -0.0635086, 0.997946, -0.021741, 0.0576075, -0.0398765)
+stream = ExtResource("4_jr4dp")
 volume_db = 6.0
 max_db = 6.0
+bus = &"Voice"
 
 [node name="OmniLight3D" type="OmniLight3D" parent="character/helmet/face" index="3"]
 transform = Transform3D(1, -2.79397e-09, 0, 0, 1, -3.72529e-09, 0, 0, 1, -0.001, 0.042, -0.133)
