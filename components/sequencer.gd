@@ -116,7 +116,7 @@ var player_view: float = 0.0
 # Spaceship -------------------------------------------------
 
 signal spaceship_motion_changed(value: float)
-signal spaceship_audio_played(value: String)
+signal spaceship_audio_played(value: String, volume_adjustment: float)
 signal door_state_changed(value: String)
 signal steering_motion_changed(value: float)
 signal flying_motion_changed(value: float)
@@ -159,15 +159,15 @@ var screen: String = "idle":
 		screen = value
 		screen_changed.emit(value)
 
-func play_spaceship_audio(value: String) -> void:
-	spaceship_audio_played.emit(value)
+func play_spaceship_audio(value: String, volume_adjustment: float = 0.0) -> void:
+	spaceship_audio_played.emit(value, volume_adjustment)
 
 
 # Computer -----------------------------------------------
-signal played_computer_sound(value: String)
+signal played_computer_sound(value: String, volume_adjustment: float)
 
-func play_computer_sound(value: String) -> void:
-	played_computer_sound.emit(value)
+func play_computer_sound(value: String, volume_adjustment: float = 0.0) -> void:
+	played_computer_sound.emit(value, volume_adjustment)
 
 
 

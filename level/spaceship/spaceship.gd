@@ -134,17 +134,17 @@ func update_screen(value: String)-> void:
 		state_machine.travel(value)
 
 
-func play_sound(value: String) -> void:
+func play_sound(value: String, volume_adjustment: float = 0.0) -> void:
 #	get the file or cancel operation
+	var default_volume_db = -12.0
 	var folder = "res://audio/effects/"
 	var filename = "%s/%s.wav" % [folder,value];
-	
 	var wav_file = load(filename);
 	if not wav_file:
 		push_warning('Computer sound not found: %s' % [filename])
 		return
-
 #	Visualizer.channel = "Stimuli"
+	computer_audio_player.volume_db = default_volume_db + volume_adjustment
 	computer_audio_player.stream = wav_file
 	computer_audio_player.playing = true
 	EventLogger.add('stimuli','played',filename)

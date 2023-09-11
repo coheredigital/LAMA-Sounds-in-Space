@@ -149,16 +149,17 @@ func set_lama_visibility(value: bool) -> void:
 		lama_lost.visible = true
 
 # Spaceship
-func play_spaceship_audio(value: String) -> void:
+func play_spaceship_audio(value: String, volume_adjustment : float = 0.0) -> void:
+	var default_volume_db = -27.0
 #	get the file or cancel operation
 	var folder = "res://audio/"
-	var filename = "%s/%s.wav" % [folder,value];
+	var filename = "%s/%s.wav" % [folder,value]
 	
-	var wav_file = load(filename);
+	var wav_file = load(filename)
 	if not wav_file:
 		push_warning('Sound not found: %s' % [filename])
 		return
-
+	spaceship_audio.volume_db = default_volume_db + volume_adjustment
 	spaceship_audio.stream = wav_file
 	spaceship_audio.playing = true
 	EventLogger.add('stimuli','played',filename)
