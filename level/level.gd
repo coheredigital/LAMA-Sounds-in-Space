@@ -174,3 +174,4 @@ func set_ufo_pivot(pivot: float, duration: float = 1.0) -> void:
 func set_ufo_tilt(tilt: float, duration: float = 1.0) -> void: 
 	set_path_tilt(ufo_path,tilt,duration)
 	
+

@@ -28,7 +28,6 @@ var next_stimuli = '':
 
 
 
-
 # Journey ----------------------------------------------------
 signal journey_progress_changed(value: float, duration: float)
 signal planet_scale_changed(value: float, duration: float)

@@ -25,3 +25,16 @@ func deactivate_beam() -> void:
 
 func toggle_speakers(state: bool) -> void:
 	speakers_toggled.emit(state)
+
+func set_search_progress(step: float, step_max: float, duration: float = 1.0) -> void: 
+	var progress = clamp(step,0.0,step_max) / step_max
+#	position changes
+	var position_start = 0.9
+	var position_end = 0.3
+	var position = lerp(position_start,position_end,progress)	
+	position_changed.emit(position, duration)
+#	pivot changes
+	var pivot_start = 0.0
+	var pivot_end = -1.0
+	var pivot = lerp(pivot_start,pivot_end, position)
+	pivot_changed.emit(pivot, duration)
