@@ -739,9 +739,11 @@ shader_parameter/albedo_texture = ExtResource("17_dm8ld")
 shader_parameter/emission_texture = ExtResource("18_nolgf")
 
 [node name="Spaceship" instance=ExtResource("1_m17hk")]
+transform = Transform3D(0.999998, 0.000518801, -0.00177711, -0.000518242, 1, 0.000314717, 0.00177727, -0.000313796, 0.999998, 0, 0, 0)
 script = ExtResource("2_tplkk")
 screen_state = "success"
 door_state = "ready"
+flying_motion = 0.3
 light_level = 1.0
 
 [node name="starmap" type="MeshInstance3D" parent="." index="0"]
@@ -774,8 +776,8 @@ tree_root = SubResource("5")
 anim_player = NodePath("AnimationPlayer")
 active = true
 parameters/blend_screen/add_amount = 1.0
-parameters/flying_blend/add_amount = 0.0
-parameters/flying_speed/scale = 0.0
+parameters/flying_blend/add_amount = 0.216
+parameters/flying_speed/scale = 0.3
 parameters/steering_blend/add_amount = 0.0
 parameters/steering_speed/scale = 0.0
 
@@ -861,7 +863,7 @@ transform = Transform3D(0.923077, 0, 0, 0, 0.916667, 0, 0, 0, 1, 0, 0.921875, -2
 material_override = ExtResource("15_ljimn")
 
 [node name="indicator" parent="spaceship/cockpit/progress_bar" index="0"]
-transform = Transform3D(0.933484, 9.39449e-09, -1.43918e-08, -4.01539e-09, 0.916633, -3.05212e-07, -9.0804e-09, -2.67988e-07, 0.861662, -1, 0.359037, 0)
+transform = Transform3D(0.933484, 9.43902e-09, -1.47847e-08, -3.31249e-09, 0.916633, -3.05183e-07, -9.42964e-09, -2.6793e-07, 0.861661, -1, 0.359037, 0)
 surface_material_override/0 = ExtResource("15_ljimn")
 
 [node name="ProgressPath" type="Path3D" parent="spaceship/cockpit/progress_bar" index="1"]

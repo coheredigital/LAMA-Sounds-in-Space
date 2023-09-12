@@ -92,20 +92,15 @@ func _ready():
 func set_steering_motion(value: float, duration: float = 1.0) -> void:
 	if animation_tree:
 		var tween = create_tween()
-		tween.parallel().tween_property(animation_tree, "parameters/steering_speed/scale", value, duration).set_trans(Tween.TRANS_SINE)
-		tween.parallel().tween_property(animation_tree, "parameters/steering_blend/add_amount", smoothstep(0.2,1.0,value), duration).set_trans(Tween.TRANS_SINE)
-#		animation_tree.set("parameters/steering_speed/scale", lerp(0.0,1.0,value))
-#		animation_tree.set("parameters/steering_blend/add_amount", lerp(0.2,1.0,value))
+		tween.parallel().tween_property(animation_tree, "parameters/steering_speed/scale", smoothstep(0.0,1.0,value), duration)
+		tween.parallel().tween_property(animation_tree, "parameters/steering_blend/add_amount", smoothstep(0.0,1.0,value), duration)
 
 
 func set_flying_motion(value: float, duration: float = 1.0) -> void:
 	if animation_tree:
 		var tween = create_tween()
-		tween.parallel().tween_property(animation_tree, "parameters/flying_speed/scale", value, duration).set_trans(Tween.TRANS_SINE)
-		tween.parallel().tween_property(animation_tree, "parameters/flying_blend/add_amount", smoothstep(0.2,1.0,value), duration).set_trans(Tween.TRANS_SINE)
-#		animation_tree.set("parameters/flying_speed/scale", lerp(0.0,1.0,value))
-#		animation_tree.set("parameters/flying_blend/add_amount", smoothstep(0.2,1.0,value))
-
+		tween.parallel().tween_property(animation_tree, "parameters/flying_speed/scale", smoothstep(0.0,1.0,value), duration)
+		tween.parallel().tween_property(animation_tree, "parameters/flying_blend/add_amount", smoothstep(0.0,1.0,value), duration)
 
 func set_light_level(value: float, duration: float = 1.0) -> void:
 	if not light:

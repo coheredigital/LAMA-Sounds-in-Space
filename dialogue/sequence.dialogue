@@ -327,15 +327,15 @@ set screen = "idle"
 =>< snippets/focus_forward
 do play_spaceship_audio("effects/engine_launch")
 do set_journey_progress(0.2,24.0)
+set flying_motion = 0.6
+set steering_motion = 0.3
+[next=6]
 set flying_motion = 0.8
 set steering_motion = 0.5
-[next=6]
-set flying_motion = 0.9
-set steering_motion = 0.8
 set fuel_level = 7
 [next=6]
-set steering_motion = 0.2
-set flying_motion = 0.2
+set steering_motion = 0.3
+set flying_motion = 0.4
 
 
 ~ were_flying
@@ -574,6 +574,7 @@ System: Select stimuli order
 ~ task2_stimuli_trial
 # loop through stimuli
 while stimuli_set.size() > 0
+	set flying_motion = 0.4
 	set next_stimuli = stimuli_set.pop_front()
 	System:
 	- Begin {{next_stimuli}}
@@ -588,6 +589,7 @@ while stimuli_set.size() > 0
 		do set_trial_progress_step(12 - stimuli_set.size(), 12,2)
 		=>< snippets/success
 		# make progress
+		set flying_motion = 0.6
 		do set_journey_progress_step(12 - stimuli_set.size(), 12, 3.5)
 		do play_spaceship_audio("effects/engine_boost")
 		[next=3]
