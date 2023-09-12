@@ -3,8 +3,8 @@
 [ext_resource type="Shader" path="res://shaders/progress_bar.gdshader" id="1_ru0h1"]
 
 [sub_resource type="Gradient" id="Gradient_cqtrc"]
-offsets = PackedFloat32Array(0.0295858, 0.353057, 0.887574)
-colors = PackedColorArray(0.21048, 0.39901, 0.827874, 1, 0.163172, 0.581988, 0.935883, 1, 0.529412, 1, 0.533333, 1)
+offsets = PackedFloat32Array(0.164141, 0.366162, 0.613636, 0.818182, 0.959596)
+colors = PackedColorArray(0.473753, 0.290943, 1, 1, 0.956863, 0.34902, 0.470588, 1, 0.950559, 0.470689, 0.188812, 1, 1, 0.911966, 0.173404, 1, 0.418813, 1, 0.438357, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_rgp1l"]
 gradient = SubResource("Gradient_cqtrc")
@@ -12,6 +12,6 @@ gradient = SubResource("Gradient_cqtrc")
 [resource]
 render_priority = 0
 shader = ExtResource("1_ru0h1")
-shader_parameter/progress = 0.0
+shader_parameter/progress = 1.0
 shader_parameter/albedo = Color(0.67451, 0.67451, 0.67451, 1)
 shader_parameter/emission_gradient = SubResource("GradientTexture1D_rgp1l")

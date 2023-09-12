@@ -103,7 +103,7 @@ do Character.tilt(0.0)
 do Character.pivot(0.2)
 do Player.move_to(1.0)
 do Player.tilt(0.1) 
-do Player.pivot(0.0)
+do Player.pivot(-0.05)
 => END
 
 ~ focus_window

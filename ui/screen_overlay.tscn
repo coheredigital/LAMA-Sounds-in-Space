@@ -1,8 +1,7 @@
-[gd_scene load_steps=26 format=3 uid="uid://n088b8ab4tef"]
+[gd_scene load_steps=25 format=3 uid="uid://n088b8ab4tef"]
 
 [ext_resource type="Material" uid="uid://b8kagw7q0pfl0" path="res://ui/screen_overlay_material.tres" id="1_2fo8v"]
 [ext_resource type="Script" path="res://ui/screen_overlay.gd" id="2_wsev3"]
-[ext_resource type="AnimationNodeStateMachinePlayback" uid="uid://cls78jxnapw0j" path="res://ui/screen_overlay_states.tres" id="3_oyj5o"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_v16wh"]
 animation = &"hidden"
@@ -22,7 +21,7 @@ animation = &"loading"
 animation = &"logo"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wh7lk"]
-xfade_time = 0.54
+xfade_time = 0.64
 switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_s6bbl"]
@@ -38,7 +37,7 @@ advance_mode = 2
 xfade_time = 1.17
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_oll13"]
-xfade_time = 2.13
+xfade_time = 1.23
 switch_mode = 2
 advance_mode = 2
 
@@ -46,7 +45,7 @@ advance_mode = 2
 xfade_time = 2.69
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_duy7y"]
-xfade_time = 1.68
+xfade_time = 1.43
 switch_mode = 2
 advance_mode = 2
 
@@ -72,10 +71,10 @@ states/loading/position = Vector2(354, 327)
 states/logo/node = SubResource("AnimationNodeAnimation_xw4pm")
 states/logo/position = Vector2(354, 66)
 transitions = ["logo", "hide_logo", SubResource("AnimationNodeStateMachineTransition_wh7lk"), "loading", "hide_loading", SubResource("AnimationNodeStateMachineTransition_s6bbl"), "Start", "hidden", SubResource("AnimationNodeStateMachineTransition_s0s1n"), "hidden", "End", SubResource("AnimationNodeStateMachineTransition_8y0vc"), "hidden", "logo", SubResource("AnimationNodeStateMachineTransition_ki8cq"), "hide_logo", "hidden", SubResource("AnimationNodeStateMachineTransition_oll13"), "hidden", "loading", SubResource("AnimationNodeStateMachineTransition_ylmoa"), "hide_loading", "hidden", SubResource("AnimationNodeStateMachineTransition_duy7y"), "hide_loading", "logo", SubResource("AnimationNodeStateMachineTransition_5cd0x"), "hide_logo", "loading", SubResource("AnimationNodeStateMachineTransition_h52qh")]
-graph_offset = Vector2(-236, -58)
+graph_offset = Vector2(-315, -171)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_g0ex2"]
-graph_offset = Vector2(-79.8347, -247)
+graph_offset = Vector2(-22.7434, -229.04)
 nodes/output/position = Vector2(560, 160)
 nodes/state/node = SubResource("AnimationNodeStateMachine_btxjf")
 nodes/state/position = Vector2(340, 160)
@@ -196,7 +195,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [4.299]
+"values": [3.118]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -236,7 +235,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [3.939]
+"values": [3.855]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -248,7 +247,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.772]
+"values": [0.924]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -285,7 +284,6 @@ unique_name_in_owner = true
 tree_root = SubResource("AnimationNodeBlendTree_g0ex2")
 anim_player = NodePath("AnimationPlayer")
 active = true
-parameters/state/playback = ExtResource("3_oyj5o")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimationTree"]
 libraries = {

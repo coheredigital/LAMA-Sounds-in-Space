@@ -739,7 +739,7 @@ shader_parameter/albedo_texture = ExtResource("17_dm8ld")
 shader_parameter/emission_texture = ExtResource("18_nolgf")
 
 [node name="Spaceship" instance=ExtResource("1_m17hk")]
-transform = Transform3D(0.999998, 0.000518801, -0.00177711, -0.000518242, 1, 0.000314717, 0.00177727, -0.000313796, 0.999998, 0, 0, 0)
+transform = Transform3D(0.999994, -0.00251584, -0.00230542, 0.00251928, 0.999996, 0.00149133, 0.00230166, -0.00149713, 0.999996, 0, 0, 0)
 script = ExtResource("2_tplkk")
 screen_state = "success"
 door_state = "ready"
@@ -832,6 +832,7 @@ max_polyphony = 4
 
 [node name="ButtonPressAudio" type="AudioStreamPlayer3D" parent="spaceship/cockpit/monitor" index="7"]
 stream = ExtResource("13_4lkru")
+volume_db = 9.205
 unit_size = 17.44
 max_db = 6.0
 max_polyphony = 2
@@ -863,7 +864,7 @@ transform = Transform3D(0.923077, 0, 0, 0, 0.916667, 0, 0, 0, 1, 0, 0.921875, -2
 material_override = ExtResource("15_ljimn")
 
 [node name="indicator" parent="spaceship/cockpit/progress_bar" index="0"]
-transform = Transform3D(0.933484, 9.43902e-09, -1.47847e-08, -3.31249e-09, 0.916633, -3.05183e-07, -9.42964e-09, -2.6793e-07, 0.861661, -1, 0.359037, 0)
+transform = Transform3D(0.933474, -5.68009e-08, -3.77186e-08, 5.36465e-09, 0.916584, -3.07686e-07, -2.32831e-10, -2.59257e-07, 0.861637, -1, 0.359037, 0)
 surface_material_override/0 = ExtResource("15_ljimn")
 
 [node name="ProgressPath" type="Path3D" parent="spaceship/cockpit/progress_bar" index="1"]
