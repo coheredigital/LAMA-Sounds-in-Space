@@ -2,7 +2,7 @@
 do set_overlay_state("logo")
 # Mission
 do set_journey_progress(0.0,1.0)
-do set_trial_progress(0)
+do set_trial_progress(0.0,0.1)
 # Character
 do Character.move_to(0)
 do Character.pivot(0)
