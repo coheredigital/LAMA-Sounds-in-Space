@@ -327,7 +327,7 @@ set screen = "idle"
 =>< snippets/focus_forward
 [next=2]
 do play_spaceship_audio("effects/engine_launch")
-do set_journey_progress(0.2,24)
+do set_journey_progress(0.2,24.0)
 set flying_motion = 0.2
 [next=6]
 set flying_motion = 0.6
@@ -391,8 +391,8 @@ while stimuli_set.size() > 0
 	[next=2]
 	System:
 	- Success
-		=>< snippets/success
 		do set_trial_progress_step(12 - stimuli_set.size(), 12,2)
+		=>< snippets/success
 		do move_star(stimuli_set.size(), 1, 5)
 		[next=4]
 		do set_stars_brightness(12 - stimuli_set.size(), 12)
@@ -408,6 +408,7 @@ do Character.play_audio("task1_success")
 =>< snippets/focus_conversation
 Sam: Awesome job, partner! Look at all the bright things you put into space! Now let’s go to Planet Stardust. Press the GO button to get closer to finding Lucky! [next=8]
 =>< snippets/prompt_green_button
+do set_trial_progress(0,1)
 do set_journey_progress(0.4,4)
 set screen = "idle"
 [next=2]
@@ -585,6 +586,7 @@ while stimuli_set.size() > 0
 	[next=3]
 	System:
 	- Success
+		do set_trial_progress_step(12 - stimuli_set.size(), 12,2)
 		=>< snippets/success
 		# make progress
 		do set_journey_progress_step(12 - stimuli_set.size(), 12, 3.5)
@@ -667,8 +669,8 @@ while stimuli_set.size() > 0
 	- Success
 		do Alien.pivot(0.62)
 		do Alien.action("wave")
+		do set_trial_progress_step(10 - stimuli_set.size(), 10,2)
 		=>< snippets/success
-		
 		do Ufo.pivot(-0.5, 2)
 		[next=1]
 		do Ufo.activate_beam()
