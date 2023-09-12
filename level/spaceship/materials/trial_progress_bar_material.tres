@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://7l11ttp1f4c"]
+
+[ext_resource type="Shader" path="res://shaders/progress_bar.gdshader" id="1_ru0h1"]
+
+[sub_resource type="Gradient" id="Gradient_cqtrc"]
+offsets = PackedFloat32Array(0, 0.542406, 0.934911)
+colors = PackedColorArray(0.623529, 0.513726, 1, 1, 0.333333, 0.701961, 0.905882, 1, 0.529412, 1, 0.533333, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_rgp1l"]
+gradient = SubResource("Gradient_cqtrc")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ru0h1")
+shader_parameter/progress = 0.0
+shader_parameter/albedo = Color(0.521569, 0.596078, 0.752941, 1)
+shader_parameter/emission_energy_min = 0.04
+shader_parameter/emission_energy_max = 0.606
+shader_parameter/emission_gradient = SubResource("GradientTexture1D_rgp1l")

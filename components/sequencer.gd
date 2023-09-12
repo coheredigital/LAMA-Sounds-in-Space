@@ -30,6 +30,7 @@ var next_stimuli = '':
 
 # Journey ----------------------------------------------------
 signal journey_progress_changed(value: float, duration: float)
+signal trial_progress_changed(value: float, duration: float)
 signal planet_scale_changed(value: float, duration: float)
 signal planet_distance_changed(value: float, duration: float)
 signal planet_height_changed(value: float, duration: float)
@@ -40,6 +41,14 @@ var journey_progress: float = 0.0:
 		journey_progress = clamp(value,0.0,1.0)
 		journey_progress_changed.emit(value, 1.0)
 		
+func set_trial_progress(value: float, duration: float) -> void:
+	trial_progress_changed.emit(value, duration)
+
+func set_trial_progress_step(step: float, step_max: float, duration: float) -> void:
+	var progress = step / step_max
+	print("set_trial_progress_step: %s / %s = %s" % [step,step_max,progress])
+	trial_progress_changed.emit(progress, duration)
+
 func set_journey_progress(value: float, duration: float) -> void:
 	journey_progress_changed.emit(value, duration)
 	

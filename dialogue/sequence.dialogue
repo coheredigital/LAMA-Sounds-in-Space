@@ -1,8 +1,8 @@
 import "res://dialogue/reset.dialogue" as reset
 import "res://dialogue/snippets.dialogue" as snippets
 import "res://dialogue/stimuli/orders.dialogue" as orders
-# USAGE: Character.move_to(progress_ratio: float [0.0 - 1.0], duration: float [ >= 0.0 ])
-# USAGE: Character.pivot(angle: float [-1.0 - 1.0], duration: float [ >= 0.0 ])
+# USAGE: Character.move_to(progress_ratio: float [0 - 1], duration: float [ >= 0 ])
+# USAGE: Character.pivot(angle: float [-1 - 1], duration: float [ >= 0 ])
 # USAGE: Character.tilt() Not yet used.
 ~ start
 System: ...[next]
@@ -42,7 +42,7 @@ Sam: First, I want you to meet our space llama named Lucky. She’s usually arou
 do Character.move_to(0.28,3)
 do Player.move_to(0.25,2.5)
 [next=1.5]
-do Character.pivot(0.0,1.5)
+do Character.pivot(0,1.5)
 do Player.pivot(-0.32)
 do Character.pivot(-1,0.45)
 [next=3]
@@ -90,13 +90,13 @@ do Player.tilt(0,2)
 do Player.move_to(0.85,2.5)
 [next=0.25]
 do Player.pivot(-0.4)
-do Character.move_to(0.6,1.0)
+do Character.move_to(0.6,1)
 
 
 ~ spaceship_aboard
-do Character.move_to(0.92,4.0)
+do Character.move_to(0.92,4)
 [next=3]
-do Character.pivot(0.6,2.0)
+do Character.pivot(0.6,2)
 [next=1.5]
 do Character.play_audio("welcome_aboard")
 Sam: Welcome aboard! [next=1.5]
@@ -320,14 +320,14 @@ System: ...
 
 ~ launch
 set fuel_level = 8
-set steering_motion = 0.0
-set flying_motion = 0.0
+set steering_motion = 0
+set flying_motion = 0
 set screen = "idle"
 
 =>< snippets/focus_forward
 [next=2]
 do play_spaceship_audio("effects/engine_launch")
-do set_journey_progress(0.2,24.0)
+do set_journey_progress(0.2,24)
 set flying_motion = 0.2
 [next=6]
 set flying_motion = 0.6
@@ -382,7 +382,7 @@ while stimuli_set.size() > 0
 	System:
 	- Begin {{next_stimuli}}
 	do print_message("Step: %s" % (12 - stimuli_set.size()))
-
+	
 	set screen = "talking"
 	do Stimuli.play(next_stimuli)
 	do Recorder.start()
@@ -392,7 +392,8 @@ while stimuli_set.size() > 0
 	System:
 	- Success
 		=>< snippets/success
-		do move_star(stimuli_set.size(), 1, 5.0)
+		do set_trial_progress_step(12 - stimuli_set.size(), 12,2)
+		do move_star(stimuli_set.size(), 1, 5)
 		[next=4]
 		do set_stars_brightness(12 - stimuli_set.size(), 12)
 	- Failure
@@ -407,7 +408,7 @@ do Character.play_audio("task1_success")
 =>< snippets/focus_conversation
 Sam: Awesome job, partner! Look at all the bright things you put into space! Now let’s go to Planet Stardust. Press the GO button to get closer to finding Lucky! [next=8]
 =>< snippets/prompt_green_button
-do set_journey_progress(0.4,4.0)
+do set_journey_progress(0.4,4)
 set screen = "idle"
 [next=2]
 
@@ -598,17 +599,17 @@ while stimuli_set.size() > 0
 
 ~ task2_success
 set fuel_level = 6
-do set_journey_progress(0.85,4.0)
+do set_journey_progress(0.85,4)
 do Character.play_audio("task2_arrived")
 =>< snippets/focus_conversation
 Sam: Awesome job, partner! Thanks for steering the ship so well! Look, it’s Planet Stardust! To use our spaceship to look around, press the Landing Button. [next=9]
 =>< snippets/focus_forward
 =>< snippets/prompt_green_button
 set flying_motion = 0.65
-do set_journey_progress(1.0,20)
+do set_journey_progress(1,20)
 do play_spaceship_audio("effects/engine_landing")
 [next=6]
-set flying_motion = 1.0
+set flying_motion = 1
 [next=10]
 
 
@@ -616,7 +617,7 @@ set flying_motion = 1.0
 # supports skipping
 do set_overlay_state("hidden")
 set fuel_level = 5
-set journey_progress = 1.0
+set journey_progress = 1
 set steering_motion = 0
 set flying_motion = 0
 do Player.move_to(1,0)
@@ -652,7 +653,7 @@ set screen = "computer"
 # loop through stimuli
 while stimuli_set.size() > 0
 	
-	do Ufo.pivot(-0.1, 1.0)
+	do Ufo.pivot(-0.1, 1)
 	set next_stimuli = stimuli_set.pop_front()
 	System:
 	- Begin {{next_stimuli}}
@@ -668,10 +669,10 @@ while stimuli_set.size() > 0
 		do Alien.action("wave")
 		=>< snippets/success
 		
-		do Ufo.pivot(-0.5, 2.0)
+		do Ufo.pivot(-0.5, 2)
 		[next=1]
 		do Ufo.activate_beam()
-		do Ufo.set_search_progress(10 - stimuli_set.size(), 10, 3.0)
+		do Ufo.set_search_progress(10 - stimuli_set.size(), 10, 3)
 		[next=2]
 		do Alien.pivot(0.15)
 		[next=1]
@@ -688,15 +689,15 @@ do Character.play_audio("task3_success")
 Sam: You did a great job! The aliens said Lucky the Llama is over there – look, they’re bringing Lucky to us! Now the only thing left to do is take Lucky back to the Space Station. [next=1]
 do Ufo.activate_beam()
 
-do Ufo.pivot(0,4.0)
+do Ufo.pivot(0,4)
 do Lama.action("wiggle")
-do Lama.move_to(1.0,14.0)
+do Lama.move_to(1,14)
 [next=2]
-do Ufo.move_to(0.975,12.0)
+do Ufo.move_to(0.975,12)
 [next=12]
 do Lama.action("idle")
 do Ufo.deactivate_beam()
-do Ufo.move_to(0.9,4.0)
+do Ufo.move_to(0.9,4)
 
 # blast off and fade to intro (station)
 ~ mission_success
@@ -708,13 +709,13 @@ do set_overlay_state("loading")
 do play_spaceship_audio("effects/engine_boost")
 [next=2]
 do Lama.toggle_rescued(true)
-do Player.tilt(0.45,0.0)
-do Player.move_to(0.21,0.0)
-do Player.pivot(-0.43,0.0)
-do Character.tilt(0.4,0.0)
-do Character.move_to(0.32,0.0)
-do Character.pivot(0.54,0.0)
-set journey_progress = 0.0
+do Player.tilt(0.45,0)
+do Player.move_to(0.21,0)
+do Player.pivot(-0.43,0)
+do Character.tilt(0.4,0)
+do Character.move_to(0.32,0)
+do Character.pivot(0.54,0)
+set journey_progress = 0
 [next=6]
 do set_overlay_state("hidden")
 [next=2]

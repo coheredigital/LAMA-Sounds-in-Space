@@ -1,7 +1,8 @@
 ~ reset
 do set_overlay_state("logo")
 # Mission
-do set_journey_progress(0.0,0.0)
+do set_journey_progress(0,0)
+do set_trial_progress(0)
 # Character
 do Character.move_to(0)
 do Character.pivot(0)
@@ -28,13 +29,13 @@ do Lama.toggle_rescued(false)
 set fuel_level = 1
 set door_state = "idle"
 # environment
-do set_altitude(0.0,0.0)
+do set_altitude(0,0)
 
 # stars
-set stars_brightness = 0.0
-do move_star(1,0.0,0.0)
-do move_star(2,0.0,0.0)
-do move_star(3,0.0,0.0)
-do move_star(4,0.0,0.0)
-do move_star(5,0.0,0.0)
+set stars_brightness = 0
+do move_star(1,0,0)
+do move_star(2,0,0)
+do move_star(3,0,0)
+do move_star(4,0,0)
+do move_star(5,0,0)
 => END

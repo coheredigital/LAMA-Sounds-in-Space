@@ -14,7 +14,7 @@ extends Node
 @onready var planet_stardust := %PlanetStardust
 @onready var environment := %Environment
 @onready var spaceship_audio = %SpaceshipAudio
-
+@onready var trial_progress_bar_material = preload("res://level/spaceship/materials/trial_progress_bar_material.tres")
 
 @export_range(0.0,1.0,0.00001) var journey_progress : float = 0.0 : 
 	set(value):
@@ -43,6 +43,7 @@ extends Node
 func _ready():
 #	Global Sequencer
 	Sequencer.journey_progress_changed.connect(set_journey_progress)
+	Sequencer.trial_progress_changed.connect(set_trial_progress)
 	Sequencer.spaceship_audio_played.connect(play_spaceship_audio)
 	
 #	TODO: Simplify pattern
@@ -74,11 +75,15 @@ func _ready():
 
 		
 # Mission
-func set_journey_progress(value: float, duration: float = 1.0):
+func set_journey_progress(value: float, duration: float = 1.0) -> void:
 	var tween = create_tween()
 	tween.tween_property(self, "journey_progress", value, duration).set_trans(Tween.TRANS_SINE)
 
-	
+func set_trial_progress(value:float, duration: float = 0.0) -> void:
+	if trial_progress_bar_material:
+		var tween = create_tween()
+		tween.tween_property(trial_progress_bar_material, "shader_parameter/progress", value, duration).set_trans(Tween.TRANS_SINE)
+
 
 # Generic Path update functions
 func set_path_position(path: Path3D, position: float, duration: float = 1.0) -> void: 
@@ -163,7 +168,8 @@ func play_spaceship_audio(value: String, volume_adjustment : float = 0.0) -> voi
 	spaceship_audio.stream = wav_file
 	spaceship_audio.playing = true
 	EventLogger.add('stimuli','played',filename)
-	
+
+
 #	UFO
 func set_ufo_postion(position: float, duration: float = 1.0) -> void: 
 	set_path_position(ufo_path,position,duration)

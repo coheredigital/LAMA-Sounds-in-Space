@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://wa41njrapfpn"]
+[gd_scene load_steps=59 format=3 uid="uid://wa41njrapfpn"]
 
 [ext_resource type="PackedScene" uid="uid://ctjlmbopaw2sa" path="res://level/spaceship/models/spaceship.gltf" id="1_m17hk"]
 [ext_resource type="Script" path="res://level/spaceship/spaceship.gd" id="2_tplkk"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://dmjxjcsy4p226" path="res://level/spaceship/materials/spaceship_albedo.png" id="17_dm8ld"]
 [ext_resource type="AudioStream" uid="uid://b7e4vg2vr8b5w" path="res://audio/effects/warp_01.wav" id="17_erjnb"]
 [ext_resource type="PackedScene" uid="uid://j5n0jb2vhvf6" path="res://level/spaceship/scenes/siren.tscn" id="18_e0bdp"]
+[ext_resource type="Material" uid="uid://7l11ttp1f4c" path="res://level/spaceship/materials/trial_progress_bar_material.tres" id="18_etdiq"]
 [ext_resource type="Texture2D" uid="uid://nlpie5uq8lof" path="res://level/spaceship/materials/spaceship_emission.png" id="18_nolgf"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_qo0wb"]
@@ -709,6 +710,8 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ru32i")
 
+[sub_resource type="QuadMesh" id="QuadMesh_x7kcw"]
+
 [sub_resource type="Curve3D" id="Curve3D_o4hrm"]
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0),
@@ -804,21 +807,21 @@ mesh = SubResource("ArrayMesh_dya27")
 surface_material_override/0 = ExtResource("11_8wdik")
 
 [node name="seatbelt_indicator_right" parent="spaceship/cockpit/monitor" index="2"]
-transform = Transform3D(1, -2.41016e-11, -1.45519e-11, -1.79199e-10, 0.99954, 0.0303379, 0, -0.0303379, 0.99954, 0.778238, 0.00122023, 0.0104265)
+transform = Transform3D(1, -2.41016e-11, -1.45519e-11, -1.79064e-10, 0.997606, 0.0691558, 6.96344e-12, -0.0691558, 0.997606, 0.778238, 0.0155439, -0.0122676)
 material_override = ExtResource("11_qd2cb")
 
 [node name="seatbelt_indicator_left" parent="spaceship/cockpit/monitor" index="3"]
 unique_name_in_owner = true
-transform = Transform3D(1, -2.41016e-11, -1.45519e-11, -1.79199e-10, 0.99954, 0.0303379, 0, -0.0303379, 0.99954, -0.838327, 0.00116181, 0.0104151)
+transform = Transform3D(1, -2.41016e-11, -1.45519e-11, -1.79064e-10, 0.997606, 0.0691558, 6.96344e-12, -0.0691558, 0.997606, -0.838327, 0.015485, -0.0122769)
 material_override = ExtResource("11_qd2cb")
 
 [node name="fuel_gauge_right" parent="spaceship/cockpit/monitor" index="4"]
-transform = Transform3D(0.999954, -0.00873211, -0.00404086, 0.00887536, 0.999279, 0.036903, 0.00371571, -0.0369371, 0.99931, 0.538569, 0.0345298, 0.0285413)
+transform = Transform3D(1, 0, 0, 0, 0.997185, 0.0749787, 0, -0.0749787, 0.997184, 0.538569, 0.0495323, 0.00453901)
 material_override = ExtResource("8_fylk6")
 cast_shadow = 0
 
 [node name="fuel_gauge_left" parent="spaceship/cockpit/monitor" index="5"]
-transform = Transform3D(1, -4.91127e-11, 4.36557e-11, -1.79199e-10, 0.997877, 0.065117, 0, -0.065117, 0.997877, -0.569221, 0.0323025, 0.0270038)
+transform = Transform3D(1, 0, 0, 0, 0.997185, 0.0749787, 0, -0.0749787, 0.997185, -0.569221, 0.0472468, 0.00308919)
 material_override = ExtResource("8_fylk6")
 
 [node name="ComputerAudioPlayer" type="AudioStreamPlayer3D" parent="spaceship/cockpit/monitor" index="6"]
@@ -832,11 +835,16 @@ unit_size = 17.44
 max_db = 6.0
 max_polyphony = 2
 
+[node name="bar" type="MeshInstance3D" parent="spaceship/cockpit/monitor/trial_progress_bar" index="0"]
+transform = Transform3D(0.779654, 0, 0, 0, 0.0599644, 0, 0, 0, 1, -0.390802, 0.0302882, -0.014746)
+mesh = SubResource("QuadMesh_x7kcw")
+surface_material_override/0 = ExtResource("18_etdiq")
+
 [node name="controls" parent="spaceship/cockpit" index="1"]
 transform = Transform3D(0.990622, -0.13259, -0.0329651, 0.136306, 0.942572, 0.304923, -0.00935789, -0.306557, 0.951806, 0.688043, 0.511933, -1.92573)
 
 [node name="controls_left" parent="spaceship/cockpit" index="2"]
-transform = Transform3D(0.999307, 0.0329287, -0.0172725, -0.0323375, 0.998918, 0.0334489, 0.0183552, -0.0328673, 0.99929, -0.6875, 0.400625, -2.07488)
+transform = Transform3D(0.999563, 0.0293765, -0.0028079, -0.0292506, 0.998868, 0.0375239, 0.00390705, -0.0374255, 0.99929, -0.6875, 0.400625, -2.07488)
 
 [node name="Siren" parent="spaceship/cockpit" index="3" instance=ExtResource("18_e0bdp")]
 unique_name_in_owner = true
@@ -844,13 +852,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.18216, -1.3804)
 active = false
 
 [node name="seat_left" parent="spaceship/cockpit" index="4"]
-transform = Transform3D(-0.0290878, 0, 0.999577, 0, 1, 0, -0.999577, 0, -0.0290878, -1.17188, 0.046875, -0.75)
+transform = Transform3D(0.154851, 0, 0.987938, 0, 1, 0, -0.987938, 0, 0.154851, -1.15062, 0.046875, -0.75)
+
+[node name="seat_right" parent="spaceship/cockpit" index="5"]
+transform = Transform3D(0.422618, 0, -0.906308, 0, 1, 0, 0.906308, 0, 0.422618, 1.12492, 0.046875, -0.671255)
 
 [node name="progress_bar" parent="spaceship/cockpit" index="6"]
+transform = Transform3D(0.923077, 0, 0, 0, 0.916667, 0, 0, 0, 1, 0, 0.921875, -2.15625)
 material_override = ExtResource("15_ljimn")
 
 [node name="indicator" parent="spaceship/cockpit/progress_bar" index="0"]
-transform = Transform3D(0.990011, 0, 0, 0, 0.916666, -3.27826e-07, 0, -3.12924e-07, 0.913852, -1, 0.359037, 2.38419e-07)
+transform = Transform3D(0.933506, 0, 0, 0, 0.916666, -3.27826e-07, 0, -2.88053e-07, 0.861694, -1, 0.359037, 0)
 surface_material_override/0 = ExtResource("15_ljimn")
 
 [node name="ProgressPath" type="Path3D" parent="spaceship/cockpit/progress_bar" index="1"]
