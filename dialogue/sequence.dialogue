@@ -21,6 +21,16 @@ System: .
 	=> approach_spaceship
 - Skip to landed
 	=> task3_landed
+- Skip to task 1
+	=>< snippets/focus_conversation
+	do Player.move_to(1,0)
+	do Character.move_to(1,0)
+	do set_journey_progress(0.2,1.0)
+	set steering_motion = 0.3
+	set flying_motion = 0.4
+	[next=4]
+	do set_overlay_state("hidden")
+	=> task1_intro
 [next=2]
 
 
@@ -326,14 +336,10 @@ set screen = "idle"
 
 =>< snippets/focus_forward
 do play_spaceship_audio("effects/engine_launch")
-do set_journey_progress(0.2,24.0)
-set flying_motion = 0.6
-set steering_motion = 0.3
-[next=6]
-set flying_motion = 0.8
+do set_journey_progress(0.2,20.0)
+set flying_motion = 0.7
 set steering_motion = 0.5
-set fuel_level = 7
-[next=6]
+[next=12]
 set steering_motion = 0.3
 set flying_motion = 0.4
 
@@ -391,9 +397,8 @@ while stimuli_set.size() > 0
 	System:
 	- Success
 		do set_trial_progress_step(12 - stimuli_set.size(), 12,2)
-		=>< snippets/success
 		do move_star(stimuli_set.size(), 1, 5)
-		[next=4]
+		=>< snippets/success
 		do set_stars_brightness(12 - stimuli_set.size(), 12)
 	- Failure
 		=>< snippets/failure
@@ -407,7 +412,7 @@ do Character.play_audio("task1_success")
 =>< snippets/focus_conversation
 Sam: Awesome job, partner! Look at all the bright things you put into space! Now let’s go to Planet Stardust. Press the GO button to get closer to finding Lucky! [next=8]
 =>< snippets/prompt_green_button
-do set_trial_progress(0,1)
+do set_trial_progress(0,5)
 do set_journey_progress(0.4,4)
 set screen = "idle"
 [next=2]
