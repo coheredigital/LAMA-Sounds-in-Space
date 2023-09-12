@@ -593,12 +593,11 @@ while stimuli_set.size() > 0
 	System:
 	- Success
 		do set_trial_progress_step(12 - stimuli_set.size(), 12,2)
-		=>< snippets/success
-		# make progress
 		set flying_motion = 0.6
 		do set_journey_progress_step(12 - stimuli_set.size(), 12, 3.5)
 		do play_spaceship_audio("effects/engine_boost")
-		[next=3]
+		=>< snippets/success
+		[next=1]
 	- Failure
 		=>< snippets/failure
 #		add the stimuli back into the front of the set so it can be repeated
