@@ -577,6 +577,7 @@ System: Select stimuli order
 
 
 ~ task2_stimuli_trial
+=>< snippets/focus_screen
 # loop through stimuli
 while stimuli_set.size() > 0
 	set flying_motion = 0.4
