@@ -325,23 +325,22 @@ set flying_motion = 0
 set screen = "idle"
 
 =>< snippets/focus_forward
-[next=2]
 do play_spaceship_audio("effects/engine_launch")
 do set_journey_progress(0.2,24.0)
-set flying_motion = 0.2
-[next=6]
-set flying_motion = 0.6
-set steering_motion = 0.3
-set fuel_level = 7
-[next=8]
+set flying_motion = 0.8
 set steering_motion = 0.5
+[next=6]
+set flying_motion = 0.9
+set steering_motion = 0.8
+set fuel_level = 7
+[next=6]
+set steering_motion = 0.2
+set flying_motion = 0.2
 
 
 ~ were_flying
 do Character.play_audio("were_flying")
 Sam: We’re flying![next=4]
-set steering_motion = 0.2
-set flying_motion = 0.2
 
 
 ~ skip_to_warp
@@ -688,15 +687,14 @@ while stimuli_set.size() > 0
 # 10 stimuli – 5 pure tones, 5 intervals? *
 ~ task3_success
 do Character.play_audio("task3_success")
-Sam: You did a great job! The aliens said Lucky the Llama is over there – look, they’re bringing Lucky to us! Now the only thing left to do is take Lucky back to the Space Station. [next=1]
 do Ufo.activate_beam()
+Sam: You did a great job! The aliens said Lucky the Llama is over there – look, they’re bringing Lucky to us! Now the only thing left to do is take Lucky back to the Space Station. [next]
 
 do Ufo.pivot(0,4)
 do Lama.action("wiggle")
 do Lama.move_to(1,14)
-[next=2]
-do Ufo.move_to(0.975,12)
-[next=12]
+do Ufo.move_to(0.975,14)
+[next=14]
 do Lama.action("idle")
 do Ufo.deactivate_beam()
 do Ufo.move_to(0.9,4)

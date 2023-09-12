@@ -163,6 +163,7 @@ animation = &"cockpit/steering_motion"
 [sub_resource type="AnimationNodeTimeScale" id="4"]
 
 [sub_resource type="AnimationNodeBlendTree" id="5"]
+graph_offset = Vector2(-103.306, 138.446)
 nodes/blend_screen/node = SubResource("AnimationNodeAdd2_h7dn0")
 nodes/blend_screen/position = Vector2(780, 200)
 nodes/door_state/node = ExtResource("10_csjlb")
@@ -742,7 +743,6 @@ script = ExtResource("2_tplkk")
 screen_state = "success"
 door_state = "ready"
 light_level = 1.0
-progress_bar = 0.1
 
 [node name="starmap" type="MeshInstance3D" parent="." index="0"]
 unique_name_in_owner = true
@@ -776,7 +776,7 @@ active = true
 parameters/blend_screen/add_amount = 1.0
 parameters/flying_blend/add_amount = 0.0
 parameters/flying_speed/scale = 0.0
-parameters/steering_blend/add_amount = 0.2
+parameters/steering_blend/add_amount = 0.0
 parameters/steering_speed/scale = 0.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimationTree" index="0"]
@@ -843,7 +843,7 @@ surface_material_override/0 = ExtResource("18_etdiq")
 transform = Transform3D(0.990622, -0.13259, -0.0329651, 0.136306, 0.942572, 0.304923, -0.00935789, -0.306557, 0.951806, 0.74364, 0.511933, -2.02398)
 
 [node name="controls_left" parent="spaceship/cockpit" index="2"]
-transform = Transform3D(0.999778, 0.0208857, -0.00178479, -0.0208302, 0.999422, 0.02687, 0.00234496, -0.026827, 0.999635, -0.73489, 0.491165, -2.13124)
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999997, -0.73489, 0.491165, -2.13124)
 
 [node name="Siren" parent="spaceship/cockpit" index="3" instance=ExtResource("18_e0bdp")]
 unique_name_in_owner = true
@@ -861,7 +861,7 @@ transform = Transform3D(0.923077, 0, 0, 0, 0.916667, 0, 0, 0, 1, 0, 0.921875, -2
 material_override = ExtResource("15_ljimn")
 
 [node name="indicator" parent="spaceship/cockpit/progress_bar" index="0"]
-transform = Transform3D(0.933506, 0, 0, 0, 0.916666, -3.27826e-07, 0, -2.88053e-07, 0.861694, -0.801516, 0.359037, 0)
+transform = Transform3D(0.933484, 9.39449e-09, -1.43918e-08, -4.01539e-09, 0.916633, -3.05212e-07, -9.0804e-09, -2.67988e-07, 0.861662, -1, 0.359037, 0)
 surface_material_override/0 = ExtResource("15_ljimn")
 
 [node name="ProgressPath" type="Path3D" parent="spaceship/cockpit/progress_bar" index="1"]
@@ -870,8 +870,7 @@ curve = SubResource("Curve3D_o4hrm")
 
 [node name="ProgressPathFollow" type="PathFollow3D" parent="spaceship/cockpit/progress_bar/ProgressPath" index="0"]
 unique_name_in_owner = true
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.801516, 0, 0)
-progress = 0.2
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1, 0, 0)
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="spaceship/cockpit/progress_bar/ProgressPath/ProgressPathFollow" index="0"]
 remote_path = NodePath("../../../indicator")

@@ -123,11 +123,11 @@ var player_view: float = 0.0
 
 # Spaceship -------------------------------------------------
 
-signal spaceship_motion_changed(value: float)
+signal spaceship_motion_changed(value: float, duration: float)
 signal spaceship_audio_played(value: String, volume_adjustment: float)
 signal door_state_changed(value: String)
 signal steering_motion_changed(value: float)
-signal flying_motion_changed(value: float)
+signal flying_motion_changed(value: float, duration: float)
 signal seatbelts_buckled_changed(value: bool)
 signal screen_changed(value: String)
 signal fuel_level_changed(value: int)
@@ -135,12 +135,12 @@ signal fuel_level_changed(value: int)
 var spaceship_motion: float = 0.0:
 	set(value):
 		spaceship_motion = clamp(value, 0.0,1.0)
-		spaceship_motion_changed.emit(value)
+		spaceship_motion_changed.emit(value, 1.0)
 
 var steering_motion: float = 0.0:
 	set(value):
 		steering_motion = clamp(value, 0.0,1.0)
-		steering_motion_changed.emit(steering_motion)
+		steering_motion_changed.emit(steering_motion, 1.0)
 		
 var flying_motion: float = 0.0:
 	set(value):
