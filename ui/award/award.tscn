@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://cet328nbipwq7"]
+
+[ext_resource type="PackedScene" uid="uid://b78y37nrv2swt" path="res://ui/award/award.gltf" id="1_kq7f7"]
+[ext_resource type="Material" uid="uid://bpi6apluudavg" path="res://ui/award/material/award_background_material.tres" id="2_g2dyg"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_5prke"]
+
+[node name="Award" instance=ExtResource("1_kq7f7")]
+
+[node name="background" type="MeshInstance3D" parent="." index="0"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+mesh = SubResource("SphereMesh_5prke")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_g2dyg")
