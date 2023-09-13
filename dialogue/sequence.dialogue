@@ -121,10 +121,10 @@ System: Debug Selection.
 	=>< snippets/screen_test
 
 ~ task0_practice 
-[next=2]
+[next=.5]
 do Character.pivot(0.5)
 do Character.play_audio("task0_first_job")
-Sam: Our first job is to make sure we have everything we need before we fly. [next=3.5]
+Sam: Our first job is to make sure we have everything we need before we fly. [next=3.3]
 
 
 ~ task0_computer_intro
@@ -135,10 +135,10 @@ do Character.pivot(0.6)
 [next=0.5]
 set screen = "computer"
 do Character.play_audio("task0_computer_info")
-Sam: This is our handy dandy computer! The computer will help us travel to Planet Stardust. This is a supercomputer – which means it’s the only computer with a list of special commands to complete our mission! First, the computer will tell you a special command and your job is to repeat the command out loud with your voice. [next=15]
+Sam: This is our handy dandy computer! The computer will help us travel to Planet Stardust. This is a supercomputer – which means it’s the only computer with a list of special commands to complete our mission! First, the computer will tell you a special command and your job is to repeat the command out loud with your voice. [next=13.7]
 
 do Character.play_audio("task0_intro")
-Sam: You will need to listen closely so we can make it to Planet Stardust, find Lucky the Llama, and bring her back to the Space Station. [next=6]
+Sam: You will need to listen closely so we can make it to Planet Stardust, find Lucky the Llama, and bring her back to the Space Station. [next=5]
 
 
 ~ computer_greeting  
@@ -149,11 +149,11 @@ do Stimuli.play("practice_0_greeting")
 Computer: Nice to meet you [next=2]
 set screen = "computer"
 do Character.play_audio("task0_computer_instructions1")
-Sam: Ok, now the computer will say a special command. After you hear the command, you’ll hear this sound: [next=7]
+Sam: Ok, now the computer will say a special command. After you hear the command, you’ll hear this sound: [next=6]
 do play_computer_sound("beep_04")
 [next=1]
 do Character.play_audio("task0_computer_instructions2")
-Sam: After you hear that sound, it’s your turn to repeat the command loud and clear, so the computer can hear you! When you’re done, I’ll press the red button to send your voice to the spaceship. Ready to practice? Here we go: [next=13]
+Sam: After you hear that sound, it’s your turn to repeat the command loud and clear, so the computer can hear you! When you’re done, I’ll press the red button to send your voice to the spaceship. Ready to practice? Here we go: [next=10]
 
 
 ~ activate_spaceship_recording
@@ -162,7 +162,7 @@ System: .
 	do Recorder.start()
 	set screen = "talking"
 	do Stimuli.play("practice_1_activate")
-	Computer: Activate spaceship! [next=2]
+	Computer: Activate spaceship! [next=1.5]
 	=>< snippets/recording_prompt
 
 
@@ -178,7 +178,7 @@ System: ...
 ~ spaceship_activated
 set screen = "idle"
 do Character.play_audio("task0_you_command")
-Sam: We're ready to start preparing the ship for blast off. I’ll sit here next to you and let you give the computer the voice commands! [next=7]
+Sam: We're ready to start preparing the ship for blast off. I’ll sit here next to you and let you give the computer the voice commands! [next=6]
 do Player.move_to(1,2)
 do Character.move_to(1,2)
 =>< snippets/focus_conversation
@@ -251,7 +251,7 @@ do Character.play_audio("task0_fuel_up_intro")
 Sam: Awesome! We are almost ready to blast off, but first we need some fuel. [next=4]
 set screen = "battery"
 do Character.play_audio("listen_and_repeat")
-Sam: Listen to the command from the computer and then repeat what it says with your voice. [next=4]
+Sam: Listen to the command from the computer and then repeat what it says with your voice. [next=3]
 
 ~ fuel_up_recording
 =>< snippets/focus_screen
