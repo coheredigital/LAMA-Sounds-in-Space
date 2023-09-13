@@ -40,16 +40,16 @@ void fragment() {
 [resource]
 render_priority = 4
 shader = SubResource("Shader_n8ehd")
-shader_parameter/albedo = Color(0.196078, 0.145098, 0.294118, 1)
+shader_parameter/albedo = Color(0.195407, 0.159021, 0.243946, 1)
 shader_parameter/specular = 0.5
 shader_parameter/specular_amount = 0.5
 shader_parameter/specular_smoothness = 0.05
-shader_parameter/alpha_amount = 0.953
+shader_parameter/alpha_amount = 0.937
 shader_parameter/rim = 0.476
 shader_parameter/rim_amount = 0.447
 shader_parameter/rim_smoothness = 1.0
-shader_parameter/wrap = 1.076
+shader_parameter/wrap = 1.011
 shader_parameter/metallic = 0.0
 shader_parameter/roughness = 1.0
-shader_parameter/emission = Color(0.196078, 0.145098, 0.294118, 1)
-shader_parameter/emission_energy = 0.094
+shader_parameter/emission = Color(0.223529, 0.188235, 0.290196, 1)
+shader_parameter/emission_energy = 0.655

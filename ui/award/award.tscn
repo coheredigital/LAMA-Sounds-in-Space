@@ -8,7 +8,12 @@
 [node name="Award" instance=ExtResource("1_kq7f7")]
 
 [node name="background" type="MeshInstance3D" parent="." index="0"]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+transform = Transform3D(4, 0, 0, 0, 3, 0, 0, 0, 2, 0, 0, 0.622016)
 mesh = SubResource("SphereMesh_5prke")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("2_g2dyg")
+
+[node name="award" parent="." index="1"]
+transform = Transform3D(0.96, 0, 0, 0, 0.96, 0, 0, 0, 0.96, -0.28125, 0.25, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
