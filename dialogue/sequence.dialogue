@@ -120,11 +120,11 @@ System: Debug Selection.
 - Screen Test
 	=>< snippets/screen_test
 
-~ task0_practice
+~ task0_practice 
 [next=2]
 do Character.pivot(0.5)
 do Character.play_audio("task0_first_job")
-Sam: Our first job is to make sure we have everything we need before we fly. [next=3]
+Sam: Our first job is to make sure we have everything we need before we fly. [next=3.5]
 
 
 ~ task0_computer_intro
@@ -135,10 +135,10 @@ do Character.pivot(0.6)
 [next=0.5]
 set screen = "computer"
 do Character.play_audio("task0_computer_info")
-Sam: This is our handy dandy computer! The computer will help us travel to Planet Stardust. This is a super computer – which means it’s the only computer that contains a list of special phrases that we need to complete the mission! First, the computer will say the special phrases and then your job is to repeat the words out loud with your voice. [next=15]
+Sam: This is our handy dandy computer! The computer will help us travel to Planet Stardust. This is a supercomputer – which means it’s the only computer with a list of special commands to complete our mission! First, the computer will tell you a special command and your job is to repeat the command out loud with your voice. [next=15]
 
 do Character.play_audio("task0_intro")
-Sam: To become a Junior Astronaut, you will need to listen closely so we can make it to Planet Stardust, find Lucky the Llama, and bring Lucky back to the Space Station. [next=6]
+Sam: You will need to listen closely so we can make it to Planet Stardust, find Lucky the Llama, and bring her back to the Space Station. [next=6]
 
 
 ~ computer_greeting  
@@ -148,8 +148,12 @@ set screen = "talking"
 do Stimuli.play("practice_0_greeting")
 Computer: Nice to meet you [next=2]
 set screen = "computer"
-do Character.play_audio("task0_computer_instructions")
-Sam: Ok, now I’ll have the computer say a special phrase and your job is to repeat what the computer just said with your voice when the light turns green. Make sure you say it loud and clear, so the computer can hear you! After you repeat after the computer, I’ll press the red button to tell the computer to send your voice to the spaceship. Ok here we go! [next=16]
+do Character.play_audio("task0_computer_instructions1")
+Sam: Ok, now the computer will say a special command. After you hear the command, you’ll hear this sound: [next=7]
+do play_computer_sound("beep_04")
+[next=1]
+do Character.play_audio("task0_computer_instructions2")
+Sam: After you hear that sound, it’s your turn to repeat the command loud and clear, so the computer can hear you! When you’re done, I’ll press the red button to send your voice to the spaceship. Ready to practice? Here we go: [next=13]
 
 
 ~ activate_spaceship_recording
@@ -160,8 +164,8 @@ System: .
 	do Stimuli.play("practice_1_activate")
 	Computer: Activate spaceship! [next=2]
 	=>< snippets/recording_prompt
-	
-	
+
+
 ~ activate_spaceship_result
 System: ...
 - Success
@@ -174,7 +178,7 @@ System: ...
 ~ spaceship_activated
 set screen = "idle"
 do Character.play_audio("task0_you_command")
-Sam: I’ll sit here next to you and let you give the computer the voice commands! [next=3]
+Sam: We're ready to start preparing the ship for blast off. I’ll sit here next to you and let you give the computer the voice commands! [next=7]
 do Player.move_to(1,2)
 do Character.move_to(1,2)
 =>< snippets/focus_conversation
@@ -275,7 +279,7 @@ System: ...
 set screen = "sleep"
 =>< snippets/focus_conversation
 do Character.play_audio("task0_sleep_mode_intro")
-Sam: The computer wants us to yawn out loud to tell it to turn down the lights if we want to sleep! Let’s see if it works. [next=4]
+Sam: The computer wants us to yawn out loud to tell it to turn down the lights for blast-off! Let’s see if it works. [next=4]
 do Character.play_audio("listen_and_repeat")
 Sam: Listen to the command from the computer and then repeat what it says with your voice: [next=3]
 
@@ -305,7 +309,7 @@ do Player.move_to(1)
 do Character.move_to(1)
 do Character.play_audio("task0_blast_off_intro")
 =>< snippets/focus_conversation
-Sam: You did it! You’re working really hard at this – Great Job! Now that our spaceship is full of fuel and the computer knows your voice, it’s time to find Planet Stardust!  Our handy dandy computer will countdown to blast off. Listen closely and then repeat what you hear to send us into space! [next=13]
+Sam: You did it! You’re working really hard at this – Great Job! Now that our spaceship is full of fuel and the computer knows your voice, it’s time to find Planet Stardust!  Our handy dandy computer will help us to blast off. Listen closely and then repeat what you hear to send us into space! [next=13]
 
 
 ~ blast_off_recording
@@ -410,7 +414,9 @@ while stimuli_set.size() > 0
 =>< snippets/focus_screen
 do Character.play_audio("task1_success")
 =>< snippets/focus_conversation
-Sam: Awesome job, partner! Look at all the bright things you put into space! Now let’s go to Planet Stardust. Press the GO button to get closer to finding Lucky! [next=8]
+Sam: Awesome job, partner! Look at all the bright things you put in space! Now let’s go to Planet Stardust. Press the Green button to get closer to finding Lucky! [next=8]
+=>< snippets/focus_forward
+[next=0.3]
 =>< snippets/prompt_green_button
 do set_trial_progress(0,5)
 do set_journey_progress(0.4,4)
@@ -523,7 +529,7 @@ set screen = "idle"
 
 ~ task2_riley_good_example
 do Character.play_audio("task2_riley_example_good")
-Sam: Click the green button to hear Riley repeat it back exactly right. [next=5]
+Sam: Click the green button to hear Riley repeat it back exactly right. [next=4.5]
 =>< snippets/focus_screen
 =>< snippets/prompt_green_button
 # Play the target song. 
@@ -551,6 +557,7 @@ System: ...
 	set screen = "success"
 	do play_computer_sound("chime_success")
 	[next=1]
+	set screen = "computer"
 - Repeat
 	=> task2_maya_bad_example
 
@@ -607,10 +614,10 @@ while stimuli_set.size() > 0
 
 ~ task2_success
 set fuel_level = 6
-do set_journey_progress(0.85,4)
+do set_journey_progress(0.8,4)
 do Character.play_audio("task2_arrived")
 =>< snippets/focus_conversation
-Sam: Awesome job, partner! Thanks for steering the ship so well! Look, it’s Planet Stardust! To use our spaceship to look around, press the Landing Button. [next=9]
+Sam: Awesome job, partner! Thanks for steering the ship so well! Look, it’s Planet Stardust! To use our spaceship to look around, press the Green Button. [next=9]
 =>< snippets/focus_forward
 =>< snippets/prompt_green_button
 set flying_motion = 0.65
@@ -647,10 +654,11 @@ Sam: They look really friendly, I think they are nice! Let’s ask them if they 
 
 
 ~ task3_alien_language
+=>< snippets/focus_conversation
 do Character.play_audio("task3_alien_language")
 Sam: Aliens on Planet Stardust only speak in beeps so the computer will tell us how to talk to them in their language to find out where Lucky is. Listen to the computer and repeat back the beeps as best as you can. [next=10.5]
 set screen = "computer"
-=>< snippets/focus_forward
+=>< snippets/focus_screen
 [next=2]
 
 
@@ -674,6 +682,7 @@ while stimuli_set.size() > 0
 	System:
 	- Success
 		do Alien.pivot(0.62)
+		[next=0.5]
 		do Alien.action("wave")
 		do set_trial_progress_step(10 - stimuli_set.size(), 10,2)
 		=>< snippets/success
