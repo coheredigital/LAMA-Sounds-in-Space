@@ -55,7 +55,7 @@ func set_journey_progress(value: float, duration: float) -> void:
 func set_journey_progress_step(step: float, step_max: float, duration: float = 1.0) -> void:
 	var progress = step / step_max
 	print("set_journey_progress_step: %s / %s = %s" % [step,step_max,progress])
-	var distance = lerp(0.4,0.85,progress)
+	var distance = lerp(0.4,0.8,progress)
 	journey_progress_changed.emit(distance,duration)
 
 func set_altitude(height: float, duration: float = 1.0) -> void:
