@@ -14,23 +14,29 @@ System: ...[next]
 System: .
 - Start
 	do set_overlay_state("hidden")
-- Phrase Test
-	=>< snippets/encouraging_phrase
-	=> ready
-- Skip to spaceship_enter
-	=> approach_spaceship
-- Skip to landed
-	=> task3_landed
-- Skip to task 1
-	=>< snippets/focus_conversation
-	do Player.move_to(1,0)
-	do Character.move_to(1,0)
-	do set_journey_progress(0.2,1.0)
-	set steering_motion = 0.3
-	set flying_motion = 0.4
-	[next=4]
-	do set_overlay_state("hidden")
-	=> task1_intro
+- Debug
+	- Phrase Test
+		=>< snippets/encouraging_phrase
+		=> ready
+	- Skip to spaceship_enter
+		=> approach_spaceship
+	- Skip to landed
+		=> task3_landed
+	- Skip to task 1
+		=>< snippets/focus_conversation
+		do Player.move_to(1,0)
+		do Character.move_to(1,0)
+		do set_journey_progress(0.2,1.0)
+		set steering_motion = 0.3
+		set flying_motion = 0.4
+		[next=4]
+		do set_overlay_state("hidden")
+		=> task1_intro
+	- Skip to mission success
+		do set_overlay_state("hidden")
+		=> mission_success
+	- < Back
+		=> ready
 [next=2]
 
 
@@ -725,20 +731,23 @@ do set_overlay_state("loading")
 do play_spaceship_audio("effects/engine_boost")
 [next=2]
 do Lama.toggle_rescued(true)
-do Player.tilt(0.45,0)
+
 do Player.move_to(0.21,0)
-do Player.pivot(-0.43,0)
-do Character.tilt(0.4,0)
-do Character.move_to(0.32,0)
+do Player.pivot(-0.42,0)
+do Player.tilt(0.45,0)
+
+do Character.move_to(0.325,0)
 do Character.pivot(0.54,0)
+do Character.tilt(0.4,0)
+
 set journey_progress = 0
 [next=6]
 do set_overlay_state("hidden")
 [next=2]
 do Character.play_audio("mission_success")
-Sam: You made it back to the Space Station - great job today! Thanks for bringing Lucky the Llama back home from Planet Stardust safely. You are a great Astronaut! Come back any time! [next=12]
-
-
+Sam: You made it back to the Space Station - great job today! Thanks for bringing Lucky the Llama back home from Planet Stardust safely. You are a great Astronaut! Come back any time! [next=8]
+set award_visible = true
+[next=6]
 ~ complete
-System: Session Complete. Go ahead and press 'End Session', and then 'Confirm'.
+System: Session Complete. Go ahead and press 'End Session', and then 'Confirm' when ready.
 => END

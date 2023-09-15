@@ -1,6 +1,7 @@
 ~ reset
 do set_overlay_state("logo")
 # Mission
+set award_visible = false
 do set_journey_progress(0.0,1.0)
 do set_trial_progress(0.0,0.1)
 # Character
