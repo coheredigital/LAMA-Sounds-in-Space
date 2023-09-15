@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bmqvs63l73l20" path="res://ui/award/material/award_emission.png" id="3_5hbm5"]
 
 [resource]
-render_priority = 4
+render_priority = 5
 shader = ExtResource("1_f1e0l")
 shader_parameter/albedo = Color(1, 1, 1, 1)
 shader_parameter/specular = 0.5
@@ -18,6 +18,6 @@ shader_parameter/rim_smoothness = 1.0
 shader_parameter/metallic = 0.0
 shader_parameter/roughness = 1.0
 shader_parameter/emission_tint = Color(0, 0, 0, 1)
-shader_parameter/emission_energy = 0.2
+shader_parameter/emission_energy = 0.28
 shader_parameter/albedo_texture = ExtResource("2_cjvbw")
 shader_parameter/emission_texture = ExtResource("3_5hbm5")
