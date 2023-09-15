@@ -35,6 +35,12 @@ signal planet_scale_changed(value: float, duration: float)
 signal planet_distance_changed(value: float, duration: float)
 signal planet_height_changed(value: float, duration: float)
 signal altitude_changed(value: float, duration: float)
+signal award_toggled(value: bool)
+
+var award_visible: bool = false:
+	set(value):
+		award_visible = value
+		award_toggled.emit(value)
 
 var journey_progress: float = 0.0:
 	set(value):
