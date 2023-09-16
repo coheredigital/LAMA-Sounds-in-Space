@@ -144,7 +144,7 @@ do Character.pivot(0.6)
 [next=0.5]
 set screen = "computer"
 do Character.play_audio("task0_computer_info")
-Sam: This is our handy dandy computer! The computer will help us travel to Planet Stardust. This is a supercomputer – which means it’s the only computer with a list of special commands to complete our mission! First, the computer will tell you a special command and your job is to repeat the command out loud with your voice. [next=14]
+Sam: This is our handy dandy computer! The computer will help us travel to Planet Stardust. This is a supercomputer – which means it’s the only computer with a list of special commands to complete our mission! First, the computer will tell you a special command and your job is to repeat the command out loud with your voice. [next=15]
 
 do Character.play_audio("task0_intro")
 Sam: You will need to listen closely so we can make it to Planet Stardust, find Lucky the Llama, and bring her back to the Space Station. [next=5]
