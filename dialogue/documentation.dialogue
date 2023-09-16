@@ -3,3 +3,4 @@
 # USAGE: Character.move_to(progress_ratio: float [0.0 - 1.0], duration: float [ >= 0.0 ])
 # USAGE: Character.pivot(angle: float [-1.0 - 1.0], duration: float [ >= 0.0 ])
 # USAGE: Character.tilt() Not yet used.
+# USAGE: do set_trial_progress_step(12 - stimuli_set.size(), 12,2)
