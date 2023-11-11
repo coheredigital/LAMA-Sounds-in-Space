@@ -1,4 +1,4 @@
-@tool
+#@tool
 extends Node3D
 
 const BEAM_SPEED := 2.0

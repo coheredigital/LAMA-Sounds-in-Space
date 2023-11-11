@@ -1,4 +1,4 @@
-@tool
+#@tool
 extends Node3D
 
 @export_range(0.0, 1.0, 0.1) var star1_progress := 0.0: 

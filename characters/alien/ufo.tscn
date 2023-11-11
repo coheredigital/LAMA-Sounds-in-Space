@@ -5,7 +5,6 @@
 [ext_resource type="Material" uid="uid://eivgxthmke74" path="res://characters/alien/materials/ufo_beam_material.tres" id="3_ju5pg"]
 [ext_resource type="AudioStream" uid="uid://o3h7jy5iix8l" path="res://audio/effects/warble_loop_01.wav" id="3_yv0qb"]
 [ext_resource type="Material" uid="uid://dkd8j41e6jv45" path="res://characters/alien/materials/alien_material.tres" id="4_n0b4m"]
-[ext_resource type="AnimationLibrary" uid="uid://cacrhs4lw763j" path="res://animations/libraries/alien.tres" id="4_n04f5"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bbquf"]
 animation = &"idle"
@@ -115,24 +114,112 @@ _data = {
 "open": SubResource("Animation_ci2oy")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8trpp"]
-animation = &"alien/sitting"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fx6gn"]
+animation = &"sitting"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_o57gm"]
-switch_mode = 2
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dhdqs"]
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_v8u0p"]
-states/End/position = Vector2(502, 100)
-states/idle/node = SubResource("AnimationNodeAnimation_8trpp")
-states/idle/position = Vector2(313, 100)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_o57gm")]
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_nygwn"]
+states/End/position = Vector2(448, 104)
+states/Start/position = Vector2(221, 104)
+states/sitting/node = SubResource("AnimationNodeAnimation_fx6gn")
+states/sitting/position = Vector2(340, 104)
+transitions = ["Start", "sitting", SubResource("AnimationNodeStateMachineTransition_dhdqs")]
 
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_xi1sf"]
-nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_v8u0p")
-nodes/StateMachine/position = Vector2(148, 64)
-nodes/output/position = Vector2(640, 60)
-node_connections = [&"output", 0, &"StateMachine"]
+[sub_resource type="Animation" id="Animation_vnf67"]
+resource_name = "sitting"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("alien/arm_right:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.1, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.10356, -0.149164, -1.97781), Vector3(0.1309, 0.0401426, -1.76453)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("alien/arm_left:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.18303, 3.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.193732, -0.00174533, -1.06116), Vector3(0.251327, 0.0907571, -1.18159), Vector3(0.193732, -0.00174533, -1.06116), Vector3(0.251327, 0.0907571, -1.18159)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("alien/head:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5, 1.5, 2, 3.1, 3.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.0521426, -0.0669894, 0.0959008), Vector3(0.0468237, 0.0440381, -0.00389557), Vector3(-0.112791, 0.0892144, -0.0355799), Vector3(0.108246, 0.100719, -0.0518328), Vector3(-0.0590836, 0.074901, -0.0261703)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("alien:rotation")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -3.14159, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("alien:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.1, 3.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.01, 0, 0), Vector3(0, 0.002, -0.001)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("alien/leg_left:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1.3, 4.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.0436332, -1.55334), Vector3(0.191986, 0.191986, -1.64934)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("alien/leg_right:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.2, 3.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.0523599, -0.0872665, -1.77151), Vector3(-6.12323e-17, 6.12323e-17, -1.5708)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ujor8"]
+_data = {
+"sitting": SubResource("Animation_vnf67")
+}
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_7ao6f"]
 _surfaces = [{
@@ -481,30 +568,30 @@ update_rotation = false
 [node name="Alien" type="Node3D" parent="ufo" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.278491, 0)
 
-[node name="ActionTree" type="AnimationTree" parent="ufo/Alien" index="0"]
-unique_name_in_owner = true
-tree_root = SubResource("AnimationNodeBlendTree_xi1sf")
-anim_player = NodePath("ActionPlayer")
+[node name="AnimationTree" type="AnimationTree" parent="ufo/Alien" index="0"]
+tree_root = SubResource("AnimationNodeStateMachine_nygwn")
+anim_player = NodePath("AnimationPlayer")
 active = true
 
-[node name="ActionPlayer" type="AnimationPlayer" parent="ufo/Alien/ActionTree" index="0"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ufo/Alien/AnimationTree" index="0"]
 root_node = NodePath("../..")
+autoplay = "sitting"
 libraries = {
-"alien": ExtResource("4_n04f5")
+"": SubResource("AnimationLibrary_ujor8")
 }
 
 [node name="alien" type="MeshInstance3D" parent="ufo/Alien" index="1"]
-transform = Transform3D(-1, 0, -2.53518e-06, 0, 1, 0, 2.53518e-06, 0, -1, -0.0096567, 6.86593e-05, -3.43296e-05)
+transform = Transform3D(-1, 0, -2.53518e-06, 0, 1, 0, 2.53518e-06, 0, -1, -0.00675391, 0.000649219, -0.000324609)
 mesh = SubResource("ArrayMesh_nq5s4")
 skeleton = NodePath("")
 
 [node name="head" type="MeshInstance3D" parent="ufo/Alien/alien" index="0"]
-transform = Transform3D(0.999661, -0.0117449, 0.0233169, 0.0131683, 0.997998, -0.0618612, -0.0225437, 0.0621472, 0.997812, 0, 1.34375, -5.75928e-16)
+transform = Transform3D(0.995997, 0.0244476, 0.0859979, -0.0334874, 0.993877, 0.105296, -0.0828972, -0.107755, 0.990715, 0, 1.34375, -5.75928e-16)
 mesh = SubResource("ArrayMesh_quua8")
 skeleton = NodePath("")
 
 [node name="arm_left" type="MeshInstance3D" parent="ufo/Alien/alien" index="1"]
-transform = Transform3D(0.50265, 0.864395, -0.0127783, -0.85063, 0.491902, -0.185639, -0.154179, 0.104181, 0.982536, 0.15625, 1.26563, 5.58794e-09)
+transform = Transform3D(0.484029, 0.87505, 0.00138362, -0.858219, 0.475025, -0.19445, -0.170811, 0.092932, 0.980912, 0.15625, 1.26563, 5.58794e-09)
 mesh = SubResource("ArrayMesh_fwyk3")
 skeleton = NodePath("")
 
@@ -514,7 +601,7 @@ mesh = SubResource("ArrayMesh_gdk4s")
 skeleton = NodePath("")
 
 [node name="leg_left" type="MeshInstance3D" parent="ufo/Alien/alien" index="2"]
-transform = Transform3D(0.0169797, 0.998875, 0.0442705, -0.999855, 0.0170338, -0.000843567, -0.00159671, -0.0442498, 0.999019, 0.109375, 0.8125, -6.8121e-16)
+transform = Transform3D(-0.00693581, 0.997068, 0.0762115, -0.999097, -0.00371424, -0.042332, -0.0419249, -0.0764363, 0.996192, 0.109375, 0.8125, -6.8121e-16)
 mesh = SubResource("ArrayMesh_7jh5m")
 skeleton = NodePath("")
 
@@ -524,7 +611,7 @@ mesh = SubResource("ArrayMesh_2vng7")
 skeleton = NodePath("")
 
 [node name="arm_right" type="MeshInstance3D" parent="ufo/Alien/alien" index="3"]
-transform = Transform3D(-0.407131, 0.901128, -0.149041, -0.912671, -0.39499, 0.104941, 0.0356952, 0.17875, 0.983247, -0.15625, 1.26563, 9.31322e-10)
+transform = Transform3D(-0.36449, 0.924129, -0.114597, -0.931078, -0.359631, 0.0612914, 0.0154285, 0.129039, 0.991519, -0.15625, 1.26563, 9.31322e-10)
 mesh = SubResource("ArrayMesh_2co3l")
 skeleton = NodePath("")
 
@@ -534,7 +621,7 @@ mesh = SubResource("ArrayMesh_bfmpj")
 skeleton = NodePath("")
 
 [node name="leg_right" type="MeshInstance3D" parent="ufo/Alien/alien" index="4"]
-transform = Transform3D(-0.124897, 0.990715, -0.0537149, -0.991846, -0.123291, 0.0322557, 0.0253336, 0.0573055, 0.998036, -0.125, 0.8125, -3.72529e-09)
+transform = Transform3D(-0.0793609, 0.996258, -0.0342402, -0.996688, -0.0786888, 0.020551, 0.0177798, 0.0357577, 0.999203, -0.125, 0.8125, -3.72529e-09)
 mesh = SubResource("ArrayMesh_kqrsa")
 skeleton = NodePath("")
 
@@ -547,7 +634,7 @@ skeleton = NodePath("")
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0)
 
 [node name="beam" parent="ufo" index="5"]
-transform = Transform3D(-0.994473, -0.0582191, -0.0873798, -0.0866962, -0.0141725, 0.996133, -0.0592325, 0.998203, 0.00904683, 0, -0.7, -3.72529e-09)
+transform = Transform3D(-0.998004, -0.0325536, -0.0541298, -0.0530706, -0.0325669, 0.998059, -0.0342533, 0.998939, 0.0307742, 0, -0.7, -1.86265e-09)
 surface_material_override/0 = ExtResource("3_ju5pg")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="ufo" index="14"]

@@ -8,23 +8,16 @@ func _ready():
 func create_csv():
 	var csv_file_name = "%s%s" % [Session.save_folder,'events.csv']
 	csv_file = FileAccess.open(csv_file_name, FileAccess.WRITE)
-
-	if csv_file:
-		csv_file.store_csv_line(PackedStringArray(["time","type","action","info","session_id"]))
-		csv_file.close()
+	csv_file.store_csv_line(PackedStringArray(["time","type","action","info","session_id"]))
+	csv_file.close()
 
 func add(type: String, action: String, info: String = '') -> void:
 	var csv_file_name = "%s%s" %[Session.save_folder,'events.csv']
 	csv_file = FileAccess.open(csv_file_name, FileAccess.READ_WRITE)
 	var unix_time = Time.get_unix_time_from_system()
-
 	if csv_file:
 		csv_file.seek_end()
 		csv_file.store_csv_line([unix_time,type,action,info,Session.session_id])
-	else:
-		push_error("event.csv missing! (%s)" % csv_file_name)
-
-	if csv_file:
 		csv_file.close()
 
 

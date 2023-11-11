@@ -1,4 +1,4 @@
-@tool
+#@tool
 extends Node3D
 
 @export_enum("idle","wave") var action : String = "idle":
