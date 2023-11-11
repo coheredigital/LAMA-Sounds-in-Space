@@ -7,25 +7,10 @@
 [ext_resource type="StyleBox" uid="uid://dpwsbdfkj6f8x" path="res://ui/theme/styles/panel_style.tres" id="3_uga2j"]
 [ext_resource type="StyleBox" uid="uid://do1dfxcttk32e" path="res://ui/theme/styles/buttons/button_hover_style.tres" id="4_udaii"]
 [ext_resource type="StyleBox" uid="uid://bx5aipfnb7vqy" path="res://ui/theme/styles/buttons/button_normal_style.tres" id="5_mpifv"]
+[ext_resource type="StyleBox" uid="uid://c3sr3di6ws15r" path="res://ui/theme/styles/checkbox_normal_style.tres" id="6_4yqgr"]
 [ext_resource type="StyleBox" uid="uid://lad68ye8yr8m" path="res://ui/theme/styles/buttons/button_pressed_style.tres" id="6_wecnn"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xt6nx"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oe4w4"]
-content_margin_left = 16.0
-content_margin_top = 6.0
-content_margin_right = 16.0
-content_margin_bottom = 6.0
-bg_color = Color(0.129412, 0.129412, 0.294118, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.203922, 0.203922, 0.435294, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_75g0n"]
 content_margin_left = 16.0
@@ -94,7 +79,12 @@ CheckBox/styles/hover_pressed = SubResource("StyleBoxEmpty_xt6nx")
 CheckBox/styles/normal = SubResource("StyleBoxEmpty_xt6nx")
 CheckBox/styles/pressed = SubResource("StyleBoxEmpty_xt6nx")
 CheckButton/font_sizes/font_size = 16
-CheckButton/styles/normal = SubResource("StyleBoxFlat_oe4w4")
+CheckButton/styles/disabled = ExtResource("6_4yqgr")
+CheckButton/styles/focus = ExtResource("6_4yqgr")
+CheckButton/styles/hover = ExtResource("6_4yqgr")
+CheckButton/styles/hover_pressed = ExtResource("6_4yqgr")
+CheckButton/styles/normal = ExtResource("6_4yqgr")
+CheckButton/styles/pressed = ExtResource("6_4yqgr")
 HSeparator/styles/normal = null
 HSeparator/styles/separator = ExtResource("1_k4d0l")
 LineEdit/styles/normal = ExtResource("2_2v72q")

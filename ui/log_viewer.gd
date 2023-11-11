@@ -20,3 +20,7 @@ func add_line(time_string: String,type: String,action: String,info: String):
 	var type_action_string := "%s.%s" % [type,action]
 	text = text + "%-8s%-24s\"%s\"" % [time_string,type_action_string,info]
 	set_caret_line(line_count)
+
+
+func _on_log_toggle_toggled(button_pressed):
+	visible = button_pressed
