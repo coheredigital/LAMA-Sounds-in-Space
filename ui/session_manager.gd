@@ -9,9 +9,9 @@ func is_new_session_ready() -> bool:
 func _on_new_session_button_pressed():
 
 	Session.start()
-	
+
 	EventLogger.add('session','started')
-	
+
 #	store info.json file
 	var info_file_name = "%s%s" % [ Session.save_folder, 'info.json' ]
 	var info_file = FileAccess.open(info_file_name, FileAccess.WRITE)
@@ -20,7 +20,7 @@ func _on_new_session_button_pressed():
 		"study_id": Session.study_id,
 		"age_group": Session.age_group,
 		"run_id": Session.run_id,
-		"create_timestamp": Session.unix_time,
+		"create_timestamp": Session.start_time,
 		"create_datetime": Session.date_formatted,
 	}, "\t", false)
 

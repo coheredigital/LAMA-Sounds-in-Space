@@ -25,7 +25,11 @@ func add(item: String):
 	
 	if session_directory.file_exists(info_file):
 		info_file = FileAccess.open(info_file, FileAccess.READ)
+		if not info_file:
+			return
 		var info_json = JSON.parse_string(info_file.get_as_text())
+		if not info_json:
+			return
 		add_item("Datetime: %s   Study ID: %s   Age Group: %s   Run ID: %s" % [
 			info_json.get("create_datetime"),
 			info_json.get("study_id"),

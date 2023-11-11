@@ -1,5 +1,6 @@
 extends Node
 
+signal line_added(unix_time: float,type: String,action: String,info: String)
 var csv_file : FileAccess
 
 func _ready():
@@ -11,6 +12,7 @@ func create_csv():
 	csv_file.store_csv_line(PackedStringArray(["time","type","action","info","session_id"]))
 	csv_file.close()
 
+
 func add(type: String, action: String, info: String = '') -> void:
 	var csv_file_name = "%s%s" %[Session.save_folder,'events.csv']
 	csv_file = FileAccess.open(csv_file_name, FileAccess.READ_WRITE)
@@ -19,6 +21,7 @@ func add(type: String, action: String, info: String = '') -> void:
 		csv_file.seek_end()
 		csv_file.store_csv_line([unix_time,type,action,info,Session.session_id])
 		csv_file.close()
+		line_added.emit(unix_time,type,action,info)
 
 
 func _on_title_passed(title):

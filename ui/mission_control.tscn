@@ -1,10 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://dkiigs8xo4igp"]
+[gd_scene load_steps=14 format=3 uid="uid://dkiigs8xo4igp"]
 
 [ext_resource type="Theme" uid="uid://cvc3eceirtq34" path="res://ui/theme/simple_ui_theme.tres" id="1_aebch"]
 [ext_resource type="Script" path="res://ui/mission_control.gd" id="2_qxgi1"]
 [ext_resource type="StyleBox" uid="uid://b4xe4agmi26xs" path="res://ui/theme/styles/buttons/button_primary_normal_style.tres" id="3_nisjw"]
 [ext_resource type="PackedScene" uid="uid://cothlddswoqrl" path="res://ui/dialogue_balloon/control_balloon.tscn" id="3_xjlid"]
 [ext_resource type="Material" uid="uid://xsadexiscljr" path="res://audio/visualizer/visualizer_canvas_material.tres" id="4_0k6ey"]
+[ext_resource type="Script" path="res://ui/log_viewer.gd" id="5_5levy"]
+[ext_resource type="FontFile" uid="uid://dqkkbldo0hje7" path="res://ui/fonts/NotoSansMono.ttf" id="5_b5ge6"]
+[ext_resource type="CodeHighlighter" uid="uid://cqsueuvaboxsy" path="res://ui/theme/log_viewer_code_hightlighter.tres" id="6_sj2s4"]
 [ext_resource type="StyleBox" uid="uid://bh1bj71de5bt0" path="res://ui/theme/styles/buttons/button_cancel_normal_style.tres" id="8_aybif"]
 [ext_resource type="PackedScene" uid="uid://183pcldrkisq" path="res://ui/status_bar.tscn" id="8_nqb8x"]
 [ext_resource type="StyleBox" uid="uid://dpa66yrvwokx" path="res://ui/theme/styles/buttons/button_cancel_hover_style.tres" id="9_sp4yj"]
@@ -106,6 +109,7 @@ split_offset = -240
 
 [node name="ControlBalloon" parent="MarginContainer/Controls/VSplitContainer" instance=ExtResource("3_xjlid")]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Controls/VSplitContainer/ControlBalloon"]
@@ -129,15 +133,39 @@ material = ExtResource("4_0k6ey")
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 
-[node name="LogView" type="CodeEdit" parent="MarginContainer/Controls/VSplitContainer"]
+[node name="LogViewer" type="CodeEdit" parent="MarginContainer/Controls/VSplitContainer"]
 unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
-editable = false
+theme_override_colors/font_color = Color(0.619608, 0.627451, 0.690196, 1)
+theme_override_colors/current_line_color = Color(0, 0, 0, 0.290196)
+theme_override_fonts/font = ExtResource("5_b5ge6")
+theme_override_font_sizes/font_size = 16
+text = "time         			type        				action      info
+12:34:45   		sequence(response)	\"Start\"
+1699731572   	script(played)		\"res://audio/script/intro_welcome.wav\"
+1699731588   	script.played		\"res://audio/script/intro_lucky.wav\"
+1699731607   	script.played    	\"res://audio/script/intro_map.wav\"
+1699731617   	recording.played 		res://audio/script/intro_question.wav
+1699731622   	script      played    	 res://audio/script/intro_mission_brief.wav
+1699731622   	sequence    response    Yes. Continue.
+1699731651   	recording.played    	 res://audio/script/intro_open_spaceship.wav
+1699731658   	sequence    response    Press Green Button
+1699731668  	script       played    	 res://audio/script/welcome_aboard.wav
+1699731673   	sequence    response    Continue
+1699731674   	script      played    	 res://audio/script/task0_first_job.wav
+1699731679  	 script      played    	 res://audio/script/task0_computer_info.wav"
 context_menu_enabled = false
 shortcut_keys_enabled = false
 drag_and_drop_selection_enabled = false
 virtual_keyboard_enabled = false
 middle_mouse_paste_enabled = false
+highlight_all_occurrences = true
+highlight_current_line = true
+syntax_highlighter = ExtResource("6_sj2s4")
+minimap_draw = true
+script = ExtResource("5_5levy")
 
 [node name="StatusBar" parent="MarginContainer/Controls" instance=ExtResource("8_nqb8x")]
 layout_mode = 2

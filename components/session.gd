@@ -15,7 +15,7 @@ signal player_control_enabled(value: bool)
 signal user_clicked
 
 
-var unix_time : float
+var start_time : float
 var datetime : Dictionary
 
 var save_folder: String:
@@ -84,11 +84,11 @@ var sentence_id: String:
 		sentence_id_changed.emit(value)
 
 func _ready():
-	unix_time = Time.get_unix_time_from_system()
+	start_time = Time.get_unix_time_from_system()
 	datetime = Time.get_datetime_dict_from_system()
 
 func start():
-	unix_time = Time.get_unix_time_from_system()
+	start_time = Time.get_unix_time_from_system()
 	datetime = Time.get_datetime_dict_from_system()
 	#	create the session save directory
 	DirAccess.make_dir_recursive_absolute(self.save_folder)
