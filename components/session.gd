@@ -10,6 +10,7 @@ signal run_id_changed(value: String)
 signal stimuli_type_changed(value: String)
 signal study_id_changed(value: String)
 signal sentence_id_changed(value: String)
+signal condition_id_changed(value: String)
 signal player_control_enabled(value: bool)
 signal user_clicked
 
@@ -71,6 +72,11 @@ var run_id: String:
 	set(value):
 		run_id = value
 		run_id_changed.emit(value)
+
+var condition_id: String:
+	set(value):
+		condition_id = value
+		condition_id_changed.emit(value)
 
 var sentence_id: String:
 	set(value):

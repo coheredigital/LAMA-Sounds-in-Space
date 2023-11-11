@@ -394,6 +394,7 @@ System: Select stimuli order
 	=> task1_success
 
 ~ task1_stimuli_trial
+set Session.condition_id = "Sp"
 # loop through stimuli
 while stimuli_set.size() > 0
 #	pop_front will retrieve and remove the next stimuli from the set.
@@ -594,6 +595,7 @@ System: Select stimuli order
 
 
 ~ task2_stimuli_trial
+set Session.condition_id = "Ex"
 =>< snippets/focus_screen
 # loop through stimuli
 while stimuli_set.size() > 0
