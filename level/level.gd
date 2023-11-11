@@ -167,7 +167,6 @@ func play_spaceship_audio(value: String, volume_adjustment : float = 0.0) -> voi
 	spaceship_audio.volume_db = default_volume_db + volume_adjustment
 	spaceship_audio.stream = wav_file
 	spaceship_audio.playing = true
-	EventLogger.add('stimuli','played',filename)
 
 
 #	UFO

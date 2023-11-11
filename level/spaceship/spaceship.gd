@@ -138,7 +138,7 @@ func update_screen(value: String)-> void:
 func play_sound(value: String, volume_adjustment: float = 0.0) -> void:
 #	get the file or cancel operation
 	var default_volume_db = -12.0
-	var folder = "res://audio/effects/"
+	var folder = "res://audio/effects"
 	var filename = "%s/%s.wav" % [folder,value];
 	var wav_file = load(filename);
 	if not wav_file:
