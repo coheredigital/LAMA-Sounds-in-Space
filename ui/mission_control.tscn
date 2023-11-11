@@ -99,11 +99,16 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Game Window Visible"
 
-[node name="ControlBalloon" parent="MarginContainer/Controls" instance=ExtResource("3_xjlid")]
+[node name="VSplitContainer" type="VSplitContainer" parent="MarginContainer/Controls"]
+layout_mode = 2
+size_flags_vertical = 3
+split_offset = -240
+
+[node name="ControlBalloon" parent="MarginContainer/Controls/VSplitContainer" instance=ExtResource("3_xjlid")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Controls/ControlBalloon"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Controls/VSplitContainer/ControlBalloon"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -119,10 +124,20 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="Visualizer" type="ColorRect" parent="MarginContainer/Controls/ControlBalloon/MarginContainer"]
+[node name="Visualizer" type="ColorRect" parent="MarginContainer/Controls/VSplitContainer/ControlBalloon/MarginContainer"]
 material = ExtResource("4_0k6ey")
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
+
+[node name="LogView" type="CodeEdit" parent="MarginContainer/Controls/VSplitContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+editable = false
+context_menu_enabled = false
+shortcut_keys_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
 
 [node name="StatusBar" parent="MarginContainer/Controls" instance=ExtResource("8_nqb8x")]
 layout_mode = 2
