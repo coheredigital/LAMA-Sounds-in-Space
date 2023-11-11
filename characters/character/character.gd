@@ -1,4 +1,4 @@
-@tool
+#@tool
 extends Node3D
 
 
@@ -36,8 +36,8 @@ func set_action(value: String) -> void:
 func play_audio(sentence_id: String) -> void:
 	self.is_talking = true
 #	get the file or cancel operation
-	var filename = "%s/%s.wav" % [audio_folder,sentence_id];
-	var wav_file = load(filename);
+	var filename = "%s/%s.wav" % [audio_folder,sentence_id]
+	var wav_file = load(filename)
 	if not wav_file:
 		push_warning('Script line not found: %s' % [filename])
 		return
