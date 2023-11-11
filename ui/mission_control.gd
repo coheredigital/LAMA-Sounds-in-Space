@@ -9,17 +9,6 @@ func _ready():
 	%EndSessionConfirmation.visible = false
 	%ControlBalloon.start(sequence, "start")
 
-# extract the currently available sequence titles
-#func get_titles() -> PackedStringArray:
-#	var file: FileAccess = FileAccess.open("res://dialogue/sequence.dialogue", FileAccess.READ)
-#	var file_text: String = file.get_as_text()
-#	var titles = PackedStringArray([])
-#	var lines = file_text.split("\n")
-#	for line in lines:
-#		if line.begins_with("~ "):
-#			titles.append(line.substr(2).strip_edges())
-#	return titles
-
 
 func _on_end_session_button_pressed():
 	%EndSessionConfirmation.visible = true
