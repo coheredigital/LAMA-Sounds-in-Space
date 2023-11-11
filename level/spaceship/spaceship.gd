@@ -148,4 +148,4 @@ func play_sound(value: String, volume_adjustment: float = 0.0) -> void:
 	computer_audio_player.volume_db = default_volume_db + volume_adjustment
 	computer_audio_player.stream = wav_file
 	computer_audio_player.playing = true
-	EventLogger.add('stimuli','played',filename)
+	EventLogger.add('sound','played',filename)
