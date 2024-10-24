@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://lntdn5vgbyh1"]
+[gd_scene load_steps=9 format=3 uid="uid://lntdn5vgbyh1"]
 
 [ext_resource type="Theme" uid="uid://cvc3eceirtq34" path="res://ui/theme/simple_ui_theme.tres" id="1_pp1yo"]
 [ext_resource type="Script" path="res://ui/session_manager.gd" id="2_cup32"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://ui/session_list.gd" id="4_byfkq"]
 [ext_resource type="StyleBox" uid="uid://qrbtgqthaadb" path="res://ui/theme/styles/buttons/button_primary_hover_style.tres" id="5_4cabv"]
 [ext_resource type="StyleBox" uid="uid://u6i3xd58vtip" path="res://ui/theme/styles/buttons/button_primary_pressed_style.tres" id="6_a7orr"]
+[ext_resource type="Material" uid="uid://xsadexiscljr" path="res://audio/visualizer/visualizer_canvas_material.tres" id="8_hk1n3"]
 
 [node name="SessionManager" type="Panel"]
 clip_contents = true
@@ -126,6 +127,12 @@ theme_override_styles/hover = ExtResource("5_4cabv")
 theme_override_styles/pressed = ExtResource("6_a7orr")
 disabled = true
 text = "New Session"
+
+[node name="Visualizer" type="ColorRect" parent="MarginContainer/VBoxContainer/HSplitContainer/RightContainer"]
+material = ExtResource("8_hk1n3")
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_vertical = 3
 
 [connection signal="item_activated" from="MarginContainer/VBoxContainer/HSplitContainer/VBoxContainer/SessionList" to="." method="_on_session_list_item_activated"]
 [connection signal="item_activated" from="MarginContainer/VBoxContainer/HSplitContainer/VBoxContainer/SessionList" to="MarginContainer/VBoxContainer/HSplitContainer/VBoxContainer/SessionList" method="_on_item_activated"]

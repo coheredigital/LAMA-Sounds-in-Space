@@ -133,10 +133,10 @@ shortcut_keys_enabled = false
 drag_and_drop_selection_enabled = false
 virtual_keyboard_enabled = false
 middle_mouse_paste_enabled = false
+minimap_draw = true
+syntax_highlighter = ExtResource("6_sj2s4")
 highlight_all_occurrences = true
 highlight_current_line = true
-syntax_highlighter = ExtResource("6_sj2s4")
-minimap_draw = true
 script = ExtResource("5_5levy")
 
 [node name="StatusBar" parent="MarginContainer/Controls" instance=ExtResource("8_nqb8x")]
