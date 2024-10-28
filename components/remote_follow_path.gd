@@ -67,4 +67,3 @@ func update_tilt(value: float, duration: float = 1.0) -> void:
 		var target_angle = Vector3(traget_rotation,0.0,0.0)
 		if tween:
 			tween.tween_property(look_target_tilt, "rotation_degrees", target_angle, duration).set_trans(Tween.TRANS_LINEAR)
-
