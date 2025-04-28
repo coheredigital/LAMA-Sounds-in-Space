@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://cwm7qx08toq5m"]
 
-[ext_resource type="Script" path="res://audio/visualizer/visualizer.gd" id="1_mle3v"]
+[ext_resource type="Script" uid="uid://c0c06fw5tt4yh" path="res://audio/visualizer/visualizer.gd" id="1_mle3v"]
 [ext_resource type="Curve" uid="uid://dymfoswhbthj1" path="res://audio/visualizer/curves/waveform_curve.tres" id="2_cm6th"]
 [ext_resource type="Gradient" uid="uid://b71jutk4qdqv3" path="res://audio/visualizer/visualizer_gradient.tres" id="3_rqlfc"]
 [ext_resource type="Curve" uid="uid://djq65vh7dm2ol" path="res://audio/visualizer/curves/response_curve.tres" id="4_5qc28"]

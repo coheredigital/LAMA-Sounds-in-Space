@@ -379,8 +379,8 @@ tracks/7/keys = {
 
 [resource]
 _data = {
-"RESET": SubResource("Animation_tdw2j"),
-"idle": SubResource("Animation_rf03h"),
-"sitting": SubResource("Animation_vnf67"),
-"wave": SubResource("Animation_8ds0v")
+&"RESET": SubResource("Animation_tdw2j"),
+&"idle": SubResource("Animation_rf03h"),
+&"sitting": SubResource("Animation_vnf67"),
+&"wave": SubResource("Animation_8ds0v")
 }

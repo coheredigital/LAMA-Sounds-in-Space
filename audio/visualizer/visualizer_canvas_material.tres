@@ -1,12 +1,12 @@
 [gd_resource type="ShaderMaterial" load_steps=8 format=3 uid="uid://xsadexiscljr"]
 
-[ext_resource type="Shader" path="res://audio/visualizer/visualizer_canvas.gdshader" id="1_rjcni"]
+[ext_resource type="Shader" uid="uid://ctjghrnh61fr1" path="res://audio/visualizer/visualizer_canvas.gdshader" id="1_rjcni"]
 [ext_resource type="Texture2D" uid="uid://efw8q5fwtw3s" path="res://audio/visualizer/textures/visualizer_gradient.png" id="2_smsxj"]
 [ext_resource type="Texture2D" uid="uid://ddbud7dok4cao" path="res://audio/visualizer/textures/visualizer_screen_mask.png" id="3_doyaq"]
 [ext_resource type="Gradient" uid="uid://b71jutk4qdqv3" path="res://audio/visualizer/visualizer_gradient.tres" id="4_yvjie"]
 
 [sub_resource type="Curve" id="Curve_x7tor"]
-max_value = 2.0
+_limits = [0.0, 2.0, 0.0, 1.0]
 _data = [Vector2(0, 0.609091), 0.0, 0.0, 0, 0, Vector2(1, 1.45455), -2.69394, 0.0, 0, 0]
 point_count = 2
 

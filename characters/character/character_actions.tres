@@ -204,6 +204,6 @@ tracks/7/keys = {
 
 [resource]
 _data = {
-"idle": SubResource("Animation_on3xa"),
-"talk": SubResource("Animation_ybkgj")
+&"idle": SubResource("Animation_on3xa"),
+&"talk": SubResource("Animation_ybkgj")
 }

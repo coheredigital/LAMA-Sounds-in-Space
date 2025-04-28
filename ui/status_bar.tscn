@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://183pcldrkisq"]
 
-[ext_resource type="Script" path="res://ui/status_bar.gd" id="1_4h75g"]
+[ext_resource type="Script" uid="uid://b2hd7q4qvknob" path="res://ui/status_bar.gd" id="1_4h75g"]
 
 [node name="StatusBar" type="MarginContainer"]
 script = ExtResource("1_4h75g")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bi2ttsoa7h87g"]
 
-[ext_resource type="Script" path="res://components/remote_follow_path.gd" id="1_11yyf"]
+[ext_resource type="Script" uid="uid://sjgod0n35yc" path="res://components/remote_follow_path.gd" id="1_11yyf"]
 
 [node name="RemoteFollowPath" type="Path3D"]
 script = ExtResource("1_11yyf")

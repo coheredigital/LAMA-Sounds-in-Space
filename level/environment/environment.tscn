@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://ce5kwqern427b"]
 
 [ext_resource type="Environment" uid="uid://e82nx1vn6g3m" path="res://level/environment/environment.tres" id="1_bwcs0"]
-[ext_resource type="Script" path="res://level/environment/environment.gd" id="2_bieme"]
+[ext_resource type="Script" uid="uid://djf68e45wji38" path="res://level/environment/environment.gd" id="2_bieme"]
 [ext_resource type="Material" uid="uid://b2vt57g8dosf0" path="res://level/environment/materials/sky_material.tres" id="3_8675s"]
 [ext_resource type="Material" uid="uid://5ylfbcwxjnj8" path="res://level/environment/materials/ground_fog_material.tres" id="4_56djx"]
 [ext_resource type="Material" uid="uid://ch4rsft0nrbhg" path="res://level/environment/materials/atmosphere_fog_material.tres" id="4_a20jw"]

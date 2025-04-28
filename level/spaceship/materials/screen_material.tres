@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://goanujt7bwh1"]
 
-[ext_resource type="Shader" path="res://shaders/screens.gdshader" id="1_67rs4"]
+[ext_resource type="Shader" uid="uid://c6pbuyaytewgh" path="res://shaders/screens.gdshader" id="1_67rs4"]
 [ext_resource type="Texture2D" uid="uid://bnfo0b752cn10" path="res://level/spaceship/materials/dashboard_emission.png" id="2_n2nho"]
 [ext_resource type="Gradient" uid="uid://b71jutk4qdqv3" path="res://audio/visualizer/visualizer_gradient.tres" id="3_p4an3"]
 
@@ -13,10 +13,10 @@ shader = ExtResource("1_67rs4")
 shader_parameter/albedo = Color(0.737255, 0.737255, 0.737255, 1)
 shader_parameter/emission_energy = 0.5
 shader_parameter/alpha = 1.0
+shader_parameter/emission_texture = ExtResource("2_n2nho")
+shader_parameter/waveform = SubResource("3858")
 shader_parameter/waveform_controlled = false
 shader_parameter/screen_count = 16.0
 shader_parameter/frame_count = 8.0
 shader_parameter/screen_number = 12.0
-shader_parameter/frame_number = 6.30188
-shader_parameter/emission_texture = ExtResource("2_n2nho")
-shader_parameter/waveform = SubResource("3858")
+shader_parameter/frame_number = 5.16281

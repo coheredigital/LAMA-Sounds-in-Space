@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://cq3x5n33r2d8c"]
 
 [ext_resource type="PackedScene" uid="uid://whalw4rdvy64" path="res://characters/character/character.gltf" id="1"]
-[ext_resource type="Script" path="res://characters/character/character.gd" id="2_bwdwg"]
+[ext_resource type="Script" uid="uid://dxkpg4njg28sd" path="res://characters/character/character.gd" id="2_bwdwg"]
 [ext_resource type="AnimationLibrary" uid="uid://c4hslfw7atlus" path="res://characters/character/character_actions.tres" id="4_cmukm"]
 [ext_resource type="AudioStream" uid="uid://bugxflshvqn1w" path="res://audio/script/task2_ready_to_go.wav" id="4_jr4dp"]
 
@@ -149,7 +149,7 @@ tracks/8/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_twnuj"]
 _data = {
-"RESET": SubResource("Animation_oa1q3")
+&"RESET": SubResource("Animation_oa1q3")
 }
 
 [node name="Character" instance=ExtResource("1")]

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cs03x3lgn8m6a" path="res://characters/lama/lama.gltf" id="1_jjqdh"]
 [ext_resource type="Material" uid="uid://cqvlw3i27fqqd" path="res://characters/lama/materials/lama_material.tres" id="2_1i2gr"]
-[ext_resource type="Script" path="res://characters/lama/lama.gd" id="2_vtxys"]
+[ext_resource type="Script" uid="uid://dnefvv2jf2yxa" path="res://characters/lama/lama.gd" id="2_vtxys"]
 
 [sub_resource type="Animation" id="Animation_dulyp"]
 length = 0.001
@@ -276,10 +276,10 @@ tracks/6/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fu6b4"]
 _data = {
-"RESET": SubResource("Animation_dulyp"),
-"ear_twitch": SubResource("Animation_ystgn"),
-"idle": SubResource("Animation_v6qej"),
-"wiggle": SubResource("Animation_4xgnq")
+&"RESET": SubResource("Animation_dulyp"),
+&"ear_twitch": SubResource("Animation_ystgn"),
+&"idle": SubResource("Animation_v6qej"),
+&"wiggle": SubResource("Animation_4xgnq")
 }
 
 [sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_4mvet"]
@@ -320,7 +320,7 @@ nodes/Add2/position = Vector2(140, 200)
 "nodes/Animation 2/position" = Vector2(-61, 401)
 nodes/action/node = SubResource("AnimationNodeStateMachine_fl5c8")
 nodes/action/position = Vector2(-220, 140)
-node_connections = [&"output", 0, &"Add2", &"Add2", 0, &"action", &"Add2", 1, &"Animation 2"]
+node_connections = [&"Add2", 0, &"action", &"Add2", 1, &"Animation 2", &"output", 0, &"Add2"]
 
 [node name="Lama" instance=ExtResource("1_jjqdh")]
 script = ExtResource("2_vtxys")

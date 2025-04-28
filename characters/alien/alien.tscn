@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://bq23ckwovuhf4"]
 
 [ext_resource type="PackedScene" uid="uid://dybngyd2g0glm" path="res://characters/alien/alien.gltf" id="1_wlnkb"]
-[ext_resource type="Script" path="res://characters/alien/alien.gd" id="2_c37m7"]
+[ext_resource type="Script" uid="uid://b0a3qwljxgurh" path="res://characters/alien/alien.gd" id="2_c37m7"]
 [ext_resource type="AnimationLibrary" uid="uid://cacrhs4lw763j" path="res://animations/libraries/alien.tres" id="2_l61tj"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0t6yo"]

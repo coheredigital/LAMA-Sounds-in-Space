@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://cpyfijnifmpjh"]
 
-[ext_resource type="Script" path="res://level/environment/models/star.gd" id="1_a8fv1"]
+[ext_resource type="Script" uid="uid://by7rrdtquyhkf" path="res://level/environment/models/star.gd" id="1_a8fv1"]
 [ext_resource type="Material" uid="uid://cmicmti56l3bx" path="res://level/environment/materials/star_particle_material.tres" id="2_simuf"]
 [ext_resource type="Material" uid="uid://dnbr02xb52ce4" path="res://level/environment/materials/star_process_material.tres" id="3_jm1cf"]
 [ext_resource type="Material" path="res://level/environment/materials/star_material.tres" id="4_owk2l"]
@@ -87,8 +87,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yj4cd"]
 _data = {
-"RESET": SubResource("Animation_1fx4o"),
-"idle": SubResource("Animation_ltucu")
+&"RESET": SubResource("Animation_1fx4o"),
+&"idle": SubResource("Animation_ltucu")
 }
 
 [sub_resource type="QuadMesh" id="QuadMesh_yrp7d"]

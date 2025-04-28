@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bm85hnfl51cac"]
 
-[ext_resource type="Script" path="res://audio/recorder/recorder.gd" id="1_lpfm2"]
+[ext_resource type="Script" uid="uid://c0osy0a2dtl2o" path="res://audio/recorder/recorder.gd" id="1_lpfm2"]
 
 [sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_gays0"]
 

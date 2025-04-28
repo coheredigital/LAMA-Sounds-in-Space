@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dws7imahbwho"]
 
 [ext_resource type="Theme" uid="uid://cvc3eceirtq34" path="res://ui/theme/simple_ui_theme.tres" id="1_mrxuu"]
-[ext_resource type="Script" path="res://ui/settings_manager.gd" id="2_6gsan"]
+[ext_resource type="Script" uid="uid://duq10lnu661a6" path="res://ui/settings_manager.gd" id="2_6gsan"]
 
 [node name="SessionManager" type="Panel"]
 clip_contents = true

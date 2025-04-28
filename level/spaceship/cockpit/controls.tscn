@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3]
+[gd_scene load_steps=9 format=3 uid="uid://brg3yq4a1u6h4"]
 
 [ext_resource type="PackedScene" uid="uid://7korg2mlql37" path="res://level/spaceship/models/controls.gltf" id="1"]
-[ext_resource type="Material" path="res://level/spaceship/materials/cockpit_material.tres" id="2"]
+[ext_resource type="Material" uid="uid://dnfiqcea1212d" path="res://level/spaceship/materials/cockpit_material.tres" id="2"]
 
 [sub_resource type="Animation" id="1"]
 length = 0.001
@@ -36,8 +36,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7w7c4"]
 _data = {
-"RESET": SubResource("1"),
-"shake": SubResource("2")
+&"RESET": SubResource("1"),
+&"shake": SubResource("2")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="3"]
@@ -52,7 +52,7 @@ nodes/Animation/position = Vector2(60, 140)
 nodes/TimeScale/node = SubResource("4")
 nodes/TimeScale/position = Vector2(460, 140)
 nodes/output/position = Vector2(920, 180)
-node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Animation"]
+node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
 
 [node name="SpaceshipControls" instance=ExtResource("1")]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c8edbldidupjb"]
 
-[ext_resource type="Script" path="res://ui/fields/audio_file_field.gd" id="1_y225q"]
+[ext_resource type="Script" uid="uid://d0cbnap7glm70" path="res://ui/fields/audio_file_field.gd" id="1_y225q"]
 
 [node name="AudioFileField" type="HBoxContainer"]
 custom_minimum_size = Vector2(0, 32)

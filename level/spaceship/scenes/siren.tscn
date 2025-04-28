@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://j5n0jb2vhvf6"]
 
-[ext_resource type="Script" path="res://level/spaceship/scenes/siren.gd" id="1_5wypi"]
+[ext_resource type="Script" uid="uid://cb0x5g8a2fnl1" path="res://level/spaceship/scenes/siren.gd" id="1_5wypi"]
 [ext_resource type="AnimationLibrary" uid="uid://djjoradl4oat1" path="res://level/spaceship/scenes/siren_animations.tres" id="2_ct320"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_r3x4f"]

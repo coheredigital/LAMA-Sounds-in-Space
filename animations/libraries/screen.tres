@@ -707,21 +707,21 @@ tracks/5/keys = {
 
 [resource]
 _data = {
-"alert": SubResource("Animation_8q5bf"),
-"battery": SubResource("Animation_yvi7q"),
-"buckle_warning": SubResource("Animation_tp0ma"),
-"computer": SubResource("Animation_p6v2w"),
-"failure": SubResource("Animation_ex31g"),
-"idle": SubResource("Animation_ds544"),
-"playing": SubResource("Animation_ueobg"),
-"recording": SubResource("Animation_hmlrf"),
-"restart": SubResource("Animation_ukuei"),
-"sleep": SubResource("Animation_eu2nh"),
-"start_button": SubResource("Animation_wg55r"),
-"start_button_pressed": SubResource("Animation_hjpcg"),
-"start_button_red": SubResource("Animation_fuvui"),
-"start_button_red_pressed": SubResource("Animation_ebop7"),
-"success": SubResource("Animation_3f0s6"),
-"talking": SubResource("Animation_66wja"),
-"wipe": SubResource("Animation_8f7r0")
+&"alert": SubResource("Animation_8q5bf"),
+&"battery": SubResource("Animation_yvi7q"),
+&"buckle_warning": SubResource("Animation_tp0ma"),
+&"computer": SubResource("Animation_p6v2w"),
+&"failure": SubResource("Animation_ex31g"),
+&"idle": SubResource("Animation_ds544"),
+&"playing": SubResource("Animation_ueobg"),
+&"recording": SubResource("Animation_hmlrf"),
+&"restart": SubResource("Animation_ukuei"),
+&"sleep": SubResource("Animation_eu2nh"),
+&"start_button": SubResource("Animation_wg55r"),
+&"start_button_pressed": SubResource("Animation_hjpcg"),
+&"start_button_red": SubResource("Animation_fuvui"),
+&"start_button_red_pressed": SubResource("Animation_ebop7"),
+&"success": SubResource("Animation_3f0s6"),
+&"talking": SubResource("Animation_66wja"),
+&"wipe": SubResource("Animation_8f7r0")
 }

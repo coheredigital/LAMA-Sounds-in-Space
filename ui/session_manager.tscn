@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://lntdn5vgbyh1"]
 
 [ext_resource type="Theme" uid="uid://cvc3eceirtq34" path="res://ui/theme/simple_ui_theme.tres" id="1_pp1yo"]
-[ext_resource type="Script" path="res://ui/session_manager.gd" id="2_cup32"]
+[ext_resource type="Script" uid="uid://cyjm1kn6farfm" path="res://ui/session_manager.gd" id="2_cup32"]
 [ext_resource type="StyleBox" uid="uid://uaf6yuo5c7d1" path="res://ui/theme/styles/text_box_default_style.tres" id="3_0rwgr"]
 [ext_resource type="StyleBox" uid="uid://b4xe4agmi26xs" path="res://ui/theme/styles/buttons/button_primary_normal_style.tres" id="4_45fkp"]
-[ext_resource type="Script" path="res://ui/session_list.gd" id="4_byfkq"]
+[ext_resource type="Script" uid="uid://bco4xefofi5b4" path="res://ui/session_list.gd" id="4_byfkq"]
 [ext_resource type="StyleBox" uid="uid://qrbtgqthaadb" path="res://ui/theme/styles/buttons/button_primary_hover_style.tres" id="5_4cabv"]
 [ext_resource type="StyleBox" uid="uid://u6i3xd58vtip" path="res://ui/theme/styles/buttons/button_primary_pressed_style.tres" id="6_a7orr"]
 [ext_resource type="Material" uid="uid://xsadexiscljr" path="res://audio/visualizer/visualizer_canvas_material.tres" id="8_hk1n3"]

@@ -30,5 +30,5 @@ tracks/1/keys = {
 
 [resource]
 _data = {
-"steering_motion": SubResource("Animation_85mrf")
+&"steering_motion": SubResource("Animation_85mrf")
 }

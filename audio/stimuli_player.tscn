@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cnkjx7lwj4vs3"]
 
-[ext_resource type="Script" path="res://audio/stimuli_player.gd" id="1_wtqfw"]
+[ext_resource type="Script" uid="uid://dc0brh5tjlcyr" path="res://audio/stimuli_player.gd" id="1_wtqfw"]
 [ext_resource type="AudioStream" uid="uid://kepuh7omrse5" path="res://audio/stimuli/practice_1_activate.wav" id="2_eoyox"]
 
 [node name="SimuliPlayer" type="Node"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=25 format=3 uid="uid://n088b8ab4tef"]
 
 [ext_resource type="Material" uid="uid://b8kagw7q0pfl0" path="res://ui/screen_overlay_material.tres" id="1_2fo8v"]
-[ext_resource type="Script" path="res://ui/screen_overlay.gd" id="2_wsev3"]
+[ext_resource type="Script" uid="uid://c7t0fs56shm12" path="res://ui/screen_overlay.gd" id="2_wsev3"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_v16wh"]
 animation = &"hidden"
@@ -264,10 +264,10 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_eumqm"]
 _data = {
-"RESET": SubResource("Animation_m42yy"),
-"hidden": SubResource("Animation_8gpki"),
-"loading": SubResource("Animation_ap4ca"),
-"logo": SubResource("Animation_ejslo")
+&"RESET": SubResource("Animation_m42yy"),
+&"hidden": SubResource("Animation_8gpki"),
+&"loading": SubResource("Animation_ap4ca"),
+&"logo": SubResource("Animation_ejslo")
 }
 
 [node name="ScreenOverlay" type="ColorRect"]

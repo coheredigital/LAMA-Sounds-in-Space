@@ -1,7 +1,7 @@
 [gd_scene load_steps=34 format=3 uid="uid://uk3s0fjb5pmh"]
 
-[ext_resource type="Script" path="res://level/level.gd" id="1_58g46"]
-[ext_resource type="Script" path="res://level/rumble_controller.gd" id="2_gas8d"]
+[ext_resource type="Script" uid="uid://07l4gge0a4tv" path="res://level/level.gd" id="1_58g46"]
+[ext_resource type="Script" uid="uid://cywt3p7cb8t72" path="res://level/rumble_controller.gd" id="2_gas8d"]
 [ext_resource type="PackedScene" uid="uid://wa41njrapfpn" path="res://level/spaceship/spaceship.tscn" id="4_m1888"]
 [ext_resource type="Curve3D" uid="uid://cy536xdmk2g4n" path="res://characters/alien/alien_path.tres" id="5_8sic0"]
 [ext_resource type="AudioStream" uid="uid://b1o2jy7u1jcmq" path="res://audio/effects/engine_launch.wav" id="5_u5bfa"]
@@ -22,7 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://cpxathmv41ix2" path="res://level/spacestation/lucky_portrait.gltf" id="18_mpwct"]
 [ext_resource type="PackedScene" uid="uid://cq3x5n33r2d8c" path="res://characters/character/character.tscn" id="21_35viv"]
 [ext_resource type="Curve3D" uid="uid://h5hat0hxq5pn" path="res://characters/character/character_path.tres" id="22_lkuf6"]
-[ext_resource type="Shader" path="res://level/environment/materials/planet_material.gdshader" id="23_6owh6"]
+[ext_resource type="Shader" uid="uid://ccacm1aksiry5" path="res://level/environment/materials/planet_material.gdshader" id="23_6owh6"]
 [ext_resource type="Texture2D" uid="uid://dqgsqxcipwrpe" path="res://level/environment/materials/planet_albedo_noise_texture.tres" id="24_fduju"]
 [ext_resource type="PackedScene" uid="uid://cet328nbipwq7" path="res://ui/award/award.tscn" id="24_l10sx"]
 [ext_resource type="Texture2D" uid="uid://kxxocn8ynybw" path="res://level/environment/gradients/planet_color_gradient.tres" id="25_35xdx"]
@@ -63,8 +63,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_84iqk"]
 _data = {
-"RESET": SubResource("Animation_jvwb5"),
-"indicator_pulse": SubResource("Animation_srirm")
+&"RESET": SubResource("Animation_jvwb5"),
+&"indicator_pulse": SubResource("Animation_srirm")
 }
 
 [sub_resource type="BoxMesh" id="BoxMesh_rna5n"]
@@ -78,6 +78,8 @@ colors = PackedColorArray(0.414336, 0.554537, 0.918469, 1, 0.479024, 0.173054, 0
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("23_6owh6")
+shader_parameter/albedo_texture = ExtResource("24_fduju")
+shader_parameter/color_gradient = ExtResource("25_35xdx")
 shader_parameter/specular = 0.5
 shader_parameter/specular_amount = 0.5
 shader_parameter/specular_smoothness = 0.05
@@ -88,8 +90,6 @@ shader_parameter/rim_smoothness = 0.05
 shader_parameter/metallic = 0.0
 shader_parameter/roughness = 1.0
 shader_parameter/emission_energy = 0.266
-shader_parameter/albedo_texture = ExtResource("24_fduju")
-shader_parameter/color_gradient = ExtResource("25_35xdx")
 
 [node name="Level" type="Node"]
 script = ExtResource("1_58g46")

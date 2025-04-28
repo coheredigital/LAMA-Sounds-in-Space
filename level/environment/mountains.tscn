@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bshyrsivebdd0"]
 
-[ext_resource type="Shader" path="res://shaders/toon.gdshader" id="1_mfard"]
+[ext_resource type="Shader" uid="uid://dtwok1goswrqj" path="res://shaders/toon.gdshader" id="1_mfard"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_ppcw0"]
 left_to_right = 0.7
@@ -19,7 +19,7 @@ shader_parameter/rim_amount = 0.2
 shader_parameter/rim_smoothness = 0.05
 shader_parameter/metallic = 0.0
 shader_parameter/roughness = 1.0
-shader_parameter/emission = Color(0, 0, 0, 1)
+shader_parameter/emission_tint = Color(0, 0, 0, 1)
 shader_parameter/emission_energy = 1.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_mdyc1"]
@@ -38,7 +38,7 @@ shader_parameter/rim_amount = 0.2
 shader_parameter/rim_smoothness = 0.05
 shader_parameter/metallic = 0.0
 shader_parameter/roughness = 1.0
-shader_parameter/emission = Color(0, 0, 0, 1)
+shader_parameter/emission_tint = Color(0, 0, 0, 1)
 shader_parameter/emission_energy = 1.0
 
 [node name="mountains" type="Node3D"]

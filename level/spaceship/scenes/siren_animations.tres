@@ -82,6 +82,6 @@ tracks/2/keys = {
 
 [resource]
 _data = {
-"off": SubResource("Animation_oxs8k"),
-"on": SubResource("Animation_nqt5v")
+&"off": SubResource("Animation_oxs8k"),
+&"on": SubResource("Animation_nqt5v")
 }

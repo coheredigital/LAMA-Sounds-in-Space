@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://vxidh3w2f2yq"]
 
-[ext_resource type="Script" path="res://level/environment/stars.gd" id="1_4po5l"]
+[ext_resource type="Script" uid="uid://be8yxdeb8y8yx" path="res://level/environment/stars.gd" id="1_4po5l"]
 [ext_resource type="Curve3D" uid="uid://bjqgm1hj3ccx7" path="res://level/environment/curves/star_path_curve3d.tres" id="2_7h3xx"]
 [ext_resource type="PackedScene" uid="uid://cpyfijnifmpjh" path="res://level/environment/models/star.tscn" id="2_hsnls"]
 

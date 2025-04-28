@@ -1,11 +1,11 @@
 [gd_scene load_steps=14 format=3 uid="uid://dkiigs8xo4igp"]
 
 [ext_resource type="Theme" uid="uid://cvc3eceirtq34" path="res://ui/theme/simple_ui_theme.tres" id="1_aebch"]
-[ext_resource type="Script" path="res://ui/mission_control.gd" id="2_qxgi1"]
+[ext_resource type="Script" uid="uid://bivwxvw52k3id" path="res://ui/mission_control.gd" id="2_qxgi1"]
 [ext_resource type="StyleBox" uid="uid://b4xe4agmi26xs" path="res://ui/theme/styles/buttons/button_primary_normal_style.tres" id="3_nisjw"]
 [ext_resource type="PackedScene" uid="uid://cothlddswoqrl" path="res://ui/dialogue_balloon/control_balloon.tscn" id="3_xjlid"]
 [ext_resource type="Material" uid="uid://xsadexiscljr" path="res://audio/visualizer/visualizer_canvas_material.tres" id="4_0k6ey"]
-[ext_resource type="Script" path="res://ui/log_viewer.gd" id="5_5levy"]
+[ext_resource type="Script" uid="uid://bapjvx88hysj1" path="res://ui/log_viewer.gd" id="5_5levy"]
 [ext_resource type="FontFile" uid="uid://dqkkbldo0hje7" path="res://ui/fonts/NotoSansMono.ttf" id="5_b5ge6"]
 [ext_resource type="CodeHighlighter" uid="uid://cqsueuvaboxsy" path="res://ui/theme/log_viewer_code_hightlighter.tres" id="6_sj2s4"]
 [ext_resource type="StyleBox" uid="uid://bh1bj71de5bt0" path="res://ui/theme/styles/buttons/button_cancel_normal_style.tres" id="8_aybif"]

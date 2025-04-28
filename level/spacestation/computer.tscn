@@ -46,8 +46,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_84iqk"]
 _data = {
-"RESET": SubResource("Animation_jvwb5"),
-"indicator_pulse": SubResource("Animation_srirm")
+&"RESET": SubResource("Animation_jvwb5"),
+&"indicator_pulse": SubResource("Animation_srirm")
 }
 
 [node name="Computer" instance=ExtResource("1_djmjm")]
