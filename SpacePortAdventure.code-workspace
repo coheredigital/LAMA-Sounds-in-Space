@@ -7,5 +7,7 @@
 			"path": "../../../AppData/Roaming/Godot/app_userdata/SpacePortAdventure"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"godotTools.editorPath.godot4": "c:\\Users\\adams\\scoop\\apps\\godot\\4.4.1\\godot.exe"
+	}
 }
