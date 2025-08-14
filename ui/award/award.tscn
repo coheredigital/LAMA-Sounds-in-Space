@@ -262,34 +262,25 @@ tracks/15/keys = {
 "update": 0,
 "values": [0.0]
 }
-tracks/16/type = "value"
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/path = NodePath("AudioPlayer:playing")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_rdp2h"]
 resource_name = "chime"
 length = 3.0
-tracks/0/type = "value"
+tracks/0/type = "audio"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AudioPlayer:playing")
+tracks/0/path = NodePath("AudioPlayer")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.2),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("2_bdn0a")
+}],
+"times": PackedFloat32Array(0.2)
 }
+tracks/0/use_blend = true
 
 [sub_resource type="Animation" id="Animation_s2u0a"]
 resource_name = "idle"
@@ -716,7 +707,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ocfyy")
 
 [node name="Award" type="Node3D"]
-transform = Transform3D(0.999228, -0.018663, -0.0345824, 0.0180948, 0.999697, -0.0166731, 0.0348831, 0.0160345, 0.999263, 0, 0, 0)
+transform = Transform3D(0.999976, -0.00472473, -0.00512515, 0.00472026, 0.999988, -0.000884388, 0.00512927, 0.000860175, 0.999987, 0, 0, 0)
 script = ExtResource("1_rh31s")
 
 [node name="AudioPlayer" type="AudioStreamPlayer3D" parent="."]
@@ -730,17 +721,16 @@ bus = &"Effects"
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeBlendTree_l8vao")
 anim_player = NodePath("AnimationPlayer")
-active = true
 parameters/TimeScale/scale = -0.31
 parameters/add_audio/add_amount = 1.0
 parameters/add_state/add_amount = 1.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimationTree"]
 root_node = NodePath("../..")
-speed_scale = -0.39
 libraries = {
-"": SubResource("AnimationLibrary_ha54u")
+&"": SubResource("AnimationLibrary_ha54u")
 }
+speed_scale = -0.39
 
 [node name="background" type="MeshInstance3D" parent="."]
 transform = Transform3D(5.04609, -0.0123952, -0.295941, 0.00885102, 2.79904, -0.0753896, 0.521696, 0.0724047, 2.86376, -0.049, -0.015, 0.328)
@@ -750,50 +740,49 @@ skeleton = NodePath("")
 surface_material_override/0 = ExtResource("2_g2dyg")
 
 [node name="stars" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.018545)
 cast_shadow = 0
 mesh = SubResource("ArrayMesh_uv5bc")
 skeleton = NodePath("")
 
 [node name="earth_sprite" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, -5.8196e-07, 2.77907e-06, 5.81669e-07, 1, 2.8424e-06, -2.78279e-06, -2.84053e-06, 1, 0.363892, -0.306726, 0.271322)
+transform = Transform3D(1, -5.13935e-07, 2.90526e-06, 5.14317e-07, 1, 2.85817e-06, -2.90619e-06, -2.85829e-06, 1, -0.436582, -0.220422, 0.185018)
 cast_shadow = 0
 mesh = SubResource("ArrayMesh_p1mw8")
 skeleton = NodePath("")
 
 [node name="stardust_sprite" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, -5.8196e-07, 2.77907e-06, 5.81669e-07, 1, 2.8424e-06, -2.78279e-06, -2.84053e-06, 1, 0.188997, 0.359621, -0.402583)
+transform = Transform3D(1, -5.13935e-07, 2.90526e-06, 5.14317e-07, 1, 2.85817e-06, -2.90619e-06, -2.85829e-06, 1, 0.480002, -0.434678, 0.391715)
 cast_shadow = 0
 mesh = SubResource("ArrayMesh_d7q38")
 skeleton = NodePath("")
 
 [node name="award" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.99063, -0.131978, 0.0351414, 0.131426, 0.99117, 0.0175761, -0.0371507, -0.0127929, 0.999228, 0.00243352, -0.0136719, -0.00834828)
+transform = Transform3D(0.999968, -0.00767824, 0.00204699, 0.00767616, 0.99997, 0.0010235, -0.00205479, -0.00100775, 0.999997, 0.0619542, 0.032685, -0.0224491)
 cast_shadow = 0
 mesh = SubResource("ArrayMesh_ovn2p")
 skeleton = NodePath("")
 
 [node name="banner" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.987813, 0.155646, 1.70305e-06, -0.155236, 0.985208, 0.0725736, 0.0112941, -0.0716894, 0.997363, -0.000961734, 0.587825, 0.171757)
+transform = Transform3D(0.999332, 0.0365335, 0.000257779, -0.0365128, 0.998959, -0.0273299, -0.00125597, 0.0273022, 0.999626, -0.000961734, 0.587825, 0.171757)
 mesh = SubResource("ArrayMesh_lm1ml")
 skeleton = NodePath("")
 
 [node name="planets" type="Node3D" parent="."]
 
 [node name="spaceship_sprite" type="MeshInstance3D" parent="planets"]
-transform = Transform3D(0.998701, -0.0509566, 0, 0.0509566, 0.998701, 0, 0, 0, 1, -0.171025, 0.101803, 0.315933)
+transform = Transform3D(0.998701, -0.0509566, 0, 0.0509566, 0.998701, 0, 0, 0, 1, 0.147635, -0.178591, 0.365093)
 cast_shadow = 0
 mesh = SubResource("ArrayMesh_vb0py")
 skeleton = NodePath("")
 
 [node name="orbits" type="MeshInstance3D" parent="planets"]
-transform = Transform3D(0.869392, -0.494123, 0, 0.349397, 0.614753, 0.707107, -0.349397, -0.614753, 0.707107, 1.16415e-10, -0.0539811, -0.0243372)
+transform = Transform3D(-3.61999e-06, -1, 0, 0.707107, -2.55972e-06, 0.707107, -0.707106, 2.55972e-06, 0.707107, 1.16415e-10, -0.0539811, -0.0243372)
 cast_shadow = 0
 mesh = SubResource("ArrayMesh_8unvx")
 skeleton = NodePath("")
 
 [node name="stardust_orbit" type="Node3D" parent="planets"]
-transform = Transform3D(-0.476352, -0.879255, 0, 0.621727, -0.336832, 0.707107, -0.621727, 0.336832, 0.707107, 0, -0.116481, 0.0381628)
+transform = Transform3D(1, -4.46638e-06, 0, 3.15821e-06, 0.707107, 0.707107, -3.15821e-06, -0.707107, 0.707107, 0, -0.116481, 0.0381628)
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="planets/stardust_orbit"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48, -0.475, 0.025)
@@ -801,7 +790,7 @@ remote_path = NodePath("../../../stardust_sprite")
 update_rotation = false
 
 [node name="earth_orbit" type="Node3D" parent="planets"]
-transform = Transform3D(-0.476352, -0.879255, 0, 0.621727, -0.336832, 0.707107, -0.621727, 0.336832, 0.707107, 0, -0.116481, 0.0381628)
+transform = Transform3D(1, -4.46638e-06, 0, 3.15821e-06, 0.707107, 0.707107, -3.15821e-06, -0.707107, 0.707107, 0, -0.116481, 0.0381628)
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="planets/earth_orbit"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.436583, -0.177338, 0.0303448)
@@ -809,6 +798,6 @@ remote_path = NodePath("../../../earth_sprite")
 update_rotation = false
 
 [node name="sun_light" type="OmniLight3D" parent="."]
-light_energy = 0.0
+light_energy = 0.1
 omni_range = 0.65
 omni_attenuation = 0.75786

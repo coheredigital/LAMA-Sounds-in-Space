@@ -1,4 +1,6 @@
-[gd_resource type="AnimationLibrary" load_steps=18 format=3 uid="uid://dywe6iokyofm1"]
+[gd_resource type="AnimationLibrary" load_steps=19 format=3 uid="uid://dywe6iokyofm1"]
+
+[ext_resource type="AudioStream" uid="uid://bbeqr4gkafvpx" path="res://audio/effects/blip_01.wav" id="1_lff70"]
 
 [sub_resource type="Animation" id="Animation_8q5bf"]
 resource_name = "screen_failure"
@@ -419,6 +421,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_hjpcg"]
 resource_name = "start_button_pressed"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -455,18 +458,21 @@ tracks/2/keys = {
 "update": 0,
 "values": [false]
 }
-tracks/3/type = "value"
+tracks/3/type = "audio"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("spaceship/cockpit/monitor/ButtonPressAudio:playing")
+tracks/3/path = NodePath("spaceship/cockpit/monitor/ComputerAudioPlayer")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("1_lff70")
+}],
+"times": PackedFloat32Array(0)
 }
+tracks/3/use_blend = true
 
 [sub_resource type="Animation" id="Animation_fuvui"]
 resource_name = "start_button_red"
@@ -510,6 +516,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_ebop7"]
 resource_name = "start_button_red_pressed"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -546,6 +553,21 @@ tracks/2/keys = {
 "update": 0,
 "values": [false]
 }
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("spaceship/cockpit/monitor/ComputerAudioPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("1_lff70")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/3/use_blend = true
 
 [sub_resource type="Animation" id="Animation_3f0s6"]
 resource_name = "screen_success"
