@@ -2,12 +2,9 @@
 	"folders": [
 		{
 			"path": "."
-		},
-		{
-			"path": "../../../AppData/Roaming/Godot/app_userdata/SpacePortAdventure"
 		}
 	],
 	"settings": {
-		"godotTools.editorPath.godot4": "c:\\Users\\adams\\scoop\\apps\\godot\\4.4.1\\godot.exe"
+		"godotTools.editorPath.godot4": "/home/adam/.var/app/io.github.MakovWait.Godots/data/godot/app_userdata/Godots/versions/Godot_v4_6_3-stable_linux_x86_64/Godot_v4.6.3-stable_linux.x86_64"
 	}
 }
