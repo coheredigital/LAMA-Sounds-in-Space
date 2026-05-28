@@ -1,4 +1,4 @@
-[gd_resource type="AnimationLibrary" load_steps=2 format=3 uid="uid://7xpd5dsxfcqd"]
+[gd_resource type="AnimationLibrary" format=3 uid="uid://7xpd5dsxfcqd"]
 
 [sub_resource type="Animation" id="Animation_85mrf"]
 resource_name = "shake"

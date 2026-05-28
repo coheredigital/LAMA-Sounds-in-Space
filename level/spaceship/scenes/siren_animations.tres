@@ -1,4 +1,4 @@
-[gd_resource type="AnimationLibrary" load_steps=3 format=3 uid="uid://djjoradl4oat1"]
+[gd_resource type="AnimationLibrary" format=3 uid="uid://djjoradl4oat1"]
 
 [sub_resource type="Animation" id="Animation_oxs8k"]
 resource_name = "off"

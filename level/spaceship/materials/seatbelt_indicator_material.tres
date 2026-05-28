@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://dorgvk7napmkt"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dorgvk7napmkt"]
 
 [ext_resource type="Shader" uid="uid://c6pbuyaytewgh" path="res://shaders/screens.gdshader" id="1_x50ff"]
 [ext_resource type="Texture2D" uid="uid://bnfo0b752cn10" path="res://level/spaceship/materials/dashboard_emission.png" id="2_0k7tb"]

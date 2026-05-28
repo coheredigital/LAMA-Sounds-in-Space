@@ -1,4 +1,4 @@
-[gd_resource type="FogMaterial" load_steps=3 format=3 uid="uid://ch4rsft0nrbhg"]
+[gd_resource type="FogMaterial" format=3 uid="uid://ch4rsft0nrbhg"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_t1ecl"]
 seed = 1280
@@ -6,9 +6,9 @@ seed = 1280
 [sub_resource type="NoiseTexture3D" id="NoiseTexture3D_rtjdb"]
 width = 256
 height = 256
+noise = SubResource("FastNoiseLite_t1ecl")
 seamless = true
 seamless_blend_skirt = 0.449
-noise = SubResource("FastNoiseLite_t1ecl")
 
 [resource]
 density = 0.183

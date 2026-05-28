@@ -1,4 +1,4 @@
-[gd_resource type="AnimationLibrary" load_steps=19 format=3 uid="uid://dywe6iokyofm1"]
+[gd_resource type="AnimationLibrary" format=3 uid="uid://dywe6iokyofm1"]
 
 [ext_resource type="AudioStream" uid="uid://bbeqr4gkafvpx" path="res://audio/effects/blip_01.wav" id="1_lff70"]
 

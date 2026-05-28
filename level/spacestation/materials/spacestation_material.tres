@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://bl85mqwtar1hg"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bl85mqwtar1hg"]
 
 [ext_resource type="Texture2D" uid="uid://xhklnrh5d05r" path="res://level/spacestation/materials/spacestation_albedo.png" id="2_sxaww"]
 [ext_resource type="Shader" uid="uid://dtwok1goswrqj" path="res://shaders/toon.gdshader" id="3"]

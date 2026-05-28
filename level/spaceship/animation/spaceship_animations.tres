@@ -1,4 +1,4 @@
-[gd_resource type="AnimationLibrary" load_steps=2 format=3 uid="uid://cadi70pdgm61"]
+[gd_resource type="AnimationLibrary" format=3 uid="uid://cadi70pdgm61"]
 
 [sub_resource type="Animation" id="Animation_g81o2"]
 resource_name = "launch"

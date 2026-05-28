@@ -15,9 +15,11 @@ dest_files=["res://.godot/imported/spaceship.gltf-d15eff4765fb7ee5e4e52c78857ee9
 
 nodes/root_type="Node3D"
 nodes/root_name="Scene Root"
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -32,23 +34,30 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={
 "materials": {
 "material_0": {
 "use_external/enabled": true,
-"use_external/path": "res://level/spaceship/materials/spaceship_material.tres"
+"use_external/fallback_path": "res://level/spaceship/materials/spaceship_material.tres",
+"use_external/path": "uid://v40jmo6sqxju"
 },
 "material_1": {
 "use_external/enabled": true,
-"use_external/path": "res://level/spaceship/materials/spaceship_alpha_material.tres"
+"use_external/fallback_path": "res://level/spaceship/materials/spaceship_alpha_material.tres",
+"use_external/path": "uid://bv4m3s78pu3gb"
 },
 "material_2": {
 "use_external/enabled": true,
-"use_external/path": "res://level/spaceship/materials/cockpit_material.tres"
+"use_external/fallback_path": "res://level/spaceship/materials/cockpit_material.tres",
+"use_external/path": "uid://dnfiqcea1212d"
 },
 "material_3": {
 "use_external/enabled": true,
-"use_external/path": "res://level/spaceship/materials/cockpit_material.tres"
+"use_external/fallback_path": "res://level/spaceship/materials/cockpit_material.tres",
+"use_external/path": "uid://dnfiqcea1212d"
 }
 }
 }
