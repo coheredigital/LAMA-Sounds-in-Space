@@ -1,4 +1,4 @@
-# 🚀 SpacePort Adventure
+# LAMA Sounds in Space
 
 A research game built with **Godot 4.4** for the [UTM LAMA Lab](https://www.utmlamalab.com/) (Language, Attention, Music & Audition) at the University of Toronto Mississauga.
 
