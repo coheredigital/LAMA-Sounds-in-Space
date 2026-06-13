@@ -6,15 +6,11 @@ A research game built with **Godot 4.4** for the [UTM LAMA Lab](https://www.utml
 
 ## Research Context
 
-The **LAMA Lab**, led by Dr. Christina Vanden Bosch der Nederlanden, studies how children and adults think about language and music, especially when it comes to how people listen to speech and song in real-world settings.
-
-**SpacePort Adventure** is part of an ongoing effort to reimagine standard auditory assessments as engaging, game-like experiences. This task targets a child's ability to **perceive and reproduce tonal and melodic changes in audio**: a child listens to a sung or spoken stimulus, then sings or repeats it back.
-
-Rather than a traditional lab task, the experience is framed as an interactive space adventure. A child's voice and singing input drives the visuals in real time (stars twinkle, space objects appear, and a rocket ship can take off) making the assessment feel like play. The goal is to lower the barrier of participation for young children while still capturing meaningful data about auditory and vocal processing.
+The **LAMA Lab**, led by Dr. Christina Vanden Bosch der Nederlanden, studies how children and adults perceive and process language and music, with a focus on how people listen to speech and song in everyday settings. The lab is particularly interested in how children&#39;s knowledge of speech and song develops across childhood, and infinding ways to study these questions that are accessible and engaging for young children. **Sounds in Space** is part of an ongoing effort to reimagine standard auditory assessments as game-like experiences that lower the barrier of participation for young children while still capturing meaningful data.
 
 ## About
 
-SpacePort Adventure places a child inside a space port environment where their voice helps shape what happens on screen. Audio stimuli (tones, melodies, speech) are played back through the game; the child responds by singing or repeating them, and their microphone input drives an animated audio visualizer. Characters, including an alien, a UFO, and a Lucky the lama, guide the child through sessions via a branching dialogue system, while a research-facing control panel and event logger capture session data for the LAMA Lab team.
+Rather than a traditional lab task, Sounds in Space places a child inside a space port environment where their voice helps shape what happens on screen. Spoken and sung phrases are played back through the game; the child responds by imitating them, and their microphone input drives an animated audio visualizer. Characters including an alien, a UFO, and Lucky the lama guide the child through sessions via a branching dialogue system, while a research-facing control panel and event logger capturesession data for the LAMA Lab team.
 
 ## Features
 
