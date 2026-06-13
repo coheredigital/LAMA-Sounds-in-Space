@@ -10,7 +10,7 @@ The **LAMA Lab**, led by Dr. Christina Vanden Bosch der Nederlanden, studies how
 
 ## About
 
-Rather than a traditional lab task, Sounds in Space places a child inside a space port environment where their voice helps shape what happens on screen. Spoken and sung phrases are played back through the game; the child responds by imitating them, and their microphone input drives an animated audio visualizer. Characters including an alien, a UFO, and Lucky the lama guide the child through sessions via a branching dialogue system, while a research-facing control panel and event logger capturesession data for the LAMA Lab team.
+Rather than a traditional lab task, **Sounds in Space** places a child inside a space port environment where their voice helps shape what happens on screen. Spoken and sung phrases are played back through the game; the child responds by imitating them, and their microphone input drives an animated audio visualizer. Characters including an alien, a UFO, and Lucky the lama guide the child through sessions via a branching dialogue system, while a research-facing control panel and event logger capturesession data for the LAMA Lab team.
 
 ## Features
 
